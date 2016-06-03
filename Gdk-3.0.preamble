@@ -1,0 +1,14 @@
+import CGLib
+import CCairo
+import CPango
+import CGdkPixbuf
+import CGdk
+import GLib
+import GObject
+import Pango
+import Cairo
+import PangoCairo
+import GdkPixbuf
+
+// missing header file type aliases
+public typealias GdkXEvent = _GdkXEvent
