@@ -24,19 +24,4 @@ fi
 LINKFLAGS=`pkg-config --libs $module pangocairo pangoft2 pango gobject-2.0 gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xlinker /' | tr '\n' ' '`
 CCFLAGS=`pkg-config --cflags $module pangocairo pangoft2 pango gobject-2.0 gio-unix-2.0 glib-2.0 | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' `
 gir2swift -p ${GIR_DIR}/GLib-2.0.gir -p ${GIR_DIR}/GObject-2.0.gir -p ${GIR_DIR}/Pango-1.0.gir -p ${GIR_DIR}/Cairo-1.0.gir -p ${GIR_DIR}/PangoCairo-1.0.gir -p ${GIR_DIR}/GdkPixbuf-2.0.gir "${GIR}" | sed -f ${Module}.sed > Sources/${Module}.swift
-echo  > Sources/SwiftGdk.swift "import CGLib"
-echo  > Sources/SwiftGdk.swift "import CCairo"
-echo  > Sources/SwiftGdk.swift "import CPango"
-echo  > Sources/SwiftGdk.swift "import CGdkPixbuf"
-echo  > Sources/SwiftGdk.swift "import CGdk"
-echo >> Sources/SwiftGdk.swift "import GLib"
-echo >> Sources/SwiftGdk.swift "import GObject"
-echo >> Sources/SwiftGdk.swift "import Pango"
-echo >> Sources/SwiftGdk.swift "import Cairo"
-echo >> Sources/SwiftGdk.swift "import PangoCairo"
-echo >> Sources/SwiftGdk.swift "import GdkPixbuf"
-echo >> Sources/SwiftGdk.swift ""
-echo >> Sources/SwiftGdk.swift "public struct Gdk {"
-grep 'public typealias' Sources/${Module}.swift | sed 's/^/    /' >> Sources/SwiftGdk.swift
-echo >> Sources/SwiftGdk.swift "}"
 exec swift build $CCFLAGS $LINKFLAGS "$@"
