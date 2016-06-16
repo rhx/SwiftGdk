@@ -1,7 +1,7 @@
 import XCTest
-@testable import SwiftGdk
+@testable import Gdk
 
-class SwiftGdkTests: XCTestCase {
+class GdkTests: XCTestCase {
 
 	func testExample() {
 		// This is an example of a functional test case.
@@ -9,8 +9,8 @@ class SwiftGdkTests: XCTestCase {
 	}
 
 }
-extension SwiftGdkTests {
-	static var allTests : [(String, SwiftGdkTests -> () throws -> Void)] {
+extension GdkTests {
+	static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
 		return [
 			("testExample", testExample),
 		]
