@@ -4,7 +4,7 @@ import CPango
 import CGdkPixbuf
 import CGdk
 import GLib
-import GObject
+import GLibObject
 import Pango
 import Cairo
 import PangoCairo

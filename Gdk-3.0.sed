@@ -19,3 +19,5 @@ s/: \([A-Za-z.]*Hook[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Mapping[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Listener[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*ListenerInit[,)]\)/: @escaping \1/g
+s/GObject.Callback/GLibObject.Callback/g
+s/public func endPaint/@available(*, deprecated) public func endPaint/
