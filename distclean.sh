@@ -4,4 +4,4 @@
 #
 . ./config.sh
 ./clean.sh
-exec rm -rf Package.pins Packages Sources/${Module}.swift Sources/Swift${Mod}.swift ${Mod}.xcodeproj
+exec rm -rf Package.pins Packages Sources/*-*.swift Sources/${Module}.swift Sources/Swift${Mod}.swift ${Mod}.xcodeproj

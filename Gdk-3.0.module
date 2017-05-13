@@ -10,3 +10,5 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
+// missing header file type aliases
+public typealias GdkXEvent = _GdkXEvent
