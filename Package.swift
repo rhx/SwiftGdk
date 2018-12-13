@@ -1,11 +1,19 @@
+// swift-tools-version:4.0
+
 import PackageDescription
 
 let package = Package(
     name: "Gdk",
-    dependencies: [
-        .Package(url: "https://github.com/rhx/CGdk.git", majorVersion: 1),
-        .Package(url: "https://github.com/rhx/SwiftGdkPixbuf.git", majorVersion: 2),
-        .Package(url: "https://github.com/rhx/SwiftPangoCairo.git", majorVersion: 2)
+    products: [
+        .library(name: "Gdk", targets: ["Gdk"]),
     ],
-    swiftLanguageVersions: [3, 4]
+    dependencies: [
+        .package(url: "https://github.com/rhx/CGdk.git", .branch("master")),
+        .package(url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("master")),
+        .package(url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
+    ],
+    targets: [
+        .target(name: "Gdk", dependencies: ["GdkPixbuf", "PangoCairo"]),
+        .testTarget(name: "GdkTests", dependencies: ["Gdk"]),
+    ]
 )
