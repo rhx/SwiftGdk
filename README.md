@@ -6,7 +6,7 @@ A Swift wrapper around gdk-3.x that is largely auto-generated from gobject-intro
 
 ### Swift
 
-To build, you need at least Swift 4 (Swift 4.2.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
+To build, you need at least Swift 4 (Swift 5 should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
 	Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)
@@ -15,12 +15,12 @@ To build, you need at least Swift 4 (Swift 4.2.x should work fine), download fro
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 4.2.1 (swift-4.2.1-RELEASE)
+	Swift version 4.2.3 (swift-4.2.3-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
 
-The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, and 2.58, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58 and 2.60, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
