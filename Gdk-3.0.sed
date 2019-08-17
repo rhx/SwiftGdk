@@ -4,7 +4,7 @@ s/gdk_cursor_unref/g_object_unref/g
 s/cr: ContextProtocol/cr: cairo.ContextProtocol/
 s/createSimilarImageSurface(format: CInt/createSimilarImageSurface(format: cairo_format_t/
 s/-> GdkAtom {/-> GdkAtom! {/g
-s/gdk_gl_context_set_use_es(cast(ptr), newValue)/gdk_gl_context_set_use_es(cast(ptr), newValue ? 1 : 0)/
+s/gdk_gl_context_set_use_es(cast(gl_context_ptr), newValue)/gdk_gl_context_set_use_es(cast(gl_context_ptr), newValue ? 1 : 0)/
 s/: \([A-Za-z.]*Notify[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Func[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Marshal[,)]\)/: @escaping \1/g
