@@ -1,7 +1,8 @@
 .DS_Store
 /.build
+/.docs.old
 /Packages
 /*.xcodeproj
-Package.pins
 Package.resolved
-Sources/*-*.swift
+Package.pins
+*-*.swift

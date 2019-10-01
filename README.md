@@ -1,6 +1,6 @@
 # SwiftGdk
-A Swift wrapper around gdk-3.x that is largely auto-generated from gobject-introspection
-
+A Swift wrapper around gdk-3.x that is largely auto-generated from gobject-introspection.
+For up to date (auto-generated) reference documentation, see https://rhx.github.io/SwiftGdk/
 
 ## Prerequisites
 
@@ -9,18 +9,18 @@ A Swift wrapper around gdk-3.x that is largely auto-generated from gobject-intro
 To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)
+	Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
 	Target: x86_64-apple-darwin18.6.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.0.2 (swift-5.0.2-RELEASE)
+	Swift version 5.1 (swift-5.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.18 or higher
 
-The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58 and 2.60, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, 2.60, and 2.62, and gdk/gtk 3.18, 3.20, 3.22, and 3.24.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -69,6 +69,15 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 	open Gdk.xcodeproj
 
 After that, use the (usual) Build and Test buttons to build/test this package.
+
+
+
+## Documentation
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGdk/) folder.
+This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
+If you want to generate your own documentation, matching your local installation,
+you can use the `generate-documentation.sh` script in the repository.
+Unfortunately, at this stage [jazzy](https://github.com/realm/jazzy) only works on macOS (and crashes under Linux), so this will currently only work on a Mac.
 
 
 
