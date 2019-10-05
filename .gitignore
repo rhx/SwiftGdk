@@ -3,6 +3,7 @@
 /.docs.old
 /Packages
 /*.xcodeproj
+undocumented.json      
 Package.resolved
 Package.pins
 *-*.swift
