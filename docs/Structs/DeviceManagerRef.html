@@ -8257,18 +8257,18 @@ physical devices being plugged or unplugged), GDK provides
 
 <p>By default, and if the platform supports it, GDK is aware of multiple
 keyboard/pointer pairs and multitouch devices. This behavior can be
-changed by calling gdk_disable_multidevice() before gdk_display_open().
+changed by calling <code>gdk_disable_multidevice()</code> before <code>gdk_display_open()</code>.
 There should rarely be a need to do that though, since GDK defaults
 to a compatibility mode in which it will emit just one enter/leave
 event pair for all devices on a window. To enable per-device
 enter/leave events and other multi-pointer interaction features,
-gdk_window_set_support_multidevice() must be called on
-<code>GdkWindows</code> (or gtk_widget_set_support_multidevice() on widgets).
-window. See the gdk_window_set_support_multidevice() documentation
+<code>gdk_window_set_support_multidevice()</code> must be called on
+<code>GdkWindows</code> (or <code>gtk_widget_set_support_multidevice()</code> on widgets).
+window. See the <code>gdk_window_set_support_multidevice()</code> documentation
 for more information.</p>
 
 <p>On X11, multi-device support is implemented through XInput 2.
-Unless gdk_disable_multidevice() is called, the XInput 2
+Unless <code>gdk_disable_multidevice()</code> is called, the XInput 2
 <code>GdkDeviceManager</code> implementation will be used as the input source.
 Otherwise either the core or XInput 1 implementations will be used.</p>
 
@@ -8276,7 +8276,7 @@ Otherwise either the core or XInput 1 implementations will be used.</p>
 input devices, the so-called “client pointer”
 provides a reasonable approximation to a simple setup with a single
 pointer and keyboard. The device that has been set as the client
-pointer can be accessed via gdk_device_manager_get_client_pointer().</p>
+pointer can be accessed via <code>gdk_device_manager_get_client_pointer()</code>.</p>
 
 <p>Conceptually, in multidevice mode there are 2 device types. Virtual
 devices (or master devices) are represented by the pointer cursors
@@ -8286,14 +8286,13 @@ devices, and thus have no visible cursor on the screen.</p>
 
 <p>Virtual devices are always paired, so there is a keyboard device for every
 pointer device. Associations between devices may be inspected through
-gdk_device_get_associated_device().</p>
+<code>gdk_device_get_associated_device()</code>.</p>
 
 <p>There may be several virtual devices, and several physical devices could
 be controlling each of these virtual devices. Physical devices may also
 be “floating”, which means they are not attached to any virtual device.</p>
-
-<p>&ldquo; Master and slave devices</p>
-<pre class="highlight swift"><code><span class="n">carlos</span><span class="err">`</span><span class="n">sacarino</span><span class="err">`</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">xinput</span> <span class="n">list</span>
+<h1 id='master-and-slave-devices' class='heading'>Master and slave devices</h1>
+<pre class="highlight swift"><code><span class="n">carlos</span><span class="kd">@sacarino</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">xinput</span> <span class="n">list</span>
 <span class="err">⎡</span> <span class="kt">Virtual</span> <span class="n">core</span> <span class="n">pointer</span>                          <span class="n">id</span><span class="o">=</span><span class="mi">2</span>    <span class="p">[</span><span class="n">master</span> <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
 <span class="err">⎜</span>   <span class="err">↳</span> <span class="kt">Virtual</span> <span class="n">core</span> <span class="kt">XTEST</span> <span class="n">pointer</span>                <span class="n">id</span><span class="o">=</span><span class="mi">4</span>    <span class="p">[</span><span class="n">slave</span>  <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
 <span class="err">⎜</span>   <span class="err">↳</span> <span class="kt">Wacom</span> <span class="kt">ISDv4</span> <span class="kt">E6</span> <span class="kt">Pen</span> <span class="n">stylus</span>                 <span class="n">id</span><span class="o">=</span><span class="mi">10</span>   <span class="p">[</span><span class="n">slave</span>  <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
@@ -8321,7 +8320,7 @@ devices. Events containing device information are <code>GDK_MOTION_NOTIFY</code>
 <code>GDK_DRAG_MOTION</code>, <code>GDK_DRAG_STATUS</code>, <code>GDK_DROP_START</code>, <code>GDK_DROP_FINISHED</code>
 and <code>GDK_GRAB_BROKEN</code>. When dealing with an event on a master device,
 it is possible to get the source (slave) device that the event originated
-from via gdk_event_get_source_device().</p>
+from via <code>gdk_event_get_source_device()</code>.</p>
 
 <p>On a standard session, all physical devices are connected by default to
 the <q>Virtual Core Pointer/Keyboard</q> master devices, hence routing all events
@@ -8332,25 +8331,25 @@ more permanently by user modifications to the device hierarchy.</p>
 <p>On certain application specific setups, it may make sense
 to detach a physical device from its master pointer, and mapping it to
 an specific window. This can be achieved by the combination of
-gdk_device_grab() and gdk_device_set_mode().</p>
+<code>gdk_device_grab()</code> and <code>gdk_device_set_mode()</code>.</p>
 
 <p>In order to listen for events coming from devices
-other than a virtual device, gdk_window_set_device_events() must be
+other than a virtual device, <code>gdk_window_set_device_events()</code> must be
 called. Generally, this function can be used to modify the event mask
 for any given device.</p>
 
 <p>Input devices may also provide additional information besides X/Y.
 For example, graphics tablets may also provide pressure and X/Y tilt
 information. This information is device-dependent, and may be
-queried through gdk_device_get_axis(). In multidevice mode, virtual
+queried through <code>gdk_device_get_axis()</code>. In multidevice mode, virtual
 devices will change axes in order to always represent the physical
 device that is routing events through it. Whenever the physical device
-changes, the <code>GdkDevice</code>:n-axes property will be notified, and
-gdk_device_list_axes() will return the new device axes.</p>
+changes, the <code>GdkDevice:n</code>-axes property will be notified, and
+<code>gdk_device_list_axes()</code> will return the new device axes.</p>
 
 <p>Devices may also have associated “keys” or
 macro buttons. Such keys can be globally set to map into normal X
-keyboard events. The mapping is set using gdk_device_set_key().</p>
+keyboard events. The mapping is set using <code>gdk_device_set_key()</code>.</p>
 
 <p>In GTK+ 3.20, a new <code>GdkSeat</code> object has been introduced that
 supersedes <code>GdkDeviceManager</code> and should be preferred in newly
@@ -8389,7 +8388,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1133">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8430,7 +8429,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1138-L1139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1135-L1136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8460,7 +8459,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1142-L1144">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1139-L1141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8491,7 +8490,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1148-L1150">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1145-L1147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8522,7 +8521,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1154-L1156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1151-L1153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8553,7 +8552,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1160-L1162">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1157-L1159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8584,7 +8583,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1166-L1168">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1163-L1165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8615,7 +8614,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1172-L1174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1169-L1171">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8628,7 +8627,7 @@ For type-safe access, use the generated, typed pointer <code>device_manager_ptr<
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

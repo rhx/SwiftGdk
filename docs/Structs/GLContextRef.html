@@ -8247,13 +8247,13 @@ Use <code>GLContextRef</code> only as an <code>unowned</code> reference to an ex
 OpenGL drawing context.</p>
 
 <p><code>GdkGLContexts</code> are created for a <code>GdkWindow</code> using
-gdk_window_create_gl_context(), and the context will match
+<code>gdk_window_create_gl_context()</code>, and the context will match
 the <code>GdkVisual</code> of the window.</p>
 
 <p>A <code>GdkGLContext</code> is not tied to any particular normal framebuffer.
 For instance, it cannot draw to the <code>GdkWindow</code> back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+you can create render buffers or textures and use <code>gdk_cairo_draw_from_gl()</code>
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 
@@ -8262,22 +8262,20 @@ can fail, returning <code>nil</code> context.</p>
 
 <p>A <code>GdkGLContext</code> has to be made <q>current</q> in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
-
-<p><code>Creating a new OpenGL context</code></p>
+<h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
 <p>In order to create a new <code>GdkGLContext</code> instance you need a
 <code>GdkWindow</code>, which you typically get during the realize call
 of a widget.</p>
 
-<p>A <code>GdkGLContext</code> is not realized until either gdk_gl_context_make_current(),
-or until it is realized using gdk_gl_context_realize(). It is possible to
+<p>A <code>GdkGLContext</code> is not realized until either <code>gdk_gl_context_make_current()</code>,
+or until it is realized using <code>gdk_gl_context_realize()</code>. It is possible to
 specify details of the GL context like the OpenGL version to be used, or
 whether the GL context should have extra state validation enabled after
-calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+calling <code>gdk_window_create_gl_context()</code> by calling <code>gdk_gl_context_realize()</code>.
 If the realization fails you have the option to change the settings of the
 <code>GdkGLContext</code> and try again.</p>
-
-<p><code>Using a GdkGLContext</code></p>
+<h2 id='using-a-gdkglcontext' class='heading'>Using a GdkGLContext</h2>
 
 <p>You will need to make the <code>GdkGLContext</code> the current context
 before issuing OpenGL calls; the system sends OpenGL commands to
@@ -8292,8 +8290,8 @@ want to draw with is the current one before issuing commands:</p>
 <p>You can now perform your drawing using OpenGL commands.</p>
 
 <p>You can check which <code>GdkGLContext</code> is the current one by using
-gdk_gl_context_get_current(); you can also unset any <code>GdkGLContext</code>
-that is currently set by calling gdk_gl_context_clear_current().</p>
+<code>gdk_gl_context_get_current()</code>; you can also unset any <code>GdkGLContext</code>
+that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p>
 
           </div>
         </section>
@@ -8328,7 +8326,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L141">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8369,7 +8367,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L146-L147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L144-L145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8399,7 +8397,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L150-L152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L148-L150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8430,7 +8428,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L156-L158">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L154-L156">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8461,7 +8459,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L162-L164">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L160-L162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8492,7 +8490,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L168-L170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L166-L168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8523,7 +8521,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L174-L176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L172-L174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8554,7 +8552,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L180-L182">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L178-L180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8584,7 +8582,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L185-L188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L183-L186">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8597,7 +8595,7 @@ For type-safe access, use the generated, typed pointer <code>gl_context_ptr</cod
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

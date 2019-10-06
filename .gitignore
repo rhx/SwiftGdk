@@ -3,5 +3,7 @@
 /.docs.old
 /Packages
 /*.xcodeproj
+*.tgz
+undocumented.json      
 Package.resolved
 Package.pins

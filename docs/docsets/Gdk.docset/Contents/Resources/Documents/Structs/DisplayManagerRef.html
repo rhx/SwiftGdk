@@ -8247,7 +8247,7 @@ Use <code>DisplayManagerRef</code> only as an <code>unowned</code> reference to 
 notification when displays appear or disappear or the default display
 changes.</p>
 
-<p>You can use gdk_display_manager_get() to obtain the <code>GdkDisplayManager</code>
+<p>You can use <code>gdk_display_manager_get()</code> to obtain the <code>GdkDisplayManager</code>
 singleton, but that should be rarely necessary. Typically, initializing
 GTK+ opens a display that you can work with without ever accessing the
 <code>GdkDisplayManager</code>.</p>
@@ -8261,25 +8261,24 @@ multiple GDK backends, you have to consider both compile time and
 runtime. At compile time, use the <code>GDK_WINDOWING_X11</code>, <code>GDK_WINDOWING_WIN32</code>
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
-macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
-
-<p><code>Backend-specific code</code> {<code>backend</code>-specific}</p>
+macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in use:</p>
+<h2 id='backend-specific-code-a-name-backend-specific-a' class='heading'>Backend-specific code ## <a name="backend-specific"></a></h2>
 
 <p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>`ifdef` GDK_WINDOWING_X11
+<pre class="highlight plaintext"><code>#ifdef GDK_WINDOWING_X11
   if (GDK_IS_X11_DISPLAY (display))
     {
       // make X11-specific calls here
     }
   else
-`endif`
-`ifdef` GDK_WINDOWING_QUARTZ
+#endif
+#ifdef GDK_WINDOWING_QUARTZ
   if (GDK_IS_QUARTZ_DISPLAY (display))
     {
       // make Quartz-specific calls here
     }
   else
-`endif`
+#endif
   g_error ("Unsupported GDK backend");
 </code></pre>
 
@@ -8316,7 +8315,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2798">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8357,7 +8356,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2810-L2811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2803-L2804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8387,7 +8386,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2814-L2816">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2807-L2809">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8418,7 +8417,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2820-L2822">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2813-L2815">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8449,7 +8448,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2826-L2828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2819-L2821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8480,7 +8479,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2832-L2834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2825-L2827">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8511,7 +8510,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2838-L2840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2831-L2833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8542,7 +8541,7 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2844-L2846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2837-L2839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8560,13 +8559,13 @@ For type-safe access, use the generated, typed pointer <code>display_manager_ptr
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="n">singleton</span> <span class="err">`</span><span class="kt">GdkDisplayManager</span><span class="err">`</span> <span class="n">object</span><span class="o">.</span>
+                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="n">singleton</span> <span class="p">`</span><span class="nv">GdkDisplayManager</span><span class="p">`</span> <span class="n">object</span><span class="o">.</span>
 </code></pre>
 
 <p>When called for the first time, this function consults the
 <code>GDK_BACKEND</code> environment variable to find out which
 of the supported GDK backends to use (in case GDK has been compiled
-with multiple backends). Applications can use gdk_set_allowed_backends()
+with multiple backends). Applications can use <code>gdk_set_allowed_backends()</code>
 to limit what backends can be used.</p>
 
                       </div>
@@ -8579,7 +8578,7 @@ to limit what backends can be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2855-L2858">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2848-L2851">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8592,7 +8591,7 @@ to limit what backends can be used.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

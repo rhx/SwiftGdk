@@ -8246,9 +8246,9 @@ Alternatively, use <code><a href="../Structs/MonitorRef.html">MonitorRef</a></co
 
 <p>GdkMonitor objects represent the individual outputs that are
 associated with a <code>GdkDisplay</code>. GdkDisplay has APIs to enumerate
-monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
-to find particular monitors with gdk_display_get_primary_monitor() or
-gdk_display_get_monitor_at_window().</p>
+monitors with <code>gdk_display_get_n_monitors()</code> and <code>gdk_display_get_monitor()</code>, and
+to find particular monitors with <code>gdk_display_get_primary_monitor()</code> or
+<code>gdk_display_get_monitor_at_window()</code>.</p>
 
 <p>GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 APIs in GdkScreen to obtain monitor-related information.</p>
@@ -8543,7 +8543,7 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L245-L264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L244-L263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8587,7 +8587,7 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L272-L275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L271-L274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8610,7 +8610,7 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                       <div class="abstract">
                         <p>Retrieves the size and position of an individual monitor within the
 display coordinate space. The returned geometry is in  ”application pixels”,
-not in ”device pixels” (see gdk_monitor_get_scale_factor()).</p>
+not in ”device pixels” (see <code>gdk_monitor_get_scale_factor()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -8622,7 +8622,7 @@ not in ”device pixels” (see gdk_monitor_get_scale_factor()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L280-L283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L279-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8655,7 +8655,7 @@ not in ”device pixels” (see gdk_monitor_get_scale_factor()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L286-L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L285-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8693,7 +8693,7 @@ display backend.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L297-L300">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L296-L299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8726,7 +8726,7 @@ display backend.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L303-L306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L302-L305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8762,7 +8762,7 @@ is returned as 60000.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L312-L315">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L311-L314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8789,7 +8789,7 @@ on very high density outputs this can be a higher value (often 2).</p>
 
 <p>This can be used if you want to create pixel based data for a
 particular monitor, but most of the time you’re drawing to a window
-where it is better to use gdk_window_get_scale_factor() instead.</p>
+where it is better to use <code>gdk_window_get_scale_factor()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -8801,7 +8801,7 @@ where it is better to use gdk_window_get_scale_factor() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L324-L327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L323-L326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8835,7 +8835,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L331-L334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L330-L333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8868,7 +8868,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L337-L340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8892,7 +8892,7 @@ primaries for each pixel in this monitor, if available.</p>
                         <p>Retrieves the size and position of the “work area” on a monitor
 within the display coordinate space. The returned geometry is in
 ”application pixels”, not in ”device pixels” (see
-gdk_monitor_get_scale_factor()).</p>
+<code>gdk_monitor_get_scale_factor()</code>).</p>
 
 <p>The work area should be considered when positioning menus and
 similar popups, to avoid placing them below panels, docks or other
@@ -8912,7 +8912,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L354-L357">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L353-L356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8945,7 +8945,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L358-L364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L357-L363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8978,7 +8978,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L367-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L366-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9000,7 +9000,7 @@ available, or does not apply.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets whether this monitor should be considered primary
-(see gdk_display_get_primary_monitor()).</p>
+(see <code>gdk_display_get_primary_monitor()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -9012,7 +9012,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L377-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L376-L383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9045,7 +9045,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L386-L397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L385-L396">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9078,7 +9078,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L399-L405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L398-L404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9114,7 +9114,7 @@ is returned as 60000.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L411-L420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L410-L419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9141,7 +9141,7 @@ on very high density outputs this can be a higher value (often 2).</p>
 
 <p>This can be used if you want to create pixel based data for a
 particular monitor, but most of the time you’re drawing to a window
-where it is better to use gdk_window_get_scale_factor() instead.</p>
+where it is better to use <code>gdk_window_get_scale_factor()</code> instead.</p>
 
                       </div>
                       <div class="declaration">
@@ -9153,7 +9153,7 @@ where it is better to use gdk_window_get_scale_factor() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L429-L441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L428-L440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9187,7 +9187,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L445-L452">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L444-L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9220,7 +9220,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L455-L461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L454-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9233,7 +9233,7 @@ primaries for each pixel in this monitor, if available.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
