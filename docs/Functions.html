@@ -8257,7 +8257,7 @@
                       <div class="abstract">
                         <p>Checks all open displays for a <code>GdkEvent</code> to process,to be processed
 on, fetching events from the windowing system if necessary.
-See gdk_display_get_event().</p>
+See <code>gdk_display_get_event()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8291,7 +8291,7 @@ See gdk_display_get_event().</p>
 
 <p>Note that GTK+ uses this to install its own event handler, so it is
 usually not useful for GTK+ applications. (Although an application
-can call this function then call gtk_main_do_event() to pass
+can call this function then call <code>gtk_main_do_event()</code> to pass
 events to GTK+.)</p>
 
                       </div>
@@ -8323,7 +8323,7 @@ events to GTK+.)</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>If there is an event waiting in the event queue of some open
-display, returns a copy of it. See gdk_display_peek_event().</p>
+display, returns a copy of it. See <code>gdk_display_peek_event()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8355,7 +8355,7 @@ display, returns a copy of it. See gdk_display_peek_event().</p>
                       <div class="abstract">
                         <p>Request more motion notifies if <code>event</code> is a motion notify hint event.</p>
 
-<p>This function should be used instead of gdk_window_get_pointer() to
+<p>This function should be used instead of <code>gdk_window_get_pointer()</code> to
 request further motion notifies, because it also works for extension
 events where motion notifies are provided for devices other than the
 core pointer. Coordinate extraction, processing and requesting more
@@ -8411,7 +8411,7 @@ This symbol was never meant to be used outside
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">addOptionEntriesLibgtkOnly</span><span class="p">(</span><span class="nv">group</span><span class="p">:</span> <span class="kt">OptionGroupProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -8467,7 +8467,7 @@ This symbol was never meant to be used outside
                       <div class="abstract">
                         <p>Finds or creates an atom corresponding to a given string.</p>
 
-<p>Note that this function is identical to gdk_atom_intern() except
+<p>Note that this function is identical to <code>gdk_atom_intern()</code> except
 that if a new <code>GdkAtom</code> is created the string itself is used rather
 than a copy. This saves memory, but can only be used if the string
 will always exist. It can be used with statically
@@ -8511,7 +8511,7 @@ GTK+ theme engines).</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">beep</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -8537,7 +8537,7 @@ GTK+ theme engines).</p>
                       <div class="abstract">
                         <p>Creates a Cairo context for drawing to <code>window</code>.</p>
 
-<p>Note that calling cairo_reset_clip() on the resulting <code>cairo_t</code> will
+<p>Note that calling <code>cairo_reset_clip()</code> on the resulting <code>cairo_t</code> will
 produce undefined results, so avoid it at all costs.</p>
 
 <p>Typically, this function is used to draw on a <code>GdkWindow</code> out of the paint
@@ -8545,7 +8545,7 @@ cycle of the toolkit; this should be avoided, as it breaks various assumptions
 and optimizations.</p>
 
 <p>If you are drawing on a native <code>GdkWindow</code> in response to a <code>GDK_EXPOSE</code> event
-you should use gdk_window_begin_draw_frame() and gdk_drawing_context_get_cairo_context()
+you should use <code>gdk_window_begin_draw_frame()</code> and <code>gdk_drawing_context_get_cairo_context()</code>
 instead. GTK will automatically do this for you when drawing a widget.</p>
 
 <p><strong>cairo_create is deprecated:</strong>
@@ -8557,7 +8557,7 @@ Use gdk_window_begin_draw_frame() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cairoCreate</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="kt"><a href="Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">cairo_t</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -8626,7 +8626,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is a convenience function around cairo_clip_extents().
+                        <p>This is a convenience function around <code>cairo_clip_extents()</code>.
 It rounds the clip extents to integer coordinates and returns
 a boolean indicating if a clip area exists.</p>
 
@@ -8750,10 +8750,10 @@ context <code>cr</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates region that describes covers the area where the given
-<code>surface</code> is more than 50`` opaque.</p>
+<code>surface</code> is more than 50% opaque.</p>
 
 <p>This function takes into account device offsets that might be
-set with cairo_surface_set_device_offset().</p>
+set with <code>cairo_surface_set_device_offset()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8793,7 +8793,7 @@ Use gdk_cairo_set_source_rgba() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">cairoSetSourceColor</span><span class="p">(</span><span class="nv">cr</span><span class="p">:</span> <span class="n">cairo</span><span class="o">.</span><span class="kt">ContextProtocol</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt"><a href="Protocols/ColorProtocol.html">ColorProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -8967,7 +8967,7 @@ Use #GdkRGBA</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">colorParse</span><span class="p">(</span><span class="nv">spec</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt"><a href="Protocols/ColorProtocol.html">ColorProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
@@ -8992,8 +8992,8 @@ Use #GdkRGBA</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Disables multidevice support in GDK. This call must happen prior
-to gdk_display_open(), gtk_init(), gtk_init_with_args() or
-gtk_init_check() in order to take effect.</p>
+to <code>gdk_display_open()</code>, <code>gtk_init()</code>, <code>gtk_init_with_args()</code> or
+<code>gtk_init_check()</code> in order to take effect.</p>
 
 <p>Most common GTK+ applications won’t ever need to call this. Only
 applications that do mixed GDK/Xlib calls could want to disable
@@ -9033,7 +9033,7 @@ any way and doesn’t observe the presence of XInput 2.</p>
 <p>This function is called by the drag source.</p>
 
 <p>This function does not need to be called in managed drag and drop
-operations. See gdk_drag_context_manage_dnd() for more information.</p>
+operations. See <code>gdk_drag_context_manage_dnd()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -9065,7 +9065,7 @@ operations. See gdk_drag_context_manage_dnd() for more information.</p>
                       <div class="abstract">
                         <p>Starts a drag and creates a new drag context for it.
 This function assumes that the drag is controlled by the
-client pointer device, use gdk_drag_begin_for_device() to
+client pointer device, use <code>gdk_drag_begin_for_device()</code> to
 begin a drag with a different device.</p>
 
 <p>This function is called by the drag source.</p>
@@ -9167,7 +9167,7 @@ begin a drag with a different device.</p>
 <p>This function is called by the drag source.</p>
 
 <p>This function does not need to be called in managed drag and drop
-operations. See gdk_drag_context_manage_dnd() for more information.</p>
+operations. See <code>gdk_drag_context_manage_dnd()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -9204,7 +9204,7 @@ for <code>success</code> may trigger a drag cancellation animation.</p>
 be the last call before dropping the reference to the
 <code>context</code>.</p>
 
-<p>The <code>GdkDragContext</code> will only take the first gdk_drag_drop_done()
+<p>The <code>GdkDragContext</code> will only take the first <code>gdk_drag_drop_done()</code>
 call as effective, if this function is called multiple times,
 all subsequent calls will be ignored.</p>
 
@@ -9273,7 +9273,7 @@ meaningless at other times.</p>
 given pointer position.</p>
 
 <p>This function is called by the drag source to obtain the
-<code>dest_window</code> and <code>protocol</code> parameters for gdk_drag_motion().</p>
+<code>dest_window</code> and <code>protocol</code> parameters for <code>gdk_drag_motion()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9339,7 +9339,7 @@ set of actions changes.</p>
 <p>This function is called by the drag source.</p>
 
 <p>This function does not need to be called in managed drag and drop
-operations. See gdk_drag_context_manage_dnd() for more information.</p>
+operations. See <code>gdk_drag_context_manage_dnd()</code> for more information.</p>
 
                       </div>
                       <div class="declaration">
@@ -9372,7 +9372,7 @@ operations. See gdk_drag_context_manage_dnd() for more information.</p>
                         <p>Selects one of the actions offered by the drag source.</p>
 
 <p>This function is called by the drag destination in response to
-gdk_drag_motion() called by the drag source.</p>
+<code>gdk_drag_motion()</code> called by the drag source.</p>
 
                       </div>
                       <div class="declaration">
@@ -9467,16 +9467,16 @@ to a drop initiated by the drag source.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes an error trap pushed with gdk_error_trap_push().
+                        <p>Removes an error trap pushed with <code>gdk_error_trap_push()</code>.
 May block until an error has been definitively received
-or not received from the X server. gdk_error_trap_pop_ignored()
+or not received from the X server. <code>gdk_error_trap_pop_ignored()</code>
 is preferred if you don’t need to know whether an error
 occurred, because it never has to block. If you don&rsquo;t
-need the return value of gdk_error_trap_pop(), use
-gdk_error_trap_pop_ignored().</p>
+need the return value of <code>gdk_error_trap_pop()</code>, use
+<code>gdk_error_trap_pop_ignored()</code>.</p>
 
 <p>Prior to GDK 3.0, this function would not automatically
-sync for you, so you had to gdk_flush() if your last
+sync for you, so you had to <code>gdk_flush()</code> if your last
 call to Xlib was not a blocking round trip.</p>
 
                       </div>
@@ -9484,7 +9484,7 @@ call to Xlib was not a blocking round trip.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">errorTrapPop</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
@@ -9508,7 +9508,7 @@ call to Xlib was not a blocking round trip.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes an error trap pushed with gdk_error_trap_push(), but
+                        <p>Removes an error trap pushed with <code>gdk_error_trap_push()</code>, but
 without bothering to wait and see whether an error occurred.  If an
 error arrives later asynchronously that was triggered while the
 trap was pushed, that error will be ignored.</p>
@@ -9518,7 +9518,7 @@ trap was pushed, that error will be ignored.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">errorTrapPopIgnored</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -9547,16 +9547,15 @@ behavior of exiting the application. It should only be used if it
 is not possible to avoid the X error in any other way. Errors are
 ignored on all <code>GdkDisplay</code> currently known to the
 <code>GdkDisplayManager</code>. If you don’t care which error happens and just
-want to ignore everything, pop with gdk_error_trap_pop_ignored().
-If you need the error code, use gdk_error_trap_pop() which may have
+want to ignore everything, pop with <code>gdk_error_trap_pop_ignored()</code>.
+If you need the error code, use <code>gdk_error_trap_pop()</code> which may have
 to block and wait for the error to arrive from the X server.</p>
 
 <p>This API exists on all platforms but only does anything on X.</p>
 
-<p>You can use gdk_x11_display_error_trap_push() to ignore errors
+<p>You can use <code>gdk_x11_display_error_trap_push()</code> to ignore errors
 on only a single display.</p>
-
-<p>&ldquo;` Trapping an X error</p>
+<h2 id='trapping-an-x-error' class='heading'>Trapping an X error</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>gdk_error_trap_push ();
@@ -9575,7 +9574,7 @@ if (gdk_error_trap_pop ())
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">errorTrapPush</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -9601,7 +9600,7 @@ if (gdk_error_trap_pop ())
                       <div class="abstract">
                         <p>Checks all open displays for a <code>GdkEvent</code> to process,to be processed
 on, fetching events from the windowing system if necessary.
-See gdk_display_get_event().</p>
+See <code>gdk_display_get_event()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9635,7 +9634,7 @@ See gdk_display_get_event().</p>
 
 <p>Note that GTK+ uses this to install its own event handler, so it is
 usually not useful for GTK+ applications. (Although an application
-can call this function then call gtk_main_do_event() to pass
+can call this function then call <code>gtk_main_do_event()</code> to pass
 events to GTK+.)</p>
 
                       </div>
@@ -9667,7 +9666,7 @@ events to GTK+.)</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>If there is an event waiting in the event queue of some open
-display, returns a copy of it. See gdk_display_peek_event().</p>
+display, returns a copy of it. See <code>gdk_display_peek_event()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9699,7 +9698,7 @@ display, returns a copy of it. See gdk_display_peek_event().</p>
                       <div class="abstract">
                         <p>Request more motion notifies if <code>event</code> is a motion notify hint event.</p>
 
-<p>This function should be used instead of gdk_window_get_pointer() to
+<p>This function should be used instead of <code>gdk_window_get_pointer()</code> to
 request further motion notifies, because it also works for extension
 events where motion notifies are provided for devices other than the
 core pointer. Coordinate extraction, processing and requesting more
@@ -9877,7 +9876,7 @@ This is rarely needed by applications.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">flush</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -9945,7 +9944,7 @@ Call gdk_display_get_name (gdk_display_get_default ()))
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDisplay</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
@@ -9970,7 +9969,7 @@ Call gdk_display_get_name (gdk_display_get_default ()))
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the display name specified in the command line arguments passed
-to gdk_init() or gdk_parse_args(), if any.</p>
+to <code>gdk_init()</code> or <code>gdk_parse_args()</code>, if any.</p>
 
                       </div>
                       <div class="declaration">
@@ -10001,9 +10000,9 @@ to gdk_init() or gdk_parse_args(), if any.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the program class. Unless the program class has explicitly
-been set with gdk_set_program_class() or with the <code>--class</code>
+been set with <code>gdk_set_program_class()</code> or with the <code>--class</code>
 commandline option, the default value is the program name (determined
-with g_get_prgname()) with the first character converted to uppercase.</p>
+with <code>g_get_prgname()</code>) with the first character converted to uppercase.</p>
 
                       </div>
                       <div class="declaration">
@@ -10100,7 +10099,7 @@ terminates with a call to <code>exit(1)</code>.</p>
 <p>Any arguments used by GDK are removed from the array and <code>argc</code> and <code>argv</code>
 are updated accordingly.</p>
 
-<p>GTK+ initializes GDK in gtk_init() and so this function is not usually
+<p>GTK+ initializes GDK in <code>gtk_init()</code> and so this function is not usually
 needed by GTK+ applications.</p>
 
                       </div>
@@ -10137,7 +10136,7 @@ returning <code>true</code> on success.</p>
 <p>Any arguments used by GDK are removed from the array and <code>argc</code> and <code>argv</code>
 are updated accordingly.</p>
 
-<p>GTK+ initializes GDK in gtk_init() and so this function is not usually
+<p>GTK+ initializes GDK in <code>gtk_init()</code> and so this function is not usually
 needed by GTK+ applications.</p>
 
                       </div>
@@ -10169,7 +10168,7 @@ needed by GTK+ applications.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Grabs the keyboard so that all events are passed to this
-application until the keyboard is ungrabbed with gdk_keyboard_ungrab().
+application until the keyboard is ungrabbed with <code>gdk_keyboard_ungrab()</code>.
 This overrides any previous keyboard grab by this client.</p>
 
 <p>If you set up anything at the time you take the grab that needs to be cleaned
@@ -10184,7 +10183,7 @@ Use gdk_device_grab() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">keyboardGrab</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="kt"><a href="Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">,</span> <span class="n">ownerEvents</span> <span class="nv">owner_events</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GdkGrabStatus</span></code></pre>
 
                         </div>
@@ -10220,7 +10219,7 @@ Use gdk_device_ungrab(), together with gdk_device_grab()
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">keyboardUngrab</span><span class="p">(</span><span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -10495,12 +10494,12 @@ character.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Lists the available visuals for the default screen.
-(See gdk_screen_list_visuals())
+(See <code>gdk_screen_list_visuals()</code>)
 A visual describes a hardware image data format.
 For example, a visual might support 24-bit color, or 8-bit color,
 and might expect pixels to be in a certain format.</p>
 
-<p>Call g_list_free() on the return value when you’re finished with it.</p>
+<p>Call <code>g_list_free()</code> on the return value when you’re finished with it.</p>
 
 <p><strong>list_visuals is deprecated:</strong>
 Use gdk_screen_list_visuals (gdk_screen_get_default ()).</p>
@@ -10510,7 +10509,7 @@ Use gdk_screen_list_visuals (gdk_screen_get_default ()).</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">listVisuals</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GList</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
@@ -10540,7 +10539,7 @@ normally called after opening the application’s initial set of
 windows.</p>
 
 <p>GTK+ will call this function automatically after opening the first
-<code>GtkWindow</code> unless gtk_window_set_auto_startup_notification() is called
+<code>GtkWindow</code> unless <code>gtk_window_set_auto_startup_notification()</code> is called
 to disable that feature.</p>
 
                       </div>
@@ -10576,7 +10575,7 @@ finished loading, using a given identifier.</p>
 
 <p>GTK+ will call this function automatically for <code>GtkWindow</code>
 with custom startup-notification identifier unless
-gtk_window_set_auto_startup_notification() is called to
+<code>gtk_window_set_auto_startup_notification()</code> is called to
 disable that feature.</p>
 
                       </div>
@@ -10672,9 +10671,9 @@ add a reference to it.</p>
                         <p>Sets <code>window</code> to be embedded in <code>embedder</code>.</p>
 
 <p>To fully embed an offscreen window, in addition to calling this
-function, it is also necessary to handle the <code>GdkWindow</code>::pick-embedded-child
-signal on the <code>embedder</code> and the <code>GdkWindow</code>::to-embedder and
-<code>GdkWindow</code>::from-embedder signals on <code>window</code>.</p>
+function, it is also necessary to handle the <code>GdkWindow::pick</code>-embedded-child
+signal on the <code>embedder</code> and the <code>GdkWindow::to</code>-embedder and
+<code>GdkWindow::from</code>-embedder signals on <code>window</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10708,13 +10707,13 @@ signal on the <code>embedder</code> and the <code>GdkWindow</code>::to-embedder 
 
 <p>The context must be freed when you’re finished with it.</p>
 
-<p>When using GTK+, normally you should use gtk_widget_get_pango_context()
+<p>When using GTK+, normally you should use <code>gtk_widget_get_pango_context()</code>
 instead of this function, to get the appropriate context for
 the widget you intend to render text onto.</p>
 
 <p>The newly created context will have the default font options (see
 <code>cairo_font_options_t</code>) for the default screen; if these options
-change it will not be updated. Using gtk_widget_get_pango_context()
+change it will not be updated. Using <code>gtk_widget_get_pango_context()</code>
 is more convenient if you want to keep a context around and track
 changes to the screen’s font rendering settings.</p>
 
@@ -10750,13 +10749,13 @@ changes to the screen’s font rendering settings.</p>
 
 <p>The context must be freed when you’re finished with it.</p>
 
-<p>When using GTK+, normally you should use gtk_widget_get_pango_context()
+<p>When using GTK+, normally you should use <code>gtk_widget_get_pango_context()</code>
 instead of this function, to get the appropriate context for
 the widget you intend to render text onto.</p>
 
 <p>The newly created context will have the default font options
 (see <code>cairo_font_options_t</code>) for the display; if these options
-change it will not be updated. Using gtk_widget_get_pango_context()
+change it will not be updated. Using <code>gtk_widget_get_pango_context()</code>
 is more convenient if you want to keep a context around and track
 changes to the font rendering settings.</p>
 
@@ -10792,13 +10791,13 @@ changes to the font rendering settings.</p>
 
 <p>The context must be freed when you’re finished with it.</p>
 
-<p>When using GTK+, normally you should use gtk_widget_get_pango_context()
+<p>When using GTK+, normally you should use <code>gtk_widget_get_pango_context()</code>
 instead of this function, to get the appropriate context for
 the widget you intend to render text onto.</p>
 
 <p>The newly created context will have the default font options
 (see <code>cairo_font_options_t</code>) for the screen; if these options
-change it will not be updated. Using gtk_widget_get_pango_context()
+change it will not be updated. Using <code>gtk_widget_get_pango_context()</code>
 is more convenient if you want to keep a context around and track
 changes to the screen’s font rendering settings.</p>
 
@@ -10912,13 +10911,13 @@ of text, such as when text is selected.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Parse command line arguments, and store for future
-use by calls to gdk_display_open().</p>
+use by calls to <code>gdk_display_open()</code>.</p>
 
 <p>Any arguments used by GDK are removed from the array and <code>argc</code> and <code>argv</code> are
 updated accordingly.</p>
 
 <p>You shouldn’t call this function explicitly if you are using
-gtk_init(), gtk_init_check(), gdk_init(), or gdk_init_check().</p>
+<code>gtk_init()</code>, <code>gtk_init_check()</code>, <code>gdk_init()</code>, or <code>gdk_init_check()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10948,10 +10947,10 @@ gtk_init(), gtk_init_check(), gdk_init(), or gdk_init_check().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Transfers image data from a <code>cairo_surface_t</code> and converts it to an RGB(A)
+                        <p>Transfers image data from a <code>cairo_surface_t</code> and converts it to an <code>RGB(A)</code>
 representation inside a <code>GdkPixbuf</code>. This allows you to efficiently read
 individual pixels from cairo surfaces. For <code>GdkWindows</code>, use
-gdk_pixbuf_get_from_window() instead.</p>
+<code>gdk_pixbuf_get_from_window()</code> instead.</p>
 
 <p>This function will create an RGB pixbuf with 8 bits per channel.
 The pixbuf will contain an alpha channel if the <code>surface</code> contains one.</p>
@@ -10984,9 +10983,9 @@ The pixbuf will contain an alpha channel if the <code>surface</code> contains on
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Transfers image data from a <code>GdkWindow</code> and converts it to an RGB(A)
+                        <p>Transfers image data from a <code>GdkWindow</code> and converts it to an <code>RGB(A)</code>
 representation inside a <code>GdkPixbuf</code>. In other words, copies
-image data from a server-side drawable to a client-side RGB(A) buffer.
+image data from a server-side drawable to a client-side <code>RGB(A)</code> buffer.
 This allows you to efficiently read individual pixels on the client side.</p>
 
 <p>This function will create an RGB pixbuf with 8 bits per channel with
@@ -11040,7 +11039,7 @@ instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Grabs the pointer (usually a mouse) so that all events are passed to this
-application until the pointer is ungrabbed with gdk_pointer_ungrab(), or
+application until the pointer is ungrabbed with <code>gdk_pointer_ungrab()</code>, or
 the grab window becomes unviewable.
 This overrides any previous pointer grab by this client.</p>
 
@@ -11069,7 +11068,7 @@ Use gdk_device_grab() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">pointerGrab</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="kt"><a href="Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">,</span> <span class="n">ownerEvents</span> <span class="nv">owner_events</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">eventMask</span> <span class="nv">event_mask</span><span class="p">:</span> <span class="kt"><a href="Typealiases.html#/s:3Gdk9EventMaska">EventMask</a></span><span class="p">,</span> <span class="n">confineTo</span> <span class="nv">confine_to</span><span class="p">:</span> <span class="kt"><a href="Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">,</span> <span class="nv">cursor</span><span class="p">:</span> <span class="kt"><a href="Protocols/CursorProtocol.html">CursorProtocol</a></span><span class="p">,</span> <span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GdkGrabStatus</span></code></pre>
 
                         </div>
@@ -11107,7 +11106,7 @@ Use gdk_display_device_is_grabbed() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">pointerIsGrabbed</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
@@ -11143,7 +11142,7 @@ Use gdk_device_ungrab(), together with gdk_device_grab()
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">pointerUngrab</span><span class="p">(</span><span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11179,7 +11178,7 @@ This symbol was never meant to be used outside
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">preParseLibgtkOnly</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -11267,14 +11266,14 @@ This symbol was never meant to be used outside
 property does not exist, then the function returns <code>false</code>,
 and <code>GDK_NONE</code> will be stored in <code>actual_property_type</code>.</p>
 
-<p>The XGetWindowProperty() function that gdk_property_get()
+<p>The <code>XGetWindowProperty()</code> function that <code>gdk_property_get()</code>
 uses has a very confusing and complicated set of semantics.
-Unfortunately, gdk_property_get() makes the situation
+Unfortunately, <code>gdk_property_get()</code> makes the situation
 worse instead of better (the semantics should be considered
 undefined), and also prints warnings to stderr in cases where it
 should return a useful error to the program. You are advised to use
-XGetWindowProperty() directly until a replacement function for
-gdk_property_get() is provided.</p>
+<code>XGetWindowProperty()</code> directly until a replacement function for
+<code>gdk_property_get()</code> is provided.</p>
 
                       </div>
                       <div class="declaration">
@@ -11306,7 +11305,7 @@ gdk_property_get() is provided.</p>
                       <div class="abstract">
                         <p>This function returns the available bit depths for the default
 screen. It’s equivalent to listing the visuals
-(gdk_list_visuals()) and then looking at the depth field in each
+(<code>gdk_list_visuals()</code>) and then looking at the depth field in each
 visual, removing duplicates.</p>
 
 <p>The array returned by this function should not be freed.</p>
@@ -11320,7 +11319,7 @@ Visual selection should be done using
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="nv">depths</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11346,7 +11345,7 @@ Visual selection should be done using
                       <div class="abstract">
                         <p>This function returns the available visual types for the default
 screen. It’s equivalent to listing the visuals
-(gdk_list_visuals()) and then looking at the type field in each
+(<code>gdk_list_visuals()</code>) and then looking at the type field in each
 visual, removing duplicates.</p>
 
 <p>The array returned by this function should not be freed.</p>
@@ -11360,7 +11359,7 @@ Visual selection should be done using
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="n">visualTypes</span> <span class="nv">visual_types</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkVisualType</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="nv">count</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -11540,7 +11539,7 @@ window, but a new foreign window will never be created by this call.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves selection data that was stored by the selection
-data in response to a call to gdk_selection_convert(). This function
+data in response to a call to <code>gdk_selection_convert()</code>. This function
 will not be used by applications, who should use the <code>GtkClipboard</code>
 API instead.</p>
 
@@ -11657,8 +11656,8 @@ that are specified by this function.</p>
 broadway, wayland. You can also include a * in the
 list to try all remaining backends.</p>
 
-<p>This call must happen prior to gdk_display_open(),
-gtk_init(), gtk_init_with_args() or gtk_init_check()
+<p>This call must happen prior to <code>gdk_display_open()</code>,
+<code>gtk_init()</code>, <code>gtk_init_with_args()</code> or <code>gtk_init_check()</code>
 in order to take effect.</p>
 
                       </div>
@@ -11671,7 +11670,7 @@ in order to take effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1389-L1392">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1388-L1391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11690,8 +11689,8 @@ in order to take effect.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Set the double click time for the default display. See
-gdk_display_set_double_click_time().
-See also gdk_display_set_double_click_distance().
+<code>gdk_display_set_double_click_time()</code>.
+See also <code>gdk_display_set_double_click_distance()</code>.
 Applications should not set this, it is a
 global user-configured setting.</p>
 
@@ -11700,13 +11699,13 @@ global user-configured setting.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">setDoubleClickTime</span><span class="p">(</span><span class="nv">msec</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1402-L1405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1401-L1404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11741,7 +11740,7 @@ line option.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1416-L1419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1415-L1418">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11774,7 +11773,7 @@ to use this option.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1428-L1431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1427-L1430">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11793,7 +11792,7 @@ to use this option.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains a desktop-wide setting, such as the double-click time,
-for the default screen. See gdk_screen_get_setting().</p>
+for the default screen. See <code>gdk_screen_get_setting()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11805,7 +11804,7 @@ for the default screen. See gdk_screen_get_setting().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1438-L1441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1437-L1440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11835,7 +11834,7 @@ for the default screen. See gdk_screen_get_setting().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1446-L1449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1445-L1448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11868,7 @@ pipelines, to benchmark windowing system rendering operations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1459-L1462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1458-L1461">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11895,8 +11894,8 @@ location, use of this function outside of test programs that
 run in their own virtual windowing system (e.g. Xvfb) is not
 recommended.</p>
 
-<p>Also, gdk_test_simulate_button() is a fairly low level function,
-for most testing purposes, gtk_test_widget_click() is the right
+<p>Also, <code>gdk_test_simulate_button()</code> is a fairly low level function,
+for most testing purposes, <code>gtk_test_widget_click()</code> is the right
 function to call which will generate a button press event followed
 by its accompanying button release event.</p>
 
@@ -11910,7 +11909,7 @@ by its accompanying button release event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1479-L1482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1478-L1481">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11940,8 +11939,8 @@ If (<code>x</code>,<code>y</code>) are passed as (-1,-1), the mouse pointer will
 be warped and <code>window</code> origin will be used as mouse pointer
 location for the event.</p>
 
-<p>Also, gdk_test_simulate_key() is a fairly low level function,
-for most testing purposes, gtk_test_widget_send_key() is the
+<p>Also, <code>gdk_test_simulate_key()</code> is a fairly low level function,
+for most testing purposes, <code>gtk_test_widget_send_key()</code> is the
 right function to call which will generate a key press event
 followed by its accompanying key release event.</p>
 
@@ -11955,7 +11954,7 @@ followed by its accompanying key release event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1503-L1506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1502-L1505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,7 +11985,7 @@ a list of UTF-8 strings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1513-L1516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1512-L1515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12004,10 +12003,10 @@ a list of UTF-8 strings.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A wrapper for the common usage of gdk_threads_add_idle_full()
+                        <p>A wrapper for the common usage of <code>gdk_threads_add_idle_full()</code>
 assigning the default priority, <code>G_PRIORITY_DEFAULT_IDLE</code>.</p>
 
-<p>See gdk_threads_add_idle_full().</p>
+<p>See <code>gdk_threads_add_idle_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12019,7 +12018,7 @@ assigning the default priority, <code>G_PRIORITY_DEFAULT_IDLE</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1525-L1528">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1524-L1527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12041,9 +12040,9 @@ assigning the default priority, <code>G_PRIORITY_DEFAULT_IDLE</code>.</p>
 events pending.  If the function returns <code>false</code> it is automatically
 removed from the list of event sources and will not be called again.</p>
 
-<p>This variant of g_idle_add_full() calls <code>function</code> with the GDK lock
+<p>This variant of <code>g_idle_add_full()</code> calls <code>function</code> with the GDK lock
 held. It can be thought of a MT-safe version for GTK+ widgets for the
-following use case, where you have to worry about idle_callback()
+following use case, where you have to worry about <code>idle_callback()</code>
 running in thread A and accessing <code>self</code> after it has been finalized
 in thread B:</p>
 
@@ -12089,7 +12088,7 @@ some_widget_finalize (GObject *object)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1576-L1579">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1575-L1578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12107,10 +12106,10 @@ some_widget_finalize (GObject *object)
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A wrapper for the common usage of gdk_threads_add_timeout_full()
+                        <p>A wrapper for the common usage of <code>gdk_threads_add_timeout_full()</code>
 assigning the default priority, <code>G_PRIORITY_DEFAULT</code>.</p>
 
-<p>See gdk_threads_add_timeout_full().</p>
+<p>See <code>gdk_threads_add_timeout_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12122,7 +12121,7 @@ assigning the default priority, <code>G_PRIORITY_DEFAULT</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1588-L1591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1587-L1590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12153,7 +12152,7 @@ After each call to the timeout function, the time of the next
 timeout is recalculated based on the current time and the given interval
 (it does not try to “catch up” time lost in delays).</p>
 
-<p>This variant of g_timeout_add_full() can be thought of a MT-safe version
+<p>This variant of <code>g_timeout_add_full()</code> can be thought of a MT-safe version
 for GTK+ widgets for the following use case:</p>
 
 <p>(C Language Example):</p>
@@ -12194,7 +12193,7 @@ static void some_widget_finalize (GObject *object)
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1641-L1644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1640-L1643">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12212,10 +12211,10 @@ static void some_widget_finalize (GObject *object)
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A wrapper for the common usage of gdk_threads_add_timeout_seconds_full()
+                        <p>A wrapper for the common usage of <code>gdk_threads_add_timeout_seconds_full()</code>
 assigning the default priority, <code>G_PRIORITY_DEFAULT</code>.</p>
 
-<p>For details, see gdk_threads_add_timeout_full().</p>
+<p>For details, see <code>gdk_threads_add_timeout_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -12227,7 +12226,7 @@ assigning the default priority, <code>G_PRIORITY_DEFAULT</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1653-L1656">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1652-L1655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12245,8 +12244,8 @@ assigning the default priority, <code>G_PRIORITY_DEFAULT</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A variant of gdk_threads_add_timeout_full() with second-granularity.
-See g_timeout_add_seconds_full() for a discussion of why it is
+                        <p>A variant of <code>gdk_threads_add_timeout_full()</code> with second-granularity.
+See <code>g_timeout_add_seconds_full()</code> for a discussion of why it is
 a good idea to use this function if you don’t need finer granularity.</p>
 
                       </div>
@@ -12259,7 +12258,7 @@ a good idea to use this function if you don’t need finer granularity.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1664-L1667">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1663-L1666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12291,13 +12290,13 @@ All GDK and GTK+ calls should be made from the main
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsEnter</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1680-L1683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1679-L1682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12316,10 +12315,10 @@ All GDK and GTK+ calls should be made from the main
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Initializes GDK so that it can be used from multiple threads
-in conjunction with gdk_threads_enter() and gdk_threads_leave().</p>
+in conjunction with <code>gdk_threads_enter()</code> and <code>gdk_threads_leave()</code>.</p>
 
 <p>This call must be made before any use of the main loop from
-GTK+; to be safe, call it before gtk_init().</p>
+GTK+; to be safe, call it before <code>gtk_init()</code>.</p>
 
 <p><strong>threads_init is deprecated:</strong>
 All GDK and GTK+ calls should be made from the main
@@ -12330,13 +12329,13 @@ All GDK and GTK+ calls should be made from the main
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsInit</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1697-L1700">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1696-L1699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12354,7 +12353,7 @@ All GDK and GTK+ calls should be made from the main
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Leaves a critical region begun with gdk_threads_enter().</p>
+                        <p>Leaves a critical region begun with <code>gdk_threads_enter()</code>.</p>
 
 <p><strong>threads_leave is deprecated:</strong>
 All GDK and GTK+ calls should be made from the main
@@ -12365,13 +12364,13 @@ All GDK and GTK+ calls should be made from the main
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsLeave</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1710-L1713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1709-L1712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12391,11 +12390,11 @@ All GDK and GTK+ calls should be made from the main
                       <div class="abstract">
                         <p>Allows the application to replace the standard method that
 GDK uses to protect its data structures. Normally, GDK
-creates a single <code>GMutex</code> that is locked by gdk_threads_enter(),
-and released by gdk_threads_leave(); using this function an
+creates a single <code>GMutex</code> that is locked by <code>gdk_threads_enter()</code>,
+and released by <code>gdk_threads_leave()</code>; using this function an
 application provides, instead, a function <code>enter_fn</code> that is
-called by gdk_threads_enter() and a function <code>leave_fn</code> that is
-called by gdk_threads_leave().</p>
+called by <code>gdk_threads_enter()</code> and a function <code>leave_fn</code> that is
+called by <code>gdk_threads_leave()</code>.</p>
 
 <p>The functions must provide at least same locking functionality
 as the default implementation, but can also do extra application
@@ -12408,7 +12407,7 @@ must temporarily release its lock as well.</p>
 
 <p>Most threaded GTK+ apps won’t need to use this method.</p>
 
-<p>This method must be called before gdk_threads_init(), and cannot
+<p>This method must be called before <code>gdk_threads_init()</code>, and cannot
 be called multiple times.</p>
 
 <p><strong>threads_set_lock_functions is deprecated:</strong>
@@ -12420,13 +12419,13 @@ All GDK and GTK+ calls should be made from the main
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsSetLockFunctions</span><span class="p">(</span><span class="n">enterFn</span> <span class="nv">enter_fn</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">Callback</span><span class="p">,</span> <span class="n">leaveFn</span> <span class="nv">leave_fn</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">Callback</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1743-L1746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1742-L1745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12456,7 +12455,7 @@ All GDK and GTK+ calls should be made from the main
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1752-L1755">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1751-L1754">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12489,7 +12488,7 @@ is not specified; it may be as pseudo-escape sequences
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1764-L1767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-functions.swift#L1763-L1766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12502,7 +12501,7 @@ is not specified; it may be as pseudo-escape sequences
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

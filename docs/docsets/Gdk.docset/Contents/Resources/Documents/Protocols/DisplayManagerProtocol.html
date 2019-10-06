@@ -8248,7 +8248,7 @@ Alternatively, use <code><a href="../Structs/DisplayManagerRef.html">DisplayMana
 notification when displays appear or disappear or the default display
 changes.</p>
 
-<p>You can use gdk_display_manager_get() to obtain the <code>GdkDisplayManager</code>
+<p>You can use <code>gdk_display_manager_get()</code> to obtain the <code>GdkDisplayManager</code>
 singleton, but that should be rarely necessary. Typically, initializing
 GTK+ opens a display that you can work with without ever accessing the
 <code>GdkDisplayManager</code>.</p>
@@ -8262,25 +8262,24 @@ multiple GDK backends, you have to consider both compile time and
 runtime. At compile time, use the <code>GDK_WINDOWING_X11</code>, <code>GDK_WINDOWING_WIN32</code>
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
-macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
-
-<p><code>Backend-specific code</code> {<code>backend</code>-specific}</p>
+macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in use:</p>
+<h2 id='backend-specific-code-a-name-backend-specific-a' class='heading'>Backend-specific code ## <a name="backend-specific"></a></h2>
 
 <p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>`ifdef` GDK_WINDOWING_X11
+<pre class="highlight plaintext"><code>#ifdef GDK_WINDOWING_X11
   if (GDK_IS_X11_DISPLAY (display))
     {
       // make X11-specific calls here
     }
   else
-`endif`
-`ifdef` GDK_WINDOWING_QUARTZ
+#endif
+#ifdef GDK_WINDOWING_QUARTZ
   if (GDK_IS_QUARTZ_DISPLAY (display))
     {
       // make Quartz-specific calls here
     }
   else
-`endif`
+#endif
   g_error ("Unsupported GDK backend");
 </code></pre>
 
@@ -8316,7 +8315,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2751">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8354,7 +8353,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2747">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8482,7 +8481,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2972-L2996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2965-L2989">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8574,7 +8573,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3037-L3056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3029-L3048">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8618,7 +8617,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3064-L3067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3056-L3059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8651,7 +8650,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3070-L3073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3062-L3065">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8684,7 +8683,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3076-L3079">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3068-L3071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8717,7 +8716,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3082-L3085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3074-L3077">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8750,7 +8749,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3087-L3097">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3079-L3089">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8763,7 +8762,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

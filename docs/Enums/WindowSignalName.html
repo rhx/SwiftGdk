@@ -8261,7 +8261,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::create-surface signal is emitted when an offscreen window
+                        <p>The <code>create</code>-surface signal is emitted when an offscreen window
 needs its surface (re)created, which happens either when the
 window is first drawn to, or when the window is being
 resized. The first signal handler that returns a non-<code>nil</code>
@@ -8270,7 +8270,7 @@ will be used.</p>
 
 <p>Note that it is not possible to access the window&rsquo;s previous
 surface from within any callback of this signal. Calling
-gdk_offscreen_window_get_surface() will lead to a crash.</p>
+<code>gdk_offscreen_window_get_surface()</code> will lead to a crash.</p>
 
                       </div>
                       <div class="declaration">
@@ -8300,10 +8300,10 @@ gdk_offscreen_window_get_surface() will lead to a crash.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::from-embedder signal is emitted to translate coordinates
+                        <p>The <code>from</code>-embedder signal is emitted to translate coordinates
 in the embedder of an offscreen window to the offscreen window.</p>
 
-<p>See also <code>GdkWindow</code>::to-embedder.</p>
+<p>See also <code>GdkWindow::to</code>-embedder.</p>
 
                       </div>
                       <div class="declaration">
@@ -8374,20 +8374,20 @@ keeping <code>window</code> on-screen.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -8395,7 +8395,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -8408,7 +8408,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8426,7 +8426,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::pick-embedded-child signal is emitted to find an embedded
+                        <p>The <code>pick</code>-embedded-child signal is emitted to find an embedded
 child at the given position.</p>
 
                       </div>
@@ -8439,7 +8439,7 @@ child at the given position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L257">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8457,10 +8457,10 @@ child at the given position.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::to-embedder signal is emitted to translate coordinates
+                        <p>The <code>to</code>-embedder signal is emitted to translate coordinates
 in an offscreen window to its embedder.</p>
 
-<p>See also <code>GdkWindow</code>::from-embedder.</p>
+<p>See also <code>GdkWindow::from</code>-embedder.</p>
 
                       </div>
                       <div class="declaration">
@@ -8472,7 +8472,7 @@ in an offscreen window to its embedder.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L262">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8490,8 +8490,8 @@ in an offscreen window to its embedder.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The mouse pointer for a <code>GdkWindow</code>. See gdk_window_set_cursor() and
-gdk_window_get_cursor() for details.</p>
+                        <p>The mouse pointer for a <code>GdkWindow</code>. See <code>gdk_window_set_cursor()</code> and
+<code>gdk_window_get_cursor()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -8503,7 +8503,7 @@ gdk_window_get_cursor() for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8516,7 +8516,7 @@ gdk_window_get_cursor() for details.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

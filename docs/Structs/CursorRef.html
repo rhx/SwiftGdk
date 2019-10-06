@@ -8525,7 +8525,7 @@ For type-safe access, use the generated, typed pointer <code>cursor_ptr</code> p
                         <pre class="highlight swift"><code><span class="kt">Creates</span> <span class="n">a</span> <span class="k">new</span> <span class="n">cursor</span> <span class="n">from</span> <span class="n">the</span> <span class="k">set</span> <span class="n">of</span> <span class="n">builtin</span> <span class="n">cursors</span> <span class="k">for</span> <span class="n">the</span> <span class="k">default</span> <span class="n">display</span><span class="o">.</span>
 </code></pre>
 
-<p>See gdk_cursor_new_for_display().</p>
+<p>See <code>gdk_cursor_new_for_display()</code>.</p>
 
 <p>To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.</p>
 
@@ -8537,7 +8537,7 @@ Use gdk_cursor_new_for_display() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="nf">init</span><span class="p">(</span><span class="nv">cursor_type</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gdk10CursorTypea">CursorType</a></span><span class="p">)</span></code></pre>
 
                         </div>
@@ -8667,11 +8667,11 @@ platforms can be found in the CSS specification:</p>
 
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
-The functions gdk_display_supports_cursor_alpha() and
-gdk_display_supports_cursor_color() can be used to determine
+The functions <code>gdk_display_supports_cursor_alpha()</code> and
+<code>gdk_display_supports_cursor_color()</code> can be used to determine
 whether RGBA cursors are supported;
-gdk_display_get_default_cursor_size() and
-gdk_display_get_maximal_cursor_size() give information about
+<code>gdk_display_get_default_cursor_size()</code> and
+<code>gdk_display_get_maximal_cursor_size()</code> give information about
 cursor sizes.</p>
 
 <p>If <code>x</code> or <code>y</code> are <code>-1</code>, the pixbuf must have
@@ -8714,11 +8714,11 @@ sufficently new version of the X Render extension.</p>
 
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
-The functions gdk_display_supports_cursor_alpha() and
-gdk_display_supports_cursor_color() can be used to determine
+The functions <code>gdk_display_supports_cursor_alpha()</code> and
+<code>gdk_display_supports_cursor_color()</code> can be used to determine
 whether RGBA cursors are supported;
-gdk_display_get_default_cursor_size() and
-gdk_display_get_maximal_cursor_size() give information about
+<code>gdk_display_get_default_cursor_size()</code> and
+<code>gdk_display_get_maximal_cursor_size()</code> give information about
 cursor sizes.</p>
 
 <p>On the X backend, support for RGBA cursors requires a
@@ -8858,11 +8858,11 @@ platforms can be found in the CSS specification:</p>
 
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
-The functions gdk_display_supports_cursor_alpha() and
-gdk_display_supports_cursor_color() can be used to determine
+The functions <code>gdk_display_supports_cursor_alpha()</code> and
+<code>gdk_display_supports_cursor_color()</code> can be used to determine
 whether RGBA cursors are supported;
-gdk_display_get_default_cursor_size() and
-gdk_display_get_maximal_cursor_size() give information about
+<code>gdk_display_get_default_cursor_size()</code> and
+<code>gdk_display_get_maximal_cursor_size()</code> give information about
 cursor sizes.</p>
 
 <p>If <code>x</code> or <code>y</code> are <code>-1</code>, the pixbuf must have
@@ -8905,11 +8905,11 @@ sufficently new version of the X Render extension.</p>
 
 <p>Not all GDK backends support RGBA cursors. If they are not
 supported, a monochrome approximation will be displayed.
-The functions gdk_display_supports_cursor_alpha() and
-gdk_display_supports_cursor_color() can be used to determine
+The functions <code>gdk_display_supports_cursor_alpha()</code> and
+<code>gdk_display_supports_cursor_color()</code> can be used to determine
 whether RGBA cursors are supported;
-gdk_display_get_default_cursor_size() and
-gdk_display_get_maximal_cursor_size() give information about
+<code>gdk_display_get_default_cursor_size()</code> and
+<code>gdk_display_get_maximal_cursor_size()</code> give information about
 cursor sizes.</p>
 
 <p>On the X backend, support for RGBA cursors requires a
@@ -8938,7 +8938,7 @@ sufficently new version of the X Render extension.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -8399,8 +8399,8 @@ should do with the dropped data.</p>
 Most of these masks map onto one or more of the <code>GdkEventType</code> event types
 above.</p>
 
-<p>See the [input handling overview][chap-input-handling] for details of
-[event masks][event-masks] and [event propagation][event-propagation].</p>
+<p>See the <a href="#chap-input-handling">input handling overview</a> for details of
+<a href="#event-masks">event masks</a> and <a href="#event-propagation">event propagation</a>.</p>
 
 <p><code>GDK_POINTER_MOTION_HINT_MASK</code> is deprecated. It is a special mask
 to reduce the number of <code>GDK_MOTION_NOTIFY</code> events received. When using
@@ -8408,18 +8408,18 @@ to reduce the number of <code>GDK_MOTION_NOTIFY</code> events received. When usi
 be sent, some of which are marked as a hint (the is_hint member is
 <code>true</code>). To receive more motion events after a motion hint event,
 the application needs to asks for more, by calling
-gdk_event_request_motions().</p>
+<code>gdk_event_request_motions()</code>.</p>
 
 <p>Since GTK 3.8, motion events are already compressed by default, independent
 of this mechanism. This compression can be disabled with
-gdk_window_set_event_compression(). See the documentation of that function
+<code>gdk_window_set_event_compression()</code>. See the documentation of that function
 for details.</p>
 
 <p>If <code>GDK_TOUCH_MASK</code> is enabled, the window will receive touch events
 from touch-enabled devices. Those will come as sequences of <code>GdkEventTouch</code>
 with type <code>GDK_TOUCH_UPDATE</code>, enclosed by two events with
 type <code>GDK_TOUCH_BEGIN</code> and <code>GDK_TOUCH_END</code> (or <code>GDK_TOUCH_CANCEL</code>).
-gdk_event_get_event_sequence() returns the event sequence for these
+<code>gdk_event_get_event_sequence()</code> returns the event sequence for these
 events, so different sequences may be distinguished.</p>
 
                       </div>
@@ -8625,7 +8625,7 @@ hint must be set before mapping the window.</p>
                       <div class="abstract">
                         <p>Used to indicate which fields in the <code>GdkWindowAttr</code> struct should be honored.
 For example, if you filled in the “cursor” and “x” fields of <code>GdkWindowAttr</code>,
-pass “<code>GDK_WA_X</code> | <code>GDK_WA_CURSOR</code>” to gdk_window_new(). Fields in
+pass “<code>GDK_WA_X</code> | <code>GDK_WA_CURSOR</code>” to <code>gdk_window_new()</code>. Fields in
 <code>GdkWindowAttr</code> not covered by a bit in this enum are required; for example,
 the <code>width</code>/<code>height</code>, <code>wclass</code>, and <code>window_type</code> fields are required, they have
 no corresponding flag in <code>GdkWindowAttributesType</code>.</p>
@@ -8662,10 +8662,10 @@ no corresponding flag in <code>GdkWindowAttributesType</code>.</p>
 attention to. Also, the presence/absence of <code>GDK_HINT_POS</code>,
 <code>GDK_HINT_USER_POS</code>, and <code>GDK_HINT_USER_SIZE</code> is significant, though they don&rsquo;t
 directly refer to <code>GdkGeometry</code> fields. <code>GDK_HINT_USER_POS</code> will be set
-automatically by <code>GtkWindow</code> if you call gtk_window_move().
+automatically by <code>GtkWindow</code> if you call <code>gtk_window_move()</code>.
 <code>GDK_HINT_USER_POS</code> and <code>GDK_HINT_USER_SIZE</code> should be set if the user
 specified a size/position using a &ndash;geometry command-line argument;
-gtk_window_parse_geometry() automatically sets these flags.</p>
+<code>gtk_window_parse_geometry()</code> automatically sets these flags.</p>
 
                       </div>
                       <div class="declaration">
@@ -8729,7 +8729,7 @@ gtk_window_parse_geometry() automatically sets these flags.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the type of function passed to gdk_event_handler_set() to
+                        <p>Specifies the type of function passed to <code>gdk_event_handler_set()</code> to
 handle all GDK events.</p>
 
                       </div>
@@ -8830,7 +8830,7 @@ actions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A function of this type is passed to gdk_window_invalidate_maybe_recurse().
+                        <p>A function of this type is passed to <code>gdk_window_invalidate_maybe_recurse()</code>.
 It gets called for each child of the window to determine whether to
 recursively invalidate it or now.</p>
 
@@ -9003,7 +9003,7 @@ for storing pixel values in memory.</p>
 <p>Note that these IDs are directly taken from the X cursor font, and many
 of these cursors are either not useful, or are not available on other platforms.</p>
 
-<p>The recommended way to create cursors is to use gdk_cursor_new_from_name().</p>
+<p>The recommended way to create cursors is to use <code>gdk_cursor_new_from_name()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9094,7 +9094,7 @@ airbrush, pencil, etc.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates the device type. See [above][GdkDeviceManager.description]
+                        <p>Indicates the device type. See <a href="#GdkDeviceManager.description">above</a>
 for more information about the meaning of these device types.</p>
 
                       </div>
@@ -9348,7 +9348,7 @@ when in fullscreen mode.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
+                        <p>Returned by <code>gdk_device_grab()</code>, <code>gdk_pointer_grab()</code> and <code>gdk_keyboard_grab()</code> to
 indicate success or the reason for the failure of the grab attempt.</p>
 
                       </div>
@@ -9380,7 +9380,7 @@ indicate success or the reason for the failure of the grab attempt.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Defines the reference point of a window and the meaning of coordinates
-passed to gtk_window_move(). See gtk_window_move() and the <q>implementation
+passed to <code>gtk_window_move()</code>. See <code>gtk_window_move()</code> and the <q>implementation
 notes</q> section of the
 <a href="http://www.freedesktop.org/Standards/wm-spec">Extended Window Manager Hints</a>
 specification for more details.</p>
@@ -9473,7 +9473,7 @@ specification for more details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This enum is used with gdk_keymap_get_modifier_mask()
+                        <p>This enum is used with <code>gdk_keymap_get_modifier_mask()</code>
 in order to determine what modifiers the
 currently used windowing system backend uses for particular
 purposes. For example, on X11/Windows, the Control key is used for
@@ -9573,7 +9573,7 @@ full details of crossing event generation.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Describes how existing data is combined with new data when
-using gdk_property_change().</p>
+using <code>gdk_property_change()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10021,7 +10021,7 @@ windows in order to trap or filter the events. You can’t draw on
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

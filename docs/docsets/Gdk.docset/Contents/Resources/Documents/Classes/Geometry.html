@@ -8245,12 +8245,12 @@ Use <code>Geometry</code> as a strong reference or owner of a <code>GdkGeometry<
 
 <p>The <code>GdkGeometry</code> struct gives the window manager information about
 a window’s geometry constraints. Normally you would set these on
-the GTK+ level using gtk_window_set_geometry_hints(). <code>GtkWindow</code>
+the GTK+ level using <code>gtk_window_set_geometry_hints()</code>. <code>GtkWindow</code>
 then sets the hints on the <code>GdkWindow</code> it creates.</p>
 
-<p>gdk_window_set_geometry_hints() expects the hints to be fully valid already
+<p><code>gdk_window_set_geometry_hints()</code> expects the hints to be fully valid already
 and simply passes them to the window manager; in contrast,
-gtk_window_set_geometry_hints() performs some interpretation. For example,
+<code>gtk_window_set_geometry_hints()</code> performs some interpretation. For example,
 <code>GtkWindow</code> will apply the hints to the geometry widget instead of the
 toplevel window, if you set a geometry widget. Also, the
 <code>min_width</code>/<code>min_height</code>/<code>max_width</code>/<code>max_height</code> fields may be set to -1, and
@@ -8261,7 +8261,7 @@ set, <code>GtkWindow</code> will take the minimum size as the minimum size of th
 geometry widget rather than the entire window. The base size is treated
 similarly.</p>
 
-<p>The canonical use-case for gtk_window_set_geometry_hints() is to get a
+<p>The canonical use-case for <code>gtk_window_set_geometry_hints()</code> is to get a
 terminal widget to resize properly. Here, the terminal text area should be
 the geometry widget; <code>GtkWindow</code> will then automatically set the base size to
 the size of other widgets in the terminal window, such as the menubar and
@@ -8332,7 +8332,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8363,7 +8363,7 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L720-L722">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L717-L719">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8389,12 +8389,12 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GeometryProtocol.html">GeometryProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GeometryProtocol.html">GeometryProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L726-L729">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L723-L726">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8420,12 +8420,12 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L738-L740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L735-L737">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8451,12 +8451,12 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L744-L746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L741-L743">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8482,12 +8482,12 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L750-L752">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L747-L749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,12 +8513,12 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L756-L758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L753-L755">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8531,7 +8531,7 @@ Ownership is transferred to the <code>Geometry</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -8270,8 +8270,7 @@ Use <code>AppLaunchContext</code> as a strong reference or owner of a <code>GdkA
 handles launching an application in a graphical context. It provides
 startup notification and allows to launch applications on a specific
 screen or workspace.</p>
-
-<p>&ldquo;` Launching an application</p>
+<h2 id='launching-an-application' class='heading'>Launching an application</h2>
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>GdkAppLaunchContext *context;
@@ -8282,7 +8281,7 @@ gdk_app_launch_context_set_screen (screen);
 gdk_app_launch_context_set_timestamp (event-&gt;time);
 
 if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &amp;error))
-  g_warning ("Launching failed: `s`\n", error-&gt;message);
+  g_warning ("Launching failed: %s\n", error-&gt;message);
 
 g_object_unref (context);
 </code></pre>
@@ -8536,18 +8535,18 @@ physical devices being plugged or unplugged), GDK provides
 
 <p>By default, and if the platform supports it, GDK is aware of multiple
 keyboard/pointer pairs and multitouch devices. This behavior can be
-changed by calling gdk_disable_multidevice() before gdk_display_open().
+changed by calling <code>gdk_disable_multidevice()</code> before <code>gdk_display_open()</code>.
 There should rarely be a need to do that though, since GDK defaults
 to a compatibility mode in which it will emit just one enter/leave
 event pair for all devices on a window. To enable per-device
 enter/leave events and other multi-pointer interaction features,
-gdk_window_set_support_multidevice() must be called on
-<code>GdkWindows</code> (or gtk_widget_set_support_multidevice() on widgets).
-window. See the gdk_window_set_support_multidevice() documentation
+<code>gdk_window_set_support_multidevice()</code> must be called on
+<code>GdkWindows</code> (or <code>gtk_widget_set_support_multidevice()</code> on widgets).
+window. See the <code>gdk_window_set_support_multidevice()</code> documentation
 for more information.</p>
 
 <p>On X11, multi-device support is implemented through XInput 2.
-Unless gdk_disable_multidevice() is called, the XInput 2
+Unless <code>gdk_disable_multidevice()</code> is called, the XInput 2
 <code>GdkDeviceManager</code> implementation will be used as the input source.
 Otherwise either the core or XInput 1 implementations will be used.</p>
 
@@ -8555,7 +8554,7 @@ Otherwise either the core or XInput 1 implementations will be used.</p>
 input devices, the so-called “client pointer”
 provides a reasonable approximation to a simple setup with a single
 pointer and keyboard. The device that has been set as the client
-pointer can be accessed via gdk_device_manager_get_client_pointer().</p>
+pointer can be accessed via <code>gdk_device_manager_get_client_pointer()</code>.</p>
 
 <p>Conceptually, in multidevice mode there are 2 device types. Virtual
 devices (or master devices) are represented by the pointer cursors
@@ -8565,14 +8564,13 @@ devices, and thus have no visible cursor on the screen.</p>
 
 <p>Virtual devices are always paired, so there is a keyboard device for every
 pointer device. Associations between devices may be inspected through
-gdk_device_get_associated_device().</p>
+<code>gdk_device_get_associated_device()</code>.</p>
 
 <p>There may be several virtual devices, and several physical devices could
 be controlling each of these virtual devices. Physical devices may also
 be “floating”, which means they are not attached to any virtual device.</p>
-
-<p>&ldquo; Master and slave devices</p>
-<pre class="highlight swift"><code><span class="n">carlos</span><span class="err">`</span><span class="n">sacarino</span><span class="err">`</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">xinput</span> <span class="n">list</span>
+<h1 id='master-and-slave-devices' class='heading'>Master and slave devices</h1>
+<pre class="highlight swift"><code><span class="n">carlos</span><span class="kd">@sacarino</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">xinput</span> <span class="n">list</span>
 <span class="err">⎡</span> <span class="kt">Virtual</span> <span class="n">core</span> <span class="n">pointer</span>                          <span class="n">id</span><span class="o">=</span><span class="mi">2</span>    <span class="p">[</span><span class="n">master</span> <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
 <span class="err">⎜</span>   <span class="err">↳</span> <span class="kt">Virtual</span> <span class="n">core</span> <span class="kt">XTEST</span> <span class="n">pointer</span>                <span class="n">id</span><span class="o">=</span><span class="mi">4</span>    <span class="p">[</span><span class="n">slave</span>  <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
 <span class="err">⎜</span>   <span class="err">↳</span> <span class="kt">Wacom</span> <span class="kt">ISDv4</span> <span class="kt">E6</span> <span class="kt">Pen</span> <span class="n">stylus</span>                 <span class="n">id</span><span class="o">=</span><span class="mi">10</span>   <span class="p">[</span><span class="n">slave</span>  <span class="nf">pointer</span>  <span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
@@ -8600,7 +8598,7 @@ devices. Events containing device information are <code>GDK_MOTION_NOTIFY</code>
 <code>GDK_DRAG_MOTION</code>, <code>GDK_DRAG_STATUS</code>, <code>GDK_DROP_START</code>, <code>GDK_DROP_FINISHED</code>
 and <code>GDK_GRAB_BROKEN</code>. When dealing with an event on a master device,
 it is possible to get the source (slave) device that the event originated
-from via gdk_event_get_source_device().</p>
+from via <code>gdk_event_get_source_device()</code>.</p>
 
 <p>On a standard session, all physical devices are connected by default to
 the <q>Virtual Core Pointer/Keyboard</q> master devices, hence routing all events
@@ -8611,25 +8609,25 @@ more permanently by user modifications to the device hierarchy.</p>
 <p>On certain application specific setups, it may make sense
 to detach a physical device from its master pointer, and mapping it to
 an specific window. This can be achieved by the combination of
-gdk_device_grab() and gdk_device_set_mode().</p>
+<code>gdk_device_grab()</code> and <code>gdk_device_set_mode()</code>.</p>
 
 <p>In order to listen for events coming from devices
-other than a virtual device, gdk_window_set_device_events() must be
+other than a virtual device, <code>gdk_window_set_device_events()</code> must be
 called. Generally, this function can be used to modify the event mask
 for any given device.</p>
 
 <p>Input devices may also provide additional information besides X/Y.
 For example, graphics tablets may also provide pressure and X/Y tilt
 information. This information is device-dependent, and may be
-queried through gdk_device_get_axis(). In multidevice mode, virtual
+queried through <code>gdk_device_get_axis()</code>. In multidevice mode, virtual
 devices will change axes in order to always represent the physical
 device that is routing events through it. Whenever the physical device
-changes, the <code>GdkDevice</code>:n-axes property will be notified, and
-gdk_device_list_axes() will return the new device axes.</p>
+changes, the <code>GdkDevice:n</code>-axes property will be notified, and
+<code>gdk_device_list_axes()</code> will return the new device axes.</p>
 
 <p>Devices may also have associated “keys” or
 macro buttons. Such keys can be globally set to map into normal X
-keyboard events. The mapping is set using gdk_device_set_key().</p>
+keyboard events. The mapping is set using <code>gdk_device_set_key()</code>.</p>
 
 <p>In GTK+ 3.20, a new <code>GdkSeat</code> object has been introduced that
 supersedes <code>GdkDeviceManager</code> and should be preferred in newly
@@ -8646,7 +8644,7 @@ written code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1297-L1337">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1293-L1333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8690,7 +8688,7 @@ Use <code>DeviceTool</code> as a strong reference or owner of a <code>GdkDeviceT
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1600-L1640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1595-L1635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8736,12 +8734,12 @@ a keyboard, a pointing device (such as a mouse) and one or more
 screens.
 It is used to open and keep track of various GdkScreen objects
 currently instantiated by the application. It is also used to
-access the keyboard(s) and mouse pointer(s) of the display.</p>
+access the <code>keyboard(s)</code> and mouse <code>pointer(s)</code> of the display.</p>
 
 <p>Most of the input device handling has been factored out into
 the separate <code>GdkDeviceManager</code> object. Every display has a
 device manager, which you can obtain using
-gdk_display_get_device_manager().</p>
+<code>gdk_display_get_device_manager()</code>.</p>
 
                         <a href="Classes/Display.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8754,7 +8752,7 @@ gdk_display_get_device_manager().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1974-L2041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1968-L2035">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8791,7 +8789,7 @@ Use <code>DisplayManager</code> as a strong reference or owner of a <code>GdkDis
 notification when displays appear or disappear or the default display
 changes.</p>
 
-<p>You can use gdk_display_manager_get() to obtain the <code>GdkDisplayManager</code>
+<p>You can use <code>gdk_display_manager_get()</code> to obtain the <code>GdkDisplayManager</code>
 singleton, but that should be rarely necessary. Typically, initializing
 GTK+ opens a display that you can work with without ever accessing the
 <code>GdkDisplayManager</code>.</p>
@@ -8805,25 +8803,24 @@ multiple GDK backends, you have to consider both compile time and
 runtime. At compile time, use the <code>GDK_WINDOWING_X11</code>, <code>GDK_WINDOWING_WIN32</code>
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
-macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
-
-<p><code>Backend-specific code</code> {<code>backend</code>-specific}</p>
+macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in use:</p>
+<h2 id='backend-specific-code-a-name-backend-specific-a' class='heading'>Backend-specific code ## <a name="backend-specific"></a></h2>
 
 <p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>`ifdef` GDK_WINDOWING_X11
+<pre class="highlight plaintext"><code>#ifdef GDK_WINDOWING_X11
   if (GDK_IS_X11_DISPLAY (display))
     {
       // make X11-specific calls here
     }
   else
-`endif`
-`ifdef` GDK_WINDOWING_QUARTZ
+#endif
+#ifdef GDK_WINDOWING_QUARTZ
   if (GDK_IS_QUARTZ_DISPLAY (display))
     {
       // make Quartz-specific calls here
     }
   else
-`endif`
+#endif
   g_error ("Unsupported GDK backend");
 </code></pre>
 
@@ -8838,7 +8835,7 @@ macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2906-L2957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2899-L2950">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8882,7 +8879,7 @@ Use <code>DragContext</code> as a strong reference or owner of a <code>GdkDragCo
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3176-L3216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3168-L3208">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8921,8 +8918,8 @@ state of a <code>GdkWindow</code>.</p>
 <p>It&rsquo;s possible to use a <code>GdkDrawingContext</code> to draw on a <code>GdkWindow</code>
 via rendering API like Cairo or OpenGL.</p>
 
-<p>A <code>GdkDrawingContext</code> can only be created by calling gdk_window_begin_draw_frame()
-and will be valid until a call to gdk_window_end_draw_frame().</p>
+<p>A <code>GdkDrawingContext</code> can only be created by calling <code>gdk_window_begin_draw_frame()</code>
+and will be valid until a call to <code>gdk_window_end_draw_frame()</code>.</p>
 
 <p><code>GdkDrawingContext</code> is available since GDK 3.22</p>
 
@@ -8937,7 +8934,7 @@ and will be valid until a call to gdk_window_end_draw_frame().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3696-L3736">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3687-L3727">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8984,24 +8981,24 @@ implementation or with mozRequestAnimationFrame in Firefox,
 for example.</p>
 
 <p>A frame clock is idle until someone requests a frame with
-gdk_frame_clock_request_phase(). At some later point that makes
+<code>gdk_frame_clock_request_phase()</code>. At some later point that makes
 sense for the synchronization being implemented, the clock will
 process a frame and emit signals for each phase that has been
 requested. (See the signals of the <code>GdkFrameClock</code> class for
 documentation of the phases. <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the
-<code>GdkFrameClock</code>::update signal are most interesting for application
+<code>GdkFrameClock::update</code> signal are most interesting for application
 writers, and are used to update the animations, using the frame time
-given by gdk_frame_clock_get_frame_time().</p>
+given by <code>gdk_frame_clock_get_frame_time()</code>.</p>
 
 <p>The frame time is reported in microseconds and generally in the same
-timescale as g_get_monotonic_time(), however, it is not the same
-as g_get_monotonic_time(). The frame time does not advance during
+timescale as <code>g_get_monotonic_time()</code>, however, it is not the same
+as <code>g_get_monotonic_time()</code>. The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to gdk_frame_clock_get_frame_time() that
+is made so that all calls to <code>gdk_frame_clock_get_frame_time()</code> that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from gdk_frame_clock_get_frame_time()
-and the value inside the <code>GdkFrameClock</code>::update signal of the clock,
+time between an initial value from <code>gdk_frame_clock_get_frame_time()</code>
+and the value inside the <code>GdkFrameClock::update</code> signal of the clock,
 they will stay exactly synchronized.</p>
 
                         <a href="Classes/FrameClock.html" class="slightly-smaller">See more</a>
@@ -9015,7 +9012,7 @@ they will stay exactly synchronized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4087-L4127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4077-L4117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9053,16 +9050,16 @@ Use <code>DevicePad</code> as a strong reference or owner of a <code>GdkDevicePa
 by the pad device.</p>
 
 <p>Tablet pads may contain one or more groups, each containing a subset
-of the buttons/rings/strips available. gdk_device_pad_get_n_groups()
-can be used to obtain the number of groups, gdk_device_pad_get_n_features()
-and gdk_device_pad_get_feature_group() can be combined to find out the
+of the buttons/rings/strips available. <code>gdk_device_pad_get_n_groups()</code>
+can be used to obtain the number of groups, <code>gdk_device_pad_get_n_features()</code>
+and <code>gdk_device_pad_get_feature_group()</code> can be combined to find out the
 number of buttons/rings/strips the device has, and how are they grouped.</p>
 
 <p>Each of those groups have different modes, which may be used to map
 each individual pad feature to multiple actions. Only one mode is
 effective (current) for each given group, different groups may have
 different current modes. The number of available modes in a group can
-be found out through gdk_device_pad_get_group_n_modes(), and the current
+be found out through <code>gdk_device_pad_get_group_n_modes()</code>, and the current
 mode for a given group will be notified through the <code>GdkEventPadGroupMode</code>
 event.</p>
 
@@ -9994,7 +9991,7 @@ when the wheel is turned.</p>
 <p>Some GDK backends can also generate “smooth” scroll events, which
 can be recognized by the <code>GDK_SCROLL_SMOOTH</code> scroll direction. For
 these, the scroll deltas can be obtained with
-gdk_event_get_scroll_deltas().</p>
+<code>gdk_event_get_scroll_deltas()</code>.</p>
 
                         <a href="Classes/EventScroll.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10182,7 +10179,7 @@ Use <code>EventTouch</code> as a strong reference or owner of a <code>GdkEventTo
 <code>GDK_TOUCH_END</code> or <code>GDK_TOUCH_CANCEL</code>.</p>
 
 <p>Touch events are grouped into sequences by means of the <code>sequence</code>
-field, which can also be obtained with gdk_event_get_event_sequence().
+field, which can also be obtained with <code>gdk_event_get_event_sequence()</code>.
 Each sequence begins with a <code>GDK_TOUCH_BEGIN</code> event, followed by
 any number of <code>GDK_TOUCH_UPDATE</code> events, and ends with a <code>GDK_TOUCH_END</code>
 (or <code>GDK_TOUCH_CANCEL</code>) event. With multitouch devices, there may be
@@ -10506,7 +10503,7 @@ Use <code>FrameTimings</code> as a strong reference or owner of a <code>GdkFrame
 
 <p>A <code>GdkFrameTimings</code> object holds timing information for a single frame
 of the application’s displays. To retrieve <code>GdkFrameTimings</code> objects,
-use gdk_frame_clock_get_timings() or gdk_frame_clock_get_current_timings().
+use <code>gdk_frame_clock_get_timings()</code> or <code>gdk_frame_clock_get_current_timings()</code>.
 The information in <code>GdkFrameTimings</code> is useful for precise synchronization
 of video with the event or audio streams, and for measuring
 quality metrics for the application’s display, such as latency and jitter.</p>
@@ -10557,12 +10554,12 @@ Use <code>Geometry</code> as a strong reference or owner of a <code>GdkGeometry<
 
 <p>The <code>GdkGeometry</code> struct gives the window manager information about
 a window’s geometry constraints. Normally you would set these on
-the GTK+ level using gtk_window_set_geometry_hints(). <code>GtkWindow</code>
+the GTK+ level using <code>gtk_window_set_geometry_hints()</code>. <code>GtkWindow</code>
 then sets the hints on the <code>GdkWindow</code> it creates.</p>
 
-<p>gdk_window_set_geometry_hints() expects the hints to be fully valid already
+<p><code>gdk_window_set_geometry_hints()</code> expects the hints to be fully valid already
 and simply passes them to the window manager; in contrast,
-gtk_window_set_geometry_hints() performs some interpretation. For example,
+<code>gtk_window_set_geometry_hints()</code> performs some interpretation. For example,
 <code>GtkWindow</code> will apply the hints to the geometry widget instead of the
 toplevel window, if you set a geometry widget. Also, the
 <code>min_width</code>/<code>min_height</code>/<code>max_width</code>/<code>max_height</code> fields may be set to -1, and
@@ -10573,7 +10570,7 @@ set, <code>GtkWindow</code> will take the minimum size as the minimum size of th
 geometry widget rather than the entire window. The base size is treated
 similarly.</p>
 
-<p>The canonical use-case for gtk_window_set_geometry_hints() is to get a
+<p>The canonical use-case for <code>gtk_window_set_geometry_hints()</code> is to get a
 terminal widget to resize properly. Here, the terminal text area should be
 the geometry widget; <code>GtkWindow</code> will then automatically set the base size to
 the size of other widgets in the terminal window, such as the menubar and
@@ -10622,7 +10619,7 @@ aspect ratio.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L713-L762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L710-L759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10659,13 +10656,13 @@ Use <code>GLContext</code> as a strong reference or owner of a <code>GdkGLContex
 OpenGL drawing context.</p>
 
 <p><code>GdkGLContexts</code> are created for a <code>GdkWindow</code> using
-gdk_window_create_gl_context(), and the context will match
+<code>gdk_window_create_gl_context()</code>, and the context will match
 the <code>GdkVisual</code> of the window.</p>
 
 <p>A <code>GdkGLContext</code> is not tied to any particular normal framebuffer.
 For instance, it cannot draw to the <code>GdkWindow</code> back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+you can create render buffers or textures and use <code>gdk_cairo_draw_from_gl()</code>
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 
@@ -10674,22 +10671,20 @@ can fail, returning <code>nil</code> context.</p>
 
 <p>A <code>GdkGLContext</code> has to be made <q>current</q> in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
-
-<p><code>Creating a new OpenGL context</code></p>
+<h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
 <p>In order to create a new <code>GdkGLContext</code> instance you need a
 <code>GdkWindow</code>, which you typically get during the realize call
 of a widget.</p>
 
-<p>A <code>GdkGLContext</code> is not realized until either gdk_gl_context_make_current(),
-or until it is realized using gdk_gl_context_realize(). It is possible to
+<p>A <code>GdkGLContext</code> is not realized until either <code>gdk_gl_context_make_current()</code>,
+or until it is realized using <code>gdk_gl_context_realize()</code>. It is possible to
 specify details of the GL context like the OpenGL version to be used, or
 whether the GL context should have extra state validation enabled after
-calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+calling <code>gdk_window_create_gl_context()</code> by calling <code>gdk_gl_context_realize()</code>.
 If the realization fails you have the option to change the settings of the
 <code>GdkGLContext</code> and try again.</p>
-
-<p><code>Using a GdkGLContext</code></p>
+<h2 id='using-a-gdkglcontext' class='heading'>Using a GdkGLContext</h2>
 
 <p>You will need to make the <code>GdkGLContext</code> the current context
 before issuing OpenGL calls; the system sends OpenGL commands to
@@ -10704,8 +10699,8 @@ want to draw with is the current one before issuing commands:</p>
 <p>You can now perform your drawing using OpenGL commands.</p>
 
 <p>You can check which <code>GdkGLContext</code> is the current one by using
-gdk_gl_context_get_current(); you can also unset any <code>GdkGLContext</code>
-that is currently set by calling gdk_gl_context_clear_current().</p>
+<code>gdk_gl_context_get_current()</code>; you can also unset any <code>GdkGLContext</code>
+that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p>
 
                         <a href="Classes/GLContext.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10718,7 +10713,7 @@ that is currently set by calling gdk_gl_context_clear_current().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L248-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L245-L290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10769,7 +10764,7 @@ in the keymap and see what keyval it corresponds to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L763-L817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L759-L813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10894,9 +10889,9 @@ Use <code>Monitor</code> as a strong reference or owner of a <code>GdkMonitor</c
 
 <p>GdkMonitor objects represent the individual outputs that are
 associated with a <code>GdkDisplay</code>. GdkDisplay has APIs to enumerate
-monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
-to find particular monitors with gdk_display_get_primary_monitor() or
-gdk_display_get_monitor_at_window().</p>
+monitors with <code>gdk_display_get_n_monitors()</code> and <code>gdk_display_get_monitor()</code>, and
+to find particular monitors with <code>gdk_display_get_primary_monitor()</code> or
+<code>gdk_display_get_monitor_at_window()</code>.</p>
 
 <p>GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 APIs in GdkScreen to obtain monitor-related information.</p>
@@ -10949,13 +10944,13 @@ Use <code>Screen</code> as a strong reference or owner of a <code>GdkScreen</cod
 which windows can be displayed and on which the pointer moves.
 X originally identified screens with physical screens, but
 nowadays it is more common to have a single <code>GdkScreen</code> which
-combines several physical monitors (see gdk_screen_get_n_monitors()).</p>
+combines several physical monitors (see <code>gdk_screen_get_n_monitors()</code>).</p>
 
 <p>GdkScreen is used throughout GDK and GTK+ to specify which screen
 the top level windows are to be displayed on. it is also used to
 query the screen specification and default settings such as
-the default visual (gdk_screen_get_system_visual()), the dimensions
-of the physical monitors (gdk_screen_get_monitor_geometry()), etc.</p>
+the default visual (<code>gdk_screen_get_system_visual()</code>), the dimensions
+of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.</p>
 
                         <a href="Classes/Screen.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10968,7 +10963,7 @@ of the physical monitors (gdk_screen_get_monitor_geometry()), etc.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L576-L622">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L575-L621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11248,7 +11243,7 @@ a particular visual.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L490-L588">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L489-L587">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11439,7 +11434,7 @@ Use <code>WindowRedirect</code> as a strong reference or owner of a <code>GdkWin
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

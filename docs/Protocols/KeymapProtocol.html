@@ -8283,7 +8283,7 @@ in the keymap and see what keyval it corresponds to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8321,7 +8321,7 @@ in the keymap and see what keyval it corresponds to.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L678">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L674">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8413,7 +8413,7 @@ in the keymap and see what keyval it corresponds to.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L867-L886">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L862-L881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8466,7 +8466,7 @@ accelerators.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L903-L906">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L898-L901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8499,7 +8499,7 @@ accelerators.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L909-L912">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L904-L907">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8532,7 +8532,7 @@ accelerators.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L915-L918">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L910-L913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8555,10 +8555,10 @@ accelerators.</p>
                       <div class="abstract">
                         <p>Returns the keyvals bound to <code>hardware_keycode</code>.
 The Nth <code>GdkKeymapKey</code> in <code>keys</code> is bound to the Nth
-keyval in <code>keyvals</code>. Free the returned arrays with g_free().
+keyval in <code>keyvals</code>. Free the returned arrays with <code>g_free()</code>.
 When a keycode is pressed by the user, the keyval from
 this list of entries is selected by considering the effective
-keyboard group and level. See gdk_keymap_translate_keyboard_state().</p>
+keyboard group and level. See <code>gdk_keymap_translate_keyboard_state()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8570,7 +8570,7 @@ keyboard group and level. See gdk_keymap_translate_keyboard_state().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L926-L929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L921-L924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8601,7 +8601,7 @@ convert a keyboard between Hebrew to English modes, for example.
 <code>GdkEventKey</code> contains a <code>group</code> field that indicates the active
 keyboard group. The level is computed from the modifier mask.
 The returned array should be freed
-with g_free().</p>
+with <code>g_free()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8613,7 +8613,7 @@ with g_free().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L942-L945">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L937-L940">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8641,7 +8641,7 @@ uses for a particular purpose.</p>
 virtual ones (e.g. it will return <code>GDK_MOD1_MASK</code> rather than
 <code>GDK_META_MASK</code> if the backend maps MOD1 to META), so there are use
 cases where the return value of this function has to be transformed
-by gdk_keymap_add_virtual_modifiers() in order to contain the
+by <code>gdk_keymap_add_virtual_modifiers()</code> in order to contain the
 expected result.</p>
 
                       </div>
@@ -8654,7 +8654,7 @@ expected result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L956-L959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L951-L954">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8687,7 +8687,7 @@ expected result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L962-L965">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L957-L960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8720,7 +8720,7 @@ expected result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L968-L971">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L963-L966">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8753,7 +8753,7 @@ expected result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L974-L977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L969-L972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8787,7 +8787,7 @@ languages are in use.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L981-L984">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L976-L979">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8810,7 +8810,7 @@ languages are in use.</p>
                       <div class="abstract">
                         <p>Looks up the keyval mapped to a keycode/group/level triplet.
 If no keyval is bound to <code>key</code>, returns 0. For normal user input,
-you want to use gdk_keymap_translate_keyboard_state() instead of
+you want to use <code>gdk_keymap_translate_keyboard_state()</code> instead of
 this function, since the effective group/level may not be
 the same as the current keyboard state.</p>
 
@@ -8824,7 +8824,7 @@ the same as the current keyboard state.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L991-L994">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L986-L989">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8862,7 +8862,7 @@ accelerators.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1002-L1005">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L997-L1000">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8887,7 +8887,7 @@ accelerators.</p>
 group, and level. Modifiers that affected the translation and
 are thus unavailable for application use are returned in
 <code>consumed_modifiers</code>.
-See [Groups][key-group-explanation] for an explanation of
+See <a href="#key-group-explanation">Groups</a> for an explanation of
 groups and levels. The <code>effective_group</code> is the group that was
 actually used for the translation; some keys such as Enter are not
 affected by the active keyboard group. The <code>level</code> is derived from
@@ -8901,7 +8901,7 @@ the <code>plus</code> symbol is shifted, so when comparing a key press to a
 
 <p>(C Language Example):</p>
 <pre class="highlight plaintext"><code>// We want to ignore irrelevant modifiers like ScrollLock
-`define` ALL_ACCELS_MASK (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK)
+#define ALL_ACCELS_MASK (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK)
 gdk_keymap_translate_keyboard_state (keymap, event-&gt;hardware_keycode,
                                      event-&gt;state, event-&gt;group,
                                      &amp;keyval, NULL, NULL, &amp;consumed);
@@ -8941,7 +8941,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1058-L1061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1051-L1054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8974,7 +8974,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1063-L1069">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1056-L1062">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9007,7 +9007,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1072-L1078">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1065-L1071">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9040,7 +9040,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1081-L1087">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1074-L1080">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9073,7 +9073,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1090-L1096">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1083-L1089">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9106,7 +9106,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1099-L1105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L1092-L1098">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9119,7 +9119,7 @@ modifiers removed. Store <code>&lt;Control&gt;plus</code>, not <code>&lt;Control
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

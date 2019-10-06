@@ -8247,13 +8247,13 @@ Use <code>GLContext</code> as a strong reference or owner of a <code>GdkGLContex
 OpenGL drawing context.</p>
 
 <p><code>GdkGLContexts</code> are created for a <code>GdkWindow</code> using
-gdk_window_create_gl_context(), and the context will match
+<code>gdk_window_create_gl_context()</code>, and the context will match
 the <code>GdkVisual</code> of the window.</p>
 
 <p>A <code>GdkGLContext</code> is not tied to any particular normal framebuffer.
 For instance, it cannot draw to the <code>GdkWindow</code> back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+you can create render buffers or textures and use <code>gdk_cairo_draw_from_gl()</code>
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 
@@ -8262,22 +8262,20 @@ can fail, returning <code>nil</code> context.</p>
 
 <p>A <code>GdkGLContext</code> has to be made <q>current</q> in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
-
-<p><code>Creating a new OpenGL context</code></p>
+<h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
 <p>In order to create a new <code>GdkGLContext</code> instance you need a
 <code>GdkWindow</code>, which you typically get during the realize call
 of a widget.</p>
 
-<p>A <code>GdkGLContext</code> is not realized until either gdk_gl_context_make_current(),
-or until it is realized using gdk_gl_context_realize(). It is possible to
+<p>A <code>GdkGLContext</code> is not realized until either <code>gdk_gl_context_make_current()</code>,
+or until it is realized using <code>gdk_gl_context_realize()</code>. It is possible to
 specify details of the GL context like the OpenGL version to be used, or
 whether the GL context should have extra state validation enabled after
-calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+calling <code>gdk_window_create_gl_context()</code> by calling <code>gdk_gl_context_realize()</code>.
 If the realization fails you have the option to change the settings of the
 <code>GdkGLContext</code> and try again.</p>
-
-<p><code>Using a GdkGLContext</code></p>
+<h2 id='using-a-gdkglcontext' class='heading'>Using a GdkGLContext</h2>
 
 <p>You will need to make the <code>GdkGLContext</code> the current context
 before issuing OpenGL calls; the system sends OpenGL commands to
@@ -8292,8 +8290,8 @@ want to draw with is the current one before issuing commands:</p>
 <p>You can now perform your drawing using OpenGL commands.</p>
 
 <p>You can check which <code>GdkGLContext</code> is the current one by using
-gdk_gl_context_get_current(); you can also unset any <code>GdkGLContext</code>
-that is currently set by calling gdk_gl_context_clear_current().</p>
+<code>gdk_gl_context_get_current()</code>; you can also unset any <code>GdkGLContext</code>
+that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p>
 
           </div>
         </section>
@@ -8328,7 +8326,7 @@ Ownership is transferred to the <code>GLContext</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L251-L253">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L248-L250">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8354,12 +8352,12 @@ Will retain <code>GdkGLContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GLContextProtocol.html">GLContextProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/GLContextProtocol.html">GLContextProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L257-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L254-L257">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8385,12 +8383,12 @@ Will retain <code>GdkGLContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L264-L266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L261-L263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8416,12 +8414,12 @@ Will retain <code>GdkGLContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L270-L272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L267-L269">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8447,12 +8445,12 @@ Will retain <code>GdkGLContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L276-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L273-L275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8478,12 +8476,12 @@ Will retain <code>GdkGLContext</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L282-L284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L279-L281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,7 +8511,7 @@ Will retain <code>GdkGLContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L288-L291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L285-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8526,7 +8524,7 @@ Will retain <code>GdkGLContext</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

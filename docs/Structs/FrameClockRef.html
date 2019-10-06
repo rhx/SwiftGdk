@@ -8257,24 +8257,24 @@ implementation or with mozRequestAnimationFrame in Firefox,
 for example.</p>
 
 <p>A frame clock is idle until someone requests a frame with
-gdk_frame_clock_request_phase(). At some later point that makes
+<code>gdk_frame_clock_request_phase()</code>. At some later point that makes
 sense for the synchronization being implemented, the clock will
 process a frame and emit signals for each phase that has been
 requested. (See the signals of the <code>GdkFrameClock</code> class for
 documentation of the phases. <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the
-<code>GdkFrameClock</code>::update signal are most interesting for application
+<code>GdkFrameClock::update</code> signal are most interesting for application
 writers, and are used to update the animations, using the frame time
-given by gdk_frame_clock_get_frame_time().</p>
+given by <code>gdk_frame_clock_get_frame_time()</code>.</p>
 
 <p>The frame time is reported in microseconds and generally in the same
-timescale as g_get_monotonic_time(), however, it is not the same
-as g_get_monotonic_time(). The frame time does not advance during
+timescale as <code>g_get_monotonic_time()</code>, however, it is not the same
+as <code>g_get_monotonic_time()</code>. The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to gdk_frame_clock_get_frame_time() that
+is made so that all calls to <code>gdk_frame_clock_get_frame_time()</code> that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from gdk_frame_clock_get_frame_time()
-and the value inside the <code>GdkFrameClock</code>::update signal of the clock,
+time between an initial value from <code>gdk_frame_clock_get_frame_time()</code>
+and the value inside the <code>GdkFrameClock::update</code> signal of the clock,
 they will stay exactly synchronized.</p>
 
           </div>
@@ -8310,7 +8310,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4005">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8351,7 +8351,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4010-L4011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4000-L4001">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8381,7 +8381,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4014-L4016">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4004-L4006">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8412,7 +8412,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4020-L4022">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4010-L4012">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8443,7 +8443,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4026-L4028">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4016-L4018">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8474,7 +8474,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4032-L4034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4022-L4024">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8505,7 +8505,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4038-L4040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4028-L4030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8536,7 +8536,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4044-L4046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4034-L4036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8549,7 +8549,7 @@ For type-safe access, use the generated, typed pointer <code>frame_clock_ptr</co
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

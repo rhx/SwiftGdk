@@ -8258,24 +8258,24 @@ implementation or with mozRequestAnimationFrame in Firefox,
 for example.</p>
 
 <p>A frame clock is idle until someone requests a frame with
-gdk_frame_clock_request_phase(). At some later point that makes
+<code>gdk_frame_clock_request_phase()</code>. At some later point that makes
 sense for the synchronization being implemented, the clock will
 process a frame and emit signals for each phase that has been
 requested. (See the signals of the <code>GdkFrameClock</code> class for
 documentation of the phases. <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the
-<code>GdkFrameClock</code>::update signal are most interesting for application
+<code>GdkFrameClock::update</code> signal are most interesting for application
 writers, and are used to update the animations, using the frame time
-given by gdk_frame_clock_get_frame_time().</p>
+given by <code>gdk_frame_clock_get_frame_time()</code>.</p>
 
 <p>The frame time is reported in microseconds and generally in the same
-timescale as g_get_monotonic_time(), however, it is not the same
-as g_get_monotonic_time(). The frame time does not advance during
+timescale as <code>g_get_monotonic_time()</code>, however, it is not the same
+as <code>g_get_monotonic_time()</code>. The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to gdk_frame_clock_get_frame_time() that
+is made so that all calls to <code>gdk_frame_clock_get_frame_time()</code> that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from gdk_frame_clock_get_frame_time()
-and the value inside the <code>GdkFrameClock</code>::update signal of the clock,
+time between an initial value from <code>gdk_frame_clock_get_frame_time()</code>
+and the value inside the <code>GdkFrameClock::update</code> signal of the clock,
 they will stay exactly synchronized.</p>
 
           </div>
@@ -8310,7 +8310,7 @@ they will stay exactly synchronized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8348,7 +8348,7 @@ they will stay exactly synchronized.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L3952">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8440,7 +8440,7 @@ they will stay exactly synchronized.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4199-L4218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4188-L4207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8473,10 +8473,10 @@ they will stay exactly synchronized.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Starts updates for an animation. Until a matching call to
-gdk_frame_clock_end_updating() is made, the frame clock will continually
+<code>gdk_frame_clock_end_updating()</code> is made, the frame clock will continually
 request a new frame with the <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> phase.
 This function may be called multiple times and frames will be
-requested until gdk_frame_clock_end_updating() is called the same
+requested until <code>gdk_frame_clock_end_updating()</code> is called the same
 number of times.</p>
 
                       </div>
@@ -8489,7 +8489,7 @@ number of times.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4231-L4234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4220-L4223">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8511,7 +8511,7 @@ number of times.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Stops updates for an animation. See the documentation for
-gdk_frame_clock_begin_updating().</p>
+<code>gdk_frame_clock_begin_updating()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8523,7 +8523,7 @@ gdk_frame_clock_begin_updating().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4238-L4241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4227-L4230">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8556,7 +8556,7 @@ gdk_frame_clock_begin_updating().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4244-L4247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4233-L4236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8590,7 +8590,7 @@ each frame drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4251-L4254">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4240-L4243">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8628,7 +8628,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4262-L4265">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4251-L4254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8651,10 +8651,10 @@ time.</p>
                       <div class="abstract">
                         <p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
 objects for recent frames that can be retrieved with
-gdk_frame_clock_get_timings(). The set of stored frames
+<code>gdk_frame_clock_get_timings()</code>. The set of stored frames
 is the set from the counter values given by
-gdk_frame_clock_get_history_start() and
-gdk_frame_clock_get_frame_counter(), inclusive.</p>
+<code>gdk_frame_clock_get_history_start()</code> and
+<code>gdk_frame_clock_get_frame_counter()</code>, inclusive.</p>
 
                       </div>
                       <div class="declaration">
@@ -8666,7 +8666,7 @@ gdk_frame_clock_get_frame_counter(), inclusive.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4273-L4276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4262-L4265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8703,7 +8703,7 @@ interval after the last presentation time, and later than <code>base_time</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4283-L4286">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4272-L4275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8726,7 +8726,7 @@ interval after the last presentation time, and later than <code>base_time</code>
                       <div class="abstract">
                         <p>Retrieves a <code>GdkFrameTimings</code> object holding timing information
 for the current frame or a recent frame. The <code>GdkFrameTimings</code>
-object may not yet be complete: see gdk_frame_timings_get_complete().</p>
+object may not yet be complete: see <code>gdk_frame_timings_get_complete()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8738,7 +8738,7 @@ object may not yet be complete: see gdk_frame_timings_get_complete().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4291-L4294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4280-L4283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8762,11 +8762,11 @@ object may not yet be complete: see gdk_frame_timings_get_complete().</p>
                         <p>Asks the frame clock to run a particular phase. The signal
 corresponding the requested phase will be emitted the next
 time the frame clock processes. Multiple calls to
-gdk_frame_clock_request_phase() will be combined together
+<code>gdk_frame_clock_request_phase()</code> will be combined together
 and only one frame processed. If you are displaying animated
 content and want to continually request the
 <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> phase for a period of time,
-you should use gdk_frame_clock_begin_updating() instead, since
+you should use <code>gdk_frame_clock_begin_updating()</code> instead, since
 this allows GTK+ to adjust system parameters to get maximally
 smooth animations.</p>
 
@@ -8780,7 +8780,7 @@ smooth animations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4306-L4309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4295-L4298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8813,7 +8813,7 @@ smooth animations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4311-L4317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4300-L4306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8847,7 +8847,7 @@ each frame drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4321-L4328">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4310-L4317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8885,7 +8885,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4336-L4347">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4325-L4336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8908,10 +8908,10 @@ time.</p>
                       <div class="abstract">
                         <p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
 objects for recent frames that can be retrieved with
-gdk_frame_clock_get_timings(). The set of stored frames
+<code>gdk_frame_clock_get_timings()</code>. The set of stored frames
 is the set from the counter values given by
-gdk_frame_clock_get_history_start() and
-gdk_frame_clock_get_frame_counter(), inclusive.</p>
+<code>gdk_frame_clock_get_history_start()</code> and
+<code>gdk_frame_clock_get_frame_counter()</code>, inclusive.</p>
 
                       </div>
                       <div class="declaration">
@@ -8923,7 +8923,7 @@ gdk_frame_clock_get_frame_counter(), inclusive.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4355-L4366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L4344-L4355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8936,7 +8936,7 @@ gdk_frame_clock_get_frame_counter(), inclusive.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

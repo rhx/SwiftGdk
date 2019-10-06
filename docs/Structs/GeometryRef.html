@@ -8245,12 +8245,12 @@ Use <code>GeometryRef</code> only as an <code>unowned</code> reference to an exi
 
 <p>The <code>GdkGeometry</code> struct gives the window manager information about
 a window’s geometry constraints. Normally you would set these on
-the GTK+ level using gtk_window_set_geometry_hints(). <code>GtkWindow</code>
+the GTK+ level using <code>gtk_window_set_geometry_hints()</code>. <code>GtkWindow</code>
 then sets the hints on the <code>GdkWindow</code> it creates.</p>
 
-<p>gdk_window_set_geometry_hints() expects the hints to be fully valid already
+<p><code>gdk_window_set_geometry_hints()</code> expects the hints to be fully valid already
 and simply passes them to the window manager; in contrast,
-gtk_window_set_geometry_hints() performs some interpretation. For example,
+<code>gtk_window_set_geometry_hints()</code> performs some interpretation. For example,
 <code>GtkWindow</code> will apply the hints to the geometry widget instead of the
 toplevel window, if you set a geometry widget. Also, the
 <code>min_width</code>/<code>min_height</code>/<code>max_width</code>/<code>max_height</code> fields may be set to -1, and
@@ -8261,7 +8261,7 @@ set, <code>GtkWindow</code> will take the minimum size as the minimum size of th
 geometry widget rather than the entire window. The base size is treated
 similarly.</p>
 
-<p>The canonical use-case for gtk_window_set_geometry_hints() is to get a
+<p>The canonical use-case for <code>gtk_window_set_geometry_hints()</code> is to get a
 terminal widget to resize properly. Here, the terminal text area should be
 the geometry widget; <code>GtkWindow</code> will then automatically set the base size to
 the size of other widgets in the terminal window, such as the menubar and
@@ -8332,7 +8332,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L605">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8373,7 +8373,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L612-L613">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L610-L611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8403,7 +8403,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L616-L618">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L614-L616">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8434,7 +8434,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L622-L624">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L620-L622">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8465,7 +8465,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L628-L630">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L626-L628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8496,7 +8496,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L634-L636">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L632-L634">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8527,7 +8527,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L640-L642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L638-L640">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8558,7 +8558,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L646-L648">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-FrameClockPrivate-Geometry.swift#L644-L646">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8571,7 +8571,7 @@ For type-safe access, use the generated, typed pointer <code>_ptr</code> propert
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-06)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
