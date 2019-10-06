@@ -12,7 +12,7 @@ import GdkPixbuf
 
 /// Checks all open displays for a `GdkEvent` to process,to be processed
 /// on, fetching events from the windowing system if necessary.
-/// See gdk_display_get_event().
+/// See `gdk_display_get_event()`.
 public func get() -> UnsafeMutablePointer<GdkEvent>! {
     let rv = gdk_event_get()
     return cast(rv)
@@ -25,7 +25,7 @@ public func get() -> UnsafeMutablePointer<GdkEvent>! {
 /// 
 /// Note that GTK+ uses this to install its own event handler, so it is
 /// usually not useful for GTK+ applications. (Although an application
-/// can call this function then call gtk_main_do_event() to pass
+/// can call this function then call `gtk_main_do_event()` to pass
 /// events to GTK+.)
 public func handlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) {
     gdk_event_handler_set(func_, cast(data), notify)
@@ -36,7 +36,7 @@ public func handlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer
 
 
 /// If there is an event waiting in the event queue of some open
-/// display, returns a copy of it. See gdk_display_peek_event().
+/// display, returns a copy of it. See `gdk_display_peek_event()`.
 public func peek() -> UnsafeMutablePointer<GdkEvent>! {
     let rv = gdk_event_peek()
     return cast(rv)
@@ -47,7 +47,7 @@ public func peek() -> UnsafeMutablePointer<GdkEvent>! {
 
 /// Request more motion notifies if `event` is a motion notify hint event.
 /// 
-/// This function should be used instead of gdk_window_get_pointer() to
+/// This function should be used instead of `gdk_window_get_pointer()` to
 /// request further motion notifies, because it also works for extension
 /// events where motion notifies are provided for devices other than the
 /// core pointer. Coordinate extraction, processing and requesting more
@@ -97,7 +97,7 @@ public func atomIntern(atomName atom_name: UnsafePointer<gchar>, onlyIfExists on
 
 /// Finds or creates an atom corresponding to a given string.
 /// 
-/// Note that this function is identical to gdk_atom_intern() except
+/// Note that this function is identical to `gdk_atom_intern()` except
 /// that if a new `GdkAtom` is created the string itself is used rather
 /// than a copy. This saves memory, but can only be used if the string
 /// will always exist. It can be used with statically
@@ -124,7 +124,7 @@ public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>) -> 
 
 /// Creates a Cairo context for drawing to `window`.
 /// 
-/// Note that calling cairo_reset_clip() on the resulting `cairo_t` will
+/// Note that calling `cairo_reset_clip()` on the resulting `cairo_t` will
 /// produce undefined results, so avoid it at all costs.
 /// 
 /// Typically, this function is used to draw on a `GdkWindow` out of the paint
@@ -132,7 +132,7 @@ public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>) -> 
 /// and optimizations.
 /// 
 /// If you are drawing on a native `GdkWindow` in response to a `GDK_EXPOSE` event
-/// you should use gdk_window_begin_draw_frame() and gdk_drawing_context_get_cairo_context()
+/// you should use `gdk_window_begin_draw_frame()` and `gdk_drawing_context_get_cairo_context()`
 /// instead. GTK will automatically do this for you when drawing a widget.
 ///
 /// **cairo_create is deprecated:**
@@ -170,7 +170,7 @@ public func cairoDrawFromGl(cr: cairo.ContextProtocol, window: WindowProtocol, s
 
 
 
-/// This is a convenience function around cairo_clip_extents().
+/// This is a convenience function around `cairo_clip_extents()`.
 /// It rounds the clip extents to integer coordinates and returns
 /// a boolean indicating if a clip area exists.
 public func cairoGetClipRectangle(cr: cairo.ContextProtocol, rect: RectangleProtocol) -> Bool {
@@ -210,10 +210,10 @@ public func cairoRegion(cr: cairo.ContextProtocol, region: RegionProtocol) {
 
 
 /// Creates region that describes covers the area where the given
-/// `surface` is more than 50`` opaque.
+/// `surface` is more than 50% opaque.
 /// 
 /// This function takes into account device offsets that might be
-/// set with cairo_surface_set_device_offset().
+/// set with `cairo_surface_set_device_offset()`.
 public func cairoRegionCreateFrom(surface: SurfaceProtocol) -> UnsafeMutablePointer<cairo_region_t>! {
     let rv = gdk_cairo_region_create_from_surface(cast(surface.ptr))
     return cast(rv)
@@ -303,8 +303,8 @@ public func cairoSurfaceCreateFrom(pixbuf: PixbufProtocol, scale: CInt, forWindo
 
 
 /// Disables multidevice support in GDK. This call must happen prior
-/// to gdk_display_open(), gtk_init(), gtk_init_with_args() or
-/// gtk_init_check() in order to take effect.
+/// to `gdk_display_open()`, `gtk_init()`, `gtk_init_with_args()` or
+/// `gtk_init_check()` in order to take effect.
 /// 
 /// Most common GTK+ applications won’t ever need to call this. Only
 /// applications that do mixed GDK/Xlib calls could want to disable
@@ -323,7 +323,7 @@ public func disableMultidevice() {
 /// This function is called by the drag source.
 /// 
 /// This function does not need to be called in managed drag and drop
-/// operations. See gdk_drag_context_manage_dnd() for more information.
+/// operations. See `gdk_drag_context_manage_dnd()` for more information.
 public func dragAbort(context: DragContextProtocol, time_: UInt32) {
     gdk_drag_abort(cast(context.ptr), guint32(time_))
 
@@ -334,7 +334,7 @@ public func dragAbort(context: DragContextProtocol, time_: UInt32) {
 
 /// Starts a drag and creates a new drag context for it.
 /// This function assumes that the drag is controlled by the
-/// client pointer device, use gdk_drag_begin_for_device() to
+/// client pointer device, use `gdk_drag_begin_for_device()` to
 /// begin a drag with a different device.
 /// 
 /// This function is called by the drag source.
@@ -373,7 +373,7 @@ public func dragBeginFromPoint(window: WindowProtocol, device: DeviceProtocol, t
 /// This function is called by the drag source.
 /// 
 /// This function does not need to be called in managed drag and drop
-/// operations. See gdk_drag_context_manage_dnd() for more information.
+/// operations. See `gdk_drag_context_manage_dnd()` for more information.
 public func dragDrop(context: DragContextProtocol, time_: UInt32) {
     gdk_drag_drop(cast(context.ptr), guint32(time_))
 
@@ -389,7 +389,7 @@ public func dragDrop(context: DragContextProtocol, time_: UInt32) {
 /// be the last call before dropping the reference to the
 /// `context`.
 /// 
-/// The `GdkDragContext` will only take the first gdk_drag_drop_done()
+/// The `GdkDragContext` will only take the first `gdk_drag_drop_done()`
 /// call as effective, if this function is called multiple times,
 /// all subsequent calls will be ignored.
 public func dragDropDone(context: DragContextProtocol, success: Bool) {
@@ -416,7 +416,7 @@ public func dragDropSucceeded(context: DragContextProtocol) -> Bool {
 /// given pointer position.
 /// 
 /// This function is called by the drag source to obtain the
-/// `dest_window` and `protocol` parameters for gdk_drag_motion().
+/// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
 public func dragFindWindowForScreen(context: DragContextProtocol, dragWindow drag_window: WindowProtocol, screen: ScreenProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
     gdk_drag_find_window_for_screen(cast(context.ptr), cast(drag_window.ptr), cast(screen.ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
 
@@ -440,7 +440,7 @@ public func dragGetSelection(context: DragContextProtocol) -> GdkAtom! {
 /// This function is called by the drag source.
 /// 
 /// This function does not need to be called in managed drag and drop
-/// operations. See gdk_drag_context_manage_dnd() for more information.
+/// operations. See `gdk_drag_context_manage_dnd()` for more information.
 public func dragMotion(context: DragContextProtocol, destWindow dest_window: WindowProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
     let rv = gdk_drag_motion(cast(context.ptr), cast(dest_window.ptr), protocol_, gint(x_root), gint(y_root), suggested_action, possible_actions, guint32(time_))
     return Bool(rv != 0)
@@ -452,7 +452,7 @@ public func dragMotion(context: DragContextProtocol, destWindow dest_window: Win
 /// Selects one of the actions offered by the drag source.
 /// 
 /// This function is called by the drag destination in response to
-/// gdk_drag_motion() called by the drag source.
+/// `gdk_drag_motion()` called by the drag source.
 public func dragStatus(context: DragContextProtocol, action: DragAction, time_: UInt32) {
     gdk_drag_status(cast(context.ptr), action, guint32(time_))
 
@@ -484,16 +484,16 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 
 
 
-/// Removes an error trap pushed with gdk_error_trap_push().
+/// Removes an error trap pushed with `gdk_error_trap_push()`.
 /// May block until an error has been definitively received
-/// or not received from the X server. gdk_error_trap_pop_ignored()
+/// or not received from the X server. `gdk_error_trap_pop_ignored()`
 /// is preferred if you don’t need to know whether an error
 /// occurred, because it never has to block. If you don't
-/// need the return value of gdk_error_trap_pop(), use
-/// gdk_error_trap_pop_ignored().
+/// need the return value of `gdk_error_trap_pop()`, use
+/// `gdk_error_trap_pop_ignored()`.
 /// 
 /// Prior to GDK 3.0, this function would not automatically
-/// sync for you, so you had to gdk_flush() if your last
+/// sync for you, so you had to `gdk_flush()` if your last
 /// call to Xlib was not a blocking round trip.
 @available(*, deprecated) public func errorTrapPop() -> CInt {
     let rv = gdk_error_trap_pop()
@@ -503,7 +503,7 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 
 
 
-/// Removes an error trap pushed with gdk_error_trap_push(), but
+/// Removes an error trap pushed with `gdk_error_trap_push()`, but
 /// without bothering to wait and see whether an error occurred.  If an
 /// error arrives later asynchronously that was triggered while the
 /// trap was pushed, that error will be ignored.
@@ -520,16 +520,16 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 /// is not possible to avoid the X error in any other way. Errors are
 /// ignored on all `GdkDisplay` currently known to the
 /// `GdkDisplayManager`. If you don’t care which error happens and just
-/// want to ignore everything, pop with gdk_error_trap_pop_ignored().
-/// If you need the error code, use gdk_error_trap_pop() which may have
+/// want to ignore everything, pop with `gdk_error_trap_pop_ignored()`.
+/// If you need the error code, use `gdk_error_trap_pop()` which may have
 /// to block and wait for the error to arrive from the X server.
 /// 
 /// This API exists on all platforms but only does anything on X.
 /// 
-/// You can use gdk_x11_display_error_trap_push() to ignore errors
+/// You can use `gdk_x11_display_error_trap_push()` to ignore errors
 /// on only a single display.
 /// 
-/// ``` Trapping an X error
+/// ## Trapping an X error
 /// 
 /// (C Language Example):
 /// ```C
@@ -554,7 +554,7 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 
 /// Checks all open displays for a `GdkEvent` to process,to be processed
 /// on, fetching events from the windowing system if necessary.
-/// See gdk_display_get_event().
+/// See `gdk_display_get_event()`.
 public func eventGet() -> UnsafeMutablePointer<GdkEvent>! {
     let rv = gdk_event_get()
     return cast(rv)
@@ -567,7 +567,7 @@ public func eventGet() -> UnsafeMutablePointer<GdkEvent>! {
 /// 
 /// Note that GTK+ uses this to install its own event handler, so it is
 /// usually not useful for GTK+ applications. (Although an application
-/// can call this function then call gtk_main_do_event() to pass
+/// can call this function then call `gtk_main_do_event()` to pass
 /// events to GTK+.)
 public func eventHandlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) {
     gdk_event_handler_set(func_, cast(data), notify)
@@ -578,7 +578,7 @@ public func eventHandlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPo
 
 
 /// If there is an event waiting in the event queue of some open
-/// display, returns a copy of it. See gdk_display_peek_event().
+/// display, returns a copy of it. See `gdk_display_peek_event()`.
 public func eventPeek() -> UnsafeMutablePointer<GdkEvent>! {
     let rv = gdk_event_peek()
     return cast(rv)
@@ -589,7 +589,7 @@ public func eventPeek() -> UnsafeMutablePointer<GdkEvent>! {
 
 /// Request more motion notifies if `event` is a motion notify hint event.
 /// 
-/// This function should be used instead of gdk_window_get_pointer() to
+/// This function should be used instead of `gdk_window_get_pointer()` to
 /// request further motion notifies, because it also works for extension
 /// events where motion notifies are provided for devices other than the
 /// core pointer. Coordinate extraction, processing and requesting more
@@ -692,7 +692,7 @@ public func getDefaultRootWindow() -> UnsafeMutablePointer<GdkWindow>! {
 
 
 /// Gets the display name specified in the command line arguments passed
-/// to gdk_init() or gdk_parse_args(), if any.
+/// to `gdk_init()` or `gdk_parse_args()`, if any.
 public func getDisplayArgName() -> String! {
     let rv = gdk_get_display_arg_name()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -702,9 +702,9 @@ public func getDisplayArgName() -> String! {
 
 
 /// Gets the program class. Unless the program class has explicitly
-/// been set with gdk_set_program_class() or with the `--class`
+/// been set with `gdk_set_program_class()` or with the `--class`
 /// commandline option, the default value is the program name (determined
-/// with g_get_prgname()) with the first character converted to uppercase.
+/// with `g_get_prgname()`) with the first character converted to uppercase.
 public func getProgramClass() -> String! {
     let rv = gdk_get_program_class()
     return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -732,12 +732,12 @@ public func glErrorQuark() -> GQuark {
 
 /// Initializes the GDK library and connects to the windowing system.
 /// If initialization fails, a warning message is output and the application
-/// terminates with a call to `exit(1)`.
+/// terminates with a call to ``exit(1)``.
 /// 
 /// Any arguments used by GDK are removed from the array and `argc` and `argv`
 /// are updated accordingly.
 /// 
-/// GTK+ initializes GDK in gtk_init() and so this function is not usually
+/// GTK+ initializes GDK in `gtk_init()` and so this function is not usually
 /// needed by GTK+ applications.
 public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) {
     gdk_init(cast(argc), cast(argv))
@@ -753,7 +753,7 @@ public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<U
 /// Any arguments used by GDK are removed from the array and `argc` and `argv`
 /// are updated accordingly.
 /// 
-/// GTK+ initializes GDK in gtk_init() and so this function is not usually
+/// GTK+ initializes GDK in `gtk_init()` and so this function is not usually
 /// needed by GTK+ applications.
 public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> Bool {
     let rv = gdk_init_check(cast(argc), cast(argv))
@@ -764,7 +764,7 @@ public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 
 
 /// Grabs the keyboard so that all events are passed to this
-/// application until the keyboard is ungrabbed with gdk_keyboard_ungrab().
+/// application until the keyboard is ungrabbed with `gdk_keyboard_ungrab()`.
 /// This overrides any previous keyboard grab by this client.
 /// 
 /// If you set up anything at the time you take the grab that needs to be cleaned
@@ -878,12 +878,12 @@ public func keyvalToUpper(keyval: CUnsignedInt) -> CUnsignedInt {
 
 
 /// Lists the available visuals for the default screen.
-/// (See gdk_screen_list_visuals())
+/// (See `gdk_screen_list_visuals()`)
 /// A visual describes a hardware image data format.
 /// For example, a visual might support 24-bit color, or 8-bit color,
 /// and might expect pixels to be in a certain format.
 /// 
-/// Call g_list_free() on the return value when you’re finished with it.
+/// Call `g_list_free()` on the return value when you’re finished with it.
 ///
 /// **list_visuals is deprecated:**
 /// Use gdk_screen_list_visuals (gdk_screen_get_default ()).
@@ -901,7 +901,7 @@ public func keyvalToUpper(keyval: CUnsignedInt) -> CUnsignedInt {
 /// windows.
 /// 
 /// GTK+ will call this function automatically after opening the first
-/// `GtkWindow` unless gtk_window_set_auto_startup_notification() is called
+/// `GtkWindow` unless `gtk_window_set_auto_startup_notification()` is called
 /// to disable that feature.
 public func notifyStartupComplete() {
     gdk_notify_startup_complete()
@@ -916,7 +916,7 @@ public func notifyStartupComplete() {
 /// 
 /// GTK+ will call this function automatically for `GtkWindow`
 /// with custom startup-notification identifier unless
-/// gtk_window_set_auto_startup_notification() is called to
+/// `gtk_window_set_auto_startup_notification()` is called to
 /// disable that feature.
 public func notifyStartupCompleteWithId(startupId startup_id: UnsafePointer<gchar>) {
     gdk_notify_startup_complete_with_id(startup_id)
@@ -949,9 +949,9 @@ public func offscreenWindowGetSurface(window: WindowProtocol) -> UnsafeMutablePo
 /// Sets `window` to be embedded in `embedder`.
 /// 
 /// To fully embed an offscreen window, in addition to calling this
-/// function, it is also necessary to handle the `GdkWindow`::pick-embedded-child
-/// signal on the `embedder` and the `GdkWindow`::to-embedder and
-/// `GdkWindow`::from-embedder signals on `window`.
+/// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
+/// signal on the `embedder` and the `GdkWindow::to`-embedder and
+/// `GdkWindow::from`-embedder signals on `window`.
 public func offscreenWindowSetEmbedder(window: WindowProtocol, embedder: WindowProtocol) {
     gdk_offscreen_window_set_embedder(cast(window.ptr), cast(embedder.ptr))
 
@@ -964,13 +964,13 @@ public func offscreenWindowSetEmbedder(window: WindowProtocol, embedder: WindowP
 /// 
 /// The context must be freed when you’re finished with it.
 /// 
-/// When using GTK+, normally you should use gtk_widget_get_pango_context()
+/// When using GTK+, normally you should use `gtk_widget_get_pango_context()`
 /// instead of this function, to get the appropriate context for
 /// the widget you intend to render text onto.
 /// 
 /// The newly created context will have the default font options (see
 /// `cairo_font_options_t`) for the default screen; if these options
-/// change it will not be updated. Using gtk_widget_get_pango_context()
+/// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the screen’s font rendering settings.
 public func pangoContextGet() -> UnsafeMutablePointer<PangoContext>! {
@@ -985,13 +985,13 @@ public func pangoContextGet() -> UnsafeMutablePointer<PangoContext>! {
 /// 
 /// The context must be freed when you’re finished with it.
 /// 
-/// When using GTK+, normally you should use gtk_widget_get_pango_context()
+/// When using GTK+, normally you should use `gtk_widget_get_pango_context()`
 /// instead of this function, to get the appropriate context for
 /// the widget you intend to render text onto.
 /// 
 /// The newly created context will have the default font options
 /// (see `cairo_font_options_t`) for the display; if these options
-/// change it will not be updated. Using gtk_widget_get_pango_context()
+/// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the font rendering settings.
 public func pangoContextGetFor(display: DisplayProtocol) -> UnsafeMutablePointer<PangoContext>! {
@@ -1006,13 +1006,13 @@ public func pangoContextGetFor(display: DisplayProtocol) -> UnsafeMutablePointer
 /// 
 /// The context must be freed when you’re finished with it.
 /// 
-/// When using GTK+, normally you should use gtk_widget_get_pango_context()
+/// When using GTK+, normally you should use `gtk_widget_get_pango_context()`
 /// instead of this function, to get the appropriate context for
 /// the widget you intend to render text onto.
 /// 
 /// The newly created context will have the default font options
 /// (see `cairo_font_options_t`) for the screen; if these options
-/// change it will not be updated. Using gtk_widget_get_pango_context()
+/// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the screen’s font rendering settings.
 public func pangoContextGetFor(screen: ScreenProtocol) -> UnsafeMutablePointer<PangoContext>! {
@@ -1063,13 +1063,13 @@ public func pangoLayoutLineGetClipRegion(line: LayoutLineProtocol, xOrigin x_ori
 
 
 /// Parse command line arguments, and store for future
-/// use by calls to gdk_display_open().
+/// use by calls to `gdk_display_open()`.
 /// 
 /// Any arguments used by GDK are removed from the array and `argc` and `argv` are
 /// updated accordingly.
 /// 
 /// You shouldn’t call this function explicitly if you are using
-/// gtk_init(), gtk_init_check(), gdk_init(), or gdk_init_check().
+/// `gtk_init()`, `gtk_init_check()`, `gdk_init()`, or `gdk_init_check()`.
 public func parseArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) {
     gdk_parse_args(cast(argc), cast(argv))
 
@@ -1078,10 +1078,10 @@ public func parseArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 
 
 
-/// Transfers image data from a `cairo_surface_t` and converts it to an RGB(A)
+/// Transfers image data from a `cairo_surface_t` and converts it to an `RGB(A)`
 /// representation inside a `GdkPixbuf`. This allows you to efficiently read
 /// individual pixels from cairo surfaces. For `GdkWindows`, use
-/// gdk_pixbuf_get_from_window() instead.
+/// `gdk_pixbuf_get_from_window()` instead.
 /// 
 /// This function will create an RGB pixbuf with 8 bits per channel.
 /// The pixbuf will contain an alpha channel if the `surface` contains one.
@@ -1093,9 +1093,9 @@ public func pixbufGetFrom(surface: SurfaceProtocol, srcX src_x: CInt, srcY src_y
 
 
 
-/// Transfers image data from a `GdkWindow` and converts it to an RGB(A)
+/// Transfers image data from a `GdkWindow` and converts it to an `RGB(A)`
 /// representation inside a `GdkPixbuf`. In other words, copies
-/// image data from a server-side drawable to a client-side RGB(A) buffer.
+/// image data from a server-side drawable to a client-side `RGB(A)` buffer.
 /// This allows you to efficiently read individual pixels on the client side.
 /// 
 /// This function will create an RGB pixbuf with 8 bits per channel with
@@ -1128,7 +1128,7 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 
 
 /// Grabs the pointer (usually a mouse) so that all events are passed to this
-/// application until the pointer is ungrabbed with gdk_pointer_ungrab(), or
+/// application until the pointer is ungrabbed with `gdk_pointer_ungrab()`, or
 /// the grab window becomes unviewable.
 /// This overrides any previous pointer grab by this client.
 /// 
@@ -1225,14 +1225,14 @@ public func propertyDelete(window: WindowProtocol, property: Atom) {
 /// property does not exist, then the function returns `false`,
 /// and `GDK_NONE` will be stored in `actual_property_type`.
 /// 
-/// The XGetWindowProperty() function that gdk_property_get()
+/// The `XGetWindowProperty()` function that `gdk_property_get()`
 /// uses has a very confusing and complicated set of semantics.
-/// Unfortunately, gdk_property_get() makes the situation
+/// Unfortunately, `gdk_property_get()` makes the situation
 /// worse instead of better (the semantics should be considered
 /// undefined), and also prints warnings to stderr in cases where it
 /// should return a useful error to the program. You are advised to use
-/// XGetWindowProperty() directly until a replacement function for
-/// gdk_property_get() is provided.
+/// `XGetWindowProperty()` directly until a replacement function for
+/// `gdk_property_get()` is provided.
 public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offset: CUnsignedLong, length: CUnsignedLong, pdelete: CInt, actualPropertyType actual_property_type: AtomProtocol, actualFormat actual_format: UnsafeMutablePointer<CInt>, actualLength actual_length: UnsafeMutablePointer<CInt>, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>) -> Bool {
     let rv = gdk_property_get(cast(window.ptr), cast(property.ptr), cast(type.ptr), gulong(offset), gulong(length), gint(pdelete), cast(actual_property_type.ptr), cast(actual_format), cast(actual_length), cast(data))
     return Bool(rv != 0)
@@ -1243,7 +1243,7 @@ public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offs
 
 /// This function returns the available bit depths for the default
 /// screen. It’s equivalent to listing the visuals
-/// (gdk_list_visuals()) and then looking at the depth field in each
+/// (`gdk_list_visuals()`) and then looking at the depth field in each
 /// visual, removing duplicates.
 /// 
 /// The array returned by this function should not be freed.
@@ -1261,7 +1261,7 @@ public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offs
 
 /// This function returns the available visual types for the default
 /// screen. It’s equivalent to listing the visuals
-/// (gdk_list_visuals()) and then looking at the type field in each
+/// (`gdk_list_visuals()`) and then looking at the type field in each
 /// visual, removing duplicates.
 /// 
 /// The array returned by this function should not be freed.
@@ -1328,7 +1328,7 @@ public func selectionOwnerSetFor(display: DisplayProtocol, owner: WindowProtocol
 
 
 /// Retrieves selection data that was stored by the selection
-/// data in response to a call to gdk_selection_convert(). This function
+/// data in response to a call to `gdk_selection_convert()`. This function
 /// will not be used by applications, who should use the `GtkClipboard`
 /// API instead.
 public func selectionPropertyGet(requestor: WindowProtocol, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propType prop_type: AtomProtocol, propFormat prop_format: UnsafeMutablePointer<CInt>) -> CInt {
@@ -1369,7 +1369,6 @@ public func selectionSendNotifyFor(display: DisplayProtocol, requestor: WindowPr
 /// ```C
 /// gdk_set_allowed_backends ("wayland,quartz,*");
 /// ```
-/// 
 /// instructs GDK to try the Wayland backend first,
 /// followed by the Quartz backend, and then all
 /// others.
@@ -1383,8 +1382,8 @@ public func selectionSendNotifyFor(display: DisplayProtocol, requestor: WindowPr
 /// broadway, wayland. You can also include a * in the
 /// list to try all remaining backends.
 /// 
-/// This call must happen prior to gdk_display_open(),
-/// gtk_init(), gtk_init_with_args() or gtk_init_check()
+/// This call must happen prior to `gdk_display_open()`,
+/// `gtk_init()`, `gtk_init_with_args()` or `gtk_init_check()`
 /// in order to take effect.
 public func setAllowed(backends: UnsafePointer<gchar>) {
     gdk_set_allowed_backends(backends)
@@ -1395,8 +1394,8 @@ public func setAllowed(backends: UnsafePointer<gchar>) {
 
 
 /// Set the double click time for the default display. See
-/// gdk_display_set_double_click_time().
-/// See also gdk_display_set_double_click_distance().
+/// `gdk_display_set_double_click_time()`.
+/// See also `gdk_display_set_double_click_distance()`.
 /// Applications should not set this, it is a
 /// global user-configured setting.
 @available(*, deprecated) public func setDoubleClickTime(msec: CUnsignedInt) {
@@ -1434,7 +1433,7 @@ public func set(showEvents show_events: Bool) {
 
 
 /// Obtains a desktop-wide setting, such as the double-click time,
-/// for the default screen. See gdk_screen_get_setting().
+/// for the default screen. See `gdk_screen_get_setting()`.
 public func settingGet(name: UnsafePointer<gchar>, value: ValueProtocol) -> Bool {
     let rv = gdk_setting_get(name, cast(value.ptr))
     return Bool(rv != 0)
@@ -1472,8 +1471,8 @@ public func testRenderSync(window: WindowProtocol) {
 /// run in their own virtual windowing system (e.g. Xvfb) is not
 /// recommended.
 /// 
-/// Also, gdk_test_simulate_button() is a fairly low level function,
-/// for most testing purposes, gtk_test_widget_click() is the right
+/// Also, `gdk_test_simulate_button()` is a fairly low level function,
+/// for most testing purposes, `gtk_test_widget_click()` is the right
 /// function to call which will generate a button press event followed
 /// by its accompanying button release event.
 public func testSimulateButton(window: WindowProtocol, x: CInt, y: CInt, button: CUnsignedInt, modifiers: ModifierType, buttonPressrelease button_pressrelease: EventType) -> Bool {
@@ -1496,8 +1495,8 @@ public func testSimulateButton(window: WindowProtocol, x: CInt, y: CInt, button:
 /// be warped and `window` origin will be used as mouse pointer
 /// location for the event.
 /// 
-/// Also, gdk_test_simulate_key() is a fairly low level function,
-/// for most testing purposes, gtk_test_widget_send_key() is the
+/// Also, `gdk_test_simulate_key()` is a fairly low level function,
+/// for most testing purposes, `gtk_test_widget_send_key()` is the
 /// right function to call which will generate a key press event
 /// followed by its accompanying key release event.
 public func testSimulateKey(window: WindowProtocol, x: CInt, y: CInt, keyval: CUnsignedInt, modifiers: ModifierType, keyPressrelease key_pressrelease: EventType) -> Bool {
@@ -1518,10 +1517,10 @@ public func textPropertyToUtf8ListFor(display: DisplayProtocol, encoding: Atom, 
 
 
 
-/// A wrapper for the common usage of gdk_threads_add_idle_full()
+/// A wrapper for the common usage of `gdk_threads_add_idle_full()`
 /// assigning the default priority, `G_PRIORITY_DEFAULT_IDLE`.
 /// 
-/// See gdk_threads_add_idle_full().
+/// See `gdk_threads_add_idle_full()`.
 public func threadsAddIdle(function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = gdk_threads_add_idle(function, cast(data))
     return CUnsignedInt(rv)
@@ -1534,9 +1533,9 @@ public func threadsAddIdle(function: @escaping GLib.SourceFunc, data: UnsafeMuta
 /// events pending.  If the function returns `false` it is automatically
 /// removed from the list of event sources and will not be called again.
 /// 
-/// This variant of g_idle_add_full() calls `function` with the GDK lock
+/// This variant of `g_idle_add_full()` calls `function` with the GDK lock
 /// held. It can be thought of a MT-safe version for GTK+ widgets for the
-/// following use case, where you have to worry about idle_callback()
+/// following use case, where you have to worry about `idle_callback()`
 /// running in thread A and accessing `self` after it has been finalized
 /// in thread B:
 /// 
@@ -1581,10 +1580,10 @@ public func threadsAddIdleFull(priority: CInt, function: @escaping GLib.SourceFu
 
 
 
-/// A wrapper for the common usage of gdk_threads_add_timeout_full()
+/// A wrapper for the common usage of `gdk_threads_add_timeout_full()`
 /// assigning the default priority, `G_PRIORITY_DEFAULT`.
 /// 
-/// See gdk_threads_add_timeout_full().
+/// See `gdk_threads_add_timeout_full()`.
 public func threadsAddTimeout(interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = gdk_threads_add_timeout(guint(interval), function, cast(data))
     return CUnsignedInt(rv)
@@ -1606,7 +1605,7 @@ public func threadsAddTimeout(interval: CUnsignedInt, function: @escaping GLib.S
 /// timeout is recalculated based on the current time and the given interval
 /// (it does not try to “catch up” time lost in delays).
 /// 
-/// This variant of g_timeout_add_full() can be thought of a MT-safe version
+/// This variant of `g_timeout_add_full()` can be thought of a MT-safe version
 /// for GTK+ widgets for the following use case:
 /// 
 /// (C Language Example):
@@ -1646,10 +1645,10 @@ public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, functi
 
 
 
-/// A wrapper for the common usage of gdk_threads_add_timeout_seconds_full()
+/// A wrapper for the common usage of `gdk_threads_add_timeout_seconds_full()`
 /// assigning the default priority, `G_PRIORITY_DEFAULT`.
 /// 
-/// For details, see gdk_threads_add_timeout_full().
+/// For details, see `gdk_threads_add_timeout_full()`.
 public func threadsAddTimeoutSeconds(interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = gdk_threads_add_timeout_seconds(guint(interval), function, cast(data))
     return CUnsignedInt(rv)
@@ -1658,8 +1657,8 @@ public func threadsAddTimeoutSeconds(interval: CUnsignedInt, function: @escaping
 
 
 
-/// A variant of gdk_threads_add_timeout_full() with second-granularity.
-/// See g_timeout_add_seconds_full() for a discussion of why it is
+/// A variant of `gdk_threads_add_timeout_full()` with second-granularity.
+/// See `g_timeout_add_seconds_full()` for a discussion of why it is
 /// a good idea to use this function if you don’t need finer granularity.
 public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
     let rv = gdk_threads_add_timeout_seconds_full(gint(priority), guint(interval), function, cast(data), notify)
@@ -1686,10 +1685,10 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 
 
 /// Initializes GDK so that it can be used from multiple threads
-/// in conjunction with gdk_threads_enter() and gdk_threads_leave().
+/// in conjunction with `gdk_threads_enter()` and `gdk_threads_leave()`.
 /// 
 /// This call must be made before any use of the main loop from
-/// GTK+; to be safe, call it before gtk_init().
+/// GTK+; to be safe, call it before `gtk_init()`.
 ///
 /// **threads_init is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
@@ -1702,7 +1701,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 
 
 
-/// Leaves a critical region begun with gdk_threads_enter().
+/// Leaves a critical region begun with `gdk_threads_enter()`.
 ///
 /// **threads_leave is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
@@ -1717,11 +1716,11 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 
 /// Allows the application to replace the standard method that
 /// GDK uses to protect its data structures. Normally, GDK
-/// creates a single `GMutex` that is locked by gdk_threads_enter(),
-/// and released by gdk_threads_leave(); using this function an
+/// creates a single `GMutex` that is locked by `gdk_threads_enter()`,
+/// and released by `gdk_threads_leave()`; using this function an
 /// application provides, instead, a function `enter_fn` that is
-/// called by gdk_threads_enter() and a function `leave_fn` that is
-/// called by gdk_threads_leave().
+/// called by `gdk_threads_enter()` and a function `leave_fn` that is
+/// called by `gdk_threads_leave()`.
 /// 
 /// The functions must provide at least same locking functionality
 /// as the default implementation, but can also do extra application
@@ -1734,7 +1733,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 /// 
 /// Most threaded GTK+ apps won’t need to use this method.
 /// 
-/// This method must be called before gdk_threads_init(), and cannot
+/// This method must be called before `gdk_threads_init()`, and cannot
 /// be called multiple times.
 ///
 /// **threads_set_lock_functions is deprecated:**

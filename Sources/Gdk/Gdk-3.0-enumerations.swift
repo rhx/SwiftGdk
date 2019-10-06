@@ -93,7 +93,7 @@ public extension CrossingMode {
 /// Note that these IDs are directly taken from the X cursor font, and many
 /// of these cursors are either not useful, or are not available on other platforms.
 /// 
-/// The recommended way to create cursors is to use gdk_cursor_new_from_name().
+/// The recommended way to create cursors is to use `gdk_cursor_new_from_name()`.
 public typealias CursorType = GdkCursorType
 
 public extension CursorType {
@@ -256,7 +256,7 @@ public extension CursorType {
     /// Blank cursor. Since 2.16
     static let blank_cursor = GDK_BLANK_CURSOR /* -2 */
     /// type of cursors constructed with
-    ///   gdk_cursor_new_from_pixbuf()
+    ///   `gdk_cursor_new_from_pixbuf()`
     static let cursor_is_pixmap = GDK_CURSOR_IS_PIXMAP /* -1 */
 }
 
@@ -295,7 +295,7 @@ public extension DeviceToolType {
     static let lens = GDK_DEVICE_TOOL_TYPE_LENS /* 7 */
 }
 
-/// Indicates the device type. See [above][GdkDeviceManager.description]
+/// Indicates the device type. See [above](#GdkDeviceManager.description)
 /// for more information about the meaning of these device types.
 public typealias DeviceType = GdkDeviceType
 
@@ -539,7 +539,7 @@ public extension GrabOwnership {
     static let application = GDK_OWNERSHIP_APPLICATION /* 2 */
 }
 
-/// Returned by gdk_device_grab(), gdk_pointer_grab() and gdk_keyboard_grab() to
+/// Returned by `gdk_device_grab()`, `gdk_pointer_grab()` and `gdk_keyboard_grab()` to
 /// indicate success or the reason for the failure of the grab attempt.
 public typealias GrabStatus = GdkGrabStatus
 
@@ -561,7 +561,7 @@ public extension GrabStatus {
 }
 
 /// Defines the reference point of a window and the meaning of coordinates
-/// passed to gtk_window_move(). See gtk_window_move() and the "implementation
+/// passed to `gtk_window_move()`. See `gtk_window_move()` and the "implementation
 /// notes" section of the
 /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
 /// specification for more details.
@@ -638,7 +638,7 @@ public extension InputSource {
     static let tablet_pad = GDK_SOURCE_TABLET_PAD /* 8 */
 }
 
-/// This enum is used with gdk_keymap_get_modifier_mask()
+/// This enum is used with `gdk_keymap_get_modifier_mask()`
 /// in order to determine what modifiers the
 /// currently used windowing system backend uses for particular
 /// purposes. For example, on X11/Windows, the Control key is used for
@@ -717,7 +717,7 @@ public extension OwnerChange {
 }
 
 /// Describes how existing data is combined with new data when
-/// using gdk_property_change().
+/// using `gdk_property_change()`.
 public typealias PropMode = GdkPropMode
 
 public extension PropMode {
@@ -752,7 +752,7 @@ public extension ScrollDirection {
     /// the window is scrolled to the right.
     static let right_ = GDK_SCROLL_RIGHT /* 3 */
     /// the scrolling is determined by the delta values
-    ///   in `GdkEventScroll`. See gdk_event_get_scroll_deltas(). Since: 3.4
+    ///   in `GdkEventScroll`. See `gdk_event_get_scroll_deltas()`. Since: 3.4
     static let smooth = GDK_SCROLL_SMOOTH /* 4 */
 }
 
@@ -863,7 +863,7 @@ public extension VisualType {
     ///     an application.
     static let pseudo_color = GDK_VISUAL_PSEUDO_COLOR /* 3 */
     /// Each pixel value directly contains red, green,
-    ///     and blue components. Use gdk_visual_get_red_pixel_details(), etc,
+    ///     and blue components. Use `gdk_visual_get_red_pixel_details()`, etc,
     ///     to obtain information about how the components are assembled into
     ///     a pixel value.
     static let true_color = GDK_VISUAL_TRUE_COLOR /* 4 */
@@ -910,10 +910,10 @@ public extension WindowType {
     /// override redirect temporary window (used to implement
     ///  `GtkMenu`)
     static let temp = GDK_WINDOW_TEMP /* 3 */
-    /// foreign window (see gdk_window_foreign_new())
+    /// foreign window (see `gdk_window_foreign_new()`)
     static let foreign = GDK_WINDOW_FOREIGN /* 4 */
     /// offscreen window (see
-    ///  [Offscreen Windows][OFFSCREEN-WINDOWS]). Since 2.18
+    ///  [Offscreen Windows](#OFFSCREEN-WINDOWS)). Since 2.18
     static let offscreen = GDK_WINDOW_OFFSCREEN /* 5 */
     /// subsurface-based window; This window is visually
     ///  tied to a toplevel, and is moved/stacked with it. Currently this window

@@ -171,42 +171,41 @@ public extension SeatProtocol {
 }
 
 public enum SeatSignalName: String, SignalNameProtocol {
-    /// The ::device-added signal is emitted when a new input
+    /// The `device`-added signal is emitted when a new input
     /// device is related to this seat.
     case deviceAdded = "device-added"
-    /// The ::device-removed signal is emitted when an
+    /// The `device`-removed signal is emitted when an
     /// input device is removed (e.g. unplugged).
     case deviceRemoved = "device-removed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::tool-added signal is emitted whenever a new tool
+    /// The `tool`-added signal is emitted whenever a new tool
     /// is made known to the seat. The tool may later be assigned
     /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice`::tool-changed signal accordingly.
+    /// will emit the `GdkDevice::tool`-changed signal accordingly.
     /// 
     /// A same tool may be used by several devices.
     case toolAdded = "tool-added"
@@ -280,7 +279,7 @@ public extension SeatProtocol {
     }
 
     /// Grabs the seat so that all events corresponding to the given `capabilities`
-    /// are passed to this application until the seat is ungrabbed with gdk_seat_ungrab(),
+    /// are passed to this application until the seat is ungrabbed with `gdk_seat_ungrab()`,
     /// or the window becomes hidden. This overrides any previous grab on the
     /// seat by this client.
     /// 
@@ -308,7 +307,7 @@ public extension SeatProtocol {
         return rv
     }
 
-    /// Releases a grab added through gdk_seat_grab().
+    /// Releases a grab added through `gdk_seat_grab()`.
     func ungrab() {
         gdk_seat_ungrab(cast(seat_ptr))
     
@@ -432,8 +431,8 @@ public extension VisualRef {
         return rv.map { VisualRef(cast($0)) }
     }
 
-    /// Combines gdk_visual_get_best_with_depth() and
-    /// gdk_visual_get_best_with_type().
+    /// Combines `gdk_visual_get_best_with_depth()` and
+    /// `gdk_visual_get_best_with_type()`.
     ///
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
@@ -537,8 +536,8 @@ open class Visual: Object, VisualProtocol {
         return rv.map { Visual(cast($0)) }
     }
 
-    /// Combines gdk_visual_get_best_with_depth() and
-    /// gdk_visual_get_best_with_type().
+    /// Combines `gdk_visual_get_best_with_depth()` and
+    /// `gdk_visual_get_best_with_type()`.
     ///
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
@@ -591,29 +590,28 @@ open class Visual: Object, VisualProtocol {
 
 public enum VisualSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 

@@ -287,7 +287,7 @@ public extension RGBAProtocol {
 
     /// Makes a copy of a `GdkRGBA`.
     /// 
-    /// The result must be freed through gdk_rgba_free().
+    /// The result must be freed through `gdk_rgba_free()`.
     func copy() -> UnsafeMutablePointer<GdkRGBA>! {
         let rv = gdk_rgba_copy(cast(rgba_ptr))
         return cast(rv)
@@ -299,7 +299,7 @@ public extension RGBAProtocol {
         return Bool(rv != 0)
     }
 
-    /// Frees a `GdkRGBA` created with gdk_rgba_copy()
+    /// Frees a `GdkRGBA` created with `gdk_rgba_copy()`
     func free() {
         gdk_rgba_free(cast(rgba_ptr))
     
@@ -319,13 +319,13 @@ public extension RGBAProtocol {
     /// - A standard name (Taken from the X11 rgb.txt file).
     /// - A hexadecimal value in the form “\`rgb`”, “\`rrggbb`”,
     ///   “\`rrrgggbbb`” or ”\`rrrrggggbbbb`”
-    /// - A RGB color in the form “rgb(r,g,b)” (In this case the color will
+    /// - A RGB color in the form `“rgb(r,g,b)`” (In this case the color will
     ///   have full opacity)
-    /// - A RGBA color in the form “rgba(r,g,b,a)”
+    /// - A RGBA color in the form `“rgba(r,g,b,a)`”
     /// 
     /// Where “r”, “g”, “b” and “a” are respectively the red, green, blue and
     /// alpha color values. In the last two cases, “r”, “g”, and “b” are either integers
-    /// in the range 0 to 255 or percentage values in the range 0`` to 100``, and
+    /// in the range 0 to 255 or percentage values in the range 0% to 100``, and
     /// a is a floating point value in the range 0 to 1.
     func parse(spec: UnsafePointer<gchar>) -> Bool {
         let rv = gdk_rgba_parse(cast(rgba_ptr), spec)
@@ -333,15 +333,15 @@ public extension RGBAProtocol {
     }
 
     /// Returns a textual specification of `rgba` in the form
-    /// `rgb(r,g,b)` or
-    /// `rgba(r g,b,a)`,
+    /// ``rgb(r,g,b)`` or
+    /// ``rgba(r g,b,a)``,
     /// where “r”, “g”, “b” and “a” represent the red, green,
     /// blue and alpha values respectively. “r”, “g”, and “b” are
     /// represented as integers in the range 0 to 255, and “a”
     /// is represented as a floating point value in the range 0 to 1.
     /// 
     /// These string forms are string forms that are supported by
-    /// the CSS3 colors module, and can be parsed by gdk_rgba_parse().
+    /// the CSS3 colors module, and can be parsed by `gdk_rgba_parse()`.
     /// 
     /// Note that this string representation may lose some
     /// precision, since “r”, “g” and “b” are represented as 8-bit

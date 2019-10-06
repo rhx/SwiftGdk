@@ -98,8 +98,8 @@ public extension DragAction {
 /// Most of these masks map onto one or more of the `GdkEventType` event types
 /// above.
 /// 
-/// See the [input handling overview][chap-input-handling] for details of
-/// [event masks][event-masks] and [event propagation][event-propagation].
+/// See the [input handling overview](#chap-input-handling) for details of
+/// [event masks](#event-masks) and [event propagation](#event-propagation).
 /// 
 /// `GDK_POINTER_MOTION_HINT_MASK` is deprecated. It is a special mask
 /// to reduce the number of `GDK_MOTION_NOTIFY` events received. When using
@@ -107,18 +107,18 @@ public extension DragAction {
 /// be sent, some of which are marked as a hint (the is_hint member is
 /// `true`). To receive more motion events after a motion hint event,
 /// the application needs to asks for more, by calling
-/// gdk_event_request_motions().
+/// `gdk_event_request_motions()`.
 /// 
 /// Since GTK 3.8, motion events are already compressed by default, independent
 /// of this mechanism. This compression can be disabled with
-/// gdk_window_set_event_compression(). See the documentation of that function
+/// `gdk_window_set_event_compression()`. See the documentation of that function
 /// for details.
 /// 
 /// If `GDK_TOUCH_MASK` is enabled, the window will receive touch events
 /// from touch-enabled devices. Those will come as sequences of `GdkEventTouch`
 /// with type `GDK_TOUCH_UPDATE`, enclosed by two events with
 /// type `GDK_TOUCH_BEGIN` and `GDK_TOUCH_END` (or `GDK_TOUCH_CANCEL`).
-/// gdk_event_get_event_sequence() returns the event sequence for these
+/// `gdk_event_get_event_sequence()` returns the event sequence for these
 /// events, so different sequences may be distinguished.
 public typealias EventMask = GdkEventMask
 
@@ -186,19 +186,19 @@ public typealias FrameClockPhase = GdkFrameClockPhase
 public extension FrameClockPhase {
     /// no phase
     static let none_ = GDK_FRAME_CLOCK_PHASE_NONE /* 0 */
-    /// corresponds to GdkFrameClock::flush-events. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`flush`-events. Should not be handled by applications.
     static let flush_events = GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS /* 1 */
-    /// corresponds to GdkFrameClock::before-paint. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`before`-paint. Should not be handled by applications.
     static let before_paint = GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT /* 2 */
-    /// corresponds to GdkFrameClock::update.
+    /// corresponds to GdkFrameClock`update`.
     static let update = GDK_FRAME_CLOCK_PHASE_UPDATE /* 4 */
-    /// corresponds to GdkFrameClock::layout.
+    /// corresponds to GdkFrameClock`layout`.
     static let layout = GDK_FRAME_CLOCK_PHASE_LAYOUT /* 8 */
-    /// corresponds to GdkFrameClock::paint.
+    /// corresponds to GdkFrameClock`paint`.
     static let paint = GDK_FRAME_CLOCK_PHASE_PAINT /* 16 */
-    /// corresponds to GdkFrameClock::resume-events. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`resume`-events. Should not be handled by applications.
     static let resume_events = GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS /* 32 */
-    /// corresponds to GdkFrameClock::after-paint. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`after`-paint. Should not be handled by applications.
     static let after_paint = GDK_FRAME_CLOCK_PHASE_AFTER_PAINT /* 64 */
 }
 
@@ -305,11 +305,11 @@ public extension SeatCapabilities {
     static let none_ = GDK_SEAT_CAPABILITY_NONE /* 0 */
     /// The seat has a pointer (e.g. mouse)
     static let pointer = GDK_SEAT_CAPABILITY_POINTER /* 1 */
-    /// The seat has touchscreen(s) attached
+    /// The seat has `touchscreen(s)` attached
     static let touch = GDK_SEAT_CAPABILITY_TOUCH /* 2 */
-    /// The seat has drawing tablet(s) attached
+    /// The seat has drawing `tablet(s)` attached
     static let tablet_stylus = GDK_SEAT_CAPABILITY_TABLET_STYLUS /* 4 */
-    /// The seat has keyboard(s) attached
+    /// The seat has `keyboard(s)` attached
     static let keyboard = GDK_SEAT_CAPABILITY_KEYBOARD /* 8 */
     /// The union of all pointing capabilities
     static let all_pointing = GDK_SEAT_CAPABILITY_ALL_POINTING /* 7 */
@@ -361,7 +361,7 @@ public extension WMFunction {
 
 /// Used to indicate which fields in the `GdkWindowAttr` struct should be honored.
 /// For example, if you filled in the “cursor” and “x” fields of `GdkWindowAttr`,
-/// pass “`GDK_WA_X` | `GDK_WA_CURSOR`” to gdk_window_new(). Fields in
+/// pass “`GDK_WA_X` | `GDK_WA_CURSOR`” to `gdk_window_new()`. Fields in
 /// `GdkWindowAttr` not covered by a bit in this enum are required; for example,
 /// the `width`/`height`, `wclass`, and `window_type` fields are required, they have
 /// no corresponding flag in `GdkWindowAttributesType`.
@@ -390,10 +390,10 @@ public extension WindowAttributesType {
 /// attention to. Also, the presence/absence of `GDK_HINT_POS`,
 /// `GDK_HINT_USER_POS`, and `GDK_HINT_USER_SIZE` is significant, though they don't
 /// directly refer to `GdkGeometry` fields. `GDK_HINT_USER_POS` will be set
-/// automatically by `GtkWindow` if you call gtk_window_move().
+/// automatically by `GtkWindow` if you call `gtk_window_move()`.
 /// `GDK_HINT_USER_POS` and `GDK_HINT_USER_SIZE` should be set if the user
 /// specified a size/position using a --geometry command-line argument;
-/// gtk_window_parse_geometry() automatically sets these flags.
+/// `gtk_window_parse_geometry()` automatically sets these flags.
 public typealias WindowHints = GdkWindowHints
 
 public extension WindowHints {

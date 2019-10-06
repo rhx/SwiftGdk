@@ -19,9 +19,9 @@ import GdkPixbuf
 ///
 /// GdkMonitor objects represent the individual outputs that are
 /// associated with a `GdkDisplay`. GdkDisplay has APIs to enumerate
-/// monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
-/// to find particular monitors with gdk_display_get_primary_monitor() or
-/// gdk_display_get_monitor_at_window().
+/// monitors with `gdk_display_get_n_monitors()` and `gdk_display_get_monitor()`, and
+/// to find particular monitors with `gdk_display_get_primary_monitor()` or
+/// `gdk_display_get_monitor_at_window()`.
 /// 
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
@@ -39,9 +39,9 @@ public protocol MonitorProtocol: ObjectProtocol {
 ///
 /// GdkMonitor objects represent the individual outputs that are
 /// associated with a `GdkDisplay`. GdkDisplay has APIs to enumerate
-/// monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
-/// to find particular monitors with gdk_display_get_primary_monitor() or
-/// gdk_display_get_monitor_at_window().
+/// monitors with `gdk_display_get_n_monitors()` and `gdk_display_get_monitor()`, and
+/// to find particular monitors with `gdk_display_get_primary_monitor()` or
+/// `gdk_display_get_monitor_at_window()`.
 /// 
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
@@ -99,9 +99,9 @@ public extension MonitorRef {
 ///
 /// GdkMonitor objects represent the individual outputs that are
 /// associated with a `GdkDisplay`. GdkDisplay has APIs to enumerate
-/// monitors with gdk_display_get_n_monitors() and gdk_display_get_monitor(), and
-/// to find particular monitors with gdk_display_get_primary_monitor() or
-/// gdk_display_get_monitor_at_window().
+/// monitors with `gdk_display_get_n_monitors()` and `gdk_display_get_monitor()`, and
+/// to find particular monitors with `gdk_display_get_primary_monitor()` or
+/// `gdk_display_get_monitor_at_window()`.
 /// 
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
@@ -199,29 +199,28 @@ public extension MonitorProtocol {
 public enum MonitorSignalName: String, SignalNameProtocol {
     case invalidate = "invalidate"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyDisplay = "notify::display"
@@ -276,7 +275,7 @@ public extension MonitorProtocol {
 
     /// Retrieves the size and position of an individual monitor within the
     /// display coordinate space. The returned geometry is in  ”application pixels”,
-    /// not in ”device pixels” (see gdk_monitor_get_scale_factor()).
+    /// not in ”device pixels” (see `gdk_monitor_get_scale_factor()`).
     func get(geometry: RectangleProtocol) {
         gdk_monitor_get_geometry(cast(monitor_ptr), cast(geometry.ptr))
     
@@ -320,7 +319,7 @@ public extension MonitorProtocol {
     /// 
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a window
-    /// where it is better to use gdk_window_get_scale_factor() instead.
+    /// where it is better to use `gdk_window_get_scale_factor()` instead.
     func getScaleFactor() -> CInt {
         let rv = gdk_monitor_get_scale_factor(cast(monitor_ptr))
         return rv
@@ -342,7 +341,7 @@ public extension MonitorProtocol {
     /// Retrieves the size and position of the “work area” on a monitor
     /// within the display coordinate space. The returned geometry is in
     /// ”application pixels”, not in ”device pixels” (see
-    /// gdk_monitor_get_scale_factor()).
+    /// `gdk_monitor_get_scale_factor()`).
     /// 
     /// The work area should be considered when positioning menus and
     /// similar popups, to avoid placing them below panels, docks or other
@@ -373,10 +372,10 @@ public extension MonitorProtocol {
     }
 
     /// Gets whether this monitor should be considered primary
-    /// (see gdk_display_get_primary_monitor()).
+    /// (see `gdk_display_get_primary_monitor()`).
     var isPrimary: Bool {
         /// Gets whether this monitor should be considered primary
-        /// (see gdk_display_get_primary_monitor()).
+        /// (see `gdk_display_get_primary_monitor()`).
         get {
             let rv = gdk_monitor_is_primary(cast(monitor_ptr))
             return Bool(rv != 0)
@@ -425,7 +424,7 @@ public extension MonitorProtocol {
     /// 
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a window
-    /// where it is better to use gdk_window_get_scale_factor() instead.
+    /// where it is better to use `gdk_window_get_scale_factor()` instead.
     var scaleFactor: CInt {
         /// Gets the internal scale factor that maps from monitor coordinates
         /// to the actual device pixels. On traditional systems this is 1, but
@@ -433,7 +432,7 @@ public extension MonitorProtocol {
         /// 
         /// This can be used if you want to create pixel based data for a
         /// particular monitor, but most of the time you’re drawing to a window
-        /// where it is better to use gdk_window_get_scale_factor() instead.
+        /// where it is better to use `gdk_window_get_scale_factor()` instead.
         get {
             let rv = gdk_monitor_get_scale_factor(cast(monitor_ptr))
             return rv
@@ -474,13 +473,13 @@ public extension MonitorProtocol {
 /// which windows can be displayed and on which the pointer moves.
 /// X originally identified screens with physical screens, but
 /// nowadays it is more common to have a single `GdkScreen` which
-/// combines several physical monitors (see gdk_screen_get_n_monitors()).
+/// combines several physical monitors (see `gdk_screen_get_n_monitors()`).
 /// 
 /// GdkScreen is used throughout GDK and GTK+ to specify which screen
 /// the top level windows are to be displayed on. it is also used to
 /// query the screen specification and default settings such as
-/// the default visual (gdk_screen_get_system_visual()), the dimensions
-/// of the physical monitors (gdk_screen_get_monitor_geometry()), etc.
+/// the default visual (`gdk_screen_get_system_visual()`), the dimensions
+/// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 public protocol ScreenProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GdkScreen` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -497,13 +496,13 @@ public protocol ScreenProtocol: ObjectProtocol {
 /// which windows can be displayed and on which the pointer moves.
 /// X originally identified screens with physical screens, but
 /// nowadays it is more common to have a single `GdkScreen` which
-/// combines several physical monitors (see gdk_screen_get_n_monitors()).
+/// combines several physical monitors (see `gdk_screen_get_n_monitors()`).
 /// 
 /// GdkScreen is used throughout GDK and GTK+ to specify which screen
 /// the top level windows are to be displayed on. it is also used to
 /// query the screen specification and default settings such as
-/// the default visual (gdk_screen_get_system_visual()), the dimensions
-/// of the physical monitors (gdk_screen_get_monitor_geometry()), etc.
+/// the default visual (`gdk_screen_get_system_visual()`), the dimensions
+/// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 public struct ScreenRef: ScreenProtocol {
     /// Untyped pointer to the underlying `GdkScreen` instance.
     /// For type-safe access, use the generated, typed pointer `screen_ptr` property instead.
@@ -566,13 +565,13 @@ public extension ScreenRef {
 /// which windows can be displayed and on which the pointer moves.
 /// X originally identified screens with physical screens, but
 /// nowadays it is more common to have a single `GdkScreen` which
-/// combines several physical monitors (see gdk_screen_get_n_monitors()).
+/// combines several physical monitors (see `gdk_screen_get_n_monitors()`).
 /// 
 /// GdkScreen is used throughout GDK and GTK+ to specify which screen
 /// the top level windows are to be displayed on. it is also used to
 /// query the screen specification and default settings such as
-/// the default visual (gdk_screen_get_system_visual()), the dimensions
-/// of the physical monitors (gdk_screen_get_monitor_geometry()), etc.
+/// the default visual (`gdk_screen_get_system_visual()`), the dimensions
+/// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 open class Screen: Object, ScreenProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Screen` instance.
@@ -663,42 +662,41 @@ public extension ScreenProtocol {
 }
 
 public enum ScreenSignalName: String, SignalNameProtocol {
-    /// The ::composited-changed signal is emitted when the composited
+    /// The `composited`-changed signal is emitted when the composited
     /// status of the screen changes
     case compositedChanged = "composited-changed"
-    /// The ::monitors-changed signal is emitted when the number, size
+    /// The `monitors`-changed signal is emitted when the number, size
     /// or position of the monitors attached to the screen change.
     /// 
     /// Only for X11 and OS X for now. A future implementation for Win32
     /// may be a possibility.
     case monitorsChanged = "monitors-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::size-changed signal is emitted when the pixel width or
+    /// The `size`-changed signal is emitted when the pixel width or
     /// height of a screen changes.
     case sizeChanged = "size-changed"
     case notifyFontOptions = "notify::font-options"
@@ -749,7 +747,7 @@ public extension ScreenProtocol {
     /// On other platforms, this function may return `nil`, depending on whether
     /// it is implementable on that platform.
     /// 
-    /// The returned window should be unrefed using g_object_unref() when
+    /// The returned window should be unrefed using `g_object_unref()` when
     /// no longer needed.
     ///
     /// **get_active_window is deprecated:**
@@ -765,7 +763,7 @@ public extension ScreenProtocol {
         return cast(rv)
     }
 
-    /// Gets any options previously set with gdk_screen_set_font_options().
+    /// Gets any options previously set with `gdk_screen_set_font_options()`.
     func getFontOptions() -> UnsafePointer<cairo_font_options_t>! {
         let rv = gdk_screen_get_font_options(cast(screen_ptr))
         return cast(rv)
@@ -773,7 +771,7 @@ public extension ScreenProtocol {
 
     /// Gets the height of `screen` in pixels. The returned size is in
     /// ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     ///
     /// **get_height is deprecated:**
     /// Use per-monitor information instead
@@ -817,13 +815,13 @@ public extension ScreenProtocol {
     /// Retrieves the `GdkRectangle` representing the size and position of
     /// the individual monitor within the entire screen area. The returned
     /// geometry is in ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     /// 
     /// Monitor numbers start at 0. To obtain the number of monitors of
-    /// `screen`, use gdk_screen_get_n_monitors().
+    /// `screen`, use `gdk_screen_get_n_monitors()`.
     /// 
     /// Note that the size of the entire screen area can be retrieved via
-    /// gdk_screen_get_width() and gdk_screen_get_height().
+    /// `gdk_screen_get_width()` and `gdk_screen_get_height()`.
     ///
     /// **get_monitor_geometry is deprecated:**
     /// Use gdk_monitor_get_geometry() instead
@@ -858,7 +856,7 @@ public extension ScreenProtocol {
     /// 
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a window
-    /// where it is better to use gdk_window_get_scale_factor() instead.
+    /// where it is better to use `gdk_window_get_scale_factor()` instead.
     ///
     /// **get_monitor_scale_factor is deprecated:**
     /// Use gdk_monitor_get_scale_factor() instead
@@ -879,7 +877,7 @@ public extension ScreenProtocol {
     /// Retrieves the `GdkRectangle` representing the size and position of
     /// the “work area” on a monitor within the entire screen area. The returned
     /// geometry is in ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     /// 
     /// The work area should be considered when positioning menus and
     /// similar popups, to avoid placing them below panels, docks or other
@@ -890,7 +888,7 @@ public extension ScreenProtocol {
     /// available, or does not apply.
     /// 
     /// Monitor numbers start at 0. To obtain the number of monitors of
-    /// `screen`, use gdk_screen_get_n_monitors().
+    /// `screen`, use `gdk_screen_get_n_monitors()`.
     ///
     /// **get_monitor_workarea is deprecated:**
     /// Use gdk_monitor_get_workarea() instead
@@ -909,7 +907,7 @@ public extension ScreenProtocol {
     }
 
     /// Gets the index of `screen` among the screens in the display
-    /// to which it belongs. (See gdk_screen_get_display())
+    /// to which it belongs. (See `gdk_screen_get_display()`)
     ///
     /// **get_number is deprecated:**
     /// This method is deprecated.
@@ -935,7 +933,7 @@ public extension ScreenProtocol {
     }
 
     /// Gets the resolution for font handling on the screen; see
-    /// gdk_screen_set_resolution() for full details.
+    /// `gdk_screen_set_resolution()` for full details.
     func getResolution() -> gdouble {
         let rv = gdk_screen_get_resolution(cast(screen_ptr))
         return rv
@@ -953,7 +951,7 @@ public extension ScreenProtocol {
     /// This functionality is not implemented in the Windows backend.
     /// 
     /// For setting an overall opacity for a top-level window, see
-    /// gdk_window_set_opacity().
+    /// `gdk_window_set_opacity()`.
     func getRgbaVisual() -> UnsafeMutablePointer<GdkVisual>! {
         let rv = gdk_screen_get_rgba_visual(cast(screen_ptr))
         return cast(rv)
@@ -985,9 +983,9 @@ public extension ScreenProtocol {
 
     /// Obtains a list of all toplevel windows known to GDK on the screen `screen`.
     /// A toplevel window is a child of the root window (see
-    /// gdk_get_default_root_window()).
+    /// `gdk_get_default_root_window()`).
     /// 
-    /// The returned list should be freed with g_list_free(), but
+    /// The returned list should be freed with `g_list_free()`, but
     /// its elements need not be freed.
     func getToplevelWindows() -> UnsafeMutablePointer<GList>! {
         let rv = gdk_screen_get_toplevel_windows(cast(screen_ptr))
@@ -996,7 +994,7 @@ public extension ScreenProtocol {
 
     /// Gets the width of `screen` in pixels. The returned size is in
     /// ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     ///
     /// **get_width is deprecated:**
     /// Use per-monitor information instead
@@ -1031,8 +1029,8 @@ public extension ScreenProtocol {
     /// it is implementable on that platform.
     /// 
     /// The returned list is newly allocated and owns references to the
-    /// windows it contains, so it should be freed using g_list_free() and
-    /// its windows unrefed using g_object_unref() when no longer needed.
+    /// windows it contains, so it should be freed using `g_list_free()` and
+    /// its windows unrefed using `g_object_unref()` when no longer needed.
     func getWindowStack() -> UnsafeMutablePointer<GList>! {
         let rv = gdk_screen_get_window_stack(cast(screen_ptr))
         return cast(rv)
@@ -1043,13 +1041,13 @@ public extension ScreenProtocol {
     /// For example, a visual might support 24-bit color, or 8-bit color,
     /// and might expect pixels to be in a certain format.
     /// 
-    /// Call g_list_free() on the return value when you’re finished with it.
+    /// Call `g_list_free()` on the return value when you’re finished with it.
     func listVisuals() -> UnsafeMutablePointer<GList>! {
         let rv = gdk_screen_list_visuals(cast(screen_ptr))
         return cast(rv)
     }
 
-    /// Determines the name to pass to gdk_display_open() to get
+    /// Determines the name to pass to `gdk_display_open()` to get
     /// a `GdkDisplay` with this screen as the default screen.
     ///
     /// **make_display_name is deprecated:**
@@ -1061,7 +1059,7 @@ public extension ScreenProtocol {
 
     /// Sets the default font options for the screen. These
     /// options will be set on any `PangoContext`’s newly created
-    /// with gdk_pango_context_get_for_screen(). Changing the
+    /// with `gdk_pango_context_get_for_screen()`. Changing the
     /// default set of font options does not affect contexts that
     /// have already been created.
     func setFont(options: FontOptionsProtocol) {
@@ -1082,7 +1080,7 @@ public extension ScreenProtocol {
     /// given pointer position.
     /// 
     /// This function is called by the drag source to obtain the
-    /// `dest_window` and `protocol` parameters for gdk_drag_motion().
+    /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
     func dragFindWindowForScreen(context: DragContextProtocol, dragWindow drag_window: WindowProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
         gdk_drag_find_window_for_screen(cast(context.ptr), cast(drag_window.ptr), cast(screen_ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
     
@@ -1092,13 +1090,13 @@ public extension ScreenProtocol {
     /// 
     /// The context must be freed when you’re finished with it.
     /// 
-    /// When using GTK+, normally you should use gtk_widget_get_pango_context()
+    /// When using GTK+, normally you should use `gtk_widget_get_pango_context()`
     /// instead of this function, to get the appropriate context for
     /// the widget you intend to render text onto.
     /// 
     /// The newly created context will have the default font options
     /// (see `cairo_font_options_t`) for the screen; if these options
-    /// change it will not be updated. Using gtk_widget_get_pango_context()
+    /// change it will not be updated. Using `gtk_widget_get_pango_context()`
     /// is more convenient if you want to keep a context around and track
     /// changes to the screen’s font rendering settings.
     func pangoContextGetForScreen() -> UnsafeMutablePointer<PangoContext>! {
@@ -1117,7 +1115,7 @@ public extension ScreenProtocol {
     /// On other platforms, this function may return `nil`, depending on whether
     /// it is implementable on that platform.
     /// 
-    /// The returned window should be unrefed using g_object_unref() when
+    /// The returned window should be unrefed using `g_object_unref()` when
     /// no longer needed.
     ///
     /// **get_active_window is deprecated:**
@@ -1135,7 +1133,7 @@ public extension ScreenProtocol {
         /// On other platforms, this function may return `nil`, depending on whether
         /// it is implementable on that platform.
         /// 
-        /// The returned window should be unrefed using g_object_unref() when
+        /// The returned window should be unrefed using `g_object_unref()` when
         /// no longer needed.
         ///
         /// **get_active_window is deprecated:**
@@ -1155,16 +1153,16 @@ public extension ScreenProtocol {
         }
     }
 
-    /// Gets any options previously set with gdk_screen_set_font_options().
+    /// Gets any options previously set with `gdk_screen_set_font_options()`.
     var fontOptions: UnsafePointer<cairo_font_options_t>! {
-        /// Gets any options previously set with gdk_screen_set_font_options().
+        /// Gets any options previously set with `gdk_screen_set_font_options()`.
         get {
             let rv = gdk_screen_get_font_options(cast(screen_ptr))
             return cast(rv)
         }
         /// Sets the default font options for the screen. These
         /// options will be set on any `PangoContext`’s newly created
-        /// with gdk_pango_context_get_for_screen(). Changing the
+        /// with `gdk_pango_context_get_for_screen()`. Changing the
         /// default set of font options does not affect contexts that
         /// have already been created.
         nonmutating set {
@@ -1174,14 +1172,14 @@ public extension ScreenProtocol {
 
     /// Gets the height of `screen` in pixels. The returned size is in
     /// ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     ///
     /// **get_height is deprecated:**
     /// Use per-monitor information instead
     var height: CInt {
         /// Gets the height of `screen` in pixels. The returned size is in
         /// ”application pixels”, not in ”device pixels” (see
-        /// gdk_screen_get_monitor_scale_factor()).
+        /// `gdk_screen_get_monitor_scale_factor()`).
         ///
         /// **get_height is deprecated:**
         /// Use per-monitor information instead
@@ -1249,13 +1247,13 @@ public extension ScreenProtocol {
     }
 
     /// Gets the index of `screen` among the screens in the display
-    /// to which it belongs. (See gdk_screen_get_display())
+    /// to which it belongs. (See `gdk_screen_get_display()`)
     ///
     /// **get_number is deprecated:**
     /// This method is deprecated.
     var number: CInt {
         /// Gets the index of `screen` among the screens in the display
-        /// to which it belongs. (See gdk_screen_get_display())
+        /// to which it belongs. (See `gdk_screen_get_display()`)
         ///
         /// **get_number is deprecated:**
         /// This method is deprecated.
@@ -1296,7 +1294,7 @@ public extension ScreenProtocol {
 
     var resolution: gdouble {
         /// Gets the resolution for font handling on the screen; see
-        /// gdk_screen_set_resolution() for full details.
+        /// `gdk_screen_set_resolution()` for full details.
         get {
             let rv = gdk_screen_get_resolution(cast(screen_ptr))
             return rv
@@ -1322,7 +1320,7 @@ public extension ScreenProtocol {
     /// This functionality is not implemented in the Windows backend.
     /// 
     /// For setting an overall opacity for a top-level window, see
-    /// gdk_window_set_opacity().
+    /// `gdk_window_set_opacity()`.
     var rgbaVisual: UnsafeMutablePointer<GdkVisual>! {
         /// Gets a visual to use for creating windows with an alpha channel.
         /// The windowing system on which GTK+ is running
@@ -1336,7 +1334,7 @@ public extension ScreenProtocol {
         /// This functionality is not implemented in the Windows backend.
         /// 
         /// For setting an overall opacity for a top-level window, see
-        /// gdk_window_set_opacity().
+        /// `gdk_window_set_opacity()`.
         get {
             let rv = gdk_screen_get_rgba_visual(cast(screen_ptr))
             return cast(rv)
@@ -1367,16 +1365,16 @@ public extension ScreenProtocol {
 
     /// Obtains a list of all toplevel windows known to GDK on the screen `screen`.
     /// A toplevel window is a child of the root window (see
-    /// gdk_get_default_root_window()).
+    /// `gdk_get_default_root_window()`).
     /// 
-    /// The returned list should be freed with g_list_free(), but
+    /// The returned list should be freed with `g_list_free()`, but
     /// its elements need not be freed.
     var toplevelWindows: UnsafeMutablePointer<GList>! {
         /// Obtains a list of all toplevel windows known to GDK on the screen `screen`.
         /// A toplevel window is a child of the root window (see
-        /// gdk_get_default_root_window()).
+        /// `gdk_get_default_root_window()`).
         /// 
-        /// The returned list should be freed with g_list_free(), but
+        /// The returned list should be freed with `g_list_free()`, but
         /// its elements need not be freed.
         get {
             let rv = gdk_screen_get_toplevel_windows(cast(screen_ptr))
@@ -1386,14 +1384,14 @@ public extension ScreenProtocol {
 
     /// Gets the width of `screen` in pixels. The returned size is in
     /// ”application pixels”, not in ”device pixels” (see
-    /// gdk_screen_get_monitor_scale_factor()).
+    /// `gdk_screen_get_monitor_scale_factor()`).
     ///
     /// **get_width is deprecated:**
     /// Use per-monitor information instead
     var width: CInt {
         /// Gets the width of `screen` in pixels. The returned size is in
         /// ”application pixels”, not in ”device pixels” (see
-        /// gdk_screen_get_monitor_scale_factor()).
+        /// `gdk_screen_get_monitor_scale_factor()`).
         ///
         /// **get_width is deprecated:**
         /// Use per-monitor information instead
@@ -1439,8 +1437,8 @@ public extension ScreenProtocol {
     /// it is implementable on that platform.
     /// 
     /// The returned list is newly allocated and owns references to the
-    /// windows it contains, so it should be freed using g_list_free() and
-    /// its windows unrefed using g_object_unref() when no longer needed.
+    /// windows it contains, so it should be freed using `g_list_free()` and
+    /// its windows unrefed using `g_object_unref()` when no longer needed.
     var windowStack: UnsafeMutablePointer<GList>! {
         /// Returns a `GList` of `GdkWindows` representing the current
         /// window stack.
@@ -1455,8 +1453,8 @@ public extension ScreenProtocol {
         /// it is implementable on that platform.
         /// 
         /// The returned list is newly allocated and owns references to the
-        /// windows it contains, so it should be freed using g_list_free() and
-        /// its windows unrefed using g_object_unref() when no longer needed.
+        /// windows it contains, so it should be freed using `g_list_free()` and
+        /// its windows unrefed using `g_object_unref()` when no longer needed.
         get {
             let rv = gdk_screen_get_window_stack(cast(screen_ptr))
             return cast(rv)

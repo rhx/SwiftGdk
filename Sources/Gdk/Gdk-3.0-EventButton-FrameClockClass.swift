@@ -1361,7 +1361,7 @@ public extension EventMotionProtocol {
 
     /// Request more motion notifies if `event` is a motion notify hint event.
     /// 
-    /// This function should be used instead of gdk_window_get_pointer() to
+    /// This function should be used instead of `gdk_window_get_pointer()` to
     /// request further motion notifies, because it also works for extension
     /// events where motion notifies are provided for devices other than the
     /// core pointer. Coordinate extraction, processing and requesting more
@@ -1385,7 +1385,7 @@ public extension EventMotionProtocol {
 
     /// Request more motion notifies if `event` is a motion notify hint event.
     /// 
-    /// This function should be used instead of gdk_window_get_pointer() to
+    /// This function should be used instead of `gdk_window_get_pointer()` to
     /// request further motion notifies, because it also works for extension
     /// events where motion notifies are provided for devices other than the
     /// core pointer. Coordinate extraction, processing and requesting more
@@ -2282,7 +2282,7 @@ public extension EventProximityProtocol {
 /// Some GDK backends can also generate “smooth” scroll events, which
 /// can be recognized by the `GDK_SCROLL_SMOOTH` scroll direction. For
 /// these, the scroll deltas can be obtained with
-/// gdk_event_get_scroll_deltas().
+/// `gdk_event_get_scroll_deltas()`.
 public protocol EventScrollProtocol {
     /// Untyped pointer to the underlying `GdkEventScroll` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -2302,7 +2302,7 @@ public protocol EventScrollProtocol {
 /// Some GDK backends can also generate “smooth” scroll events, which
 /// can be recognized by the `GDK_SCROLL_SMOOTH` scroll direction. For
 /// these, the scroll deltas can be obtained with
-/// gdk_event_get_scroll_deltas().
+/// `gdk_event_get_scroll_deltas()`.
 public struct EventScrollRef: EventScrollProtocol {
     /// Untyped pointer to the underlying `GdkEventScroll` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2362,7 +2362,7 @@ public extension EventScrollRef {
 /// Some GDK backends can also generate “smooth” scroll events, which
 /// can be recognized by the `GDK_SCROLL_SMOOTH` scroll direction. For
 /// these, the scroll deltas can be obtained with
-/// gdk_event_get_scroll_deltas().
+/// `gdk_event_get_scroll_deltas()`.
 open class EventScroll: EventScrollProtocol {
     /// Untyped pointer to the underlying `GdkEventScroll` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -2856,7 +2856,7 @@ public extension EventSettingProtocol {
 /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`.
 /// 
 /// Touch events are grouped into sequences by means of the `sequence`
-/// field, which can also be obtained with gdk_event_get_event_sequence().
+/// field, which can also be obtained with `gdk_event_get_event_sequence()`.
 /// Each sequence begins with a `GDK_TOUCH_BEGIN` event, followed by
 /// any number of `GDK_TOUCH_UPDATE` events, and ends with a `GDK_TOUCH_END`
 /// (or `GDK_TOUCH_CANCEL`) event. With multitouch devices, there may be
@@ -2878,7 +2878,7 @@ public protocol EventTouchProtocol {
 /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`.
 /// 
 /// Touch events are grouped into sequences by means of the `sequence`
-/// field, which can also be obtained with gdk_event_get_event_sequence().
+/// field, which can also be obtained with `gdk_event_get_event_sequence()`.
 /// Each sequence begins with a `GDK_TOUCH_BEGIN` event, followed by
 /// any number of `GDK_TOUCH_UPDATE` events, and ends with a `GDK_TOUCH_END`
 /// (or `GDK_TOUCH_CANCEL`) event. With multitouch devices, there may be
@@ -2940,7 +2940,7 @@ public extension EventTouchRef {
 /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`.
 /// 
 /// Touch events are grouped into sequences by means of the `sequence`
-/// field, which can also be obtained with gdk_event_get_event_sequence().
+/// field, which can also be obtained with `gdk_event_get_event_sequence()`.
 /// Each sequence begins with a `GDK_TOUCH_BEGIN` event, followed by
 /// any number of `GDK_TOUCH_UPDATE` events, and ends with a `GDK_TOUCH_END`
 /// (or `GDK_TOUCH_CANCEL`) event. With multitouch devices, there may be

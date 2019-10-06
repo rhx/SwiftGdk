@@ -176,7 +176,7 @@ public extension RectangleProtocol {
     
     }
 
-    /// This is a convenience function around cairo_clip_extents().
+    /// This is a convenience function around `cairo_clip_extents()`.
     /// It rounds the clip extents to integer coordinates and returns
     /// a boolean indicating if a clip area exists.
     func cairoGetClipRectangle(cr: cairo.ContextProtocol) -> Bool {

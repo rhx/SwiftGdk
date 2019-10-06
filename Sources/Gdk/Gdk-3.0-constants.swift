@@ -4586,5 +4586,5 @@ public let PARENT_RELATIVE = GDK_PARENT_RELATIVE /* gint 1 */
 
 /// This is the priority that the idle handler processing window updates
 /// is given in the
-/// [GLib Main Loop][glib-The-Main-Event-Loop].
+/// [GLib Main Loop](#glib-The-Main-Event-Loop).
 public let PRIORITY_REDRAW: CInt = 120 /* GDK_PRIORITY_REDRAW */

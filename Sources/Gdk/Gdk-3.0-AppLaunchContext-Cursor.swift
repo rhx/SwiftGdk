@@ -22,7 +22,7 @@ import GdkPixbuf
 /// startup notification and allows to launch applications on a specific
 /// screen or workspace.
 /// 
-/// ``` Launching an application
+/// ## Launching an application
 /// 
 /// (C Language Example):
 /// ```C
@@ -34,7 +34,7 @@ import GdkPixbuf
 /// gdk_app_launch_context_set_timestamp (event->time);
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: `s`\n", error->message);
+///   g_warning ("Launching failed: %s\n", error->message);
 /// 
 /// g_object_unref (context);
 /// ```
@@ -56,7 +56,7 @@ public protocol AppLaunchContextProtocol {
 /// startup notification and allows to launch applications on a specific
 /// screen or workspace.
 /// 
-/// ``` Launching an application
+/// ## Launching an application
 /// 
 /// (C Language Example):
 /// ```C
@@ -68,7 +68,7 @@ public protocol AppLaunchContextProtocol {
 /// gdk_app_launch_context_set_timestamp (event->time);
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: `s`\n", error->message);
+///   g_warning ("Launching failed: %s\n", error->message);
 /// 
 /// g_object_unref (context);
 /// ```
@@ -138,7 +138,7 @@ public extension AppLaunchContextRef {
 /// startup notification and allows to launch applications on a specific
 /// screen or workspace.
 /// 
-/// ``` Launching an application
+/// ## Launching an application
 /// 
 /// (C Language Example):
 /// ```C
@@ -150,7 +150,7 @@ public extension AppLaunchContextRef {
 /// gdk_app_launch_context_set_timestamp (event->time);
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: `s`\n", error->message);
+///   g_warning ("Launching failed: %s\n", error->message);
 /// 
 /// g_object_unref (context);
 /// ```
@@ -305,7 +305,7 @@ public extension AppLaunchContextProtocol {
     }
 
     /// Sets the display on which applications will be launched when
-    /// using this context. See also gdk_app_launch_context_set_screen().
+    /// using this context. See also `gdk_app_launch_context_set_screen()`.
     ///
     /// **set_display is deprecated:**
     /// Use gdk_display_get_app_launch_context() instead
@@ -320,7 +320,7 @@ public extension AppLaunchContextProtocol {
     /// Window Managers can use this information when displaying startup
     /// notification.
     /// 
-    /// See also gdk_app_launch_context_set_icon_name().
+    /// See also `gdk_app_launch_context_set_icon_name()`.
     func set(icon: UnsafeMutablePointer<GIcon>) {
         gdk_app_launch_context_set_icon(cast(app_launch_context_ptr), cast(icon))
     
@@ -328,7 +328,7 @@ public extension AppLaunchContextProtocol {
 
     /// Sets the icon for applications that are launched with this context.
     /// The `icon_name` will be interpreted in the same way as the Icon field
-    /// in desktop files. See also gdk_app_launch_context_set_icon().
+    /// in desktop files. See also `gdk_app_launch_context_set_icon()`.
     /// 
     /// If both `icon` and `icon_name` are set, the `icon_name` takes priority.
     /// If neither `icon` or `icon_name` is set, the icon is taken from either
@@ -340,7 +340,7 @@ public extension AppLaunchContextProtocol {
     }
 
     /// Sets the screen on which applications will be launched when
-    /// using this context. See also gdk_app_launch_context_set_display().
+    /// using this context. See also `gdk_app_launch_context_set_display()`.
     /// 
     /// If both `screen` and `display` are set, the `screen` takes priority.
     /// If neither `screen` or `display` are set, the default screen and
@@ -433,7 +433,7 @@ public extension CursorRef {
     }
 
         /// Creates a new cursor from the set of builtin cursors for the default display.
-    /// See gdk_cursor_new_for_display().
+    /// See `gdk_cursor_new_for_display()`.
     /// 
     /// To make the cursor invisible, use `GDK_BLANK_CURSOR`.
     ///
@@ -499,11 +499,11 @@ public extension CursorRef {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// If `x` or `y` are `-1`, the pixbuf must have
@@ -522,11 +522,11 @@ public extension CursorRef {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// On the X backend, support for RGBA cursors requires a
@@ -590,11 +590,11 @@ public extension CursorRef {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// If `x` or `y` are `-1`, the pixbuf must have
@@ -613,11 +613,11 @@ public extension CursorRef {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// On the X backend, support for RGBA cursors requires a
@@ -672,7 +672,7 @@ open class Cursor: Object, CursorProtocol {
     }
 
     /// Creates a new cursor from the set of builtin cursors for the default display.
-    /// See gdk_cursor_new_for_display().
+    /// See `gdk_cursor_new_for_display()`.
     /// 
     /// To make the cursor invisible, use `GDK_BLANK_CURSOR`.
     ///
@@ -738,11 +738,11 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// If `x` or `y` are `-1`, the pixbuf must have
@@ -761,11 +761,11 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// On the X backend, support for RGBA cursors requires a
@@ -830,11 +830,11 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// If `x` or `y` are `-1`, the pixbuf must have
@@ -853,11 +853,11 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// Not all GDK backends support RGBA cursors. If they are not
     /// supported, a monochrome approximation will be displayed.
-    /// The functions gdk_display_supports_cursor_alpha() and
-    /// gdk_display_supports_cursor_color() can be used to determine
+    /// The functions `gdk_display_supports_cursor_alpha()` and
+    /// `gdk_display_supports_cursor_color()` can be used to determine
     /// whether RGBA cursors are supported;
-    /// gdk_display_get_default_cursor_size() and
-    /// gdk_display_get_maximal_cursor_size() give information about
+    /// `gdk_display_get_default_cursor_size()` and
+    /// `gdk_display_get_maximal_cursor_size()` give information about
     /// cursor sizes.
     /// 
     /// On the X backend, support for RGBA cursors requires a
@@ -912,29 +912,28 @@ public extension CursorProtocol {
 
 public enum CursorSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyCursorType = "notify::cursor-type"
@@ -1025,7 +1024,7 @@ public extension CursorProtocol {
     }
 
     /// Grabs the pointer (usually a mouse) so that all events are passed to this
-    /// application until the pointer is ungrabbed with gdk_pointer_ungrab(), or
+    /// application until the pointer is ungrabbed with `gdk_pointer_ungrab()`, or
     /// the grab window becomes unviewable.
     /// This overrides any previous pointer grab by this client.
     /// 

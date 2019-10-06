@@ -87,7 +87,7 @@ public extension AtomRef {
 
     /// Finds or creates an atom corresponding to a given string.
     /// 
-    /// Note that this function is identical to gdk_atom_intern() except
+    /// Note that this function is identical to `gdk_atom_intern()` except
     /// that if a new `GdkAtom` is created the string itself is used rather
     /// than a copy. This saves memory, but can only be used if the string
     /// will always exist. It can be used with statically
@@ -163,7 +163,7 @@ open class Atom: AtomProtocol {
 
     /// Finds or creates an atom corresponding to a given string.
     /// 
-    /// Note that this function is identical to gdk_atom_intern() except
+    /// Note that this function is identical to `gdk_atom_intern()` except
     /// that if a new `GdkAtom` is created the string itself is used rather
     /// than a copy. This saves memory, but can only be used if the string
     /// will always exist. It can be used with statically
@@ -209,14 +209,14 @@ public extension AtomProtocol {
     /// property does not exist, then the function returns `false`,
     /// and `GDK_NONE` will be stored in `actual_property_type`.
     /// 
-    /// The XGetWindowProperty() function that gdk_property_get()
+    /// The `XGetWindowProperty()` function that `gdk_property_get()`
     /// uses has a very confusing and complicated set of semantics.
-    /// Unfortunately, gdk_property_get() makes the situation
+    /// Unfortunately, `gdk_property_get()` makes the situation
     /// worse instead of better (the semantics should be considered
     /// undefined), and also prints warnings to stderr in cases where it
     /// should return a useful error to the program. You are advised to use
-    /// XGetWindowProperty() directly until a replacement function for
-    /// gdk_property_get() is provided.
+    /// `XGetWindowProperty()` directly until a replacement function for
+    /// `gdk_property_get()` is provided.
     func propertyGet(window: WindowProtocol, type: Atom, offset: CUnsignedLong, length: CUnsignedLong, pdelete: CInt, actualPropertyType actual_property_type: AtomProtocol, actualFormat actual_format: UnsafeMutablePointer<CInt>, actualLength actual_length: UnsafeMutablePointer<CInt>, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>) -> Bool {
         let rv = gdk_property_get(cast(window.ptr), cast(_ptr), cast(type.ptr), gulong(offset), gulong(length), gint(pdelete), cast(actual_property_type.ptr), cast(actual_format), cast(actual_length), cast(data))
         return Bool(rv != 0)
@@ -258,7 +258,7 @@ public extension AtomProtocol {
     }
 
     /// Retrieves selection data that was stored by the selection
-    /// data in response to a call to gdk_selection_convert(). This function
+    /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
     func selectionPropertyGet(requestor: WindowProtocol, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propFormat prop_format: UnsafeMutablePointer<CInt>) -> CInt {
@@ -427,7 +427,7 @@ public extension ColorProtocol {
 
     /// Makes a copy of a `GdkColor`.
     /// 
-    /// The result must be freed using gdk_color_free().
+    /// The result must be freed using `gdk_color_free()`.
     ///
     /// **copy is deprecated:**
     /// Use #GdkRGBA
@@ -445,7 +445,7 @@ public extension ColorProtocol {
         return Bool(rv != 0)
     }
 
-    /// Frees a `GdkColor` created with gdk_color_copy().
+    /// Frees a `GdkColor` created with `gdk_color_copy()`.
     ///
     /// **free is deprecated:**
     /// Use #GdkRGBA
@@ -468,7 +468,7 @@ public extension ColorProtocol {
     /// form “\`rrrrggggbbbb`” where “r”, “g” and “b” are hex digits
     /// representing the red, green and blue components respectively.
     /// 
-    /// The returned string can be parsed by gdk_color_parse().
+    /// The returned string can be parsed by `gdk_color_parse()`.
     ///
     /// **to_string is deprecated:**
     /// Use #GdkRGBA

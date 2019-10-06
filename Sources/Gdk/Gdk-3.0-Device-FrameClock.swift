@@ -165,14 +165,14 @@ public enum DevicePropertyName: String, PropertyNameProtocol {
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case numTouches = "num-touches"
-    /// Product ID of this device, see gdk_device_get_product_id().
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
     case productId = "product-id"
     /// `GdkSeat` of this device.
     case seat = "seat"
     case tool = "tool"
     /// Device role in the device manager.
     case type = "type"
-    /// Vendor ID of this device, see gdk_device_get_vendor_id().
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
     case vendorId = "vendor-id"
 }
 
@@ -213,7 +213,7 @@ public extension DeviceProtocol {
 }
 
 public enum DeviceSignalName: String, SignalNameProtocol {
-    /// The ::changed signal is emitted either when the `GdkDevice`
+    /// The `changed` signal is emitted either when the `GdkDevice`
     /// has changed the number of either axes or keys. For example
     /// In X this will normally happen when the slave device routing
     /// events through the master device changes (for example, user
@@ -222,32 +222,31 @@ public enum DeviceSignalName: String, SignalNameProtocol {
     /// axes and keys.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::tool-changed signal is emitted on pen/eraser
+    /// The `tool`-changed signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
     /// Associated pointer or keyboard with this device, if any. Devices of type `GDK_DEVICE_TYPE_MASTER`
@@ -273,14 +272,14 @@ public enum DeviceSignalName: String, SignalNameProtocol {
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case notifyNumTouches = "notify::num-touches"
-    /// Product ID of this device, see gdk_device_get_product_id().
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
     case notifyProductId = "notify::product-id"
     /// `GdkSeat` of this device.
     case notifySeat = "notify::seat"
     case notifyTool = "notify::tool"
     /// Device role in the device manager.
     case notifyType_ = "notify::type"
-    /// Vendor ID of this device, see gdk_device_get_vendor_id().
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
     case notifyVendorId = "notify::vendor-id"
 }
 
@@ -351,7 +350,7 @@ public extension DeviceProtocol {
 
     /// Interprets an array of double as axis values for a given device,
     /// and locates the value in the array for a given axis label, as returned
-    /// by gdk_device_list_axes()
+    /// by `gdk_device_list_axes()`
     func getAxisValue(axes: UnsafeMutablePointer<gdouble>, axisLabel axis_label: Atom, value: UnsafeMutablePointer<gdouble>) -> Bool {
         let rv = gdk_device_get_axis_value(cast(device_ptr), cast(axes), cast(axis_label.ptr), cast(value))
         return Bool(rv != 0)
@@ -383,7 +382,7 @@ public extension DeviceProtocol {
     /// be returned. (This is not distinguishable from the case where
     /// motion history is supported and no events were found.)
     /// 
-    /// Note that there is also gdk_window_set_event_compression() to get
+    /// Note that there is also `gdk_window_set_event_compression()` to get
     /// more motion events delivered directly, independent of the windowing
     /// system.
     func getHistory(window: WindowProtocol, start: UInt32, stop: UInt32, events: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<GdkTimeCoord>>>, nEvents n_events: UnsafeMutablePointer<CInt>) -> Bool {
@@ -435,7 +434,7 @@ public extension DeviceProtocol {
     /// Gets the current location of `device`. As a slave device
     /// coordinates are those of its master pointer, This function
     /// may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
-    /// unless there is an ongoing grab on them, see gdk_device_grab().
+    /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
     func getPosition(screen: ScreenProtocol, x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>) {
         gdk_device_get_position(cast(device_ptr), cast(screen.ptr), cast(x), cast(y))
     
@@ -444,7 +443,7 @@ public extension DeviceProtocol {
     /// Gets the current location of `device` in double precision. As a slave device's
     /// coordinates are those of its master pointer, this function
     /// may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
-    /// unless there is an ongoing grab on them. See gdk_device_grab().
+    /// unless there is an ongoing grab on them. See `gdk_device_grab()`.
     func getPositionDouble(screen: ScreenProtocol, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) {
         gdk_device_get_position_double(cast(device_ptr), cast(screen.ptr), cast(x), cast(y))
     
@@ -452,7 +451,7 @@ public extension DeviceProtocol {
 
     /// Returns the product ID of this device, or `nil` if this information couldn't
     /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it. See gdk_device_get_vendor_id() for more information.
+    /// it. See `gdk_device_get_vendor_id()` for more information.
     func getProductId() -> String! {
         let rv = gdk_device_get_product_id(cast(device_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -473,7 +472,7 @@ public extension DeviceProtocol {
     /// Gets the current state of a pointer device relative to `window`. As a slave
     /// device’s coordinates are those of its master pointer, this
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
-    /// unless there is an ongoing grab on them. See gdk_device_grab().
+    /// unless there is an ongoing grab on them. See `gdk_device_grab()`.
     func getState(window: WindowProtocol, axes: UnsafeMutablePointer<gdouble>, mask: UnsafeMutablePointer<GdkModifierType>) {
         gdk_device_get_state(cast(device_ptr), cast(window.ptr), cast(axes), cast(mask))
     
@@ -483,7 +482,7 @@ public extension DeviceProtocol {
     /// be obtained. This ID is retrieved from the device, and is thus constant for
     /// it.
     /// 
-    /// This function, together with gdk_device_get_product_id(), can be used to eg.
+    /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
     /// compose `GSettings` paths to store settings for this device.
     /// 
     /// (C Language Example):
@@ -499,7 +498,7 @@ public extension DeviceProtocol {
     ///    vendor = gdk_device_get_vendor_id (device);
     ///    product = gdk_device_get_product_id (device);
     /// 
-    ///    path = g_strdup_printf ("/org/example/app/devices/`s`:`s`/", vendor, product);
+    ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
     ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
     ///    g_free (path);
     /// 
@@ -517,7 +516,7 @@ public extension DeviceProtocol {
     /// 
     /// As a slave device coordinates are those of its master pointer, This
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
-    /// unless there is an ongoing grab on them, see gdk_device_grab().
+    /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
     func getWindowAtPosition(winX win_x: UnsafeMutablePointer<CInt>, winY win_y: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_device_get_window_at_position(cast(device_ptr), cast(win_x), cast(win_y))
         return cast(rv)
@@ -529,14 +528,14 @@ public extension DeviceProtocol {
     /// 
     /// As a slave device coordinates are those of its master pointer, This
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
-    /// unless there is an ongoing grab on them, see gdk_device_grab().
+    /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
     func getWindowAtPositionDouble(winX win_x: UnsafeMutablePointer<gdouble>, winY win_y: UnsafeMutablePointer<gdouble>) -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_device_get_window_at_position_double(cast(device_ptr), cast(win_x), cast(win_y))
         return cast(rv)
     }
 
     /// Grabs the device so that all events coming from this device are passed to
-    /// this application until the device is ungrabbed with gdk_device_ungrab(),
+    /// this application until the device is ungrabbed with `gdk_device_ungrab()`,
     /// or the window becomes unviewable. This overrides any previous grab on the device
     /// by this client.
     /// 
@@ -783,11 +782,11 @@ public extension DeviceProtocol {
 
     /// Returns the product ID of this device, or `nil` if this information couldn't
     /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it. See gdk_device_get_vendor_id() for more information.
+    /// it. See `gdk_device_get_vendor_id()` for more information.
     var productId: String! {
         /// Returns the product ID of this device, or `nil` if this information couldn't
         /// be obtained. This ID is retrieved from the device, and is thus constant for
-        /// it. See gdk_device_get_vendor_id() for more information.
+        /// it. See `gdk_device_get_vendor_id()` for more information.
         get {
             let rv = gdk_device_get_product_id(cast(device_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }
@@ -816,7 +815,7 @@ public extension DeviceProtocol {
     /// be obtained. This ID is retrieved from the device, and is thus constant for
     /// it.
     /// 
-    /// This function, together with gdk_device_get_product_id(), can be used to eg.
+    /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
     /// compose `GSettings` paths to store settings for this device.
     /// 
     /// (C Language Example):
@@ -832,7 +831,7 @@ public extension DeviceProtocol {
     ///    vendor = gdk_device_get_vendor_id (device);
     ///    product = gdk_device_get_product_id (device);
     /// 
-    ///    path = g_strdup_printf ("/org/example/app/devices/`s`:`s`/", vendor, product);
+    ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
     ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
     ///    g_free (path);
     /// 
@@ -845,7 +844,7 @@ public extension DeviceProtocol {
         /// be obtained. This ID is retrieved from the device, and is thus constant for
         /// it.
         /// 
-        /// This function, together with gdk_device_get_product_id(), can be used to eg.
+        /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
         /// compose `GSettings` paths to store settings for this device.
         /// 
         /// (C Language Example):
@@ -861,7 +860,7 @@ public extension DeviceProtocol {
         ///    vendor = gdk_device_get_vendor_id (device);
         ///    product = gdk_device_get_product_id (device);
         /// 
-        ///    path = g_strdup_printf ("/org/example/app/devices/`s`:`s`/", vendor, product);
+        ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
         ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
         ///    g_free (path);
         /// 
@@ -899,18 +898,18 @@ public extension DeviceProtocol {
 /// 
 /// By default, and if the platform supports it, GDK is aware of multiple
 /// keyboard/pointer pairs and multitouch devices. This behavior can be
-/// changed by calling gdk_disable_multidevice() before gdk_display_open().
+/// changed by calling `gdk_disable_multidevice()` before `gdk_display_open()`.
 /// There should rarely be a need to do that though, since GDK defaults
 /// to a compatibility mode in which it will emit just one enter/leave
 /// event pair for all devices on a window. To enable per-device
 /// enter/leave events and other multi-pointer interaction features,
-/// gdk_window_set_support_multidevice() must be called on
-/// `GdkWindows` (or gtk_widget_set_support_multidevice() on widgets).
-/// window. See the gdk_window_set_support_multidevice() documentation
+/// `gdk_window_set_support_multidevice()` must be called on
+/// `GdkWindows` (or `gtk_widget_set_support_multidevice()` on widgets).
+/// window. See the `gdk_window_set_support_multidevice()` documentation
 /// for more information.
 /// 
 /// On X11, multi-device support is implemented through XInput 2.
-/// Unless gdk_disable_multidevice() is called, the XInput 2
+/// Unless `gdk_disable_multidevice()` is called, the XInput 2
 /// `GdkDeviceManager` implementation will be used as the input source.
 /// Otherwise either the core or XInput 1 implementations will be used.
 /// 
@@ -918,7 +917,7 @@ public extension DeviceProtocol {
 /// input devices, the so-called “client pointer”
 /// provides a reasonable approximation to a simple setup with a single
 /// pointer and keyboard. The device that has been set as the client
-/// pointer can be accessed via gdk_device_manager_get_client_pointer().
+/// pointer can be accessed via `gdk_device_manager_get_client_pointer()`.
 /// 
 /// Conceptually, in multidevice mode there are 2 device types. Virtual
 /// devices (or master devices) are represented by the pointer cursors
@@ -928,16 +927,16 @@ public extension DeviceProtocol {
 /// 
 /// Virtual devices are always paired, so there is a keyboard device for every
 /// pointer device. Associations between devices may be inspected through
-/// gdk_device_get_associated_device().
+/// `gdk_device_get_associated_device()`.
 /// 
 /// There may be several virtual devices, and several physical devices could
 /// be controlling each of these virtual devices. Physical devices may also
 /// be “floating”, which means they are not attached to any virtual device.
 /// 
-/// `` Master and slave devices
+/// # Master and slave devices
 /// 
 /// ```
-/// carlos`sacarino`:~$ xinput list
+/// carlos@sacarino:~$ xinput list
 /// ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
 /// ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
 /// ⎜   ↳ Wacom ISDv4 E6 Pen stylus                 id=10   [slave  pointer  (2)]
@@ -955,7 +954,6 @@ public extension DeviceProtocol {
 ///     ↳ ThinkPad Extra Buttons                    id=15   [slave  keyboard (3)]
 /// ```
 /// 
-/// 
 /// By default, GDK will automatically listen for events coming from all
 /// master devices, setting the `GdkDevice` for all events coming from input
 /// devices. Events containing device information are `GDK_MOTION_NOTIFY`,
@@ -966,7 +964,7 @@ public extension DeviceProtocol {
 /// `GDK_DRAG_MOTION`, `GDK_DRAG_STATUS`, `GDK_DROP_START`, `GDK_DROP_FINISHED`
 /// and `GDK_GRAB_BROKEN`. When dealing with an event on a master device,
 /// it is possible to get the source (slave) device that the event originated
-/// from via gdk_event_get_source_device().
+/// from via `gdk_event_get_source_device()`.
 /// 
 /// On a standard session, all physical devices are connected by default to
 /// the "Virtual Core Pointer/Keyboard" master devices, hence routing all events
@@ -977,25 +975,25 @@ public extension DeviceProtocol {
 /// On certain application specific setups, it may make sense
 /// to detach a physical device from its master pointer, and mapping it to
 /// an specific window. This can be achieved by the combination of
-/// gdk_device_grab() and gdk_device_set_mode().
+/// `gdk_device_grab()` and `gdk_device_set_mode()`.
 /// 
 /// In order to listen for events coming from devices
-/// other than a virtual device, gdk_window_set_device_events() must be
+/// other than a virtual device, `gdk_window_set_device_events()` must be
 /// called. Generally, this function can be used to modify the event mask
 /// for any given device.
 /// 
 /// Input devices may also provide additional information besides X/Y.
 /// For example, graphics tablets may also provide pressure and X/Y tilt
 /// information. This information is device-dependent, and may be
-/// queried through gdk_device_get_axis(). In multidevice mode, virtual
+/// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice`:n-axes property will be notified, and
-/// gdk_device_list_axes() will return the new device axes.
+/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
 /// macro buttons. Such keys can be globally set to map into normal X
-/// keyboard events. The mapping is set using gdk_device_set_key().
+/// keyboard events. The mapping is set using `gdk_device_set_key()`.
 /// 
 /// In GTK+ 3.20, a new `GdkSeat` object has been introduced that
 /// supersedes `GdkDeviceManager` and should be preferred in newly
@@ -1026,18 +1024,18 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// 
 /// By default, and if the platform supports it, GDK is aware of multiple
 /// keyboard/pointer pairs and multitouch devices. This behavior can be
-/// changed by calling gdk_disable_multidevice() before gdk_display_open().
+/// changed by calling `gdk_disable_multidevice()` before `gdk_display_open()`.
 /// There should rarely be a need to do that though, since GDK defaults
 /// to a compatibility mode in which it will emit just one enter/leave
 /// event pair for all devices on a window. To enable per-device
 /// enter/leave events and other multi-pointer interaction features,
-/// gdk_window_set_support_multidevice() must be called on
-/// `GdkWindows` (or gtk_widget_set_support_multidevice() on widgets).
-/// window. See the gdk_window_set_support_multidevice() documentation
+/// `gdk_window_set_support_multidevice()` must be called on
+/// `GdkWindows` (or `gtk_widget_set_support_multidevice()` on widgets).
+/// window. See the `gdk_window_set_support_multidevice()` documentation
 /// for more information.
 /// 
 /// On X11, multi-device support is implemented through XInput 2.
-/// Unless gdk_disable_multidevice() is called, the XInput 2
+/// Unless `gdk_disable_multidevice()` is called, the XInput 2
 /// `GdkDeviceManager` implementation will be used as the input source.
 /// Otherwise either the core or XInput 1 implementations will be used.
 /// 
@@ -1045,7 +1043,7 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// input devices, the so-called “client pointer”
 /// provides a reasonable approximation to a simple setup with a single
 /// pointer and keyboard. The device that has been set as the client
-/// pointer can be accessed via gdk_device_manager_get_client_pointer().
+/// pointer can be accessed via `gdk_device_manager_get_client_pointer()`.
 /// 
 /// Conceptually, in multidevice mode there are 2 device types. Virtual
 /// devices (or master devices) are represented by the pointer cursors
@@ -1055,16 +1053,16 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// 
 /// Virtual devices are always paired, so there is a keyboard device for every
 /// pointer device. Associations between devices may be inspected through
-/// gdk_device_get_associated_device().
+/// `gdk_device_get_associated_device()`.
 /// 
 /// There may be several virtual devices, and several physical devices could
 /// be controlling each of these virtual devices. Physical devices may also
 /// be “floating”, which means they are not attached to any virtual device.
 /// 
-/// `` Master and slave devices
+/// # Master and slave devices
 /// 
 /// ```
-/// carlos`sacarino`:~$ xinput list
+/// carlos@sacarino:~$ xinput list
 /// ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
 /// ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
 /// ⎜   ↳ Wacom ISDv4 E6 Pen stylus                 id=10   [slave  pointer  (2)]
@@ -1082,7 +1080,6 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 ///     ↳ ThinkPad Extra Buttons                    id=15   [slave  keyboard (3)]
 /// ```
 /// 
-/// 
 /// By default, GDK will automatically listen for events coming from all
 /// master devices, setting the `GdkDevice` for all events coming from input
 /// devices. Events containing device information are `GDK_MOTION_NOTIFY`,
@@ -1093,7 +1090,7 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// `GDK_DRAG_MOTION`, `GDK_DRAG_STATUS`, `GDK_DROP_START`, `GDK_DROP_FINISHED`
 /// and `GDK_GRAB_BROKEN`. When dealing with an event on a master device,
 /// it is possible to get the source (slave) device that the event originated
-/// from via gdk_event_get_source_device().
+/// from via `gdk_event_get_source_device()`.
 /// 
 /// On a standard session, all physical devices are connected by default to
 /// the "Virtual Core Pointer/Keyboard" master devices, hence routing all events
@@ -1104,25 +1101,25 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// On certain application specific setups, it may make sense
 /// to detach a physical device from its master pointer, and mapping it to
 /// an specific window. This can be achieved by the combination of
-/// gdk_device_grab() and gdk_device_set_mode().
+/// `gdk_device_grab()` and `gdk_device_set_mode()`.
 /// 
 /// In order to listen for events coming from devices
-/// other than a virtual device, gdk_window_set_device_events() must be
+/// other than a virtual device, `gdk_window_set_device_events()` must be
 /// called. Generally, this function can be used to modify the event mask
 /// for any given device.
 /// 
 /// Input devices may also provide additional information besides X/Y.
 /// For example, graphics tablets may also provide pressure and X/Y tilt
 /// information. This information is device-dependent, and may be
-/// queried through gdk_device_get_axis(). In multidevice mode, virtual
+/// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice`:n-axes property will be notified, and
-/// gdk_device_list_axes() will return the new device axes.
+/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
 /// macro buttons. Such keys can be globally set to map into normal X
-/// keyboard events. The mapping is set using gdk_device_set_key().
+/// keyboard events. The mapping is set using `gdk_device_set_key()`.
 /// 
 /// In GTK+ 3.20, a new `GdkSeat` object has been introduced that
 /// supersedes `GdkDeviceManager` and should be preferred in newly
@@ -1193,18 +1190,18 @@ public extension DeviceManagerRef {
 /// 
 /// By default, and if the platform supports it, GDK is aware of multiple
 /// keyboard/pointer pairs and multitouch devices. This behavior can be
-/// changed by calling gdk_disable_multidevice() before gdk_display_open().
+/// changed by calling `gdk_disable_multidevice()` before `gdk_display_open()`.
 /// There should rarely be a need to do that though, since GDK defaults
 /// to a compatibility mode in which it will emit just one enter/leave
 /// event pair for all devices on a window. To enable per-device
 /// enter/leave events and other multi-pointer interaction features,
-/// gdk_window_set_support_multidevice() must be called on
-/// `GdkWindows` (or gtk_widget_set_support_multidevice() on widgets).
-/// window. See the gdk_window_set_support_multidevice() documentation
+/// `gdk_window_set_support_multidevice()` must be called on
+/// `GdkWindows` (or `gtk_widget_set_support_multidevice()` on widgets).
+/// window. See the `gdk_window_set_support_multidevice()` documentation
 /// for more information.
 /// 
 /// On X11, multi-device support is implemented through XInput 2.
-/// Unless gdk_disable_multidevice() is called, the XInput 2
+/// Unless `gdk_disable_multidevice()` is called, the XInput 2
 /// `GdkDeviceManager` implementation will be used as the input source.
 /// Otherwise either the core or XInput 1 implementations will be used.
 /// 
@@ -1212,7 +1209,7 @@ public extension DeviceManagerRef {
 /// input devices, the so-called “client pointer”
 /// provides a reasonable approximation to a simple setup with a single
 /// pointer and keyboard. The device that has been set as the client
-/// pointer can be accessed via gdk_device_manager_get_client_pointer().
+/// pointer can be accessed via `gdk_device_manager_get_client_pointer()`.
 /// 
 /// Conceptually, in multidevice mode there are 2 device types. Virtual
 /// devices (or master devices) are represented by the pointer cursors
@@ -1222,16 +1219,16 @@ public extension DeviceManagerRef {
 /// 
 /// Virtual devices are always paired, so there is a keyboard device for every
 /// pointer device. Associations between devices may be inspected through
-/// gdk_device_get_associated_device().
+/// `gdk_device_get_associated_device()`.
 /// 
 /// There may be several virtual devices, and several physical devices could
 /// be controlling each of these virtual devices. Physical devices may also
 /// be “floating”, which means they are not attached to any virtual device.
 /// 
-/// `` Master and slave devices
+/// # Master and slave devices
 /// 
 /// ```
-/// carlos`sacarino`:~$ xinput list
+/// carlos@sacarino:~$ xinput list
 /// ⎡ Virtual core pointer                          id=2    [master pointer  (3)]
 /// ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
 /// ⎜   ↳ Wacom ISDv4 E6 Pen stylus                 id=10   [slave  pointer  (2)]
@@ -1249,7 +1246,6 @@ public extension DeviceManagerRef {
 ///     ↳ ThinkPad Extra Buttons                    id=15   [slave  keyboard (3)]
 /// ```
 /// 
-/// 
 /// By default, GDK will automatically listen for events coming from all
 /// master devices, setting the `GdkDevice` for all events coming from input
 /// devices. Events containing device information are `GDK_MOTION_NOTIFY`,
@@ -1260,7 +1256,7 @@ public extension DeviceManagerRef {
 /// `GDK_DRAG_MOTION`, `GDK_DRAG_STATUS`, `GDK_DROP_START`, `GDK_DROP_FINISHED`
 /// and `GDK_GRAB_BROKEN`. When dealing with an event on a master device,
 /// it is possible to get the source (slave) device that the event originated
-/// from via gdk_event_get_source_device().
+/// from via `gdk_event_get_source_device()`.
 /// 
 /// On a standard session, all physical devices are connected by default to
 /// the "Virtual Core Pointer/Keyboard" master devices, hence routing all events
@@ -1271,25 +1267,25 @@ public extension DeviceManagerRef {
 /// On certain application specific setups, it may make sense
 /// to detach a physical device from its master pointer, and mapping it to
 /// an specific window. This can be achieved by the combination of
-/// gdk_device_grab() and gdk_device_set_mode().
+/// `gdk_device_grab()` and `gdk_device_set_mode()`.
 /// 
 /// In order to listen for events coming from devices
-/// other than a virtual device, gdk_window_set_device_events() must be
+/// other than a virtual device, `gdk_window_set_device_events()` must be
 /// called. Generally, this function can be used to modify the event mask
 /// for any given device.
 /// 
 /// Input devices may also provide additional information besides X/Y.
 /// For example, graphics tablets may also provide pressure and X/Y tilt
 /// information. This information is device-dependent, and may be
-/// queried through gdk_device_get_axis(). In multidevice mode, virtual
+/// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice`:n-axes property will be notified, and
-/// gdk_device_list_axes() will return the new device axes.
+/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
 /// macro buttons. Such keys can be globally set to map into normal X
-/// keyboard events. The mapping is set using gdk_device_set_key().
+/// keyboard events. The mapping is set using `gdk_device_set_key()`.
 /// 
 /// In GTK+ 3.20, a new `GdkSeat` object has been introduced that
 /// supersedes `GdkDeviceManager` and should be preferred in newly
@@ -1377,49 +1373,48 @@ public extension DeviceManagerProtocol {
 }
 
 public enum DeviceManagerSignalName: String, SignalNameProtocol {
-    /// The ::device-added signal is emitted either when a new master
+    /// The `device`-added signal is emitted either when a new master
     /// pointer is created, or when a slave (Hardware) input device
     /// is plugged in.
     case deviceAdded = "device-added"
-    /// The ::device-changed signal is emitted whenever a device
+    /// The `device`-changed signal is emitted whenever a device
     /// has changed in the hierarchy, either slave devices being
     /// disconnected from their master device or connected to
     /// another one, or master devices being added or removed
     /// a slave device.
     /// 
     /// If a slave device is detached from all master devices
-    /// (gdk_device_get_associated_device() returns `nil`), its
+    /// (`gdk_device_get_associated_device()` returns `nil`), its
     /// `GdkDeviceType` will change to `GDK_DEVICE_TYPE_FLOATING`,
     /// if it's attached, it will change to `GDK_DEVICE_TYPE_SLAVE`.
     case deviceChanged = "device-changed"
-    /// The ::device-removed signal is emitted either when a master
+    /// The `device`-removed signal is emitted either when a master
     /// pointer is removed, or when a slave (Hardware) input device
     /// is unplugged.
     case deviceRemoved = "device-removed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyDisplay = "notify::display"
@@ -1684,29 +1679,28 @@ public extension DeviceToolProtocol {
 
 public enum DeviceToolSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyAxes = "notify::axes"
@@ -1750,10 +1744,10 @@ public extension DeviceToolProtocol {
     /// Gets the hardware ID of this tool, or 0 if it's not known. When
     /// non-zero, the identificator is unique for the given tool model,
     /// meaning that two identical tools will share the same `hardware_id`,
-    /// but will have different serial numbers (see gdk_device_tool_get_serial()).
+    /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
     /// 
     /// This is a more concrete (and device specific) method to identify
-    /// a `GdkDeviceTool` than gdk_device_tool_get_tool_type(), as a tablet
+    /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
     /// may support multiple devices with the same `GdkDeviceToolType`,
     /// but having different hardware identificators.
     func getHardwareId() -> UInt64 {
@@ -1776,20 +1770,20 @@ public extension DeviceToolProtocol {
     /// Gets the hardware ID of this tool, or 0 if it's not known. When
     /// non-zero, the identificator is unique for the given tool model,
     /// meaning that two identical tools will share the same `hardware_id`,
-    /// but will have different serial numbers (see gdk_device_tool_get_serial()).
+    /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
     /// 
     /// This is a more concrete (and device specific) method to identify
-    /// a `GdkDeviceTool` than gdk_device_tool_get_tool_type(), as a tablet
+    /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
     /// may support multiple devices with the same `GdkDeviceToolType`,
     /// but having different hardware identificators.
     var hardwareId: UInt64 {
         /// Gets the hardware ID of this tool, or 0 if it's not known. When
         /// non-zero, the identificator is unique for the given tool model,
         /// meaning that two identical tools will share the same `hardware_id`,
-        /// but will have different serial numbers (see gdk_device_tool_get_serial()).
+        /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
         /// 
         /// This is a more concrete (and device specific) method to identify
-        /// a `GdkDeviceTool` than gdk_device_tool_get_tool_type(), as a tablet
+        /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
         /// may support multiple devices with the same `GdkDeviceToolType`,
         /// but having different hardware identificators.
         get {
@@ -1838,12 +1832,12 @@ public extension DeviceToolProtocol {
 /// screens.
 /// It is used to open and keep track of various GdkScreen objects
 /// currently instantiated by the application. It is also used to
-/// access the keyboard(s) and mouse pointer(s) of the display.
+/// access the `keyboard(s)` and mouse `pointer(s)` of the display.
 /// 
 /// Most of the input device handling has been factored out into
 /// the separate `GdkDeviceManager` object. Every display has a
 /// device manager, which you can obtain using
-/// gdk_display_get_device_manager().
+/// `gdk_display_get_device_manager()`.
 public protocol DisplayProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GdkDisplay` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1868,12 +1862,12 @@ public protocol DisplayProtocol: ObjectProtocol {
 /// screens.
 /// It is used to open and keep track of various GdkScreen objects
 /// currently instantiated by the application. It is also used to
-/// access the keyboard(s) and mouse pointer(s) of the display.
+/// access the `keyboard(s)` and mouse `pointer(s)` of the display.
 /// 
 /// Most of the input device handling has been factored out into
 /// the separate `GdkDeviceManager` object. Every display has a
 /// device manager, which you can obtain using
-/// gdk_display_get_device_manager().
+/// `gdk_display_get_device_manager()`.
 public struct DisplayRef: DisplayProtocol {
     /// Untyped pointer to the underlying `GdkDisplay` instance.
     /// For type-safe access, use the generated, typed pointer `display_ptr` property instead.
@@ -1936,7 +1930,7 @@ public extension DisplayRef {
 
     /// Opens the default display specified by command line arguments or
     /// environment variables, sets it as the default display, and returns
-    /// it. gdk_parse_args() must have been called first. If the default
+    /// it. `gdk_parse_args()` must have been called first. If the default
     /// display has previously been set, simply returns that. An internal
     /// function that should not be used by applications.
     ///
@@ -1965,12 +1959,12 @@ public extension DisplayRef {
 /// screens.
 /// It is used to open and keep track of various GdkScreen objects
 /// currently instantiated by the application. It is also used to
-/// access the keyboard(s) and mouse pointer(s) of the display.
+/// access the `keyboard(s)` and mouse `pointer(s)` of the display.
 /// 
 /// Most of the input device handling has been factored out into
 /// the separate `GdkDeviceManager` object. Every display has a
 /// device manager, which you can obtain using
-/// gdk_display_get_device_manager().
+/// `gdk_display_get_device_manager()`.
 open class Display: Object, DisplayProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `Display` instance.
@@ -2026,7 +2020,7 @@ open class Display: Object, DisplayProtocol {
 
     /// Opens the default display specified by command line arguments or
     /// environment variables, sets it as the default display, and returns
-    /// it. gdk_parse_args() must have been called first. If the default
+    /// it. `gdk_parse_args()` must have been called first. If the default
     /// display has previously been set, simply returns that. An internal
     /// function that should not be used by applications.
     ///
@@ -2043,48 +2037,47 @@ open class Display: Object, DisplayProtocol {
 // MARK: - no Display properties
 
 public enum DisplaySignalName: String, SignalNameProtocol {
-    /// The ::closed signal is emitted when the connection to the windowing
+    /// The `closed` signal is emitted when the connection to the windowing
     /// system for `display` is closed.
     case closed = "closed"
-    /// The ::monitor-added signal is emitted whenever a monitor is
+    /// The `monitor`-added signal is emitted whenever a monitor is
     /// added.
     case monitorAdded = "monitor-added"
-    /// The ::monitor-removed signal is emitted whenever a monitor is
+    /// The `monitor`-removed signal is emitted whenever a monitor is
     /// removed.
     case monitorRemoved = "monitor-removed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::opened signal is emitted when the connection to the windowing
+    /// The `opened` signal is emitted when the connection to the windowing
     /// system for `display` is opened.
     case opened = "opened"
-    /// The ::seat-added signal is emitted whenever a new seat is made
+    /// The `seat`-added signal is emitted whenever a new seat is made
     /// known to the windowing system.
     case seatAdded = "seat-added"
-    /// The ::seat-removed signal is emitted whenever a seat is removed
+    /// The `seat`-removed signal is emitted whenever a seat is removed
     /// by the windowing system.
     case seatRemoved = "seat-removed"
 
@@ -2170,7 +2163,7 @@ public extension DisplayProtocol {
 
     /// Returns the default group leader window for all toplevel windows
     /// on `display`. This window is implicitly created by GDK.
-    /// See gdk_window_set_group().
+    /// See `gdk_window_set_group()`.
     func getDefaultGroup() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_display_get_default_group(cast(display_ptr))
         return cast(rv)
@@ -2234,7 +2227,7 @@ public extension DisplayProtocol {
     /// Gets the number of monitors that belong to `display`.
     /// 
     /// The returned number is valid until the next emission of the
-    /// `GdkDisplay`::monitor-added or `GdkDisplay`::monitor-removed signal.
+    /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
     func getNMonitors() -> CInt {
         let rv = gdk_display_get_n_monitors(cast(display_ptr))
         return rv
@@ -2335,7 +2328,7 @@ public extension DisplayProtocol {
     /// 
     /// GTK+ will call this function automatically for `GtkWindow`
     /// with custom startup-notification identifier unless
-    /// gtk_window_set_auto_startup_notification() is called to
+    /// `gtk_window_set_auto_startup_notification()` is called to
     /// disable that feature.
     func notifyStartupComplete(startupId startup_id: UnsafePointer<gchar>) {
         gdk_display_notify_startup_complete(cast(display_ptr), startup_id)
@@ -2386,7 +2379,7 @@ public extension DisplayProtocol {
 
     /// Sets the double click distance (two clicks within this distance
     /// count as a double click and result in a `GDK_2BUTTON_PRESS` event).
-    /// See also gdk_display_set_double_click_time().
+    /// See also `gdk_display_set_double_click_time()`.
     /// Applications should not set this, it is a global
     /// user-configured setting.
     func setDoubleClick(distance: CUnsignedInt) {
@@ -2421,7 +2414,7 @@ public extension DisplayProtocol {
         return Bool(rv != 0)
     }
 
-    /// Returns `true` if gdk_window_set_composited() can be used
+    /// Returns `true` if `gdk_window_set_composited()` can be used
     /// to redirect drawing on the window using compositing.
     /// 
     /// Currently this only works on X11 with XComposite and
@@ -2451,7 +2444,7 @@ public extension DisplayProtocol {
         return Bool(rv != 0)
     }
 
-    /// Returns `true` if gdk_window_input_shape_combine_mask() can
+    /// Returns `true` if `gdk_window_input_shape_combine_mask()` can
     /// be used to modify the input shape of windows on `display`.
     func supportsInputShapes() -> Bool {
         let rv = gdk_display_supports_input_shapes(cast(display_ptr))
@@ -2465,7 +2458,7 @@ public extension DisplayProtocol {
         return Bool(rv != 0)
     }
 
-    /// Returns `true` if gdk_window_shape_combine_mask() can
+    /// Returns `true` if `gdk_window_shape_combine_mask()` can
     /// be used to create shaped windows on `display`.
     func supportsShapes() -> Bool {
         let rv = gdk_display_supports_shapes(cast(display_ptr))
@@ -2475,7 +2468,7 @@ public extension DisplayProtocol {
     /// Flushes any requests queued for the windowing system and waits until all
     /// requests have been handled. This is often used for making sure that the
     /// display is synchronized with the current state of the program. Calling
-    /// gdk_display_sync() before gdk_error_trap_pop() makes sure that any errors
+    /// `gdk_display_sync()` before `gdk_error_trap_pop()` makes sure that any errors
     /// generated from earlier requests are handled before the error trap is
     /// removed.
     /// 
@@ -2509,13 +2502,13 @@ public extension DisplayProtocol {
     /// 
     /// The context must be freed when you’re finished with it.
     /// 
-    /// When using GTK+, normally you should use gtk_widget_get_pango_context()
+    /// When using GTK+, normally you should use `gtk_widget_get_pango_context()`
     /// instead of this function, to get the appropriate context for
     /// the widget you intend to render text onto.
     /// 
     /// The newly created context will have the default font options
     /// (see `cairo_font_options_t`) for the display; if these options
-    /// change it will not be updated. Using gtk_widget_get_pango_context()
+    /// change it will not be updated. Using `gtk_widget_get_pango_context()`
     /// is more convenient if you want to keep a context around and track
     /// changes to the font rendering settings.
     func pangoContextGetForDisplay() -> UnsafeMutablePointer<PangoContext>! {
@@ -2573,11 +2566,11 @@ public extension DisplayProtocol {
 
     /// Returns the default group leader window for all toplevel windows
     /// on `display`. This window is implicitly created by GDK.
-    /// See gdk_window_set_group().
+    /// See `gdk_window_set_group()`.
     var defaultGroup: UnsafeMutablePointer<GdkWindow>! {
         /// Returns the default group leader window for all toplevel windows
         /// on `display`. This window is implicitly created by GDK.
-        /// See gdk_window_set_group().
+        /// See `gdk_window_set_group()`.
         get {
             let rv = gdk_display_get_default_group(cast(display_ptr))
             return cast(rv)
@@ -2640,12 +2633,12 @@ public extension DisplayProtocol {
     /// Gets the number of monitors that belong to `display`.
     /// 
     /// The returned number is valid until the next emission of the
-    /// `GdkDisplay`::monitor-added or `GdkDisplay`::monitor-removed signal.
+    /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
     var nMonitors: CInt {
         /// Gets the number of monitors that belong to `display`.
         /// 
         /// The returned number is valid until the next emission of the
-        /// `GdkDisplay`::monitor-added or `GdkDisplay`::monitor-removed signal.
+        /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
         get {
             let rv = gdk_display_get_n_monitors(cast(display_ptr))
             return rv
@@ -2709,7 +2702,7 @@ public extension DisplayProtocol {
 /// notification when displays appear or disappear or the default display
 /// changes.
 /// 
-/// You can use gdk_display_manager_get() to obtain the `GdkDisplayManager`
+/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK+ opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -2723,26 +2716,26 @@ public extension DisplayProtocol {
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
 /// macros, etc. to find out which backends are present in the GDK library
 /// you are building your application against. At runtime, use type-check
-/// macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:
+/// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ``` Backend-specific code ``` {`backend`-specific}
+/// ## Backend-specific code ## <a name="backend-specific"></a>
 /// 
 /// (C Language Example):
 /// ```C
-/// `ifdef` GDK_WINDOWING_X11
+/// #ifdef GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// `endif`
-/// `ifdef` GDK_WINDOWING_QUARTZ
+/// #endif
+/// #ifdef GDK_WINDOWING_QUARTZ
 ///   if (GDK_IS_QUARTZ_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// `endif`
+/// #endif
 ///   g_error ("Unsupported GDK backend");
 /// ```
 /// 
@@ -2762,7 +2755,7 @@ public protocol DisplayManagerProtocol: ObjectProtocol {
 /// notification when displays appear or disappear or the default display
 /// changes.
 /// 
-/// You can use gdk_display_manager_get() to obtain the `GdkDisplayManager`
+/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK+ opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -2776,26 +2769,26 @@ public protocol DisplayManagerProtocol: ObjectProtocol {
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
 /// macros, etc. to find out which backends are present in the GDK library
 /// you are building your application against. At runtime, use type-check
-/// macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:
+/// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ``` Backend-specific code ``` {`backend`-specific}
+/// ## Backend-specific code ## <a name="backend-specific"></a>
 /// 
 /// (C Language Example):
 /// ```C
-/// `ifdef` GDK_WINDOWING_X11
+/// #ifdef GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// `endif`
-/// `ifdef` GDK_WINDOWING_QUARTZ
+/// #endif
+/// #ifdef GDK_WINDOWING_QUARTZ
 ///   if (GDK_IS_QUARTZ_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// `endif`
+/// #endif
 ///   g_error ("Unsupported GDK backend");
 /// ```
 /// 
@@ -2850,7 +2843,7 @@ public extension DisplayManagerRef {
     /// When called for the first time, this function consults the
     /// `GDK_BACKEND` environment variable to find out which
     /// of the supported GDK backends to use (in case GDK has been compiled
-    /// with multiple backends). Applications can use gdk_set_allowed_backends()
+    /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
     /// to limit what backends can be used.
     static func displayManagerGet() -> DisplayManagerRef! {
         let rv = gdk_display_manager_get()
@@ -2866,7 +2859,7 @@ public extension DisplayManagerRef {
 /// notification when displays appear or disappear or the default display
 /// changes.
 /// 
-/// You can use gdk_display_manager_get() to obtain the `GdkDisplayManager`
+/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK+ opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -2880,26 +2873,26 @@ public extension DisplayManagerRef {
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
 /// macros, etc. to find out which backends are present in the GDK library
 /// you are building your application against. At runtime, use type-check
-/// macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:
+/// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ``` Backend-specific code ``` {`backend`-specific}
+/// ## Backend-specific code ## <a name="backend-specific"></a>
 /// 
 /// (C Language Example):
 /// ```C
-/// `ifdef` GDK_WINDOWING_X11
+/// #ifdef GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// `endif`
-/// `ifdef` GDK_WINDOWING_QUARTZ
+/// #endif
+/// #ifdef GDK_WINDOWING_QUARTZ
 ///   if (GDK_IS_QUARTZ_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// `endif`
+/// #endif
 ///   g_error ("Unsupported GDK backend");
 /// ```
 /// 
@@ -2947,7 +2940,7 @@ open class DisplayManager: Object, DisplayManagerProtocol {
     /// When called for the first time, this function consults the
     /// `GDK_BACKEND` environment variable to find out which
     /// of the supported GDK backends to use (in case GDK has been compiled
-    /// with multiple backends). Applications can use gdk_set_allowed_backends()
+    /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
     /// to limit what backends can be used.
     public static func displayManagerGet() -> DisplayManager! {
         let rv = gdk_display_manager_get()
@@ -2997,32 +2990,31 @@ public extension DisplayManagerProtocol {
 }
 
 public enum DisplayManagerSignalName: String, SignalNameProtocol {
-    /// The ::display-opened signal is emitted when a display is opened.
+    /// The `display`-opened signal is emitted when a display is opened.
     case displayOpened = "display-opened"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyDefaultDisplay = "notify::default-display"
@@ -3221,13 +3213,13 @@ public enum DragContextSignalName: String, SignalNameProtocol {
     /// A new action is being chosen for the drag and drop operation.
     /// 
     /// This signal will only be emitted if the `GdkDragContext` manages
-    /// the drag and drop operation. See gdk_drag_context_manage_dnd()
+    /// the drag and drop operation. See `gdk_drag_context_manage_dnd()`
     /// for more information.
     case actionChanged = "action-changed"
     /// The drag and drop operation was cancelled.
     /// 
     /// This signal will only be emitted if the `GdkDragContext` manages
-    /// the drag and drop operation. See gdk_drag_context_manage_dnd()
+    /// the drag and drop operation. See `gdk_drag_context_manage_dnd()`
     /// for more information.
     case cancel = "cancel"
     /// The drag and drop operation was finished, the drag destination
@@ -3235,39 +3227,38 @@ public enum DragContextSignalName: String, SignalNameProtocol {
     /// miscellaneous data.
     /// 
     /// This signal will only be emitted if the `GdkDragContext` manages
-    /// the drag and drop operation. See gdk_drag_context_manage_dnd()
+    /// the drag and drop operation. See `gdk_drag_context_manage_dnd()`
     /// for more information.
     case dndFinished = "dnd-finished"
     /// The drag and drop operation was performed on an accepting client.
     /// 
     /// This signal will only be emitted if the `GdkDragContext` manages
-    /// the drag and drop operation. See gdk_drag_context_manage_dnd()
+    /// the drag and drop operation. See `gdk_drag_context_manage_dnd()`
     /// for more information.
     case dropPerformed = "drop-performed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
 
@@ -3306,7 +3297,7 @@ public extension DragContextProtocol {
     var drag_context_ptr: UnsafeMutablePointer<GdkDragContext> { return ptr.assumingMemoryBound(to: GdkDragContext.self) }
 
     /// Determines the bitmask of actions proposed by the source if
-    /// gdk_drag_context_get_suggested_action() returns `GDK_ACTION_ASK`.
+    /// `gdk_drag_context_get_suggested_action()` returns `GDK_ACTION_ASK`.
     func getActions() -> GdkDragAction {
         let rv = gdk_drag_context_get_actions(cast(drag_context_ptr))
         return rv
@@ -3372,13 +3363,13 @@ public extension DragContextProtocol {
     /// 
     /// Once the drag and drop operation is managed, the drag context will
     /// emit the following signals:
-    /// - The `GdkDragContext`::action-changed signal whenever the final action
+    /// - The `GdkDragContext::action`-changed signal whenever the final action
     ///   to be performed by the drag and drop operation changes.
-    /// - The `GdkDragContext`::drop-performed signal after the user performs
+    /// - The `GdkDragContext::drop`-performed signal after the user performs
     ///   the drag and drop gesture (typically by releasing the mouse button).
-    /// - The `GdkDragContext`::dnd-finished signal after the drag and drop
+    /// - The `GdkDragContext::dnd`-finished signal after the drag and drop
     ///   operation concludes (after all `GdkSelection` transfers happen).
-    /// - The `GdkDragContext`::cancel signal if the drag and drop operation is
+    /// - The `GdkDragContext::cancel` signal if the drag and drop operation is
     ///   finished but doesn't happen over an accepting destination, or is
     ///   cancelled through other means.
     func manageDnd(ipcWindow ipc_window: WindowProtocol, actions: DragAction) -> Bool {
@@ -3406,7 +3397,7 @@ public extension DragContextProtocol {
     /// This function is called by the drag source.
     /// 
     /// This function does not need to be called in managed drag and drop
-    /// operations. See gdk_drag_context_manage_dnd() for more information.
+    /// operations. See `gdk_drag_context_manage_dnd()` for more information.
     func dragAbort(time_: UInt32) {
         gdk_drag_abort(cast(drag_context_ptr), guint32(time_))
     
@@ -3417,7 +3408,7 @@ public extension DragContextProtocol {
     /// This function is called by the drag source.
     /// 
     /// This function does not need to be called in managed drag and drop
-    /// operations. See gdk_drag_context_manage_dnd() for more information.
+    /// operations. See `gdk_drag_context_manage_dnd()` for more information.
     func dragDrop(time_: UInt32) {
         gdk_drag_drop(cast(drag_context_ptr), guint32(time_))
     
@@ -3430,7 +3421,7 @@ public extension DragContextProtocol {
     /// be the last call before dropping the reference to the
     /// `context`.
     /// 
-    /// The `GdkDragContext` will only take the first gdk_drag_drop_done()
+    /// The `GdkDragContext` will only take the first `gdk_drag_drop_done()`
     /// call as effective, if this function is called multiple times,
     /// all subsequent calls will be ignored.
     func dragDropDone(success: Bool) {
@@ -3451,7 +3442,7 @@ public extension DragContextProtocol {
     /// given pointer position.
     /// 
     /// This function is called by the drag source to obtain the
-    /// `dest_window` and `protocol` parameters for gdk_drag_motion().
+    /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
     func dragFindWindowForScreen(dragWindow drag_window: WindowProtocol, screen: ScreenProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
         gdk_drag_find_window_for_screen(cast(drag_context_ptr), cast(drag_window.ptr), cast(screen.ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
     
@@ -3469,7 +3460,7 @@ public extension DragContextProtocol {
     /// This function is called by the drag source.
     /// 
     /// This function does not need to be called in managed drag and drop
-    /// operations. See gdk_drag_context_manage_dnd() for more information.
+    /// operations. See `gdk_drag_context_manage_dnd()` for more information.
     func dragMotion(destWindow dest_window: WindowProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
         let rv = gdk_drag_motion(cast(drag_context_ptr), cast(dest_window.ptr), protocol_, gint(x_root), gint(y_root), suggested_action, possible_actions, guint32(time_))
         return Bool(rv != 0)
@@ -3478,7 +3469,7 @@ public extension DragContextProtocol {
     /// Selects one of the actions offered by the drag source.
     /// 
     /// This function is called by the drag destination in response to
-    /// gdk_drag_motion() called by the drag source.
+    /// `gdk_drag_motion()` called by the drag source.
     func dragStatus(action: DragAction, time_: UInt32) {
         gdk_drag_status(cast(drag_context_ptr), action, guint32(time_))
     
@@ -3501,10 +3492,10 @@ public extension DragContextProtocol {
     
     }
     /// Determines the bitmask of actions proposed by the source if
-    /// gdk_drag_context_get_suggested_action() returns `GDK_ACTION_ASK`.
+    /// `gdk_drag_context_get_suggested_action()` returns `GDK_ACTION_ASK`.
     var actions: GdkDragAction {
         /// Determines the bitmask of actions proposed by the source if
-        /// gdk_drag_context_get_suggested_action() returns `GDK_ACTION_ASK`.
+        /// `gdk_drag_context_get_suggested_action()` returns `GDK_ACTION_ASK`.
         get {
             let rv = gdk_drag_context_get_actions(cast(drag_context_ptr))
             return rv
@@ -3605,8 +3596,8 @@ public extension DragContextProtocol {
 /// It's possible to use a `GdkDrawingContext` to draw on a `GdkWindow`
 /// via rendering API like Cairo or OpenGL.
 /// 
-/// A `GdkDrawingContext` can only be created by calling gdk_window_begin_draw_frame()
-/// and will be valid until a call to gdk_window_end_draw_frame().
+/// A `GdkDrawingContext` can only be created by calling `gdk_window_begin_draw_frame()`
+/// and will be valid until a call to `gdk_window_end_draw_frame()`.
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 public protocol DrawingContextProtocol: ObjectProtocol {
@@ -3627,8 +3618,8 @@ public protocol DrawingContextProtocol: ObjectProtocol {
 /// It's possible to use a `GdkDrawingContext` to draw on a `GdkWindow`
 /// via rendering API like Cairo or OpenGL.
 /// 
-/// A `GdkDrawingContext` can only be created by calling gdk_window_begin_draw_frame()
-/// and will be valid until a call to gdk_window_end_draw_frame().
+/// A `GdkDrawingContext` can only be created by calling `gdk_window_begin_draw_frame()`
+/// and will be valid until a call to `gdk_window_end_draw_frame()`.
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 public struct DrawingContextRef: DrawingContextProtocol {
@@ -3689,8 +3680,8 @@ public extension DrawingContextRef {
 /// It's possible to use a `GdkDrawingContext` to draw on a `GdkWindow`
 /// via rendering API like Cairo or OpenGL.
 /// 
-/// A `GdkDrawingContext` can only be created by calling gdk_window_begin_draw_frame()
-/// and will be valid until a call to gdk_window_end_draw_frame().
+/// A `GdkDrawingContext` can only be created by calling `gdk_window_begin_draw_frame()`
+/// and will be valid until a call to `gdk_window_end_draw_frame()`.
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 open class DrawingContext: Object, DrawingContextProtocol {
@@ -3780,29 +3771,28 @@ public extension DrawingContextProtocol {
 
 public enum DrawingContextSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The clip region applied to the drawing context.
@@ -3848,7 +3838,7 @@ public extension DrawingContextProtocol {
     /// 
     /// The returned context is guaranteed to be valid as long as the
     /// `GdkDrawingContext` is valid, that is between a call to
-    /// gdk_window_begin_draw_frame() and gdk_window_end_draw_frame().
+    /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
     func getCairoContext() -> UnsafeMutablePointer<cairo_t>! {
         let rv = gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr))
         return cast(rv)
@@ -3870,14 +3860,14 @@ public extension DrawingContextProtocol {
     /// 
     /// The returned context is guaranteed to be valid as long as the
     /// `GdkDrawingContext` is valid, that is between a call to
-    /// gdk_window_begin_draw_frame() and gdk_window_end_draw_frame().
+    /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
     var cairoContext: UnsafeMutablePointer<cairo_t>! {
         /// Retrieves a Cairo context to be used to draw on the `GdkWindow`
         /// that created the `GdkDrawingContext`.
         /// 
         /// The returned context is guaranteed to be valid as long as the
         /// `GdkDrawingContext` is valid, that is between a call to
-        /// gdk_window_begin_draw_frame() and gdk_window_end_draw_frame().
+        /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
         get {
             let rv = gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr))
             return cast(rv)
@@ -3935,24 +3925,24 @@ public extension DrawingContextProtocol {
 /// for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// gdk_frame_clock_request_phase(). At some later point that makes
+/// `gdk_frame_clock_request_phase()`. At some later point that makes
 /// sense for the synchronization being implemented, the clock will
 /// process a frame and emit signals for each phase that has been
 /// requested. (See the signals of the `GdkFrameClock` class for
 /// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock`::update signal are most interesting for application
+/// `GdkFrameClock::update` signal are most interesting for application
 /// writers, and are used to update the animations, using the frame time
-/// given by gdk_frame_clock_get_frame_time().
+/// given by `gdk_frame_clock_get_frame_time()`.
 /// 
 /// The frame time is reported in microseconds and generally in the same
-/// timescale as g_get_monotonic_time(), however, it is not the same
-/// as g_get_monotonic_time(). The frame time does not advance during
+/// timescale as `g_get_monotonic_time()`, however, it is not the same
+/// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to gdk_frame_clock_get_frame_time() that
+/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from gdk_frame_clock_get_frame_time()
-/// and the value inside the `GdkFrameClock`::update signal of the clock,
+/// time between an initial value from `gdk_frame_clock_get_frame_time()`
+/// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 public protocol FrameClockProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GdkFrameClock` instance.
@@ -3980,24 +3970,24 @@ public protocol FrameClockProtocol: ObjectProtocol {
 /// for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// gdk_frame_clock_request_phase(). At some later point that makes
+/// `gdk_frame_clock_request_phase()`. At some later point that makes
 /// sense for the synchronization being implemented, the clock will
 /// process a frame and emit signals for each phase that has been
 /// requested. (See the signals of the `GdkFrameClock` class for
 /// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock`::update signal are most interesting for application
+/// `GdkFrameClock::update` signal are most interesting for application
 /// writers, and are used to update the animations, using the frame time
-/// given by gdk_frame_clock_get_frame_time().
+/// given by `gdk_frame_clock_get_frame_time()`.
 /// 
 /// The frame time is reported in microseconds and generally in the same
-/// timescale as g_get_monotonic_time(), however, it is not the same
-/// as g_get_monotonic_time(). The frame time does not advance during
+/// timescale as `g_get_monotonic_time()`, however, it is not the same
+/// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to gdk_frame_clock_get_frame_time() that
+/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from gdk_frame_clock_get_frame_time()
-/// and the value inside the `GdkFrameClock`::update signal of the clock,
+/// time between an initial value from `gdk_frame_clock_get_frame_time()`
+/// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 public struct FrameClockRef: FrameClockProtocol {
     /// Untyped pointer to the underlying `GdkFrameClock` instance.
@@ -4065,24 +4055,24 @@ public extension FrameClockRef {
 /// for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// gdk_frame_clock_request_phase(). At some later point that makes
+/// `gdk_frame_clock_request_phase()`. At some later point that makes
 /// sense for the synchronization being implemented, the clock will
 /// process a frame and emit signals for each phase that has been
 /// requested. (See the signals of the `GdkFrameClock` class for
 /// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock`::update signal are most interesting for application
+/// `GdkFrameClock::update` signal are most interesting for application
 /// writers, and are used to update the animations, using the frame time
-/// given by gdk_frame_clock_get_frame_time().
+/// given by `gdk_frame_clock_get_frame_time()`.
 /// 
 /// The frame time is reported in microseconds and generally in the same
-/// timescale as g_get_monotonic_time(), however, it is not the same
-/// as g_get_monotonic_time(). The frame time does not advance during
+/// timescale as `g_get_monotonic_time()`, however, it is not the same
+/// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to gdk_frame_clock_get_frame_time() that
+/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from gdk_frame_clock_get_frame_time()
-/// and the value inside the `GdkFrameClock`::update signal of the clock,
+/// time between an initial value from `gdk_frame_clock_get_frame_time()`
+/// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 open class FrameClock: Object, FrameClockProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -4145,36 +4135,35 @@ public enum FrameClockSignalName: String, SignalNameProtocol {
     /// performed. GTK+ normally handles this internally.
     case layout = "layout"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// This signal is emitted as the third step of toolkit and
     /// application processing of the frame. The frame is
     /// repainted. GDK normally handles this internally and
     /// produces expose events, which are turned into GTK+
-    /// `GtkWidget`::draw signals.
+    /// `GtkWidget::draw` signals.
     case paint = "paint"
     /// This signal is emitted after processing of the frame is
     /// finished, and is handled internally by GTK+ to resume normal
@@ -4182,9 +4171,9 @@ public enum FrameClockSignalName: String, SignalNameProtocol {
     case resumeEvents = "resume-events"
     /// This signal is emitted as the first step of toolkit and
     /// application processing of the frame. Animations should
-    /// be updated using gdk_frame_clock_get_frame_time().
+    /// be updated using `gdk_frame_clock_get_frame_time()`.
     /// Applications can connect directly to this signal, or
-    /// use gtk_widget_add_tick_callback() as a more convenient
+    /// use `gtk_widget_add_tick_callback()` as a more convenient
     /// interface.
     case update = "update"
 
@@ -4223,10 +4212,10 @@ public extension FrameClockProtocol {
     var frame_clock_ptr: UnsafeMutablePointer<GdkFrameClock> { return ptr.assumingMemoryBound(to: GdkFrameClock.self) }
 
     /// Starts updates for an animation. Until a matching call to
-    /// gdk_frame_clock_end_updating() is made, the frame clock will continually
+    /// `gdk_frame_clock_end_updating()` is made, the frame clock will continually
     /// request a new frame with the `GDK_FRAME_CLOCK_PHASE_UPDATE` phase.
     /// This function may be called multiple times and frames will be
-    /// requested until gdk_frame_clock_end_updating() is called the same
+    /// requested until `gdk_frame_clock_end_updating()` is called the same
     /// number of times.
     func beginUpdating() {
         gdk_frame_clock_begin_updating(cast(frame_clock_ptr))
@@ -4234,7 +4223,7 @@ public extension FrameClockProtocol {
     }
 
     /// Stops updates for an animation. See the documentation for
-    /// gdk_frame_clock_begin_updating().
+    /// `gdk_frame_clock_begin_updating()`.
     func endUpdating() {
         gdk_frame_clock_end_updating(cast(frame_clock_ptr))
     
@@ -4266,10 +4255,10 @@ public extension FrameClockProtocol {
 
     /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
     /// objects for recent frames that can be retrieved with
-    /// gdk_frame_clock_get_timings(). The set of stored frames
+    /// `gdk_frame_clock_get_timings()`. The set of stored frames
     /// is the set from the counter values given by
-    /// gdk_frame_clock_get_history_start() and
-    /// gdk_frame_clock_get_frame_counter(), inclusive.
+    /// `gdk_frame_clock_get_history_start()` and
+    /// `gdk_frame_clock_get_frame_counter()`, inclusive.
     func getHistoryStart() -> Int64 {
         let rv = gdk_frame_clock_get_history_start(cast(frame_clock_ptr))
         return Int64(rv)
@@ -4287,7 +4276,7 @@ public extension FrameClockProtocol {
 
     /// Retrieves a `GdkFrameTimings` object holding timing information
     /// for the current frame or a recent frame. The `GdkFrameTimings`
-    /// object may not yet be complete: see gdk_frame_timings_get_complete().
+    /// object may not yet be complete: see `gdk_frame_timings_get_complete()`.
     func getTimings(frameCounter frame_counter: Int64) -> UnsafeMutablePointer<GdkFrameTimings>! {
         let rv = gdk_frame_clock_get_timings(cast(frame_clock_ptr), gint64(frame_counter))
         return cast(rv)
@@ -4296,11 +4285,11 @@ public extension FrameClockProtocol {
     /// Asks the frame clock to run a particular phase. The signal
     /// corresponding the requested phase will be emitted the next
     /// time the frame clock processes. Multiple calls to
-    /// gdk_frame_clock_request_phase() will be combined together
+    /// `gdk_frame_clock_request_phase()` will be combined together
     /// and only one frame processed. If you are displaying animated
     /// content and want to continually request the
     /// `GDK_FRAME_CLOCK_PHASE_UPDATE` phase for a period of time,
-    /// you should use gdk_frame_clock_begin_updating() instead, since
+    /// you should use `gdk_frame_clock_begin_updating()` instead, since
     /// this allows GTK+ to adjust system parameters to get maximally
     /// smooth animations.
     func request(phase: FrameClockPhase) {
@@ -4348,17 +4337,17 @@ public extension FrameClockProtocol {
 
     /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
     /// objects for recent frames that can be retrieved with
-    /// gdk_frame_clock_get_timings(). The set of stored frames
+    /// `gdk_frame_clock_get_timings()`. The set of stored frames
     /// is the set from the counter values given by
-    /// gdk_frame_clock_get_history_start() and
-    /// gdk_frame_clock_get_frame_counter(), inclusive.
+    /// `gdk_frame_clock_get_history_start()` and
+    /// `gdk_frame_clock_get_frame_counter()`, inclusive.
     var historyStart: Int64 {
         /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
         /// objects for recent frames that can be retrieved with
-        /// gdk_frame_clock_get_timings(). The set of stored frames
+        /// `gdk_frame_clock_get_timings()`. The set of stored frames
         /// is the set from the counter values given by
-        /// gdk_frame_clock_get_history_start() and
-        /// gdk_frame_clock_get_frame_counter(), inclusive.
+        /// `gdk_frame_clock_get_history_start()` and
+        /// `gdk_frame_clock_get_frame_counter()`, inclusive.
         get {
             let rv = gdk_frame_clock_get_history_start(cast(frame_clock_ptr))
             return Int64(rv)

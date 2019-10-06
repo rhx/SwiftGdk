@@ -22,16 +22,16 @@ import GdkPixbuf
 /// by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. gdk_device_pad_get_n_groups()
-/// can be used to obtain the number of groups, gdk_device_pad_get_n_features()
-/// and gdk_device_pad_get_feature_group() can be combined to find out the
+/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
+/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
+/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
 /// number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map
 /// each individual pad feature to multiple actions. Only one mode is
 /// effective (current) for each given group, different groups may have
 /// different current modes. The number of available modes in a group can
-/// be found out through gdk_device_pad_get_group_n_modes(), and the current
+/// be found out through `gdk_device_pad_get_group_n_modes()`, and the current
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 public protocol DevicePadProtocol: DeviceProtocol {
@@ -51,16 +51,16 @@ public protocol DevicePadProtocol: DeviceProtocol {
 /// by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. gdk_device_pad_get_n_groups()
-/// can be used to obtain the number of groups, gdk_device_pad_get_n_features()
-/// and gdk_device_pad_get_feature_group() can be combined to find out the
+/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
+/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
+/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
 /// number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map
 /// each individual pad feature to multiple actions. Only one mode is
 /// effective (current) for each given group, different groups may have
 /// different current modes. The number of available modes in a group can
-/// be found out through gdk_device_pad_get_group_n_modes(), and the current
+/// be found out through `gdk_device_pad_get_group_n_modes()`, and the current
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 public struct DevicePadRef: DevicePadProtocol {
@@ -120,16 +120,16 @@ public extension DevicePadRef {
 /// by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. gdk_device_pad_get_n_groups()
-/// can be used to obtain the number of groups, gdk_device_pad_get_n_features()
-/// and gdk_device_pad_get_feature_group() can be combined to find out the
+/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
+/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
+/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
 /// number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map
 /// each individual pad feature to multiple actions. Only one mode is
 /// effective (current) for each given group, different groups may have
 /// different current modes. The number of available modes in a group can
-/// be found out through gdk_device_pad_get_group_n_modes(), and the current
+/// be found out through `gdk_device_pad_get_group_n_modes()`, and the current
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 open class DevicePad: Device, DevicePadProtocol {
@@ -198,14 +198,14 @@ public enum DevicePadPropertyName: String, PropertyNameProtocol {
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case numTouches = "num-touches"
-    /// Product ID of this device, see gdk_device_get_product_id().
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
     case productId = "product-id"
     /// `GdkSeat` of this device.
     case seat = "seat"
     case tool = "tool"
     /// Device role in the device manager.
     case type = "type"
-    /// Vendor ID of this device, see gdk_device_get_vendor_id().
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
     case vendorId = "vendor-id"
 }
 
@@ -246,7 +246,7 @@ public extension DevicePadProtocol {
 }
 
 public enum DevicePadSignalName: String, SignalNameProtocol {
-    /// The ::changed signal is emitted either when the `GdkDevice`
+    /// The `changed` signal is emitted either when the `GdkDevice`
     /// has changed the number of either axes or keys. For example
     /// In X this will normally happen when the slave device routing
     /// events through the master device changes (for example, user
@@ -255,32 +255,31 @@ public enum DevicePadSignalName: String, SignalNameProtocol {
     /// axes and keys.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::tool-changed signal is emitted on pen/eraser
+    /// The `tool`-changed signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
     /// Associated pointer or keyboard with this device, if any. Devices of type `GDK_DEVICE_TYPE_MASTER`
@@ -306,14 +305,14 @@ public enum DevicePadSignalName: String, SignalNameProtocol {
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case notifyNumTouches = "notify::num-touches"
-    /// Product ID of this device, see gdk_device_get_product_id().
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
     case notifyProductId = "notify::product-id"
     /// `GdkSeat` of this device.
     case notifySeat = "notify::seat"
     case notifyTool = "notify::tool"
     /// Device role in the device manager.
     case notifyType_ = "notify::type"
-    /// Vendor ID of this device, see gdk_device_get_vendor_id().
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
     case notifyVendorId = "notify::vendor-id"
 }
 

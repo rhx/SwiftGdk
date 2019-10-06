@@ -10,7 +10,7 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
-/// Specifies the type of function passed to gdk_event_handler_set() to
+/// Specifies the type of function passed to `gdk_event_handler_set()` to
 /// handle all GDK events.
 public typealias EventFunc = GdkEventFunc
 
@@ -30,7 +30,7 @@ public typealias FilterFunc = GdkFilterFunc
 /// actions.
 public typealias SeatGrabPrepareFunc = GdkSeatGrabPrepareFunc
 
-/// A function of this type is passed to gdk_window_invalidate_maybe_recurse().
+/// A function of this type is passed to `gdk_window_invalidate_maybe_recurse()`.
 /// It gets called for each child of the window to determine whether to
 /// recursively invalidate it or now.
 public typealias WindowChildFunc = GdkWindowChildFunc

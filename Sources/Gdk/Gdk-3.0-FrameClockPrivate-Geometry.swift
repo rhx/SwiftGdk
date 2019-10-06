@@ -157,7 +157,7 @@ public extension FrameClockPrivateProtocol {
 ///
 /// A `GdkFrameTimings` object holds timing information for a single frame
 /// of the application’s displays. To retrieve `GdkFrameTimings` objects,
-/// use gdk_frame_clock_get_timings() or gdk_frame_clock_get_current_timings().
+/// use `gdk_frame_clock_get_timings()` or `gdk_frame_clock_get_current_timings()`.
 /// The information in `GdkFrameTimings` is useful for precise synchronization
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
@@ -175,7 +175,7 @@ public protocol FrameTimingsProtocol {
 ///
 /// A `GdkFrameTimings` object holds timing information for a single frame
 /// of the application’s displays. To retrieve `GdkFrameTimings` objects,
-/// use gdk_frame_clock_get_timings() or gdk_frame_clock_get_current_timings().
+/// use `gdk_frame_clock_get_timings()` or `gdk_frame_clock_get_current_timings()`.
 /// The information in `GdkFrameTimings` is useful for precise synchronization
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
@@ -233,7 +233,7 @@ public extension FrameTimingsRef {
 ///
 /// A `GdkFrameTimings` object holds timing information for a single frame
 /// of the application’s displays. To retrieve `GdkFrameTimings` objects,
-/// use gdk_frame_clock_get_timings() or gdk_frame_clock_get_current_timings().
+/// use `gdk_frame_clock_get_timings()` or `gdk_frame_clock_get_current_timings()`.
 /// The information in `GdkFrameTimings` is useful for precise synchronization
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
@@ -303,7 +303,7 @@ public extension FrameTimingsProtocol {
     /// accessor functions for `GdkFrameTimings` can return 0 to
     /// indicate an unavailable value for two reasons: either because
     /// the information is not yet available, or because it isn't
-    /// available at all. Once gdk_frame_timings_get_complete() returns
+    /// available at all. Once `gdk_frame_timings_get_complete()` returns
     /// `true` for a frame, you can be certain that no further values
     /// will become available and be stored in the `GdkFrameTimings`.
     func getComplete() -> Bool {
@@ -320,7 +320,7 @@ public extension FrameTimingsProtocol {
 
     /// Returns the frame time for the frame. This is the time value
     /// that is typically used to time animations for the frame. See
-    /// gdk_frame_clock_get_frame_time().
+    /// `gdk_frame_clock_get_frame_time()`.
     func getFrameTime() -> Int64 {
         let rv = gdk_frame_timings_get_frame_time(cast(frame_timings_ptr))
         return Int64(rv)
@@ -329,9 +329,9 @@ public extension FrameTimingsProtocol {
     /// Gets the predicted time at which this frame will be displayed. Although
     /// no predicted time may be available, if one is available, it will
     /// be available while the frame is being generated, in contrast to
-    /// gdk_frame_timings_get_presentation_time(), which is only available
+    /// `gdk_frame_timings_get_presentation_time()`, which is only available
     /// after the frame has been presented. In general, if you are simply
-    /// animating, you should use gdk_frame_clock_get_frame_time() rather
+    /// animating, you should use `gdk_frame_clock_get_frame_time()` rather
     /// than this function, but this function is useful for applications
     /// that want exact control over latency. For example, a movie player
     /// may want this information for Audio/Video synchronization.
@@ -373,7 +373,7 @@ public extension FrameTimingsProtocol {
     /// accessor functions for `GdkFrameTimings` can return 0 to
     /// indicate an unavailable value for two reasons: either because
     /// the information is not yet available, or because it isn't
-    /// available at all. Once gdk_frame_timings_get_complete() returns
+    /// available at all. Once `gdk_frame_timings_get_complete()` returns
     /// `true` for a frame, you can be certain that no further values
     /// will become available and be stored in the `GdkFrameTimings`.
     var complete: Bool {
@@ -383,7 +383,7 @@ public extension FrameTimingsProtocol {
         /// accessor functions for `GdkFrameTimings` can return 0 to
         /// indicate an unavailable value for two reasons: either because
         /// the information is not yet available, or because it isn't
-        /// available at all. Once gdk_frame_timings_get_complete() returns
+        /// available at all. Once `gdk_frame_timings_get_complete()` returns
         /// `true` for a frame, you can be certain that no further values
         /// will become available and be stored in the `GdkFrameTimings`.
         get {
@@ -405,11 +405,11 @@ public extension FrameTimingsProtocol {
 
     /// Returns the frame time for the frame. This is the time value
     /// that is typically used to time animations for the frame. See
-    /// gdk_frame_clock_get_frame_time().
+    /// `gdk_frame_clock_get_frame_time()`.
     var frameTime: Int64 {
         /// Returns the frame time for the frame. This is the time value
         /// that is typically used to time animations for the frame. See
-        /// gdk_frame_clock_get_frame_time().
+        /// `gdk_frame_clock_get_frame_time()`.
         get {
             let rv = gdk_frame_timings_get_frame_time(cast(frame_timings_ptr))
             return Int64(rv)
@@ -419,9 +419,9 @@ public extension FrameTimingsProtocol {
     /// Gets the predicted time at which this frame will be displayed. Although
     /// no predicted time may be available, if one is available, it will
     /// be available while the frame is being generated, in contrast to
-    /// gdk_frame_timings_get_presentation_time(), which is only available
+    /// `gdk_frame_timings_get_presentation_time()`, which is only available
     /// after the frame has been presented. In general, if you are simply
-    /// animating, you should use gdk_frame_clock_get_frame_time() rather
+    /// animating, you should use `gdk_frame_clock_get_frame_time()` rather
     /// than this function, but this function is useful for applications
     /// that want exact control over latency. For example, a movie player
     /// may want this information for Audio/Video synchronization.
@@ -429,9 +429,9 @@ public extension FrameTimingsProtocol {
         /// Gets the predicted time at which this frame will be displayed. Although
         /// no predicted time may be available, if one is available, it will
         /// be available while the frame is being generated, in contrast to
-        /// gdk_frame_timings_get_presentation_time(), which is only available
+        /// `gdk_frame_timings_get_presentation_time()`, which is only available
         /// after the frame has been presented. In general, if you are simply
-        /// animating, you should use gdk_frame_clock_get_frame_time() rather
+        /// animating, you should use `gdk_frame_clock_get_frame_time()` rather
         /// than this function, but this function is useful for applications
         /// that want exact control over latency. For example, a movie player
         /// may want this information for Audio/Video synchronization.
@@ -477,12 +477,12 @@ public extension FrameTimingsProtocol {
 ///
 /// The `GdkGeometry` struct gives the window manager information about
 /// a window’s geometry constraints. Normally you would set these on
-/// the GTK+ level using gtk_window_set_geometry_hints(). `GtkWindow`
+/// the GTK+ level using `gtk_window_set_geometry_hints()`. `GtkWindow`
 /// then sets the hints on the `GdkWindow` it creates.
 /// 
-/// gdk_window_set_geometry_hints() expects the hints to be fully valid already
+/// `gdk_window_set_geometry_hints()` expects the hints to be fully valid already
 /// and simply passes them to the window manager; in contrast,
-/// gtk_window_set_geometry_hints() performs some interpretation. For example,
+/// `gtk_window_set_geometry_hints()` performs some interpretation. For example,
 /// `GtkWindow` will apply the hints to the geometry widget instead of the
 /// toplevel window, if you set a geometry widget. Also, the
 /// `min_width`/`min_height`/`max_width`/`max_height` fields may be set to -1, and
@@ -493,7 +493,7 @@ public extension FrameTimingsProtocol {
 /// geometry widget rather than the entire window. The base size is treated
 /// similarly.
 /// 
-/// The canonical use-case for gtk_window_set_geometry_hints() is to get a
+/// The canonical use-case for `gtk_window_set_geometry_hints()` is to get a
 /// terminal widget to resize properly. Here, the terminal text area should be
 /// the geometry widget; `GtkWindow` will then automatically set the base size to
 /// the size of other widgets in the terminal window, such as the menubar and
@@ -524,7 +524,6 @@ public extension FrameTimingsProtocol {
 ///                                 GDK_HINT_MIN_SIZE |
 ///                                 GDK_HINT_BASE_SIZE);
 /// ```
-/// 
 /// 
 /// The other useful fields are the `min_aspect` and `max_aspect` fields; these
 /// contain a width/height ratio as a floating point number. If a geometry widget
@@ -546,12 +545,12 @@ public protocol GeometryProtocol {
 ///
 /// The `GdkGeometry` struct gives the window manager information about
 /// a window’s geometry constraints. Normally you would set these on
-/// the GTK+ level using gtk_window_set_geometry_hints(). `GtkWindow`
+/// the GTK+ level using `gtk_window_set_geometry_hints()`. `GtkWindow`
 /// then sets the hints on the `GdkWindow` it creates.
 /// 
-/// gdk_window_set_geometry_hints() expects the hints to be fully valid already
+/// `gdk_window_set_geometry_hints()` expects the hints to be fully valid already
 /// and simply passes them to the window manager; in contrast,
-/// gtk_window_set_geometry_hints() performs some interpretation. For example,
+/// `gtk_window_set_geometry_hints()` performs some interpretation. For example,
 /// `GtkWindow` will apply the hints to the geometry widget instead of the
 /// toplevel window, if you set a geometry widget. Also, the
 /// `min_width`/`min_height`/`max_width`/`max_height` fields may be set to -1, and
@@ -562,7 +561,7 @@ public protocol GeometryProtocol {
 /// geometry widget rather than the entire window. The base size is treated
 /// similarly.
 /// 
-/// The canonical use-case for gtk_window_set_geometry_hints() is to get a
+/// The canonical use-case for `gtk_window_set_geometry_hints()` is to get a
 /// terminal widget to resize properly. Here, the terminal text area should be
 /// the geometry widget; `GtkWindow` will then automatically set the base size to
 /// the size of other widgets in the terminal window, such as the menubar and
@@ -593,7 +592,6 @@ public protocol GeometryProtocol {
 ///                                 GDK_HINT_MIN_SIZE |
 ///                                 GDK_HINT_BASE_SIZE);
 /// ```
-/// 
 /// 
 /// The other useful fields are the `min_aspect` and `max_aspect` fields; these
 /// contain a width/height ratio as a floating point number. If a geometry widget
@@ -655,12 +653,12 @@ public extension GeometryRef {
 ///
 /// The `GdkGeometry` struct gives the window manager information about
 /// a window’s geometry constraints. Normally you would set these on
-/// the GTK+ level using gtk_window_set_geometry_hints(). `GtkWindow`
+/// the GTK+ level using `gtk_window_set_geometry_hints()`. `GtkWindow`
 /// then sets the hints on the `GdkWindow` it creates.
 /// 
-/// gdk_window_set_geometry_hints() expects the hints to be fully valid already
+/// `gdk_window_set_geometry_hints()` expects the hints to be fully valid already
 /// and simply passes them to the window manager; in contrast,
-/// gtk_window_set_geometry_hints() performs some interpretation. For example,
+/// `gtk_window_set_geometry_hints()` performs some interpretation. For example,
 /// `GtkWindow` will apply the hints to the geometry widget instead of the
 /// toplevel window, if you set a geometry widget. Also, the
 /// `min_width`/`min_height`/`max_width`/`max_height` fields may be set to -1, and
@@ -671,7 +669,7 @@ public extension GeometryRef {
 /// geometry widget rather than the entire window. The base size is treated
 /// similarly.
 /// 
-/// The canonical use-case for gtk_window_set_geometry_hints() is to get a
+/// The canonical use-case for `gtk_window_set_geometry_hints()` is to get a
 /// terminal widget to resize properly. Here, the terminal text area should be
 /// the geometry widget; `GtkWindow` will then automatically set the base size to
 /// the size of other widgets in the terminal window, such as the menubar and
@@ -702,7 +700,6 @@ public extension GeometryRef {
 ///                                 GDK_HINT_MIN_SIZE |
 ///                                 GDK_HINT_BASE_SIZE);
 /// ```
-/// 
 /// 
 /// The other useful fields are the `min_aspect` and `max_aspect` fields; these
 /// contain a width/height ratio as a floating point number. If a geometry widget

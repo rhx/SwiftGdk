@@ -81,10 +81,10 @@ public extension WindowRef {
     /// location of that window in `win_x`, `win_y`. Returns `nil` if the
     /// window under the mouse pointer is not known to GDK (if the window
     /// belongs to another application and a `GdkWindow` hasn’t been created
-    /// for it with gdk_window_foreign_new())
+    /// for it with `gdk_window_foreign_new()`)
     /// 
     /// NOTE: For multihead-aware widgets or applications use
-    /// gdk_display_get_window_at_pointer() instead.
+    /// `gdk_display_get_window_at_pointer()` instead.
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
@@ -142,10 +142,10 @@ open class Window: Object, WindowProtocol {
     /// location of that window in `win_x`, `win_y`. Returns `nil` if the
     /// window under the mouse pointer is not known to GDK (if the window
     /// belongs to another application and a `GdkWindow` hasn’t been created
-    /// for it with gdk_window_foreign_new())
+    /// for it with `gdk_window_foreign_new()`)
     /// 
     /// NOTE: For multihead-aware widgets or applications use
-    /// gdk_display_get_window_at_pointer() instead.
+    /// `gdk_display_get_window_at_pointer()` instead.
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
@@ -157,8 +157,8 @@ open class Window: Object, WindowProtocol {
 }
 
 public enum WindowPropertyName: String, PropertyNameProtocol {
-    /// The mouse pointer for a `GdkWindow`. See gdk_window_set_cursor() and
-    /// gdk_window_get_cursor() for details.
+    /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
+    /// `gdk_window_get_cursor()` for details.
     case cursor = "cursor"
 }
 
@@ -199,7 +199,7 @@ public extension WindowProtocol {
 }
 
 public enum WindowSignalName: String, SignalNameProtocol {
-    /// The ::create-surface signal is emitted when an offscreen window
+    /// The `create`-surface signal is emitted when an offscreen window
     /// needs its surface (re)created, which happens either when the
     /// window is first drawn to, or when the window is being
     /// resized. The first signal handler that returns a non-`nil`
@@ -208,12 +208,12 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// 
     /// Note that it is not possible to access the window's previous
     /// surface from within any callback of this signal. Calling
-    /// gdk_offscreen_window_get_surface() will lead to a crash.
+    /// `gdk_offscreen_window_get_surface()` will lead to a crash.
     case createSurface = "create-surface"
-    /// The ::from-embedder signal is emitted to translate coordinates
+    /// The `from`-embedder signal is emitted to translate coordinates
     /// in the embedder of an offscreen window to the offscreen window.
     /// 
-    /// See also `GdkWindow`::to-embedder.
+    /// See also `GdkWindow::to`-embedder.
     case fromEmbedder = "from-embedder"
     /// Emitted when the position of `window` is finalized after being moved to a
     /// destination rectangle.
@@ -228,41 +228,40 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// keeping `window` on-screen.
     case movedToRect = "moved-to-rect"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::pick-embedded-child signal is emitted to find an embedded
+    /// The `pick`-embedded-child signal is emitted to find an embedded
     /// child at the given position.
     case pickEmbeddedChild = "pick-embedded-child"
-    /// The ::to-embedder signal is emitted to translate coordinates
+    /// The `to`-embedder signal is emitted to translate coordinates
     /// in an offscreen window to its embedder.
     /// 
-    /// See also `GdkWindow`::from-embedder.
+    /// See also `GdkWindow::from`-embedder.
     case toEmbedder = "to-embedder"
-    /// The mouse pointer for a `GdkWindow`. See gdk_window_set_cursor() and
-    /// gdk_window_get_cursor() for details.
+    /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
+    /// `gdk_window_get_cursor()` for details.
     case notifyCursor = "notify::cursor"
 }
 
@@ -305,8 +304,8 @@ public extension WindowProtocol {
     /// instead of events for a specific window.
     /// 
     /// If you are interested in X GenericEvents, bear in mind that
-    /// XGetEventData() has been already called on the event, and
-    /// XFreeEventData() must not be called within `function`.
+    /// `XGetEventData()` has been already called on the event, and
+    /// `XFreeEventData()` must not be called within `function`.
     func addFilter(function: @escaping FilterFunc, data: UnsafeMutableRawPointer) {
         gdk_window_add_filter(cast(window_ptr), function, cast(data))
     
@@ -314,7 +313,7 @@ public extension WindowProtocol {
 
     /// Emits a short beep associated to `window` in the appropriate
     /// display, if supported. Otherwise, emits a short beep on
-    /// the display just as gdk_display_beep().
+    /// the display just as `gdk_display_beep()`.
     func beep() {
         gdk_window_beep(cast(window_ptr))
     
@@ -328,24 +327,24 @@ public extension WindowProtocol {
     /// contain `region` will be created. The backing store will be initialized
     /// with the background color or background surface for `window`. Then, all
     /// drawing operations performed on `window` will be diverted to the
-    /// backing store. When you call gdk_window_end_frame(), the contents of
+    /// backing store. When you call `gdk_window_end_frame()`, the contents of
     /// the backing store will be copied to `window`, making it visible
     /// on screen. Only the part of `window` contained in `region` will be
     /// modified; that is, drawing operations are clipped to `region`.
     /// 
     /// The net result of all this is to remove flicker, because the user
     /// sees the finished product appear all at once when you call
-    /// gdk_window_end_draw_frame(). If you draw to `window` directly without
-    /// calling gdk_window_begin_draw_frame(), the user may see flicker
+    /// `gdk_window_end_draw_frame()`. If you draw to `window` directly without
+    /// calling `gdk_window_begin_draw_frame()`, the user may see flicker
     /// as individual drawing operations are performed in sequence.
     /// 
     /// When using GTK+, the widget system automatically places calls to
-    /// gdk_window_begin_draw_frame() and gdk_window_end_draw_frame() around
-    /// emissions of the `GtkWidget::draw` signal. That is, if you’re
+    /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()` around
+    /// emissions of the `GtkWidget`draw`` signal. That is, if you’re
     /// drawing the contents of the widget yourself, you can assume that the
     /// widget has a cleared background, is already set as the clip region,
     /// and already has a backing store. Therefore in most cases, application
-    /// code in GTK does not need to call gdk_window_begin_draw_frame()
+    /// code in GTK does not need to call `gdk_window_begin_draw_frame()`
     /// explicitly.
     func beginDrawFrame(region: RegionProtocol) -> UnsafeMutablePointer<GdkDrawingContext>! {
         let rv = gdk_window_begin_draw_frame(cast(window_ptr), cast(region.ptr))
@@ -355,7 +354,7 @@ public extension WindowProtocol {
     /// Begins a window move operation (for a toplevel window).
     /// 
     /// This function assumes that the drag is controlled by the
-    /// client pointer device, use gdk_window_begin_move_drag_for_device()
+    /// client pointer device, use `gdk_window_begin_move_drag_for_device()`
     /// to begin a drag with a different device.
     func beginMoveDrag(button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
         gdk_window_begin_move_drag(cast(window_ptr), gint(button), gint(root_x), gint(root_y), guint32(timestamp))
@@ -372,9 +371,9 @@ public extension WindowProtocol {
     
     }
 
-    /// A convenience wrapper around gdk_window_begin_paint_region() which
+    /// A convenience wrapper around `gdk_window_begin_paint_region()` which
     /// creates a rectangular region for you. See
-    /// gdk_window_begin_paint_region() for details.
+    /// `gdk_window_begin_paint_region()` for details.
     ///
     /// **begin_paint_rect is deprecated:**
     /// Use gdk_window_begin_draw_frame() instead
@@ -388,39 +387,39 @@ public extension WindowProtocol {
     /// will be created. The backing store will be initialized with the
     /// background color or background surface for `window`. Then, all
     /// drawing operations performed on `window` will be diverted to the
-    /// backing store.  When you call gdk_window_end_paint(), the backing
+    /// backing store.  When you call `gdk_window_end_paint()`, the backing
     /// store will be copied to `window`, making it visible onscreen. Only
     /// the part of `window` contained in `region` will be modified; that is,
     /// drawing operations are clipped to `region`.
     /// 
     /// The net result of all this is to remove flicker, because the user
     /// sees the finished product appear all at once when you call
-    /// gdk_window_end_paint(). If you draw to `window` directly without
-    /// calling gdk_window_begin_paint_region(), the user may see flicker
+    /// `gdk_window_end_paint()`. If you draw to `window` directly without
+    /// calling `gdk_window_begin_paint_region()`, the user may see flicker
     /// as individual drawing operations are performed in sequence.  The
     /// clipping and background-initializing features of
-    /// gdk_window_begin_paint_region() are conveniences for the
+    /// `gdk_window_begin_paint_region()` are conveniences for the
     /// programmer, so you can avoid doing that work yourself.
     /// 
     /// When using GTK+, the widget system automatically places calls to
-    /// gdk_window_begin_paint_region() and gdk_window_end_paint() around
+    /// `gdk_window_begin_paint_region()` and `gdk_window_end_paint()` around
     /// emissions of the expose_event signal. That is, if you’re writing an
     /// expose event handler, you can assume that the exposed area in
     /// `GdkEventExpose` has already been cleared to the window background,
     /// is already set as the clip region, and already has a backing store.
     /// Therefore in most cases, application code need not call
-    /// gdk_window_begin_paint_region(). (You can disable the automatic
+    /// `gdk_window_begin_paint_region()`. (You can disable the automatic
     /// calls around expose events on a widget-by-widget basis by calling
-    /// gtk_widget_set_double_buffered().)
+    /// `gtk_widget_set_double_buffered()`.)
     /// 
     /// If you call this function multiple times before calling the
-    /// matching gdk_window_end_paint(), the backing stores are pushed onto
-    /// a stack. gdk_window_end_paint() copies the topmost backing store
+    /// matching `gdk_window_end_paint()`, the backing stores are pushed onto
+    /// a stack. `gdk_window_end_paint()` copies the topmost backing store
     /// onscreen, subtracts the topmost region from all other regions in
     /// the stack, and pops the stack. All drawing operations affect only
     /// the topmost backing store in the stack. One matching call to
-    /// gdk_window_end_paint() is required for each call to
-    /// gdk_window_begin_paint_region().
+    /// `gdk_window_end_paint()` is required for each call to
+    /// `gdk_window_begin_paint_region()`.
     ///
     /// **begin_paint_region is deprecated:**
     /// Use gdk_window_begin_draw_frame() instead
@@ -432,7 +431,7 @@ public extension WindowProtocol {
     /// Begins a window resize operation (for a toplevel window).
     /// 
     /// This function assumes that the drag is controlled by the
-    /// client pointer device, use gdk_window_begin_resize_drag_for_device()
+    /// client pointer device, use `gdk_window_begin_resize_drag_for_device()`
     /// to begin a drag with a different device.
     func beginResizeDrag(edge: WindowEdge, button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
         gdk_window_begin_resize_drag(cast(window_ptr), edge, gint(button), gint(root_x), gint(root_y), guint32(timestamp))
@@ -461,20 +460,20 @@ public extension WindowProtocol {
 
     /// Transforms window coordinates from a parent window to a child
     /// window, where the parent window is the normal parent as returned by
-    /// gdk_window_get_parent() for normal windows, and the window's
-    /// embedder as returned by gdk_offscreen_window_get_embedder() for
+    /// `gdk_window_get_parent()` for normal windows, and the window's
+    /// embedder as returned by `gdk_offscreen_window_get_embedder()` for
     /// offscreen windows.
     /// 
     /// For normal windows, calling this function is equivalent to subtracting
-    /// the return values of gdk_window_get_position() from the parent coordinates.
+    /// the return values of `gdk_window_get_position()` from the parent coordinates.
     /// For offscreen windows however (which can be arbitrarily transformed),
-    /// this function calls the GdkWindow::from-embedder: signal to translate
+    /// this function calls the GdkWindow`from`-embedder: signal to translate
     /// the coordinates.
     /// 
     /// You should always use this function when writing generic code that
     /// walks down a window hierarchy.
     /// 
-    /// See also: gdk_window_coords_to_parent()
+    /// See also: `gdk_window_coords_to_parent()`
     func coordsFromParent(parentX parent_x: gdouble, parentY parent_y: gdouble, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) {
         gdk_window_coords_from_parent(cast(window_ptr), parent_x, parent_y, cast(x), cast(y))
     
@@ -482,20 +481,20 @@ public extension WindowProtocol {
 
     /// Transforms window coordinates from a child window to its parent
     /// window, where the parent window is the normal parent as returned by
-    /// gdk_window_get_parent() for normal windows, and the window's
-    /// embedder as returned by gdk_offscreen_window_get_embedder() for
+    /// `gdk_window_get_parent()` for normal windows, and the window's
+    /// embedder as returned by `gdk_offscreen_window_get_embedder()` for
     /// offscreen windows.
     /// 
     /// For normal windows, calling this function is equivalent to adding
-    /// the return values of gdk_window_get_position() to the child coordinates.
+    /// the return values of `gdk_window_get_position()` to the child coordinates.
     /// For offscreen windows however (which can be arbitrarily transformed),
-    /// this function calls the GdkWindow::to-embedder: signal to translate
+    /// this function calls the GdkWindow`to`-embedder: signal to translate
     /// the coordinates.
     /// 
     /// You should always use this function when writing generic code that
     /// walks up a window hierarchy.
     /// 
-    /// See also: gdk_window_coords_from_parent()
+    /// See also: `gdk_window_coords_from_parent()`
     func coordsToParent(x: gdouble, y: gdouble, parentX parent_x: UnsafeMutablePointer<gdouble>, parentY parent_y: UnsafeMutablePointer<gdouble>) {
         gdk_window_coords_to_parent(cast(window_ptr), x, y, cast(parent_x), cast(parent_y))
     
@@ -508,7 +507,7 @@ public extension WindowProtocol {
     /// If the creation of the `GdkGLContext` failed, `error` will be set.
     /// 
     /// Before using the returned `GdkGLContext`, you will need to
-    /// call gdk_gl_context_make_current() or gdk_gl_context_realize().
+    /// call `gdk_gl_context_make_current()` or `gdk_gl_context_realize()`.
     func createGlContext() throws -> UnsafeMutablePointer<GdkGLContext>! {
         var error: Optional<UnsafeMutablePointer<GError>> = nil
         let rv = gdk_window_create_gl_context(cast(window_ptr), &error)
@@ -544,8 +543,7 @@ public extension WindowProtocol {
     ///                                              scale);
     /// ```
     /// 
-    /// 
-    /// Note that unlike cairo_surface_create_similar_image(), the new
+    /// Note that unlike `cairo_surface_create_similar_image()`, the new
     /// surface's device scale is set to `scale`, or to the scale factor of
     /// `window` if `scale` is 0.
     func createSimilarImageSurface(format: cairo_format_t, width: CInt, height: CInt, scale: CInt) -> UnsafeMutablePointer<cairo_surface_t>! {
@@ -558,7 +556,7 @@ public extension WindowProtocol {
     /// fallback resolution and font options as `window`. Generally, the new
     /// surface will also use the same backend as `window`, unless that is
     /// not possible for some reason. The type of the returned surface may
-    /// be examined with cairo_surface_get_type().
+    /// be examined with `cairo_surface_get_type()`.
     /// 
     /// Initially the surface contents are all 0 (transparent if contents
     /// have transparency, black otherwise.)
@@ -569,8 +567,8 @@ public extension WindowProtocol {
 
     /// Attempt to deiconify (unminimize) `window`. On X11 the window manager may
     /// choose to ignore the request to deiconify. When using GTK+,
-    /// use gtk_window_deiconify() instead of the `GdkWindow` variant. Or better yet,
-    /// you probably want to use gtk_window_present_with_time(), which raises the window, focuses it,
+    /// use `gtk_window_deiconify()` instead of the `GdkWindow` variant. Or better yet,
+    /// you probably want to use `gtk_window_present_with_time()`, which raises the window, focuses it,
     /// unminimizes it, and puts it on the current desktop.
     func deiconify() {
         gdk_window_deiconify(cast(window_ptr))
@@ -603,25 +601,25 @@ public extension WindowProtocol {
     }
 
     /// Indicates that the drawing of the contents of `window` started with
-    /// gdk_window_begin_frame() has been completed.
+    /// `gdk_window_begin_frame()` has been completed.
     /// 
     /// This function will take care of destroying the `GdkDrawingContext`.
     /// 
     /// It is an error to call this function without a matching
-    /// gdk_window_begin_frame() first.
+    /// `gdk_window_begin_frame()` first.
     func endDrawFrame(context: DrawingContextProtocol) {
         gdk_window_end_draw_frame(cast(window_ptr), cast(context.ptr))
     
     }
 
     /// Indicates that the backing store created by the most recent call
-    /// to gdk_window_begin_paint_region() should be copied onscreen and
+    /// to `gdk_window_begin_paint_region()` should be copied onscreen and
     /// deleted, leaving the next-most-recent backing store or no backing
     /// store at all as the active paint region. See
-    /// gdk_window_begin_paint_region() for full details.
+    /// `gdk_window_begin_paint_region()` for full details.
     /// 
     /// It is an error to call this function without a matching
-    /// gdk_window_begin_paint_region() first.
+    /// `gdk_window_begin_paint_region()` first.
     @available(*, deprecated) func endPaint() {
         gdk_window_end_paint(cast(window_ptr))
     
@@ -647,7 +645,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Sets keyboard focus to `window`. In most cases, gtk_window_present_with_time()
+    /// Sets keyboard focus to `window`. In most cases, `gtk_window_present_with_time()`
     /// should be used on a `GtkWindow`, rather than calling this function.
     func focus(timestamp: UInt32) {
         gdk_window_focus(cast(window_ptr), guint32(timestamp))
@@ -656,10 +654,10 @@ public extension WindowProtocol {
 
     /// Temporarily freezes a window and all its descendants such that it won't
     /// receive expose events.  The window will begin receiving expose events
-    /// again when gdk_window_thaw_toplevel_updates_libgtk_only() is called. If
-    /// gdk_window_freeze_toplevel_updates_libgtk_only()
+    /// again when `gdk_window_thaw_toplevel_updates_libgtk_only()` is called. If
+    /// `gdk_window_freeze_toplevel_updates_libgtk_only()`
     /// has been called more than once,
-    /// gdk_window_thaw_toplevel_updates_libgtk_only() must be called
+    /// `gdk_window_thaw_toplevel_updates_libgtk_only()` must be called
     /// an equal number of times to begin processing exposes.
     /// 
     /// This function is not part of the GDK public API and is only
@@ -674,8 +672,8 @@ public extension WindowProtocol {
 
     /// Temporarily freezes a window such that it won’t receive expose
     /// events.  The window will begin receiving expose events again when
-    /// gdk_window_thaw_updates() is called. If gdk_window_freeze_updates()
-    /// has been called more than once, gdk_window_thaw_updates() must be called
+    /// `gdk_window_thaw_updates()` is called. If `gdk_window_freeze_updates()`
+    /// has been called more than once, `gdk_window_thaw_updates()` must be called
     /// an equal number of times to begin processing exposes.
     func freezeUpdates() {
         gdk_window_freeze_updates(cast(window_ptr))
@@ -770,7 +768,7 @@ public extension WindowProtocol {
 
     /// Determines whether `window` is composited.
     /// 
-    /// See gdk_window_set_composited().
+    /// See `gdk_window_set_composited()`.
     ///
     /// **get_composited is deprecated:**
     /// Compositing is an outdated technology that
@@ -790,7 +788,7 @@ public extension WindowProtocol {
     }
 
     /// Returns the decorations set on the GdkWindow with
-    /// gdk_window_set_decorations().
+    /// `gdk_window_set_decorations()`.
     func get(decorations: UnsafeMutablePointer<GdkWMDecoration>) -> Bool {
         let rv = gdk_window_get_decorations(cast(window_ptr), cast(decorations))
         return Bool(rv != 0)
@@ -815,7 +813,7 @@ public extension WindowProtocol {
     /// The position is given in coordinates relative to the upper left
     /// corner of `window`.
     /// 
-    /// Use gdk_window_get_device_position_double() if you need subpixel precision.
+    /// Use `gdk_window_get_device_position_double()` if you need subpixel precision.
     func getDevicePosition(device: DeviceProtocol, x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>, mask: UnsafeMutablePointer<GdkModifierType>) -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_device_position(cast(window_ptr), cast(device.ptr), cast(x), cast(y), cast(mask))
         return cast(rv)
@@ -842,10 +840,10 @@ public extension WindowProtocol {
     }
 
     /// Obtains the parent of `window`, as known to GDK. Works like
-    /// gdk_window_get_parent() for normal windows, but returns the
+    /// `gdk_window_get_parent()` for normal windows, but returns the
     /// window’s embedder for offscreen windows.
     /// 
-    /// See also: gdk_offscreen_window_get_embedder()
+    /// See also: `gdk_offscreen_window_get_embedder()`
     func getEffectiveParent() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_effective_parent(cast(window_ptr))
         return cast(rv)
@@ -853,10 +851,10 @@ public extension WindowProtocol {
 
     /// Gets the toplevel window that’s an ancestor of `window`.
     /// 
-    /// Works like gdk_window_get_toplevel(), but treats an offscreen window's
-    /// embedder as its parent, using gdk_window_get_effective_parent().
+    /// Works like `gdk_window_get_toplevel()`, but treats an offscreen window's
+    /// embedder as its parent, using `gdk_window_get_effective_parent()`.
     /// 
-    /// See also: gdk_offscreen_window_get_embedder()
+    /// See also: `gdk_offscreen_window_get_embedder()`
     func getEffectiveToplevel() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_effective_toplevel(cast(window_ptr))
         return cast(rv)
@@ -869,7 +867,7 @@ public extension WindowProtocol {
     }
 
     /// Gets the event mask for `window` for all master input devices. See
-    /// gdk_window_set_events().
+    /// `gdk_window_set_events()`.
     func getEvents() -> GdkEventMask {
         let rv = gdk_window_get_events(cast(window_ptr))
         return rv
@@ -893,7 +891,7 @@ public extension WindowProtocol {
     /// Obtains the bounding box of the window, including window manager
     /// titlebar/borders if any. The frame position is given in root window
     /// coordinates. To get the position of the window itself (rather than
-    /// the frame) in root window coordinates, use gdk_window_get_origin().
+    /// the frame) in root window coordinates, use `gdk_window_get_origin()`.
     func getFrameExtents(rect: RectangleProtocol) {
         gdk_window_get_frame_extents(cast(window_ptr), cast(rect.ptr))
     
@@ -916,21 +914,21 @@ public extension WindowProtocol {
     /// On the X11 platform, the geometry is obtained from the X server,
     /// so reflects the latest position of `window`; this may be out-of-sync
     /// with the position of `window` delivered in the most-recently-processed
-    /// `GdkEventConfigure`. gdk_window_get_position() in contrast gets the
+    /// `GdkEventConfigure`. `gdk_window_get_position()` in contrast gets the
     /// position from the most recent configure event.
     /// 
     /// Note: If `window` is not a toplevel, it is much better
-    /// to call gdk_window_get_position(), gdk_window_get_width() and
-    /// gdk_window_get_height() instead, because it avoids the roundtrip to
+    /// to call `gdk_window_get_position()`, `gdk_window_get_width()` and
+    /// `gdk_window_get_height()` instead, because it avoids the roundtrip to
     /// the X server and because these functions support the full 32-bit
-    /// coordinate space, whereas gdk_window_get_geometry() is restricted to
+    /// coordinate space, whereas `gdk_window_get_geometry()` is restricted to
     /// the 16-bit coordinates of X11.
     func getGeometry(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>, width: UnsafeMutablePointer<CInt>, height: UnsafeMutablePointer<CInt>) {
         gdk_window_get_geometry(cast(window_ptr), cast(x), cast(y), cast(width), cast(height))
     
     }
 
-    /// Returns the group leader window for `window`. See gdk_window_set_group().
+    /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
     func getGroup() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_group(cast(window_ptr))
         return cast(rv)
@@ -954,8 +952,8 @@ public extension WindowProtocol {
     }
 
     /// Obtains the position of a window in root window coordinates.
-    /// (Compare with gdk_window_get_position() and
-    /// gdk_window_get_geometry() which return the position of a window
+    /// (Compare with `gdk_window_get_position()` and
+    /// `gdk_window_get_geometry()` which return the position of a window
     /// relative to its parent window.)
     func getOrigin(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>) -> CInt {
         let rv = gdk_window_get_origin(cast(window_ptr), cast(x), cast(y))
@@ -963,15 +961,15 @@ public extension WindowProtocol {
     }
 
     /// Obtains the parent of `window`, as known to GDK. Does not query the
-    /// X server; thus this returns the parent as passed to gdk_window_new(),
+    /// X server; thus this returns the parent as passed to `gdk_window_new()`,
     /// not the actual parent. This should never matter unless you’re using
     /// Xlib calls mixed with GDK calls on the X11 platform. It may also
     /// matter for toplevel windows, because the window manager may choose
     /// to reparent them.
     /// 
-    /// Note that you should use gdk_window_get_effective_parent() when
+    /// Note that you should use `gdk_window_get_effective_parent()` when
     /// writing generic code that walks up a window hierarchy, because
-    /// gdk_window_get_parent() will most likely not do what you expect if
+    /// `gdk_window_get_parent()` will most likely not do what you expect if
     /// there are offscreen windows in the hierarchy.
     func getParent() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_parent(cast(window_ptr))
@@ -981,7 +979,7 @@ public extension WindowProtocol {
     /// Returns whether input to the window is passed through to the window
     /// below.
     /// 
-    /// See gdk_window_set_pass_through() for details
+    /// See `gdk_window_set_pass_through()` for details
     func getPassThrough() -> Bool {
         let rv = gdk_window_get_pass_through(cast(window_ptr))
         return Bool(rv != 0)
@@ -1000,7 +998,7 @@ public extension WindowProtocol {
 
     /// Obtains the position of the window as reported in the
     /// most-recently-processed `GdkEventConfigure`. Contrast with
-    /// gdk_window_get_geometry() which queries the X server for the
+    /// `gdk_window_get_geometry()` which queries the X server for the
     /// current window position, regardless of which events have been
     /// received or processed.
     /// 
@@ -1012,7 +1010,7 @@ public extension WindowProtocol {
 
     /// Obtains the position of a window position in root
     /// window coordinates. This is similar to
-    /// gdk_window_get_origin() but allows you to pass
+    /// `gdk_window_get_origin()` but allows you to pass
     /// in any position in the window, not just the origin.
     func getRootCoords(x: CInt, y: CInt, rootX root_x: UnsafeMutablePointer<CInt>, rootY root_y: UnsafeMutablePointer<CInt>) {
         gdk_window_get_root_coords(cast(window_ptr), gint(x), gint(y), cast(root_x), cast(root_y))
@@ -1076,9 +1074,9 @@ public extension WindowProtocol {
     /// toplevel window, as is a `GDK_WINDOW_CHILD` window that
     /// has a root window as parent.
     /// 
-    /// Note that you should use gdk_window_get_effective_toplevel() when
+    /// Note that you should use `gdk_window_get_effective_toplevel()` when
     /// you want to get to a window’s toplevel as seen on screen, because
-    /// gdk_window_get_toplevel() will most likely not do what you expect
+    /// `gdk_window_get_toplevel()` will most likely not do what you expect
     /// if there are offscreen windows in the hierarchy.
     func getToplevel() -> UnsafeMutablePointer<GdkWindow>! {
         let rv = gdk_window_get_toplevel(cast(window_ptr))
@@ -1095,15 +1093,15 @@ public extension WindowProtocol {
     /// of the function. That is, after calling this function, `window` will
     /// no longer have an invalid/dirty region; the update area is removed
     /// from `window` and handed to you. If a window has no update area,
-    /// gdk_window_get_update_area() returns `nil`. You are responsible for
-    /// calling cairo_region_destroy() on the returned region if it’s non-`nil`.
+    /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
+    /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
     func getUpdateArea() -> UnsafeMutablePointer<cairo_region_t>! {
         let rv = gdk_window_get_update_area(cast(window_ptr))
         return cast(rv)
     }
 
     /// Retrieves the user data for `window`, which is normally the widget
-    /// that `window` belongs to. See gdk_window_set_user_data().
+    /// that `window` belongs to. See `gdk_window_set_user_data()`.
     func getUser(data: UnsafeMutablePointer<UnsafeMutableRawPointer>) {
         gdk_window_get_user_data(cast(window_ptr), cast(data))
     
@@ -1141,7 +1139,7 @@ public extension WindowProtocol {
     }
 
     /// Checks whether the window has a native window or not. Note that
-    /// you can use gdk_window_ensure_native() if a native window is needed.
+    /// you can use `gdk_window_ensure_native()` if a native window is needed.
     func hasNative() -> Bool {
         let rv = gdk_window_has_native(cast(window_ptr))
         return Bool(rv != 0)
@@ -1150,7 +1148,7 @@ public extension WindowProtocol {
     /// For toplevel windows, withdraws them, so they will no longer be
     /// known to the window manager; for all windows, unmaps them, so
     /// they won’t be displayed. Normally done automatically as
-    /// part of gtk_widget_hide().
+    /// part of `gtk_widget_hide()`.
     func hide() {
         gdk_window_hide(cast(window_ptr))
     
@@ -1158,7 +1156,7 @@ public extension WindowProtocol {
 
     /// Asks to iconify (minimize) `window`. The window manager may choose
     /// to ignore the request, but normally will honor it. Using
-    /// gtk_window_iconify() is preferred, if you have a `GtkWindow` widget.
+    /// `gtk_window_iconify()` is preferred, if you have a `GtkWindow` widget.
     /// 
     /// This function only makes sense when `window` is a toplevel window.
     func iconify() {
@@ -1166,7 +1164,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Like gdk_window_shape_combine_region(), but the shape applies
+    /// Like `gdk_window_shape_combine_region()`, but the shape applies
     /// only to event handling. Mouse events which happen while
     /// the pointer position corresponds to an unset bit in the
     /// mask will be passed on the window below `window`.
@@ -1189,12 +1187,12 @@ public extension WindowProtocol {
 
     /// Adds `region` to the update area for `window`. The update area is the
     /// region that needs to be redrawn, or “dirty region.” The call
-    /// gdk_window_process_updates() sends one or more expose events to the
+    /// `gdk_window_process_updates()` sends one or more expose events to the
     /// window, which together cover the entire update area. An
     /// application would normally redraw the contents of `window` in
     /// response to those expose events.
     /// 
-    /// GDK will call gdk_window_process_all_updates() on your behalf
+    /// GDK will call `gdk_window_process_all_updates()` on your behalf
     /// whenever your program returns to the main loop and becomes idle, so
     /// normally there’s no need to do that manually, you just need to
     /// invalidate regions that you know should be redrawn.
@@ -1208,9 +1206,9 @@ public extension WindowProtocol {
     
     }
 
-    /// A convenience wrapper around gdk_window_invalidate_region() which
+    /// A convenience wrapper around `gdk_window_invalidate_region()` which
     /// invalidates a rectangular region. See
-    /// gdk_window_invalidate_region() for details.
+    /// `gdk_window_invalidate_region()` for details.
     func invalidate(rect: RectangleProtocol, invalidateChildren invalidate_children: Bool) {
         gdk_window_invalidate_rect(cast(window_ptr), cast(rect.ptr), gboolean(invalidate_children ? 1 : 0))
     
@@ -1218,12 +1216,12 @@ public extension WindowProtocol {
 
     /// Adds `region` to the update area for `window`. The update area is the
     /// region that needs to be redrawn, or “dirty region.” The call
-    /// gdk_window_process_updates() sends one or more expose events to the
+    /// `gdk_window_process_updates()` sends one or more expose events to the
     /// window, which together cover the entire update area. An
     /// application would normally redraw the contents of `window` in
     /// response to those expose events.
     /// 
-    /// GDK will call gdk_window_process_all_updates() on your behalf
+    /// GDK will call `gdk_window_process_all_updates()` on your behalf
     /// whenever your program returns to the main loop and becomes idle, so
     /// normally there’s no need to do that manually, you just need to
     /// invalidate regions that you know should be redrawn.
@@ -1243,20 +1241,20 @@ public extension WindowProtocol {
     /// This is true whether or not the other windows are visible.
     /// 
     /// If `window` is a toplevel, the window manager may choose to deny the
-    /// request to move the window in the Z-order, gdk_window_lower() only
+    /// request to move the window in the Z-order, `gdk_window_lower()` only
     /// requests the restack, does not guarantee it.
     /// 
-    /// Note that gdk_window_show() raises the window again, so don’t call this
-    /// function before gdk_window_show(). (Try gdk_window_show_unraised().)
+    /// Note that `gdk_window_show()` raises the window again, so don’t call this
+    /// function before `gdk_window_show()`. (Try `gdk_window_show_unraised()`.)
     func lower() {
         gdk_window_lower(cast(window_ptr))
     
     }
 
-    /// If you call this during a paint (e.g. between gdk_window_begin_paint_region()
-    /// and gdk_window_end_paint() then GDK will mark the current clip region of the
+    /// If you call this during a paint (e.g. between `gdk_window_begin_paint_region()`
+    /// and `gdk_window_end_paint()` then GDK will mark the current clip region of the
     /// window as being drawn. This is required when mixing GL rendering via
-    /// gdk_cairo_draw_from_gl() and cairo rendering, as otherwise GDK has no way
+    /// `gdk_cairo_draw_from_gl()` and cairo rendering, as otherwise GDK has no way
     /// of knowing when something paints over the GL-drawn regions.
     /// 
     /// This is typically called automatically by GTK+ and you don't need
@@ -1285,9 +1283,9 @@ public extension WindowProtocol {
     /// Merges the input shape masks for any child windows into the
     /// input shape mask for `window`. i.e. the union of all input masks
     /// for `window` and its children will become the new input mask
-    /// for `window`. See gdk_window_input_shape_combine_region().
+    /// for `window`. See `gdk_window_input_shape_combine_region()`.
     /// 
-    /// This function is distinct from gdk_window_set_child_input_shapes()
+    /// This function is distinct from `gdk_window_set_child_input_shapes()`
     /// because it includes `window`’s input shape mask in the set of
     /// shapes to be merged.
     func mergeChildInputShapes() {
@@ -1298,9 +1296,9 @@ public extension WindowProtocol {
     /// Merges the shape masks for any child windows into the
     /// shape mask for `window`. i.e. the union of all masks
     /// for `window` and its children will become the new mask
-    /// for `window`. See gdk_window_shape_combine_region().
+    /// for `window`. See `gdk_window_shape_combine_region()`.
     /// 
-    /// This function is distinct from gdk_window_set_child_shapes()
+    /// This function is distinct from `gdk_window_set_child_shapes()`
     /// because it includes `window`’s shape mask in the set of shapes to
     /// be merged.
     func mergeChildShapes() {
@@ -1310,11 +1308,11 @@ public extension WindowProtocol {
 
     /// Repositions a window relative to its parent window.
     /// For toplevel windows, window managers may ignore or modify the move;
-    /// you should probably use gtk_window_move() on a `GtkWindow` widget
+    /// you should probably use `gtk_window_move()` on a `GtkWindow` widget
     /// anyway, instead of using GDK functions. For child windows,
     /// the move will reliably succeed.
     /// 
-    /// If you’re also planning to resize the window, use gdk_window_move_resize()
+    /// If you’re also planning to resize the window, use `gdk_window_move_resize()`
     /// to both move and resize simultaneously, for a nicer visual effect.
     func move(x: CInt, y: CInt) {
         gdk_window_move(cast(window_ptr), gint(x), gint(y))
@@ -1331,10 +1329,10 @@ public extension WindowProtocol {
     
     }
 
-    /// Equivalent to calling gdk_window_move() and gdk_window_resize(),
+    /// Equivalent to calling `gdk_window_move()` and `gdk_window_resize()`,
     /// except that both operations are performed at once, avoiding strange
     /// visual effects. (i.e. the user may be able to see the window first
-    /// move, then resize, if you don’t use gdk_window_move_resize().)
+    /// move, then resize, if you don’t use `gdk_window_move_resize()`.)
     func moveResize(x: CInt, y: CInt, width: CInt, height: CInt) {
         gdk_window_move_resize(cast(window_ptr), gint(x), gint(y), gint(width), gint(height))
     
@@ -1353,14 +1351,14 @@ public extension WindowProtocol {
     /// `GDK_GRAVITY_NORTH_WEST` with `GDK_GRAVITY_NORTH_EAST` and vice versa if
     /// `window` extends beyond the left or right edges of the monitor.
     /// 
-    /// Connect to the `GdkWindow`::moved-to-rect signal to find out how it was
+    /// Connect to the `GdkWindow::moved`-to-rect signal to find out how it was
     /// actually positioned.
     func moveTo(rect: RectangleProtocol, rectAnchor rect_anchor: Gravity, windowAnchor window_anchor: Gravity, anchorHints anchor_hints: AnchorHints, rectAnchorDx rect_anchor_dx: CInt, rectAnchorDy rect_anchor_dy: CInt) {
         gdk_window_move_to_rect(cast(window_ptr), cast(rect.ptr), rect_anchor, window_anchor, anchor_hints, gint(rect_anchor_dx), gint(rect_anchor_dy))
     
     }
 
-    /// Like gdk_window_get_children(), but does not copy the list of
+    /// Like `gdk_window_get_children()`, but does not copy the list of
     /// children, so the list does not need to be freed.
     func peekChildren() -> UnsafeMutablePointer<GList>! {
         let rv = gdk_window_peek_children(cast(window_ptr))
@@ -1369,8 +1367,8 @@ public extension WindowProtocol {
 
     /// Sends one or more expose events to `window`. The areas in each
     /// expose event will cover the entire update area for the window (see
-    /// gdk_window_invalidate_region() for details). Normally GDK calls
-    /// gdk_window_process_all_updates() on your behalf, so there’s no
+    /// `gdk_window_invalidate_region()` for details). Normally GDK calls
+    /// `gdk_window_process_all_updates()` on your behalf, so there’s no
     /// need to call this function unless you want to force expose events
     /// to be delivered immediately and synchronously (vs. the usual
     /// case, where GDK delivers them in an idle handler). Occasionally
@@ -1388,7 +1386,7 @@ public extension WindowProtocol {
     /// This is true whether or not the windows are visible.
     /// 
     /// If `window` is a toplevel, the window manager may choose to deny the
-    /// request to move the window in the Z-order, gdk_window_raise() only
+    /// request to move the window in the Z-order, `gdk_window_raise()` only
     /// requests the restack, does not guarantee it.
     func raise() {
         gdk_window_raise(cast(window_ptr))
@@ -1401,7 +1399,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Remove a filter previously added with gdk_window_add_filter().
+    /// Remove a filter previously added with `gdk_window_add_filter()`.
     func removeFilter(function: @escaping FilterFunc, data: UnsafeMutableRawPointer) {
         gdk_window_remove_filter(cast(window_ptr), function, cast(data))
     
@@ -1416,11 +1414,11 @@ public extension WindowProtocol {
 
     /// Resizes `window`; for toplevel windows, asks the window manager to resize
     /// the window. The window manager may not allow the resize. When using GTK+,
-    /// use gtk_window_resize() instead of this low-level GDK function.
+    /// use `gtk_window_resize()` instead of this low-level GDK function.
     /// 
     /// Windows may not be resized below 1x1.
     /// 
-    /// If you’re also planning to move the window, use gdk_window_move_resize()
+    /// If you’re also planning to move the window, use `gdk_window_move_resize()`
     /// to both move and resize simultaneously, for a nicer visual effect.
     func resize(width: CInt, height: CInt) {
         gdk_window_resize(cast(window_ptr), gint(width), gint(height))
@@ -1435,7 +1433,7 @@ public extension WindowProtocol {
     /// lowers the window.
     /// 
     /// If `window` is a toplevel, the window manager may choose to deny the
-    /// request to move the window in the Z-order, gdk_window_restack() only
+    /// request to move the window in the Z-order, `gdk_window_restack()` only
     /// requests the restack, does not guarantee it.
     func restack(sibling: WindowProtocol, above: Bool) {
         gdk_window_restack(cast(window_ptr), cast(sibling.ptr), gboolean(above ? 1 : 0))
@@ -1472,7 +1470,7 @@ public extension WindowProtocol {
     /// 
     /// However, when using GTK+, influence the background of a widget
     /// using a style class or CSS — if you’re an application — or with
-    /// gtk_style_context_set_background() — if you're implementing a
+    /// `gtk_style_context_set_background()` — if you're implementing a
     /// custom widget.
     ///
     /// **set_background is deprecated:**
@@ -1486,7 +1484,7 @@ public extension WindowProtocol {
     /// 
     /// A background of `nil` means that the window won't have any background. On the
     /// X11 backend it's also possible to inherit the background from the parent
-    /// window using gdk_x11_get_parent_relative_pattern().
+    /// window using `gdk_x11_get_parent_relative_pattern()`.
     /// 
     /// The windowing system will normally fill a window with its background
     /// when the window is obscured then exposed.
@@ -1500,7 +1498,7 @@ public extension WindowProtocol {
 
     /// Sets the background color of `window`.
     /// 
-    /// See also gdk_window_set_background_pattern().
+    /// See also `gdk_window_set_background_pattern()`.
     ///
     /// **set_background_rgba is deprecated:**
     /// Don't use this function
@@ -1511,7 +1509,7 @@ public extension WindowProtocol {
 
     /// Sets the input shape mask of `window` to the union of input shape masks
     /// for all children of `window`, ignoring the input shape mask of `window`
-    /// itself. Contrast with gdk_window_merge_child_input_shapes() which includes
+    /// itself. Contrast with `gdk_window_merge_child_input_shapes()` which includes
     /// the input shape mask of `window` in the masks to be merged.
     func setChildInputShapes() {
         gdk_window_set_child_input_shapes(cast(window_ptr))
@@ -1520,7 +1518,7 @@ public extension WindowProtocol {
 
     /// Sets the shape mask of `window` to the union of shape masks
     /// for all children of `window`, ignoring the shape mask of `window`
-    /// itself. Contrast with gdk_window_merge_child_shapes() which includes
+    /// itself. Contrast with `gdk_window_merge_child_shapes()` which includes
     /// the shape mask of `window` in the masks to be merged.
     func setChildShapes() {
         gdk_window_set_child_shapes(cast(window_ptr))
@@ -1536,7 +1534,7 @@ public extension WindowProtocol {
     /// whatever way it sees fit.
     /// 
     /// It only makes sense for child windows to be composited; see
-    /// gdk_window_set_opacity() if you need translucent toplevel
+    /// `gdk_window_set_opacity()` if you need translucent toplevel
     /// windows.
     /// 
     /// An additional effect of this call is that the area of this
@@ -1546,7 +1544,7 @@ public extension WindowProtocol {
     /// 
     /// This call is only supported on some systems (currently,
     /// only X11 with new enough Xcomposite and Xdamage extensions).
-    /// You must call gdk_display_supports_composite() to check if
+    /// You must call `gdk_display_supports_composite()` to check if
     /// setting a window as composited is supported before
     /// attempting to do so.
     ///
@@ -1562,9 +1560,9 @@ public extension WindowProtocol {
     /// 
     /// Note that `cursor` must be for the same display as `window`.
     /// 
-    /// Use gdk_cursor_new_for_display() or gdk_cursor_new_from_pixbuf() to
+    /// Use `gdk_cursor_new_for_display()` or `gdk_cursor_new_from_pixbuf()` to
     /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
-    /// Passing `nil` for the `cursor` argument to gdk_window_set_cursor() means
+    /// Passing `nil` for the `cursor` argument to `gdk_window_set_cursor()` means
     /// that `window` will use the cursor of its parent window. Most windows
     /// should use this default.
     func set(cursor: CursorProtocol) {
@@ -1575,7 +1573,7 @@ public extension WindowProtocol {
     /// “Decorations” are the features the window manager adds to a toplevel `GdkWindow`.
     /// This function sets the traditional Motif window manager hints that tell the
     /// window manager which decorations you would like your window to have.
-    /// Usually you should use gtk_window_set_decorated() on a `GtkWindow` instead of
+    /// Usually you should use `gtk_window_set_decorated()` on a `GtkWindow` instead of
     /// using the GDK function directly.
     /// 
     /// The `decorations` argument is the logical OR of the fields in
@@ -1592,9 +1590,9 @@ public extension WindowProtocol {
     }
 
     /// Sets a specific `GdkCursor` for a given device when it gets inside `window`.
-    /// Use gdk_cursor_new_for_display() or gdk_cursor_new_from_pixbuf() to create
+    /// Use `gdk_cursor_new_for_display()` or `gdk_cursor_new_from_pixbuf()` to create
     /// the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`. Passing
-    /// `nil` for the `cursor` argument to gdk_window_set_cursor() means that
+    /// `nil` for the `cursor` argument to `gdk_window_set_cursor()` means that
     /// `window` will use the cursor of its parent window. Most windows should
     /// use this default.
     func setDeviceCursor(device: DeviceProtocol, cursor: CursorProtocol) {
@@ -1608,7 +1606,7 @@ public extension WindowProtocol {
     /// press events. The event mask is the bitwise OR of values from the
     /// `GdkEventMask` enumeration.
     /// 
-    /// See the [input handling overview][event-masks] for details.
+    /// See the [input handling overview](#event-masks) for details.
     func setDeviceEvents(device: DeviceProtocol, eventMask event_mask: EventMask) {
         gdk_window_set_device_events(cast(window_ptr), cast(device.ptr), event_mask)
     
@@ -1633,7 +1631,7 @@ public extension WindowProtocol {
     /// press events. The event mask is the bitwise OR of values from the
     /// `GdkEventMask` enumeration.
     /// 
-    /// See the [input handling overview][event-masks] for details.
+    /// See the [input handling overview](#event-masks) for details.
     func setEvents(eventMask event_mask: EventMask) {
         gdk_window_set_events(cast(window_ptr), event_mask)
     
@@ -1701,17 +1699,17 @@ public extension WindowProtocol {
     /// this is to constrain user resizing, but the windowing system
     /// will typically  (but is not required to) also constrain the
     /// current size of the window to the provided values and
-    /// constrain programatic resizing via gdk_window_resize() or
-    /// gdk_window_move_resize().
+    /// constrain programatic resizing via `gdk_window_resize()` or
+    /// `gdk_window_move_resize()`.
     /// 
     /// Note that on X11, this effect has no effect on windows
     /// of type `GDK_WINDOW_TEMP` or windows where override redirect
-    /// has been turned on via gdk_window_set_override_redirect()
+    /// has been turned on via `gdk_window_set_override_redirect()`
     /// since these windows are not resizable by the user.
     /// 
     /// Since you can’t count on the windowing system doing the
     /// constraints for programmatic resizes, you should generally
-    /// call gdk_window_constrain_size() yourself to determine
+    /// call `gdk_window_constrain_size()` yourself to determine
     /// appropriate sizes.
     func setGeometryHints(geometry: GeometryProtocol, geomMask geom_mask: WindowHints) {
         gdk_window_set_geometry_hints(cast(window_ptr), cast(geometry.ptr), geom_mask)
@@ -1752,11 +1750,11 @@ public extension WindowProtocol {
     /// idea from a user interface standpoint. But you can set such a name
     /// with this function, if you like.
     /// 
-    /// After calling this with a non-`nil` `name`, calls to gdk_window_set_title()
+    /// After calling this with a non-`nil` `name`, calls to `gdk_window_set_title()`
     /// will not update the icon title.
     /// 
     /// Using `nil` for `name` unsets the icon title; further calls to
-    /// gdk_window_set_title() will again update the icon title as well.
+    /// `gdk_window_set_title()` will again update the icon title as well.
     /// 
     /// Note that some platforms don't support window icons.
     func setIcon(name: UnsafePointer<gchar>) {
@@ -1812,7 +1810,7 @@ public extension WindowProtocol {
     /// way.
     /// 
     /// You should only use this on windows for which you have
-    /// previously called gdk_window_set_transient_for()
+    /// previously called `gdk_window_set_transient_for()`
     func setModalHint(modal: Bool) {
         gdk_window_set_modal_hint(cast(window_ptr), gboolean(modal ? 1 : 0))
     
@@ -1828,13 +1826,13 @@ public extension WindowProtocol {
     /// per-window opacity value that the compositor would apply. Instead, use
     /// `gdk_window_set_opaque_region (window, NULL)` to tell the compositor
     /// that the entire window is (potentially) non-opaque, and draw your content
-    /// with alpha, or use gtk_widget_set_opacity() to set an overall opacity
+    /// with alpha, or use `gtk_widget_set_opacity()` to set an overall opacity
     /// for your widgets.
     /// 
     /// For child windows this function only works for non-native windows.
     /// 
-    /// For setting up per-pixel alpha topelevels, see gdk_screen_get_rgba_visual(),
-    /// and for non-toplevels, see gdk_window_set_composited().
+    /// For setting up per-pixel alpha topelevels, see `gdk_screen_get_rgba_visual()`,
+    /// and for non-toplevels, see `gdk_window_set_composited()`.
     /// 
     /// Support for non-toplevel windows was added in 3.8.
     func set(opacity: gdouble) {
@@ -1854,7 +1852,7 @@ public extension WindowProtocol {
     /// GTK+ will update this property automatically if
     /// the `window` background is opaque, as we know where the opaque regions
     /// are. If your window background is not opaque, please update this
-    /// property in your `GtkWidget`::style-updated handler.
+    /// property in your `GtkWidget::style`-updated handler.
     func setOpaque(region: RegionProtocol) {
         gdk_window_set_opaque_region(cast(window_ptr), cast(region.ptr))
     
@@ -1896,7 +1894,7 @@ public extension WindowProtocol {
     
     }
 
-    /// When using GTK+, typically you should use gtk_window_set_role() instead
+    /// When using GTK+, typically you should use `gtk_window_set_role()` instead
     /// of this low-level function.
     /// 
     /// The window manager and session manager use a window’s role to
@@ -1930,7 +1928,7 @@ public extension WindowProtocol {
     /// Toggles whether a window should appear in a pager (workspace
     /// switcher, or other desktop utility program that displays a small
     /// thumbnail representation of the windows on the desktop). If a
-    /// window’s semantic type as specified with gdk_window_set_type_hint()
+    /// window’s semantic type as specified with `gdk_window_set_type_hint()`
     /// already fully describes the window, this function should
     /// not be called in addition, instead you should
     /// allow the window to be treated according to standard policy for
@@ -1942,7 +1940,7 @@ public extension WindowProtocol {
 
     /// Toggles whether a window should appear in a task list or window
     /// list. If a window’s semantic type as specified with
-    /// gdk_window_set_type_hint() already fully describes the window, this
+    /// `gdk_window_set_type_hint()` already fully describes the window, this
     /// function should not be called in addition,
     /// instead you should allow the window to be treated according to
     /// standard policy for its semantic type.
@@ -1960,7 +1958,7 @@ public extension WindowProtocol {
     
     }
 
-    /// When using GTK+, typically you should use gtk_window_set_startup_id()
+    /// When using GTK+, typically you should use `gtk_window_set_startup_id()`
     /// instead of this low-level function.
     func set(startupId startup_id: UnsafePointer<gchar>) {
         gdk_window_set_startup_id(cast(window_ptr), startup_id)
@@ -1991,7 +1989,7 @@ public extension WindowProtocol {
 
     /// Sets the title of a toplevel window, to be displayed in the titlebar.
     /// If you haven’t explicitly set the icon name for the window
-    /// (using gdk_window_set_icon_name()), the icon name will be set to
+    /// (using `gdk_window_set_icon_name()`), the icon name will be set to
     /// `title` as well. `title` must be in UTF-8 encoding (as with all
     /// user-readable strings in GDK/GTK+). `title` may not be `nil`.
     func set(title: UnsafePointer<gchar>) {
@@ -2004,7 +2002,7 @@ public extension WindowProtocol {
     /// window manager to do things like center `window` on `parent` and
     /// keep `window` above `parent`.
     /// 
-    /// See gtk_window_set_transient_for() if you’re using `GtkWindow` or
+    /// See `gtk_window_set_transient_for()` if you’re using `GtkWindow` or
     /// `GtkDialog`.
     func setTransientFor(parent: WindowProtocol) {
         gdk_window_set_transient_for(cast(window_ptr), cast(parent.ptr))
@@ -2030,7 +2028,7 @@ public extension WindowProtocol {
     }
 
     /// For most purposes this function is deprecated in favor of
-    /// g_object_set_data(). However, for historical reasons GTK+ stores
+    /// `g_object_set_data()`. However, for historical reasons GTK+ stores
     /// the `GtkWidget` that owns a `GdkWindow` as user data on the
     /// `GdkWindow`. So, custom widget implementations should use
     /// this function for that. If GTK+ receives an event for a `GdkWindow`,
@@ -2060,12 +2058,12 @@ public extension WindowProtocol {
     
     }
 
-    /// Like gdk_window_show_unraised(), but also raises the window to the
+    /// Like `gdk_window_show_unraised()`, but also raises the window to the
     /// top of the window stack (moves the window to the front of the
     /// Z-order).
     /// 
     /// This function maps a window so it’s visible onscreen. Its opposite
-    /// is gdk_window_hide().
+    /// is `gdk_window_hide()`.
     /// 
     /// When implementing a `GtkWidget`, you should call this function on the widget's
     /// `GdkWindow` as part of the “map” method.
@@ -2075,12 +2073,12 @@ public extension WindowProtocol {
     }
 
     /// Shows a `GdkWindow` onscreen, but does not modify its stacking
-    /// order. In contrast, gdk_window_show() will raise the window
+    /// order. In contrast, `gdk_window_show()` will raise the window
     /// to the top of the window stack.
     /// 
     /// On the X11 platform, in Xlib terms, this function calls
-    /// XMapWindow() (it also updates some internal GDK state, which means
-    /// that you can’t really use XMapWindow() directly on a GDK window).
+    /// `XMapWindow()` (it also updates some internal GDK state, which means
+    /// that you can’t really use `XMapWindow()` directly on a GDK window).
     func showUnraised() {
         gdk_window_show_unraised(cast(window_ptr))
     
@@ -2098,7 +2096,7 @@ public extension WindowProtocol {
 
     /// “Pins” a window such that it’s on all workspaces and does not scroll
     /// with viewports, for window managers that have scrollable viewports.
-    /// (When using `GtkWindow`, gtk_window_stick() may be more useful.)
+    /// (When using `GtkWindow`, `gtk_window_stick()` may be more useful.)
     /// 
     /// On the X11 platform, this function depends on window manager
     /// support, so may have no effect with many window managers. However,
@@ -2111,7 +2109,7 @@ public extension WindowProtocol {
     }
 
     /// Thaws a window frozen with
-    /// gdk_window_freeze_toplevel_updates_libgtk_only().
+    /// `gdk_window_freeze_toplevel_updates_libgtk_only()`.
     /// 
     /// This function is not part of the GDK public API and is only
     /// for use by GTK+.
@@ -2123,7 +2121,7 @@ public extension WindowProtocol {
     
     }
 
-    /// Thaws a window frozen with gdk_window_freeze_updates().
+    /// Thaws a window frozen with `gdk_window_freeze_updates()`.
     func thawUpdates() {
         gdk_window_thaw_updates(cast(window_ptr))
     
@@ -2160,15 +2158,15 @@ public extension WindowProtocol {
     
     }
 
-    /// Reverse operation for gdk_window_stick(); see gdk_window_stick(),
-    /// and gtk_window_unstick().
+    /// Reverse operation for `gdk_window_stick()`; see `gdk_window_stick()`,
+    /// and `gtk_window_unstick()`.
     func unstick() {
         gdk_window_unstick(cast(window_ptr))
     
     }
 
     /// Withdraws a window (unmaps it and asks the window manager to forget about it).
-    /// This function is not really useful as gdk_window_hide() automatically
+    /// This function is not really useful as `gdk_window_hide()` automatically
     /// withdraws toplevel windows before hiding them.
     func withdraw() {
         gdk_window_withdraw(cast(window_ptr))
@@ -2177,7 +2175,7 @@ public extension WindowProtocol {
 
     /// Creates a Cairo context for drawing to `window`.
     /// 
-    /// Note that calling cairo_reset_clip() on the resulting `cairo_t` will
+    /// Note that calling `cairo_reset_clip()` on the resulting `cairo_t` will
     /// produce undefined results, so avoid it at all costs.
     /// 
     /// Typically, this function is used to draw on a `GdkWindow` out of the paint
@@ -2185,7 +2183,7 @@ public extension WindowProtocol {
     /// and optimizations.
     /// 
     /// If you are drawing on a native `GdkWindow` in response to a `GDK_EXPOSE` event
-    /// you should use gdk_window_begin_draw_frame() and gdk_drawing_context_get_cairo_context()
+    /// you should use `gdk_window_begin_draw_frame()` and `gdk_drawing_context_get_cairo_context()`
     /// instead. GTK will automatically do this for you when drawing a widget.
     ///
     /// **cairo_create is deprecated:**
@@ -2239,7 +2237,7 @@ public extension WindowProtocol {
 
     /// Starts a drag and creates a new drag context for it.
     /// This function assumes that the drag is controlled by the
-    /// client pointer device, use gdk_drag_begin_for_device() to
+    /// client pointer device, use `gdk_drag_begin_for_device()` to
     /// begin a drag with a different device.
     /// 
     /// This function is called by the drag source.
@@ -2268,7 +2266,7 @@ public extension WindowProtocol {
     /// given pointer position.
     /// 
     /// This function is called by the drag source to obtain the
-    /// `dest_window` and `protocol` parameters for gdk_drag_motion().
+    /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
     func dragFindWindowForScreen(context: DragContextProtocol, screen: ScreenProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
         gdk_drag_find_window_for_screen(cast(context.ptr), cast(window_ptr), cast(screen.ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
     
@@ -2280,14 +2278,14 @@ public extension WindowProtocol {
     /// This function is called by the drag source.
     /// 
     /// This function does not need to be called in managed drag and drop
-    /// operations. See gdk_drag_context_manage_dnd() for more information.
+    /// operations. See `gdk_drag_context_manage_dnd()` for more information.
     func dragMotion(context: DragContextProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
         let rv = gdk_drag_motion(cast(context.ptr), cast(window_ptr), protocol_, gint(x_root), gint(y_root), suggested_action, possible_actions, guint32(time_))
         return Bool(rv != 0)
     }
 
     /// Grabs the keyboard so that all events are passed to this
-    /// application until the keyboard is ungrabbed with gdk_keyboard_ungrab().
+    /// application until the keyboard is ungrabbed with `gdk_keyboard_ungrab()`.
     /// This overrides any previous keyboard grab by this client.
     /// 
     /// If you set up anything at the time you take the grab that needs to be cleaned
@@ -2318,17 +2316,17 @@ public extension WindowProtocol {
     /// Sets `window` to be embedded in `embedder`.
     /// 
     /// To fully embed an offscreen window, in addition to calling this
-    /// function, it is also necessary to handle the `GdkWindow`::pick-embedded-child
-    /// signal on the `embedder` and the `GdkWindow`::to-embedder and
-    /// `GdkWindow`::from-embedder signals on `window`.
+    /// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
+    /// signal on the `embedder` and the `GdkWindow::to`-embedder and
+    /// `GdkWindow::from`-embedder signals on `window`.
     func offscreenWindowSet(embedder: WindowProtocol) {
         gdk_offscreen_window_set_embedder(cast(window_ptr), cast(embedder.ptr))
     
     }
 
-    /// Transfers image data from a `GdkWindow` and converts it to an RGB(A)
+    /// Transfers image data from a `GdkWindow` and converts it to an `RGB(A)`
     /// representation inside a `GdkPixbuf`. In other words, copies
-    /// image data from a server-side drawable to a client-side RGB(A) buffer.
+    /// image data from a server-side drawable to a client-side `RGB(A)` buffer.
     /// This allows you to efficiently read individual pixels on the client side.
     /// 
     /// This function will create an RGB pixbuf with 8 bits per channel with
@@ -2358,7 +2356,7 @@ public extension WindowProtocol {
     }
 
     /// Grabs the pointer (usually a mouse) so that all events are passed to this
-    /// application until the pointer is ungrabbed with gdk_pointer_ungrab(), or
+    /// application until the pointer is ungrabbed with `gdk_pointer_ungrab()`, or
     /// the grab window becomes unviewable.
     /// This overrides any previous pointer grab by this client.
     /// 
@@ -2402,14 +2400,14 @@ public extension WindowProtocol {
     /// property does not exist, then the function returns `false`,
     /// and `GDK_NONE` will be stored in `actual_property_type`.
     /// 
-    /// The XGetWindowProperty() function that gdk_property_get()
+    /// The `XGetWindowProperty()` function that `gdk_property_get()`
     /// uses has a very confusing and complicated set of semantics.
-    /// Unfortunately, gdk_property_get() makes the situation
+    /// Unfortunately, `gdk_property_get()` makes the situation
     /// worse instead of better (the semantics should be considered
     /// undefined), and also prints warnings to stderr in cases where it
     /// should return a useful error to the program. You are advised to use
-    /// XGetWindowProperty() directly until a replacement function for
-    /// gdk_property_get() is provided.
+    /// `XGetWindowProperty()` directly until a replacement function for
+    /// `gdk_property_get()` is provided.
     func propertyGet(property: Atom, type: Atom, offset: CUnsignedLong, length: CUnsignedLong, pdelete: CInt, actualPropertyType actual_property_type: AtomProtocol, actualFormat actual_format: UnsafeMutablePointer<CInt>, actualLength actual_length: UnsafeMutablePointer<CInt>, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>) -> Bool {
         let rv = gdk_property_get(cast(window_ptr), cast(property.ptr), cast(type.ptr), gulong(offset), gulong(length), gint(pdelete), cast(actual_property_type.ptr), cast(actual_format), cast(actual_length), cast(data))
         return Bool(rv != 0)
@@ -2435,7 +2433,7 @@ public extension WindowProtocol {
     }
 
     /// Retrieves selection data that was stored by the selection
-    /// data in response to a call to gdk_selection_convert(). This function
+    /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
     func selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propType prop_type: AtomProtocol, propFormat prop_format: UnsafeMutablePointer<CInt>) -> CInt {
@@ -2478,8 +2476,8 @@ public extension WindowProtocol {
     /// run in their own virtual windowing system (e.g. Xvfb) is not
     /// recommended.
     /// 
-    /// Also, gdk_test_simulate_button() is a fairly low level function,
-    /// for most testing purposes, gtk_test_widget_click() is the right
+    /// Also, `gdk_test_simulate_button()` is a fairly low level function,
+    /// for most testing purposes, `gtk_test_widget_click()` is the right
     /// function to call which will generate a button press event followed
     /// by its accompanying button release event.
     func testSimulateButton(x: CInt, y: CInt, button: CUnsignedInt, modifiers: ModifierType, buttonPressrelease button_pressrelease: EventType) -> Bool {
@@ -2499,8 +2497,8 @@ public extension WindowProtocol {
     /// be warped and `window` origin will be used as mouse pointer
     /// location for the event.
     /// 
-    /// Also, gdk_test_simulate_key() is a fairly low level function,
-    /// for most testing purposes, gtk_test_widget_send_key() is the
+    /// Also, `gdk_test_simulate_key()` is a fairly low level function,
+    /// for most testing purposes, `gtk_test_widget_send_key()` is the
     /// right function to call which will generate a key press event
     /// followed by its accompanying key release event.
     func testSimulateKey(x: CInt, y: CInt, keyval: CUnsignedInt, modifiers: ModifierType, keyPressrelease key_pressrelease: EventType) -> Bool {
@@ -2543,7 +2541,7 @@ public extension WindowProtocol {
         /// 
         /// A background of `nil` means that the window won't have any background. On the
         /// X11 backend it's also possible to inherit the background from the parent
-        /// window using gdk_x11_get_parent_relative_pattern().
+        /// window using `gdk_x11_get_parent_relative_pattern()`.
         /// 
         /// The windowing system will normally fill a window with its background
         /// when the window is obscured then exposed.
@@ -2595,7 +2593,7 @@ public extension WindowProtocol {
 
     /// Determines whether `window` is composited.
     /// 
-    /// See gdk_window_set_composited().
+    /// See `gdk_window_set_composited()`.
     ///
     /// **get_composited is deprecated:**
     /// Compositing is an outdated technology that
@@ -2603,7 +2601,7 @@ public extension WindowProtocol {
     var composited: Bool {
         /// Determines whether `window` is composited.
         /// 
-        /// See gdk_window_set_composited().
+        /// See `gdk_window_set_composited()`.
         ///
         /// **get_composited is deprecated:**
         /// Compositing is an outdated technology that
@@ -2621,7 +2619,7 @@ public extension WindowProtocol {
         /// whatever way it sees fit.
         /// 
         /// It only makes sense for child windows to be composited; see
-        /// gdk_window_set_opacity() if you need translucent toplevel
+        /// `gdk_window_set_opacity()` if you need translucent toplevel
         /// windows.
         /// 
         /// An additional effect of this call is that the area of this
@@ -2631,7 +2629,7 @@ public extension WindowProtocol {
         /// 
         /// This call is only supported on some systems (currently,
         /// only X11 with new enough Xcomposite and Xdamage extensions).
-        /// You must call gdk_display_supports_composite() to check if
+        /// You must call `gdk_display_supports_composite()` to check if
         /// setting a window as composited is supported before
         /// attempting to do so.
         ///
@@ -2643,8 +2641,8 @@ public extension WindowProtocol {
         }
     }
 
-    /// The mouse pointer for a `GdkWindow`. See gdk_window_set_cursor() and
-    /// gdk_window_get_cursor() for details.
+    /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
+    /// `gdk_window_get_cursor()` for details.
     var cursor: UnsafeMutablePointer<GdkCursor>! {
         /// Retrieves a `GdkCursor` pointer for the cursor currently set on the
         /// specified `GdkWindow`, or `nil`.  If the return value is `nil` then
@@ -2658,9 +2656,9 @@ public extension WindowProtocol {
         /// 
         /// Note that `cursor` must be for the same display as `window`.
         /// 
-        /// Use gdk_cursor_new_for_display() or gdk_cursor_new_from_pixbuf() to
+        /// Use `gdk_cursor_new_for_display()` or `gdk_cursor_new_from_pixbuf()` to
         /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
-        /// Passing `nil` for the `cursor` argument to gdk_window_set_cursor() means
+        /// Passing `nil` for the `cursor` argument to `gdk_window_set_cursor()` means
         /// that `window` will use the cursor of its parent window. Most windows
         /// should use this default.
         nonmutating set {
@@ -2678,16 +2676,16 @@ public extension WindowProtocol {
     }
 
     /// Obtains the parent of `window`, as known to GDK. Works like
-    /// gdk_window_get_parent() for normal windows, but returns the
+    /// `gdk_window_get_parent()` for normal windows, but returns the
     /// window’s embedder for offscreen windows.
     /// 
-    /// See also: gdk_offscreen_window_get_embedder()
+    /// See also: `gdk_offscreen_window_get_embedder()`
     var effectiveParent: UnsafeMutablePointer<GdkWindow>! {
         /// Obtains the parent of `window`, as known to GDK. Works like
-        /// gdk_window_get_parent() for normal windows, but returns the
+        /// `gdk_window_get_parent()` for normal windows, but returns the
         /// window’s embedder for offscreen windows.
         /// 
-        /// See also: gdk_offscreen_window_get_embedder()
+        /// See also: `gdk_offscreen_window_get_embedder()`
         get {
             let rv = gdk_window_get_effective_parent(cast(window_ptr))
             return cast(rv)
@@ -2696,17 +2694,17 @@ public extension WindowProtocol {
 
     /// Gets the toplevel window that’s an ancestor of `window`.
     /// 
-    /// Works like gdk_window_get_toplevel(), but treats an offscreen window's
-    /// embedder as its parent, using gdk_window_get_effective_parent().
+    /// Works like `gdk_window_get_toplevel()`, but treats an offscreen window's
+    /// embedder as its parent, using `gdk_window_get_effective_parent()`.
     /// 
-    /// See also: gdk_offscreen_window_get_embedder()
+    /// See also: `gdk_offscreen_window_get_embedder()`
     var effectiveToplevel: UnsafeMutablePointer<GdkWindow>! {
         /// Gets the toplevel window that’s an ancestor of `window`.
         /// 
-        /// Works like gdk_window_get_toplevel(), but treats an offscreen window's
-        /// embedder as its parent, using gdk_window_get_effective_parent().
+        /// Works like `gdk_window_get_toplevel()`, but treats an offscreen window's
+        /// embedder as its parent, using `gdk_window_get_effective_parent()`.
         /// 
-        /// See also: gdk_offscreen_window_get_embedder()
+        /// See also: `gdk_offscreen_window_get_embedder()`
         get {
             let rv = gdk_window_get_effective_toplevel(cast(window_ptr))
             return cast(rv)
@@ -2734,10 +2732,10 @@ public extension WindowProtocol {
     }
 
     /// Gets the event mask for `window` for all master input devices. See
-    /// gdk_window_set_events().
+    /// `gdk_window_set_events()`.
     var events: GdkEventMask {
         /// Gets the event mask for `window` for all master input devices. See
-        /// gdk_window_set_events().
+        /// `gdk_window_set_events()`.
         get {
             let rv = gdk_window_get_events(cast(window_ptr))
             return rv
@@ -2748,7 +2746,7 @@ public extension WindowProtocol {
         /// press events. The event mask is the bitwise OR of values from the
         /// `GdkEventMask` enumeration.
         /// 
-        /// See the [input handling overview][event-masks] for details.
+        /// See the [input handling overview](#event-masks) for details.
         nonmutating set {
             gdk_window_set_events(cast(window_ptr), newValue)
         }
@@ -2818,9 +2816,9 @@ public extension WindowProtocol {
         }
     }
 
-    /// Returns the group leader window for `window`. See gdk_window_set_group().
+    /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
     var group: UnsafeMutablePointer<GdkWindow>! {
-        /// Returns the group leader window for `window`. See gdk_window_set_group().
+        /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
         get {
             let rv = gdk_window_get_group(cast(window_ptr))
             return cast(rv)
@@ -2899,11 +2897,11 @@ public extension WindowProtocol {
         }
     }
 
-    /// Checks whether the window has been mapped (with gdk_window_show() or
-    /// gdk_window_show_unraised()).
+    /// Checks whether the window has been mapped (with `gdk_window_show()` or
+    /// `gdk_window_show_unraised()`).
     var isVisible: Bool {
-        /// Checks whether the window has been mapped (with gdk_window_show() or
-        /// gdk_window_show_unraised()).
+        /// Checks whether the window has been mapped (with `gdk_window_show()` or
+        /// `gdk_window_show_unraised()`).
         get {
             let rv = gdk_window_is_visible(cast(window_ptr))
             return Bool(rv != 0)
@@ -2925,34 +2923,34 @@ public extension WindowProtocol {
         /// way.
         /// 
         /// You should only use this on windows for which you have
-        /// previously called gdk_window_set_transient_for()
+        /// previously called `gdk_window_set_transient_for()`
         nonmutating set {
             gdk_window_set_modal_hint(cast(window_ptr), gboolean(newValue ? 1 : 0))
         }
     }
 
     /// Obtains the parent of `window`, as known to GDK. Does not query the
-    /// X server; thus this returns the parent as passed to gdk_window_new(),
+    /// X server; thus this returns the parent as passed to `gdk_window_new()`,
     /// not the actual parent. This should never matter unless you’re using
     /// Xlib calls mixed with GDK calls on the X11 platform. It may also
     /// matter for toplevel windows, because the window manager may choose
     /// to reparent them.
     /// 
-    /// Note that you should use gdk_window_get_effective_parent() when
+    /// Note that you should use `gdk_window_get_effective_parent()` when
     /// writing generic code that walks up a window hierarchy, because
-    /// gdk_window_get_parent() will most likely not do what you expect if
+    /// `gdk_window_get_parent()` will most likely not do what you expect if
     /// there are offscreen windows in the hierarchy.
     var parent: UnsafeMutablePointer<GdkWindow>! {
         /// Obtains the parent of `window`, as known to GDK. Does not query the
-        /// X server; thus this returns the parent as passed to gdk_window_new(),
+        /// X server; thus this returns the parent as passed to `gdk_window_new()`,
         /// not the actual parent. This should never matter unless you’re using
         /// Xlib calls mixed with GDK calls on the X11 platform. It may also
         /// matter for toplevel windows, because the window manager may choose
         /// to reparent them.
         /// 
-        /// Note that you should use gdk_window_get_effective_parent() when
+        /// Note that you should use `gdk_window_get_effective_parent()` when
         /// writing generic code that walks up a window hierarchy, because
-        /// gdk_window_get_parent() will most likely not do what you expect if
+        /// `gdk_window_get_parent()` will most likely not do what you expect if
         /// there are offscreen windows in the hierarchy.
         get {
             let rv = gdk_window_get_parent(cast(window_ptr))
@@ -2963,12 +2961,12 @@ public extension WindowProtocol {
     /// Returns whether input to the window is passed through to the window
     /// below.
     /// 
-    /// See gdk_window_set_pass_through() for details
+    /// See `gdk_window_set_pass_through()` for details
     var passThrough: Bool {
         /// Returns whether input to the window is passed through to the window
         /// below.
         /// 
-        /// See gdk_window_set_pass_through() for details
+        /// See `gdk_window_set_pass_through()` for details
         get {
             let rv = gdk_window_get_pass_through(cast(window_ptr))
             return Bool(rv != 0)
@@ -3071,9 +3069,9 @@ public extension WindowProtocol {
     /// toplevel window, as is a `GDK_WINDOW_CHILD` window that
     /// has a root window as parent.
     /// 
-    /// Note that you should use gdk_window_get_effective_toplevel() when
+    /// Note that you should use `gdk_window_get_effective_toplevel()` when
     /// you want to get to a window’s toplevel as seen on screen, because
-    /// gdk_window_get_toplevel() will most likely not do what you expect
+    /// `gdk_window_get_toplevel()` will most likely not do what you expect
     /// if there are offscreen windows in the hierarchy.
     var toplevel: UnsafeMutablePointer<GdkWindow>! {
         /// Gets the toplevel window that’s an ancestor of `window`.
@@ -3082,9 +3080,9 @@ public extension WindowProtocol {
         /// toplevel window, as is a `GDK_WINDOW_CHILD` window that
         /// has a root window as parent.
         /// 
-        /// Note that you should use gdk_window_get_effective_toplevel() when
+        /// Note that you should use `gdk_window_get_effective_toplevel()` when
         /// you want to get to a window’s toplevel as seen on screen, because
-        /// gdk_window_get_toplevel() will most likely not do what you expect
+        /// `gdk_window_get_toplevel()` will most likely not do what you expect
         /// if there are offscreen windows in the hierarchy.
         get {
             let rv = gdk_window_get_toplevel(cast(window_ptr))
@@ -3114,15 +3112,15 @@ public extension WindowProtocol {
     /// of the function. That is, after calling this function, `window` will
     /// no longer have an invalid/dirty region; the update area is removed
     /// from `window` and handed to you. If a window has no update area,
-    /// gdk_window_get_update_area() returns `nil`. You are responsible for
-    /// calling cairo_region_destroy() on the returned region if it’s non-`nil`.
+    /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
+    /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
     var updateArea: UnsafeMutablePointer<cairo_region_t>! {
         /// Transfers ownership of the update area from `window` to the caller
         /// of the function. That is, after calling this function, `window` will
         /// no longer have an invalid/dirty region; the update area is removed
         /// from `window` and handed to you. If a window has no update area,
-        /// gdk_window_get_update_area() returns `nil`. You are responsible for
-        /// calling cairo_region_destroy() on the returned region if it’s non-`nil`.
+        /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
+        /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
         get {
             let rv = gdk_window_get_update_area(cast(window_ptr))
             return cast(rv)

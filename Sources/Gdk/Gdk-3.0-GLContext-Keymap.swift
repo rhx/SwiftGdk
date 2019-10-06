@@ -21,13 +21,13 @@ import GdkPixbuf
 /// OpenGL drawing context.
 /// 
 /// `GdkGLContexts` are created for a `GdkWindow` using
-/// gdk_window_create_gl_context(), and the context will match
+/// `gdk_window_create_gl_context()`, and the context will match
 /// the `GdkVisual` of the window.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
 /// For instance, it cannot draw to the `GdkWindow` back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
@@ -37,21 +37,21 @@ import GdkPixbuf
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ``` Creating a new OpenGL context ```
+/// ## Creating a new OpenGL context ##
 /// 
 /// In order to create a new `GdkGLContext` instance you need a
 /// `GdkWindow`, which you typically get during the realize call
 /// of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either gdk_gl_context_make_current(),
-/// or until it is realized using gdk_gl_context_realize(). It is possible to
+/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
+/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
 /// specify details of the GL context like the OpenGL version to be used, or
 /// whether the GL context should have extra state validation enabled after
-/// calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+/// calling `gdk_window_create_gl_context()` by calling `gdk_gl_context_realize()`.
 /// If the realization fails you have the option to change the settings of the
 /// `GdkGLContext` and try again.
 /// 
-/// ``` Using a GdkGLContext ```
+/// ## Using a GdkGLContext ##
 /// 
 /// You will need to make the `GdkGLContext` the current context
 /// before issuing OpenGL calls; the system sends OpenGL commands to
@@ -64,12 +64,11 @@ import GdkPixbuf
 ///   gdk_gl_context_make_current (context);
 /// ```
 /// 
-/// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// gdk_gl_context_get_current(); you can also unset any `GdkGLContext`
-/// that is currently set by calling gdk_gl_context_clear_current().
+/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
+/// that is currently set by calling `gdk_gl_context_clear_current()`.
 public protocol GLContextProtocol: ObjectProtocol {
     /// Untyped pointer to the underlying `GdkGLContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -86,13 +85,13 @@ public protocol GLContextProtocol: ObjectProtocol {
 /// OpenGL drawing context.
 /// 
 /// `GdkGLContexts` are created for a `GdkWindow` using
-/// gdk_window_create_gl_context(), and the context will match
+/// `gdk_window_create_gl_context()`, and the context will match
 /// the `GdkVisual` of the window.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
 /// For instance, it cannot draw to the `GdkWindow` back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
@@ -102,21 +101,21 @@ public protocol GLContextProtocol: ObjectProtocol {
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ``` Creating a new OpenGL context ```
+/// ## Creating a new OpenGL context ##
 /// 
 /// In order to create a new `GdkGLContext` instance you need a
 /// `GdkWindow`, which you typically get during the realize call
 /// of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either gdk_gl_context_make_current(),
-/// or until it is realized using gdk_gl_context_realize(). It is possible to
+/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
+/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
 /// specify details of the GL context like the OpenGL version to be used, or
 /// whether the GL context should have extra state validation enabled after
-/// calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+/// calling `gdk_window_create_gl_context()` by calling `gdk_gl_context_realize()`.
 /// If the realization fails you have the option to change the settings of the
 /// `GdkGLContext` and try again.
 /// 
-/// ``` Using a GdkGLContext ```
+/// ## Using a GdkGLContext ##
 /// 
 /// You will need to make the `GdkGLContext` the current context
 /// before issuing OpenGL calls; the system sends OpenGL commands to
@@ -129,12 +128,11 @@ public protocol GLContextProtocol: ObjectProtocol {
 ///   gdk_gl_context_make_current (context);
 /// ```
 /// 
-/// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// gdk_gl_context_get_current(); you can also unset any `GdkGLContext`
-/// that is currently set by calling gdk_gl_context_clear_current().
+/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
+/// that is currently set by calling `gdk_gl_context_clear_current()`.
 public struct GLContextRef: GLContextProtocol {
     /// Untyped pointer to the underlying `GdkGLContext` instance.
     /// For type-safe access, use the generated, typed pointer `gl_context_ptr` property instead.
@@ -196,13 +194,13 @@ public extension GLContextRef {
 /// OpenGL drawing context.
 /// 
 /// `GdkGLContexts` are created for a `GdkWindow` using
-/// gdk_window_create_gl_context(), and the context will match
+/// `gdk_window_create_gl_context()`, and the context will match
 /// the `GdkVisual` of the window.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
 /// For instance, it cannot draw to the `GdkWindow` back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use gdk_cairo_draw_from_gl()
+/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
@@ -212,21 +210,21 @@ public extension GLContextRef {
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ``` Creating a new OpenGL context ```
+/// ## Creating a new OpenGL context ##
 /// 
 /// In order to create a new `GdkGLContext` instance you need a
 /// `GdkWindow`, which you typically get during the realize call
 /// of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either gdk_gl_context_make_current(),
-/// or until it is realized using gdk_gl_context_realize(). It is possible to
+/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
+/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
 /// specify details of the GL context like the OpenGL version to be used, or
 /// whether the GL context should have extra state validation enabled after
-/// calling gdk_window_create_gl_context() by calling gdk_gl_context_realize().
+/// calling `gdk_window_create_gl_context()` by calling `gdk_gl_context_realize()`.
 /// If the realization fails you have the option to change the settings of the
 /// `GdkGLContext` and try again.
 /// 
-/// ``` Using a GdkGLContext ```
+/// ## Using a GdkGLContext ##
 /// 
 /// You will need to make the `GdkGLContext` the current context
 /// before issuing OpenGL calls; the system sends OpenGL commands to
@@ -239,12 +237,11 @@ public extension GLContextRef {
 ///   gdk_gl_context_make_current (context);
 /// ```
 /// 
-/// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// gdk_gl_context_get_current(); you can also unset any `GdkGLContext`
-/// that is currently set by calling gdk_gl_context_clear_current().
+/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
+/// that is currently set by calling `gdk_gl_context_clear_current()`.
 open class GLContext: Object, GLContextProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `GLContext` instance.
@@ -339,29 +336,28 @@ public extension GLContextProtocol {
 
 public enum GLContextSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `GdkDisplay` used to create the `GdkGLContext`.
@@ -404,7 +400,7 @@ public extension GLContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLContext` instance.
     var gl_context_ptr: UnsafeMutablePointer<GdkGLContext> { return ptr.assumingMemoryBound(to: GdkGLContext.self) }
 
-    /// Retrieves the value set using gdk_gl_context_set_debug_enabled().
+    /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
     func getDebugEnabled() -> Bool {
         let rv = gdk_gl_context_get_debug_enabled(cast(gl_context_ptr))
         return Bool(rv != 0)
@@ -416,14 +412,14 @@ public extension GLContextProtocol {
         return cast(rv)
     }
 
-    /// Retrieves the value set using gdk_gl_context_set_forward_compatible().
+    /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
     func getForwardCompatible() -> Bool {
         let rv = gdk_gl_context_get_forward_compatible(cast(gl_context_ptr))
         return Bool(rv != 0)
     }
 
     /// Retrieves the major and minor version requested by calling
-    /// gdk_gl_context_set_required_version().
+    /// `gdk_gl_context_set_required_version()`.
     func getRequiredVersion(major: UnsafeMutablePointer<CInt>, minor: UnsafeMutablePointer<CInt>) {
         gdk_gl_context_get_required_version(cast(gl_context_ptr), cast(major), cast(minor))
     
@@ -518,16 +514,16 @@ public extension GLContextProtocol {
     /// underlying GL implementation is OpenGL or OpenGL ES once the `context`
     /// is realized.
     /// 
-    /// You should check the return value of gdk_gl_context_get_use_es() after
-    /// calling gdk_gl_context_realize() to decide whether to use the OpenGL or
+    /// You should check the return value of `gdk_gl_context_get_use_es()` after
+    /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
     /// OpenGL ES API, extensions, or shaders.
     func set(useEs use_es: CInt) {
         gdk_gl_context_set_use_es(cast(gl_context_ptr), use_es)
     
     }
-    /// Retrieves the value set using gdk_gl_context_set_debug_enabled().
+    /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
     var debugEnabled: Bool {
-        /// Retrieves the value set using gdk_gl_context_set_debug_enabled().
+        /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
         get {
             let rv = gdk_gl_context_get_debug_enabled(cast(gl_context_ptr))
             return Bool(rv != 0)
@@ -552,9 +548,9 @@ public extension GLContextProtocol {
         }
     }
 
-    /// Retrieves the value set using gdk_gl_context_set_forward_compatible().
+    /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
     var forwardCompatible: Bool {
-        /// Retrieves the value set using gdk_gl_context_set_forward_compatible().
+        /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
         get {
             let rv = gdk_gl_context_get_forward_compatible(cast(gl_context_ptr))
             return Bool(rv != 0)
@@ -637,8 +633,8 @@ public extension GLContextProtocol {
         /// underlying GL implementation is OpenGL or OpenGL ES once the `context`
         /// is realized.
         /// 
-        /// You should check the return value of gdk_gl_context_get_use_es() after
-        /// calling gdk_gl_context_realize() to decide whether to use the OpenGL or
+        /// You should check the return value of `gdk_gl_context_get_use_es()` after
+        /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
         /// OpenGL ES API, extensions, or shaders.
         nonmutating set {
             gdk_gl_context_set_use_es(cast(gl_context_ptr), newValue ? 1 : 0)
@@ -819,41 +815,40 @@ open class Keymap: Object, KeymapProtocol {
 // MARK: - no Keymap properties
 
 public enum KeymapSignalName: String, SignalNameProtocol {
-    /// The ::direction-changed signal gets emitted when the direction of
+    /// The `direction`-changed signal gets emitted when the direction of
     /// the keymap changes.
     case directionChanged = "direction-changed"
-    /// The ::keys-changed signal is emitted when the mapping represented by
+    /// The `keys`-changed signal is emitted when the mapping represented by
     /// `keymap` changes.
     case keysChanged = "keys-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::state-changed signal is emitted when the state of the
+    /// The `state`-changed signal is emitted when the state of the
     /// keyboard changes, e.g when Caps Lock is turned on or off.
-    /// See gdk_keymap_get_caps_lock_state().
+    /// See `gdk_keymap_get_caps_lock_state()`.
     case stateChanged = "state-changed"
 
 }
@@ -919,10 +914,10 @@ public extension KeymapProtocol {
 
     /// Returns the keyvals bound to `hardware_keycode`.
     /// The Nth `GdkKeymapKey` in `keys` is bound to the Nth
-    /// keyval in `keyvals`. Free the returned arrays with g_free().
+    /// keyval in `keyvals`. Free the returned arrays with `g_free()`.
     /// When a keycode is pressed by the user, the keyval from
     /// this list of entries is selected by considering the effective
-    /// keyboard group and level. See gdk_keymap_translate_keyboard_state().
+    /// keyboard group and level. See `gdk_keymap_translate_keyboard_state()`.
     func getEntriesForKeycode(hardwareKeycode hardware_keycode: CUnsignedInt, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>>, keyvals: UnsafeMutablePointer<UnsafeMutablePointer<CUnsignedInt>>, nEntries n_entries: UnsafeMutablePointer<CInt>) -> Bool {
         let rv = gdk_keymap_get_entries_for_keycode(cast(keymap_ptr), guint(hardware_keycode), cast(keys), cast(keyvals), cast(n_entries))
         return Bool(rv != 0)
@@ -938,7 +933,7 @@ public extension KeymapProtocol {
     /// `GdkEventKey` contains a `group` field that indicates the active
     /// keyboard group. The level is computed from the modifier mask.
     /// The returned array should be freed
-    /// with g_free().
+    /// with `g_free()`.
     func getEntriesFor(keyval: CUnsignedInt, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>>, nKeys n_keys: UnsafeMutablePointer<CInt>) -> Bool {
         let rv = gdk_keymap_get_entries_for_keyval(cast(keymap_ptr), guint(keyval), cast(keys), cast(n_keys))
         return Bool(rv != 0)
@@ -951,7 +946,7 @@ public extension KeymapProtocol {
     /// virtual ones (e.g. it will return `GDK_MOD1_MASK` rather than
     /// `GDK_META_MASK` if the backend maps MOD1 to META), so there are use
     /// cases where the return value of this function has to be transformed
-    /// by gdk_keymap_add_virtual_modifiers() in order to contain the
+    /// by `gdk_keymap_add_virtual_modifiers()` in order to contain the
     /// expected result.
     func getModifierMask(intent: ModifierIntent) -> GdkModifierType {
         let rv = gdk_keymap_get_modifier_mask(cast(keymap_ptr), intent)
@@ -985,7 +980,7 @@ public extension KeymapProtocol {
 
     /// Looks up the keyval mapped to a keycode/group/level triplet.
     /// If no keyval is bound to `key`, returns 0. For normal user input,
-    /// you want to use gdk_keymap_translate_keyboard_state() instead of
+    /// you want to use `gdk_keymap_translate_keyboard_state()` instead of
     /// this function, since the effective group/level may not be
     /// the same as the current keyboard state.
     func lookup(key: KeymapKeyProtocol) -> CUnsignedInt {
@@ -1008,7 +1003,7 @@ public extension KeymapProtocol {
     /// group, and level. Modifiers that affected the translation and
     /// are thus unavailable for application use are returned in
     /// `consumed_modifiers`.
-    /// See [Groups][key-group-explanation] for an explanation of
+    /// See [Groups](#key-group-explanation) for an explanation of
     /// groups and levels. The `effective_group` is the group that was
     /// actually used for the translation; some keys such as Enter are not
     /// affected by the active keyboard group. The `level` is derived from
@@ -1023,7 +1018,7 @@ public extension KeymapProtocol {
     /// (C Language Example):
     /// ```C
     /// // We want to ignore irrelevant modifiers like ScrollLock
-    /// `define` ALL_ACCELS_MASK (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK)
+    /// #define ALL_ACCELS_MASK (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK)
     /// gdk_keymap_translate_keyboard_state (keymap, event->hardware_keycode,
     ///                                      event->state, event->group,
     ///                                      &keyval, NULL, NULL, &consumed);
@@ -1031,7 +1026,6 @@ public extension KeymapProtocol {
     ///     (event->state & ~consumed & ALL_ACCELS_MASK) == GDK_CONTROL_MASK)
     ///   // Control was pressed
     /// ```
-    /// 
     /// 
     /// An older interpretation `consumed_modifiers` was that it contained
     /// all modifiers that might affect the translation of the key;
@@ -1044,7 +1038,6 @@ public extension KeymapProtocol {
     ///     (event->state & ~consumed & ALL_ACCELS_MASK) == (accel_mods & ~consumed))
     ///   // Accelerator was pressed
     /// ```
-    /// 
     /// 
     /// However, this did not work if multi-modifier combinations were
     /// used in the keymap, since, for instance, `<Control>` would be
