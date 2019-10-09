@@ -4576,7 +4576,7 @@ public let MAJOR_VERSION = GDK_MAJOR_VERSION /* gint 3 */
 
 public let MAX_TIMECOORD_AXES = GDK_MAX_TIMECOORD_AXES /* gint 128 */
 
-public let MICRO_VERSION = GDK_MICRO_VERSION /* gint 10 */
+public let MICRO_VERSION = GDK_MICRO_VERSION /* gint 12 */
 
 public let MINOR_VERSION = GDK_MINOR_VERSION /* gint 24 */
 
