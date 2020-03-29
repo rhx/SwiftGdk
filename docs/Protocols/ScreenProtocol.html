@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gdk 3.24.12 Docs
         </a>
-         (54% documented)
+         (56% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -8231,7 +8231,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ScreenProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -8288,7 +8288,7 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8326,7 +8326,7 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L529">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8337,9 +8337,11 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
               <div class="task-name-container">
                 <a name="/Screen%20Class"></a>
                 <a name="//apple_ref/swift/Section/Screen Class" class="dashAnchor"></a>
-                <a href="#/Screen%20Class">
-                  <h3 class="section-name">Screen Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Screen%20Class"></a>
+                  <h3 class="section-name"><p>Screen Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -8366,7 +8368,7 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ScreenPropertyName.html">ScreenPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ScreenPropertyName.html">ScreenPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -8454,22 +8456,11 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L637-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L719-L743">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Screen%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Screen Class" class="dashAnchor"></a>
-                <a href="#/Screen%20Class2">
-                  <h3 class="section-name">Screen Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8546,22 +8537,11 @@ of the physical monitors (<code>gdk_screen_get_monitor_geometry()</code>), etc.<
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L712-L731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L794-L813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Screen%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Screen Class" class="dashAnchor"></a>
-                <a href="#/Screen%20Class3">
-                  <h3 class="section-name">Screen Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8601,13 +8581,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getActiveWindow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkWindow</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L755-L758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L837-L840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8640,7 +8620,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L761-L764">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L843-L846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8673,7 +8653,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L767-L770">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L849-L852">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8706,13 +8686,13 @@ Use per-monitor information instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHeight</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L778-L781">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L860-L863">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8747,13 +8727,13 @@ Use per-monitor information instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getHeightMm</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L791-L794">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L873-L876">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8784,13 +8764,13 @@ Use gdk_display_get_monitor_at_point() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorAtPoint</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L800-L803">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L882-L885">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8822,13 +8802,13 @@ Use gdk_display_get_monitor_at_window() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorAt</span><span class="p">(</span><span class="nv">window</span><span class="p">:</span> <span class="kt"><a href="../Protocols/WindowProtocol.html">WindowProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L810-L813">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L892-L895">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8868,13 +8848,13 @@ Use gdk_monitor_get_geometry() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorGeometry</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">dest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RectangleProtocol.html">RectangleProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L828-L831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L910-L913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8905,13 +8885,13 @@ Use gdk_monitor_get_height_mm() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorHeightMm</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L837-L840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L919-L922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8944,13 +8924,13 @@ Use gdk_monitor_get_model() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorPlugName</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L848-L851">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L930-L933">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8987,13 +8967,13 @@ Use gdk_monitor_get_scale_factor() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorScaleFactor</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L863-L866">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L945-L948">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9024,13 +9004,13 @@ Use gdk_monitor_get_width_mm() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorWidthMm</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L872-L875">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L954-L957">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9075,13 +9055,13 @@ Use gdk_monitor_get_workarea() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getMonitorWorkarea</span><span class="p">(</span><span class="n">monitorNum</span> <span class="nv">monitor_num</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">dest</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RectangleProtocol.html">RectangleProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L895-L898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L977-L980">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9112,13 +9092,13 @@ Use gdk_display_get_n_monitors() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNMonitors</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L904-L907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L986-L989">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9150,13 +9130,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNumber</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L914-L917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L996-L999">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9194,13 +9174,13 @@ Use gdk_display_get_primary_monitor() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getPrimaryMonitor</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L930-L933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1012-L1015">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9234,7 +9214,7 @@ Use gdk_display_get_primary_monitor() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L937-L940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1019-L1022">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9279,7 +9259,7 @@ must be running to provide appropriate display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L955-L958">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1037-L1040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9312,7 +9292,7 @@ must be running to provide appropriate display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L961-L964">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1043-L1046">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9349,7 +9329,7 @@ more information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L971-L974">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1053-L1056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9384,7 +9364,7 @@ The return value should not be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L979-L982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1061-L1064">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9422,7 +9402,7 @@ its elements need not be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L990-L993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1072-L1075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9455,13 +9435,13 @@ Use per-monitor information instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getWidth</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1001-L1004">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1083-L1086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9496,13 +9476,13 @@ Use per-monitor information instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getWidthMm</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1014-L1017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1096-L1099">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9549,7 +9529,7 @@ its windows unrefed using <code>g_object_unref()</code> when no longer needed.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1034-L1037">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1116-L1119">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9587,7 +9567,7 @@ and might expect pixels to be in a certain format.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1045-L1048">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1127-L1130">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9619,13 +9599,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">makeDisplayName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1055-L1058">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1137-L1140">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9662,7 +9642,7 @@ have already been created.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1065-L1068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1147-L1150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9698,7 +9678,7 @@ font will be 13 units high. (10 * 96. / 72. = 13.3).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1074-L1077">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1156-L1159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9735,7 +9715,7 @@ given pointer position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1084-L1087">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1166-L1169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9780,7 +9760,7 @@ changes to the screen’s font rendering settings.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1102-L1105">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1184-L1187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9829,7 +9809,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1123-L1145">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1205-L1227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9862,7 +9842,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1148-L1154">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1230-L1236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9895,7 +9875,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1157-L1171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1239-L1253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9933,7 +9913,7 @@ Use per-monitor information instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1179-L1190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1261-L1272">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9973,7 +9953,7 @@ Use per-monitor information instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1200-L1213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1282-L1295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10011,7 +9991,7 @@ compositing <code>screen</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1221-L1232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1303-L1314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10047,7 +10027,7 @@ Use gdk_display_get_n_monitors() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1238-L1247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1320-L1329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10084,7 +10064,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1254-L1264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1336-L1346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10127,7 +10107,7 @@ Use gdk_display_get_primary_monitor() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1277-L1293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1359-L1375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10160,7 +10140,7 @@ Use gdk_display_get_primary_monitor() instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1295-L1309">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1377-L1391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10205,7 +10185,7 @@ must be running to provide appropriate display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1324-L1342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1406-L1424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10238,7 +10218,7 @@ must be running to provide appropriate display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1345-L1351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1427-L1433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10273,7 +10253,7 @@ The return value should not be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1356-L1364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1438-L1446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10311,7 +10291,7 @@ its elements need not be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1372-L1383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1454-L1465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10349,7 +10329,7 @@ Use per-monitor information instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1391-L1402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1473-L1484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10389,7 +10369,7 @@ Use per-monitor information instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1412-L1425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1494-L1507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10436,7 +10416,7 @@ its windows unrefed using <code>g_object_unref()</code> when no longer needed.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1442-L1462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L1524-L1544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10449,8 +10429,8 @@ its windows unrefed using <code>g_object_unref()</code> when no longer needed.</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gdk 3.24.12 Docs
         </a>
-         (54% documented)
+         (56% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -8231,7 +8231,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>SeatProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -8328,9 +8328,11 @@ that belong to a user.</p>
               <div class="task-name-container">
                 <a name="/Seat%20Class"></a>
                 <a name="//apple_ref/swift/Section/Seat Class" class="dashAnchor"></a>
-                <a href="#/Seat%20Class">
-                  <h3 class="section-name">Seat Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Seat%20Class"></a>
+                  <h3 class="section-name"><p>Seat Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -8357,7 +8359,7 @@ that belong to a user.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeatPropertyName.html">SeatPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/SeatPropertyName.html">SeatPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -8445,22 +8447,11 @@ that belong to a user.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L146-L170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L187-L211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Seat%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Seat Class" class="dashAnchor"></a>
-                <a href="#/Seat%20Class2">
-                  <h3 class="section-name">Seat Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8537,22 +8528,11 @@ that belong to a user.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L225-L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L266-L285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Seat%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Seat Class" class="dashAnchor"></a>
-                <a href="#/Seat%20Class3">
-                  <h3 class="section-name">Seat Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8581,7 +8561,7 @@ that belong to a user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L252-L255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L293-L296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8614,7 +8594,7 @@ that belong to a user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L258-L261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L299-L302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8647,7 +8627,7 @@ that belong to a user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L264-L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L305-L308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8680,7 +8660,7 @@ that belong to a user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L270-L273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L311-L314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8713,7 +8693,7 @@ that belong to a user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L276-L279">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L317-L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8740,7 +8720,7 @@ or the window becomes hidden. This overrides any previous grab on the
 seat by this client.</p>
 
 <p>As a rule of thumb, if a grab is desired over <code>GDK_SEAT_CAPABILITY_POINTER</code>,
-all other <q>pointing</q> capabilities (eg. <code>GDK_SEAT_CAPABILITY_TOUCH</code>) should
+all other &ldquo;pointing&rdquo; capabilities (eg. <code>GDK_SEAT_CAPABILITY_TOUCH</code>) should
 be grabbed too, so the user is able to interact with all of those while
 the grab holds, you should thus use <code>GDK_SEAT_CAPABILITY_ALL_POINTING</code> most
 commonly.</p>
@@ -8769,7 +8749,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L305-L308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L346-L349">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8802,7 +8782,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L311-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L352-L355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8835,7 +8815,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L316-L322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L357-L363">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8868,7 +8848,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L325-L331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L366-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8901,7 +8881,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L334-L340">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L375-L381">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8934,7 +8914,7 @@ events that are emitted when the grab ends unvoluntarily.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L343-L349">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Seat-Visual.swift#L384-L390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8947,8 +8927,8 @@ events that are emitted when the grab ends unvoluntarily.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

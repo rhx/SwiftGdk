@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gdk 3.24.12 Docs
         </a>
-         (54% documented)
+         (56% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -8231,7 +8231,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>GLContextProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -8261,7 +8261,7 @@ the integration of your rendering with that of other widgets.</p>
 <p>Support for <code>GdkGLContext</code> is platform-specific, context creation
 can fail, returning <code>nil</code> context.</p>
 
-<p>A <code>GdkGLContext</code> has to be made <q>current</q> in order to start using
+<p>A <code>GdkGLContext</code> has to be made &ldquo;current&rdquo; in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
 <h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
@@ -8375,9 +8375,11 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
               <div class="task-name-container">
                 <a name="/GLContext%20Class"></a>
                 <a name="//apple_ref/swift/Section/GLContext Class" class="dashAnchor"></a>
-                <a href="#/GLContext%20Class">
-                  <h3 class="section-name">GLContext Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/GLContext%20Class"></a>
+                  <h3 class="section-name"><p>GLContext Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -8404,7 +8406,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/GLContextPropertyName.html">GLContextPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/GLContextPropertyName.html">GLContextPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -8492,22 +8494,11 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L310-L334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L351-L375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/GLContext%20Class2"></a>
-                <a name="//apple_ref/swift/Section/GLContext Class" class="dashAnchor"></a>
-                <a href="#/GLContext%20Class2">
-                  <h3 class="section-name">GLContext Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8584,22 +8575,11 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L377-L396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L418-L437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/GLContext%20Class3"></a>
-                <a name="//apple_ref/swift/Section/GLContext Class" class="dashAnchor"></a>
-                <a href="#/GLContext%20Class3">
-                  <h3 class="section-name">GLContext Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8628,7 +8608,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L404-L407">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L445-L448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8661,7 +8641,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L410-L413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L451-L454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8694,7 +8674,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L416-L419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L457-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8728,7 +8708,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L423-L426">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L464-L467">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8761,7 +8741,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L429-L432">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L470-L473">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8794,7 +8774,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L435-L438">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L476-L479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8829,7 +8809,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L443-L446">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L484-L487">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8862,7 +8842,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L449-L452">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L490-L493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8895,7 +8875,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L455-L458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L496-L499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8930,7 +8910,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L463-L470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L504-L511">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8968,7 +8948,7 @@ calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L478-L481">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L519-L522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9009,7 +8989,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L492-L495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L533-L536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9047,7 +9027,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L503-L506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L544-L547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9091,7 +9071,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L520-L523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L561-L564">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9124,7 +9104,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L525-L540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L566-L581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9157,7 +9137,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L543-L549">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L584-L590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9190,7 +9170,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L552-L570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L593-L611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9238,7 +9218,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L588-L609">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L629-L650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9271,7 +9251,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L612-L618">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L653-L659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9304,7 +9284,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L621-L642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L662-L683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9337,7 +9317,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L645-L651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-GLContext-Keymap.swift#L686-L692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9350,8 +9330,8 @@ kind of shader programs to load.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
