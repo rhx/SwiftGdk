@@ -125,7 +125,7 @@ public extension AppLaunchContextRef {
     /// Use gdk_display_get_app_launch_context() instead
     @available(*, deprecated) init() {
         let rv = gdk_app_launch_context_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -161,15 +161,27 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     public let ptr: UnsafeMutableRawPointer
 
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AppLaunchContext` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GdkAppLaunchContext>) {
         ptr = UnsafeMutableRawPointer(op)
     }
 
-    /// Reference convenience intialiser for a related type that implements `AppLaunchContextProtocol`
+    /// Designated initialiser from the underlying `C` data type.
+    /// `GdkAppLaunchContext` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// i.e., ownership is transferred to the `AppLaunchContext` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GdkAppLaunchContext>) {
+        ptr = UnsafeMutableRawPointer(op)
+        // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
+    }
+
+    /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
     /// `GdkAppLaunchContext` does not allow reference counting.
-    public convenience init<T: AppLaunchContextProtocol>(_ other: T) {
-        self.init(cast(other.app_launch_context_ptr))
+    /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
+    public init<T: AppLaunchContextProtocol>(_ other: T) {
+        ptr = UnsafeMutableRawPointer(other.app_launch_context_ptr)
         // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
     }
 
@@ -180,35 +192,70 @@ open class AppLaunchContext: AppLaunchContextProtocol {
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GdkAppLaunchContext.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        ptr = UnsafeMutableRawPointer(cPointer)
+        // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GdkAppLaunchContext.self))
+    /// - Parameter p: raw pointer to the underlying object
+    public init(raw p: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    public init(retainingRaw raw: UnsafeRawPointer) {
+        ptr = UnsafeMutableRawPointer(mutating: raw)
+        // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GdkAppLaunchContext.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    public init(raw p: UnsafeMutableRawPointer) {
+        ptr = p
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        ptr = raw
+        // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GdkAppLaunchContext>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(opaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    public init(retainingOpaquePointer p: OpaquePointer) {
+        ptr = UnsafeMutableRawPointer(p)
+        // no reference counting for GdkAppLaunchContext, cannot ref(cast(app_launch_context_ptr))
     }
 
     /// Creates a new `GdkAppLaunchContext`.
     ///
     /// **new is deprecated:**
     /// Use gdk_display_get_app_launch_context() instead
-    @available(*, deprecated) public convenience init() {
+    @available(*, deprecated) public init() {
         let rv = gdk_app_launch_context_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
@@ -441,13 +488,13 @@ public extension CursorRef {
     /// Use gdk_cursor_new_for_display() instead.
     @available(*, deprecated) init( cursor_type: CursorType) {
         let rv = gdk_cursor_new(cursor_type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new cursor from the set of builtin cursors.
     init(display: DisplayProtocol, cursorType cursor_type: CursorType) {
         let rv = gdk_cursor_new_for_display(cast(display.ptr), cursor_type)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new cursor by looking up `name` in the current cursor
@@ -492,7 +539,7 @@ public extension CursorRef {
     /// - ![](zoom_out_cursor.png) "zoom-out"
     init(name display: DisplayProtocol, name: UnsafePointer<gchar>) {
         let rv = gdk_cursor_new_from_name(cast(display.ptr), name)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new cursor from a pixbuf.
@@ -515,7 +562,7 @@ public extension CursorRef {
     /// sufficently new version of the X Render extension.
     init(pixbuf display: DisplayProtocol, pixbuf: PixbufProtocol, x: CInt, y: CInt) {
         let rv = gdk_cursor_new_from_pixbuf(cast(display.ptr), cast(pixbuf.ptr), gint(x), gint(y))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new cursor from a cairo image surface.
@@ -533,7 +580,7 @@ public extension CursorRef {
     /// sufficently new version of the X Render extension.
     init(surface display: DisplayProtocol, surface: SurfaceProtocol, x: gdouble, y: gdouble) {
         let rv = gdk_cursor_new_from_surface(cast(display.ptr), cast(surface.ptr), x, y)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new cursor from the set of builtin cursors.
     static func newFor(display: DisplayProtocol, cursorType cursor_type: CursorType) -> CursorRef! {
@@ -635,40 +682,81 @@ public extension CursorRef {
 /// A `GdkCursor` represents a cursor. Its contents are private.
 open class Cursor: Object, CursorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Cursor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Cursor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<GdkCursor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `CursorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GdkCursor`.
-    public convenience init<T: CursorProtocol>(_ other: T) {
-        self.init(cast(other.cursor_ptr))
-        g_object_ref(cast(cursor_ptr))
+    /// i.e., ownership is transferred to the `Cursor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<GdkCursor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `CursorProtocol`
+    /// Will retain `GdkCursor`.
+    /// - Parameter other: an instance of a related type that implements `CursorProtocol`
+    public init<T: CursorProtocol>(cursor other: T) {
+        super.init(retaining: cast(other.cursor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: GdkCursor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: GdkCursor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: GdkCursor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<GdkCursor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new cursor from the set of builtin cursors for the default display.
@@ -678,15 +766,15 @@ open class Cursor: Object, CursorProtocol {
     ///
     /// **new is deprecated:**
     /// Use gdk_cursor_new_for_display() instead.
-    @available(*, deprecated) public convenience init( cursor_type: CursorType) {
+    @available(*, deprecated) public init( cursor_type: CursorType) {
         let rv = gdk_cursor_new(cursor_type)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new cursor from the set of builtin cursors.
-    public convenience init(display: DisplayProtocol, cursorType cursor_type: CursorType) {
+    public init(display: DisplayProtocol, cursorType cursor_type: CursorType) {
         let rv = gdk_cursor_new_for_display(cast(display.ptr), cursor_type)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new cursor by looking up `name` in the current cursor
@@ -729,9 +817,9 @@ open class Cursor: Object, CursorProtocol {
     /// - ![](nwse_resize_cursor.png) "nwse-resize"
     /// - ![](zoom_in_cursor.png) "zoom-in"
     /// - ![](zoom_out_cursor.png) "zoom-out"
-    public convenience init(name display: DisplayProtocol, name: UnsafePointer<gchar>) {
+    public init(name display: DisplayProtocol, name: UnsafePointer<gchar>) {
         let rv = gdk_cursor_new_from_name(cast(display.ptr), name)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new cursor from a pixbuf.
@@ -752,9 +840,9 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    public convenience init(pixbuf display: DisplayProtocol, pixbuf: PixbufProtocol, x: CInt, y: CInt) {
+    public init(pixbuf display: DisplayProtocol, pixbuf: PixbufProtocol, x: CInt, y: CInt) {
         let rv = gdk_cursor_new_from_pixbuf(cast(display.ptr), cast(pixbuf.ptr), gint(x), gint(y))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new cursor from a cairo image surface.
@@ -770,9 +858,9 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    public convenience init(surface display: DisplayProtocol, surface: SurfaceProtocol, x: gdouble, y: gdouble) {
+    public init(surface display: DisplayProtocol, surface: SurfaceProtocol, x: gdouble, y: gdouble) {
         let rv = gdk_cursor_new_from_surface(cast(display.ptr), cast(surface.ptr), x, y)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new cursor from the set of builtin cursors.
