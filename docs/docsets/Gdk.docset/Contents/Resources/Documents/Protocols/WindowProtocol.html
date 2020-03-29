@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gdk 3.24.12 Docs
         </a>
-         (54% documented)
+         (56% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -8231,7 +8231,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>WindowProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -8325,9 +8325,11 @@ Alternatively, use <code><a href="../Structs/WindowRef.html">WindowRef</a></code
               <div class="task-name-container">
                 <a name="/Window%20Class"></a>
                 <a name="//apple_ref/swift/Section/Window Class" class="dashAnchor"></a>
-                <a href="#/Window%20Class">
-                  <h3 class="section-name">Window Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Window%20Class"></a>
+                  <h3 class="section-name"><p>Window Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -8354,7 +8356,7 @@ Alternatively, use <code><a href="../Structs/WindowRef.html">WindowRef</a></code
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/WindowPropertyName.html">WindowPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/WindowPropertyName.html">WindowPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -8442,22 +8444,11 @@ Alternatively, use <code><a href="../Structs/WindowRef.html">WindowRef</a></code
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L174-L198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L215-L239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Window%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Window Class" class="dashAnchor"></a>
-                <a href="#/Window%20Class2">
-                  <h3 class="section-name">Window Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8534,22 +8525,11 @@ Alternatively, use <code><a href="../Structs/WindowRef.html">WindowRef</a></code
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L274-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L315-L334">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Window%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Window Class" class="dashAnchor"></a>
-                <a href="#/Window%20Class3">
-                  <h3 class="section-name">Window Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8586,7 +8566,7 @@ instead of events for a specific window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L309-L312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L350-L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8621,7 +8601,7 @@ the display just as <code>gdk_display_beep()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L317-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L358-L361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8680,7 +8660,7 @@ explicitly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L349-L352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L390-L393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8717,7 +8697,7 @@ to begin a drag with a different device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L359-L362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L400-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8754,7 +8734,7 @@ but has a fallback implementation for other window managers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L369-L372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L410-L413">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8787,13 +8767,13 @@ Use gdk_window_begin_draw_frame() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">beginPaintRect</span><span class="p">(</span><span class="nv">rectangle</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RectangleProtocol.html">RectangleProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L380-L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L421-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8861,13 +8841,13 @@ Use gdk_window_begin_draw_frame() instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">beginPaint</span><span class="p">(</span><span class="nv">region</span><span class="p">:</span> <span class="kt">RegionProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L426-L429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L467-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8904,7 +8884,7 @@ to begin a drag with a different device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L436-L439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L477-L480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8942,7 +8922,7 @@ but has a fallback implementation for other window managers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L447-L450">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L488-L491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8973,13 +8953,13 @@ this function is no longer needed</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">configureFinished</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L456-L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L497-L500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9027,7 +9007,7 @@ walks down a window hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L477-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L518-L521">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9075,7 +9055,7 @@ walks up a window hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L498-L501">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L539-L542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9115,7 +9095,7 @@ call <code>gdk_gl_context_make_current()</code> or <code>gdk_gl_context_realize(
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L511-L518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L552-L559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9175,7 +9155,7 @@ surface&rsquo;s device scale is set to <code>scale</code>, or to the scale facto
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L549-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L590-L593">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9216,7 +9196,7 @@ have transparency, black otherwise.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L563-L566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L604-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9253,7 +9233,7 @@ unminimizes it, and puts it on the current desktop.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L573-L576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L614-L617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9291,7 +9271,7 @@ reaches zero. You must call this function yourself before that happens.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L584-L587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L625-L628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9324,7 +9304,7 @@ reaches zero. You must call this function yourself before that happens.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L589-L592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L630-L633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9355,13 +9335,13 @@ this function is no longer needed</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">enableSynchronizedConfigure</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L598-L601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L639-L642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9400,7 +9380,7 @@ this function is no longer needed</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L610-L613">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L651-L654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9435,13 +9415,13 @@ store at all as the active paint region. See
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">endPaint</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L623-L626">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L664-L667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9479,7 +9459,7 @@ GdkWindow. This may fail in some situations, returning <code>false</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L634-L637">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L675-L678">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9510,13 +9490,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">flush</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L643-L646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L684-L687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9550,7 +9530,7 @@ should be used on a <code>GtkWindow</code>, rather than calling this function.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L650-L653">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L691-L694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9590,13 +9570,13 @@ This symbol was never meant to be used outside of GTK+</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">freezeToplevelUpdatesLibgtkOnly</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L668-L671">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L709-L712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9633,7 +9613,7 @@ an equal number of times to begin processing exposes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L678-L681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L719-L722">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9678,7 +9658,7 @@ it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L696-L699">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L737-L740">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9714,7 +9694,7 @@ the window covers the entire screen and is above any panels or task bars.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L705-L708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L746-L749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9749,7 +9729,7 @@ track of which offscreen window the pointer is in.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L713-L716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L754-L757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9783,7 +9763,7 @@ the window does not want to receive input focus.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L720-L723">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L761-L764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9814,13 +9794,13 @@ Don&rsquo;t use this function</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getBackgroundPattern</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">cairo_pattern_t</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L729-L732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L770-L773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9859,7 +9839,7 @@ list need not be.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L741-L744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L782-L785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9899,7 +9879,7 @@ lowest window is first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L754-L757">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L795-L798">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9936,7 +9916,7 @@ primitives.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L764-L767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L805-L808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9970,13 +9950,13 @@ Compositing is an outdated technology that
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getComposited</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L776-L779">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L817-L820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10012,7 +9992,7 @@ using the cursor for its parent window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L785-L788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L826-L829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10046,7 +10026,7 @@ using the cursor for its parent window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L792-L795">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L833-L836">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10082,7 +10062,7 @@ using the cursor for its parent window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L801-L804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L842-L845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10115,7 +10095,7 @@ using the cursor for its parent window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L807-L810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L848-L851">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10152,7 +10132,7 @@ corner of <code>window</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L817-L820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L858-L861">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10187,7 +10167,7 @@ corner of <code>window</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L825-L828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L866-L869">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10220,7 +10200,7 @@ corner of <code>window</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L831-L834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L872-L875">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10253,7 +10233,7 @@ corner of <code>window</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L837-L840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L878-L881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10290,7 +10270,7 @@ window’s embedder for offscreen windows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L847-L850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L888-L891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10328,7 +10308,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L858-L861">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L899-L902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10361,7 +10341,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L864-L867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L905-L908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10395,7 +10375,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L871-L874">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L912-L915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10429,7 +10409,7 @@ window does not want to receive input focus when it is mapped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L878-L881">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L919-L922">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10464,7 +10444,7 @@ window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L886-L889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L927-L930">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10500,7 +10480,7 @@ the frame) in root window coordinates, use <code>gdk_window_get_origin()</code>.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L895-L898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L936-L939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10533,7 +10513,7 @@ the frame) in root window coordinates, use <code>gdk_window_get_origin()</code>.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L901-L904">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L942-L945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10585,7 +10565,7 @@ the 16-bit coordinates of X11.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L926-L929">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L967-L970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10618,7 +10598,7 @@ the 16-bit coordinates of X11.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L932-L935">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L973-L976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10655,7 +10635,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L942-L945">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L983-L986">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10689,7 +10669,7 @@ has modal behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L949-L952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L990-L993">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10725,7 +10705,7 @@ relative to its parent window.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L958-L961">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L999-L1002">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10768,7 +10748,7 @@ there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L974-L977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1015-L1018">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10804,7 +10784,7 @@ below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L983-L986">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1024-L1027">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10837,13 +10817,13 @@ Use gdk_window_get_device_position() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getPointer</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">mask</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkModifierType</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GdkWindow</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L994-L997">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1035-L1038">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10882,7 +10862,7 @@ received or processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1006-L1009">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1047-L1050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10918,7 +10898,7 @@ in any position in the window, not just the origin.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1015-L1018">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1056-L1059">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10952,7 +10932,7 @@ window coordinates.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1022-L1025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1063-L1066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10996,7 +10976,7 @@ a configure event will be sent to the toplevel window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1039-L1042">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1080-L1083">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11029,7 +11009,7 @@ a configure event will be sent to the toplevel window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1045-L1048">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1086-L1089">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11063,7 +11043,7 @@ by <code>source</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1052-L1055">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1093-L1096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11097,7 +11077,7 @@ from the <code>GdkWindowState</code> enumeration.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1059-L1062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1100-L1103">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11131,7 +11111,7 @@ devices.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1066-L1069">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1107-L1110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11173,7 +11153,7 @@ if there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1081-L1084">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1122-L1125">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11206,7 +11186,7 @@ if there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1087-L1090">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1128-L1131">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11244,7 +11224,7 @@ calling <code>cairo_region_destroy()</code> on the returned region if it’s non
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1098-L1101">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1139-L1142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11278,7 +11258,7 @@ that <code>window</code> belongs to. See <code>gdk_window_set_user_data()</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1105-L1108">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1146-L1149">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11314,7 +11294,7 @@ is visible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1114-L1117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1155-L1158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11347,7 +11327,7 @@ is visible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1120-L1123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1161-L1164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11384,7 +11364,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1130-L1133">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1171-L1174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11417,7 +11397,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1136-L1139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1177-L1180">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11451,7 +11431,7 @@ you can use <code>gdk_window_ensure_native()</code> if a native window is needed
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1143-L1146">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1184-L1187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11487,7 +11467,7 @@ part of <code>gtk_widget_hide()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1152-L1155">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1193-L1196">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11524,7 +11504,7 @@ to ignore the request, but normally will honor it. Using
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1162-L1165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1203-L1206">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11572,7 +11552,7 @@ function does nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1183-L1186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1224-L1227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11620,7 +11600,7 @@ invalidated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1204-L1207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1245-L1248">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11655,7 +11635,7 @@ invalidates a rectangular region. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1212-L1215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1253-L1256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11704,7 +11684,7 @@ fine grained control over which children are invalidated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1234-L1237">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1275-L1278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11746,7 +11726,7 @@ function before <code>gdk_window_show()</code>. (Try <code>gdk_window_show_unrai
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1249-L1252">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1290-L1293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11786,7 +11766,7 @@ to care about this.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1262-L1265">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1303-L1306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11829,7 +11809,7 @@ and GDK makes a best effort to get it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1278-L1281">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1319-L1322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11869,7 +11849,7 @@ shapes to be merged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1291-L1294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1332-L1335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11909,7 +11889,7 @@ be merged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1304-L1307">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1345-L1348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11949,7 +11929,7 @@ to both move and resize simultaneously, for a nicer visual effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1317-L1320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1358-L1361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11986,7 +11966,7 @@ that not covered by the new position of <code>region</code> are invalidated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1327-L1330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1368-L1371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12022,7 +12002,7 @@ move, then resize, if you don’t use <code>gdk_window_move_resize()</code>.)</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1336-L1339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1377-L1380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12069,7 +12049,7 @@ actually positioned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1356-L1359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1397-L1400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12103,7 +12083,7 @@ children, so the list does not need to be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1363-L1366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1404-L1407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12141,13 +12121,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">processUpdates</span><span class="p">(</span><span class="n">updateChildren</span> <span class="nv">update_children</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1379-L1382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1420-L1423">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12186,7 +12166,7 @@ requests the restack, does not guarantee it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1391-L1394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1432-L1435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12219,7 +12199,7 @@ requests the restack, does not guarantee it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1397-L1400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1438-L1441">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12252,7 +12232,7 @@ requests the restack, does not guarantee it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1403-L1406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1444-L1447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12286,7 +12266,7 @@ reparented will be unmapped as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1410-L1413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1451-L1454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12326,7 +12306,7 @@ to both move and resize simultaneously, for a nicer visual effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1423-L1426">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1464-L1467">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12368,7 +12348,7 @@ requests the restack, does not guarantee it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1438-L1441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1479-L1482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12411,7 +12391,7 @@ artifacts and unnecessary invalidations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1454-L1457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1495-L1498">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12448,7 +12428,7 @@ hint. ICCCM-compliant window manager usually respect it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1464-L1467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1505-L1508">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12484,13 +12464,13 @@ Don&rsquo;t use this function</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setBackground</span><span class="p">(</span><span class="nv">color</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ColorProtocol.html">ColorProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1478-L1481">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1519-L1522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12528,13 +12508,13 @@ Don&rsquo;t use this function</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setBackground</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">PatternProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1494-L1497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1535-L1538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12567,13 +12547,13 @@ Don&rsquo;t use this function</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setBackground</span><span class="p">(</span><span class="nv">rgba</span><span class="p">:</span> <span class="kt"><a href="../Protocols/RGBAProtocol.html">RGBAProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1505-L1508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1546-L1549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12609,7 +12589,7 @@ the input shape mask of <code>window</code> in the masks to be merged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1514-L1517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1555-L1558">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12645,7 +12625,7 @@ the shape mask of <code>window</code> in the masks to be merged.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1523-L1526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1564-L1567">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12698,13 +12678,13 @@ Compositing is an outdated technology that
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">composited</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1554-L1557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1595-L1598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12745,7 +12725,7 @@ should use this default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1568-L1571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1609-L1612">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12791,7 +12771,7 @@ but very few honor all possible combinations of bits.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1587-L1590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1628-L1631">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12829,7 +12809,7 @@ use this default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1598-L1601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1639-L1642">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12868,7 +12848,7 @@ press events. The event mask is the bitwise OR of values from the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1610-L1613">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1651-L1654">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12908,7 +12888,7 @@ motion events and will benefit from turning off event compression.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1623-L1626">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1664-L1667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12947,7 +12927,7 @@ press events. The event mask is the bitwise OR of values from the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1635-L1638">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1676-L1679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -12987,7 +12967,7 @@ manager extension specification should respect it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1648-L1651">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1689-L1692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13036,7 +13016,7 @@ is specified.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1670-L1673">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1711-L1714">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13081,7 +13061,7 @@ enable.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1688-L1691">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1729-L1732">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13134,7 +13114,7 @@ appropriate sizes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1714-L1717">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1755-L1758">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13176,7 +13156,7 @@ if your application pretends to be multiple applications.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1729-L1732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1770-L1773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13217,7 +13197,7 @@ icon by a small amount or not at all.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1743-L1746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1784-L1787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13261,7 +13241,7 @@ will not update the icon title.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1760-L1763">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1801-L1804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13302,7 +13282,7 @@ e.g. a child widget appears in multiple places.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1774-L1777">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1815-L1818">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13343,7 +13323,7 @@ and GDK makes a best effort to get it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1788-L1791">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1829-L1832">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13384,7 +13364,7 @@ and GDK makes a best effort to get it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1802-L1805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1843-L1846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13423,7 +13403,7 @@ previously called <code>gdk_window_set_transient_for()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1814-L1817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1855-L1858">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13474,7 +13454,7 @@ and for non-toplevels, see <code>gdk_window_set_composited()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1838-L1841">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1879-L1882">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13519,7 +13499,7 @@ property in your <code>GtkWidget::style</code>-updated handler.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1856-L1859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1897-L1900">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13559,7 +13539,7 @@ window in its implementation, for example.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1869-L1872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1910-L1913">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13592,7 +13572,7 @@ is sent to the parent window, and so on up the hierarchy.</p>
 window wasn&rsquo;t there at all, and thus will be sent first to any
 windows below <code>window</code>. This is useful if the window is used in a
 transparent fashion. In the terminology of the web this would be called
-<q>pointer-events: none</q>.</p>
+&ldquo;pointer-events: none&rdquo;.</p>
 
 <p>Note that a window with <code>pass_through</code> <code>true</code> can still have a subwindow
 without pass through, so you can get events on a subset of a window. And in
@@ -13609,7 +13589,7 @@ enter/leave events on its way to the destination window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1892-L1895">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1933-L1936">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13653,7 +13633,7 @@ non-interchangeable kind of window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1909-L1912">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1950-L1953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13694,7 +13674,7 @@ to create toplevel windows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1923-L1926">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1964-L1967">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13724,7 +13704,6 @@ not be called in addition, instead you should
 allow the window to be treated according to standard policy for
 its semantic type.</p>
 
-                        <a href="../Protocols/WindowProtocol/setSkipPagerHint%28skipsPager%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -13735,7 +13714,7 @@ its semantic type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1936-L1939">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1977-L1980">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13763,7 +13742,6 @@ function should not be called in addition,
 instead you should allow the window to be treated according to
 standard policy for its semantic type.</p>
 
-                        <a href="../Protocols/WindowProtocol/setSkipTaskbarHint%28skipsTaskbar%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -13774,7 +13752,7 @@ standard policy for its semantic type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1947-L1950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1988-L1991">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13810,7 +13788,7 @@ after this call, and devices being attached/detached.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1956-L1959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1997-L2000">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13844,7 +13822,7 @@ instead of this low-level function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1963-L1966">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2004-L2007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13879,13 +13857,13 @@ static gravities haven&rsquo;t worked on anything but X11
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setStaticGravities</span><span class="p">(</span><span class="n">useStatic</span> <span class="nv">use_static</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1976-L1979">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2017-L2020">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13921,7 +13899,7 @@ per device enter/leave events, device grabs and grab ownerships.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1985-L1988">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2026-L2029">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13958,7 +13936,7 @@ user-readable strings in GDK/GTK+). <code>title</code> may not be <code>nil</cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L1995-L1998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2036-L2039">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -13997,7 +13975,7 @@ keep <code>window</code> above <code><a href="../Protocols/WindowProtocol.html#/
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2007-L2010">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2048-L2051">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14035,7 +14013,7 @@ of the window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2018-L2021">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2059-L2062">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14069,7 +14047,7 @@ urgent attention.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2025-L2028">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2066-L2069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14108,7 +14086,7 @@ user data is a <code>GtkWidget</code>, and forward the event to that widget.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2037-L2040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2078-L2081">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14144,7 +14122,6 @@ will do nothing.</p>
 
 <p>This function works on both toplevel and child windows.</p>
 
-                        <a href="../Protocols/WindowProtocol/shapeCombineRegion%28shapeRegion%3AoffsetX%3AoffsetY%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -14155,7 +14132,7 @@ will do nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2056-L2059">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2097-L2100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14196,7 +14173,7 @@ is <code>gdk_window_hide()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2070-L2073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2111-L2114">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14235,7 +14212,7 @@ that you can’t really use <code>XMapWindow()</code> directly on a GDK window).
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2082-L2085">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2123-L2126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14272,7 +14249,7 @@ on the window decorations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2092-L2095">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2133-L2136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14313,7 +14290,7 @@ there’s nothing you can do to force it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2106-L2109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2147-L2150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14348,13 +14325,13 @@ This symbol was never meant to be used outside of GTK+</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">thawToplevelUpdatesLibgtkOnly</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2119-L2122">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2160-L2163">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14387,7 +14364,7 @@ This symbol was never meant to be used outside of GTK+</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2125-L2128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2166-L2169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14429,7 +14406,7 @@ it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2140-L2143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2181-L2184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14472,7 +14449,7 @@ managers, and GDK makes a best effort to get it to happen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2156-L2159">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2197-L2200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14506,7 +14483,7 @@ and <code>gtk_window_unstick()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2163-L2166">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2204-L2207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14541,7 +14518,7 @@ withdraws toplevel windows before hiding them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2171-L2174">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2212-L2215">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14584,13 +14561,13 @@ Use gdk_window_begin_draw_frame() and
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">cairoCreate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">cairo_t</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2192-L2195">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2233-L2236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14638,7 +14615,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2213-L2216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2254-L2257">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14678,7 +14655,7 @@ visible part of <code>window</code>, so use this function with care.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2226-L2229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2267-L2270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14712,7 +14689,7 @@ the pixbuf.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2233-L2236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2274-L2277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14750,7 +14727,7 @@ begin a drag with a different device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2244-L2247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2285-L2288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14785,7 +14762,7 @@ begin a drag with a different device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2252-L2255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2293-L2296">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14820,7 +14797,7 @@ begin a drag with a different device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2260-L2263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2301-L2304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14857,7 +14834,7 @@ given pointer position.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2270-L2273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2311-L2314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14896,7 +14873,7 @@ operations. See <code>gdk_drag_context_manage_dnd()</code> for more information.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2282-L2285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2323-L2326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14933,13 +14910,13 @@ Use gdk_device_grab() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">keyboardGrab</span><span class="p">(</span><span class="n">ownerEvents</span> <span class="nv">owner_events</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GdkGrabStatus</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2297-L2300">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2338-L2341">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -14972,7 +14949,7 @@ Use gdk_device_grab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2303-L2306">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2344-L2347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15007,7 +14984,7 @@ add a reference to it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2311-L2314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2352-L2355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15045,7 +15022,7 @@ signal on the <code>embedder</code> and the <code>GdkWindow::to</code>-embedder 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2322-L2325">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2363-L2366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15103,7 +15080,7 @@ instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2353-L2356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2394-L2397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15154,13 +15131,13 @@ Use gdk_device_grab() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">pointerGrab</span><span class="p">(</span><span class="n">ownerEvents</span> <span class="nv">owner_events</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">eventMask</span> <span class="nv">event_mask</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:3Gdk9EventMaska">EventMask</a></span><span class="p">,</span> <span class="n">confineTo</span> <span class="nv">confine_to</span><span class="p">:</span> <span class="kt">WindowProtocol</span><span class="p">,</span> <span class="nv">cursor</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CursorProtocol.html">CursorProtocol</a></span><span class="p">,</span> <span class="nv">time_</span><span class="p">:</span> <span class="kt">UInt32</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GdkGrabStatus</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2382-L2385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2423-L2426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15193,7 +15170,7 @@ Use gdk_device_grab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2388-L2391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2429-L2432">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15226,7 +15203,7 @@ Use gdk_device_grab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2394-L2397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2435-L2438">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15270,7 +15247,7 @@ should return a useful error to the program. You are advised to use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2411-L2414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2452-L2455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15304,7 +15281,7 @@ form.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2418-L2421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2459-L2462">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15337,7 +15314,7 @@ form.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2424-L2427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2465-L2468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15370,7 +15347,7 @@ form.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2430-L2433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2471-L2474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15406,7 +15383,7 @@ API instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2439-L2442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2480-L2483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15439,7 +15416,7 @@ API instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2445-L2448">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2486-L2489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15472,7 +15449,7 @@ API instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2451-L2454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2492-L2495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15495,7 +15472,6 @@ API instead.</p>
                       <div class="abstract">
                         <p>Undocumented</p>
 
-                        <a href="../Protocols/WindowProtocol/synthesizeWindowState%28unsetFlags%3AsetFlags%3A%29.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -15506,7 +15482,7 @@ API instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2456-L2459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2497-L2500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15543,7 +15519,7 @@ pipelines, to benchmark windowing system rendering operations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2466-L2469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2507-L2510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15587,7 +15563,7 @@ by its accompanying button release event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2483-L2486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2524-L2527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15635,7 +15611,7 @@ followed by its accompanying key release event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2504-L2507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2545-L2548">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15669,7 +15645,7 @@ the window does not want to receive input focus.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2510-L2525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2551-L2566">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15705,7 +15681,7 @@ Don&rsquo;t use this function</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2531-L2554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2572-L2595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15744,7 +15720,7 @@ list need not be.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2563-L2575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2604-L2616">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15781,7 +15757,7 @@ primitives.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2582-L2592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2623-L2633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15820,7 +15796,7 @@ Compositing is an outdated technology that
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2601-L2642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2642-L2683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15854,7 +15830,7 @@ Compositing is an outdated technology that
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2646-L2667">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2687-L2708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15887,7 +15863,7 @@ Compositing is an outdated technology that
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2670-L2676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2711-L2717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15924,7 +15900,7 @@ window’s embedder for offscreen windows.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2683-L2693">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2724-L2734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15962,7 +15938,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2701-L2712">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2742-L2753">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -15995,7 +15971,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2715-L2732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2756-L2773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16029,7 +16005,7 @@ embedder as its parent, using <code>gdk_window_get_effective_parent()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2736-L2753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2777-L2794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16063,7 +16039,7 @@ window does not want to receive input focus when it is mapped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2757-L2775">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2798-L2816">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16098,7 +16074,7 @@ window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2780-L2788">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2821-L2829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16131,7 +16107,7 @@ window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2791-L2817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2832-L2858">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16164,7 +16140,7 @@ window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2820-L2839">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2861-L2880">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16201,7 +16177,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2846-L2856">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2887-L2897">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16234,7 +16210,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2859-L2865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2900-L2906">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16267,7 +16243,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2868-L2874">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2909-L2915">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16300,7 +16276,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2877-L2883">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2918-L2924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16322,7 +16298,7 @@ size on the X server.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Check if the window and all ancestors of the window are
-mapped. (This is not necessarily <q>viewable</q> in the X sense, since
+mapped. (This is not necessarily &ldquo;viewable&rdquo; in the X sense, since
 we only check as far as we have GDK window parents, not to the root
 window.)</p>
 
@@ -16336,7 +16312,7 @@ window.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2889-L2898">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2930-L2939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16370,7 +16346,7 @@ window.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2902-L2909">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2943-L2950">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16404,7 +16380,7 @@ has modal behaviour.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2913-L2930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2954-L2971">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16447,7 +16423,7 @@ there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2943-L2959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2984-L3000">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16483,7 +16459,7 @@ below.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L2965-L2995">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3006-L3036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16527,7 +16503,7 @@ a configure event will be sent to the toplevel window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3009-L3026">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3050-L3067">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16560,7 +16536,7 @@ a configure event will be sent to the toplevel window.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3029-L3035">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3070-L3076">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16594,7 +16570,7 @@ from the <code>GdkWindowState</code> enumeration.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3039-L3046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3080-L3087">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16628,7 +16604,7 @@ devices.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3050-L3064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3091-L3105">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16670,7 +16646,7 @@ if there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3076-L3091">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3117-L3132">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16703,7 +16679,7 @@ if there are offscreen windows in the hierarchy.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3094-L3109">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3135-L3150">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16741,7 +16717,7 @@ calling <code>cairo_region_destroy()</code> on the returned region if it’s non
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3117-L3128">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3158-L3169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16777,7 +16753,7 @@ is visible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3134-L3143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3175-L3184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16810,7 +16786,7 @@ is visible.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3146-L3152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3187-L3193">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16847,7 +16823,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3159-L3169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3200-L3210">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16880,7 +16856,7 @@ size on the X server.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3172-L3178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Window-Window.swift#L3213-L3219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -16893,8 +16869,8 @@ size on the X server.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

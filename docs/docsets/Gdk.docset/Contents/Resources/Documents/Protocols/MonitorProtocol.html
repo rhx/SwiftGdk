@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Gdk 3.24.12 Docs
         </a>
-         (54% documented)
+         (56% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -8231,7 +8231,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>MonitorProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -8334,9 +8334,11 @@ APIs in GdkScreen to obtain monitor-related information.</p>
               <div class="task-name-container">
                 <a name="/Monitor%20Class"></a>
                 <a name="//apple_ref/swift/Section/Monitor Class" class="dashAnchor"></a>
-                <a href="#/Monitor%20Class">
-                  <h3 class="section-name">Monitor Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Monitor%20Class"></a>
+                  <h3 class="section-name"><p>Monitor Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -8363,7 +8365,7 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span><span class="p">:</span> <span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/MonitorPropertyName.html">MonitorPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt">Q</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/MonitorPropertyName.html">MonitorPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt">Q</span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">Q</span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -8451,22 +8453,11 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L172-L196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L213-L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Monitor%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Monitor Class" class="dashAnchor"></a>
-                <a href="#/Monitor%20Class2">
-                  <h3 class="section-name">Monitor Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8543,22 +8534,11 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L244-L263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L285-L304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Monitor%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Monitor Class" class="dashAnchor"></a>
-                <a href="#/Monitor%20Class3">
-                  <h3 class="section-name">Monitor Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -8587,7 +8567,7 @@ APIs in GdkScreen to obtain monitor-related information.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L271-L274">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L312-L315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8622,7 +8602,7 @@ not in ”device pixels” (see <code>gdk_monitor_get_scale_factor()</code>).</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L279-L282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L320-L323">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8655,7 +8635,7 @@ not in ”device pixels” (see <code>gdk_monitor_get_scale_factor()</code>).</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L326-L329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8693,7 +8673,7 @@ display backend.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L296-L299">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L337-L340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8726,7 +8706,7 @@ display backend.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L343-L346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8762,7 +8742,7 @@ is returned as 60000.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L311-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L352-L355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8801,7 +8781,7 @@ where it is better to use <code>gdk_window_get_scale_factor()</code> instead.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L323-L326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L364-L367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8835,7 +8815,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L330-L333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L371-L374">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8868,7 +8848,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L336-L339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L377-L380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8912,7 +8892,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L353-L356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L394-L397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8945,7 +8925,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L357-L363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L398-L404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8978,7 +8958,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L366-L372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L407-L413">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9012,7 +8992,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L376-L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L417-L424">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9045,7 +9025,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L385-L396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L426-L437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9078,7 +9058,7 @@ available, or does not apply.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L398-L404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L439-L445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9114,7 +9094,7 @@ is returned as 60000.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L410-L419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L451-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9153,7 +9133,7 @@ where it is better to use <code>gdk_window_get_scale_factor()</code> instead.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L428-L440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L469-L481">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9187,7 +9167,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L444-L451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L485-L492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9220,7 +9200,7 @@ primaries for each pixel in this monitor, if available.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L454-L460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Monitor-Screen.swift#L495-L501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9233,8 +9213,8 @@ primaries for each pixel in this monitor, if available.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
