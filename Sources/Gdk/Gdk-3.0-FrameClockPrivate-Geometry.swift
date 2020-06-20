@@ -19,7 +19,7 @@ import GdkPixbuf
 ///
 
 public protocol FrameClockPrivateProtocol {
-    /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
+        /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkFrameClockPrivate` instance.
@@ -32,7 +32,7 @@ public protocol FrameClockPrivateProtocol {
 ///
 
 public struct FrameClockPrivateRef: FrameClockPrivateProtocol {
-    /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
+        /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +85,7 @@ public extension FrameClockPrivateRef {
 ///
 
 open class FrameClockPrivate: FrameClockPrivateProtocol {
-    /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
+        /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +114,7 @@ open class FrameClockPrivate: FrameClockPrivateProtocol {
         // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkFrameClockPrivate`.
+    /// Do-nothing destructor for `GdkFrameClockPrivate`.
     deinit {
         // no reference counting for GdkFrameClockPrivate, cannot unref(cast(_ptr))
     }
@@ -182,14 +182,17 @@ open class FrameClockPrivate: FrameClockPrivateProtocol {
 
 }
 
-// MARK: - no FrameClockPrivate properties
+// MARK: no FrameClockPrivate properties
 
-// MARK: - no signals
+// MARK: no FrameClockPrivate signals
 
 
+// MARK: FrameClockPrivate Record: FrameClockPrivateProtocol extension (methods and fields)
 public extension FrameClockPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameClockPrivate` instance.
     var _ptr: UnsafeMutablePointer<GdkFrameClockPrivate> { return ptr.assumingMemoryBound(to: GdkFrameClockPrivate.self) }
+
+
 
 }
 
@@ -209,7 +212,7 @@ public extension FrameClockPrivateProtocol {
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
 public protocol FrameTimingsProtocol {
-    /// Untyped pointer to the underlying `GdkFrameTimings` instance.
+        /// Untyped pointer to the underlying `GdkFrameTimings` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkFrameTimings` instance.
@@ -227,7 +230,7 @@ public protocol FrameTimingsProtocol {
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
 public struct FrameTimingsRef: FrameTimingsProtocol {
-    /// Untyped pointer to the underlying `GdkFrameTimings` instance.
+        /// Untyped pointer to the underlying `GdkFrameTimings` instance.
     /// For type-safe access, use the generated, typed pointer `frame_timings_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -285,7 +288,7 @@ public extension FrameTimingsRef {
 /// of video with the event or audio streams, and for measuring
 /// quality metrics for the application’s display, such as latency and jitter.
 open class FrameTimings: FrameTimingsProtocol {
-    /// Untyped pointer to the underlying `GdkFrameTimings` instance.
+        /// Untyped pointer to the underlying `GdkFrameTimings` instance.
     /// For type-safe access, use the generated, typed pointer `frame_timings_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -382,11 +385,12 @@ open class FrameTimings: FrameTimingsProtocol {
 
 }
 
-// MARK: - no FrameTimings properties
+// MARK: no FrameTimings properties
 
-// MARK: - no signals
+// MARK: no FrameTimings signals
 
 
+// MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
 public extension FrameTimingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameTimings` instance.
     var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings> { return ptr.assumingMemoryBound(to: GdkFrameTimings.self) }
@@ -451,7 +455,7 @@ public extension FrameTimingsProtocol {
 
     /// Increases the reference count of `timings`.
     func ref() -> UnsafeMutablePointer<GdkFrameTimings>! {
-        let rv = gdk_frame_timings_ref(cast(frame_timings_ptr))
+        let rv: UnsafeMutablePointer<GdkFrameTimings>! = cast(gdk_frame_timings_ref(cast(frame_timings_ptr)))
         return cast(rv)
     }
 
@@ -558,6 +562,8 @@ public extension FrameTimingsProtocol {
             return Int64(rv)
         }
     }
+
+
 }
 
 
@@ -626,7 +632,7 @@ public extension FrameTimingsProtocol {
 /// `max_aspect` to the same value, thus forcing the window to keep a constant
 /// aspect ratio.
 public protocol GeometryProtocol {
-    /// Untyped pointer to the underlying `GdkGeometry` instance.
+        /// Untyped pointer to the underlying `GdkGeometry` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkGeometry` instance.
@@ -694,7 +700,7 @@ public protocol GeometryProtocol {
 /// `max_aspect` to the same value, thus forcing the window to keep a constant
 /// aspect ratio.
 public struct GeometryRef: GeometryProtocol {
-    /// Untyped pointer to the underlying `GdkGeometry` instance.
+        /// Untyped pointer to the underlying `GdkGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -802,7 +808,7 @@ public extension GeometryRef {
 /// `max_aspect` to the same value, thus forcing the window to keep a constant
 /// aspect ratio.
 open class Geometry: GeometryProtocol {
-    /// Untyped pointer to the underlying `GdkGeometry` instance.
+        /// Untyped pointer to the underlying `GdkGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -831,7 +837,7 @@ open class Geometry: GeometryProtocol {
         // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkGeometry`.
+    /// Do-nothing destructor for `GdkGeometry`.
     deinit {
         // no reference counting for GdkGeometry, cannot unref(cast(_ptr))
     }
@@ -899,14 +905,177 @@ open class Geometry: GeometryProtocol {
 
 }
 
-// MARK: - no Geometry properties
+// MARK: no Geometry properties
 
-// MARK: - no signals
+// MARK: no Geometry signals
 
 
+// MARK: Geometry Record: GeometryProtocol extension (methods and fields)
 public extension GeometryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGeometry` instance.
     var _ptr: UnsafeMutablePointer<GdkGeometry> { return ptr.assumingMemoryBound(to: GdkGeometry.self) }
+
+
+    /// minimum width of window (or -1 to use requisition, with
+    ///  `GtkWindow` only)
+    var minWidth: Int {
+        /// minimum width of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+        get {
+            let rv: Int = cast(_ptr.pointee.min_width)
+            return rv
+        }
+        /// minimum width of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+         set {
+            _ptr.pointee.min_width = gint(newValue)
+        }
+    }
+
+    /// minimum height of window (or -1 to use requisition, with
+    ///  `GtkWindow` only)
+    var minHeight: Int {
+        /// minimum height of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+        get {
+            let rv: Int = cast(_ptr.pointee.min_height)
+            return rv
+        }
+        /// minimum height of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+         set {
+            _ptr.pointee.min_height = gint(newValue)
+        }
+    }
+
+    /// maximum width of window (or -1 to use requisition, with
+    ///  `GtkWindow` only)
+    var maxWidth: Int {
+        /// maximum width of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+        get {
+            let rv: Int = cast(_ptr.pointee.max_width)
+            return rv
+        }
+        /// maximum width of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+         set {
+            _ptr.pointee.max_width = gint(newValue)
+        }
+    }
+
+    /// maximum height of window (or -1 to use requisition, with
+    ///  `GtkWindow` only)
+    var maxHeight: Int {
+        /// maximum height of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+        get {
+            let rv: Int = cast(_ptr.pointee.max_height)
+            return rv
+        }
+        /// maximum height of window (or -1 to use requisition, with
+        ///  `GtkWindow` only)
+         set {
+            _ptr.pointee.max_height = gint(newValue)
+        }
+    }
+
+    /// allowed window widths are `base_width` + `width_inc` * N where N
+    ///  is any integer (-1 allowed with `GtkWindow`)
+    var baseWidth: Int {
+        /// allowed window widths are `base_width` + `width_inc` * N where N
+        ///  is any integer (-1 allowed with `GtkWindow`)
+        get {
+            let rv: Int = cast(_ptr.pointee.base_width)
+            return rv
+        }
+        /// allowed window widths are `base_width` + `width_inc` * N where N
+        ///  is any integer (-1 allowed with `GtkWindow`)
+         set {
+            _ptr.pointee.base_width = gint(newValue)
+        }
+    }
+
+    /// allowed window widths are `base_height` + `height_inc` * N where
+    ///  N is any integer (-1 allowed with `GtkWindow`)
+    var baseHeight: Int {
+        /// allowed window widths are `base_height` + `height_inc` * N where
+        ///  N is any integer (-1 allowed with `GtkWindow`)
+        get {
+            let rv: Int = cast(_ptr.pointee.base_height)
+            return rv
+        }
+        /// allowed window widths are `base_height` + `height_inc` * N where
+        ///  N is any integer (-1 allowed with `GtkWindow`)
+         set {
+            _ptr.pointee.base_height = gint(newValue)
+        }
+    }
+
+    /// width resize increment
+    var widthInc: Int {
+        /// width resize increment
+        get {
+            let rv: Int = cast(_ptr.pointee.width_inc)
+            return rv
+        }
+        /// width resize increment
+         set {
+            _ptr.pointee.width_inc = gint(newValue)
+        }
+    }
+
+    /// height resize increment
+    var heightInc: Int {
+        /// height resize increment
+        get {
+            let rv: Int = cast(_ptr.pointee.height_inc)
+            return rv
+        }
+        /// height resize increment
+         set {
+            _ptr.pointee.height_inc = gint(newValue)
+        }
+    }
+
+    /// minimum width/height ratio
+    var minAspect: Double {
+        /// minimum width/height ratio
+        get {
+            let rv: Double = cast(_ptr.pointee.min_aspect)
+            return rv
+        }
+        /// minimum width/height ratio
+         set {
+            _ptr.pointee.min_aspect = cast(newValue)
+        }
+    }
+
+    /// maximum width/height ratio
+    var maxAspect: Double {
+        /// maximum width/height ratio
+        get {
+            let rv: Double = cast(_ptr.pointee.max_aspect)
+            return rv
+        }
+        /// maximum width/height ratio
+         set {
+            _ptr.pointee.max_aspect = cast(newValue)
+        }
+    }
+
+    /// window gravity, see `gtk_window_set_gravity()`
+    var winGravity: GdkGravity {
+        /// window gravity, see `gtk_window_set_gravity()`
+        get {
+            let rv: GdkGravity = cast(_ptr.pointee.win_gravity)
+            return rv
+        }
+        /// window gravity, see `gtk_window_set_gravity()`
+         set {
+            _ptr.pointee.win_gravity = cast(newValue)
+        }
+    }
 
 }
 

@@ -70,7 +70,7 @@ import GdkPixbuf
 /// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
 /// that is currently set by calling `gdk_gl_context_clear_current()`.
 public protocol GLContextProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkGLContext` instance.
+        /// Untyped pointer to the underlying `GdkGLContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkGLContext` instance.
@@ -134,7 +134,7 @@ public protocol GLContextProtocol: ObjectProtocol {
 /// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
 /// that is currently set by calling `gdk_gl_context_clear_current()`.
 public struct GLContextRef: GLContextProtocol {
-    /// Untyped pointer to the underlying `GdkGLContext` instance.
+        /// Untyped pointer to the underlying `GdkGLContext` instance.
     /// For type-safe access, use the generated, typed pointer `gl_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -181,7 +181,7 @@ public extension GLContextRef {
 
         /// Retrieves the current `GdkGLContext`.
     static func getCurrent() -> GLContextRef! {
-        let rv = gdk_gl_context_get_current()
+        let rv: UnsafeMutablePointer<GdkGLContext>! = cast(gdk_gl_context_get_current())
         return rv.map { GLContextRef(cast($0)) }
     }
 }
@@ -243,7 +243,7 @@ public extension GLContextRef {
 /// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
 /// that is currently set by calling `gdk_gl_context_clear_current()`.
 open class GLContext: Object, GLContextProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `GLContext` instance.
     /// - Parameter op: pointer to the underlying object
@@ -324,7 +324,7 @@ open class GLContext: Object, GLContextProtocol {
 
     /// Retrieves the current `GdkGLContext`.
     public static func getCurrent() -> GLContext! {
-        let rv = gdk_gl_context_get_current()
+        let rv: UnsafeMutablePointer<GdkGLContext>! = cast(gdk_gl_context_get_current())
         return rv.map { GLContext(cast($0)) }
     }
 
@@ -348,8 +348,8 @@ public extension GLContextProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: GLContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: GLContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -372,6 +372,23 @@ public extension GLContextProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a GLContext property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: GLContextPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a GLContext property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: GLContextPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -415,8 +432,8 @@ public extension GLContextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: GLContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: GLContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(gl_context_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -437,6 +454,7 @@ public extension GLContextProtocol {
     }
 }
 
+// MARK: GLContext Class: GLContextProtocol extension (methods and fields)
 public extension GLContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLContext` instance.
     var gl_context_ptr: UnsafeMutablePointer<GdkGLContext> { return ptr.assumingMemoryBound(to: GdkGLContext.self) }
@@ -449,7 +467,7 @@ public extension GLContextProtocol {
 
     /// Retrieves the `GdkDisplay` the `context` is created for
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_gl_context_get_display(cast(gl_context_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_gl_context_get_display(cast(gl_context_ptr)))
         return cast(rv)
     }
 
@@ -468,7 +486,7 @@ public extension GLContextProtocol {
 
     /// Retrieves the `GdkGLContext` that this `context` share data with.
     func getSharedContext() -> UnsafeMutablePointer<GdkGLContext>! {
-        let rv = gdk_gl_context_get_shared_context(cast(gl_context_ptr))
+        let rv: UnsafeMutablePointer<GdkGLContext>! = cast(gdk_gl_context_get_shared_context(cast(gl_context_ptr)))
         return cast(rv)
     }
 
@@ -488,7 +506,7 @@ public extension GLContextProtocol {
 
     /// Retrieves the `GdkWindow` used by the `context`.
     func getWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_gl_context_get_window(cast(gl_context_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_gl_context_get_window(cast(gl_context_ptr)))
         return cast(rv)
     }
 
@@ -502,11 +520,9 @@ public extension GLContextProtocol {
     /// 
     /// It is safe to call this function on a realized `GdkGLContext`.
     func realize() throws -> Bool {
-        var error: Optional<UnsafeMutablePointer<GError>> = nil
+        var error: UnsafeMutablePointer<GError>?
         let rv = gdk_gl_context_realize(cast(gl_context_ptr), &error)
-        if let error = error {
-                throw ErrorType(error)
-        }
+        if let error = error { throw ErrorType(error) }
         return Bool(rv != 0)
     }
 
@@ -584,7 +600,7 @@ public extension GLContextProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Retrieves the `GdkDisplay` the `context` is created for
         get {
-            let rv = gdk_gl_context_get_display(cast(gl_context_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_gl_context_get_display(cast(gl_context_ptr)))
             return cast(rv)
         }
     }
@@ -653,7 +669,7 @@ public extension GLContextProtocol {
     var sharedContext: UnsafeMutablePointer<GdkGLContext>! {
         /// Retrieves the `GdkGLContext` that this `context` share data with.
         get {
-            let rv = gdk_gl_context_get_shared_context(cast(gl_context_ptr))
+            let rv: UnsafeMutablePointer<GdkGLContext>! = cast(gdk_gl_context_get_shared_context(cast(gl_context_ptr)))
             return cast(rv)
         }
     }
@@ -678,7 +694,7 @@ public extension GLContextProtocol {
         /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
         /// OpenGL ES API, extensions, or shaders.
         nonmutating set {
-            gdk_gl_context_set_use_es(cast(gl_context_ptr), newValue ? 1 : 0)
+            gdk_gl_context_set_use_es(cast(gl_context_ptr), cast(newValue))
         }
     }
 
@@ -686,10 +702,12 @@ public extension GLContextProtocol {
     var window: UnsafeMutablePointer<GdkWindow>! {
         /// Retrieves the `GdkWindow` used by the `context`.
         get {
-            let rv = gdk_gl_context_get_window(cast(gl_context_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_gl_context_get_window(cast(gl_context_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -708,7 +726,7 @@ public extension GLContextProtocol {
 /// state; the second phase is to look up the keycode/group/level triplet
 /// in the keymap and see what keyval it corresponds to.
 public protocol KeymapProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkKeymap` instance.
+        /// Untyped pointer to the underlying `GdkKeymap` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkKeymap` instance.
@@ -726,7 +744,7 @@ public protocol KeymapProtocol: ObjectProtocol {
 /// state; the second phase is to look up the keycode/group/level triplet
 /// in the keymap and see what keyval it corresponds to.
 public struct KeymapRef: KeymapProtocol {
-    /// Untyped pointer to the underlying `GdkKeymap` instance.
+        /// Untyped pointer to the underlying `GdkKeymap` instance.
     /// For type-safe access, use the generated, typed pointer `keymap_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -776,13 +794,13 @@ public extension KeymapRef {
     /// **get_default is deprecated:**
     /// Use gdk_keymap_get_for_display() instead
     @available(*, deprecated) static func getDefault() -> KeymapRef! {
-        let rv = gdk_keymap_get_default()
+        let rv: UnsafeMutablePointer<GdkKeymap>! = cast(gdk_keymap_get_default())
         return rv.map { KeymapRef(cast($0)) }
     }
 
     /// Returns the `GdkKeymap` attached to `display`.
     static func getFor(display: DisplayProtocol) -> KeymapRef! {
-        let rv = gdk_keymap_get_for_display(cast(display.ptr))
+        let rv: UnsafeMutablePointer<GdkKeymap>! = cast(gdk_keymap_get_for_display(cast(display.ptr)))
         return rv.map { KeymapRef(cast($0)) }
     }
 }
@@ -798,7 +816,7 @@ public extension KeymapRef {
 /// state; the second phase is to look up the keycode/group/level triplet
 /// in the keymap and see what keyval it corresponds to.
 open class Keymap: Object, KeymapProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Keymap` instance.
     /// - Parameter op: pointer to the underlying object
@@ -882,19 +900,19 @@ open class Keymap: Object, KeymapProtocol {
     /// **get_default is deprecated:**
     /// Use gdk_keymap_get_for_display() instead
     @available(*, deprecated) public static func getDefault() -> Keymap! {
-        let rv = gdk_keymap_get_default()
+        let rv: UnsafeMutablePointer<GdkKeymap>! = cast(gdk_keymap_get_default())
         return rv.map { Keymap(cast($0)) }
     }
 
     /// Returns the `GdkKeymap` attached to `display`.
     public static func getFor(display: DisplayProtocol) -> Keymap! {
-        let rv = gdk_keymap_get_for_display(cast(display.ptr))
+        let rv: UnsafeMutablePointer<GdkKeymap>! = cast(gdk_keymap_get_for_display(cast(display.ptr)))
         return rv.map { Keymap(cast($0)) }
     }
 
 }
 
-// MARK: - no Keymap properties
+// MARK: no Keymap properties
 
 public enum KeymapSignalName: String, SignalNameProtocol {
     /// The `direction`-changed signal gets emitted when the direction of
@@ -941,8 +959,8 @@ public extension KeymapProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: KeymapSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: KeymapSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(keymap_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -963,6 +981,7 @@ public extension KeymapProtocol {
     }
 }
 
+// MARK: Keymap Class: KeymapProtocol extension (methods and fields)
 public extension KeymapProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeymap` instance.
     var keymap_ptr: UnsafeMutablePointer<GdkKeymap> { return ptr.assumingMemoryBound(to: GdkKeymap.self) }
@@ -991,7 +1010,7 @@ public extension KeymapProtocol {
     /// Returns the direction of effective layout of the keymap.
     func getDirection() -> PangoDirection {
         let rv = gdk_keymap_get_direction(cast(keymap_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the keyvals bound to `hardware_keycode`.
@@ -1032,13 +1051,13 @@ public extension KeymapProtocol {
     /// expected result.
     func getModifierMask(intent: ModifierIntent) -> GdkModifierType {
         let rv = gdk_keymap_get_modifier_mask(cast(keymap_ptr), intent)
-        return rv
+        return cast(rv)
     }
 
     /// Returns the current modifier state.
-    func getModifierState() -> CUnsignedInt {
-        let rv = gdk_keymap_get_modifier_state(cast(keymap_ptr))
-        return CUnsignedInt(rv)
+    func getModifierState() -> Int {
+        let rv: Int = cast(gdk_keymap_get_modifier_state(cast(keymap_ptr)))
+        return Int(rv)
     }
 
     /// Returns whether the Num Lock modifer is locked.
@@ -1065,9 +1084,9 @@ public extension KeymapProtocol {
     /// you want to use `gdk_keymap_translate_keyboard_state()` instead of
     /// this function, since the effective group/level may not be
     /// the same as the current keyboard state.
-    func lookup(key: KeymapKeyProtocol) -> CUnsignedInt {
-        let rv = gdk_keymap_lookup_key(cast(keymap_ptr), cast(key.ptr))
-        return CUnsignedInt(rv)
+    func lookup(key: KeymapKeyProtocol) -> Int {
+        let rv: Int = cast(gdk_keymap_lookup_key(cast(keymap_ptr), cast(key.ptr)))
+        return Int(rv)
     }
 
     /// Maps the virtual modifiers (i.e. Super, Hyper and Meta) which
@@ -1131,7 +1150,7 @@ public extension KeymapProtocol {
     /// you store accelerators, you should always store them with consumed
     /// modifiers removed. Store `<Control>plus`, not `<Control><Shift>plus`,
     func translateKeyboardState(hardwareKeycode hardware_keycode: CUnsignedInt, state: ModifierType, group: CInt, keyval: UnsafeMutablePointer<CUnsignedInt>, effectiveGroup effective_group: UnsafeMutablePointer<CInt>, level: UnsafeMutablePointer<CInt>, consumedModifiers consumed_modifiers: UnsafeMutablePointer<GdkModifierType>) -> Bool {
-        let rv = gdk_keymap_translate_keyboard_state(cast(keymap_ptr), guint(hardware_keycode), state, gint(group), cast(keyval), cast(effective_group), cast(level), cast(consumed_modifiers))
+        let rv = gdk_keymap_translate_keyboard_state(cast(keymap_ptr), guint(hardware_keycode), state.value, gint(group), cast(keyval), cast(effective_group), cast(level), cast(consumed_modifiers))
         return Bool(rv != 0)
     }
     /// Returns whether the Caps Lock modifer is locked.
@@ -1148,16 +1167,16 @@ public extension KeymapProtocol {
         /// Returns the direction of effective layout of the keymap.
         get {
             let rv = gdk_keymap_get_direction(cast(keymap_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// Returns the current modifier state.
-    var modifierState: CUnsignedInt {
+    var modifierState: Int {
         /// Returns the current modifier state.
         get {
-            let rv = gdk_keymap_get_modifier_state(cast(keymap_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(gdk_keymap_get_modifier_state(cast(keymap_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1178,6 +1197,8 @@ public extension KeymapProtocol {
             return Bool(rv != 0)
         }
     }
+
+
 }
 
 

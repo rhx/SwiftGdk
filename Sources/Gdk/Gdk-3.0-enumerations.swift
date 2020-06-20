@@ -42,7 +42,11 @@ public extension AxisUse {
     static let slider = GDK_AXIS_SLIDER /* 9 */
     /// a constant equal to the numerically highest axis value.
     static let last = GDK_AXIS_LAST /* 10 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> AxisUse { AxisUse(rawValue: cast(param)) }
+func cast(_ param: AxisUse) -> UInt32 { cast(param.rawValue) }
+
 
 /// A set of values describing the possible byte-orders
 /// for storing pixel values in memory.
@@ -52,12 +56,23 @@ public extension ByteOrder {
     /// The values are stored with the least-significant byte
     ///   first. For instance, the 32-bit value 0xffeecc would be stored
     ///   in memory as 0xcc, 0xee, 0xff, 0x00.
-    static let lsb_first = GDK_LSB_FIRST /* 0 */
+    static let lsbFirst = GDK_LSB_FIRST /* 0 */
     /// The values are stored with the most-significant byte
     ///   first. For instance, the 32-bit value 0xffeecc would be stored
     ///   in memory as 0x00, 0xff, 0xee, 0xcc.
-    static let msb_first = GDK_MSB_FIRST /* 1 */
+    static let msbFirst = GDK_MSB_FIRST /* 1 */
+    /// The values are stored with the least-significant byte
+    ///   first. For instance, the 32-bit value 0xffeecc would be stored
+    ///   in memory as 0xcc, 0xee, 0xff, 0x00.
+    @available(*, deprecated) static let lsb_first = ByteOrder.lsbFirst /* GDK_LSB_FIRST */
+    /// The values are stored with the most-significant byte
+    ///   first. For instance, the 32-bit value 0xffeecc would be stored
+    ///   in memory as 0x00, 0xff, 0xee, 0xcc.
+    @available(*, deprecated) static let msb_first = ByteOrder.msbFirst /* GDK_MSB_FIRST */
 }
+func cast<I: BinaryInteger>(_ param: I) -> ByteOrder { ByteOrder(rawValue: cast(param)) }
+func cast(_ param: ByteOrder) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the crossing mode for `GdkEventCrossing`.
 public typealias CrossingMode = GdkCrossingMode
@@ -70,23 +85,43 @@ public extension CrossingMode {
     /// crossing because a grab is deactivated.
     static let ungrab = GDK_CROSSING_UNGRAB /* 2 */
     /// crossing because a GTK+ grab is activated.
-    static let gtk_grab = GDK_CROSSING_GTK_GRAB /* 3 */
+    static let gtkGrab = GDK_CROSSING_GTK_GRAB /* 3 */
     /// crossing because a GTK+ grab is deactivated.
-    static let gtk_ungrab = GDK_CROSSING_GTK_UNGRAB /* 4 */
+    static let gtkUngrab = GDK_CROSSING_GTK_UNGRAB /* 4 */
     /// crossing because a GTK+ widget changed
     ///   state (e.g. sensitivity).
-    static let state_changed = GDK_CROSSING_STATE_CHANGED /* 5 */
+    static let stateChanged = GDK_CROSSING_STATE_CHANGED /* 5 */
     /// crossing because a touch sequence has begun,
     ///   this event is synthetic as the pointer might have not left the window.
-    static let touch_begin = GDK_CROSSING_TOUCH_BEGIN /* 6 */
+    static let touchBegin = GDK_CROSSING_TOUCH_BEGIN /* 6 */
     /// crossing because a touch sequence has ended,
     ///   this event is synthetic as the pointer might have not left the window.
-    static let touch_end = GDK_CROSSING_TOUCH_END /* 7 */
+    static let touchEnd = GDK_CROSSING_TOUCH_END /* 7 */
     /// crossing because of a device switch (i.e.
     ///   a mouse taking control of the pointer after a touch device), this event
     ///   is synthetic as the pointer didn’t leave the window.
-    static let device_switch = GDK_CROSSING_DEVICE_SWITCH /* 8 */
+    static let deviceSwitch = GDK_CROSSING_DEVICE_SWITCH /* 8 */
+    /// crossing because a GTK+ grab is activated.
+    @available(*, deprecated) static let gtk_grab = CrossingMode.gtkGrab /* GDK_CROSSING_GTK_GRAB */
+    /// crossing because a GTK+ grab is deactivated.
+    @available(*, deprecated) static let gtk_ungrab = CrossingMode.gtkUngrab /* GDK_CROSSING_GTK_UNGRAB */
+    /// crossing because a GTK+ widget changed
+    ///   state (e.g. sensitivity).
+    @available(*, deprecated) static let state_changed = CrossingMode.stateChanged /* GDK_CROSSING_STATE_CHANGED */
+    /// crossing because a touch sequence has begun,
+    ///   this event is synthetic as the pointer might have not left the window.
+    @available(*, deprecated) static let touch_begin = CrossingMode.touchBegin /* GDK_CROSSING_TOUCH_BEGIN */
+    /// crossing because a touch sequence has ended,
+    ///   this event is synthetic as the pointer might have not left the window.
+    @available(*, deprecated) static let touch_end = CrossingMode.touchEnd /* GDK_CROSSING_TOUCH_END */
+    /// crossing because of a device switch (i.e.
+    ///   a mouse taking control of the pointer after a touch device), this event
+    ///   is synthetic as the pointer didn’t leave the window.
+    @available(*, deprecated) static let device_switch = CrossingMode.deviceSwitch /* GDK_CROSSING_DEVICE_SWITCH */
 }
+func cast<I: BinaryInteger>(_ param: I) -> CrossingMode { CrossingMode(rawValue: cast(param)) }
+func cast(_ param: CrossingMode) -> UInt32 { cast(param.rawValue) }
+
 
 /// Predefined cursors.
 /// 
@@ -98,55 +133,55 @@ public typealias CursorType = GdkCursorType
 
 public extension CursorType {
     /// ![](X_cursor.png)
-    static let x_cursor = GDK_X_CURSOR /* 0 */
+    static let xCursor = GDK_X_CURSOR /* 0 */
     /// ![](arrow.png)
     static let arrow = GDK_ARROW /* 2 */
     /// ![](based_arrow_down.png)
-    static let based_arrow_down = GDK_BASED_ARROW_DOWN /* 4 */
+    static let basedArrowDown = GDK_BASED_ARROW_DOWN /* 4 */
     /// ![](based_arrow_up.png)
-    static let based_arrow_up = GDK_BASED_ARROW_UP /* 6 */
+    static let basedArrowUp = GDK_BASED_ARROW_UP /* 6 */
     /// ![](boat.png)
     static let boat = GDK_BOAT /* 8 */
     /// ![](bogosity.png)
     static let bogosity = GDK_BOGOSITY /* 10 */
     /// ![](bottom_left_corner.png)
-    static let bottom_left_corner = GDK_BOTTOM_LEFT_CORNER /* 12 */
+    static let bottomLeftCorner = GDK_BOTTOM_LEFT_CORNER /* 12 */
     /// ![](bottom_right_corner.png)
-    static let bottom_right_corner = GDK_BOTTOM_RIGHT_CORNER /* 14 */
+    static let bottomRightCorner = GDK_BOTTOM_RIGHT_CORNER /* 14 */
     /// ![](bottom_side.png)
-    static let bottom_side = GDK_BOTTOM_SIDE /* 16 */
+    static let bottomSide = GDK_BOTTOM_SIDE /* 16 */
     /// ![](bottom_tee.png)
-    static let bottom_tee = GDK_BOTTOM_TEE /* 18 */
+    static let bottomTee = GDK_BOTTOM_TEE /* 18 */
     /// ![](box_spiral.png)
-    static let box_spiral = GDK_BOX_SPIRAL /* 20 */
+    static let boxSpiral = GDK_BOX_SPIRAL /* 20 */
     /// ![](center_ptr.png)
-    static let center_ptr = GDK_CENTER_PTR /* 22 */
+    static let centerPtr = GDK_CENTER_PTR /* 22 */
     /// ![](circle.png)
     static let circle = GDK_CIRCLE /* 24 */
     /// ![](clock.png)
     static let clock = GDK_CLOCK /* 26 */
     /// ![](coffee_mug.png)
-    static let coffee_mug = GDK_COFFEE_MUG /* 28 */
+    static let coffeeMug = GDK_COFFEE_MUG /* 28 */
     /// ![](cross.png)
     static let cross = GDK_CROSS /* 30 */
     /// ![](cross_reverse.png)
-    static let cross_reverse = GDK_CROSS_REVERSE /* 32 */
+    static let crossReverse = GDK_CROSS_REVERSE /* 32 */
     /// ![](crosshair.png)
     static let crosshair = GDK_CROSSHAIR /* 34 */
     /// ![](diamond_cross.png)
-    static let diamond_cross = GDK_DIAMOND_CROSS /* 36 */
+    static let diamondCross = GDK_DIAMOND_CROSS /* 36 */
     /// ![](dot.png)
     static let dot = GDK_DOT /* 38 */
     /// ![](dotbox.png)
     static let dotbox = GDK_DOTBOX /* 40 */
     /// ![](double_arrow.png)
-    static let double_arrow = GDK_DOUBLE_ARROW /* 42 */
+    static let doubleArrow = GDK_DOUBLE_ARROW /* 42 */
     /// ![](draft_large.png)
-    static let draft_large = GDK_DRAFT_LARGE /* 44 */
+    static let draftLarge = GDK_DRAFT_LARGE /* 44 */
     /// ![](draft_small.png)
-    static let draft_small = GDK_DRAFT_SMALL /* 46 */
+    static let draftSmall = GDK_DRAFT_SMALL /* 46 */
     /// ![](draped_box.png)
-    static let draped_box = GDK_DRAPED_BOX /* 48 */
+    static let drapedBox = GDK_DRAPED_BOX /* 48 */
     /// ![](exchange.png)
     static let exchange = GDK_EXCHANGE /* 50 */
     /// ![](fleur.png)
@@ -164,19 +199,19 @@ public extension CursorType {
     /// ![](icon.png)
     static let icon = GDK_ICON /* 64 */
     /// ![](iron_cross.png)
-    static let iron_cross = GDK_IRON_CROSS /* 66 */
+    static let ironCross = GDK_IRON_CROSS /* 66 */
     /// ![](left_ptr.png)
-    static let left_ptr = GDK_LEFT_PTR /* 68 */
+    static let leftPtr = GDK_LEFT_PTR /* 68 */
     /// ![](left_side.png)
-    static let left_side = GDK_LEFT_SIDE /* 70 */
+    static let leftSide = GDK_LEFT_SIDE /* 70 */
     /// ![](left_tee.png)
-    static let left_tee = GDK_LEFT_TEE /* 72 */
+    static let leftTee = GDK_LEFT_TEE /* 72 */
     /// ![](leftbutton.png)
     static let leftbutton = GDK_LEFTBUTTON /* 74 */
     /// ![](ll_angle.png)
-    static let ll_angle = GDK_LL_ANGLE /* 76 */
+    static let llAngle = GDK_LL_ANGLE /* 76 */
     /// ![](lr_angle.png)
-    static let lr_angle = GDK_LR_ANGLE /* 78 */
+    static let lrAngle = GDK_LR_ANGLE /* 78 */
     /// ![](man.png)
     static let man = GDK_MAN /* 80 */
     /// ![](middlebutton.png)
@@ -190,31 +225,31 @@ public extension CursorType {
     /// ![](plus.png)
     static let plus = GDK_PLUS /* 90 */
     /// ![](question_arrow.png)
-    static let question_arrow = GDK_QUESTION_ARROW /* 92 */
+    static let questionArrow = GDK_QUESTION_ARROW /* 92 */
     /// ![](right_ptr.png)
-    static let right_ptr = GDK_RIGHT_PTR /* 94 */
+    static let rightPtr = GDK_RIGHT_PTR /* 94 */
     /// ![](right_side.png)
-    static let right_side = GDK_RIGHT_SIDE /* 96 */
+    static let rightSide = GDK_RIGHT_SIDE /* 96 */
     /// ![](right_tee.png)
-    static let right_tee = GDK_RIGHT_TEE /* 98 */
+    static let rightTee = GDK_RIGHT_TEE /* 98 */
     /// ![](rightbutton.png)
     static let rightbutton = GDK_RIGHTBUTTON /* 100 */
     /// ![](rtl_logo.png)
-    static let rtl_logo = GDK_RTL_LOGO /* 102 */
+    static let rtlLogo = GDK_RTL_LOGO /* 102 */
     /// ![](sailboat.png)
     static let sailboat = GDK_SAILBOAT /* 104 */
     /// ![](sb_down_arrow.png)
-    static let sb_down_arrow = GDK_SB_DOWN_ARROW /* 106 */
+    static let sbDownArrow = GDK_SB_DOWN_ARROW /* 106 */
     /// ![](sb_h_double_arrow.png)
-    static let sb_h_double_arrow = GDK_SB_H_DOUBLE_ARROW /* 108 */
+    static let sbHDoubleArrow = GDK_SB_H_DOUBLE_ARROW /* 108 */
     /// ![](sb_left_arrow.png)
-    static let sb_left_arrow = GDK_SB_LEFT_ARROW /* 110 */
+    static let sbLeftArrow = GDK_SB_LEFT_ARROW /* 110 */
     /// ![](sb_right_arrow.png)
-    static let sb_right_arrow = GDK_SB_RIGHT_ARROW /* 112 */
+    static let sbRightArrow = GDK_SB_RIGHT_ARROW /* 112 */
     /// ![](sb_up_arrow.png)
-    static let sb_up_arrow = GDK_SB_UP_ARROW /* 114 */
+    static let sbUpArrow = GDK_SB_UP_ARROW /* 114 */
     /// ![](sb_v_double_arrow.png)
-    static let sb_v_double_arrow = GDK_SB_V_DOUBLE_ARROW /* 116 */
+    static let sbVDoubleArrow = GDK_SB_V_DOUBLE_ARROW /* 116 */
     /// ![](shuttle.png)
     static let shuttle = GDK_SHUTTLE /* 118 */
     /// ![](sizing.png)
@@ -230,35 +265,125 @@ public extension CursorType {
     /// ![](tcross.png)
     static let tcross = GDK_TCROSS /* 130 */
     /// ![](top_left_arrow.png)
-    static let top_left_arrow = GDK_TOP_LEFT_ARROW /* 132 */
+    static let topLeftArrow = GDK_TOP_LEFT_ARROW /* 132 */
     /// ![](top_left_corner.png)
-    static let top_left_corner = GDK_TOP_LEFT_CORNER /* 134 */
+    static let topLeftCorner = GDK_TOP_LEFT_CORNER /* 134 */
     /// ![](top_right_corner.png)
-    static let top_right_corner = GDK_TOP_RIGHT_CORNER /* 136 */
+    static let topRightCorner = GDK_TOP_RIGHT_CORNER /* 136 */
     /// ![](top_side.png)
-    static let top_side = GDK_TOP_SIDE /* 138 */
+    static let topSide = GDK_TOP_SIDE /* 138 */
     /// ![](top_tee.png)
-    static let top_tee = GDK_TOP_TEE /* 140 */
+    static let topTee = GDK_TOP_TEE /* 140 */
     /// ![](trek.png)
     static let trek = GDK_TREK /* 142 */
     /// ![](ul_angle.png)
-    static let ul_angle = GDK_UL_ANGLE /* 144 */
+    static let ulAngle = GDK_UL_ANGLE /* 144 */
     /// ![](umbrella.png)
     static let umbrella = GDK_UMBRELLA /* 146 */
     /// ![](ur_angle.png)
-    static let ur_angle = GDK_UR_ANGLE /* 148 */
+    static let urAngle = GDK_UR_ANGLE /* 148 */
     /// ![](watch.png)
     static let watch = GDK_WATCH /* 150 */
     /// ![](xterm.png)
     static let xterm = GDK_XTERM /* 152 */
     /// last cursor type
-    static let last_cursor = GDK_LAST_CURSOR /* 153 */
+    static let lastCursor = GDK_LAST_CURSOR /* 153 */
     /// Blank cursor. Since 2.16
-    static let blank_cursor = GDK_BLANK_CURSOR /* -2 */
+    static let blankCursor = GDK_BLANK_CURSOR /* -2 */
     /// type of cursors constructed with
     ///   `gdk_cursor_new_from_pixbuf()`
-    static let cursor_is_pixmap = GDK_CURSOR_IS_PIXMAP /* -1 */
+    static let cursorIsPixmap = GDK_CURSOR_IS_PIXMAP /* -1 */
+    /// ![](X_cursor.png)
+    @available(*, deprecated) static let x_cursor = CursorType.xCursor /* GDK_X_CURSOR */
+    /// ![](based_arrow_down.png)
+    @available(*, deprecated) static let based_arrow_down = CursorType.basedArrowDown /* GDK_BASED_ARROW_DOWN */
+    /// ![](based_arrow_up.png)
+    @available(*, deprecated) static let based_arrow_up = CursorType.basedArrowUp /* GDK_BASED_ARROW_UP */
+    /// ![](bottom_left_corner.png)
+    @available(*, deprecated) static let bottom_left_corner = CursorType.bottomLeftCorner /* GDK_BOTTOM_LEFT_CORNER */
+    /// ![](bottom_right_corner.png)
+    @available(*, deprecated) static let bottom_right_corner = CursorType.bottomRightCorner /* GDK_BOTTOM_RIGHT_CORNER */
+    /// ![](bottom_side.png)
+    @available(*, deprecated) static let bottom_side = CursorType.bottomSide /* GDK_BOTTOM_SIDE */
+    /// ![](bottom_tee.png)
+    @available(*, deprecated) static let bottom_tee = CursorType.bottomTee /* GDK_BOTTOM_TEE */
+    /// ![](box_spiral.png)
+    @available(*, deprecated) static let box_spiral = CursorType.boxSpiral /* GDK_BOX_SPIRAL */
+    /// ![](center_ptr.png)
+    @available(*, deprecated) static let center_ptr = CursorType.centerPtr /* GDK_CENTER_PTR */
+    /// ![](coffee_mug.png)
+    @available(*, deprecated) static let coffee_mug = CursorType.coffeeMug /* GDK_COFFEE_MUG */
+    /// ![](cross_reverse.png)
+    @available(*, deprecated) static let cross_reverse = CursorType.crossReverse /* GDK_CROSS_REVERSE */
+    /// ![](diamond_cross.png)
+    @available(*, deprecated) static let diamond_cross = CursorType.diamondCross /* GDK_DIAMOND_CROSS */
+    /// ![](double_arrow.png)
+    @available(*, deprecated) static let double_arrow = CursorType.doubleArrow /* GDK_DOUBLE_ARROW */
+    /// ![](draft_large.png)
+    @available(*, deprecated) static let draft_large = CursorType.draftLarge /* GDK_DRAFT_LARGE */
+    /// ![](draft_small.png)
+    @available(*, deprecated) static let draft_small = CursorType.draftSmall /* GDK_DRAFT_SMALL */
+    /// ![](draped_box.png)
+    @available(*, deprecated) static let draped_box = CursorType.drapedBox /* GDK_DRAPED_BOX */
+    /// ![](iron_cross.png)
+    @available(*, deprecated) static let iron_cross = CursorType.ironCross /* GDK_IRON_CROSS */
+    /// ![](left_ptr.png)
+    @available(*, deprecated) static let left_ptr = CursorType.leftPtr /* GDK_LEFT_PTR */
+    /// ![](left_side.png)
+    @available(*, deprecated) static let left_side = CursorType.leftSide /* GDK_LEFT_SIDE */
+    /// ![](left_tee.png)
+    @available(*, deprecated) static let left_tee = CursorType.leftTee /* GDK_LEFT_TEE */
+    /// ![](ll_angle.png)
+    @available(*, deprecated) static let ll_angle = CursorType.llAngle /* GDK_LL_ANGLE */
+    /// ![](lr_angle.png)
+    @available(*, deprecated) static let lr_angle = CursorType.lrAngle /* GDK_LR_ANGLE */
+    /// ![](question_arrow.png)
+    @available(*, deprecated) static let question_arrow = CursorType.questionArrow /* GDK_QUESTION_ARROW */
+    /// ![](right_ptr.png)
+    @available(*, deprecated) static let right_ptr = CursorType.rightPtr /* GDK_RIGHT_PTR */
+    /// ![](right_side.png)
+    @available(*, deprecated) static let right_side = CursorType.rightSide /* GDK_RIGHT_SIDE */
+    /// ![](right_tee.png)
+    @available(*, deprecated) static let right_tee = CursorType.rightTee /* GDK_RIGHT_TEE */
+    /// ![](rtl_logo.png)
+    @available(*, deprecated) static let rtl_logo = CursorType.rtlLogo /* GDK_RTL_LOGO */
+    /// ![](sb_down_arrow.png)
+    @available(*, deprecated) static let sb_down_arrow = CursorType.sbDownArrow /* GDK_SB_DOWN_ARROW */
+    /// ![](sb_h_double_arrow.png)
+    @available(*, deprecated) static let sb_h_double_arrow = CursorType.sbHDoubleArrow /* GDK_SB_H_DOUBLE_ARROW */
+    /// ![](sb_left_arrow.png)
+    @available(*, deprecated) static let sb_left_arrow = CursorType.sbLeftArrow /* GDK_SB_LEFT_ARROW */
+    /// ![](sb_right_arrow.png)
+    @available(*, deprecated) static let sb_right_arrow = CursorType.sbRightArrow /* GDK_SB_RIGHT_ARROW */
+    /// ![](sb_up_arrow.png)
+    @available(*, deprecated) static let sb_up_arrow = CursorType.sbUpArrow /* GDK_SB_UP_ARROW */
+    /// ![](sb_v_double_arrow.png)
+    @available(*, deprecated) static let sb_v_double_arrow = CursorType.sbVDoubleArrow /* GDK_SB_V_DOUBLE_ARROW */
+    /// ![](top_left_arrow.png)
+    @available(*, deprecated) static let top_left_arrow = CursorType.topLeftArrow /* GDK_TOP_LEFT_ARROW */
+    /// ![](top_left_corner.png)
+    @available(*, deprecated) static let top_left_corner = CursorType.topLeftCorner /* GDK_TOP_LEFT_CORNER */
+    /// ![](top_right_corner.png)
+    @available(*, deprecated) static let top_right_corner = CursorType.topRightCorner /* GDK_TOP_RIGHT_CORNER */
+    /// ![](top_side.png)
+    @available(*, deprecated) static let top_side = CursorType.topSide /* GDK_TOP_SIDE */
+    /// ![](top_tee.png)
+    @available(*, deprecated) static let top_tee = CursorType.topTee /* GDK_TOP_TEE */
+    /// ![](ul_angle.png)
+    @available(*, deprecated) static let ul_angle = CursorType.ulAngle /* GDK_UL_ANGLE */
+    /// ![](ur_angle.png)
+    @available(*, deprecated) static let ur_angle = CursorType.urAngle /* GDK_UR_ANGLE */
+    /// last cursor type
+    @available(*, deprecated) static let last_cursor = CursorType.lastCursor /* GDK_LAST_CURSOR */
+    /// Blank cursor. Since 2.16
+    @available(*, deprecated) static let blank_cursor = CursorType.blankCursor /* GDK_BLANK_CURSOR */
+    /// type of cursors constructed with
+    ///   `gdk_cursor_new_from_pixbuf()`
+    @available(*, deprecated) static let cursor_is_pixmap = CursorType.cursorIsPixmap /* GDK_CURSOR_IS_PIXMAP */
 }
+func cast<I: BinaryInteger>(_ param: I) -> CursorType { CursorType(rawValue: cast(param)) }
+func cast(_ param: CursorType) -> UInt32 { cast(param.rawValue) }
+
 
 /// A pad feature.
 public typealias DevicePadFeature = GdkDevicePadFeature
@@ -270,7 +395,11 @@ public extension DevicePadFeature {
     static let ring = GDK_DEVICE_PAD_FEATURE_RING /* 1 */
     /// a straight interactive area
     static let strip = GDK_DEVICE_PAD_FEATURE_STRIP /* 2 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> DevicePadFeature { DevicePadFeature(rawValue: cast(param)) }
+func cast(_ param: DevicePadFeature) -> UInt32 { cast(param.rawValue) }
+
 
 /// Indicates the specific type of tool being used being a tablet. Such as an
 /// airbrush, pencil, etc.
@@ -293,7 +422,11 @@ public extension DeviceToolType {
     static let mouse = GDK_DEVICE_TOOL_TYPE_MOUSE /* 6 */
     /// Tool is a lens cursor.
     static let lens = GDK_DEVICE_TOOL_TYPE_LENS /* 7 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> DeviceToolType { DeviceToolType(rawValue: cast(param)) }
+func cast(_ param: DeviceToolType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Indicates the device type. See [above](#GdkDeviceManager.description)
 /// for more information about the meaning of these device types.
@@ -308,19 +441,30 @@ public extension DeviceType {
     /// Device is a physical device, currently not attached to
     ///                            any virtual device.
     static let floating = GDK_DEVICE_TYPE_FLOATING /* 2 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> DeviceType { DeviceType(rawValue: cast(param)) }
+func cast(_ param: DeviceType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Used in `GdkDragContext` to the reason of a cancelled DND operation.
 public typealias DragCancelReason = GdkDragCancelReason
 
 public extension DragCancelReason {
     /// There is no suitable drop target.
-    static let no_target = GDK_DRAG_CANCEL_NO_TARGET /* 0 */
+    static let noTarget = GDK_DRAG_CANCEL_NO_TARGET /* 0 */
     /// Drag cancelled by the user
-    static let user_cancelled = GDK_DRAG_CANCEL_USER_CANCELLED /* 1 */
+    static let userCancelled = GDK_DRAG_CANCEL_USER_CANCELLED /* 1 */
     /// Unspecified error.
     static let error = GDK_DRAG_CANCEL_ERROR /* 2 */
+    /// There is no suitable drop target.
+    @available(*, deprecated) static let no_target = DragCancelReason.noTarget /* GDK_DRAG_CANCEL_NO_TARGET */
+    /// Drag cancelled by the user
+    @available(*, deprecated) static let user_cancelled = DragCancelReason.userCancelled /* GDK_DRAG_CANCEL_USER_CANCELLED */
 }
+func cast<I: BinaryInteger>(_ param: I) -> DragCancelReason { DragCancelReason(rawValue: cast(param)) }
+func cast(_ param: DragCancelReason) -> UInt32 { cast(param.rawValue) }
+
 
 /// Used in `GdkDragContext` to indicate the protocol according to
 /// which DND is done.
@@ -328,7 +472,7 @@ public typealias Drag_Protocol = GdkDragProtocol
 
 public extension Drag_Protocol {
     /// no protocol.
-    static let none_ = GDK_DRAG_PROTO_NONE /* 0 */
+    static let `none` = GDK_DRAG_PROTO_NONE /* 0 */
     /// The Motif DND protocol. No longer supported
     static let motif = GDK_DRAG_PROTO_MOTIF /* 1 */
     /// The Xdnd protocol.
@@ -337,14 +481,21 @@ public extension Drag_Protocol {
     ///  unclaimed root window drops.
     static let rootwin = GDK_DRAG_PROTO_ROOTWIN /* 3 */
     /// The simple WM_DROPFILES protocol.
-    static let win32_dropfiles = GDK_DRAG_PROTO_WIN32_DROPFILES /* 4 */
+    static let win32Dropfiles = GDK_DRAG_PROTO_WIN32_DROPFILES /* 4 */
     /// The complex OLE2 DND protocol (not implemented).
     static let ole2 = GDK_DRAG_PROTO_OLE2 /* 5 */
     /// Intra-application DND.
     static let local = GDK_DRAG_PROTO_LOCAL /* 6 */
     /// Wayland DND protocol.
     static let wayland = GDK_DRAG_PROTO_WAYLAND /* 7 */
+    /// no protocol.
+    @available(*, deprecated) static let none_ = Drag_Protocol.`none` /* GDK_DRAG_PROTO_NONE */
+    /// The simple WM_DROPFILES protocol.
+    @available(*, deprecated) static let win32_dropfiles = Drag_Protocol.win32Dropfiles /* GDK_DRAG_PROTO_WIN32_DROPFILES */
 }
+func cast<I: BinaryInteger>(_ param: I) -> Drag_Protocol { Drag_Protocol(rawValue: cast(param)) }
+func cast(_ param: Drag_Protocol) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the type of the event.
 /// 
@@ -373,32 +524,32 @@ public extension EventType {
     ///   redrawn.
     static let expose = GDK_EXPOSE /* 2 */
     /// the pointer (usually a mouse) has moved.
-    static let motion_notify = GDK_MOTION_NOTIFY /* 3 */
+    static let motionNotify = GDK_MOTION_NOTIFY /* 3 */
     /// a mouse button has been pressed.
-    static let button_press = GDK_BUTTON_PRESS /* 4 */
+    static let buttonPress = GDK_BUTTON_PRESS /* 4 */
     /// a mouse button has been double-clicked (clicked twice
     ///   within a short period of time). Note that each click also generates a
     ///   `GDK_BUTTON_PRESS` event.
-    static let _2button_press = GDK_2BUTTON_PRESS /* 5 */
+    static let _2buttonPress = GDK_2BUTTON_PRESS /* 5 */
     /// alias for `GDK_2BUTTON_PRESS`, added in 3.6.
-    static let double_button_press = GDK_DOUBLE_BUTTON_PRESS /* 5 */
+    static let doubleButtonPress = GDK_DOUBLE_BUTTON_PRESS /* 5 */
     /// a mouse button has been clicked 3 times in a short period
     ///   of time. Note that each click also generates a `GDK_BUTTON_PRESS` event.
-    static let _3button_press = GDK_3BUTTON_PRESS /* 6 */
+    static let _3buttonPress = GDK_3BUTTON_PRESS /* 6 */
     /// alias for `GDK_3BUTTON_PRESS`, added in 3.6.
-    static let triple_button_press = GDK_TRIPLE_BUTTON_PRESS /* 6 */
+    static let tripleButtonPress = GDK_TRIPLE_BUTTON_PRESS /* 6 */
     /// a mouse button has been released.
-    static let button_release = GDK_BUTTON_RELEASE /* 7 */
+    static let buttonRelease = GDK_BUTTON_RELEASE /* 7 */
     /// a key has been pressed.
-    static let key_press = GDK_KEY_PRESS /* 8 */
+    static let keyPress = GDK_KEY_PRESS /* 8 */
     /// a key has been released.
-    static let key_release = GDK_KEY_RELEASE /* 9 */
+    static let keyRelease = GDK_KEY_RELEASE /* 9 */
     /// the pointer has entered the window.
-    static let enter_notify = GDK_ENTER_NOTIFY /* 10 */
+    static let enterNotify = GDK_ENTER_NOTIFY /* 10 */
     /// the pointer has left the window.
-    static let leave_notify = GDK_LEAVE_NOTIFY /* 11 */
+    static let leaveNotify = GDK_LEAVE_NOTIFY /* 11 */
     /// the keyboard focus has entered or left the window.
-    static let focus_change = GDK_FOCUS_CHANGE /* 12 */
+    static let focusChange = GDK_FOCUS_CHANGE /* 12 */
     /// the size, position or stacking order of the window has changed.
     ///   Note that GTK+ discards these events for `GDK_WINDOW_CHILD` windows.
     static let configure = GDK_CONFIGURE /* 13 */
@@ -407,102 +558,213 @@ public extension EventType {
     /// the window has been unmapped.
     static let unmap = GDK_UNMAP /* 15 */
     /// a property on the window has been changed or deleted.
-    static let property_notify = GDK_PROPERTY_NOTIFY /* 16 */
+    static let propertyNotify = GDK_PROPERTY_NOTIFY /* 16 */
     /// the application has lost ownership of a selection.
-    static let selection_clear = GDK_SELECTION_CLEAR /* 17 */
+    static let selectionClear = GDK_SELECTION_CLEAR /* 17 */
     /// another application has requested a selection.
-    static let selection_request = GDK_SELECTION_REQUEST /* 18 */
+    static let selectionRequest = GDK_SELECTION_REQUEST /* 18 */
     /// a selection has been received.
-    static let selection_notify = GDK_SELECTION_NOTIFY /* 19 */
+    static let selectionNotify = GDK_SELECTION_NOTIFY /* 19 */
     /// an input device has moved into contact with a sensing
     ///   surface (e.g. a touchscreen or graphics tablet).
-    static let proximity_in = GDK_PROXIMITY_IN /* 20 */
+    static let proximityIn = GDK_PROXIMITY_IN /* 20 */
     /// an input device has moved out of contact with a sensing
     ///   surface.
-    static let proximity_out = GDK_PROXIMITY_OUT /* 21 */
+    static let proximityOut = GDK_PROXIMITY_OUT /* 21 */
     /// the mouse has entered the window while a drag is in progress.
-    static let drag_enter = GDK_DRAG_ENTER /* 22 */
+    static let dragEnter = GDK_DRAG_ENTER /* 22 */
     /// the mouse has left the window while a drag is in progress.
-    static let drag_leave = GDK_DRAG_LEAVE /* 23 */
+    static let dragLeave = GDK_DRAG_LEAVE /* 23 */
     /// the mouse has moved in the window while a drag is in
     ///   progress.
-    static let drag_motion = GDK_DRAG_MOTION /* 24 */
+    static let dragMotion = GDK_DRAG_MOTION /* 24 */
     /// the status of the drag operation initiated by the window
     ///   has changed.
-    static let drag_status = GDK_DRAG_STATUS /* 25 */
+    static let dragStatus = GDK_DRAG_STATUS /* 25 */
     /// a drop operation onto the window has started.
-    static let drop_start = GDK_DROP_START /* 26 */
+    static let dropStart = GDK_DROP_START /* 26 */
     /// the drop operation initiated by the window has completed.
-    static let drop_finished = GDK_DROP_FINISHED /* 27 */
+    static let dropFinished = GDK_DROP_FINISHED /* 27 */
     /// a message has been received from another application.
-    static let client_event = GDK_CLIENT_EVENT /* 28 */
+    static let clientEvent = GDK_CLIENT_EVENT /* 28 */
     /// the window visibility status has changed.
-    static let visibility_notify = GDK_VISIBILITY_NOTIFY /* 29 */
+    static let visibilityNotify = GDK_VISIBILITY_NOTIFY /* 29 */
     /// the scroll wheel was turned
     static let scroll = GDK_SCROLL /* 31 */
     /// the state of a window has changed. See `GdkWindowState`
     ///   for the possible window states
-    static let window_state = GDK_WINDOW_STATE /* 32 */
+    static let windowState = GDK_WINDOW_STATE /* 32 */
     /// a setting has been modified.
     static let setting = GDK_SETTING /* 33 */
     /// the owner of a selection has changed. This event type
     ///   was added in 2.6
-    static let owner_change = GDK_OWNER_CHANGE /* 34 */
+    static let ownerChange = GDK_OWNER_CHANGE /* 34 */
     /// a pointer or keyboard grab was broken. This event type
     ///   was added in 2.8.
-    static let grab_broken = GDK_GRAB_BROKEN /* 35 */
+    static let grabBroken = GDK_GRAB_BROKEN /* 35 */
     /// the content of the window has been changed. This event type
     ///   was added in 2.14.
     static let damage = GDK_DAMAGE /* 36 */
     /// A new touch event sequence has just started. This event
     ///   type was added in 3.4.
-    static let touch_begin = GDK_TOUCH_BEGIN /* 37 */
+    static let touchBegin = GDK_TOUCH_BEGIN /* 37 */
     /// A touch event sequence has been updated. This event type
     ///   was added in 3.4.
-    static let touch_update = GDK_TOUCH_UPDATE /* 38 */
+    static let touchUpdate = GDK_TOUCH_UPDATE /* 38 */
     /// A touch event sequence has finished. This event type
     ///   was added in 3.4.
-    static let touch_end = GDK_TOUCH_END /* 39 */
+    static let touchEnd = GDK_TOUCH_END /* 39 */
     /// A touch event sequence has been canceled. This event type
     ///   was added in 3.4.
-    static let touch_cancel = GDK_TOUCH_CANCEL /* 40 */
+    static let touchCancel = GDK_TOUCH_CANCEL /* 40 */
     /// A touchpad swipe gesture event, the current state
     ///   is determined by its phase field. This event type was added in 3.18.
-    static let touchpad_swipe = GDK_TOUCHPAD_SWIPE /* 41 */
+    static let touchpadSwipe = GDK_TOUCHPAD_SWIPE /* 41 */
     /// A touchpad pinch gesture event, the current state
     ///   is determined by its phase field. This event type was added in 3.18.
-    static let touchpad_pinch = GDK_TOUCHPAD_PINCH /* 42 */
+    static let touchpadPinch = GDK_TOUCHPAD_PINCH /* 42 */
     /// A tablet pad button press event. This event type
     ///   was added in 3.22.
-    static let pad_button_press = GDK_PAD_BUTTON_PRESS /* 43 */
+    static let padButtonPress = GDK_PAD_BUTTON_PRESS /* 43 */
     /// A tablet pad button release event. This event type
     ///   was added in 3.22.
-    static let pad_button_release = GDK_PAD_BUTTON_RELEASE /* 44 */
+    static let padButtonRelease = GDK_PAD_BUTTON_RELEASE /* 44 */
     /// A tablet pad axis event from a "ring". This event type was
     ///   added in 3.22.
-    static let pad_ring = GDK_PAD_RING /* 45 */
+    static let padRing = GDK_PAD_RING /* 45 */
     /// A tablet pad axis event from a "strip". This event type was
     ///   added in 3.22.
-    static let pad_strip = GDK_PAD_STRIP /* 46 */
+    static let padStrip = GDK_PAD_STRIP /* 46 */
     /// A tablet pad group mode change. This event type was
     ///   added in 3.22.
-    static let pad_group_mode = GDK_PAD_GROUP_MODE /* 47 */
+    static let padGroupMode = GDK_PAD_GROUP_MODE /* 47 */
     /// marks the end of the GdkEventType enumeration. Added in 2.18
-    static let event_last = GDK_EVENT_LAST /* 48 */
+    static let eventLast = GDK_EVENT_LAST /* 48 */
+    /// the pointer (usually a mouse) has moved.
+    @available(*, deprecated) static let motion_notify = EventType.motionNotify /* GDK_MOTION_NOTIFY */
+    /// a mouse button has been pressed.
+    @available(*, deprecated) static let button_press = EventType.buttonPress /* GDK_BUTTON_PRESS */
+    /// a mouse button has been double-clicked (clicked twice
+    ///   within a short period of time). Note that each click also generates a
+    ///   `GDK_BUTTON_PRESS` event.
+    @available(*, deprecated) static let _2button_press = EventType._2buttonPress /* GDK_2BUTTON_PRESS */
+    /// alias for `GDK_2BUTTON_PRESS`, added in 3.6.
+    @available(*, deprecated) static let double_button_press = EventType.doubleButtonPress /* GDK_DOUBLE_BUTTON_PRESS */
+    /// a mouse button has been clicked 3 times in a short period
+    ///   of time. Note that each click also generates a `GDK_BUTTON_PRESS` event.
+    @available(*, deprecated) static let _3button_press = EventType._3buttonPress /* GDK_3BUTTON_PRESS */
+    /// alias for `GDK_3BUTTON_PRESS`, added in 3.6.
+    @available(*, deprecated) static let triple_button_press = EventType.tripleButtonPress /* GDK_TRIPLE_BUTTON_PRESS */
+    /// a mouse button has been released.
+    @available(*, deprecated) static let button_release = EventType.buttonRelease /* GDK_BUTTON_RELEASE */
+    /// a key has been pressed.
+    @available(*, deprecated) static let key_press = EventType.keyPress /* GDK_KEY_PRESS */
+    /// a key has been released.
+    @available(*, deprecated) static let key_release = EventType.keyRelease /* GDK_KEY_RELEASE */
+    /// the pointer has entered the window.
+    @available(*, deprecated) static let enter_notify = EventType.enterNotify /* GDK_ENTER_NOTIFY */
+    /// the pointer has left the window.
+    @available(*, deprecated) static let leave_notify = EventType.leaveNotify /* GDK_LEAVE_NOTIFY */
+    /// the keyboard focus has entered or left the window.
+    @available(*, deprecated) static let focus_change = EventType.focusChange /* GDK_FOCUS_CHANGE */
+    /// a property on the window has been changed or deleted.
+    @available(*, deprecated) static let property_notify = EventType.propertyNotify /* GDK_PROPERTY_NOTIFY */
+    /// the application has lost ownership of a selection.
+    @available(*, deprecated) static let selection_clear = EventType.selectionClear /* GDK_SELECTION_CLEAR */
+    /// another application has requested a selection.
+    @available(*, deprecated) static let selection_request = EventType.selectionRequest /* GDK_SELECTION_REQUEST */
+    /// a selection has been received.
+    @available(*, deprecated) static let selection_notify = EventType.selectionNotify /* GDK_SELECTION_NOTIFY */
+    /// an input device has moved into contact with a sensing
+    ///   surface (e.g. a touchscreen or graphics tablet).
+    @available(*, deprecated) static let proximity_in = EventType.proximityIn /* GDK_PROXIMITY_IN */
+    /// an input device has moved out of contact with a sensing
+    ///   surface.
+    @available(*, deprecated) static let proximity_out = EventType.proximityOut /* GDK_PROXIMITY_OUT */
+    /// the mouse has entered the window while a drag is in progress.
+    @available(*, deprecated) static let drag_enter = EventType.dragEnter /* GDK_DRAG_ENTER */
+    /// the mouse has left the window while a drag is in progress.
+    @available(*, deprecated) static let drag_leave = EventType.dragLeave /* GDK_DRAG_LEAVE */
+    /// the mouse has moved in the window while a drag is in
+    ///   progress.
+    @available(*, deprecated) static let drag_motion = EventType.dragMotion /* GDK_DRAG_MOTION */
+    /// the status of the drag operation initiated by the window
+    ///   has changed.
+    @available(*, deprecated) static let drag_status = EventType.dragStatus /* GDK_DRAG_STATUS */
+    /// a drop operation onto the window has started.
+    @available(*, deprecated) static let drop_start = EventType.dropStart /* GDK_DROP_START */
+    /// the drop operation initiated by the window has completed.
+    @available(*, deprecated) static let drop_finished = EventType.dropFinished /* GDK_DROP_FINISHED */
+    /// a message has been received from another application.
+    @available(*, deprecated) static let client_event = EventType.clientEvent /* GDK_CLIENT_EVENT */
+    /// the window visibility status has changed.
+    @available(*, deprecated) static let visibility_notify = EventType.visibilityNotify /* GDK_VISIBILITY_NOTIFY */
+    /// the state of a window has changed. See `GdkWindowState`
+    ///   for the possible window states
+    @available(*, deprecated) static let window_state = EventType.windowState /* GDK_WINDOW_STATE */
+    /// the owner of a selection has changed. This event type
+    ///   was added in 2.6
+    @available(*, deprecated) static let owner_change = EventType.ownerChange /* GDK_OWNER_CHANGE */
+    /// a pointer or keyboard grab was broken. This event type
+    ///   was added in 2.8.
+    @available(*, deprecated) static let grab_broken = EventType.grabBroken /* GDK_GRAB_BROKEN */
+    /// A new touch event sequence has just started. This event
+    ///   type was added in 3.4.
+    @available(*, deprecated) static let touch_begin = EventType.touchBegin /* GDK_TOUCH_BEGIN */
+    /// A touch event sequence has been updated. This event type
+    ///   was added in 3.4.
+    @available(*, deprecated) static let touch_update = EventType.touchUpdate /* GDK_TOUCH_UPDATE */
+    /// A touch event sequence has finished. This event type
+    ///   was added in 3.4.
+    @available(*, deprecated) static let touch_end = EventType.touchEnd /* GDK_TOUCH_END */
+    /// A touch event sequence has been canceled. This event type
+    ///   was added in 3.4.
+    @available(*, deprecated) static let touch_cancel = EventType.touchCancel /* GDK_TOUCH_CANCEL */
+    /// A touchpad swipe gesture event, the current state
+    ///   is determined by its phase field. This event type was added in 3.18.
+    @available(*, deprecated) static let touchpad_swipe = EventType.touchpadSwipe /* GDK_TOUCHPAD_SWIPE */
+    /// A touchpad pinch gesture event, the current state
+    ///   is determined by its phase field. This event type was added in 3.18.
+    @available(*, deprecated) static let touchpad_pinch = EventType.touchpadPinch /* GDK_TOUCHPAD_PINCH */
+    /// A tablet pad button press event. This event type
+    ///   was added in 3.22.
+    @available(*, deprecated) static let pad_button_press = EventType.padButtonPress /* GDK_PAD_BUTTON_PRESS */
+    /// A tablet pad button release event. This event type
+    ///   was added in 3.22.
+    @available(*, deprecated) static let pad_button_release = EventType.padButtonRelease /* GDK_PAD_BUTTON_RELEASE */
+    /// A tablet pad axis event from a "ring". This event type was
+    ///   added in 3.22.
+    @available(*, deprecated) static let pad_ring = EventType.padRing /* GDK_PAD_RING */
+    /// A tablet pad axis event from a "strip". This event type was
+    ///   added in 3.22.
+    @available(*, deprecated) static let pad_strip = EventType.padStrip /* GDK_PAD_STRIP */
+    /// A tablet pad group mode change. This event type was
+    ///   added in 3.22.
+    @available(*, deprecated) static let pad_group_mode = EventType.padGroupMode /* GDK_PAD_GROUP_MODE */
+    /// marks the end of the GdkEventType enumeration. Added in 2.18
+    @available(*, deprecated) static let event_last = EventType.eventLast /* GDK_EVENT_LAST */
 }
+func cast<I: BinaryInteger>(_ param: I) -> EventType { EventType(rawValue: cast(param)) }
+func cast(_ param: EventType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the result of applying a `GdkFilterFunc` to a native event.
 public typealias FilterReturn = GdkFilterReturn
 
 public extension FilterReturn {
     /// event not handled, continue processing.
-    static let continue_ = GDK_FILTER_CONTINUE /* 0 */
+    static let `continue` = GDK_FILTER_CONTINUE /* 0 */
     /// native event translated into a GDK event and stored
     ///  in the `event` structure that was passed in.
     static let translate = GDK_FILTER_TRANSLATE /* 1 */
     /// event handled, terminate processing.
     static let remove = GDK_FILTER_REMOVE /* 2 */
+    /// event not handled, continue processing.
+    @available(*, deprecated) static let continue_ = FilterReturn.`continue` /* GDK_FILTER_CONTINUE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> FilterReturn { FilterReturn(rawValue: cast(param)) }
+func cast(_ param: FilterReturn) -> UInt32 { cast(param.rawValue) }
+
 
 /// Indicates which monitor (in a multi-head setup) a window should span over
 /// when in fullscreen mode.
@@ -510,34 +772,55 @@ public typealias FullscreenMode = GdkFullscreenMode
 
 public extension FullscreenMode {
     /// Fullscreen on current monitor only.
-    static let current_monitor = GDK_FULLSCREEN_ON_CURRENT_MONITOR /* 0 */
+    static let currentMonitor = GDK_FULLSCREEN_ON_CURRENT_MONITOR /* 0 */
     /// Span across all monitors when fullscreen.
-    static let all_monitors = GDK_FULLSCREEN_ON_ALL_MONITORS /* 1 */
+    static let allMonitors = GDK_FULLSCREEN_ON_ALL_MONITORS /* 1 */
+    /// Fullscreen on current monitor only.
+    @available(*, deprecated) static let current_monitor = FullscreenMode.currentMonitor /* GDK_FULLSCREEN_ON_CURRENT_MONITOR */
+    /// Span across all monitors when fullscreen.
+    @available(*, deprecated) static let all_monitors = FullscreenMode.allMonitors /* GDK_FULLSCREEN_ON_ALL_MONITORS */
 }
+func cast<I: BinaryInteger>(_ param: I) -> FullscreenMode { FullscreenMode(rawValue: cast(param)) }
+func cast(_ param: FullscreenMode) -> UInt32 { cast(param.rawValue) }
+
 
 /// Error enumeration for `GdkGLContext`.
 public typealias GLError = GdkGLError
 
 public extension GLError {
     /// OpenGL support is not available
-    static let not_available = GDK_GL_ERROR_NOT_AVAILABLE /* 0 */
+    static let notAvailable = GDK_GL_ERROR_NOT_AVAILABLE /* 0 */
     /// The requested visual format is not supported
-    static let unsupported_format = GDK_GL_ERROR_UNSUPPORTED_FORMAT /* 1 */
+    static let unsupportedFormat = GDK_GL_ERROR_UNSUPPORTED_FORMAT /* 1 */
     /// The requested profile is not supported
-    static let unsupported_profile = GDK_GL_ERROR_UNSUPPORTED_PROFILE /* 2 */
+    static let unsupportedProfile = GDK_GL_ERROR_UNSUPPORTED_PROFILE /* 2 */
+    /// OpenGL support is not available
+    @available(*, deprecated) static let not_available = GLError.notAvailable /* GDK_GL_ERROR_NOT_AVAILABLE */
+    /// The requested visual format is not supported
+    @available(*, deprecated) static let unsupported_format = GLError.unsupportedFormat /* GDK_GL_ERROR_UNSUPPORTED_FORMAT */
+    /// The requested profile is not supported
+    @available(*, deprecated) static let unsupported_profile = GLError.unsupportedProfile /* GDK_GL_ERROR_UNSUPPORTED_PROFILE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> GLError { GLError(rawValue: cast(param)) }
+func cast(_ param: GLError) -> UInt32 { cast(param.rawValue) }
+
 
 /// Defines how device grabs interact with other devices.
 public typealias GrabOwnership = GdkGrabOwnership
 
 public extension GrabOwnership {
     /// All other devices’ events are allowed.
-    static let none_ = GDK_OWNERSHIP_NONE /* 0 */
+    static let `none` = GDK_OWNERSHIP_NONE /* 0 */
     /// Other devices’ events are blocked for the grab window.
     static let window = GDK_OWNERSHIP_WINDOW /* 1 */
     /// Other devices’ events are blocked for the whole application.
     static let application = GDK_OWNERSHIP_APPLICATION /* 2 */
+    /// All other devices’ events are allowed.
+    @available(*, deprecated) static let none_ = GrabOwnership.`none` /* GDK_OWNERSHIP_NONE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> GrabOwnership { GrabOwnership(rawValue: cast(param)) }
+func cast(_ param: GrabOwnership) -> UInt32 { cast(param.rawValue) }
+
 
 /// Returned by `gdk_device_grab()`, `gdk_pointer_grab()` and `gdk_keyboard_grab()` to
 /// indicate success or the reason for the failure of the grab attempt.
@@ -547,18 +830,29 @@ public extension GrabStatus {
     /// the resource was successfully grabbed.
     static let success = GDK_GRAB_SUCCESS /* 0 */
     /// the resource is actively grabbed by another client.
-    static let already_grabbed = GDK_GRAB_ALREADY_GRABBED /* 1 */
+    static let alreadyGrabbed = GDK_GRAB_ALREADY_GRABBED /* 1 */
     /// the resource was grabbed more recently than the
     ///  specified time.
-    static let invalid_time = GDK_GRAB_INVALID_TIME /* 2 */
+    static let invalidTime = GDK_GRAB_INVALID_TIME /* 2 */
     /// the grab window or the `confine_to` window are not
     ///  viewable.
-    static let not_viewable = GDK_GRAB_NOT_VIEWABLE /* 3 */
+    static let notViewable = GDK_GRAB_NOT_VIEWABLE /* 3 */
     /// the resource is frozen by an active grab of another client.
     static let frozen = GDK_GRAB_FROZEN /* 4 */
     /// the grab failed for some other reason. Since 3.16
     static let failed = GDK_GRAB_FAILED /* 5 */
+    /// the resource is actively grabbed by another client.
+    @available(*, deprecated) static let already_grabbed = GrabStatus.alreadyGrabbed /* GDK_GRAB_ALREADY_GRABBED */
+    /// the resource was grabbed more recently than the
+    ///  specified time.
+    @available(*, deprecated) static let invalid_time = GrabStatus.invalidTime /* GDK_GRAB_INVALID_TIME */
+    /// the grab window or the `confine_to` window are not
+    ///  viewable.
+    @available(*, deprecated) static let not_viewable = GrabStatus.notViewable /* GDK_GRAB_NOT_VIEWABLE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> GrabStatus { GrabStatus(rawValue: cast(param)) }
+func cast(_ param: GrabStatus) -> UInt32 { cast(param.rawValue) }
+
 
 /// Defines the reference point of a window and the meaning of coordinates
 /// passed to `gtk_window_move()`. See `gtk_window_move()` and the "implementation
@@ -569,11 +863,11 @@ public typealias Gravity = GdkGravity
 
 public extension Gravity {
     /// the reference point is at the top left corner.
-    static let north_west = GDK_GRAVITY_NORTH_WEST /* 1 */
+    static let northWest = GDK_GRAVITY_NORTH_WEST /* 1 */
     /// the reference point is in the middle of the top edge.
     static let north = GDK_GRAVITY_NORTH /* 2 */
     /// the reference point is at the top right corner.
-    static let north_east = GDK_GRAVITY_NORTH_EAST /* 3 */
+    static let northEast = GDK_GRAVITY_NORTH_EAST /* 3 */
     /// the reference point is at the middle of the left edge.
     static let west = GDK_GRAVITY_WEST /* 4 */
     /// the reference point is at the center of the window.
@@ -581,15 +875,29 @@ public extension Gravity {
     /// the reference point is at the middle of the right edge.
     static let east = GDK_GRAVITY_EAST /* 6 */
     /// the reference point is at the lower left corner.
-    static let south_west = GDK_GRAVITY_SOUTH_WEST /* 7 */
+    static let southWest = GDK_GRAVITY_SOUTH_WEST /* 7 */
     /// the reference point is at the middle of the lower edge.
     static let south = GDK_GRAVITY_SOUTH /* 8 */
     /// the reference point is at the lower right corner.
-    static let south_east = GDK_GRAVITY_SOUTH_EAST /* 9 */
+    static let southEast = GDK_GRAVITY_SOUTH_EAST /* 9 */
     /// the reference point is at the top left corner of the
     ///  window itself, ignoring window manager decorations.
-    static let static_ = GDK_GRAVITY_STATIC /* 10 */
+    static let `static` = GDK_GRAVITY_STATIC /* 10 */
+    /// the reference point is at the top left corner.
+    @available(*, deprecated) static let north_west = Gravity.northWest /* GDK_GRAVITY_NORTH_WEST */
+    /// the reference point is at the top right corner.
+    @available(*, deprecated) static let north_east = Gravity.northEast /* GDK_GRAVITY_NORTH_EAST */
+    /// the reference point is at the lower left corner.
+    @available(*, deprecated) static let south_west = Gravity.southWest /* GDK_GRAVITY_SOUTH_WEST */
+    /// the reference point is at the lower right corner.
+    @available(*, deprecated) static let south_east = Gravity.southEast /* GDK_GRAVITY_SOUTH_EAST */
+    /// the reference point is at the top left corner of the
+    ///  window itself, ignoring window manager decorations.
+    @available(*, deprecated) static let static_ = Gravity.`static` /* GDK_GRAVITY_STATIC */
 }
+func cast<I: BinaryInteger>(_ param: I) -> Gravity { Gravity(rawValue: cast(param)) }
+func cast(_ param: Gravity) -> UInt32 { cast(param.rawValue) }
+
 
 /// An enumeration that describes the mode of an input device.
 public typealias InputMode = GdkInputMode
@@ -605,7 +913,11 @@ public extension InputMode {
     ///                   is chosen is undefined, but it will typically be the same
     ///                   way in which the focus window for key events is determined.
     static let window = GDK_MODE_WINDOW /* 2 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> InputMode { InputMode(rawValue: cast(param)) }
+func cast(_ param: InputMode) -> UInt32 { cast(param.rawValue) }
+
 
 /// An enumeration describing the type of an input device in general terms.
 public typealias InputSource = GdkInputSource
@@ -635,8 +947,15 @@ public extension InputSource {
     /// the device is a "pad", a collection of buttons,
     ///     rings and strips found in drawing tablets. This device type has been
     ///     added in 3.22.
-    static let tablet_pad = GDK_SOURCE_TABLET_PAD /* 8 */
+    static let tabletPad = GDK_SOURCE_TABLET_PAD /* 8 */
+    /// the device is a "pad", a collection of buttons,
+    ///     rings and strips found in drawing tablets. This device type has been
+    ///     added in 3.22.
+    @available(*, deprecated) static let tablet_pad = InputSource.tabletPad /* GDK_SOURCE_TABLET_PAD */
 }
+func cast<I: BinaryInteger>(_ param: I) -> InputSource { InputSource(rawValue: cast(param)) }
+func cast(_ param: InputSource) -> UInt32 { cast(param.rawValue) }
+
 
 /// This enum is used with `gdk_keymap_get_modifier_mask()`
 /// in order to determine what modifiers the
@@ -650,31 +969,60 @@ public typealias ModifierIntent = GdkModifierIntent
 public extension ModifierIntent {
     /// the primary modifier used to invoke
     ///  menu accelerators.
-    static let primary_accelerator = GDK_MODIFIER_INTENT_PRIMARY_ACCELERATOR /* 0 */
+    static let primaryAccelerator = GDK_MODIFIER_INTENT_PRIMARY_ACCELERATOR /* 0 */
     /// the modifier used to invoke context menus.
     ///  Note that mouse button 3 always triggers context menus. When this modifier
     ///  is not 0, it additionally triggers context menus when used with mouse button 1.
-    static let context_menu = GDK_MODIFIER_INTENT_CONTEXT_MENU /* 1 */
+    static let contextMenu = GDK_MODIFIER_INTENT_CONTEXT_MENU /* 1 */
     /// the modifier used to extend selections
     ///  using `modifier`-click or `modifier`-cursor-key
-    static let extend_selection = GDK_MODIFIER_INTENT_EXTEND_SELECTION /* 2 */
+    static let extendSelection = GDK_MODIFIER_INTENT_EXTEND_SELECTION /* 2 */
     /// the modifier used to modify selections,
     ///  which in most cases means toggling the clicked item into or out of the selection.
-    static let modify_selection = GDK_MODIFIER_INTENT_MODIFY_SELECTION /* 3 */
+    static let modifySelection = GDK_MODIFIER_INTENT_MODIFY_SELECTION /* 3 */
     /// when any of these modifiers is pressed, the
     ///  key event cannot produce a symbol directly. This is meant to be used for
     ///  input methods, and for use cases like typeahead search.
-    static let no_text_input = GDK_MODIFIER_INTENT_NO_TEXT_INPUT /* 4 */
+    static let noTextInput = GDK_MODIFIER_INTENT_NO_TEXT_INPUT /* 4 */
     /// the modifier that switches between keyboard
     ///  groups (AltGr on X11/Windows and Option/Alt on OS X).
-    static let shift_group = GDK_MODIFIER_INTENT_SHIFT_GROUP /* 5 */
+    static let shiftGroup = GDK_MODIFIER_INTENT_SHIFT_GROUP /* 5 */
     /// The set of modifier masks accepted
     /// as modifiers in accelerators. Needed because Command is mapped to MOD2 on
     /// OSX, which is widely used, but on X11 MOD2 is NumLock and using that for a
     /// mod key is problematic at best.
     /// Ref: https://bugzilla.gnome.org/show_bug.cgi?id=736125.
-    static let default_mod_mask = GDK_MODIFIER_INTENT_DEFAULT_MOD_MASK /* 6 */
+    static let defaultModMask = GDK_MODIFIER_INTENT_DEFAULT_MOD_MASK /* 6 */
+    /// the primary modifier used to invoke
+    ///  menu accelerators.
+    @available(*, deprecated) static let primary_accelerator = ModifierIntent.primaryAccelerator /* GDK_MODIFIER_INTENT_PRIMARY_ACCELERATOR */
+    /// the modifier used to invoke context menus.
+    ///  Note that mouse button 3 always triggers context menus. When this modifier
+    ///  is not 0, it additionally triggers context menus when used with mouse button 1.
+    @available(*, deprecated) static let context_menu = ModifierIntent.contextMenu /* GDK_MODIFIER_INTENT_CONTEXT_MENU */
+    /// the modifier used to extend selections
+    ///  using `modifier`-click or `modifier`-cursor-key
+    @available(*, deprecated) static let extend_selection = ModifierIntent.extendSelection /* GDK_MODIFIER_INTENT_EXTEND_SELECTION */
+    /// the modifier used to modify selections,
+    ///  which in most cases means toggling the clicked item into or out of the selection.
+    @available(*, deprecated) static let modify_selection = ModifierIntent.modifySelection /* GDK_MODIFIER_INTENT_MODIFY_SELECTION */
+    /// when any of these modifiers is pressed, the
+    ///  key event cannot produce a symbol directly. This is meant to be used for
+    ///  input methods, and for use cases like typeahead search.
+    @available(*, deprecated) static let no_text_input = ModifierIntent.noTextInput /* GDK_MODIFIER_INTENT_NO_TEXT_INPUT */
+    /// the modifier that switches between keyboard
+    ///  groups (AltGr on X11/Windows and Option/Alt on OS X).
+    @available(*, deprecated) static let shift_group = ModifierIntent.shiftGroup /* GDK_MODIFIER_INTENT_SHIFT_GROUP */
+    /// The set of modifier masks accepted
+    /// as modifiers in accelerators. Needed because Command is mapped to MOD2 on
+    /// OSX, which is widely used, but on X11 MOD2 is NumLock and using that for a
+    /// mod key is problematic at best.
+    /// Ref: https://bugzilla.gnome.org/show_bug.cgi?id=736125.
+    @available(*, deprecated) static let default_mod_mask = ModifierIntent.defaultModMask /* GDK_MODIFIER_INTENT_DEFAULT_MOD_MASK */
 }
+func cast<I: BinaryInteger>(_ param: I) -> ModifierIntent { ModifierIntent(rawValue: cast(param)) }
+func cast(_ param: ModifierIntent) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the kind of crossing for `GdkEventCrossing`.
 /// 
@@ -699,22 +1047,35 @@ public extension NotifyType {
     ///   which are not ancestors of each other and the window is part of
     ///   the ancestor chain between one of these windows and their least
     ///   common ancestor.
-    static let nonlinear_virtual = GDK_NOTIFY_NONLINEAR_VIRTUAL /* 4 */
+    static let nonlinearVirtual = GDK_NOTIFY_NONLINEAR_VIRTUAL /* 4 */
     /// an unknown type of enter/leave event occurred.
     static let unknown = GDK_NOTIFY_UNKNOWN /* 5 */
+    /// the pointer moves between two windows
+    ///   which are not ancestors of each other and the window is part of
+    ///   the ancestor chain between one of these windows and their least
+    ///   common ancestor.
+    @available(*, deprecated) static let nonlinear_virtual = NotifyType.nonlinearVirtual /* GDK_NOTIFY_NONLINEAR_VIRTUAL */
 }
+func cast<I: BinaryInteger>(_ param: I) -> NotifyType { NotifyType(rawValue: cast(param)) }
+func cast(_ param: NotifyType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies why a selection ownership was changed.
 public typealias OwnerChange = GdkOwnerChange
 
 public extension OwnerChange {
     /// some other app claimed the ownership
-    static let new_owner = GDK_OWNER_CHANGE_NEW_OWNER /* 0 */
+    static let newOwner = GDK_OWNER_CHANGE_NEW_OWNER /* 0 */
     /// the window was destroyed
     static let destroy = GDK_OWNER_CHANGE_DESTROY /* 1 */
     /// the client was closed
     static let close = GDK_OWNER_CHANGE_CLOSE /* 2 */
+    /// some other app claimed the ownership
+    @available(*, deprecated) static let new_owner = OwnerChange.newOwner /* GDK_OWNER_CHANGE_NEW_OWNER */
 }
+func cast<I: BinaryInteger>(_ param: I) -> OwnerChange { OwnerChange(rawValue: cast(param)) }
+func cast(_ param: OwnerChange) -> UInt32 { cast(param.rawValue) }
+
 
 /// Describes how existing data is combined with new data when
 /// using `gdk_property_change()`.
@@ -727,17 +1088,26 @@ public extension PropMode {
     static let prepend = GDK_PROP_MODE_PREPEND /* 1 */
     /// the new data is appended to the existing data.
     static let append = GDK_PROP_MODE_APPEND /* 2 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> PropMode { PropMode(rawValue: cast(param)) }
+func cast(_ param: PropMode) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the type of a property change for a `GdkEventProperty`.
 public typealias PropertyState = GdkPropertyState
 
 public extension PropertyState {
     /// the property value was changed.
-    static let new_value = GDK_PROPERTY_NEW_VALUE /* 0 */
+    static let newValue = GDK_PROPERTY_NEW_VALUE /* 0 */
     /// the property was deleted.
     static let delete = GDK_PROPERTY_DELETE /* 1 */
+    /// the property value was changed.
+    @available(*, deprecated) static let new_value = PropertyState.newValue /* GDK_PROPERTY_NEW_VALUE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> PropertyState { PropertyState(rawValue: cast(param)) }
+func cast(_ param: PropertyState) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the direction for `GdkEventScroll`.
 public typealias ScrollDirection = GdkScrollDirection
@@ -748,13 +1118,20 @@ public extension ScrollDirection {
     /// the window is scrolled down.
     static let down = GDK_SCROLL_DOWN /* 1 */
     /// the window is scrolled to the left.
-    static let left_ = GDK_SCROLL_LEFT /* 2 */
+    static let `left` = GDK_SCROLL_LEFT /* 2 */
     /// the window is scrolled to the right.
-    static let right_ = GDK_SCROLL_RIGHT /* 3 */
+    static let `right` = GDK_SCROLL_RIGHT /* 3 */
     /// the scrolling is determined by the delta values
     ///   in `GdkEventScroll`. See `gdk_event_get_scroll_deltas()`. Since: 3.4
     static let smooth = GDK_SCROLL_SMOOTH /* 4 */
+    /// the window is scrolled to the left.
+    @available(*, deprecated) static let left_ = ScrollDirection.`left` /* GDK_SCROLL_LEFT */
+    /// the window is scrolled to the right.
+    @available(*, deprecated) static let right_ = ScrollDirection.`right` /* GDK_SCROLL_RIGHT */
 }
+func cast<I: BinaryInteger>(_ param: I) -> ScrollDirection { ScrollDirection(rawValue: cast(param)) }
+func cast(_ param: ScrollDirection) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the kind of modification applied to a setting in a
 /// `GdkEventSetting`.
@@ -767,17 +1144,27 @@ public extension SettingAction {
     static let changed = GDK_SETTING_ACTION_CHANGED /* 1 */
     /// a setting was deleted.
     static let deleted = GDK_SETTING_ACTION_DELETED /* 2 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> SettingAction { SettingAction(rawValue: cast(param)) }
+func cast(_ param: SettingAction) -> UInt32 { cast(param.rawValue) }
+
 
 public typealias Status = GdkStatus
 
 public extension Status {
     static let ok = GDK_OK /* 0 */
     static let error = GDK_ERROR /* -1 */
-    static let error_param = GDK_ERROR_PARAM /* -2 */
-    static let error_file = GDK_ERROR_FILE /* -3 */
-    static let error_mem = GDK_ERROR_MEM /* -4 */
+    static let errorParam = GDK_ERROR_PARAM /* -2 */
+    static let errorFile = GDK_ERROR_FILE /* -3 */
+    static let errorMem = GDK_ERROR_MEM /* -4 */
+    @available(*, deprecated) static let error_param = Status.errorParam /* GDK_ERROR_PARAM */
+    @available(*, deprecated) static let error_file = Status.errorFile /* GDK_ERROR_FILE */
+    @available(*, deprecated) static let error_mem = Status.errorMem /* GDK_ERROR_MEM */
 }
+func cast<I: BinaryInteger>(_ param: I) -> Status { Status(rawValue: cast(param)) }
+func cast(_ param: Status) -> UInt32 { cast(param.rawValue) }
+
 
 /// This enumeration describes how the red, green and blue components
 /// of physical pixels on an output device are laid out.
@@ -787,16 +1174,29 @@ public extension SubpixelLayout {
     /// The layout is not known
     static let unknown = GDK_SUBPIXEL_LAYOUT_UNKNOWN /* 0 */
     /// Not organized in this way
-    static let none_ = GDK_SUBPIXEL_LAYOUT_NONE /* 1 */
+    static let `none` = GDK_SUBPIXEL_LAYOUT_NONE /* 1 */
     /// The layout is horizontal, the order is RGB
-    static let horizontal_rgb = GDK_SUBPIXEL_LAYOUT_HORIZONTAL_RGB /* 2 */
+    static let horizontalRgb = GDK_SUBPIXEL_LAYOUT_HORIZONTAL_RGB /* 2 */
     /// The layout is horizontal, the order is BGR
-    static let horizontal_bgr = GDK_SUBPIXEL_LAYOUT_HORIZONTAL_BGR /* 3 */
+    static let horizontalBgr = GDK_SUBPIXEL_LAYOUT_HORIZONTAL_BGR /* 3 */
     /// The layout is vertical, the order is RGB
-    static let vertical_rgb = GDK_SUBPIXEL_LAYOUT_VERTICAL_RGB /* 4 */
+    static let verticalRgb = GDK_SUBPIXEL_LAYOUT_VERTICAL_RGB /* 4 */
     /// The layout is vertical, the order is BGR
-    static let vertical_bgr = GDK_SUBPIXEL_LAYOUT_VERTICAL_BGR /* 5 */
+    static let verticalBgr = GDK_SUBPIXEL_LAYOUT_VERTICAL_BGR /* 5 */
+    /// Not organized in this way
+    @available(*, deprecated) static let none_ = SubpixelLayout.`none` /* GDK_SUBPIXEL_LAYOUT_NONE */
+    /// The layout is horizontal, the order is RGB
+    @available(*, deprecated) static let horizontal_rgb = SubpixelLayout.horizontalRgb /* GDK_SUBPIXEL_LAYOUT_HORIZONTAL_RGB */
+    /// The layout is horizontal, the order is BGR
+    @available(*, deprecated) static let horizontal_bgr = SubpixelLayout.horizontalBgr /* GDK_SUBPIXEL_LAYOUT_HORIZONTAL_BGR */
+    /// The layout is vertical, the order is RGB
+    @available(*, deprecated) static let vertical_rgb = SubpixelLayout.verticalRgb /* GDK_SUBPIXEL_LAYOUT_VERTICAL_RGB */
+    /// The layout is vertical, the order is BGR
+    @available(*, deprecated) static let vertical_bgr = SubpixelLayout.verticalBgr /* GDK_SUBPIXEL_LAYOUT_VERTICAL_BGR */
 }
+func cast<I: BinaryInteger>(_ param: I) -> SubpixelLayout { SubpixelLayout(rawValue: cast(param)) }
+func cast(_ param: SubpixelLayout) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the current state of a touchpad gesture. All gestures are
 /// guaranteed to begin with an event with phase `GDK_TOUCHPAD_GESTURE_PHASE_BEGIN`,
@@ -829,7 +1229,11 @@ public extension TouchpadGesturePhase {
     /// The gesture was cancelled, all
     ///   changes should be undone.
     static let cancel = GDK_TOUCHPAD_GESTURE_PHASE_CANCEL /* 3 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> TouchpadGesturePhase { TouchpadGesturePhase(rawValue: cast(param)) }
+func cast(_ param: TouchpadGesturePhase) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the visiblity status of a window for a `GdkEventVisibility`.
 public typealias VisibilityState = GdkVisibilityState
@@ -840,8 +1244,13 @@ public extension VisibilityState {
     /// the window is partially visible.
     static let partial = GDK_VISIBILITY_PARTIAL /* 1 */
     /// the window is not visible at all.
-    static let fully_obscured = GDK_VISIBILITY_FULLY_OBSCURED /* 2 */
+    static let fullyObscured = GDK_VISIBILITY_FULLY_OBSCURED /* 2 */
+    /// the window is not visible at all.
+    @available(*, deprecated) static let fully_obscured = VisibilityState.fullyObscured /* GDK_VISIBILITY_FULLY_OBSCURED */
 }
+func cast<I: BinaryInteger>(_ param: I) -> VisibilityState { VisibilityState(rawValue: cast(param)) }
+func cast(_ param: VisibilityState) -> UInt32 { cast(param.rawValue) }
+
 
 /// A set of values that describe the manner in which the pixel values
 /// for a visual are converted into RGB values for display.
@@ -850,51 +1259,85 @@ public typealias VisualType = GdkVisualType
 public extension VisualType {
     /// Each pixel value indexes a grayscale value
     ///     directly.
-    static let static_gray = GDK_VISUAL_STATIC_GRAY /* 0 */
+    static let staticGray = GDK_VISUAL_STATIC_GRAY /* 0 */
     /// Each pixel is an index into a color map that
     ///     maps pixel values into grayscale values. The color map can be
     ///     changed by an application.
     static let grayscale = GDK_VISUAL_GRAYSCALE /* 1 */
     /// Each pixel value is an index into a predefined,
     ///     unmodifiable color map that maps pixel values into RGB values.
-    static let static_color = GDK_VISUAL_STATIC_COLOR /* 2 */
+    static let staticColor = GDK_VISUAL_STATIC_COLOR /* 2 */
     /// Each pixel is an index into a color map that
     ///     maps pixel values into rgb values. The color map can be changed by
     ///     an application.
-    static let pseudo_color = GDK_VISUAL_PSEUDO_COLOR /* 3 */
+    static let pseudoColor = GDK_VISUAL_PSEUDO_COLOR /* 3 */
     /// Each pixel value directly contains red, green,
     ///     and blue components. Use `gdk_visual_get_red_pixel_details()`, etc,
     ///     to obtain information about how the components are assembled into
     ///     a pixel value.
-    static let true_color = GDK_VISUAL_TRUE_COLOR /* 4 */
+    static let trueColor = GDK_VISUAL_TRUE_COLOR /* 4 */
     /// Each pixel value contains red, green, and blue
     ///     components as for `GDK_VISUAL_TRUE_COLOR`, but the components are
     ///     mapped via a color table into the final output table instead of
     ///     being converted directly.
-    static let direct_color = GDK_VISUAL_DIRECT_COLOR /* 5 */
+    static let directColor = GDK_VISUAL_DIRECT_COLOR /* 5 */
+    /// Each pixel value indexes a grayscale value
+    ///     directly.
+    @available(*, deprecated) static let static_gray = VisualType.staticGray /* GDK_VISUAL_STATIC_GRAY */
+    /// Each pixel value is an index into a predefined,
+    ///     unmodifiable color map that maps pixel values into RGB values.
+    @available(*, deprecated) static let static_color = VisualType.staticColor /* GDK_VISUAL_STATIC_COLOR */
+    /// Each pixel is an index into a color map that
+    ///     maps pixel values into rgb values. The color map can be changed by
+    ///     an application.
+    @available(*, deprecated) static let pseudo_color = VisualType.pseudoColor /* GDK_VISUAL_PSEUDO_COLOR */
+    /// Each pixel value directly contains red, green,
+    ///     and blue components. Use `gdk_visual_get_red_pixel_details()`, etc,
+    ///     to obtain information about how the components are assembled into
+    ///     a pixel value.
+    @available(*, deprecated) static let true_color = VisualType.trueColor /* GDK_VISUAL_TRUE_COLOR */
+    /// Each pixel value contains red, green, and blue
+    ///     components as for `GDK_VISUAL_TRUE_COLOR`, but the components are
+    ///     mapped via a color table into the final output table instead of
+    ///     being converted directly.
+    @available(*, deprecated) static let direct_color = VisualType.directColor /* GDK_VISUAL_DIRECT_COLOR */
 }
+func cast<I: BinaryInteger>(_ param: I) -> VisualType { VisualType(rawValue: cast(param)) }
+func cast(_ param: VisualType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Determines a window edge or corner.
 public typealias WindowEdge = GdkWindowEdge
 
 public extension WindowEdge {
     /// the top left corner.
-    static let north_west = GDK_WINDOW_EDGE_NORTH_WEST /* 0 */
+    static let northWest = GDK_WINDOW_EDGE_NORTH_WEST /* 0 */
     /// the top edge.
     static let north = GDK_WINDOW_EDGE_NORTH /* 1 */
     /// the top right corner.
-    static let north_east = GDK_WINDOW_EDGE_NORTH_EAST /* 2 */
+    static let northEast = GDK_WINDOW_EDGE_NORTH_EAST /* 2 */
     /// the left edge.
     static let west = GDK_WINDOW_EDGE_WEST /* 3 */
     /// the right edge.
     static let east = GDK_WINDOW_EDGE_EAST /* 4 */
     /// the lower left corner.
-    static let south_west = GDK_WINDOW_EDGE_SOUTH_WEST /* 5 */
+    static let southWest = GDK_WINDOW_EDGE_SOUTH_WEST /* 5 */
     /// the lower edge.
     static let south = GDK_WINDOW_EDGE_SOUTH /* 6 */
     /// the lower right corner.
-    static let south_east = GDK_WINDOW_EDGE_SOUTH_EAST /* 7 */
+    static let southEast = GDK_WINDOW_EDGE_SOUTH_EAST /* 7 */
+    /// the top left corner.
+    @available(*, deprecated) static let north_west = WindowEdge.northWest /* GDK_WINDOW_EDGE_NORTH_WEST */
+    /// the top right corner.
+    @available(*, deprecated) static let north_east = WindowEdge.northEast /* GDK_WINDOW_EDGE_NORTH_EAST */
+    /// the lower left corner.
+    @available(*, deprecated) static let south_west = WindowEdge.southWest /* GDK_WINDOW_EDGE_SOUTH_WEST */
+    /// the lower right corner.
+    @available(*, deprecated) static let south_east = WindowEdge.southEast /* GDK_WINDOW_EDGE_SOUTH_EAST */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowEdge { WindowEdge(rawValue: cast(param)) }
+func cast(_ param: WindowEdge) -> UInt32 { cast(param.rawValue) }
+
 
 /// Describes the kind of window.
 public typealias WindowType = GdkWindowType
@@ -919,7 +1362,11 @@ public extension WindowType {
     ///  tied to a toplevel, and is moved/stacked with it. Currently this window
     ///  type is only implemented in Wayland. Since 3.14
     static let subsurface = GDK_WINDOW_SUBSURFACE /* 6 */
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowType { WindowType(rawValue: cast(param)) }
+func cast(_ param: WindowType) -> UInt32 { cast(param.rawValue) }
+
 
 /// These are hints for the window manager that indicate what type of function
 /// the window has. The window manager can use this when determining decoration
@@ -951,10 +1398,10 @@ public extension WindowTypeHint {
     ///  window.
     static let desktop = GDK_WINDOW_TYPE_HINT_DESKTOP /* 7 */
     /// A menu that belongs to a menubar.
-    static let dropdown_menu = GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU /* 8 */
+    static let dropdownMenu = GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU /* 8 */
     /// A menu that does not belong to a menubar,
     ///  e.g. a context menu.
-    static let popup_menu = GDK_WINDOW_TYPE_HINT_POPUP_MENU /* 9 */
+    static let popupMenu = GDK_WINDOW_TYPE_HINT_POPUP_MENU /* 9 */
     /// A tooltip.
     static let tooltip = GDK_WINDOW_TYPE_HINT_TOOLTIP /* 10 */
     /// A notification - typically a “bubble”
@@ -964,7 +1411,15 @@ public extension WindowTypeHint {
     static let combo = GDK_WINDOW_TYPE_HINT_COMBO /* 12 */
     /// A window that is used to implement a DND cursor.
     static let dnd = GDK_WINDOW_TYPE_HINT_DND /* 13 */
+    /// A menu that belongs to a menubar.
+    @available(*, deprecated) static let dropdown_menu = WindowTypeHint.dropdownMenu /* GDK_WINDOW_TYPE_HINT_DROPDOWN_MENU */
+    /// A menu that does not belong to a menubar,
+    ///  e.g. a context menu.
+    @available(*, deprecated) static let popup_menu = WindowTypeHint.popupMenu /* GDK_WINDOW_TYPE_HINT_POPUP_MENU */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowTypeHint { WindowTypeHint(rawValue: cast(param)) }
+func cast(_ param: WindowTypeHint) -> UInt32 { cast(param.rawValue) }
+
 
 /// `GDK_INPUT_OUTPUT` windows are the standard kind of window you might expect.
 /// Such windows receive events and are also displayed on screen.
@@ -975,7 +1430,13 @@ public typealias WindowWindowClass = GdkWindowWindowClass
 
 public extension WindowWindowClass {
     /// window for graphics and events
-    static let input_output = GDK_INPUT_OUTPUT /* 0 */
+    static let inputOutput = GDK_INPUT_OUTPUT /* 0 */
     /// window for events only
-    static let input_only = GDK_INPUT_ONLY /* 1 */
+    static let inputOnly = GDK_INPUT_ONLY /* 1 */
+    /// window for graphics and events
+    @available(*, deprecated) static let input_output = WindowWindowClass.inputOutput /* GDK_INPUT_OUTPUT */
+    /// window for events only
+    @available(*, deprecated) static let input_only = WindowWindowClass.inputOnly /* GDK_INPUT_ONLY */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowWindowClass { WindowWindowClass(rawValue: cast(param)) }
+func cast(_ param: WindowWindowClass) -> UInt32 { cast(param.rawValue) }

@@ -19,7 +19,7 @@ import GdkPixbuf
 ///
 /// Defines the x and y coordinates of a point.
 public protocol PointProtocol {
-    /// Untyped pointer to the underlying `GdkPoint` instance.
+        /// Untyped pointer to the underlying `GdkPoint` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkPoint` instance.
@@ -32,7 +32,7 @@ public protocol PointProtocol {
 ///
 /// Defines the x and y coordinates of a point.
 public struct PointRef: PointProtocol {
-    /// Untyped pointer to the underlying `GdkPoint` instance.
+        /// Untyped pointer to the underlying `GdkPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +85,7 @@ public extension PointRef {
 ///
 /// Defines the x and y coordinates of a point.
 open class Point: PointProtocol {
-    /// Untyped pointer to the underlying `GdkPoint` instance.
+        /// Untyped pointer to the underlying `GdkPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +114,7 @@ open class Point: PointProtocol {
         // no reference counting for GdkPoint, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkPoint`.
+    /// Do-nothing destructor for `GdkPoint`.
     deinit {
         // no reference counting for GdkPoint, cannot unref(cast(_ptr))
     }
@@ -182,14 +182,42 @@ open class Point: PointProtocol {
 
 }
 
-// MARK: - no Point properties
+// MARK: no Point properties
 
-// MARK: - no signals
+// MARK: no Point signals
 
 
+// MARK: Point Record: PointProtocol extension (methods and fields)
 public extension PointProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPoint` instance.
     var _ptr: UnsafeMutablePointer<GdkPoint> { return ptr.assumingMemoryBound(to: GdkPoint.self) }
+
+
+    /// the x coordinate of the point.
+    var x: Int {
+        /// the x coordinate of the point.
+        get {
+            let rv: Int = cast(_ptr.pointee.x)
+            return rv
+        }
+        /// the x coordinate of the point.
+         set {
+            _ptr.pointee.x = gint(newValue)
+        }
+    }
+
+    /// the y coordinate of the point.
+    var y: Int {
+        /// the y coordinate of the point.
+        get {
+            let rv: Int = cast(_ptr.pointee.y)
+            return rv
+        }
+        /// the y coordinate of the point.
+         set {
+            _ptr.pointee.y = gint(newValue)
+        }
+    }
 
 }
 
@@ -205,7 +233,7 @@ public extension PointProtocol {
 /// A `GdkRGBA` is used to represent a (possibly translucent)
 /// color, in a way that is compatible with cairo’s notion of color.
 public protocol RGBAProtocol {
-    /// Untyped pointer to the underlying `GdkRGBA` instance.
+        /// Untyped pointer to the underlying `GdkRGBA` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkRGBA` instance.
@@ -219,7 +247,7 @@ public protocol RGBAProtocol {
 /// A `GdkRGBA` is used to represent a (possibly translucent)
 /// color, in a way that is compatible with cairo’s notion of color.
 public struct RGBARef: RGBAProtocol {
-    /// Untyped pointer to the underlying `GdkRGBA` instance.
+        /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -273,7 +301,7 @@ public extension RGBARef {
 /// A `GdkRGBA` is used to represent a (possibly translucent)
 /// color, in a way that is compatible with cairo’s notion of color.
 open class RGBA: RGBAProtocol {
-    /// Untyped pointer to the underlying `GdkRGBA` instance.
+        /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -302,7 +330,7 @@ open class RGBA: RGBAProtocol {
         // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
     }
 
-    /// Do-nothing destructor for`GdkRGBA`.
+    /// Do-nothing destructor for `GdkRGBA`.
     deinit {
         // no reference counting for GdkRGBA, cannot unref(cast(rgba_ptr))
     }
@@ -370,11 +398,12 @@ open class RGBA: RGBAProtocol {
 
 }
 
-// MARK: - no RGBA properties
+// MARK: no RGBA properties
 
-// MARK: - no signals
+// MARK: no RGBA signals
 
 
+// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
 public extension RGBAProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRGBA` instance.
     var rgba_ptr: UnsafeMutablePointer<GdkRGBA> { return ptr.assumingMemoryBound(to: GdkRGBA.self) }
@@ -383,7 +412,7 @@ public extension RGBAProtocol {
     /// 
     /// The result must be freed through `gdk_rgba_free()`.
     func copy() -> UnsafeMutablePointer<GdkRGBA>! {
-        let rv = gdk_rgba_copy(cast(rgba_ptr))
+        let rv: UnsafeMutablePointer<GdkRGBA>! = cast(gdk_rgba_copy(cast(rgba_ptr)))
         return cast(rv)
     }
 
@@ -401,9 +430,9 @@ public extension RGBAProtocol {
 
     /// A hash function suitable for using for a hash
     /// table that stores `GdkRGBAs`.
-    func hash() -> CUnsignedInt {
-        let rv = gdk_rgba_hash(cast(rgba_ptr))
-        return CUnsignedInt(rv)
+    func hash() -> Int {
+        let rv: Int = cast(gdk_rgba_hash(cast(rgba_ptr)))
+        return Int(rv)
     }
 
     /// Parses a textual representation of a color, filling in
@@ -442,8 +471,8 @@ public extension RGBAProtocol {
     /// integers. If this is a concern, you should use a
     /// different representation.
     func toString() -> String! {
-        let rv = gdk_rgba_to_string(cast(rgba_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_rgba_to_string(cast(rgba_ptr)))
+        return cast(rv)
     }
 
     /// Sets the specified `GdkRGBA` as the source color of `cr`.
@@ -451,6 +480,62 @@ public extension RGBAProtocol {
         gdk_cairo_set_source_rgba(cast(cr.ptr), cast(rgba_ptr))
     
     }
+
+    /// The intensity of the red channel from 0.0 to 1.0 inclusive
+    var red: Double {
+        /// The intensity of the red channel from 0.0 to 1.0 inclusive
+        get {
+            let rv: Double = cast(rgba_ptr.pointee.red)
+            return rv
+        }
+        /// The intensity of the red channel from 0.0 to 1.0 inclusive
+         set {
+            rgba_ptr.pointee.red = cast(newValue)
+        }
+    }
+
+    /// The intensity of the green channel from 0.0 to 1.0 inclusive
+    var green: Double {
+        /// The intensity of the green channel from 0.0 to 1.0 inclusive
+        get {
+            let rv: Double = cast(rgba_ptr.pointee.green)
+            return rv
+        }
+        /// The intensity of the green channel from 0.0 to 1.0 inclusive
+         set {
+            rgba_ptr.pointee.green = cast(newValue)
+        }
+    }
+
+    /// The intensity of the blue channel from 0.0 to 1.0 inclusive
+    var blue: Double {
+        /// The intensity of the blue channel from 0.0 to 1.0 inclusive
+        get {
+            let rv: Double = cast(rgba_ptr.pointee.blue)
+            return rv
+        }
+        /// The intensity of the blue channel from 0.0 to 1.0 inclusive
+         set {
+            rgba_ptr.pointee.blue = cast(newValue)
+        }
+    }
+
+    /// The opacity of the color from 0.0 for completely translucent to
+    ///   1.0 for opaque
+    var alpha: Double {
+        /// The opacity of the color from 0.0 for completely translucent to
+        ///   1.0 for opaque
+        get {
+            let rv: Double = cast(rgba_ptr.pointee.alpha)
+            return rv
+        }
+        /// The opacity of the color from 0.0 for completely translucent to
+        ///   1.0 for opaque
+         set {
+            rgba_ptr.pointee.alpha = cast(newValue)
+        }
+    }
+
 }
 
 

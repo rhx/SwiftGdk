@@ -20,7 +20,7 @@ import GdkPixbuf
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
 public protocol SeatProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkSeat` instance.
+        /// Untyped pointer to the underlying `GdkSeat` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkSeat` instance.
@@ -34,7 +34,7 @@ public protocol SeatProtocol: ObjectProtocol {
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
 public struct SeatRef: SeatProtocol {
-    /// Untyped pointer to the underlying `GdkSeat` instance.
+        /// Untyped pointer to the underlying `GdkSeat` instance.
     /// For type-safe access, use the generated, typed pointer `seat_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -88,7 +88,7 @@ public extension SeatRef {
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
 open class Seat: Object, SeatProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Seat` instance.
     /// - Parameter op: pointer to the underlying object
@@ -184,8 +184,8 @@ public extension SeatProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -208,6 +208,23 @@ public extension SeatProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Seat property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: SeatPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Seat property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: SeatPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -263,8 +280,8 @@ public extension SeatProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SeatSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: SeatSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(seat_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -285,6 +302,7 @@ public extension SeatProtocol {
     }
 }
 
+// MARK: Seat Class: SeatProtocol extension (methods and fields)
 public extension SeatProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkSeat` instance.
     var seat_ptr: UnsafeMutablePointer<GdkSeat> { return ptr.assumingMemoryBound(to: GdkSeat.self) }
@@ -292,30 +310,30 @@ public extension SeatProtocol {
     /// Returns the capabilities this `GdkSeat` currently has.
     func getCapabilities() -> GdkSeatCapabilities {
         let rv = gdk_seat_get_capabilities(cast(seat_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the `GdkDisplay` this seat belongs to.
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_seat_get_display(cast(seat_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_seat_get_display(cast(seat_ptr)))
         return cast(rv)
     }
 
     /// Returns the master device that routes keyboard events.
     func getKeyboard() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv = gdk_seat_get_keyboard(cast(seat_ptr))
+        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_keyboard(cast(seat_ptr)))
         return cast(rv)
     }
 
     /// Returns the master device that routes pointer events.
     func getPointer() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv = gdk_seat_get_pointer(cast(seat_ptr))
+        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_pointer(cast(seat_ptr)))
         return cast(rv)
     }
 
     /// Returns the slave devices that match the given capabilities.
     func getSlaves(capabilities: SeatCapabilities) -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_seat_get_slaves(cast(seat_ptr), capabilities)
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_seat_get_slaves(cast(seat_ptr), capabilities.value))
         return cast(rv)
     }
 
@@ -343,9 +361,9 @@ public extension SeatProtocol {
     /// If you set up anything at the time you take the grab that needs to be
     /// cleaned up when the grab ends, you should handle the `GdkEventGrabBroken`
     /// events that are emitted when the grab ends unvoluntarily.
-    func grab(window: WindowProtocol, capabilities: SeatCapabilities, ownerEvents owner_events: Bool, cursor: CursorProtocol, event: UnsafePointer<GdkEvent>, prepareFunc prepare_func: @escaping SeatGrabPrepareFunc, prepareFuncData prepare_func_data: UnsafeMutableRawPointer) -> GdkGrabStatus {
-        let rv = gdk_seat_grab(cast(seat_ptr), cast(window.ptr), capabilities, gboolean(owner_events ? 1 : 0), cast(cursor.ptr), cast(event), prepare_func, cast(prepare_func_data))
-        return rv
+    func grab(window: WindowProtocol, capabilities: SeatCapabilities, ownerEvents owner_events: Bool, cursor: CursorProtocol, event: EventProtocol, prepareFunc prepare_func: @escaping SeatGrabPrepareFunc, prepareFuncData prepare_func_data: UnsafeMutableRawPointer) -> GdkGrabStatus {
+        let rv = gdk_seat_grab(cast(seat_ptr), cast(window.ptr), capabilities.value, gboolean(owner_events ? 1 : 0), cast(cursor.ptr), cast(event.ptr), prepare_func, cast(prepare_func_data))
+        return cast(rv)
     }
 
     /// Releases a grab added through `gdk_seat_grab()`.
@@ -358,7 +376,7 @@ public extension SeatProtocol {
         /// Returns the capabilities this `GdkSeat` currently has.
         get {
             let rv = gdk_seat_get_capabilities(cast(seat_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -366,7 +384,7 @@ public extension SeatProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Returns the `GdkDisplay` this seat belongs to.
         get {
-            let rv = gdk_seat_get_display(cast(seat_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_seat_get_display(cast(seat_ptr)))
             return cast(rv)
         }
     }
@@ -375,7 +393,7 @@ public extension SeatProtocol {
     var keyboard: UnsafeMutablePointer<GdkDevice>! {
         /// Returns the master device that routes keyboard events.
         get {
-            let rv = gdk_seat_get_keyboard(cast(seat_ptr))
+            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_keyboard(cast(seat_ptr)))
             return cast(rv)
         }
     }
@@ -384,10 +402,18 @@ public extension SeatProtocol {
     var pointer: UnsafeMutablePointer<GdkDevice>! {
         /// Returns the master device that routes pointer events.
         get {
-            let rv = gdk_seat_get_pointer(cast(seat_ptr))
+            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_pointer(cast(seat_ptr)))
             return cast(rv)
         }
     }
+
+    var parentInstance: GObject {
+        get {
+            let rv: GObject = cast(seat_ptr.pointee.parent_instance)
+            return rv
+        }
+    }
+
 }
 
 
@@ -402,7 +428,7 @@ public extension SeatProtocol {
 /// A `GdkVisual` contains information about
 /// a particular visual.
 public protocol VisualProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkVisual` instance.
+        /// Untyped pointer to the underlying `GdkVisual` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkVisual` instance.
@@ -416,7 +442,7 @@ public protocol VisualProtocol: ObjectProtocol {
 /// A `GdkVisual` contains information about
 /// a particular visual.
 public struct VisualRef: VisualProtocol {
-    /// Untyped pointer to the underlying `GdkVisual` instance.
+        /// Untyped pointer to the underlying `GdkVisual` instance.
     /// For type-safe access, use the generated, typed pointer `visual_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -468,7 +494,7 @@ public extension VisualRef {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) static func getBest() -> VisualRef! {
-        let rv = gdk_visual_get_best()
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best())
         return rv.map { VisualRef(cast($0)) }
     }
 
@@ -479,7 +505,7 @@ public extension VisualRef {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) static func getBestWith(both depth: CInt, visualType visual_type: VisualType) -> VisualRef! {
-        let rv = gdk_visual_get_best_with_both(gint(depth), visual_type)
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_both(gint(depth), visual_type))
         return rv.map { VisualRef(cast($0)) }
     }
 
@@ -492,7 +518,7 @@ public extension VisualRef {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) static func getBestWith(depth: CInt) -> VisualRef! {
-        let rv = gdk_visual_get_best_with_depth(gint(depth))
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_depth(gint(depth)))
         return rv.map { VisualRef(cast($0)) }
     }
 
@@ -505,7 +531,7 @@ public extension VisualRef {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) static func getBestWith(type visual_type: VisualType) -> VisualRef! {
-        let rv = gdk_visual_get_best_with_type(visual_type)
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_type(visual_type))
         return rv.map { VisualRef(cast($0)) }
     }
 
@@ -516,7 +542,7 @@ public extension VisualRef {
     /// **get_system is deprecated:**
     /// Use gdk_screen_get_system_visual (gdk_screen_get_default ()).
     @available(*, deprecated) static func getSystem() -> VisualRef! {
-        let rv = gdk_visual_get_system()
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_system())
         return rv.map { VisualRef(cast($0)) }
     }
 }
@@ -528,7 +554,7 @@ public extension VisualRef {
 /// A `GdkVisual` contains information about
 /// a particular visual.
 open class Visual: Object, VisualProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Visual` instance.
     /// - Parameter op: pointer to the underlying object
@@ -614,7 +640,7 @@ open class Visual: Object, VisualProtocol {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) public static func getBest() -> Visual! {
-        let rv = gdk_visual_get_best()
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best())
         return rv.map { Visual(cast($0)) }
     }
 
@@ -625,7 +651,7 @@ open class Visual: Object, VisualProtocol {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) public static func getBestWith(both depth: CInt, visualType visual_type: VisualType) -> Visual! {
-        let rv = gdk_visual_get_best_with_both(gint(depth), visual_type)
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_both(gint(depth), visual_type))
         return rv.map { Visual(cast($0)) }
     }
 
@@ -638,7 +664,7 @@ open class Visual: Object, VisualProtocol {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) public static func getBestWith(depth: CInt) -> Visual! {
-        let rv = gdk_visual_get_best_with_depth(gint(depth))
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_depth(gint(depth)))
         return rv.map { Visual(cast($0)) }
     }
 
@@ -651,7 +677,7 @@ open class Visual: Object, VisualProtocol {
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) public static func getBestWith(type visual_type: VisualType) -> Visual! {
-        let rv = gdk_visual_get_best_with_type(visual_type)
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_type(visual_type))
         return rv.map { Visual(cast($0)) }
     }
 
@@ -662,13 +688,13 @@ open class Visual: Object, VisualProtocol {
     /// **get_system is deprecated:**
     /// Use gdk_screen_get_system_visual (gdk_screen_get_default ()).
     @available(*, deprecated) public static func getSystem() -> Visual! {
-        let rv = gdk_visual_get_system()
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_system())
         return rv.map { Visual(cast($0)) }
     }
 
 }
 
-// MARK: - no Visual properties
+// MARK: no Visual properties
 
 public enum VisualSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
@@ -705,8 +731,8 @@ public extension VisualProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: VisualSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: VisualSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(visual_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -727,6 +753,7 @@ public extension VisualProtocol {
     }
 }
 
+// MARK: Visual Class: VisualProtocol extension (methods and fields)
 public extension VisualProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkVisual` instance.
     var visual_ptr: UnsafeMutablePointer<GdkVisual> { return ptr.assumingMemoryBound(to: GdkVisual.self) }
@@ -738,9 +765,9 @@ public extension VisualProtocol {
     /// **get_bits_per_rgb is deprecated:**
     /// Use gdk_visual_get_red_pixel_details() and its variants to
     ///     learn about the pixel layout of TrueColor and DirectColor visuals
-    @available(*, deprecated) func getBitsPerRgb() -> CInt {
-        let rv = gdk_visual_get_bits_per_rgb(cast(visual_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getBitsPerRgb() -> Int {
+        let rv: Int = cast(gdk_visual_get_bits_per_rgb(cast(visual_ptr)))
+        return Int(rv)
     }
 
     /// Obtains values that are needed to calculate blue pixel values in TrueColor
@@ -763,7 +790,7 @@ public extension VisualProtocol {
     /// This information is not useful
     @available(*, deprecated) func getByteOrder() -> GdkByteOrder {
         let rv = gdk_visual_get_byte_order(cast(visual_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the size of a colormap for this visual.
@@ -773,15 +800,15 @@ public extension VisualProtocol {
     /// **get_colormap_size is deprecated:**
     /// This information is not useful, since GDK does not
     ///     provide APIs to operate on colormaps.
-    @available(*, deprecated) func getColormapSize() -> CInt {
-        let rv = gdk_visual_get_colormap_size(cast(visual_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getColormapSize() -> Int {
+        let rv: Int = cast(gdk_visual_get_colormap_size(cast(visual_ptr)))
+        return Int(rv)
     }
 
     /// Returns the bit depth of this visual.
-    func getDepth() -> CInt {
-        let rv = gdk_visual_get_depth(cast(visual_ptr))
-        return CInt(rv)
+    func getDepth() -> Int {
+        let rv: Int = cast(gdk_visual_get_depth(cast(visual_ptr)))
+        return Int(rv)
     }
 
     /// Obtains values that are needed to calculate green pixel values in TrueColor
@@ -806,14 +833,14 @@ public extension VisualProtocol {
 
     /// Gets the screen to which this visual belongs
     func getScreen() -> UnsafeMutablePointer<GdkScreen>! {
-        let rv = gdk_visual_get_screen(cast(visual_ptr))
+        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_visual_get_screen(cast(visual_ptr)))
         return cast(rv)
     }
 
     /// Returns the type of visual this is (PseudoColor, TrueColor, etc).
     func getVisualType() -> GdkVisualType {
         let rv = gdk_visual_get_visual_type(cast(visual_ptr))
-        return rv
+        return cast(rv)
     }
     /// Returns the number of significant bits per red, green and blue value.
     /// 
@@ -822,7 +849,7 @@ public extension VisualProtocol {
     /// **get_bits_per_rgb is deprecated:**
     /// Use gdk_visual_get_red_pixel_details() and its variants to
     ///     learn about the pixel layout of TrueColor and DirectColor visuals
-    var bitsPerRgb: CInt {
+    var bitsPerRgb: Int {
         /// Returns the number of significant bits per red, green and blue value.
         /// 
         /// Not all GDK backend provide a meaningful value for this function.
@@ -831,8 +858,8 @@ public extension VisualProtocol {
         /// Use gdk_visual_get_red_pixel_details() and its variants to
         ///     learn about the pixel layout of TrueColor and DirectColor visuals
         @available(*, deprecated) get {
-            let rv = gdk_visual_get_bits_per_rgb(cast(visual_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_visual_get_bits_per_rgb(cast(visual_ptr)))
+            return Int(rv)
         }
     }
 
@@ -855,7 +882,7 @@ public extension VisualProtocol {
         /// This information is not useful
         @available(*, deprecated) get {
             let rv = gdk_visual_get_byte_order(cast(visual_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -866,7 +893,7 @@ public extension VisualProtocol {
     /// **get_colormap_size is deprecated:**
     /// This information is not useful, since GDK does not
     ///     provide APIs to operate on colormaps.
-    var colormapSize: CInt {
+    var colormapSize: Int {
         /// Returns the size of a colormap for this visual.
         /// 
         /// You have to use platform-specific APIs to manipulate colormaps.
@@ -875,17 +902,17 @@ public extension VisualProtocol {
         /// This information is not useful, since GDK does not
         ///     provide APIs to operate on colormaps.
         @available(*, deprecated) get {
-            let rv = gdk_visual_get_colormap_size(cast(visual_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_visual_get_colormap_size(cast(visual_ptr)))
+            return Int(rv)
         }
     }
 
     /// Returns the bit depth of this visual.
-    var depth: CInt {
+    var depth: Int {
         /// Returns the bit depth of this visual.
         get {
-            let rv = gdk_visual_get_depth(cast(visual_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_visual_get_depth(cast(visual_ptr)))
+            return Int(rv)
         }
     }
 
@@ -893,7 +920,7 @@ public extension VisualProtocol {
     var screen: UnsafeMutablePointer<GdkScreen>! {
         /// Gets the screen to which this visual belongs
         get {
-            let rv = gdk_visual_get_screen(cast(visual_ptr))
+            let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_visual_get_screen(cast(visual_ptr)))
             return cast(rv)
         }
     }
@@ -903,9 +930,11 @@ public extension VisualProtocol {
         /// Returns the type of visual this is (PseudoColor, TrueColor, etc).
         get {
             let rv = gdk_visual_get_visual_type(cast(visual_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 

@@ -20,7 +20,7 @@ import GdkPixbuf
 /// An opaque type representing a string as an index into a table
 /// of strings on the X server.
 public protocol AtomProtocol {
-    /// Untyped pointer to the underlying `GdkAtom` instance.
+        /// Untyped pointer to the underlying `GdkAtom` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkAtom` instance.
@@ -34,7 +34,7 @@ public protocol AtomProtocol {
 /// An opaque type representing a string as an index into a table
 /// of strings on the X server.
 public struct AtomRef: AtomProtocol {
-    /// Untyped pointer to the underlying `GdkAtom` instance.
+        /// Untyped pointer to the underlying `GdkAtom` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -108,7 +108,7 @@ public extension AtomRef {
 /// An opaque type representing a string as an index into a table
 /// of strings on the X server.
 open class Atom: AtomProtocol {
-    /// Untyped pointer to the underlying `GdkAtom` instance.
+        /// Untyped pointer to the underlying `GdkAtom` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -137,7 +137,7 @@ open class Atom: AtomProtocol {
         // no reference counting for GdkAtom, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkAtom`.
+    /// Do-nothing destructor for `GdkAtom`.
     deinit {
         // no reference counting for GdkAtom, cannot unref(cast(_ptr))
     }
@@ -225,19 +225,20 @@ open class Atom: AtomProtocol {
 
 }
 
-// MARK: - no Atom properties
+// MARK: no Atom properties
 
-// MARK: - no signals
+// MARK: no Atom signals
 
 
+// MARK: Atom Record: AtomProtocol extension (methods and fields)
 public extension AtomProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkAtom` instance.
     var _ptr: UnsafeMutablePointer<GdkAtom> { return ptr.assumingMemoryBound(to: GdkAtom.self) }
 
     /// Determines the string corresponding to an atom.
     func name() -> String! {
-        let rv = gdk_atom_name(cast(_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_atom_name(cast(_ptr)))
+        return cast(rv)
     }
 
     /// Changes the contents of a property on a window.
@@ -278,7 +279,7 @@ public extension AtomProtocol {
 
     /// Determines the owner of the given selection.
     func selectionOwnerGet() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_selection_owner_get(cast(_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_selection_owner_get(cast(_ptr)))
         return cast(rv)
     }
 
@@ -288,7 +289,7 @@ public extension AtomProtocol {
     /// process if a foreign window was previously created for that
     /// window, but a new foreign window will never be created by this call.
     func selectionOwnerGetFor(display: DisplayProtocol) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_selection_owner_get_for_display(cast(display.ptr), cast(_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_selection_owner_get_for_display(cast(display.ptr), cast(_ptr)))
         return cast(rv)
     }
 
@@ -308,9 +309,9 @@ public extension AtomProtocol {
     /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
-    func selectionPropertyGet(requestor: WindowProtocol, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propFormat prop_format: UnsafeMutablePointer<CInt>) -> CInt {
-        let rv = gdk_selection_property_get(cast(requestor.ptr), cast(data), cast(_ptr), cast(prop_format))
-        return CInt(rv)
+    func selectionPropertyGet(requestor: WindowProtocol, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propFormat prop_format: UnsafeMutablePointer<CInt>) -> Int {
+        let rv: Int = cast(gdk_selection_property_get(cast(requestor.ptr), cast(data), cast(_ptr), cast(prop_format)))
+        return Int(rv)
     }
 
     /// Sends a response to SelectionRequest event.
@@ -327,10 +328,12 @@ public extension AtomProtocol {
 
     /// Converts a text property in the given encoding to
     /// a list of UTF-8 strings.
-    func textPropertyToUtf8ListFor(display: DisplayProtocol, format: CInt, text: UnsafePointer<guchar>, length: CInt, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> CInt {
-        let rv = gdk_text_property_to_utf8_list_for_display(cast(display.ptr), cast(_ptr), gint(format), cast(text), gint(length), cast(list))
-        return CInt(rv)
+    func textPropertyToUtf8ListFor(display: DisplayProtocol, format: CInt, text: UnsafePointer<guchar>, length: CInt, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> Int {
+        let rv: Int = cast(gdk_text_property_to_utf8_list_for_display(cast(display.ptr), cast(_ptr), gint(format), cast(text), gint(length), cast(list)))
+        return Int(rv)
     }
+
+
 }
 
 
@@ -345,7 +348,7 @@ public extension AtomProtocol {
 /// A `GdkColor` is used to describe a color,
 /// similar to the XColor struct used in the X11 drawing API.
 public protocol ColorProtocol {
-    /// Untyped pointer to the underlying `GdkColor` instance.
+        /// Untyped pointer to the underlying `GdkColor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkColor` instance.
@@ -359,7 +362,7 @@ public protocol ColorProtocol {
 /// A `GdkColor` is used to describe a color,
 /// similar to the XColor struct used in the X11 drawing API.
 public struct ColorRef: ColorProtocol {
-    /// Untyped pointer to the underlying `GdkColor` instance.
+        /// Untyped pointer to the underlying `GdkColor` instance.
     /// For type-safe access, use the generated, typed pointer `color_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -413,7 +416,7 @@ public extension ColorRef {
 /// A `GdkColor` is used to describe a color,
 /// similar to the XColor struct used in the X11 drawing API.
 open class Color: ColorProtocol {
-    /// Untyped pointer to the underlying `GdkColor` instance.
+        /// Untyped pointer to the underlying `GdkColor` instance.
     /// For type-safe access, use the generated, typed pointer `color_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -442,7 +445,7 @@ open class Color: ColorProtocol {
         // no reference counting for GdkColor, cannot ref(cast(color_ptr))
     }
 
-    /// Do-nothing destructor for`GdkColor`.
+    /// Do-nothing destructor for `GdkColor`.
     deinit {
         // no reference counting for GdkColor, cannot unref(cast(color_ptr))
     }
@@ -510,11 +513,12 @@ open class Color: ColorProtocol {
 
 }
 
-// MARK: - no Color properties
+// MARK: no Color properties
 
-// MARK: - no signals
+// MARK: no Color signals
 
 
+// MARK: Color Record: ColorProtocol extension (methods and fields)
 public extension ColorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkColor` instance.
     var color_ptr: UnsafeMutablePointer<GdkColor> { return ptr.assumingMemoryBound(to: GdkColor.self) }
@@ -526,7 +530,7 @@ public extension ColorProtocol {
     /// **copy is deprecated:**
     /// Use #GdkRGBA
     @available(*, deprecated) func copy() -> UnsafeMutablePointer<GdkColor>! {
-        let rv = gdk_color_copy(cast(color_ptr))
+        let rv: UnsafeMutablePointer<GdkColor>! = cast(gdk_color_copy(cast(color_ptr)))
         return cast(rv)
     }
 
@@ -553,9 +557,9 @@ public extension ColorProtocol {
     ///
     /// **hash is deprecated:**
     /// Use #GdkRGBA
-    @available(*, deprecated) func hash() -> CUnsignedInt {
-        let rv = gdk_color_hash(cast(color_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func hash() -> Int {
+        let rv: Int = cast(gdk_color_hash(cast(color_ptr)))
+        return Int(rv)
     }
 
     /// Returns a textual specification of `color` in the hexadecimal
@@ -567,8 +571,8 @@ public extension ColorProtocol {
     /// **to_string is deprecated:**
     /// Use #GdkRGBA
     @available(*, deprecated) func toString() -> String! {
-        let rv = gdk_color_to_string(cast(color_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_color_to_string(cast(color_ptr)))
+        return cast(rv)
     }
 
     /// Parses a textual specification of a color and fill in the
@@ -615,6 +619,68 @@ public extension ColorProtocol {
         let rv = gdk_color_parse(spec, cast(color_ptr))
         return Bool(rv != 0)
     }
+
+    /// For allocated colors, the pixel value used to
+    ///     draw this color on the screen. Not used anymore.
+    var pixel: UInt32 {
+        /// For allocated colors, the pixel value used to
+        ///     draw this color on the screen. Not used anymore.
+        get {
+            let rv: UInt32 = cast(color_ptr.pointee.pixel)
+            return rv
+        }
+        /// For allocated colors, the pixel value used to
+        ///     draw this color on the screen. Not used anymore.
+         set {
+            color_ptr.pointee.pixel = guint32(newValue)
+        }
+    }
+
+    /// The red component of the color. This is
+    ///     a value between 0 and 65535, with 65535 indicating
+    ///     full intensity
+    var red: UInt16 {
+        /// The red component of the color. This is
+        ///     a value between 0 and 65535, with 65535 indicating
+        ///     full intensity
+        get {
+            let rv: UInt16 = cast(color_ptr.pointee.red)
+            return rv
+        }
+        /// The red component of the color. This is
+        ///     a value between 0 and 65535, with 65535 indicating
+        ///     full intensity
+         set {
+            color_ptr.pointee.red = guint16(newValue)
+        }
+    }
+
+    /// The green component of the color
+    var green: UInt16 {
+        /// The green component of the color
+        get {
+            let rv: UInt16 = cast(color_ptr.pointee.green)
+            return rv
+        }
+        /// The green component of the color
+         set {
+            color_ptr.pointee.green = guint16(newValue)
+        }
+    }
+
+    /// The blue component of the color
+    var blue: UInt16 {
+        /// The blue component of the color
+        get {
+            let rv: UInt16 = cast(color_ptr.pointee.blue)
+            return rv
+        }
+        /// The blue component of the color
+         set {
+            color_ptr.pointee.blue = guint16(newValue)
+        }
+    }
+
 }
 
 

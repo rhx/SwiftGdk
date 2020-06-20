@@ -19,7 +19,7 @@ import GdkPixbuf
 ///
 
 public protocol DevicePadInterfaceProtocol {
-    /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
+        /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDevicePadInterface` instance.
@@ -32,7 +32,7 @@ public protocol DevicePadInterfaceProtocol {
 ///
 
 public struct DevicePadInterfaceRef: DevicePadInterfaceProtocol {
-    /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
+        /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +85,7 @@ public extension DevicePadInterfaceRef {
 ///
 
 open class DevicePadInterface: DevicePadInterfaceProtocol {
-    /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
+        /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +114,7 @@ open class DevicePadInterface: DevicePadInterfaceProtocol {
         // no reference counting for GdkDevicePadInterface, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkDevicePadInterface`.
+    /// Do-nothing destructor for `GdkDevicePadInterface`.
     deinit {
         // no reference counting for GdkDevicePadInterface, cannot unref(cast(_ptr))
     }
@@ -182,14 +182,17 @@ open class DevicePadInterface: DevicePadInterfaceProtocol {
 
 }
 
-// MARK: - no DevicePadInterface properties
+// MARK: no DevicePadInterface properties
 
-// MARK: - no signals
+// MARK: no DevicePadInterface signals
 
 
+// MARK: DevicePadInterface Record: DevicePadInterfaceProtocol extension (methods and fields)
 public extension DevicePadInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevicePadInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkDevicePadInterface> { return ptr.assumingMemoryBound(to: GdkDevicePadInterface.self) }
+
+
 
 }
 
@@ -204,7 +207,7 @@ public extension DevicePadInterfaceProtocol {
 ///
 
 public protocol DrawingContextClassProtocol {
-    /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
+        /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDrawingContextClass` instance.
@@ -217,7 +220,7 @@ public protocol DrawingContextClassProtocol {
 ///
 
 public struct DrawingContextClassRef: DrawingContextClassProtocol {
-    /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
+        /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -270,7 +273,7 @@ public extension DrawingContextClassRef {
 ///
 
 open class DrawingContextClass: DrawingContextClassProtocol {
-    /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
+        /// Untyped pointer to the underlying `GdkDrawingContextClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -299,7 +302,7 @@ open class DrawingContextClass: DrawingContextClassProtocol {
         // no reference counting for GdkDrawingContextClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkDrawingContextClass`.
+    /// Do-nothing destructor for `GdkDrawingContextClass`.
     deinit {
         // no reference counting for GdkDrawingContextClass, cannot unref(cast(_ptr))
     }
@@ -367,14 +370,17 @@ open class DrawingContextClass: DrawingContextClassProtocol {
 
 }
 
-// MARK: - no DrawingContextClass properties
+// MARK: no DrawingContextClass properties
 
-// MARK: - no signals
+// MARK: no DrawingContextClass signals
 
 
+// MARK: DrawingContextClass Record: DrawingContextClassProtocol extension (methods and fields)
 public extension DrawingContextClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrawingContextClass` instance.
     var _ptr: UnsafeMutablePointer<GdkDrawingContextClass> { return ptr.assumingMemoryBound(to: GdkDrawingContextClass.self) }
+
+
 
 }
 
@@ -391,7 +397,7 @@ public extension DrawingContextClassProtocol {
 /// Any event pointer can safely be cast to a pointer to a `GdkEventAny` to
 /// access these fields.
 public protocol EventAnyProtocol {
-    /// Untyped pointer to the underlying `GdkEventAny` instance.
+        /// Untyped pointer to the underlying `GdkEventAny` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkEventAny` instance.
@@ -406,7 +412,7 @@ public protocol EventAnyProtocol {
 /// Any event pointer can safely be cast to a pointer to a `GdkEventAny` to
 /// access these fields.
 public struct EventAnyRef: EventAnyProtocol {
-    /// Untyped pointer to the underlying `GdkEventAny` instance.
+        /// Untyped pointer to the underlying `GdkEventAny` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -461,7 +467,7 @@ public extension EventAnyRef {
 /// Any event pointer can safely be cast to a pointer to a `GdkEventAny` to
 /// access these fields.
 open class EventAny: EventAnyProtocol {
-    /// Untyped pointer to the underlying `GdkEventAny` instance.
+        /// Untyped pointer to the underlying `GdkEventAny` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -490,7 +496,7 @@ open class EventAny: EventAnyProtocol {
         // no reference counting for GdkEventAny, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkEventAny`.
+    /// Do-nothing destructor for `GdkEventAny`.
     deinit {
         // no reference counting for GdkEventAny, cannot unref(cast(_ptr))
     }
@@ -558,14 +564,55 @@ open class EventAny: EventAnyProtocol {
 
 }
 
-// MARK: - no EventAny properties
+// MARK: no EventAny properties
 
-// MARK: - no signals
+// MARK: no EventAny signals
 
 
+// MARK: EventAny Record: EventAnyProtocol extension (methods and fields)
 public extension EventAnyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventAny` instance.
     var _ptr: UnsafeMutablePointer<GdkEventAny> { return ptr.assumingMemoryBound(to: GdkEventAny.self) }
+
+
+    /// the type of the event.
+    var type: GdkEventType {
+        /// the type of the event.
+        get {
+            let rv: GdkEventType = cast(_ptr.pointee.type)
+            return rv
+        }
+        /// the type of the event.
+         set {
+            _ptr.pointee.type = cast(newValue)
+        }
+    }
+
+    /// the window which received the event.
+    var window: UnsafeMutablePointer<GdkWindow> {
+        /// the window which received the event.
+        get {
+            let rv: UnsafeMutablePointer<GdkWindow> = cast(_ptr.pointee.window)
+            return rv
+        }
+        /// the window which received the event.
+         set {
+            _ptr.pointee.window = cast(newValue)
+        }
+    }
+
+    /// `true` if the event was sent explicitly.
+    var sendEvent: Int8 {
+        /// `true` if the event was sent explicitly.
+        get {
+            let rv: Int8 = cast(_ptr.pointee.send_event)
+            return rv
+        }
+        /// `true` if the event was sent explicitly.
+         set {
+            _ptr.pointee.send_event = gint8(newValue)
+        }
+    }
 
 }
 

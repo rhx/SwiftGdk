@@ -25,74 +25,152 @@ import GdkPixbuf
 /// 
 /// In general, when multiple flags are set, flipping should take precedence over
 /// sliding, which should take precedence over resizing.
-public typealias AnchorHints = GdkAnchorHints
+public struct AnchorHints: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkAnchorHints` enum value
+    public var value: GdkAnchorHints { get { GdkAnchorHints(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension AnchorHints {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkAnchorHints` enum value
+    public init(_ enumValue: GdkAnchorHints) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// allow flipping anchors horizontally
-    static let flip_x = GDK_ANCHOR_FLIP_X /* 1 */
+    public static let flipX = AnchorHints(1) /* GDK_ANCHOR_FLIP_X */
     /// allow flipping anchors vertically
-    static let flip_y = GDK_ANCHOR_FLIP_Y /* 2 */
+    public static let flipY = AnchorHints(2) /* GDK_ANCHOR_FLIP_Y */
     /// allow sliding window horizontally
-    static let slide_x = GDK_ANCHOR_SLIDE_X /* 4 */
+    public static let slideX = AnchorHints(4) /* GDK_ANCHOR_SLIDE_X */
     /// allow sliding window vertically
-    static let slide_y = GDK_ANCHOR_SLIDE_Y /* 8 */
+    public static let slideY = AnchorHints(8) /* GDK_ANCHOR_SLIDE_Y */
     /// allow resizing window horizontally
-    static let resize_x = GDK_ANCHOR_RESIZE_X /* 16 */
+    public static let resizeX = AnchorHints(16) /* GDK_ANCHOR_RESIZE_X */
     /// allow resizing window vertically
-    static let resize_y = GDK_ANCHOR_RESIZE_Y /* 32 */
+    public static let resizeY = AnchorHints(32) /* GDK_ANCHOR_RESIZE_Y */
     /// allow flipping anchors on both axes
-    static let flip = GDK_ANCHOR_FLIP /* 3 */
+    public static let flip = AnchorHints(3) /* GDK_ANCHOR_FLIP */
     /// allow sliding window on both axes
-    static let slide = GDK_ANCHOR_SLIDE /* 12 */
+    public static let slide = AnchorHints(12) /* GDK_ANCHOR_SLIDE */
     /// allow resizing window on both axes
-    static let resize = GDK_ANCHOR_RESIZE /* 48 */
+    public static let resize = AnchorHints(48) /* GDK_ANCHOR_RESIZE */
+
+    /// allow flipping anchors horizontally
+    @available(*, deprecated) public static let flip_x = AnchorHints(1) /* GDK_ANCHOR_FLIP_X */
+    /// allow flipping anchors vertically
+    @available(*, deprecated) public static let flip_y = AnchorHints(2) /* GDK_ANCHOR_FLIP_Y */
+    /// allow sliding window horizontally
+    @available(*, deprecated) public static let slide_x = AnchorHints(4) /* GDK_ANCHOR_SLIDE_X */
+    /// allow sliding window vertically
+    @available(*, deprecated) public static let slide_y = AnchorHints(8) /* GDK_ANCHOR_SLIDE_Y */
+    /// allow resizing window horizontally
+    @available(*, deprecated) public static let resize_x = AnchorHints(16) /* GDK_ANCHOR_RESIZE_X */
+    /// allow resizing window vertically
+    @available(*, deprecated) public static let resize_y = AnchorHints(32) /* GDK_ANCHOR_RESIZE_Y */
 }
+func cast<I: BinaryInteger>(_ param: I) -> AnchorHints { AnchorHints(rawValue: cast(param)) }
+func cast(_ param: AnchorHints) -> UInt32 { cast(param.rawValue) }
+
 
 /// Flags describing the current capabilities of a device/tool.
-public typealias AxisFlags = GdkAxisFlags
+public struct AxisFlags: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkAxisFlags` enum value
+    public var value: GdkAxisFlags { get { GdkAxisFlags(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension AxisFlags {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkAxisFlags` enum value
+    public init(_ enumValue: GdkAxisFlags) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// X axis is present
-    static let x = GDK_AXIS_FLAG_X /* 2 */
+    public static let x = AxisFlags(2) /* GDK_AXIS_FLAG_X */
     /// Y axis is present
-    static let y = GDK_AXIS_FLAG_Y /* 4 */
+    public static let y = AxisFlags(4) /* GDK_AXIS_FLAG_Y */
     /// Pressure axis is present
-    static let pressure = GDK_AXIS_FLAG_PRESSURE /* 8 */
+    public static let pressure = AxisFlags(8) /* GDK_AXIS_FLAG_PRESSURE */
     /// X tilt axis is present
-    static let xtilt = GDK_AXIS_FLAG_XTILT /* 16 */
+    public static let xtilt = AxisFlags(16) /* GDK_AXIS_FLAG_XTILT */
     /// Y tilt axis is present
-    static let ytilt = GDK_AXIS_FLAG_YTILT /* 32 */
+    public static let ytilt = AxisFlags(32) /* GDK_AXIS_FLAG_YTILT */
     /// Wheel axis is present
-    static let wheel = GDK_AXIS_FLAG_WHEEL /* 64 */
+    public static let wheel = AxisFlags(64) /* GDK_AXIS_FLAG_WHEEL */
     /// Distance axis is present
-    static let distance = GDK_AXIS_FLAG_DISTANCE /* 128 */
+    public static let distance = AxisFlags(128) /* GDK_AXIS_FLAG_DISTANCE */
     /// Z-axis rotation is present
-    static let rotation = GDK_AXIS_FLAG_ROTATION /* 256 */
+    public static let rotation = AxisFlags(256) /* GDK_AXIS_FLAG_ROTATION */
     /// Slider axis is present
-    static let slider = GDK_AXIS_FLAG_SLIDER /* 512 */
+    public static let slider = AxisFlags(512) /* GDK_AXIS_FLAG_SLIDER */
+
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> AxisFlags { AxisFlags(rawValue: cast(param)) }
+func cast(_ param: AxisFlags) -> UInt32 { cast(param.rawValue) }
+
 
 /// Used in `GdkDragContext` to indicate what the destination
 /// should do with the dropped data.
-public typealias DragAction = GdkDragAction
+public struct DragAction: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkDragAction` enum value
+    public var value: GdkDragAction { get { GdkDragAction(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension DragAction {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkDragAction` enum value
+    public init(_ enumValue: GdkDragAction) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// Means nothing, and should not be used.
-    static let default_ = GDK_ACTION_DEFAULT /* 1 */
+    public static let `default` = DragAction(1) /* GDK_ACTION_DEFAULT */
     /// Copy the data.
-    static let copy = GDK_ACTION_COPY /* 2 */
+    public static let copy = DragAction(2) /* GDK_ACTION_COPY */
     /// Move the data, i.e. first copy it, then delete
     ///  it from the source using the DELETE target of the X selection protocol.
-    static let move = GDK_ACTION_MOVE /* 4 */
+    public static let move = DragAction(4) /* GDK_ACTION_MOVE */
     /// Add a link to the data. Note that this is only
     ///  useful if source and destination agree on what it means.
-    static let link = GDK_ACTION_LINK /* 8 */
+    public static let link = DragAction(8) /* GDK_ACTION_LINK */
     /// Special action which tells the source that the
     ///  destination will do something that the source doesn’t understand.
-    static let private_ = GDK_ACTION_PRIVATE /* 16 */
+    public static let `private` = DragAction(16) /* GDK_ACTION_PRIVATE */
     /// Ask the user what to do with the data.
-    static let ask = GDK_ACTION_ASK /* 32 */
+    public static let ask = DragAction(32) /* GDK_ACTION_ASK */
+
+    /// Means nothing, and should not be used.
+    @available(*, deprecated) public static let default_ = DragAction(1) /* GDK_ACTION_DEFAULT */
+    /// Special action which tells the source that the
+    ///  destination will do something that the source doesn’t understand.
+    @available(*, deprecated) public static let private_ = DragAction(16) /* GDK_ACTION_PRIVATE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> DragAction { DragAction(rawValue: cast(param)) }
+func cast(_ param: DragAction) -> UInt32 { cast(param.rawValue) }
+
 
 /// A set of bit-flags to indicate which events a window is to receive.
 /// Most of these masks map onto one or more of the `GdkEventType` event types
@@ -120,87 +198,190 @@ public extension DragAction {
 /// type `GDK_TOUCH_BEGIN` and `GDK_TOUCH_END` (or `GDK_TOUCH_CANCEL`).
 /// `gdk_event_get_event_sequence()` returns the event sequence for these
 /// events, so different sequences may be distinguished.
-public typealias EventMask = GdkEventMask
+public struct EventMask: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkEventMask` enum value
+    public var value: GdkEventMask { get { GdkEventMask(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension EventMask {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkEventMask` enum value
+    public init(_ enumValue: GdkEventMask) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// receive expose events
-    static let exposure_mask = GDK_EXPOSURE_MASK /* 2 */
+    public static let exposureMask = EventMask(2) /* GDK_EXPOSURE_MASK */
     /// receive all pointer motion events
-    static let pointer_motion_mask = GDK_POINTER_MOTION_MASK /* 4 */
+    public static let pointerMotionMask = EventMask(4) /* GDK_POINTER_MOTION_MASK */
     /// deprecated. see the explanation above
-    static let pointer_motion_hint_mask = GDK_POINTER_MOTION_HINT_MASK /* 8 */
+    public static let pointerMotionHintMask = EventMask(8) /* GDK_POINTER_MOTION_HINT_MASK */
     /// receive pointer motion events while any button is pressed
-    static let button_motion_mask = GDK_BUTTON_MOTION_MASK /* 16 */
+    public static let buttonMotionMask = EventMask(16) /* GDK_BUTTON_MOTION_MASK */
     /// receive pointer motion events while 1 button is pressed
-    static let button1_motion_mask = GDK_BUTTON1_MOTION_MASK /* 32 */
+    public static let button1MotionMask = EventMask(32) /* GDK_BUTTON1_MOTION_MASK */
     /// receive pointer motion events while 2 button is pressed
-    static let button2_motion_mask = GDK_BUTTON2_MOTION_MASK /* 64 */
+    public static let button2MotionMask = EventMask(64) /* GDK_BUTTON2_MOTION_MASK */
     /// receive pointer motion events while 3 button is pressed
-    static let button3_motion_mask = GDK_BUTTON3_MOTION_MASK /* 128 */
+    public static let button3MotionMask = EventMask(128) /* GDK_BUTTON3_MOTION_MASK */
     /// receive button press events
-    static let button_press_mask = GDK_BUTTON_PRESS_MASK /* 256 */
+    public static let buttonPressMask = EventMask(256) /* GDK_BUTTON_PRESS_MASK */
     /// receive button release events
-    static let button_release_mask = GDK_BUTTON_RELEASE_MASK /* 512 */
+    public static let buttonReleaseMask = EventMask(512) /* GDK_BUTTON_RELEASE_MASK */
     /// receive key press events
-    static let key_press_mask = GDK_KEY_PRESS_MASK /* 1024 */
+    public static let keyPressMask = EventMask(1024) /* GDK_KEY_PRESS_MASK */
     /// receive key release events
-    static let key_release_mask = GDK_KEY_RELEASE_MASK /* 2048 */
+    public static let keyReleaseMask = EventMask(2048) /* GDK_KEY_RELEASE_MASK */
     /// receive window enter events
-    static let enter_notify_mask = GDK_ENTER_NOTIFY_MASK /* 4096 */
+    public static let enterNotifyMask = EventMask(4096) /* GDK_ENTER_NOTIFY_MASK */
     /// receive window leave events
-    static let leave_notify_mask = GDK_LEAVE_NOTIFY_MASK /* 8192 */
+    public static let leaveNotifyMask = EventMask(8192) /* GDK_LEAVE_NOTIFY_MASK */
     /// receive focus change events
-    static let focus_change_mask = GDK_FOCUS_CHANGE_MASK /* 16384 */
+    public static let focusChangeMask = EventMask(16384) /* GDK_FOCUS_CHANGE_MASK */
     /// receive events about window configuration change
-    static let structure_mask = GDK_STRUCTURE_MASK /* 32768 */
+    public static let structureMask = EventMask(32768) /* GDK_STRUCTURE_MASK */
     /// receive property change events
-    static let property_change_mask = GDK_PROPERTY_CHANGE_MASK /* 65536 */
+    public static let propertyChangeMask = EventMask(65536) /* GDK_PROPERTY_CHANGE_MASK */
     /// receive visibility change events
-    static let visibility_notify_mask = GDK_VISIBILITY_NOTIFY_MASK /* 131072 */
+    public static let visibilityNotifyMask = EventMask(131072) /* GDK_VISIBILITY_NOTIFY_MASK */
     /// receive proximity in events
-    static let proximity_in_mask = GDK_PROXIMITY_IN_MASK /* 262144 */
+    public static let proximityInMask = EventMask(262144) /* GDK_PROXIMITY_IN_MASK */
     /// receive proximity out events
-    static let proximity_out_mask = GDK_PROXIMITY_OUT_MASK /* 524288 */
+    public static let proximityOutMask = EventMask(524288) /* GDK_PROXIMITY_OUT_MASK */
     /// receive events about window configuration changes of
     ///   child windows
-    static let substructure_mask = GDK_SUBSTRUCTURE_MASK /* 1048576 */
+    public static let substructureMask = EventMask(1048576) /* GDK_SUBSTRUCTURE_MASK */
     /// receive scroll events
-    static let scroll_mask = GDK_SCROLL_MASK /* 2097152 */
+    public static let scrollMask = EventMask(2097152) /* GDK_SCROLL_MASK */
     /// receive touch events. Since 3.4
-    static let touch_mask = GDK_TOUCH_MASK /* 4194304 */
+    public static let touchMask = EventMask(4194304) /* GDK_TOUCH_MASK */
     /// receive smooth scrolling events. Since 3.4
-    static let smooth_scroll_mask = GDK_SMOOTH_SCROLL_MASK /* 8388608 */
+    public static let smoothScrollMask = EventMask(8388608) /* GDK_SMOOTH_SCROLL_MASK */
     /// receive touchpad gesture events. Since 3.18
-    static let touchpad_gesture_mask = GDK_TOUCHPAD_GESTURE_MASK /* 16777216 */
+    public static let touchpadGestureMask = EventMask(16777216) /* GDK_TOUCHPAD_GESTURE_MASK */
     /// receive tablet pad events. Since 3.22
-    static let tablet_pad_mask = GDK_TABLET_PAD_MASK /* 33554432 */
+    public static let tabletPadMask = EventMask(33554432) /* GDK_TABLET_PAD_MASK */
     /// the combination of all the above event masks.
-    static let all_events_mask = GDK_ALL_EVENTS_MASK /* 67108862 */
+    public static let allEventsMask = EventMask(67108862) /* GDK_ALL_EVENTS_MASK */
+
+    /// receive expose events
+    @available(*, deprecated) public static let exposure_mask = EventMask(2) /* GDK_EXPOSURE_MASK */
+    /// receive all pointer motion events
+    @available(*, deprecated) public static let pointer_motion_mask = EventMask(4) /* GDK_POINTER_MOTION_MASK */
+    /// deprecated. see the explanation above
+    @available(*, deprecated) public static let pointer_motion_hint_mask = EventMask(8) /* GDK_POINTER_MOTION_HINT_MASK */
+    /// receive pointer motion events while any button is pressed
+    @available(*, deprecated) public static let button_motion_mask = EventMask(16) /* GDK_BUTTON_MOTION_MASK */
+    /// receive pointer motion events while 1 button is pressed
+    @available(*, deprecated) public static let button1_motion_mask = EventMask(32) /* GDK_BUTTON1_MOTION_MASK */
+    /// receive pointer motion events while 2 button is pressed
+    @available(*, deprecated) public static let button2_motion_mask = EventMask(64) /* GDK_BUTTON2_MOTION_MASK */
+    /// receive pointer motion events while 3 button is pressed
+    @available(*, deprecated) public static let button3_motion_mask = EventMask(128) /* GDK_BUTTON3_MOTION_MASK */
+    /// receive button press events
+    @available(*, deprecated) public static let button_press_mask = EventMask(256) /* GDK_BUTTON_PRESS_MASK */
+    /// receive button release events
+    @available(*, deprecated) public static let button_release_mask = EventMask(512) /* GDK_BUTTON_RELEASE_MASK */
+    /// receive key press events
+    @available(*, deprecated) public static let key_press_mask = EventMask(1024) /* GDK_KEY_PRESS_MASK */
+    /// receive key release events
+    @available(*, deprecated) public static let key_release_mask = EventMask(2048) /* GDK_KEY_RELEASE_MASK */
+    /// receive window enter events
+    @available(*, deprecated) public static let enter_notify_mask = EventMask(4096) /* GDK_ENTER_NOTIFY_MASK */
+    /// receive window leave events
+    @available(*, deprecated) public static let leave_notify_mask = EventMask(8192) /* GDK_LEAVE_NOTIFY_MASK */
+    /// receive focus change events
+    @available(*, deprecated) public static let focus_change_mask = EventMask(16384) /* GDK_FOCUS_CHANGE_MASK */
+    /// receive events about window configuration change
+    @available(*, deprecated) public static let structure_mask = EventMask(32768) /* GDK_STRUCTURE_MASK */
+    /// receive property change events
+    @available(*, deprecated) public static let property_change_mask = EventMask(65536) /* GDK_PROPERTY_CHANGE_MASK */
+    /// receive visibility change events
+    @available(*, deprecated) public static let visibility_notify_mask = EventMask(131072) /* GDK_VISIBILITY_NOTIFY_MASK */
+    /// receive proximity in events
+    @available(*, deprecated) public static let proximity_in_mask = EventMask(262144) /* GDK_PROXIMITY_IN_MASK */
+    /// receive proximity out events
+    @available(*, deprecated) public static let proximity_out_mask = EventMask(524288) /* GDK_PROXIMITY_OUT_MASK */
+    /// receive events about window configuration changes of
+    ///   child windows
+    @available(*, deprecated) public static let substructure_mask = EventMask(1048576) /* GDK_SUBSTRUCTURE_MASK */
+    /// receive scroll events
+    @available(*, deprecated) public static let scroll_mask = EventMask(2097152) /* GDK_SCROLL_MASK */
+    /// receive touch events. Since 3.4
+    @available(*, deprecated) public static let touch_mask = EventMask(4194304) /* GDK_TOUCH_MASK */
+    /// receive smooth scrolling events. Since 3.4
+    @available(*, deprecated) public static let smooth_scroll_mask = EventMask(8388608) /* GDK_SMOOTH_SCROLL_MASK */
+    /// receive touchpad gesture events. Since 3.18
+    @available(*, deprecated) public static let touchpad_gesture_mask = EventMask(16777216) /* GDK_TOUCHPAD_GESTURE_MASK */
+    /// receive tablet pad events. Since 3.22
+    @available(*, deprecated) public static let tablet_pad_mask = EventMask(33554432) /* GDK_TABLET_PAD_MASK */
+    /// the combination of all the above event masks.
+    @available(*, deprecated) public static let all_events_mask = EventMask(67108862) /* GDK_ALL_EVENTS_MASK */
 }
+func cast<I: BinaryInteger>(_ param: I) -> EventMask { EventMask(rawValue: cast(param)) }
+func cast(_ param: EventMask) -> UInt32 { cast(param.rawValue) }
+
 
 /// `GdkFrameClockPhase` is used to represent the different paint clock
 /// phases that can be requested. The elements of the enumeration
 /// correspond to the signals of `GdkFrameClock`.
-public typealias FrameClockPhase = GdkFrameClockPhase
+public struct FrameClockPhase: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkFrameClockPhase` enum value
+    public var value: GdkFrameClockPhase { get { GdkFrameClockPhase(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension FrameClockPhase {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkFrameClockPhase` enum value
+    public init(_ enumValue: GdkFrameClockPhase) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// no phase
-    static let none_ = GDK_FRAME_CLOCK_PHASE_NONE /* 0 */
+    public static let `none` = FrameClockPhase(0) /* GDK_FRAME_CLOCK_PHASE_NONE */
     /// corresponds to GdkFrameClock`flush`-events. Should not be handled by applications.
-    static let flush_events = GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS /* 1 */
+    public static let flushEvents = FrameClockPhase(1) /* GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS */
     /// corresponds to GdkFrameClock`before`-paint. Should not be handled by applications.
-    static let before_paint = GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT /* 2 */
+    public static let beforePaint = FrameClockPhase(2) /* GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT */
     /// corresponds to GdkFrameClock`update`.
-    static let update = GDK_FRAME_CLOCK_PHASE_UPDATE /* 4 */
+    public static let update = FrameClockPhase(4) /* GDK_FRAME_CLOCK_PHASE_UPDATE */
     /// corresponds to GdkFrameClock`layout`.
-    static let layout = GDK_FRAME_CLOCK_PHASE_LAYOUT /* 8 */
+    public static let layout = FrameClockPhase(8) /* GDK_FRAME_CLOCK_PHASE_LAYOUT */
     /// corresponds to GdkFrameClock`paint`.
-    static let paint = GDK_FRAME_CLOCK_PHASE_PAINT /* 16 */
+    public static let paint = FrameClockPhase(16) /* GDK_FRAME_CLOCK_PHASE_PAINT */
     /// corresponds to GdkFrameClock`resume`-events. Should not be handled by applications.
-    static let resume_events = GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS /* 32 */
+    public static let resumeEvents = FrameClockPhase(32) /* GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS */
     /// corresponds to GdkFrameClock`after`-paint. Should not be handled by applications.
-    static let after_paint = GDK_FRAME_CLOCK_PHASE_AFTER_PAINT /* 64 */
+    public static let afterPaint = FrameClockPhase(64) /* GDK_FRAME_CLOCK_PHASE_AFTER_PAINT */
+
+    /// no phase
+    @available(*, deprecated) public static let none_ = FrameClockPhase(0) /* GDK_FRAME_CLOCK_PHASE_NONE */
+    /// corresponds to GdkFrameClock`flush`-events. Should not be handled by applications.
+    @available(*, deprecated) public static let flush_events = FrameClockPhase(1) /* GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS */
+    /// corresponds to GdkFrameClock`before`-paint. Should not be handled by applications.
+    @available(*, deprecated) public static let before_paint = FrameClockPhase(2) /* GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT */
+    /// corresponds to GdkFrameClock`resume`-events. Should not be handled by applications.
+    @available(*, deprecated) public static let resume_events = FrameClockPhase(32) /* GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS */
+    /// corresponds to GdkFrameClock`after`-paint. Should not be handled by applications.
+    @available(*, deprecated) public static let after_paint = FrameClockPhase(64) /* GDK_FRAME_CLOCK_PHASE_AFTER_PAINT */
 }
+func cast<I: BinaryInteger>(_ param: I) -> FrameClockPhase { FrameClockPhase(rawValue: cast(param)) }
+func cast(_ param: FrameClockPhase) -> UInt32 { cast(param.rawValue) }
+
 
 /// A set of bit-flags to indicate the state of modifier keys and mouse buttons
 /// in various event types. Typical modifier keys are Shift, Control, Meta,
@@ -220,144 +401,304 @@ public extension FrameClockPhase {
 /// Also note that the GDK X backend interprets button press events for button
 /// 4-7 as scroll events, so `GDK_BUTTON4_MASK` and `GDK_BUTTON5_MASK` will never
 /// be set.
-public typealias ModifierType = GdkModifierType
+public struct ModifierType: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkModifierType` enum value
+    public var value: GdkModifierType { get { GdkModifierType(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension ModifierType {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkModifierType` enum value
+    public init(_ enumValue: GdkModifierType) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// the Shift key.
-    static let shift_mask = GDK_SHIFT_MASK /* 1 */
+    public static let shiftMask = ModifierType(1) /* GDK_SHIFT_MASK */
     /// a Lock key (depending on the modifier mapping of the
     ///  X server this may either be CapsLock or ShiftLock).
-    static let lock_mask = GDK_LOCK_MASK /* 2 */
+    public static let lockMask = ModifierType(2) /* GDK_LOCK_MASK */
     /// the Control key.
-    static let control_mask = GDK_CONTROL_MASK /* 4 */
+    public static let controlMask = ModifierType(4) /* GDK_CONTROL_MASK */
     /// the fourth modifier key (it depends on the modifier
     ///  mapping of the X server which key is interpreted as this modifier, but
     ///  normally it is the Alt key).
-    static let mod1_mask = GDK_MOD1_MASK /* 8 */
+    public static let mod1Mask = ModifierType(8) /* GDK_MOD1_MASK */
     /// the fifth modifier key (it depends on the modifier
     ///  mapping of the X server which key is interpreted as this modifier).
-    static let mod2_mask = GDK_MOD2_MASK /* 16 */
+    public static let mod2Mask = ModifierType(16) /* GDK_MOD2_MASK */
     /// the sixth modifier key (it depends on the modifier
     ///  mapping of the X server which key is interpreted as this modifier).
-    static let mod3_mask = GDK_MOD3_MASK /* 32 */
+    public static let mod3Mask = ModifierType(32) /* GDK_MOD3_MASK */
     /// the seventh modifier key (it depends on the modifier
     ///  mapping of the X server which key is interpreted as this modifier).
-    static let mod4_mask = GDK_MOD4_MASK /* 64 */
+    public static let mod4Mask = ModifierType(64) /* GDK_MOD4_MASK */
     /// the eighth modifier key (it depends on the modifier
     ///  mapping of the X server which key is interpreted as this modifier).
-    static let mod5_mask = GDK_MOD5_MASK /* 128 */
+    public static let mod5Mask = ModifierType(128) /* GDK_MOD5_MASK */
     /// the first mouse button.
-    static let button1_mask = GDK_BUTTON1_MASK /* 256 */
+    public static let button1Mask = ModifierType(256) /* GDK_BUTTON1_MASK */
     /// the second mouse button.
-    static let button2_mask = GDK_BUTTON2_MASK /* 512 */
+    public static let button2Mask = ModifierType(512) /* GDK_BUTTON2_MASK */
     /// the third mouse button.
-    static let button3_mask = GDK_BUTTON3_MASK /* 1024 */
+    public static let button3Mask = ModifierType(1024) /* GDK_BUTTON3_MASK */
     /// the fourth mouse button.
-    static let button4_mask = GDK_BUTTON4_MASK /* 2048 */
+    public static let button4Mask = ModifierType(2048) /* GDK_BUTTON4_MASK */
     /// the fifth mouse button.
-    static let button5_mask = GDK_BUTTON5_MASK /* 4096 */
+    public static let button5Mask = ModifierType(4096) /* GDK_BUTTON5_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_13_mask = GDK_MODIFIER_RESERVED_13_MASK /* 8192 */
+    public static let modifierReserved13Mask = ModifierType(8192) /* GDK_MODIFIER_RESERVED_13_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_14_mask = GDK_MODIFIER_RESERVED_14_MASK /* 16384 */
+    public static let modifierReserved14Mask = ModifierType(16384) /* GDK_MODIFIER_RESERVED_14_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_15_mask = GDK_MODIFIER_RESERVED_15_MASK /* 32768 */
+    public static let modifierReserved15Mask = ModifierType(32768) /* GDK_MODIFIER_RESERVED_15_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_16_mask = GDK_MODIFIER_RESERVED_16_MASK /* 65536 */
+    public static let modifierReserved16Mask = ModifierType(65536) /* GDK_MODIFIER_RESERVED_16_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_17_mask = GDK_MODIFIER_RESERVED_17_MASK /* 131072 */
+    public static let modifierReserved17Mask = ModifierType(131072) /* GDK_MODIFIER_RESERVED_17_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_18_mask = GDK_MODIFIER_RESERVED_18_MASK /* 262144 */
+    public static let modifierReserved18Mask = ModifierType(262144) /* GDK_MODIFIER_RESERVED_18_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_19_mask = GDK_MODIFIER_RESERVED_19_MASK /* 524288 */
+    public static let modifierReserved19Mask = ModifierType(524288) /* GDK_MODIFIER_RESERVED_19_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_20_mask = GDK_MODIFIER_RESERVED_20_MASK /* 1048576 */
+    public static let modifierReserved20Mask = ModifierType(1048576) /* GDK_MODIFIER_RESERVED_20_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_21_mask = GDK_MODIFIER_RESERVED_21_MASK /* 2097152 */
+    public static let modifierReserved21Mask = ModifierType(2097152) /* GDK_MODIFIER_RESERVED_21_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_22_mask = GDK_MODIFIER_RESERVED_22_MASK /* 4194304 */
+    public static let modifierReserved22Mask = ModifierType(4194304) /* GDK_MODIFIER_RESERVED_22_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_23_mask = GDK_MODIFIER_RESERVED_23_MASK /* 8388608 */
+    public static let modifierReserved23Mask = ModifierType(8388608) /* GDK_MODIFIER_RESERVED_23_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_24_mask = GDK_MODIFIER_RESERVED_24_MASK /* 16777216 */
+    public static let modifierReserved24Mask = ModifierType(16777216) /* GDK_MODIFIER_RESERVED_24_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_25_mask = GDK_MODIFIER_RESERVED_25_MASK /* 33554432 */
+    public static let modifierReserved25Mask = ModifierType(33554432) /* GDK_MODIFIER_RESERVED_25_MASK */
     /// the Super modifier. Since 2.10
-    static let super_mask = GDK_SUPER_MASK /* 67108864 */
+    public static let superMask = ModifierType(67108864) /* GDK_SUPER_MASK */
     /// the Hyper modifier. Since 2.10
-    static let hyper_mask = GDK_HYPER_MASK /* 134217728 */
+    public static let hyperMask = ModifierType(134217728) /* GDK_HYPER_MASK */
     /// the Meta modifier. Since 2.10
-    static let meta_mask = GDK_META_MASK /* 268435456 */
+    public static let metaMask = ModifierType(268435456) /* GDK_META_MASK */
     /// A reserved bit flag; do not use in your own code
-    static let modifier_reserved_29_mask = GDK_MODIFIER_RESERVED_29_MASK /* 536870912 */
+    public static let modifierReserved29Mask = ModifierType(536870912) /* GDK_MODIFIER_RESERVED_29_MASK */
     /// not used in GDK itself. GTK+ uses it to differentiate
     ///  between (keyval, modifiers) pairs from key press and release events.
-    static let release_mask = GDK_RELEASE_MASK /* 1073741824 */
+    public static let releaseMask = ModifierType(1073741824) /* GDK_RELEASE_MASK */
     /// a mask covering all modifier types.
-    static let modifier_mask = GDK_MODIFIER_MASK /* 1543512063 */
+    public static let modifierMask = ModifierType(1543512063) /* GDK_MODIFIER_MASK */
+
+    /// the Shift key.
+    @available(*, deprecated) public static let shift_mask = ModifierType(1) /* GDK_SHIFT_MASK */
+    /// a Lock key (depending on the modifier mapping of the
+    ///  X server this may either be CapsLock or ShiftLock).
+    @available(*, deprecated) public static let lock_mask = ModifierType(2) /* GDK_LOCK_MASK */
+    /// the Control key.
+    @available(*, deprecated) public static let control_mask = ModifierType(4) /* GDK_CONTROL_MASK */
+    /// the fourth modifier key (it depends on the modifier
+    ///  mapping of the X server which key is interpreted as this modifier, but
+    ///  normally it is the Alt key).
+    @available(*, deprecated) public static let mod1_mask = ModifierType(8) /* GDK_MOD1_MASK */
+    /// the fifth modifier key (it depends on the modifier
+    ///  mapping of the X server which key is interpreted as this modifier).
+    @available(*, deprecated) public static let mod2_mask = ModifierType(16) /* GDK_MOD2_MASK */
+    /// the sixth modifier key (it depends on the modifier
+    ///  mapping of the X server which key is interpreted as this modifier).
+    @available(*, deprecated) public static let mod3_mask = ModifierType(32) /* GDK_MOD3_MASK */
+    /// the seventh modifier key (it depends on the modifier
+    ///  mapping of the X server which key is interpreted as this modifier).
+    @available(*, deprecated) public static let mod4_mask = ModifierType(64) /* GDK_MOD4_MASK */
+    /// the eighth modifier key (it depends on the modifier
+    ///  mapping of the X server which key is interpreted as this modifier).
+    @available(*, deprecated) public static let mod5_mask = ModifierType(128) /* GDK_MOD5_MASK */
+    /// the first mouse button.
+    @available(*, deprecated) public static let button1_mask = ModifierType(256) /* GDK_BUTTON1_MASK */
+    /// the second mouse button.
+    @available(*, deprecated) public static let button2_mask = ModifierType(512) /* GDK_BUTTON2_MASK */
+    /// the third mouse button.
+    @available(*, deprecated) public static let button3_mask = ModifierType(1024) /* GDK_BUTTON3_MASK */
+    /// the fourth mouse button.
+    @available(*, deprecated) public static let button4_mask = ModifierType(2048) /* GDK_BUTTON4_MASK */
+    /// the fifth mouse button.
+    @available(*, deprecated) public static let button5_mask = ModifierType(4096) /* GDK_BUTTON5_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_13_mask = ModifierType(8192) /* GDK_MODIFIER_RESERVED_13_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_14_mask = ModifierType(16384) /* GDK_MODIFIER_RESERVED_14_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_15_mask = ModifierType(32768) /* GDK_MODIFIER_RESERVED_15_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_16_mask = ModifierType(65536) /* GDK_MODIFIER_RESERVED_16_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_17_mask = ModifierType(131072) /* GDK_MODIFIER_RESERVED_17_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_18_mask = ModifierType(262144) /* GDK_MODIFIER_RESERVED_18_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_19_mask = ModifierType(524288) /* GDK_MODIFIER_RESERVED_19_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_20_mask = ModifierType(1048576) /* GDK_MODIFIER_RESERVED_20_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_21_mask = ModifierType(2097152) /* GDK_MODIFIER_RESERVED_21_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_22_mask = ModifierType(4194304) /* GDK_MODIFIER_RESERVED_22_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_23_mask = ModifierType(8388608) /* GDK_MODIFIER_RESERVED_23_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_24_mask = ModifierType(16777216) /* GDK_MODIFIER_RESERVED_24_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_25_mask = ModifierType(33554432) /* GDK_MODIFIER_RESERVED_25_MASK */
+    /// the Super modifier. Since 2.10
+    @available(*, deprecated) public static let super_mask = ModifierType(67108864) /* GDK_SUPER_MASK */
+    /// the Hyper modifier. Since 2.10
+    @available(*, deprecated) public static let hyper_mask = ModifierType(134217728) /* GDK_HYPER_MASK */
+    /// the Meta modifier. Since 2.10
+    @available(*, deprecated) public static let meta_mask = ModifierType(268435456) /* GDK_META_MASK */
+    /// A reserved bit flag; do not use in your own code
+    @available(*, deprecated) public static let modifier_reserved_29_mask = ModifierType(536870912) /* GDK_MODIFIER_RESERVED_29_MASK */
+    /// not used in GDK itself. GTK+ uses it to differentiate
+    ///  between (keyval, modifiers) pairs from key press and release events.
+    @available(*, deprecated) public static let release_mask = ModifierType(1073741824) /* GDK_RELEASE_MASK */
+    /// a mask covering all modifier types.
+    @available(*, deprecated) public static let modifier_mask = ModifierType(1543512063) /* GDK_MODIFIER_MASK */
 }
+func cast<I: BinaryInteger>(_ param: I) -> ModifierType { ModifierType(rawValue: cast(param)) }
+func cast(_ param: ModifierType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Flags describing the seat capabilities.
-public typealias SeatCapabilities = GdkSeatCapabilities
+public struct SeatCapabilities: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkSeatCapabilities` enum value
+    public var value: GdkSeatCapabilities { get { GdkSeatCapabilities(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension SeatCapabilities {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkSeatCapabilities` enum value
+    public init(_ enumValue: GdkSeatCapabilities) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// No input capabilities
-    static let none_ = GDK_SEAT_CAPABILITY_NONE /* 0 */
+    public static let `none` = SeatCapabilities(0) /* GDK_SEAT_CAPABILITY_NONE */
     /// The seat has a pointer (e.g. mouse)
-    static let pointer = GDK_SEAT_CAPABILITY_POINTER /* 1 */
+    public static let pointer = SeatCapabilities(1) /* GDK_SEAT_CAPABILITY_POINTER */
     /// The seat has `touchscreen(s)` attached
-    static let touch = GDK_SEAT_CAPABILITY_TOUCH /* 2 */
+    public static let touch = SeatCapabilities(2) /* GDK_SEAT_CAPABILITY_TOUCH */
     /// The seat has drawing `tablet(s)` attached
-    static let tablet_stylus = GDK_SEAT_CAPABILITY_TABLET_STYLUS /* 4 */
+    public static let tabletStylus = SeatCapabilities(4) /* GDK_SEAT_CAPABILITY_TABLET_STYLUS */
     /// The seat has `keyboard(s)` attached
-    static let keyboard = GDK_SEAT_CAPABILITY_KEYBOARD /* 8 */
+    public static let keyboard = SeatCapabilities(8) /* GDK_SEAT_CAPABILITY_KEYBOARD */
     /// The union of all pointing capabilities
-    static let all_pointing = GDK_SEAT_CAPABILITY_ALL_POINTING /* 7 */
+    public static let allPointing = SeatCapabilities(7) /* GDK_SEAT_CAPABILITY_ALL_POINTING */
     /// The union of all capabilities
-    static let all = GDK_SEAT_CAPABILITY_ALL /* 15 */
+    public static let all = SeatCapabilities(15) /* GDK_SEAT_CAPABILITY_ALL */
+
+    /// No input capabilities
+    @available(*, deprecated) public static let none_ = SeatCapabilities(0) /* GDK_SEAT_CAPABILITY_NONE */
+    /// The seat has drawing `tablet(s)` attached
+    @available(*, deprecated) public static let tablet_stylus = SeatCapabilities(4) /* GDK_SEAT_CAPABILITY_TABLET_STYLUS */
+    /// The union of all pointing capabilities
+    @available(*, deprecated) public static let all_pointing = SeatCapabilities(7) /* GDK_SEAT_CAPABILITY_ALL_POINTING */
 }
+func cast<I: BinaryInteger>(_ param: I) -> SeatCapabilities { SeatCapabilities(rawValue: cast(param)) }
+func cast(_ param: SeatCapabilities) -> UInt32 { cast(param.rawValue) }
+
 
 /// These are hints originally defined by the Motif toolkit.
 /// The window manager can use them when determining how to decorate
 /// the window. The hint must be set before mapping the window.
-public typealias WMDecoration = GdkWMDecoration
+public struct WMDecoration: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkWMDecoration` enum value
+    public var value: GdkWMDecoration { get { GdkWMDecoration(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension WMDecoration {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkWMDecoration` enum value
+    public init(_ enumValue: GdkWMDecoration) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// all decorations should be applied.
-    static let all = GDK_DECOR_ALL /* 1 */
+    public static let all = WMDecoration(1) /* GDK_DECOR_ALL */
     /// a frame should be drawn around the window.
-    static let border = GDK_DECOR_BORDER /* 2 */
+    public static let border = WMDecoration(2) /* GDK_DECOR_BORDER */
     /// the frame should have resize handles.
-    static let resizeh = GDK_DECOR_RESIZEH /* 4 */
+    public static let resizeh = WMDecoration(4) /* GDK_DECOR_RESIZEH */
     /// a titlebar should be placed above the window.
-    static let title = GDK_DECOR_TITLE /* 8 */
+    public static let title = WMDecoration(8) /* GDK_DECOR_TITLE */
     /// a button for opening a menu should be included.
-    static let menu = GDK_DECOR_MENU /* 16 */
+    public static let menu = WMDecoration(16) /* GDK_DECOR_MENU */
     /// a minimize button should be included.
-    static let minimize = GDK_DECOR_MINIMIZE /* 32 */
+    public static let minimize = WMDecoration(32) /* GDK_DECOR_MINIMIZE */
     /// a maximize button should be included.
-    static let maximize = GDK_DECOR_MAXIMIZE /* 64 */
+    public static let maximize = WMDecoration(64) /* GDK_DECOR_MAXIMIZE */
+
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> WMDecoration { WMDecoration(rawValue: cast(param)) }
+func cast(_ param: WMDecoration) -> UInt32 { cast(param.rawValue) }
+
 
 /// These are hints originally defined by the Motif toolkit. The window manager
 /// can use them when determining the functions to offer for the window. The
 /// hint must be set before mapping the window.
-public typealias WMFunction = GdkWMFunction
+public struct WMFunction: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkWMFunction` enum value
+    public var value: GdkWMFunction { get { GdkWMFunction(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension WMFunction {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkWMFunction` enum value
+    public init(_ enumValue: GdkWMFunction) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// all functions should be offered.
-    static let all = GDK_FUNC_ALL /* 1 */
+    public static let all = WMFunction(1) /* GDK_FUNC_ALL */
     /// the window should be resizable.
-    static let resize = GDK_FUNC_RESIZE /* 2 */
+    public static let resize = WMFunction(2) /* GDK_FUNC_RESIZE */
     /// the window should be movable.
-    static let move = GDK_FUNC_MOVE /* 4 */
+    public static let move = WMFunction(4) /* GDK_FUNC_MOVE */
     /// the window should be minimizable.
-    static let minimize = GDK_FUNC_MINIMIZE /* 8 */
+    public static let minimize = WMFunction(8) /* GDK_FUNC_MINIMIZE */
     /// the window should be maximizable.
-    static let maximize = GDK_FUNC_MAXIMIZE /* 16 */
+    public static let maximize = WMFunction(16) /* GDK_FUNC_MAXIMIZE */
     /// the window should be closable.
-    static let close = GDK_FUNC_CLOSE /* 32 */
+    public static let close = WMFunction(32) /* GDK_FUNC_CLOSE */
+
+
 }
+func cast<I: BinaryInteger>(_ param: I) -> WMFunction { WMFunction(rawValue: cast(param)) }
+func cast(_ param: WMFunction) -> UInt32 { cast(param.rawValue) }
+
 
 /// Used to indicate which fields in the `GdkWindowAttr` struct should be honored.
 /// For example, if you filled in the “cursor” and “x” fields of `GdkWindowAttr`,
@@ -365,26 +706,48 @@ public extension WMFunction {
 /// `GdkWindowAttr` not covered by a bit in this enum are required; for example,
 /// the `width`/`height`, `wclass`, and `window_type` fields are required, they have
 /// no corresponding flag in `GdkWindowAttributesType`.
-public typealias WindowAttributesType = GdkWindowAttributesType
+public struct WindowAttributesType: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkWindowAttributesType` enum value
+    public var value: GdkWindowAttributesType { get { GdkWindowAttributesType(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension WindowAttributesType {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkWindowAttributesType` enum value
+    public init(_ enumValue: GdkWindowAttributesType) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// Honor the title field
-    static let title = GDK_WA_TITLE /* 2 */
+    public static let title = WindowAttributesType(2) /* GDK_WA_TITLE */
     /// Honor the X coordinate field
-    static let x = GDK_WA_X /* 4 */
+    public static let x = WindowAttributesType(4) /* GDK_WA_X */
     /// Honor the Y coordinate field
-    static let y = GDK_WA_Y /* 8 */
+    public static let y = WindowAttributesType(8) /* GDK_WA_Y */
     /// Honor the cursor field
-    static let cursor = GDK_WA_CURSOR /* 16 */
+    public static let cursor = WindowAttributesType(16) /* GDK_WA_CURSOR */
     /// Honor the visual field
-    static let visual = GDK_WA_VISUAL /* 32 */
+    public static let visual = WindowAttributesType(32) /* GDK_WA_VISUAL */
     /// Honor the wmclass_class and wmclass_name fields
-    static let wmclass = GDK_WA_WMCLASS /* 64 */
+    public static let wmclass = WindowAttributesType(64) /* GDK_WA_WMCLASS */
     /// Honor the override_redirect field
-    static let noredir = GDK_WA_NOREDIR /* 128 */
+    public static let noredir = WindowAttributesType(128) /* GDK_WA_NOREDIR */
     /// Honor the type_hint field
-    static let type_hint = GDK_WA_TYPE_HINT /* 256 */
+    public static let typeHint = WindowAttributesType(256) /* GDK_WA_TYPE_HINT */
+
+    /// Honor the type_hint field
+    @available(*, deprecated) public static let type_hint = WindowAttributesType(256) /* GDK_WA_TYPE_HINT */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowAttributesType { WindowAttributesType(rawValue: cast(param)) }
+func cast(_ param: WindowAttributesType) -> UInt32 { cast(param.rawValue) }
+
 
 /// Used to indicate which fields of a `GdkGeometry` struct should be paid
 /// attention to. Also, the presence/absence of `GDK_HINT_POS`,
@@ -394,69 +757,140 @@ public extension WindowAttributesType {
 /// `GDK_HINT_USER_POS` and `GDK_HINT_USER_SIZE` should be set if the user
 /// specified a size/position using a --geometry command-line argument;
 /// `gtk_window_parse_geometry()` automatically sets these flags.
-public typealias WindowHints = GdkWindowHints
+public struct WindowHints: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkWindowHints` enum value
+    public var value: GdkWindowHints { get { GdkWindowHints(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension WindowHints {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkWindowHints` enum value
+    public init(_ enumValue: GdkWindowHints) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// indicates that the program has positioned the window
-    static let pos = GDK_HINT_POS /* 1 */
+    public static let pos = WindowHints(1) /* GDK_HINT_POS */
     /// min size fields are set
-    static let min_size = GDK_HINT_MIN_SIZE /* 2 */
+    public static let minSize = WindowHints(2) /* GDK_HINT_MIN_SIZE */
     /// max size fields are set
-    static let max_size = GDK_HINT_MAX_SIZE /* 4 */
+    public static let maxSize = WindowHints(4) /* GDK_HINT_MAX_SIZE */
     /// base size fields are set
-    static let base_size = GDK_HINT_BASE_SIZE /* 8 */
+    public static let baseSize = WindowHints(8) /* GDK_HINT_BASE_SIZE */
     /// aspect ratio fields are set
-    static let aspect = GDK_HINT_ASPECT /* 16 */
+    public static let aspect = WindowHints(16) /* GDK_HINT_ASPECT */
     /// resize increment fields are set
-    static let resize_inc = GDK_HINT_RESIZE_INC /* 32 */
+    public static let resizeInc = WindowHints(32) /* GDK_HINT_RESIZE_INC */
     /// window gravity field is set
-    static let win_gravity = GDK_HINT_WIN_GRAVITY /* 64 */
+    public static let winGravity = WindowHints(64) /* GDK_HINT_WIN_GRAVITY */
     /// indicates that the window’s position was explicitly set
     ///  by the user
-    static let user_pos = GDK_HINT_USER_POS /* 128 */
+    public static let userPos = WindowHints(128) /* GDK_HINT_USER_POS */
     /// indicates that the window’s size was explicitly set by
     ///  the user
-    static let user_size = GDK_HINT_USER_SIZE /* 256 */
+    public static let userSize = WindowHints(256) /* GDK_HINT_USER_SIZE */
+
+    /// min size fields are set
+    @available(*, deprecated) public static let min_size = WindowHints(2) /* GDK_HINT_MIN_SIZE */
+    /// max size fields are set
+    @available(*, deprecated) public static let max_size = WindowHints(4) /* GDK_HINT_MAX_SIZE */
+    /// base size fields are set
+    @available(*, deprecated) public static let base_size = WindowHints(8) /* GDK_HINT_BASE_SIZE */
+    /// resize increment fields are set
+    @available(*, deprecated) public static let resize_inc = WindowHints(32) /* GDK_HINT_RESIZE_INC */
+    /// window gravity field is set
+    @available(*, deprecated) public static let win_gravity = WindowHints(64) /* GDK_HINT_WIN_GRAVITY */
+    /// indicates that the window’s position was explicitly set
+    ///  by the user
+    @available(*, deprecated) public static let user_pos = WindowHints(128) /* GDK_HINT_USER_POS */
+    /// indicates that the window’s size was explicitly set by
+    ///  the user
+    @available(*, deprecated) public static let user_size = WindowHints(256) /* GDK_HINT_USER_SIZE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowHints { WindowHints(rawValue: cast(param)) }
+func cast(_ param: WindowHints) -> UInt32 { cast(param.rawValue) }
+
 
 /// Specifies the state of a toplevel window.
-public typealias WindowState = GdkWindowState
+public struct WindowState: OptionSet {
+    /// The corresponding value of the raw type
+    public var rawValue: UInt32 = 0
+    /// The equivalent raw Int value
+    public var intValue: Int { get { Int(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent raw `gint` value
+    public var int: gint { get { gint(rawValue) } set { rawValue = UInt32(newValue) } }
+    /// The equivalent underlying `GdkWindowState` enum value
+    public var value: GdkWindowState { get { GdkWindowState(rawValue: cast(rawValue)) } set { rawValue = UInt32(newValue.rawValue) } }
 
-public extension WindowState {
+    /// Creates a new instance with the specified raw value
+    public init(rawValue: UInt32) { self.rawValue = rawValue }
+    /// Creates a new instance with the specified `GdkWindowState` enum value
+    public init(_ enumValue: GdkWindowState) { self.rawValue = UInt32(enumValue.rawValue) }
+    /// Creates a new instance with the specified Int value
+    public init(_ intValue: Int)   { self.rawValue = UInt32(intValue)  }
+    /// Creates a new instance with the specified `gint` value
+    public init(_ gintValue: gint) { self.rawValue = UInt32(gintValue) }
+
     /// the window is not shown.
-    static let withdrawn = GDK_WINDOW_STATE_WITHDRAWN /* 1 */
+    public static let withdrawn = WindowState(1) /* GDK_WINDOW_STATE_WITHDRAWN */
     /// the window is minimized.
-    static let iconified = GDK_WINDOW_STATE_ICONIFIED /* 2 */
+    public static let iconified = WindowState(2) /* GDK_WINDOW_STATE_ICONIFIED */
     /// the window is maximized.
-    static let maximized = GDK_WINDOW_STATE_MAXIMIZED /* 4 */
+    public static let maximized = WindowState(4) /* GDK_WINDOW_STATE_MAXIMIZED */
     /// the window is sticky.
-    static let sticky = GDK_WINDOW_STATE_STICKY /* 8 */
+    public static let sticky = WindowState(8) /* GDK_WINDOW_STATE_STICKY */
     /// the window is maximized without
     ///   decorations.
-    static let fullscreen = GDK_WINDOW_STATE_FULLSCREEN /* 16 */
+    public static let fullscreen = WindowState(16) /* GDK_WINDOW_STATE_FULLSCREEN */
     /// the window is kept above other windows.
-    static let above = GDK_WINDOW_STATE_ABOVE /* 32 */
+    public static let above = WindowState(32) /* GDK_WINDOW_STATE_ABOVE */
     /// the window is kept below other windows.
-    static let below = GDK_WINDOW_STATE_BELOW /* 64 */
+    public static let below = WindowState(64) /* GDK_WINDOW_STATE_BELOW */
     /// the window is presented as focused (with active decorations).
-    static let focused = GDK_WINDOW_STATE_FOCUSED /* 128 */
+    public static let focused = WindowState(128) /* GDK_WINDOW_STATE_FOCUSED */
     /// the window is in a tiled state, Since 3.10. Since 3.22.23, this
     ///                          is deprecated in favor of per-edge information.
-    static let tiled = GDK_WINDOW_STATE_TILED /* 256 */
+    public static let tiled = WindowState(256) /* GDK_WINDOW_STATE_TILED */
     /// whether the top edge is tiled, Since 3.22.23
-    static let top_tiled = GDK_WINDOW_STATE_TOP_TILED /* 512 */
+    public static let topTiled = WindowState(512) /* GDK_WINDOW_STATE_TOP_TILED */
     /// whether the top edge is resizable, Since 3.22.23
-    static let top_resizable = GDK_WINDOW_STATE_TOP_RESIZABLE /* 1024 */
+    public static let topResizable = WindowState(1024) /* GDK_WINDOW_STATE_TOP_RESIZABLE */
     /// whether the right edge is tiled, Since 3.22.23
-    static let right_tiled = GDK_WINDOW_STATE_RIGHT_TILED /* 2048 */
+    public static let rightTiled = WindowState(2048) /* GDK_WINDOW_STATE_RIGHT_TILED */
     /// whether the right edge is resizable, Since 3.22.23
-    static let right_resizable = GDK_WINDOW_STATE_RIGHT_RESIZABLE /* 4096 */
+    public static let rightResizable = WindowState(4096) /* GDK_WINDOW_STATE_RIGHT_RESIZABLE */
     /// whether the bottom edge is tiled, Since 3.22.23
-    static let bottom_tiled = GDK_WINDOW_STATE_BOTTOM_TILED /* 8192 */
+    public static let bottomTiled = WindowState(8192) /* GDK_WINDOW_STATE_BOTTOM_TILED */
     /// whether the bottom edge is resizable, Since 3.22.23
-    static let bottom_resizable = GDK_WINDOW_STATE_BOTTOM_RESIZABLE /* 16384 */
+    public static let bottomResizable = WindowState(16384) /* GDK_WINDOW_STATE_BOTTOM_RESIZABLE */
     /// whether the left edge is tiled, Since 3.22.23
-    static let left_tiled = GDK_WINDOW_STATE_LEFT_TILED /* 32768 */
+    public static let leftTiled = WindowState(32768) /* GDK_WINDOW_STATE_LEFT_TILED */
     /// whether the left edge is resizable, Since 3.22.23
-    static let left_resizable = GDK_WINDOW_STATE_LEFT_RESIZABLE /* 65536 */
+    public static let leftResizable = WindowState(65536) /* GDK_WINDOW_STATE_LEFT_RESIZABLE */
+
+    /// whether the top edge is tiled, Since 3.22.23
+    @available(*, deprecated) public static let top_tiled = WindowState(512) /* GDK_WINDOW_STATE_TOP_TILED */
+    /// whether the top edge is resizable, Since 3.22.23
+    @available(*, deprecated) public static let top_resizable = WindowState(1024) /* GDK_WINDOW_STATE_TOP_RESIZABLE */
+    /// whether the right edge is tiled, Since 3.22.23
+    @available(*, deprecated) public static let right_tiled = WindowState(2048) /* GDK_WINDOW_STATE_RIGHT_TILED */
+    /// whether the right edge is resizable, Since 3.22.23
+    @available(*, deprecated) public static let right_resizable = WindowState(4096) /* GDK_WINDOW_STATE_RIGHT_RESIZABLE */
+    /// whether the bottom edge is tiled, Since 3.22.23
+    @available(*, deprecated) public static let bottom_tiled = WindowState(8192) /* GDK_WINDOW_STATE_BOTTOM_TILED */
+    /// whether the bottom edge is resizable, Since 3.22.23
+    @available(*, deprecated) public static let bottom_resizable = WindowState(16384) /* GDK_WINDOW_STATE_BOTTOM_RESIZABLE */
+    /// whether the left edge is tiled, Since 3.22.23
+    @available(*, deprecated) public static let left_tiled = WindowState(32768) /* GDK_WINDOW_STATE_LEFT_TILED */
+    /// whether the left edge is resizable, Since 3.22.23
+    @available(*, deprecated) public static let left_resizable = WindowState(65536) /* GDK_WINDOW_STATE_LEFT_RESIZABLE */
 }
+func cast<I: BinaryInteger>(_ param: I) -> WindowState { WindowState(rawValue: cast(param)) }
+func cast(_ param: WindowState) -> UInt32 { cast(param.rawValue) }

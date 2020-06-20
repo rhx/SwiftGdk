@@ -19,7 +19,7 @@ import GdkPixbuf
 ///
 /// A `GdkKeymapKey` is a hardware key that can be mapped to a keyval.
 public protocol KeymapKeyProtocol {
-    /// Untyped pointer to the underlying `GdkKeymapKey` instance.
+        /// Untyped pointer to the underlying `GdkKeymapKey` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkKeymapKey` instance.
@@ -32,7 +32,7 @@ public protocol KeymapKeyProtocol {
 ///
 /// A `GdkKeymapKey` is a hardware key that can be mapped to a keyval.
 public struct KeymapKeyRef: KeymapKeyProtocol {
-    /// Untyped pointer to the underlying `GdkKeymapKey` instance.
+        /// Untyped pointer to the underlying `GdkKeymapKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -85,7 +85,7 @@ public extension KeymapKeyRef {
 ///
 /// A `GdkKeymapKey` is a hardware key that can be mapped to a keyval.
 open class KeymapKey: KeymapKeyProtocol {
-    /// Untyped pointer to the underlying `GdkKeymapKey` instance.
+        /// Untyped pointer to the underlying `GdkKeymapKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -114,7 +114,7 @@ open class KeymapKey: KeymapKeyProtocol {
         // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkKeymapKey`.
+    /// Do-nothing destructor for `GdkKeymapKey`.
     deinit {
         // no reference counting for GdkKeymapKey, cannot unref(cast(_ptr))
     }
@@ -182,14 +182,82 @@ open class KeymapKey: KeymapKeyProtocol {
 
 }
 
-// MARK: - no KeymapKey properties
+// MARK: no KeymapKey properties
 
-// MARK: - no signals
+// MARK: no KeymapKey signals
 
 
+// MARK: KeymapKey Record: KeymapKeyProtocol extension (methods and fields)
 public extension KeymapKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeymapKey` instance.
     var _ptr: UnsafeMutablePointer<GdkKeymapKey> { return ptr.assumingMemoryBound(to: GdkKeymapKey.self) }
+
+
+    /// the hardware keycode. This is an identifying number for a
+    ///   physical key.
+    var keycode: Int {
+        /// the hardware keycode. This is an identifying number for a
+        ///   physical key.
+        get {
+            let rv: Int = cast(_ptr.pointee.keycode)
+            return rv
+        }
+        /// the hardware keycode. This is an identifying number for a
+        ///   physical key.
+         set {
+            _ptr.pointee.keycode = guint(newValue)
+        }
+    }
+
+    /// indicates movement in a horizontal direction. Usually groups are used
+    ///   for two different languages. In group 0, a key might have two English
+    ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
+    ///   characters will be printed on the key next to the English characters.
+    var group: Int {
+        /// indicates movement in a horizontal direction. Usually groups are used
+        ///   for two different languages. In group 0, a key might have two English
+        ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
+        ///   characters will be printed on the key next to the English characters.
+        get {
+            let rv: Int = cast(_ptr.pointee.group)
+            return rv
+        }
+        /// indicates movement in a horizontal direction. Usually groups are used
+        ///   for two different languages. In group 0, a key might have two English
+        ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
+        ///   characters will be printed on the key next to the English characters.
+         set {
+            _ptr.pointee.group = gint(newValue)
+        }
+    }
+
+    /// indicates which symbol on the key will be used, in a vertical direction.
+    ///   So on a standard US keyboard, the key with the number “1” on it also has the
+    ///   exclamation point ("!") character on it. The level indicates whether to use
+    ///   the “1” or the “!” symbol. The letter keys are considered to have a lowercase
+    ///   letter at level 0, and an uppercase letter at level 1, though only the
+    ///   uppercase letter is printed.
+    var level: Int {
+        /// indicates which symbol on the key will be used, in a vertical direction.
+        ///   So on a standard US keyboard, the key with the number “1” on it also has the
+        ///   exclamation point ("!") character on it. The level indicates whether to use
+        ///   the “1” or the “!” symbol. The letter keys are considered to have a lowercase
+        ///   letter at level 0, and an uppercase letter at level 1, though only the
+        ///   uppercase letter is printed.
+        get {
+            let rv: Int = cast(_ptr.pointee.level)
+            return rv
+        }
+        /// indicates which symbol on the key will be used, in a vertical direction.
+        ///   So on a standard US keyboard, the key with the number “1” on it also has the
+        ///   exclamation point ("!") character on it. The level indicates whether to use
+        ///   the “1” or the “!” symbol. The letter keys are considered to have a lowercase
+        ///   letter at level 0, and an uppercase letter at level 1, though only the
+        ///   uppercase letter is printed.
+         set {
+            _ptr.pointee.level = gint(newValue)
+        }
+    }
 
 }
 
@@ -204,7 +272,7 @@ public extension KeymapKeyProtocol {
 ///
 
 public protocol MonitorClassProtocol {
-    /// Untyped pointer to the underlying `GdkMonitorClass` instance.
+        /// Untyped pointer to the underlying `GdkMonitorClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkMonitorClass` instance.
@@ -217,7 +285,7 @@ public protocol MonitorClassProtocol {
 ///
 
 public struct MonitorClassRef: MonitorClassProtocol {
-    /// Untyped pointer to the underlying `GdkMonitorClass` instance.
+        /// Untyped pointer to the underlying `GdkMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -270,7 +338,7 @@ public extension MonitorClassRef {
 ///
 
 open class MonitorClass: MonitorClassProtocol {
-    /// Untyped pointer to the underlying `GdkMonitorClass` instance.
+        /// Untyped pointer to the underlying `GdkMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -299,7 +367,7 @@ open class MonitorClass: MonitorClassProtocol {
         // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkMonitorClass`.
+    /// Do-nothing destructor for `GdkMonitorClass`.
     deinit {
         // no reference counting for GdkMonitorClass, cannot unref(cast(_ptr))
     }
@@ -367,14 +435,17 @@ open class MonitorClass: MonitorClassProtocol {
 
 }
 
-// MARK: - no MonitorClass properties
+// MARK: no MonitorClass properties
 
-// MARK: - no signals
+// MARK: no MonitorClass signals
 
 
+// MARK: MonitorClass Record: MonitorClassProtocol extension (methods and fields)
 public extension MonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GdkMonitorClass> { return ptr.assumingMemoryBound(to: GdkMonitorClass.self) }
+
+
 
 }
 

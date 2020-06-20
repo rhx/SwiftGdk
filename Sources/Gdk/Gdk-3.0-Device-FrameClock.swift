@@ -24,7 +24,7 @@ import GdkPixbuf
 /// about the various kinds of master and slave devices, and their
 /// relationships.
 public protocol DeviceProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDevice` instance.
+        /// Untyped pointer to the underlying `GdkDevice` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDevice` instance.
@@ -42,7 +42,7 @@ public protocol DeviceProtocol: ObjectProtocol {
 /// about the various kinds of master and slave devices, and their
 /// relationships.
 public struct DeviceRef: DeviceProtocol {
-    /// Untyped pointer to the underlying `GdkDevice` instance.
+        /// Untyped pointer to the underlying `GdkDevice` instance.
     /// For type-safe access, use the generated, typed pointer `device_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -100,7 +100,7 @@ public extension DeviceRef {
 /// about the various kinds of master and slave devices, and their
 /// relationships.
 open class Device: Object, DeviceProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Device` instance.
     /// - Parameter op: pointer to the underlying object
@@ -226,8 +226,8 @@ public extension DeviceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -250,6 +250,23 @@ public extension DeviceProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Device property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DevicePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Device property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DevicePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -330,8 +347,8 @@ public extension DeviceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(device_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -352,6 +369,7 @@ public extension DeviceProtocol {
     }
 }
 
+// MARK: Device Class: DeviceProtocol extension (methods and fields)
 public extension DeviceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevice` instance.
     var device_ptr: UnsafeMutablePointer<GdkDevice> { return ptr.assumingMemoryBound(to: GdkDevice.self) }
@@ -366,14 +384,14 @@ public extension DeviceProtocol {
     /// If `device` is of type `GDK_DEVICE_TYPE_FLOATING`, `nil` will be
     /// returned, as there is no associated device.
     func getAssociatedDevice() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv = gdk_device_get_associated_device(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_device_get_associated_device(cast(device_ptr)))
         return cast(rv)
     }
 
     /// Returns the axes currently available on the device.
     func getAxes() -> GdkAxisFlags {
         let rv = gdk_device_get_axes(cast(device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Interprets an array of double as axis values for a given device,
@@ -386,7 +404,7 @@ public extension DeviceProtocol {
     /// Returns the axis use for `index_`.
     func getAxisUse(index_: CUnsignedInt) -> GdkAxisUse {
         let rv = gdk_device_get_axis_use(cast(device_ptr), guint(index_))
-        return rv
+        return cast(rv)
     }
 
     /// Interprets an array of double as axis values for a given device,
@@ -400,12 +418,12 @@ public extension DeviceProtocol {
     /// Returns the device type for `device`.
     func getDeviceType() -> GdkDeviceType {
         let rv = gdk_device_get_device_type(cast(device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the `GdkDisplay` to which `device` pertains.
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_device_get_display(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_device_get_display(cast(device_ptr)))
         return cast(rv)
     }
 
@@ -444,32 +462,32 @@ public extension DeviceProtocol {
     /// `nil` may be returned even if the pointer is physically over one of this
     /// application's windows.
     func getLastEventWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_device_get_last_event_window(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_device_get_last_event_window(cast(device_ptr)))
         return cast(rv)
     }
 
     /// Determines the mode of the device.
     func getMode() -> GdkInputMode {
         let rv = gdk_device_get_mode(cast(device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the number of axes the device currently has.
-    func getNAxes() -> CInt {
-        let rv = gdk_device_get_n_axes(cast(device_ptr))
-        return CInt(rv)
+    func getNAxes() -> Int {
+        let rv: Int = cast(gdk_device_get_n_axes(cast(device_ptr)))
+        return Int(rv)
     }
 
     /// Returns the number of keys the device currently has.
-    func getNKeys() -> CInt {
-        let rv = gdk_device_get_n_keys(cast(device_ptr))
-        return CInt(rv)
+    func getNKeys() -> Int {
+        let rv: Int = cast(gdk_device_get_n_keys(cast(device_ptr)))
+        return Int(rv)
     }
 
     /// Determines the name of the device.
     func getName() -> String! {
-        let rv = gdk_device_get_name(cast(device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_device_get_name(cast(device_ptr)))
+        return cast(rv)
     }
 
     /// Gets the current location of `device`. As a slave device
@@ -494,20 +512,20 @@ public extension DeviceProtocol {
     /// be obtained. This ID is retrieved from the device, and is thus constant for
     /// it. See `gdk_device_get_vendor_id()` for more information.
     func getProductId() -> String! {
-        let rv = gdk_device_get_product_id(cast(device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_device_get_product_id(cast(device_ptr)))
+        return cast(rv)
     }
 
     /// Returns the `GdkSeat` the device belongs to.
     func getSeat() -> UnsafeMutablePointer<GdkSeat>! {
-        let rv = gdk_device_get_seat(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_device_get_seat(cast(device_ptr)))
         return cast(rv)
     }
 
     /// Determines the type of the device.
     func getSource() -> GdkInputSource {
         let rv = gdk_device_get_source(cast(device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the current state of a pointer device relative to `window`. As a slave
@@ -548,8 +566,8 @@ public extension DeviceProtocol {
     /// ```
     /// 
     func getVendorId() -> String! {
-        let rv = gdk_device_get_vendor_id(cast(device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_device_get_vendor_id(cast(device_ptr)))
+        return cast(rv)
     }
 
     /// Obtains the window underneath `device`, returning the location of the device in `win_x` and `win_y`. Returns
@@ -559,7 +577,7 @@ public extension DeviceProtocol {
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
     /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
     func getWindowAtPosition(winX win_x: UnsafeMutablePointer<CInt>, winY win_y: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_device_get_window_at_position(cast(device_ptr), cast(win_x), cast(win_y))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_device_get_window_at_position(cast(device_ptr), cast(win_x), cast(win_y)))
         return cast(rv)
     }
 
@@ -571,7 +589,7 @@ public extension DeviceProtocol {
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
     /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
     func getWindowAtPositionDouble(winX win_x: UnsafeMutablePointer<gdouble>, winY win_y: UnsafeMutablePointer<gdouble>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_device_get_window_at_position_double(cast(device_ptr), cast(win_x), cast(win_y))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_device_get_window_at_position_double(cast(device_ptr), cast(win_x), cast(win_y)))
         return cast(rv)
     }
 
@@ -600,14 +618,14 @@ public extension DeviceProtocol {
     /// **grab is deprecated:**
     /// Use gdk_seat_grab() instead.
     @available(*, deprecated) func grab(window: WindowProtocol, grabOwnership grab_ownership: GrabOwnership, ownerEvents owner_events: Bool, eventMask event_mask: EventMask, cursor: CursorProtocol, time_: UInt32) -> GdkGrabStatus {
-        let rv = gdk_device_grab(cast(device_ptr), cast(window.ptr), grab_ownership, gboolean(owner_events ? 1 : 0), event_mask, cast(cursor.ptr), guint32(time_))
-        return rv
+        let rv = gdk_device_grab(cast(device_ptr), cast(window.ptr), grab_ownership, gboolean(owner_events ? 1 : 0), event_mask.value, cast(cursor.ptr), guint32(time_))
+        return cast(rv)
     }
 
     /// Returns a `GList` of `GdkAtoms`, containing the labels for
     /// the axes that `device` currently has.
     func listAxes() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_device_list_axes(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_device_list_axes(cast(device_ptr)))
         return cast(rv)
     }
 
@@ -615,7 +633,7 @@ public extension DeviceProtocol {
     /// the list of slave devices attached to it, otherwise it will return
     /// `nil`
     func listSlaveDevices() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_device_list_slave_devices(cast(device_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_device_list_slave_devices(cast(device_ptr)))
         return cast(rv)
     }
 
@@ -628,7 +646,7 @@ public extension DeviceProtocol {
     /// Specifies the X key event to generate when a macro button of a device
     /// is pressed.
     func setKey(index_: CUnsignedInt, keyval: CUnsignedInt, modifiers: ModifierType) {
-        gdk_device_set_key(cast(device_ptr), guint(index_), guint(keyval), modifiers)
+        gdk_device_set_key(cast(device_ptr), guint(index_), guint(keyval), modifiers.value)
     
     }
 
@@ -684,7 +702,7 @@ public extension DeviceProtocol {
     /// 
     /// This function is called by the drag source.
     func dragBeginForDevice(window: WindowProtocol, targets: ListProtocol) -> UnsafeMutablePointer<GdkDragContext>! {
-        let rv = gdk_drag_begin_for_device(cast(window.ptr), cast(device_ptr), cast(targets.ptr))
+        let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_for_device(cast(window.ptr), cast(device_ptr), cast(targets.ptr)))
         return cast(rv)
     }
 
@@ -692,7 +710,7 @@ public extension DeviceProtocol {
     /// 
     /// This function is called by the drag source.
     func dragBeginFromPoint(window: WindowProtocol, targets: ListProtocol, xRoot x_root: CInt, yRoot y_root: CInt) -> UnsafeMutablePointer<GdkDragContext>! {
-        let rv = gdk_drag_begin_from_point(cast(window.ptr), cast(device_ptr), cast(targets.ptr), gint(x_root), gint(y_root))
+        let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_from_point(cast(window.ptr), cast(device_ptr), cast(targets.ptr), gint(x_root), gint(y_root)))
         return cast(rv)
     }
     /// Returns the associated device to `device`, if `device` is of type
@@ -715,7 +733,7 @@ public extension DeviceProtocol {
         /// If `device` is of type `GDK_DEVICE_TYPE_FLOATING`, `nil` will be
         /// returned, as there is no associated device.
         get {
-            let rv = gdk_device_get_associated_device(cast(device_ptr))
+            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_device_get_associated_device(cast(device_ptr)))
             return cast(rv)
         }
     }
@@ -725,7 +743,7 @@ public extension DeviceProtocol {
         /// Returns the axes currently available on the device.
         get {
             let rv = gdk_device_get_axes(cast(device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -734,7 +752,7 @@ public extension DeviceProtocol {
         /// Returns the device type for `device`.
         get {
             let rv = gdk_device_get_device_type(cast(device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -742,7 +760,7 @@ public extension DeviceProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Returns the `GdkDisplay` to which `device` pertains.
         get {
-            let rv = gdk_device_get_display(cast(device_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_device_get_display(cast(device_ptr)))
             return cast(rv)
         }
     }
@@ -770,7 +788,7 @@ public extension DeviceProtocol {
         /// `nil` may be returned even if the pointer is physically over one of this
         /// application's windows.
         get {
-            let rv = gdk_device_get_last_event_window(cast(device_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_device_get_last_event_window(cast(device_ptr)))
             return cast(rv)
         }
     }
@@ -780,7 +798,7 @@ public extension DeviceProtocol {
         /// Determines the mode of the device.
         get {
             let rv = gdk_device_get_mode(cast(device_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets a the mode of an input device. The mode controls if the
         /// device is active and whether the device’s range is mapped to the
@@ -790,25 +808,25 @@ public extension DeviceProtocol {
         /// slaves connected to these) drive the pointer cursor, which is not limited
         /// by the input mode.
         nonmutating set {
-            let _ = gdk_device_set_mode(cast(device_ptr), newValue)
+            _ = gdk_device_set_mode(cast(device_ptr), cast(newValue))
         }
     }
 
     /// Returns the number of axes the device currently has.
-    var nAxes: CInt {
+    var nAxes: Int {
         /// Returns the number of axes the device currently has.
         get {
-            let rv = gdk_device_get_n_axes(cast(device_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_device_get_n_axes(cast(device_ptr)))
+            return Int(rv)
         }
     }
 
     /// Returns the number of keys the device currently has.
-    var nKeys: CInt {
+    var nKeys: Int {
         /// Returns the number of keys the device currently has.
         get {
-            let rv = gdk_device_get_n_keys(cast(device_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_device_get_n_keys(cast(device_ptr)))
+            return Int(rv)
         }
     }
 
@@ -816,8 +834,8 @@ public extension DeviceProtocol {
     var name: String! {
         /// Determines the name of the device.
         get {
-            let rv = gdk_device_get_name(cast(device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_device_get_name(cast(device_ptr)))
+            return cast(rv)
         }
     }
 
@@ -829,8 +847,8 @@ public extension DeviceProtocol {
         /// be obtained. This ID is retrieved from the device, and is thus constant for
         /// it. See `gdk_device_get_vendor_id()` for more information.
         get {
-            let rv = gdk_device_get_product_id(cast(device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_device_get_product_id(cast(device_ptr)))
+            return cast(rv)
         }
     }
 
@@ -838,7 +856,7 @@ public extension DeviceProtocol {
     var seat: UnsafeMutablePointer<GdkSeat>! {
         /// Returns the `GdkSeat` the device belongs to.
         get {
-            let rv = gdk_device_get_seat(cast(device_ptr))
+            let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_device_get_seat(cast(device_ptr)))
             return cast(rv)
         }
     }
@@ -848,7 +866,7 @@ public extension DeviceProtocol {
         /// Determines the type of the device.
         get {
             let rv = gdk_device_get_source(cast(device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -910,10 +928,12 @@ public extension DeviceProtocol {
         /// ```
         /// 
         get {
-            let rv = gdk_device_get_vendor_id(cast(device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_device_get_vendor_id(cast(device_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -1040,7 +1060,7 @@ public extension DeviceProtocol {
 /// supersedes `GdkDeviceManager` and should be preferred in newly
 /// written code.
 public protocol DeviceManagerProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDeviceManager` instance.
+        /// Untyped pointer to the underlying `GdkDeviceManager` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDeviceManager` instance.
@@ -1166,7 +1186,7 @@ public protocol DeviceManagerProtocol: ObjectProtocol {
 /// supersedes `GdkDeviceManager` and should be preferred in newly
 /// written code.
 public struct DeviceManagerRef: DeviceManagerProtocol {
-    /// Untyped pointer to the underlying `GdkDeviceManager` instance.
+        /// Untyped pointer to the underlying `GdkDeviceManager` instance.
     /// For type-safe access, use the generated, typed pointer `device_manager_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1332,7 +1352,7 @@ public extension DeviceManagerRef {
 /// supersedes `GdkDeviceManager` and should be preferred in newly
 /// written code.
 open class DeviceManager: Object, DeviceManagerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DeviceManager` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1427,8 +1447,8 @@ public extension DeviceManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1451,6 +1471,23 @@ public extension DeviceManagerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DeviceManager property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DeviceManagerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DeviceManager property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DeviceManagerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1508,8 +1545,8 @@ public extension DeviceManagerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DeviceManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DeviceManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(device_manager_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1530,6 +1567,7 @@ public extension DeviceManagerProtocol {
     }
 }
 
+// MARK: DeviceManager Class: DeviceManagerProtocol extension (methods and fields)
 public extension DeviceManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDeviceManager` instance.
     var device_manager_ptr: UnsafeMutablePointer<GdkDeviceManager> { return ptr.assumingMemoryBound(to: GdkDeviceManager.self) }
@@ -1544,13 +1582,13 @@ public extension DeviceManagerProtocol {
     /// **get_client_pointer is deprecated:**
     /// Use gdk_seat_get_pointer() instead.
     @available(*, deprecated) func getClientPointer() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv = gdk_device_manager_get_client_pointer(cast(device_manager_ptr))
+        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_device_manager_get_client_pointer(cast(device_manager_ptr)))
         return cast(rv)
     }
 
     /// Gets the `GdkDisplay` associated to `device_manager`.
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_device_manager_get_display(cast(device_manager_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_device_manager_get_display(cast(device_manager_ptr)))
         return cast(rv)
     }
 
@@ -1561,7 +1599,7 @@ public extension DeviceManagerProtocol {
     /// , use gdk_seat_get_pointer(), gdk_seat_get_keyboard()
     ///             and gdk_seat_get_slaves() instead.
     @available(*, deprecated) func listDevices(type: DeviceType) -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_device_manager_list_devices(cast(device_manager_ptr), type)
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_device_manager_list_devices(cast(device_manager_ptr), type))
         return cast(rv)
     }
     /// Returns the client pointer, that is, the master pointer that acts as the core pointer
@@ -1584,7 +1622,7 @@ public extension DeviceManagerProtocol {
         /// **get_client_pointer is deprecated:**
         /// Use gdk_seat_get_pointer() instead.
         @available(*, deprecated) get {
-            let rv = gdk_device_manager_get_client_pointer(cast(device_manager_ptr))
+            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_device_manager_get_client_pointer(cast(device_manager_ptr)))
             return cast(rv)
         }
     }
@@ -1592,10 +1630,12 @@ public extension DeviceManagerProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Gets the `GdkDisplay` associated to `device_manager`.
         get {
-            let rv = gdk_device_manager_get_display(cast(device_manager_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_device_manager_get_display(cast(device_manager_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -1609,7 +1649,7 @@ public extension DeviceManagerProtocol {
 ///
 
 public protocol DeviceToolProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDeviceTool` instance.
+        /// Untyped pointer to the underlying `GdkDeviceTool` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDeviceTool` instance.
@@ -1622,7 +1662,7 @@ public protocol DeviceToolProtocol: ObjectProtocol {
 ///
 
 public struct DeviceToolRef: DeviceToolProtocol {
-    /// Untyped pointer to the underlying `GdkDeviceTool` instance.
+        /// Untyped pointer to the underlying `GdkDeviceTool` instance.
     /// For type-safe access, use the generated, typed pointer `device_tool_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1675,7 +1715,7 @@ public extension DeviceToolRef {
 ///
 
 open class DeviceTool: Object, DeviceToolProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DeviceTool` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1773,8 +1813,8 @@ public extension DeviceToolProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceToolPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceToolPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1797,6 +1837,23 @@ public extension DeviceToolProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DeviceTool property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DeviceToolPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DeviceTool property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DeviceToolPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1838,8 +1895,8 @@ public extension DeviceToolProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DeviceToolSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DeviceToolSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(device_tool_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1860,6 +1917,7 @@ public extension DeviceToolProtocol {
     }
 }
 
+// MARK: DeviceTool Class: DeviceToolProtocol extension (methods and fields)
 public extension DeviceToolProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDeviceTool` instance.
     var device_tool_ptr: UnsafeMutablePointer<GdkDeviceTool> { return ptr.assumingMemoryBound(to: GdkDeviceTool.self) }
@@ -1888,7 +1946,7 @@ public extension DeviceToolProtocol {
     /// Gets the `GdkDeviceToolType` of the tool.
     func getToolType() -> GdkDeviceToolType {
         let rv = gdk_device_tool_get_tool_type(cast(device_tool_ptr))
-        return rv
+        return cast(rv)
     }
     /// Gets the hardware ID of this tool, or 0 if it's not known. When
     /// non-zero, the identificator is unique for the given tool model,
@@ -1929,9 +1987,11 @@ public extension DeviceToolProtocol {
         /// Gets the `GdkDeviceToolType` of the tool.
         get {
             let rv = gdk_device_tool_get_tool_type(cast(device_tool_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -1962,7 +2022,7 @@ public extension DeviceToolProtocol {
 /// device manager, which you can obtain using
 /// `gdk_display_get_device_manager()`.
 public protocol DisplayProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDisplay` instance.
+        /// Untyped pointer to the underlying `GdkDisplay` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDisplay` instance.
@@ -1992,7 +2052,7 @@ public protocol DisplayProtocol: ObjectProtocol {
 /// device manager, which you can obtain using
 /// `gdk_display_get_device_manager()`.
 public struct DisplayRef: DisplayProtocol {
-    /// Untyped pointer to the underlying `GdkDisplay` instance.
+        /// Untyped pointer to the underlying `GdkDisplay` instance.
     /// For type-safe access, use the generated, typed pointer `display_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2041,13 +2101,13 @@ public extension DisplayRef {
     /// function for:
     /// `gdk_display_manager_get_default_display (gdk_display_manager_get ())`.
     static func getDefault() -> DisplayRef! {
-        let rv = gdk_display_get_default()
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_get_default())
         return rv.map { DisplayRef(cast($0)) }
     }
 
     /// Opens a display.
     static func open(displayName display_name: UnsafePointer<gchar>) -> DisplayRef! {
-        let rv = gdk_display_open(display_name)
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_open(display_name))
         return rv.map { DisplayRef(cast($0)) }
     }
 
@@ -2061,7 +2121,7 @@ public extension DisplayRef {
     /// This symbol was never meant to be used outside
     ///   of GTK+
     @available(*, deprecated) static func openDefaultLibgtkOnly() -> DisplayRef! {
-        let rv = gdk_display_open_default_libgtk_only()
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_open_default_libgtk_only())
         return rv.map { DisplayRef(cast($0)) }
     }
 }
@@ -2089,7 +2149,7 @@ public extension DisplayRef {
 /// device manager, which you can obtain using
 /// `gdk_display_get_device_manager()`.
 open class Display: Object, DisplayProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Display` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2172,13 +2232,13 @@ open class Display: Object, DisplayProtocol {
     /// function for:
     /// `gdk_display_manager_get_default_display (gdk_display_manager_get ())`.
     public static func getDefault() -> Display! {
-        let rv = gdk_display_get_default()
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_get_default())
         return rv.map { Display(cast($0)) }
     }
 
     /// Opens a display.
     public static func open(displayName display_name: UnsafePointer<gchar>) -> Display! {
-        let rv = gdk_display_open(display_name)
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_open(display_name))
         return rv.map { Display(cast($0)) }
     }
 
@@ -2192,13 +2252,13 @@ open class Display: Object, DisplayProtocol {
     /// This symbol was never meant to be used outside
     ///   of GTK+
     @available(*, deprecated) public static func openDefaultLibgtkOnly() -> Display! {
-        let rv = gdk_display_open_default_libgtk_only()
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_open_default_libgtk_only())
         return rv.map { Display(cast($0)) }
     }
 
 }
 
-// MARK: - no Display properties
+// MARK: no Display properties
 
 public enum DisplaySignalName: String, SignalNameProtocol {
     /// The `closed` signal is emitted when the connection to the windowing
@@ -2253,8 +2313,8 @@ public extension DisplayProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DisplaySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DisplaySignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(display_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2275,6 +2335,7 @@ public extension DisplayProtocol {
     }
 }
 
+// MARK: Display Class: DisplayProtocol extension (methods and fields)
 public extension DisplayProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDisplay` instance.
     var display_ptr: UnsafeMutablePointer<GdkDisplay> { return ptr.assumingMemoryBound(to: GdkDisplay.self) }
@@ -2315,33 +2376,33 @@ public extension DisplayProtocol {
     /// Returns a `GdkAppLaunchContext` suitable for launching
     /// applications on the given display.
     func getAppLaunchContext() -> UnsafeMutablePointer<GdkAppLaunchContext>! {
-        let rv = gdk_display_get_app_launch_context(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkAppLaunchContext>! = cast(gdk_display_get_app_launch_context(cast(display_ptr)))
         return cast(rv)
     }
 
     /// Returns the default size to use for cursors on `display`.
-    func getDefaultCursorSize() -> CUnsignedInt {
-        let rv = gdk_display_get_default_cursor_size(cast(display_ptr))
-        return CUnsignedInt(rv)
+    func getDefaultCursorSize() -> Int {
+        let rv: Int = cast(gdk_display_get_default_cursor_size(cast(display_ptr)))
+        return Int(rv)
     }
 
     /// Returns the default group leader window for all toplevel windows
     /// on `display`. This window is implicitly created by GDK.
     /// See `gdk_window_set_group()`.
     func getDefaultGroup() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_display_get_default_group(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_display_get_default_group(cast(display_ptr)))
         return cast(rv)
     }
 
     /// Get the default `GdkScreen` for `display`.
     func getDefaultScreen() -> UnsafeMutablePointer<GdkScreen>! {
-        let rv = gdk_display_get_default_screen(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_display_get_default_screen(cast(display_ptr)))
         return cast(rv)
     }
 
     /// Returns the default `GdkSeat` for this display.
     func getDefaultSeat() -> UnsafeMutablePointer<GdkSeat>! {
-        let rv = gdk_display_get_default_seat(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_display_get_default_seat(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2350,14 +2411,14 @@ public extension DisplayProtocol {
     /// **get_device_manager is deprecated:**
     /// Use gdk_display_get_default_seat() and #GdkSeat operations.
     @available(*, deprecated) func getDeviceManager() -> UnsafeMutablePointer<GdkDeviceManager>! {
-        let rv = gdk_display_get_device_manager(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkDeviceManager>! = cast(gdk_display_get_device_manager(cast(display_ptr)))
         return cast(rv)
     }
 
     /// Gets the next `GdkEvent` to be processed for `display`, fetching events from the
     /// windowing system if necessary.
     func getEvent() -> UnsafeMutablePointer<GdkEvent>! {
-        let rv = gdk_display_get_event(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_display_get_event(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2369,14 +2430,14 @@ public extension DisplayProtocol {
 
     /// Gets a monitor associated with this display.
     func getMonitor(monitorNum monitor_num: CInt) -> UnsafeMutablePointer<GdkMonitor>! {
-        let rv = gdk_display_get_monitor(cast(display_ptr), monitor_num)
+        let rv: UnsafeMutablePointer<GdkMonitor>! = cast(gdk_display_get_monitor(cast(display_ptr), monitor_num))
         return cast(rv)
     }
 
     /// Gets the monitor in which the point (`x`, `y`) is located,
     /// or a nearby monitor if the point is not in any monitor.
     func getMonitorAtPoint(x: CInt, y: CInt) -> UnsafeMutablePointer<GdkMonitor>! {
-        let rv = gdk_display_get_monitor_at_point(cast(display_ptr), x, y)
+        let rv: UnsafeMutablePointer<GdkMonitor>! = cast(gdk_display_get_monitor_at_point(cast(display_ptr), x, y))
         return cast(rv)
     }
 
@@ -2384,7 +2445,7 @@ public extension DisplayProtocol {
     /// resides, or a monitor close to `window` if it is outside
     /// of all monitors.
     func getMonitorAt(window: WindowProtocol) -> UnsafeMutablePointer<GdkMonitor>! {
-        let rv = gdk_display_get_monitor_at_window(cast(display_ptr), cast(window.ptr))
+        let rv: UnsafeMutablePointer<GdkMonitor>! = cast(gdk_display_get_monitor_at_window(cast(display_ptr), cast(window.ptr)))
         return cast(rv)
     }
 
@@ -2392,24 +2453,24 @@ public extension DisplayProtocol {
     /// 
     /// The returned number is valid until the next emission of the
     /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
-    func getNMonitors() -> CInt {
-        let rv = gdk_display_get_n_monitors(cast(display_ptr))
-        return rv
+    func getNMonitors() -> Int {
+        let rv: Int = cast(gdk_display_get_n_monitors(cast(display_ptr)))
+        return cast(rv)
     }
 
     /// Gets the number of screen managed by the `display`.
     ///
     /// **get_n_screens is deprecated:**
     /// The number of screens is always 1.
-    @available(*, deprecated) func getNScreens() -> CInt {
-        let rv = gdk_display_get_n_screens(cast(display_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getNScreens() -> Int {
+        let rv: Int = cast(gdk_display_get_n_screens(cast(display_ptr)))
+        return Int(rv)
     }
 
     /// Gets the name of the display.
     func getName() -> String! {
-        let rv = gdk_display_get_name(cast(display_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_display_get_name(cast(display_ptr)))
+        return cast(rv)
     }
 
     /// Gets the current location of the pointer and the current modifier
@@ -2429,7 +2490,7 @@ public extension DisplayProtocol {
     /// manager to place the windows, specialized desktop applications
     /// such as panels should place themselves on the primary monitor.
     func getPrimaryMonitor() -> UnsafeMutablePointer<GdkMonitor>! {
-        let rv = gdk_display_get_primary_monitor(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkMonitor>! = cast(gdk_display_get_primary_monitor(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2438,7 +2499,7 @@ public extension DisplayProtocol {
     /// **get_screen is deprecated:**
     /// There is only one screen; use gdk_display_get_default_screen() to get it.
     @available(*, deprecated) func getScreen(screenNum screen_num: CInt) -> UnsafeMutablePointer<GdkScreen>! {
-        let rv = gdk_display_get_screen(cast(display_ptr), gint(screen_num))
+        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_display_get_screen(cast(display_ptr), gint(screen_num)))
         return cast(rv)
     }
 
@@ -2450,7 +2511,7 @@ public extension DisplayProtocol {
     /// **get_window_at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
     @available(*, deprecated) func getWindowAtPointer(winX win_x: UnsafeMutablePointer<CInt>, winY win_y: UnsafeMutablePointer<CInt>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_display_get_window_at_pointer(cast(display_ptr), cast(win_x), cast(win_y))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_display_get_window_at_pointer(cast(display_ptr), cast(win_x), cast(win_y)))
         return cast(rv)
     }
 
@@ -2477,13 +2538,13 @@ public extension DisplayProtocol {
     /// **list_devices is deprecated:**
     /// Use gdk_device_manager_list_devices() instead.
     @available(*, deprecated) func listDevices() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_display_list_devices(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_display_list_devices(cast(display_ptr)))
         return cast(rv)
     }
 
     /// Returns the list of seats known to `display`.
     func listSeats() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_display_list_seats(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_display_list_seats(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2504,7 +2565,7 @@ public extension DisplayProtocol {
     /// not get more events from the windowing system.  It only checks the events
     /// that have already been moved to the GDK event queue.)
     func peekEvent() -> UnsafeMutablePointer<GdkEvent>! {
-        let rv = gdk_display_peek_event(cast(display_ptr))
+        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_display_peek_event(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2529,8 +2590,8 @@ public extension DisplayProtocol {
 
     /// Appends a copy of the given event onto the front of the event
     /// queue for `display`.
-    func put(event: UnsafePointer<GdkEvent>) {
-        gdk_display_put_event(cast(display_ptr), cast(event))
+    func put(event: EventProtocol) {
+        gdk_display_put_event(cast(display_ptr), cast(event.ptr))
     
     }
 
@@ -2676,7 +2737,7 @@ public extension DisplayProtocol {
     /// is more convenient if you want to keep a context around and track
     /// changes to the font rendering settings.
     func pangoContextGetForDisplay() -> UnsafeMutablePointer<PangoContext>! {
-        let rv = gdk_pango_context_get_for_display(cast(display_ptr))
+        let rv: UnsafeMutablePointer<PangoContext>! = cast(gdk_pango_context_get_for_display(cast(display_ptr)))
         return cast(rv)
     }
 
@@ -2686,7 +2747,7 @@ public extension DisplayProtocol {
     /// process if a foreign window was previously created for that
     /// window, but a new foreign window will never be created by this call.
     func selectionOwnerGetForDisplay(selection: Atom) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_selection_owner_get_for_display(cast(display_ptr), cast(selection.ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_selection_owner_get_for_display(cast(display_ptr), cast(selection.ptr)))
         return cast(rv)
     }
 
@@ -2704,9 +2765,9 @@ public extension DisplayProtocol {
 
     /// Converts a text property in the given encoding to
     /// a list of UTF-8 strings.
-    func textPropertyToUtf8ListForDisplay(encoding: Atom, format: CInt, text: UnsafePointer<guchar>, length: CInt, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> CInt {
-        let rv = gdk_text_property_to_utf8_list_for_display(cast(display_ptr), cast(encoding.ptr), gint(format), cast(text), gint(length), cast(list))
-        return CInt(rv)
+    func textPropertyToUtf8ListForDisplay(encoding: Atom, format: CInt, text: UnsafePointer<guchar>, length: CInt, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> Int {
+        let rv: Int = cast(gdk_text_property_to_utf8_list_for_display(cast(display_ptr), cast(encoding.ptr), gint(format), cast(text), gint(length), cast(list)))
+        return Int(rv)
     }
     /// Returns a `GdkAppLaunchContext` suitable for launching
     /// applications on the given display.
@@ -2714,17 +2775,17 @@ public extension DisplayProtocol {
         /// Returns a `GdkAppLaunchContext` suitable for launching
         /// applications on the given display.
         get {
-            let rv = gdk_display_get_app_launch_context(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkAppLaunchContext>! = cast(gdk_display_get_app_launch_context(cast(display_ptr)))
             return cast(rv)
         }
     }
 
     /// Returns the default size to use for cursors on `display`.
-    var defaultCursorSize: CUnsignedInt {
+    var defaultCursorSize: Int {
         /// Returns the default size to use for cursors on `display`.
         get {
-            let rv = gdk_display_get_default_cursor_size(cast(display_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(gdk_display_get_default_cursor_size(cast(display_ptr)))
+            return Int(rv)
         }
     }
 
@@ -2736,7 +2797,7 @@ public extension DisplayProtocol {
         /// on `display`. This window is implicitly created by GDK.
         /// See `gdk_window_set_group()`.
         get {
-            let rv = gdk_display_get_default_group(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_display_get_default_group(cast(display_ptr)))
             return cast(rv)
         }
     }
@@ -2745,7 +2806,7 @@ public extension DisplayProtocol {
     var defaultScreen: UnsafeMutablePointer<GdkScreen>! {
         /// Get the default `GdkScreen` for `display`.
         get {
-            let rv = gdk_display_get_default_screen(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_display_get_default_screen(cast(display_ptr)))
             return cast(rv)
         }
     }
@@ -2754,7 +2815,7 @@ public extension DisplayProtocol {
     var defaultSeat: UnsafeMutablePointer<GdkSeat>! {
         /// Returns the default `GdkSeat` for this display.
         get {
-            let rv = gdk_display_get_default_seat(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_display_get_default_seat(cast(display_ptr)))
             return cast(rv)
         }
     }
@@ -2769,7 +2830,7 @@ public extension DisplayProtocol {
         /// **get_device_manager is deprecated:**
         /// Use gdk_display_get_default_seat() and #GdkSeat operations.
         @available(*, deprecated) get {
-            let rv = gdk_display_get_device_manager(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkDeviceManager>! = cast(gdk_display_get_device_manager(cast(display_ptr)))
             return cast(rv)
         }
     }
@@ -2780,7 +2841,7 @@ public extension DisplayProtocol {
         /// Gets the next `GdkEvent` to be processed for `display`, fetching events from the
         /// windowing system if necessary.
         get {
-            let rv = gdk_display_get_event(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_display_get_event(cast(display_ptr)))
             return cast(rv)
         }
     }
@@ -2798,14 +2859,14 @@ public extension DisplayProtocol {
     /// 
     /// The returned number is valid until the next emission of the
     /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
-    var nMonitors: CInt {
+    var nMonitors: Int {
         /// Gets the number of monitors that belong to `display`.
         /// 
         /// The returned number is valid until the next emission of the
         /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
         get {
-            let rv = gdk_display_get_n_monitors(cast(display_ptr))
-            return rv
+            let rv: Int = cast(gdk_display_get_n_monitors(cast(display_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2813,14 +2874,14 @@ public extension DisplayProtocol {
     ///
     /// **get_n_screens is deprecated:**
     /// The number of screens is always 1.
-    var nScreens: CInt {
+    var nScreens: Int {
         /// Gets the number of screen managed by the `display`.
         ///
         /// **get_n_screens is deprecated:**
         /// The number of screens is always 1.
         @available(*, deprecated) get {
-            let rv = gdk_display_get_n_screens(cast(display_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_display_get_n_screens(cast(display_ptr)))
+            return Int(rv)
         }
     }
 
@@ -2828,8 +2889,8 @@ public extension DisplayProtocol {
     var name: String! {
         /// Gets the name of the display.
         get {
-            let rv = gdk_display_get_name(cast(display_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_display_get_name(cast(display_ptr)))
+            return cast(rv)
         }
     }
 
@@ -2847,10 +2908,12 @@ public extension DisplayProtocol {
         /// manager to place the windows, specialized desktop applications
         /// such as panels should place themselves on the primary monitor.
         get {
-            let rv = gdk_display_get_primary_monitor(cast(display_ptr))
+            let rv: UnsafeMutablePointer<GdkMonitor>! = cast(gdk_display_get_primary_monitor(cast(display_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -2904,7 +2967,7 @@ public extension DisplayProtocol {
 /// ```
 /// 
 public protocol DisplayManagerProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDisplayManager` instance.
+        /// Untyped pointer to the underlying `GdkDisplayManager` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDisplayManager` instance.
@@ -2957,7 +3020,7 @@ public protocol DisplayManagerProtocol: ObjectProtocol {
 /// ```
 /// 
 public struct DisplayManagerRef: DisplayManagerProtocol {
-    /// Untyped pointer to the underlying `GdkDisplayManager` instance.
+        /// Untyped pointer to the underlying `GdkDisplayManager` instance.
     /// For type-safe access, use the generated, typed pointer `display_manager_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3010,7 +3073,7 @@ public extension DisplayManagerRef {
     /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
     /// to limit what backends can be used.
     static func displayManagerGet() -> DisplayManagerRef! {
-        let rv = gdk_display_manager_get()
+        let rv: UnsafeMutablePointer<GdkDisplayManager>! = cast(gdk_display_manager_get())
         return rv.map { DisplayManagerRef(cast($0)) }
     }
 }
@@ -3061,7 +3124,7 @@ public extension DisplayManagerRef {
 /// ```
 /// 
 open class DisplayManager: Object, DisplayManagerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DisplayManager` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3148,7 +3211,7 @@ open class DisplayManager: Object, DisplayManagerProtocol {
     /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
     /// to limit what backends can be used.
     public static func displayManagerGet() -> DisplayManager! {
-        let rv = gdk_display_manager_get()
+        let rv: UnsafeMutablePointer<GdkDisplayManager>! = cast(gdk_display_manager_get())
         return rv.map { DisplayManager(cast($0)) }
     }
 
@@ -3167,8 +3230,8 @@ public extension DisplayManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DisplayManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DisplayManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -3191,6 +3254,23 @@ public extension DisplayManagerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DisplayManager property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DisplayManagerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DisplayManager property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DisplayManagerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -3231,8 +3311,8 @@ public extension DisplayManagerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DisplayManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DisplayManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(display_manager_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3253,25 +3333,26 @@ public extension DisplayManagerProtocol {
     }
 }
 
+// MARK: DisplayManager Class: DisplayManagerProtocol extension (methods and fields)
 public extension DisplayManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDisplayManager` instance.
     var display_manager_ptr: UnsafeMutablePointer<GdkDisplayManager> { return ptr.assumingMemoryBound(to: GdkDisplayManager.self) }
 
     /// Gets the default `GdkDisplay`.
     func getDefaultDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_display_manager_get_default_display(cast(display_manager_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_manager_get_default_display(cast(display_manager_ptr)))
         return cast(rv)
     }
 
     /// List all currently open displays.
     func listDisplays() -> UnsafeMutablePointer<GSList>! {
-        let rv = gdk_display_manager_list_displays(cast(display_manager_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(gdk_display_manager_list_displays(cast(display_manager_ptr)))
         return cast(rv)
     }
 
     /// Opens a display.
     func openDisplay(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_display_manager_open_display(cast(display_manager_ptr), name)
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_manager_open_display(cast(display_manager_ptr), name))
         return cast(rv)
     }
 
@@ -3284,7 +3365,7 @@ public extension DisplayManagerProtocol {
     var defaultDisplay: UnsafeMutablePointer<GdkDisplay>! {
         /// Gets the default `GdkDisplay`.
         get {
-            let rv = gdk_display_manager_get_default_display(cast(display_manager_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_display_manager_get_default_display(cast(display_manager_ptr)))
             return cast(rv)
         }
         /// Sets `display` as the default display.
@@ -3292,6 +3373,8 @@ public extension DisplayManagerProtocol {
             gdk_display_manager_set_default_display(cast(display_manager_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -3305,7 +3388,7 @@ public extension DisplayManagerProtocol {
 ///
 
 public protocol DragContextProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDragContext` instance.
+        /// Untyped pointer to the underlying `GdkDragContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDragContext` instance.
@@ -3318,7 +3401,7 @@ public protocol DragContextProtocol: ObjectProtocol {
 ///
 
 public struct DragContextRef: DragContextProtocol {
-    /// Untyped pointer to the underlying `GdkDragContext` instance.
+        /// Untyped pointer to the underlying `GdkDragContext` instance.
     /// For type-safe access, use the generated, typed pointer `drag_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3371,7 +3454,7 @@ public extension DragContextRef {
 ///
 
 open class DragContext: Object, DragContextProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DragContext` instance.
     /// - Parameter op: pointer to the underlying object
@@ -3453,7 +3536,7 @@ open class DragContext: Object, DragContextProtocol {
 
 }
 
-// MARK: - no DragContext properties
+// MARK: no DragContext properties
 
 public enum DragContextSignalName: String, SignalNameProtocol {
     /// A new action is being chosen for the drag and drop operation.
@@ -3516,8 +3599,8 @@ public extension DragContextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DragContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DragContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(drag_context_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -3538,6 +3621,7 @@ public extension DragContextProtocol {
     }
 }
 
+// MARK: DragContext Class: DragContextProtocol extension (methods and fields)
 public extension DragContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDragContext` instance.
     var drag_context_ptr: UnsafeMutablePointer<GdkDragContext> { return ptr.assumingMemoryBound(to: GdkDragContext.self) }
@@ -3546,18 +3630,18 @@ public extension DragContextProtocol {
     /// `gdk_drag_context_get_suggested_action()` returns `GDK_ACTION_ASK`.
     func getActions() -> GdkDragAction {
         let rv = gdk_drag_context_get_actions(cast(drag_context_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the destination window for the DND operation.
     func getDestWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_drag_context_get_dest_window(cast(drag_context_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_dest_window(cast(drag_context_ptr)))
         return cast(rv)
     }
 
     /// Returns the `GdkDevice` associated to the drag context.
     func getDevice() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv = gdk_drag_context_get_device(cast(drag_context_ptr))
+        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_drag_context_get_device(cast(drag_context_ptr)))
         return cast(rv)
     }
 
@@ -3568,37 +3652,37 @@ public extension DragContextProtocol {
     /// The window is owned by `context` and will be destroyed when
     /// the drag operation is over.
     func getDragWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_drag_context_get_drag_window(cast(drag_context_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_drag_window(cast(drag_context_ptr)))
         return cast(rv)
     }
 
     /// Returns the drag protocol that is used by this context.
     func getProtocol() -> GdkDragProtocol {
         let rv = gdk_drag_context_get_protocol(cast(drag_context_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Determines the action chosen by the drag destination.
     func getSelectedAction() -> GdkDragAction {
         let rv = gdk_drag_context_get_selected_action(cast(drag_context_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Returns the `GdkWindow` where the DND operation started.
     func getSourceWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_drag_context_get_source_window(cast(drag_context_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_source_window(cast(drag_context_ptr)))
         return cast(rv)
     }
 
     /// Determines the suggested drag action of the context.
     func getSuggestedAction() -> GdkDragAction {
         let rv = gdk_drag_context_get_suggested_action(cast(drag_context_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the list of targets of the context.
     func listTargets() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_drag_context_list_targets(cast(drag_context_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_drag_context_list_targets(cast(drag_context_ptr)))
         return cast(rv)
     }
 
@@ -3619,7 +3703,7 @@ public extension DragContextProtocol {
     ///   finished but doesn't happen over an accepting destination, or is
     ///   cancelled through other means.
     func manageDnd(ipcWindow ipc_window: WindowProtocol, actions: DragAction) -> Bool {
-        let rv = gdk_drag_context_manage_dnd(cast(drag_context_ptr), cast(ipc_window.ptr), actions)
+        let rv = gdk_drag_context_manage_dnd(cast(drag_context_ptr), cast(ipc_window.ptr), actions.value)
         return Bool(rv != 0)
     }
 
@@ -3697,7 +3781,7 @@ public extension DragContextProtocol {
     /// Returns the selection atom for the current source window.
     func dragGetSelection() -> GdkAtom! {
         let rv = gdk_drag_get_selection(cast(drag_context_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Updates the drag context when the pointer moves or the
@@ -3708,7 +3792,7 @@ public extension DragContextProtocol {
     /// This function does not need to be called in managed drag and drop
     /// operations. See `gdk_drag_context_manage_dnd()` for more information.
     func dragMotion(destWindow dest_window: WindowProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
-        let rv = gdk_drag_motion(cast(drag_context_ptr), cast(dest_window.ptr), protocol_, gint(x_root), gint(y_root), suggested_action, possible_actions, guint32(time_))
+        let rv = gdk_drag_motion(cast(drag_context_ptr), cast(dest_window.ptr), protocol_, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, guint32(time_))
         return Bool(rv != 0)
     }
 
@@ -3717,7 +3801,7 @@ public extension DragContextProtocol {
     /// This function is called by the drag destination in response to
     /// `gdk_drag_motion()` called by the drag source.
     func dragStatus(action: DragAction, time_: UInt32) {
-        gdk_drag_status(cast(drag_context_ptr), action, guint32(time_))
+        gdk_drag_status(cast(drag_context_ptr), action.value, guint32(time_))
     
     }
 
@@ -3744,7 +3828,7 @@ public extension DragContextProtocol {
         /// `gdk_drag_context_get_suggested_action()` returns `GDK_ACTION_ASK`.
         get {
             let rv = gdk_drag_context_get_actions(cast(drag_context_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -3752,7 +3836,7 @@ public extension DragContextProtocol {
     var destWindow: UnsafeMutablePointer<GdkWindow>! {
         /// Returns the destination window for the DND operation.
         get {
-            let rv = gdk_drag_context_get_dest_window(cast(drag_context_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_dest_window(cast(drag_context_ptr)))
             return cast(rv)
         }
     }
@@ -3761,7 +3845,7 @@ public extension DragContextProtocol {
     var device: UnsafeMutablePointer<GdkDevice>! {
         /// Returns the `GdkDevice` associated to the drag context.
         get {
-            let rv = gdk_drag_context_get_device(cast(drag_context_ptr))
+            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_drag_context_get_device(cast(drag_context_ptr)))
             return cast(rv)
         }
         /// Associates a `GdkDevice` to `context`, so all Drag and Drop events
@@ -3785,17 +3869,17 @@ public extension DragContextProtocol {
         /// The window is owned by `context` and will be destroyed when
         /// the drag operation is over.
         get {
-            let rv = gdk_drag_context_get_drag_window(cast(drag_context_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_drag_window(cast(drag_context_ptr)))
             return cast(rv)
         }
     }
 
     /// Returns the drag protocol that is used by this context.
-    var protocol_: GdkDragProtocol {
+    var `protocol`: GdkDragProtocol {
         /// Returns the drag protocol that is used by this context.
         get {
             let rv = gdk_drag_context_get_protocol(cast(drag_context_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -3804,7 +3888,7 @@ public extension DragContextProtocol {
         /// Determines the action chosen by the drag destination.
         get {
             let rv = gdk_drag_context_get_selected_action(cast(drag_context_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -3812,7 +3896,7 @@ public extension DragContextProtocol {
     var sourceWindow: UnsafeMutablePointer<GdkWindow>! {
         /// Returns the `GdkWindow` where the DND operation started.
         get {
-            let rv = gdk_drag_context_get_source_window(cast(drag_context_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drag_context_get_source_window(cast(drag_context_ptr)))
             return cast(rv)
         }
     }
@@ -3822,9 +3906,11 @@ public extension DragContextProtocol {
         /// Determines the suggested drag action of the context.
         get {
             let rv = gdk_drag_context_get_suggested_action(cast(drag_context_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -3847,7 +3933,7 @@ public extension DragContextProtocol {
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 public protocol DrawingContextProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkDrawingContext` instance.
+        /// Untyped pointer to the underlying `GdkDrawingContext` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDrawingContext` instance.
@@ -3869,7 +3955,7 @@ public protocol DrawingContextProtocol: ObjectProtocol {
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 public struct DrawingContextRef: DrawingContextProtocol {
-    /// Untyped pointer to the underlying `GdkDrawingContext` instance.
+        /// Untyped pointer to the underlying `GdkDrawingContext` instance.
     /// For type-safe access, use the generated, typed pointer `drawing_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3931,7 +4017,7 @@ public extension DrawingContextRef {
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
 open class DrawingContext: Object, DrawingContextProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DrawingContext` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4029,8 +4115,8 @@ public extension DrawingContextProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DrawingContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DrawingContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -4053,6 +4139,23 @@ public extension DrawingContextProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DrawingContext property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DrawingContextPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DrawingContext property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DrawingContextPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -4094,8 +4197,8 @@ public extension DrawingContextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DrawingContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DrawingContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(drawing_context_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4116,6 +4219,7 @@ public extension DrawingContextProtocol {
     }
 }
 
+// MARK: DrawingContext Class: DrawingContextProtocol extension (methods and fields)
 public extension DrawingContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrawingContext` instance.
     var drawing_context_ptr: UnsafeMutablePointer<GdkDrawingContext> { return ptr.assumingMemoryBound(to: GdkDrawingContext.self) }
@@ -4127,19 +4231,19 @@ public extension DrawingContextProtocol {
     /// `GdkDrawingContext` is valid, that is between a call to
     /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
     func getCairoContext() -> UnsafeMutablePointer<cairo_t>! {
-        let rv = gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr))
+        let rv: UnsafeMutablePointer<cairo_t>! = cast(gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr)))
         return cast(rv)
     }
 
     /// Retrieves a copy of the clip region used when creating the `context`.
     func getClip() -> UnsafeMutablePointer<cairo_region_t>! {
-        let rv = gdk_drawing_context_get_clip(cast(drawing_context_ptr))
+        let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_drawing_context_get_clip(cast(drawing_context_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the window that created the drawing `context`.
     func getWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_drawing_context_get_window(cast(drawing_context_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drawing_context_get_window(cast(drawing_context_ptr)))
         return cast(rv)
     }
     /// Retrieves a Cairo context to be used to draw on the `GdkWindow`
@@ -4156,7 +4260,7 @@ public extension DrawingContextProtocol {
         /// `GdkDrawingContext` is valid, that is between a call to
         /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
         get {
-            let rv = gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr))
+            let rv: UnsafeMutablePointer<cairo_t>! = cast(gdk_drawing_context_get_cairo_context(cast(drawing_context_ptr)))
             return cast(rv)
         }
     }
@@ -4165,7 +4269,7 @@ public extension DrawingContextProtocol {
     var clip: UnsafeMutablePointer<cairo_region_t>! {
         /// Retrieves a copy of the clip region used when creating the `context`.
         get {
-            let rv = gdk_drawing_context_get_clip(cast(drawing_context_ptr))
+            let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_drawing_context_get_clip(cast(drawing_context_ptr)))
             return cast(rv)
         }
     }
@@ -4183,10 +4287,12 @@ public extension DrawingContextProtocol {
     var window: UnsafeMutablePointer<GdkWindow>! {
         /// Retrieves the window that created the drawing `context`.
         get {
-            let rv = gdk_drawing_context_get_window(cast(drawing_context_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_drawing_context_get_window(cast(drawing_context_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 
@@ -4232,7 +4338,7 @@ public extension DrawingContextProtocol {
 /// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 public protocol FrameClockProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkFrameClock` instance.
+        /// Untyped pointer to the underlying `GdkFrameClock` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkFrameClock` instance.
@@ -4277,7 +4383,7 @@ public protocol FrameClockProtocol: ObjectProtocol {
 /// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 public struct FrameClockRef: FrameClockProtocol {
-    /// Untyped pointer to the underlying `GdkFrameClock` instance.
+        /// Untyped pointer to the underlying `GdkFrameClock` instance.
     /// For type-safe access, use the generated, typed pointer `frame_clock_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4362,7 +4468,7 @@ public extension FrameClockRef {
 /// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
 open class FrameClock: Object, FrameClockProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FrameClock` instance.
     /// - Parameter op: pointer to the underlying object
@@ -4444,7 +4550,7 @@ open class FrameClock: Object, FrameClockProtocol {
 
 }
 
-// MARK: - no FrameClock properties
+// MARK: no FrameClock properties
 
 public enum FrameClockSignalName: String, SignalNameProtocol {
     /// This signal ends processing of the frame. Applications
@@ -4513,8 +4619,8 @@ public extension FrameClockProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FrameClockSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FrameClockSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(frame_clock_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -4535,6 +4641,7 @@ public extension FrameClockProtocol {
     }
 }
 
+// MARK: FrameClock Class: FrameClockProtocol extension (methods and fields)
 public extension FrameClockProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameClock` instance.
     var frame_clock_ptr: UnsafeMutablePointer<GdkFrameClock> { return ptr.assumingMemoryBound(to: GdkFrameClock.self) }
@@ -4559,7 +4666,7 @@ public extension FrameClockProtocol {
 
     /// Gets the frame timings for the current frame.
     func getCurrentTimings() -> UnsafeMutablePointer<GdkFrameTimings>! {
-        let rv = gdk_frame_clock_get_current_timings(cast(frame_clock_ptr))
+        let rv: UnsafeMutablePointer<GdkFrameTimings>! = cast(gdk_frame_clock_get_current_timings(cast(frame_clock_ptr)))
         return cast(rv)
     }
 
@@ -4606,7 +4713,7 @@ public extension FrameClockProtocol {
     /// for the current frame or a recent frame. The `GdkFrameTimings`
     /// object may not yet be complete: see `gdk_frame_timings_get_complete()`.
     func getTimings(frameCounter frame_counter: Int64) -> UnsafeMutablePointer<GdkFrameTimings>! {
-        let rv = gdk_frame_clock_get_timings(cast(frame_clock_ptr), gint64(frame_counter))
+        let rv: UnsafeMutablePointer<GdkFrameTimings>! = cast(gdk_frame_clock_get_timings(cast(frame_clock_ptr), gint64(frame_counter)))
         return cast(rv)
     }
 
@@ -4621,14 +4728,14 @@ public extension FrameClockProtocol {
     /// this allows GTK+ to adjust system parameters to get maximally
     /// smooth animations.
     func request(phase: FrameClockPhase) {
-        gdk_frame_clock_request_phase(cast(frame_clock_ptr), phase)
+        gdk_frame_clock_request_phase(cast(frame_clock_ptr), phase.value)
     
     }
     /// Gets the frame timings for the current frame.
     var currentTimings: UnsafeMutablePointer<GdkFrameTimings>! {
         /// Gets the frame timings for the current frame.
         get {
-            let rv = gdk_frame_clock_get_current_timings(cast(frame_clock_ptr))
+            let rv: UnsafeMutablePointer<GdkFrameTimings>! = cast(gdk_frame_clock_get_current_timings(cast(frame_clock_ptr)))
             return cast(rv)
         }
     }
@@ -4681,6 +4788,8 @@ public extension FrameClockProtocol {
             return Int64(rv)
         }
     }
+
+
 }
 
 

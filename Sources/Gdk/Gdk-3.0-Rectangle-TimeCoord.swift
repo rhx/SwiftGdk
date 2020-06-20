@@ -20,7 +20,7 @@ import GdkPixbuf
 /// Defines the position and size of a rectangle. It is identical to
 /// `cairo_rectangle_int_t`.
 public protocol RectangleProtocol {
-    /// Untyped pointer to the underlying `GdkRectangle` instance.
+        /// Untyped pointer to the underlying `GdkRectangle` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkRectangle` instance.
@@ -34,7 +34,7 @@ public protocol RectangleProtocol {
 /// Defines the position and size of a rectangle. It is identical to
 /// `cairo_rectangle_int_t`.
 public struct RectangleRef: RectangleProtocol {
-    /// Untyped pointer to the underlying `GdkRectangle` instance.
+        /// Untyped pointer to the underlying `GdkRectangle` instance.
     /// For type-safe access, use the generated, typed pointer `rectangle_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -88,7 +88,7 @@ public extension RectangleRef {
 /// Defines the position and size of a rectangle. It is identical to
 /// `cairo_rectangle_int_t`.
 open class Rectangle: RectangleProtocol {
-    /// Untyped pointer to the underlying `GdkRectangle` instance.
+        /// Untyped pointer to the underlying `GdkRectangle` instance.
     /// For type-safe access, use the generated, typed pointer `rectangle_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -117,7 +117,7 @@ open class Rectangle: RectangleProtocol {
         // no reference counting for GdkRectangle, cannot ref(cast(rectangle_ptr))
     }
 
-    /// Do-nothing destructor for`GdkRectangle`.
+    /// Do-nothing destructor for `GdkRectangle`.
     deinit {
         // no reference counting for GdkRectangle, cannot unref(cast(rectangle_ptr))
     }
@@ -185,11 +185,12 @@ open class Rectangle: RectangleProtocol {
 
 }
 
-// MARK: - no Rectangle properties
+// MARK: no Rectangle properties
 
-// MARK: - no signals
+// MARK: no Rectangle signals
 
 
+// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
 public extension RectangleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRectangle` instance.
     var rectangle_ptr: UnsafeMutablePointer<GdkRectangle> { return ptr.assumingMemoryBound(to: GdkRectangle.self) }
@@ -236,6 +237,47 @@ public extension RectangleProtocol {
         gdk_cairo_rectangle(cast(cr.ptr), cast(rectangle_ptr))
     
     }
+
+    var x: Int {
+        get {
+            let rv: Int = cast(rectangle_ptr.pointee.x)
+            return rv
+        }
+         set {
+            rectangle_ptr.pointee.x = cast(newValue)
+        }
+    }
+
+    var y: Int {
+        get {
+            let rv: Int = cast(rectangle_ptr.pointee.y)
+            return rv
+        }
+         set {
+            rectangle_ptr.pointee.y = cast(newValue)
+        }
+    }
+
+    var width: Int {
+        get {
+            let rv: Int = cast(rectangle_ptr.pointee.width)
+            return rv
+        }
+         set {
+            rectangle_ptr.pointee.width = cast(newValue)
+        }
+    }
+
+    var height: Int {
+        get {
+            let rv: Int = cast(rectangle_ptr.pointee.height)
+            return rv
+        }
+         set {
+            rectangle_ptr.pointee.height = cast(newValue)
+        }
+    }
+
 }
 
 
@@ -249,7 +291,7 @@ public extension RectangleProtocol {
 ///
 /// A `GdkTimeCoord` stores a single event in a motion history.
 public protocol TimeCoordProtocol {
-    /// Untyped pointer to the underlying `GdkTimeCoord` instance.
+        /// Untyped pointer to the underlying `GdkTimeCoord` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkTimeCoord` instance.
@@ -262,7 +304,7 @@ public protocol TimeCoordProtocol {
 ///
 /// A `GdkTimeCoord` stores a single event in a motion history.
 public struct TimeCoordRef: TimeCoordProtocol {
-    /// Untyped pointer to the underlying `GdkTimeCoord` instance.
+        /// Untyped pointer to the underlying `GdkTimeCoord` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -315,7 +357,7 @@ public extension TimeCoordRef {
 ///
 /// A `GdkTimeCoord` stores a single event in a motion history.
 open class TimeCoord: TimeCoordProtocol {
-    /// Untyped pointer to the underlying `GdkTimeCoord` instance.
+        /// Untyped pointer to the underlying `GdkTimeCoord` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -344,7 +386,7 @@ open class TimeCoord: TimeCoordProtocol {
         // no reference counting for GdkTimeCoord, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`GdkTimeCoord`.
+    /// Do-nothing destructor for `GdkTimeCoord`.
     deinit {
         // no reference counting for GdkTimeCoord, cannot unref(cast(_ptr))
     }
@@ -412,14 +454,31 @@ open class TimeCoord: TimeCoordProtocol {
 
 }
 
-// MARK: - no TimeCoord properties
+// MARK: no TimeCoord properties
 
-// MARK: - no signals
+// MARK: no TimeCoord signals
 
 
+// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
 public extension TimeCoordProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTimeCoord` instance.
     var _ptr: UnsafeMutablePointer<GdkTimeCoord> { return ptr.assumingMemoryBound(to: GdkTimeCoord.self) }
+
+
+    /// The timestamp for this event.
+    var time: UInt32 {
+        /// The timestamp for this event.
+        get {
+            let rv: UInt32 = cast(_ptr.pointee.time)
+            return rv
+        }
+        /// The timestamp for this event.
+         set {
+            _ptr.pointee.time = guint32(newValue)
+        }
+    }
+
+    // var axes is unavailable because axes is void
 
 }
 

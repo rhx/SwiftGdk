@@ -26,7 +26,7 @@ import GdkPixbuf
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
 public protocol MonitorProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkMonitor` instance.
+        /// Untyped pointer to the underlying `GdkMonitor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkMonitor` instance.
@@ -46,7 +46,7 @@ public protocol MonitorProtocol: ObjectProtocol {
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
 public struct MonitorRef: MonitorProtocol {
-    /// Untyped pointer to the underlying `GdkMonitor` instance.
+        /// Untyped pointer to the underlying `GdkMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `monitor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -106,7 +106,7 @@ public extension MonitorRef {
 /// GdkMonitor was introduced in GTK+ 3.22 and supersedes earlier
 /// APIs in GdkScreen to obtain monitor-related information.
 open class Monitor: Object, MonitorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Monitor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -210,8 +210,8 @@ public extension MonitorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: MonitorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -234,6 +234,23 @@ public extension MonitorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Monitor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: MonitorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Monitor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: MonitorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -282,8 +299,8 @@ public extension MonitorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MonitorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(monitor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -304,13 +321,14 @@ public extension MonitorProtocol {
     }
 }
 
+// MARK: Monitor Class: MonitorProtocol extension (methods and fields)
 public extension MonitorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkMonitor` instance.
     var monitor_ptr: UnsafeMutablePointer<GdkMonitor> { return ptr.assumingMemoryBound(to: GdkMonitor.self) }
 
     /// Gets the display that this monitor belongs to.
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_monitor_get_display(cast(monitor_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_monitor_get_display(cast(monitor_ptr)))
         return cast(rv)
     }
 
@@ -323,9 +341,9 @@ public extension MonitorProtocol {
     }
 
     /// Gets the height in millimeters of the monitor.
-    func getHeightMm() -> CInt {
-        let rv = gdk_monitor_get_height_mm(cast(monitor_ptr))
-        return rv
+    func getHeightMm() -> Int {
+        let rv: Int = cast(gdk_monitor_get_height_mm(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Gets the name or PNP ID of the monitor's manufacturer, if available.
@@ -335,23 +353,23 @@ public extension MonitorProtocol {
     /// 
     /// PNP ID registry is located at https://uefi.org/pnp_id_list
     func getManufacturer() -> String! {
-        let rv = gdk_monitor_get_manufacturer(cast(monitor_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_monitor_get_manufacturer(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Gets the a string identifying the monitor model, if available.
     func getModel() -> String! {
-        let rv = gdk_monitor_get_model(cast(monitor_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_monitor_get_model(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Gets the refresh rate of the monitor, if available.
     /// 
     /// The value is in milli-Hertz, so a refresh rate of 60Hz
     /// is returned as 60000.
-    func getRefreshRate() -> CInt {
-        let rv = gdk_monitor_get_refresh_rate(cast(monitor_ptr))
-        return rv
+    func getRefreshRate() -> Int {
+        let rv: Int = cast(gdk_monitor_get_refresh_rate(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Gets the internal scale factor that maps from monitor coordinates
@@ -361,22 +379,22 @@ public extension MonitorProtocol {
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a window
     /// where it is better to use `gdk_window_get_scale_factor()` instead.
-    func getScaleFactor() -> CInt {
-        let rv = gdk_monitor_get_scale_factor(cast(monitor_ptr))
-        return rv
+    func getScaleFactor() -> Int {
+        let rv: Int = cast(gdk_monitor_get_scale_factor(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Gets information about the layout of red, green and blue
     /// primaries for each pixel in this monitor, if available.
     func getSubpixelLayout() -> GdkSubpixelLayout {
         let rv = gdk_monitor_get_subpixel_layout(cast(monitor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the width in millimeters of the monitor.
-    func getWidthMm() -> CInt {
-        let rv = gdk_monitor_get_width_mm(cast(monitor_ptr))
-        return rv
+    func getWidthMm() -> Int {
+        let rv: Int = cast(gdk_monitor_get_width_mm(cast(monitor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the size and position of the “work area” on a monitor
@@ -398,17 +416,17 @@ public extension MonitorProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Gets the display that this monitor belongs to.
         get {
-            let rv = gdk_monitor_get_display(cast(monitor_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_monitor_get_display(cast(monitor_ptr)))
             return cast(rv)
         }
     }
 
     /// Gets the height in millimeters of the monitor.
-    var heightMm: CInt {
+    var heightMm: Int {
         /// Gets the height in millimeters of the monitor.
         get {
-            let rv = gdk_monitor_get_height_mm(cast(monitor_ptr))
-            return rv
+            let rv: Int = cast(gdk_monitor_get_height_mm(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
 
@@ -431,16 +449,16 @@ public extension MonitorProtocol {
         /// 
         /// PNP ID registry is located at https://uefi.org/pnp_id_list
         get {
-            let rv = gdk_monitor_get_manufacturer(cast(monitor_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_monitor_get_manufacturer(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
 
     var model: String! {
         /// Gets the a string identifying the monitor model, if available.
         get {
-            let rv = gdk_monitor_get_model(cast(monitor_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(gdk_monitor_get_model(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
 
@@ -448,14 +466,14 @@ public extension MonitorProtocol {
     /// 
     /// The value is in milli-Hertz, so a refresh rate of 60Hz
     /// is returned as 60000.
-    var refreshRate: CInt {
+    var refreshRate: Int {
         /// Gets the refresh rate of the monitor, if available.
         /// 
         /// The value is in milli-Hertz, so a refresh rate of 60Hz
         /// is returned as 60000.
         get {
-            let rv = gdk_monitor_get_refresh_rate(cast(monitor_ptr))
-            return rv
+            let rv: Int = cast(gdk_monitor_get_refresh_rate(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
 
@@ -466,7 +484,7 @@ public extension MonitorProtocol {
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a window
     /// where it is better to use `gdk_window_get_scale_factor()` instead.
-    var scaleFactor: CInt {
+    var scaleFactor: Int {
         /// Gets the internal scale factor that maps from monitor coordinates
         /// to the actual device pixels. On traditional systems this is 1, but
         /// on very high density outputs this can be a higher value (often 2).
@@ -475,8 +493,8 @@ public extension MonitorProtocol {
         /// particular monitor, but most of the time you’re drawing to a window
         /// where it is better to use `gdk_window_get_scale_factor()` instead.
         get {
-            let rv = gdk_monitor_get_scale_factor(cast(monitor_ptr))
-            return rv
+            let rv: Int = cast(gdk_monitor_get_scale_factor(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
 
@@ -487,18 +505,20 @@ public extension MonitorProtocol {
         /// primaries for each pixel in this monitor, if available.
         get {
             let rv = gdk_monitor_get_subpixel_layout(cast(monitor_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// Gets the width in millimeters of the monitor.
-    var widthMm: CInt {
+    var widthMm: Int {
         /// Gets the width in millimeters of the monitor.
         get {
-            let rv = gdk_monitor_get_width_mm(cast(monitor_ptr))
-            return rv
+            let rv: Int = cast(gdk_monitor_get_width_mm(cast(monitor_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -522,7 +542,7 @@ public extension MonitorProtocol {
 /// the default visual (`gdk_screen_get_system_visual()`), the dimensions
 /// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 public protocol ScreenProtocol: ObjectProtocol {
-    /// Untyped pointer to the underlying `GdkScreen` instance.
+        /// Untyped pointer to the underlying `GdkScreen` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkScreen` instance.
@@ -545,7 +565,7 @@ public protocol ScreenProtocol: ObjectProtocol {
 /// the default visual (`gdk_screen_get_system_visual()`), the dimensions
 /// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 public struct ScreenRef: ScreenProtocol {
-    /// Untyped pointer to the underlying `GdkScreen` instance.
+        /// Untyped pointer to the underlying `GdkScreen` instance.
     /// For type-safe access, use the generated, typed pointer `screen_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -593,7 +613,7 @@ public extension ScreenRef {
         /// Gets the default screen for the default display. (See
     /// gdk_display_get_default ()).
     static func getDefault() -> ScreenRef! {
-        let rv = gdk_screen_get_default()
+        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_screen_get_default())
         return rv.map { ScreenRef(cast($0)) }
     }
 }
@@ -614,7 +634,7 @@ public extension ScreenRef {
 /// the default visual (`gdk_screen_get_system_visual()`), the dimensions
 /// of the physical monitors (`gdk_screen_get_monitor_geometry()`), etc.
 open class Screen: Object, ScreenProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Screen` instance.
     /// - Parameter op: pointer to the underlying object
@@ -696,7 +716,7 @@ open class Screen: Object, ScreenProtocol {
     /// Gets the default screen for the default display. (See
     /// gdk_display_get_default ()).
     public static func getDefault() -> Screen! {
-        let rv = gdk_screen_get_default()
+        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_screen_get_default())
         return rv.map { Screen(cast($0)) }
     }
 
@@ -716,8 +736,8 @@ public extension ScreenProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ScreenPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: ScreenPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -740,6 +760,23 @@ public extension ScreenProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Screen property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ScreenPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Screen property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ScreenPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -791,8 +828,8 @@ public extension ScreenProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ScreenSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ScreenSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(screen_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -813,6 +850,7 @@ public extension ScreenProtocol {
     }
 }
 
+// MARK: Screen Class: ScreenProtocol extension (methods and fields)
 public extension ScreenProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkScreen` instance.
     var screen_ptr: UnsafeMutablePointer<GdkScreen> { return ptr.assumingMemoryBound(to: GdkScreen.self) }
@@ -835,19 +873,19 @@ public extension ScreenProtocol {
     /// **get_active_window is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func getActiveWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_screen_get_active_window(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_screen_get_active_window(cast(screen_ptr)))
         return cast(rv)
     }
 
     /// Gets the display to which the `screen` belongs.
     func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv = gdk_screen_get_display(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_screen_get_display(cast(screen_ptr)))
         return cast(rv)
     }
 
     /// Gets any options previously set with `gdk_screen_set_font_options()`.
     func getFontOptions() -> UnsafePointer<cairo_font_options_t>! {
-        let rv = gdk_screen_get_font_options(cast(screen_ptr))
+        let rv: UnsafePointer<cairo_font_options_t>! = cast(gdk_screen_get_font_options(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -857,9 +895,9 @@ public extension ScreenProtocol {
     ///
     /// **get_height is deprecated:**
     /// Use per-monitor information instead
-    @available(*, deprecated) func getHeight() -> CInt {
-        let rv = gdk_screen_get_height(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getHeight() -> Int {
+        let rv: Int = cast(gdk_screen_get_height(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Returns the height of `screen` in millimeters.
@@ -870,18 +908,18 @@ public extension ScreenProtocol {
     ///
     /// **get_height_mm is deprecated:**
     /// Use per-monitor information instead
-    @available(*, deprecated) func getHeightMm() -> CInt {
-        let rv = gdk_screen_get_height_mm(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getHeightMm() -> Int {
+        let rv: Int = cast(gdk_screen_get_height_mm(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Returns the monitor number in which the point (`x`,`y`) is located.
     ///
     /// **get_monitor_at_point is deprecated:**
     /// Use gdk_display_get_monitor_at_point() instead
-    @available(*, deprecated) func getMonitorAtPoint(x: CInt, y: CInt) -> CInt {
-        let rv = gdk_screen_get_monitor_at_point(cast(screen_ptr), gint(x), gint(y))
-        return CInt(rv)
+    @available(*, deprecated) func getMonitorAtPoint(x: CInt, y: CInt) -> Int {
+        let rv: Int = cast(gdk_screen_get_monitor_at_point(cast(screen_ptr), gint(x), gint(y)))
+        return Int(rv)
     }
 
     /// Returns the number of the monitor in which the largest area of the
@@ -889,9 +927,9 @@ public extension ScreenProtocol {
     ///
     /// **get_monitor_at_window is deprecated:**
     /// Use gdk_display_get_monitor_at_window() instead
-    @available(*, deprecated) func getMonitorAt(window: WindowProtocol) -> CInt {
-        let rv = gdk_screen_get_monitor_at_window(cast(screen_ptr), cast(window.ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getMonitorAt(window: WindowProtocol) -> Int {
+        let rv: Int = cast(gdk_screen_get_monitor_at_window(cast(screen_ptr), cast(window.ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the `GdkRectangle` representing the size and position of
@@ -916,9 +954,9 @@ public extension ScreenProtocol {
     ///
     /// **get_monitor_height_mm is deprecated:**
     /// Use gdk_monitor_get_height_mm() instead
-    @available(*, deprecated) func getMonitorHeightMm(monitorNum monitor_num: CInt) -> CInt {
-        let rv = gdk_screen_get_monitor_height_mm(cast(screen_ptr), gint(monitor_num))
-        return CInt(rv)
+    @available(*, deprecated) func getMonitorHeightMm(monitorNum monitor_num: CInt) -> Int {
+        let rv: Int = cast(gdk_screen_get_monitor_height_mm(cast(screen_ptr), gint(monitor_num)))
+        return Int(rv)
     }
 
     /// Returns the output name of the specified monitor.
@@ -928,8 +966,8 @@ public extension ScreenProtocol {
     /// **get_monitor_plug_name is deprecated:**
     /// Use gdk_monitor_get_model() instead
     @available(*, deprecated) func getMonitorPlugName(monitorNum monitor_num: CInt) -> String! {
-        let rv = gdk_screen_get_monitor_plug_name(cast(screen_ptr), gint(monitor_num))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_screen_get_monitor_plug_name(cast(screen_ptr), gint(monitor_num)))
+        return cast(rv)
     }
 
     /// Returns the internal scale factor that maps from monitor coordinates
@@ -942,18 +980,18 @@ public extension ScreenProtocol {
     ///
     /// **get_monitor_scale_factor is deprecated:**
     /// Use gdk_monitor_get_scale_factor() instead
-    @available(*, deprecated) func getMonitorScaleFactor(monitorNum monitor_num: CInt) -> CInt {
-        let rv = gdk_screen_get_monitor_scale_factor(cast(screen_ptr), gint(monitor_num))
-        return CInt(rv)
+    @available(*, deprecated) func getMonitorScaleFactor(monitorNum monitor_num: CInt) -> Int {
+        let rv: Int = cast(gdk_screen_get_monitor_scale_factor(cast(screen_ptr), gint(monitor_num)))
+        return Int(rv)
     }
 
     /// Gets the width in millimeters of the specified monitor, if available.
     ///
     /// **get_monitor_width_mm is deprecated:**
     /// Use gdk_monitor_get_width_mm() instead
-    @available(*, deprecated) func getMonitorWidthMm(monitorNum monitor_num: CInt) -> CInt {
-        let rv = gdk_screen_get_monitor_width_mm(cast(screen_ptr), gint(monitor_num))
-        return CInt(rv)
+    @available(*, deprecated) func getMonitorWidthMm(monitorNum monitor_num: CInt) -> Int {
+        let rv: Int = cast(gdk_screen_get_monitor_width_mm(cast(screen_ptr), gint(monitor_num)))
+        return Int(rv)
     }
 
     /// Retrieves the `GdkRectangle` representing the size and position of
@@ -983,9 +1021,9 @@ public extension ScreenProtocol {
     ///
     /// **get_n_monitors is deprecated:**
     /// Use gdk_display_get_n_monitors() instead
-    @available(*, deprecated) func getNMonitors() -> CInt {
-        let rv = gdk_screen_get_n_monitors(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getNMonitors() -> Int {
+        let rv: Int = cast(gdk_screen_get_n_monitors(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Gets the index of `screen` among the screens in the display
@@ -993,9 +1031,9 @@ public extension ScreenProtocol {
     ///
     /// **get_number is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getNumber() -> CInt {
-        let rv = gdk_screen_get_number(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getNumber() -> Int {
+        let rv: Int = cast(gdk_screen_get_number(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Gets the primary monitor for `screen`.  The primary monitor
@@ -1009,16 +1047,16 @@ public extension ScreenProtocol {
     ///
     /// **get_primary_monitor is deprecated:**
     /// Use gdk_display_get_primary_monitor() instead
-    @available(*, deprecated) func getPrimaryMonitor() -> CInt {
-        let rv = gdk_screen_get_primary_monitor(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getPrimaryMonitor() -> Int {
+        let rv: Int = cast(gdk_screen_get_primary_monitor(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Gets the resolution for font handling on the screen; see
     /// `gdk_screen_set_resolution()` for full details.
-    func getResolution() -> gdouble {
-        let rv = gdk_screen_get_resolution(cast(screen_ptr))
-        return rv
+    func getResolution() -> Double {
+        let rv: Double = cast(gdk_screen_get_resolution(cast(screen_ptr)))
+        return cast(rv)
     }
 
     /// Gets a visual to use for creating windows with an alpha channel.
@@ -1035,13 +1073,13 @@ public extension ScreenProtocol {
     /// For setting an overall opacity for a top-level window, see
     /// `gdk_window_set_opacity()`.
     func getRgbaVisual() -> UnsafeMutablePointer<GdkVisual>! {
-        let rv = gdk_screen_get_rgba_visual(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_screen_get_rgba_visual(cast(screen_ptr)))
         return cast(rv)
     }
 
     /// Gets the root window of `screen`.
     func getRootWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv = gdk_screen_get_root_window(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_screen_get_root_window(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -1059,7 +1097,7 @@ public extension ScreenProtocol {
     /// This is the visual for the root window of the display.
     /// The return value should not be freed.
     func getSystemVisual() -> UnsafeMutablePointer<GdkVisual>! {
-        let rv = gdk_screen_get_system_visual(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_screen_get_system_visual(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -1070,7 +1108,7 @@ public extension ScreenProtocol {
     /// The returned list should be freed with `g_list_free()`, but
     /// its elements need not be freed.
     func getToplevelWindows() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_screen_get_toplevel_windows(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_screen_get_toplevel_windows(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -1080,9 +1118,9 @@ public extension ScreenProtocol {
     ///
     /// **get_width is deprecated:**
     /// Use per-monitor information instead
-    @available(*, deprecated) func getWidth() -> CInt {
-        let rv = gdk_screen_get_width(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getWidth() -> Int {
+        let rv: Int = cast(gdk_screen_get_width(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Gets the width of `screen` in millimeters.
@@ -1093,9 +1131,9 @@ public extension ScreenProtocol {
     ///
     /// **get_width_mm is deprecated:**
     /// Use per-monitor information instead
-    @available(*, deprecated) func getWidthMm() -> CInt {
-        let rv = gdk_screen_get_width_mm(cast(screen_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getWidthMm() -> Int {
+        let rv: Int = cast(gdk_screen_get_width_mm(cast(screen_ptr)))
+        return Int(rv)
     }
 
     /// Returns a `GList` of `GdkWindows` representing the current
@@ -1114,7 +1152,7 @@ public extension ScreenProtocol {
     /// windows it contains, so it should be freed using `g_list_free()` and
     /// its windows unrefed using `g_object_unref()` when no longer needed.
     func getWindowStack() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_screen_get_window_stack(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_screen_get_window_stack(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -1125,7 +1163,7 @@ public extension ScreenProtocol {
     /// 
     /// Call `g_list_free()` on the return value when you’re finished with it.
     func listVisuals() -> UnsafeMutablePointer<GList>! {
-        let rv = gdk_screen_list_visuals(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(gdk_screen_list_visuals(cast(screen_ptr)))
         return cast(rv)
     }
 
@@ -1135,8 +1173,8 @@ public extension ScreenProtocol {
     /// **make_display_name is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func makeDisplayName() -> String! {
-        let rv = gdk_screen_make_display_name(cast(screen_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(gdk_screen_make_display_name(cast(screen_ptr)))
+        return cast(rv)
     }
 
     /// Sets the default font options for the screen. These
@@ -1182,7 +1220,7 @@ public extension ScreenProtocol {
     /// is more convenient if you want to keep a context around and track
     /// changes to the screen’s font rendering settings.
     func pangoContextGetForScreen() -> UnsafeMutablePointer<PangoContext>! {
-        let rv = gdk_pango_context_get_for_screen(cast(screen_ptr))
+        let rv: UnsafeMutablePointer<PangoContext>! = cast(gdk_pango_context_get_for_screen(cast(screen_ptr)))
         return cast(rv)
     }
     /// Returns the screen’s currently active window.
@@ -1221,7 +1259,7 @@ public extension ScreenProtocol {
         /// **get_active_window is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_active_window(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_screen_get_active_window(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1230,7 +1268,7 @@ public extension ScreenProtocol {
     var display: UnsafeMutablePointer<GdkDisplay>! {
         /// Gets the display to which the `screen` belongs.
         get {
-            let rv = gdk_screen_get_display(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_screen_get_display(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1239,7 +1277,7 @@ public extension ScreenProtocol {
     var fontOptions: UnsafePointer<cairo_font_options_t>! {
         /// Gets any options previously set with `gdk_screen_set_font_options()`.
         get {
-            let rv = gdk_screen_get_font_options(cast(screen_ptr))
+            let rv: UnsafePointer<cairo_font_options_t>! = cast(gdk_screen_get_font_options(cast(screen_ptr)))
             return cast(rv)
         }
         /// Sets the default font options for the screen. These
@@ -1258,7 +1296,7 @@ public extension ScreenProtocol {
     ///
     /// **get_height is deprecated:**
     /// Use per-monitor information instead
-    var height: CInt {
+    var height: Int {
         /// Gets the height of `screen` in pixels. The returned size is in
         /// ”application pixels”, not in ”device pixels” (see
         /// `gdk_screen_get_monitor_scale_factor()`).
@@ -1266,8 +1304,8 @@ public extension ScreenProtocol {
         /// **get_height is deprecated:**
         /// Use per-monitor information instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_height(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_height(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1279,7 +1317,7 @@ public extension ScreenProtocol {
     ///
     /// **get_height_mm is deprecated:**
     /// Use per-monitor information instead
-    var heightMm: CInt {
+    var heightMm: Int {
         /// Returns the height of `screen` in millimeters.
         /// 
         /// Note that this value is somewhat ill-defined when the screen
@@ -1289,8 +1327,8 @@ public extension ScreenProtocol {
         /// **get_height_mm is deprecated:**
         /// Use per-monitor information instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_height_mm(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_height_mm(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1317,14 +1355,14 @@ public extension ScreenProtocol {
     ///
     /// **get_n_monitors is deprecated:**
     /// Use gdk_display_get_n_monitors() instead
-    var nMonitors: CInt {
+    var nMonitors: Int {
         /// Returns the number of monitors which `screen` consists of.
         ///
         /// **get_n_monitors is deprecated:**
         /// Use gdk_display_get_n_monitors() instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_n_monitors(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_n_monitors(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1333,15 +1371,15 @@ public extension ScreenProtocol {
     ///
     /// **get_number is deprecated:**
     /// This method is deprecated.
-    var number: CInt {
+    var number: Int {
         /// Gets the index of `screen` among the screens in the display
         /// to which it belongs. (See `gdk_screen_get_display()`)
         ///
         /// **get_number is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_number(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_number(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1356,7 +1394,7 @@ public extension ScreenProtocol {
     ///
     /// **get_primary_monitor is deprecated:**
     /// Use gdk_display_get_primary_monitor() instead
-    var primaryMonitor: CInt {
+    var primaryMonitor: Int {
         /// Gets the primary monitor for `screen`.  The primary monitor
         /// is considered the monitor where the “main desktop” lives.
         /// While normal application windows typically allow the window
@@ -1369,24 +1407,24 @@ public extension ScreenProtocol {
         /// **get_primary_monitor is deprecated:**
         /// Use gdk_display_get_primary_monitor() instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_primary_monitor(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_primary_monitor(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
-    var resolution: gdouble {
+    var resolution: Double {
         /// Gets the resolution for font handling on the screen; see
         /// `gdk_screen_set_resolution()` for full details.
         get {
-            let rv = gdk_screen_get_resolution(cast(screen_ptr))
-            return rv
+            let rv: Double = cast(gdk_screen_get_resolution(cast(screen_ptr)))
+            return cast(rv)
         }
         /// Sets the resolution for font handling on the screen. This is a
         /// scale factor between points specified in a `PangoFontDescription`
         /// and cairo units. The default value is 96, meaning that a 10 point
         /// font will be 13 units high. (10 * 96. / 72. = 13.3).
         nonmutating set {
-            gdk_screen_set_resolution(cast(screen_ptr), newValue)
+            gdk_screen_set_resolution(cast(screen_ptr), cast(newValue))
         }
     }
 
@@ -1418,7 +1456,7 @@ public extension ScreenProtocol {
         /// For setting an overall opacity for a top-level window, see
         /// `gdk_window_set_opacity()`.
         get {
-            let rv = gdk_screen_get_rgba_visual(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_screen_get_rgba_visual(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1427,7 +1465,7 @@ public extension ScreenProtocol {
     var rootWindow: UnsafeMutablePointer<GdkWindow>! {
         /// Gets the root window of `screen`.
         get {
-            let rv = gdk_screen_get_root_window(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_screen_get_root_window(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1440,7 +1478,7 @@ public extension ScreenProtocol {
         /// This is the visual for the root window of the display.
         /// The return value should not be freed.
         get {
-            let rv = gdk_screen_get_system_visual(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_screen_get_system_visual(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1459,7 +1497,7 @@ public extension ScreenProtocol {
         /// The returned list should be freed with `g_list_free()`, but
         /// its elements need not be freed.
         get {
-            let rv = gdk_screen_get_toplevel_windows(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(gdk_screen_get_toplevel_windows(cast(screen_ptr)))
             return cast(rv)
         }
     }
@@ -1470,7 +1508,7 @@ public extension ScreenProtocol {
     ///
     /// **get_width is deprecated:**
     /// Use per-monitor information instead
-    var width: CInt {
+    var width: Int {
         /// Gets the width of `screen` in pixels. The returned size is in
         /// ”application pixels”, not in ”device pixels” (see
         /// `gdk_screen_get_monitor_scale_factor()`).
@@ -1478,8 +1516,8 @@ public extension ScreenProtocol {
         /// **get_width is deprecated:**
         /// Use per-monitor information instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_width(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_width(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1491,7 +1529,7 @@ public extension ScreenProtocol {
     ///
     /// **get_width_mm is deprecated:**
     /// Use per-monitor information instead
-    var widthMm: CInt {
+    var widthMm: Int {
         /// Gets the width of `screen` in millimeters.
         /// 
         /// Note that this value is somewhat ill-defined when the screen
@@ -1501,8 +1539,8 @@ public extension ScreenProtocol {
         /// **get_width_mm is deprecated:**
         /// Use per-monitor information instead
         @available(*, deprecated) get {
-            let rv = gdk_screen_get_width_mm(cast(screen_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_screen_get_width_mm(cast(screen_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1538,10 +1576,12 @@ public extension ScreenProtocol {
         /// windows it contains, so it should be freed using `g_list_free()` and
         /// its windows unrefed using `g_object_unref()` when no longer needed.
         get {
-            let rv = gdk_screen_get_window_stack(cast(screen_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(gdk_screen_get_window_stack(cast(screen_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

@@ -35,7 +35,7 @@ import GdkPixbuf
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 public protocol DevicePadProtocol: DeviceProtocol {
-    /// Untyped pointer to the underlying `GdkDevicePad` instance.
+        /// Untyped pointer to the underlying `GdkDevicePad` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `GdkDevicePad` instance.
@@ -64,7 +64,7 @@ public protocol DevicePadProtocol: DeviceProtocol {
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 public struct DevicePadRef: DevicePadProtocol {
-    /// Untyped pointer to the underlying `GdkDevicePad` instance.
+        /// Untyped pointer to the underlying `GdkDevicePad` instance.
     /// For type-safe access, use the generated, typed pointer `device_pad_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -133,7 +133,7 @@ public extension DevicePadRef {
 /// mode for a given group will be notified through the `GdkEventPadGroupMode`
 /// event.
 open class DevicePad: Device, DevicePadProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DevicePad` instance.
     /// - Parameter op: pointer to the underlying object
@@ -259,8 +259,8 @@ public extension DevicePadProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DevicePadPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DevicePadPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -283,6 +283,23 @@ public extension DevicePadProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DevicePad property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DevicePadPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DevicePad property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DevicePadPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -363,8 +380,8 @@ public extension DevicePadProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DevicePadSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DevicePadSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(device_pad_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -385,51 +402,54 @@ public extension DevicePadProtocol {
     }
 }
 
+// MARK: DevicePad Interface: DevicePadProtocol extension (methods and fields)
 public extension DevicePadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevicePad` instance.
     var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad> { return ptr.assumingMemoryBound(to: GdkDevicePad.self) }
 
     /// Returns the group the given `feature` and `idx` belong to,
     /// or -1 if feature/index do not exist in `pad`.
-    func getFeatureGroup(feature: DevicePadFeature, featureIdx feature_idx: CInt) -> CInt {
-        let rv = gdk_device_pad_get_feature_group(cast(device_pad_ptr), feature, gint(feature_idx))
-        return CInt(rv)
+    func getFeatureGroup(feature: DevicePadFeature, featureIdx feature_idx: CInt) -> Int {
+        let rv: Int = cast(gdk_device_pad_get_feature_group(cast(device_pad_ptr), feature, gint(feature_idx)))
+        return Int(rv)
     }
 
     /// Returns the number of modes that `group` may have.
-    func getGroupNModes(groupIdx group_idx: CInt) -> CInt {
-        let rv = gdk_device_pad_get_group_n_modes(cast(device_pad_ptr), gint(group_idx))
-        return CInt(rv)
+    func getGroupNModes(groupIdx group_idx: CInt) -> Int {
+        let rv: Int = cast(gdk_device_pad_get_group_n_modes(cast(device_pad_ptr), gint(group_idx)))
+        return Int(rv)
     }
 
     /// Returns the number of features a tablet pad has.
-    func getNFeatures(feature: DevicePadFeature) -> CInt {
-        let rv = gdk_device_pad_get_n_features(cast(device_pad_ptr), feature)
-        return CInt(rv)
+    func getNFeatures(feature: DevicePadFeature) -> Int {
+        let rv: Int = cast(gdk_device_pad_get_n_features(cast(device_pad_ptr), feature))
+        return Int(rv)
     }
 
     /// Returns the number of groups this pad device has. Pads have
     /// at least one group. A pad group is a subcollection of
     /// buttons/strip/rings that is affected collectively by a same
     /// current mode.
-    func getNGroups() -> CInt {
-        let rv = gdk_device_pad_get_n_groups(cast(device_pad_ptr))
-        return CInt(rv)
+    func getNGroups() -> Int {
+        let rv: Int = cast(gdk_device_pad_get_n_groups(cast(device_pad_ptr)))
+        return Int(rv)
     }
     /// Returns the number of groups this pad device has. Pads have
     /// at least one group. A pad group is a subcollection of
     /// buttons/strip/rings that is affected collectively by a same
     /// current mode.
-    var nGroups: CInt {
+    var nGroups: Int {
         /// Returns the number of groups this pad device has. Pads have
         /// at least one group. A pad group is a subcollection of
         /// buttons/strip/rings that is affected collectively by a same
         /// current mode.
         get {
-            let rv = gdk_device_pad_get_n_groups(cast(device_pad_ptr))
-            return CInt(rv)
+            let rv: Int = cast(gdk_device_pad_get_n_groups(cast(device_pad_ptr)))
+            return Int(rv)
         }
     }
+
+
 }
 
 
