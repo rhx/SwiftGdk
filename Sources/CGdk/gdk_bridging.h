@@ -16,7 +16,6 @@ struct _GdkDragProtocol {};
 struct _GdkEventFunc {};
 struct _GdkEventMask {};
 struct _GdkEventSequence {};
-struct _GdkEventType {};
 struct _GdkFilterFunc {};
 struct _GdkFilterReturn {};
 struct _GdkFrameClock {};
