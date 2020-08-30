@@ -8,8 +8,10 @@ let package = Package(
         .library(name: "Gdk", targets: ["Gdk"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("master")),
-        .package(url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
+        .package(url: "file:///Users/rh/src/swift/rh/gtk/SwiftGdkPixbuf", .branch("master")),
+        .package(url: "file:///Users/rh/src/swift/rh/gtk/SwiftPangoCairo", .branch("master")),
+        //.package(url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("master")),
+        //.package(url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
     ],
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gdk-3.0 pangocairo pangoft2 pango gio-unix-2.0 glib-2.",
