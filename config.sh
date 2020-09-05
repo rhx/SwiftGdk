@@ -5,7 +5,7 @@
 #
 VER=3.0
 GLIB_VER=2.0
-JAZZY_VER=3.24.18
+JAZZY_VER=3.24.22
 Mod=Gdk
 Module=${Mod}-$VER
 module=`echo "${Module}" | tr '[:upper:]' '[:lower:]'`
