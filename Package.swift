@@ -1,15 +1,13 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.2
 
 import PackageDescription
 
 let package = Package(
     name: "Gdk",
-    products: [
-        .library(name: "Gdk", targets: ["Gdk"]),
-    ],
+    products: [ .library(name: "Gdk", targets: ["Gdk"]) ],
     dependencies: [
-        .package(url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("master")),
-        .package(url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
+        .package(name: "GdkPixbuf", url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("master")),
+        .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("master")),
     ],
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gdk-3.0 pangocairo pangoft2 pango gio-unix-2.0 glib-2.",
