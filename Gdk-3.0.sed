@@ -52,3 +52,4 @@ s/public func errorTrap/@available(*, deprecated) public func errorTrap/
 s/public func flush/@available(*, deprecated) public func flush/
 s/public func setDoubleClickTime/@available(*, deprecated) public func setDoubleClickTime/
 s/_ptr.pointee.state = newValue.value/_ptr.pointee.state = newValue.rawValue/
+s/targets: GdkAtom/targets: UnsafePointer<GdkAtom?>/
