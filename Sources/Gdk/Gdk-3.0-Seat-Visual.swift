@@ -21,10 +21,11 @@ import GdkPixbuf
 /// that belong to a user.
 public protocol SeatProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GdkSeat` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkSeat` instance.
-    var seat_ptr: UnsafeMutablePointer<GdkSeat> { get }
+    var seat_ptr: UnsafeMutablePointer<GdkSeat>! { get }
+
 }
 
 /// The `SeatRef` type acts as a lightweight Swift reference to an underlying `GdkSeat` instance.
@@ -36,46 +37,76 @@ public protocol SeatProtocol: ObjectProtocol {
 public struct SeatRef: SeatProtocol {
         /// Untyped pointer to the underlying `GdkSeat` instance.
     /// For type-safe access, use the generated, typed pointer `seat_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SeatRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkSeat>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkSeat>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkSeat>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkSeat>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkSeat>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SeatProtocol`
-    init<T: SeatProtocol>(_ other: T) {
+    @inlinable init<T: SeatProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -92,77 +123,123 @@ open class Seat: Object, SeatProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Seat` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkSeat>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkSeat>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seat` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkSeat>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seat` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seat` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seat` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkSeat>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Seat` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkSeat>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GdkSeat`.
     /// i.e., ownership is transferred to the `Seat` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkSeat>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkSeat>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `SeatProtocol`
     /// Will retain `GdkSeat`.
     /// - Parameter other: an instance of a related type that implements `SeatProtocol`
-    public init<T: SeatProtocol>(seat other: T) {
-        super.init(retaining: cast(other.seat_ptr))
+    @inlinable public init<T: SeatProtocol>(seat other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -184,18 +261,18 @@ public extension SeatProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(seat_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -213,7 +290,7 @@ public extension SeatProtocol {
     /// Get the value of a Seat property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: SeatPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: SeatPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -223,7 +300,7 @@ public extension SeatProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: SeatPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: SeatPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -280,11 +357,11 @@ public extension SeatProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: SeatSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: SeatSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(seat_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -305,36 +382,36 @@ public extension SeatProtocol {
 // MARK: Seat Class: SeatProtocol extension (methods and fields)
 public extension SeatProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkSeat` instance.
-    var seat_ptr: UnsafeMutablePointer<GdkSeat> { return ptr.assumingMemoryBound(to: GdkSeat.self) }
+    @inlinable var seat_ptr: UnsafeMutablePointer<GdkSeat>! { return ptr?.assumingMemoryBound(to: GdkSeat.self) }
 
     /// Returns the capabilities this `GdkSeat` currently has.
-    func getCapabilities() -> GdkSeatCapabilities {
-        let rv = gdk_seat_get_capabilities(cast(seat_ptr))
-        return cast(rv)
+    @inlinable func getCapabilities() -> SeatCapabilities {
+        let rv = SeatCapabilities(gdk_seat_get_capabilities(seat_ptr))
+        return rv
     }
 
     /// Returns the `GdkDisplay` this seat belongs to.
-    func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_seat_get_display(cast(seat_ptr)))
-        return cast(rv)
+    @inlinable func getDisplay() -> DisplayRef! {
+        let rv = DisplayRef(gconstpointer: gconstpointer(gdk_seat_get_display(seat_ptr)))
+        return rv
     }
 
     /// Returns the master device that routes keyboard events.
-    func getKeyboard() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_keyboard(cast(seat_ptr)))
-        return cast(rv)
+    @inlinable func getKeyboard() -> DeviceRef! {
+        let rv = DeviceRef(gconstpointer: gconstpointer(gdk_seat_get_keyboard(seat_ptr)))
+        return rv
     }
 
     /// Returns the master device that routes pointer events.
-    func getPointer() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_pointer(cast(seat_ptr)))
-        return cast(rv)
+    @inlinable func getPointer() -> DeviceRef! {
+        let rv = DeviceRef(gconstpointer: gconstpointer(gdk_seat_get_pointer(seat_ptr)))
+        return rv
     }
 
     /// Returns the slave devices that match the given capabilities.
-    func getSlaves(capabilities: SeatCapabilities) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(gdk_seat_get_slaves(cast(seat_ptr), capabilities.value))
-        return cast(rv)
+    @inlinable func getSlaves(capabilities: SeatCapabilities) -> GLib.ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(gdk_seat_get_slaves(seat_ptr, capabilities.value)))
+        return rv
     }
 
     /// Grabs the seat so that all events corresponding to the given `capabilities`
@@ -361,55 +438,55 @@ public extension SeatProtocol {
     /// If you set up anything at the time you take the grab that needs to be
     /// cleaned up when the grab ends, you should handle the `GdkEventGrabBroken`
     /// events that are emitted when the grab ends unvoluntarily.
-    func grab(window: WindowProtocol, capabilities: SeatCapabilities, ownerEvents owner_events: Bool, cursor: CursorProtocol, event: EventProtocol, prepareFunc prepare_func: @escaping SeatGrabPrepareFunc, prepareFuncData prepare_func_data: UnsafeMutableRawPointer) -> GdkGrabStatus {
-        let rv = gdk_seat_grab(cast(seat_ptr), cast(window.ptr), capabilities.value, gboolean(owner_events ? 1 : 0), cast(cursor.ptr), cast(event.ptr), prepare_func, cast(prepare_func_data))
-        return cast(rv)
+    @inlinable func grab<CursorT: CursorProtocol, EventT: EventProtocol, WindowT: WindowProtocol>(window: WindowT, capabilities: SeatCapabilities, ownerEvents owner_events: Bool, cursor: CursorT? = nil, event: EventT? = nil, prepareFunc prepare_func: GdkSeatGrabPrepareFunc? = nil, prepareFuncData prepare_func_data: gpointer! = nil) -> GdkGrabStatus {
+        let rv = gdk_seat_grab(seat_ptr, window.window_ptr, capabilities.value, gboolean((owner_events) ? 1 : 0), cursor?.cursor_ptr, event?.event_ptr, prepare_func, prepare_func_data)
+        return rv
     }
 
     /// Releases a grab added through `gdk_seat_grab()`.
-    func ungrab() {
-        gdk_seat_ungrab(cast(seat_ptr))
+    @inlinable func ungrab() {
+        gdk_seat_ungrab(seat_ptr)
     
     }
     /// Returns the capabilities this `GdkSeat` currently has.
-    var capabilities: GdkSeatCapabilities {
+    @inlinable var capabilities: SeatCapabilities {
         /// Returns the capabilities this `GdkSeat` currently has.
         get {
-            let rv = gdk_seat_get_capabilities(cast(seat_ptr))
-            return cast(rv)
+            let rv = SeatCapabilities(gdk_seat_get_capabilities(seat_ptr))
+            return rv
         }
     }
 
     /// `GdkDisplay` of this seat.
-    var display: UnsafeMutablePointer<GdkDisplay>! {
+    @inlinable var display: DisplayRef! {
         /// Returns the `GdkDisplay` this seat belongs to.
         get {
-            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_seat_get_display(cast(seat_ptr)))
-            return cast(rv)
+            let rv = DisplayRef(gconstpointer: gconstpointer(gdk_seat_get_display(seat_ptr)))
+            return rv
         }
     }
 
     /// Returns the master device that routes keyboard events.
-    var keyboard: UnsafeMutablePointer<GdkDevice>! {
+    @inlinable var keyboard: DeviceRef! {
         /// Returns the master device that routes keyboard events.
         get {
-            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_keyboard(cast(seat_ptr)))
-            return cast(rv)
+            let rv = DeviceRef(gconstpointer: gconstpointer(gdk_seat_get_keyboard(seat_ptr)))
+            return rv
         }
     }
 
     /// Returns the master device that routes pointer events.
-    var pointer: UnsafeMutablePointer<GdkDevice>! {
+    @inlinable var pointer: DeviceRef! {
         /// Returns the master device that routes pointer events.
         get {
-            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_seat_get_pointer(cast(seat_ptr)))
-            return cast(rv)
+            let rv = DeviceRef(gconstpointer: gconstpointer(gdk_seat_get_pointer(seat_ptr)))
+            return rv
         }
     }
 
-    var parentInstance: GObject {
+    @inlinable var parentInstance: GObject {
         get {
-            let rv: GObject = cast(seat_ptr.pointee.parent_instance)
+            let rv = seat_ptr.pointee.parent_instance
             return rv
         }
     }
@@ -429,10 +506,11 @@ public extension SeatProtocol {
 /// a particular visual.
 public protocol VisualProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GdkVisual` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkVisual` instance.
-    var visual_ptr: UnsafeMutablePointer<GdkVisual> { get }
+    var visual_ptr: UnsafeMutablePointer<GdkVisual>! { get }
+
 }
 
 /// The `VisualRef` type acts as a lightweight Swift reference to an underlying `GdkVisual` instance.
@@ -444,46 +522,76 @@ public protocol VisualProtocol: ObjectProtocol {
 public struct VisualRef: VisualProtocol {
         /// Untyped pointer to the underlying `GdkVisual` instance.
     /// For type-safe access, use the generated, typed pointer `visual_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension VisualRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkVisual>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkVisual>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkVisual>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkVisual>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkVisual>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `VisualProtocol`
-    init<T: VisualProtocol>(_ other: T) {
+    @inlinable init<T: VisualProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -493,9 +601,9 @@ public extension VisualRef {
     /// **get_best is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) static func getBest() -> VisualRef! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best())
-        return rv.map { VisualRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func getBest() -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best())) else { return nil }
+        return rv
     }
 
     /// Combines `gdk_visual_get_best_with_depth()` and
@@ -504,9 +612,9 @@ public extension VisualRef {
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) static func getBestWith(both depth: CInt, visualType visual_type: VisualType) -> VisualRef! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_both(gint(depth), visual_type))
-        return rv.map { VisualRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func getBestWith(both depth: Int, visualType visual_type: GdkVisualType) -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visual_type))) else { return nil }
+        return rv
     }
 
     /// Get the best visual with depth `depth` for the default GDK screen.
@@ -517,9 +625,9 @@ public extension VisualRef {
     /// **get_best_with_depth is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) static func getBestWith(depth: CInt) -> VisualRef! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_depth(gint(depth)))
-        return rv.map { VisualRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func getBestWith(depth: Int) -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_depth(gint(depth)))) else { return nil }
+        return rv
     }
 
     /// Get the best visual of the given `visual_type` for the default GDK screen.
@@ -530,9 +638,9 @@ public extension VisualRef {
     /// **get_best_with_type is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) static func getBestWith(type visual_type: VisualType) -> VisualRef! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_type(visual_type))
-        return rv.map { VisualRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func getBestWith(type visual_type: GdkVisualType) -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visual_type))) else { return nil }
+        return rv
     }
 
     /// Get the system’s default visual for the default GDK screen.
@@ -541,9 +649,9 @@ public extension VisualRef {
     ///
     /// **get_system is deprecated:**
     /// Use gdk_screen_get_system_visual (gdk_screen_get_default ()).
-    @available(*, deprecated) static func getSystem() -> VisualRef! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_system())
-        return rv.map { VisualRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func getSystem() -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_system())) else { return nil }
+        return rv
     }
 }
 
@@ -558,77 +666,123 @@ open class Visual: Object, VisualProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Visual` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkVisual>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkVisual>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Visual` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkVisual>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Visual` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Visual` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Visual` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkVisual>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Visual` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkVisual>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GdkVisual`.
     /// i.e., ownership is transferred to the `Visual` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkVisual>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkVisual>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `VisualProtocol`
     /// Will retain `GdkVisual`.
     /// - Parameter other: an instance of a related type that implements `VisualProtocol`
-    public init<T: VisualProtocol>(visual other: T) {
-        super.init(retaining: cast(other.visual_ptr))
+    @inlinable public init<T: VisualProtocol>(visual other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -639,9 +793,9 @@ open class Visual: Object, VisualProtocol {
     /// **get_best is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) public static func getBest() -> Visual! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best())
-        return rv.map { Visual(cast($0)) }
+    @available(*, deprecated) @inlinable public static func getBest() -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best())) else { return nil }
+        return rv
     }
 
     /// Combines `gdk_visual_get_best_with_depth()` and
@@ -650,9 +804,9 @@ open class Visual: Object, VisualProtocol {
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) public static func getBestWith(both depth: CInt, visualType visual_type: VisualType) -> Visual! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_both(gint(depth), visual_type))
-        return rv.map { Visual(cast($0)) }
+    @available(*, deprecated) @inlinable public static func getBestWith(both depth: Int, visualType visual_type: GdkVisualType) -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visual_type))) else { return nil }
+        return rv
     }
 
     /// Get the best visual with depth `depth` for the default GDK screen.
@@ -663,9 +817,9 @@ open class Visual: Object, VisualProtocol {
     /// **get_best_with_depth is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) public static func getBestWith(depth: CInt) -> Visual! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_depth(gint(depth)))
-        return rv.map { Visual(cast($0)) }
+    @available(*, deprecated) @inlinable public static func getBestWith(depth: Int) -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_depth(gint(depth)))) else { return nil }
+        return rv
     }
 
     /// Get the best visual of the given `visual_type` for the default GDK screen.
@@ -676,9 +830,9 @@ open class Visual: Object, VisualProtocol {
     /// **get_best_with_type is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) public static func getBestWith(type visual_type: VisualType) -> Visual! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_best_with_type(visual_type))
-        return rv.map { Visual(cast($0)) }
+    @available(*, deprecated) @inlinable public static func getBestWith(type visual_type: GdkVisualType) -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visual_type))) else { return nil }
+        return rv
     }
 
     /// Get the system’s default visual for the default GDK screen.
@@ -687,9 +841,9 @@ open class Visual: Object, VisualProtocol {
     ///
     /// **get_system is deprecated:**
     /// Use gdk_screen_get_system_visual (gdk_screen_get_default ()).
-    @available(*, deprecated) public static func getSystem() -> Visual! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_visual_get_system())
-        return rv.map { Visual(cast($0)) }
+    @available(*, deprecated) @inlinable public static func getSystem() -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_system())) else { return nil }
+        return rv
     }
 
 }
@@ -731,11 +885,11 @@ public extension VisualProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: VisualSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: VisualSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(visual_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -756,7 +910,7 @@ public extension VisualProtocol {
 // MARK: Visual Class: VisualProtocol extension (methods and fields)
 public extension VisualProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkVisual` instance.
-    var visual_ptr: UnsafeMutablePointer<GdkVisual> { return ptr.assumingMemoryBound(to: GdkVisual.self) }
+    @inlinable var visual_ptr: UnsafeMutablePointer<GdkVisual>! { return ptr?.assumingMemoryBound(to: GdkVisual.self) }
 
     /// Returns the number of significant bits per red, green and blue value.
     /// 
@@ -765,9 +919,9 @@ public extension VisualProtocol {
     /// **get_bits_per_rgb is deprecated:**
     /// Use gdk_visual_get_red_pixel_details() and its variants to
     ///     learn about the pixel layout of TrueColor and DirectColor visuals
-    @available(*, deprecated) func getBitsPerRgb() -> Int {
-        let rv: Int = cast(gdk_visual_get_bits_per_rgb(cast(visual_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getBitsPerRgb() -> Int {
+        let rv = Int(gdk_visual_get_bits_per_rgb(visual_ptr))
+        return rv
     }
 
     /// Obtains values that are needed to calculate blue pixel values in TrueColor
@@ -775,8 +929,8 @@ public extension VisualProtocol {
     /// The “shift” is the number of bits left we must shift a primary for it
     /// to be in position (according to the "mask"). Finally, "precision" refers
     /// to how much precision the pixel value contains for a particular primary.
-    func getBluePixelDetails(mask: UnsafeMutablePointer<UInt32>, shift: UnsafeMutablePointer<CInt>, precision: UnsafeMutablePointer<CInt>) {
-        gdk_visual_get_blue_pixel_details(cast(visual_ptr), cast(mask), cast(shift), cast(precision))
+    @inlinable func getBluePixelDetails(mask: UnsafeMutablePointer<guint32>! = nil, shift: UnsafeMutablePointer<gint>! = nil, precision: UnsafeMutablePointer<gint>! = nil) {
+        gdk_visual_get_blue_pixel_details(visual_ptr, mask, shift, precision)
     
     }
 
@@ -788,9 +942,9 @@ public extension VisualProtocol {
     ///
     /// **get_byte_order is deprecated:**
     /// This information is not useful
-    @available(*, deprecated) func getByteOrder() -> GdkByteOrder {
-        let rv = gdk_visual_get_byte_order(cast(visual_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getByteOrder() -> GdkByteOrder {
+        let rv = gdk_visual_get_byte_order(visual_ptr)
+        return rv
     }
 
     /// Returns the size of a colormap for this visual.
@@ -800,15 +954,15 @@ public extension VisualProtocol {
     /// **get_colormap_size is deprecated:**
     /// This information is not useful, since GDK does not
     ///     provide APIs to operate on colormaps.
-    @available(*, deprecated) func getColormapSize() -> Int {
-        let rv: Int = cast(gdk_visual_get_colormap_size(cast(visual_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getColormapSize() -> Int {
+        let rv = Int(gdk_visual_get_colormap_size(visual_ptr))
+        return rv
     }
 
     /// Returns the bit depth of this visual.
-    func getDepth() -> Int {
-        let rv: Int = cast(gdk_visual_get_depth(cast(visual_ptr)))
-        return Int(rv)
+    @inlinable func getDepth() -> Int {
+        let rv = Int(gdk_visual_get_depth(visual_ptr))
+        return rv
     }
 
     /// Obtains values that are needed to calculate green pixel values in TrueColor
@@ -816,8 +970,8 @@ public extension VisualProtocol {
     /// The “shift” is the number of bits left we must shift a primary for it
     /// to be in position (according to the "mask"). Finally, "precision" refers
     /// to how much precision the pixel value contains for a particular primary.
-    func getGreenPixelDetails(mask: UnsafeMutablePointer<UInt32>, shift: UnsafeMutablePointer<CInt>, precision: UnsafeMutablePointer<CInt>) {
-        gdk_visual_get_green_pixel_details(cast(visual_ptr), cast(mask), cast(shift), cast(precision))
+    @inlinable func getGreenPixelDetails(mask: UnsafeMutablePointer<guint32>! = nil, shift: UnsafeMutablePointer<gint>! = nil, precision: UnsafeMutablePointer<gint>! = nil) {
+        gdk_visual_get_green_pixel_details(visual_ptr, mask, shift, precision)
     
     }
 
@@ -826,21 +980,21 @@ public extension VisualProtocol {
     /// The “shift” is the number of bits left we must shift a primary for it
     /// to be in position (according to the "mask"). Finally, "precision" refers
     /// to how much precision the pixel value contains for a particular primary.
-    func getRedPixelDetails(mask: UnsafeMutablePointer<UInt32>, shift: UnsafeMutablePointer<CInt>, precision: UnsafeMutablePointer<CInt>) {
-        gdk_visual_get_red_pixel_details(cast(visual_ptr), cast(mask), cast(shift), cast(precision))
+    @inlinable func getRedPixelDetails(mask: UnsafeMutablePointer<guint32>! = nil, shift: UnsafeMutablePointer<gint>! = nil, precision: UnsafeMutablePointer<gint>! = nil) {
+        gdk_visual_get_red_pixel_details(visual_ptr, mask, shift, precision)
     
     }
 
     /// Gets the screen to which this visual belongs
-    func getScreen() -> UnsafeMutablePointer<GdkScreen>! {
-        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_visual_get_screen(cast(visual_ptr)))
-        return cast(rv)
+    @inlinable func getScreen() -> ScreenRef! {
+        let rv = ScreenRef(gconstpointer: gconstpointer(gdk_visual_get_screen(visual_ptr)))
+        return rv
     }
 
     /// Returns the type of visual this is (PseudoColor, TrueColor, etc).
-    func getVisualType() -> GdkVisualType {
-        let rv = gdk_visual_get_visual_type(cast(visual_ptr))
-        return cast(rv)
+    @inlinable func getVisualType() -> GdkVisualType {
+        let rv = gdk_visual_get_visual_type(visual_ptr)
+        return rv
     }
     /// Returns the number of significant bits per red, green and blue value.
     /// 
@@ -849,7 +1003,7 @@ public extension VisualProtocol {
     /// **get_bits_per_rgb is deprecated:**
     /// Use gdk_visual_get_red_pixel_details() and its variants to
     ///     learn about the pixel layout of TrueColor and DirectColor visuals
-    var bitsPerRgb: Int {
+    @inlinable var bitsPerRgb: Int {
         /// Returns the number of significant bits per red, green and blue value.
         /// 
         /// Not all GDK backend provide a meaningful value for this function.
@@ -858,8 +1012,8 @@ public extension VisualProtocol {
         /// Use gdk_visual_get_red_pixel_details() and its variants to
         ///     learn about the pixel layout of TrueColor and DirectColor visuals
         @available(*, deprecated) get {
-            let rv: Int = cast(gdk_visual_get_bits_per_rgb(cast(visual_ptr)))
-            return Int(rv)
+            let rv = Int(gdk_visual_get_bits_per_rgb(visual_ptr))
+            return rv
         }
     }
 
@@ -871,7 +1025,7 @@ public extension VisualProtocol {
     ///
     /// **get_byte_order is deprecated:**
     /// This information is not useful
-    var byteOrder: GdkByteOrder {
+    @inlinable var byteOrder: GdkByteOrder {
         /// Returns the byte order of this visual.
         /// 
         /// The information returned by this function is only relevant
@@ -881,8 +1035,8 @@ public extension VisualProtocol {
         /// **get_byte_order is deprecated:**
         /// This information is not useful
         @available(*, deprecated) get {
-            let rv = gdk_visual_get_byte_order(cast(visual_ptr))
-            return cast(rv)
+            let rv = gdk_visual_get_byte_order(visual_ptr)
+            return rv
         }
     }
 
@@ -893,7 +1047,7 @@ public extension VisualProtocol {
     /// **get_colormap_size is deprecated:**
     /// This information is not useful, since GDK does not
     ///     provide APIs to operate on colormaps.
-    var colormapSize: Int {
+    @inlinable var colormapSize: Int {
         /// Returns the size of a colormap for this visual.
         /// 
         /// You have to use platform-specific APIs to manipulate colormaps.
@@ -902,35 +1056,35 @@ public extension VisualProtocol {
         /// This information is not useful, since GDK does not
         ///     provide APIs to operate on colormaps.
         @available(*, deprecated) get {
-            let rv: Int = cast(gdk_visual_get_colormap_size(cast(visual_ptr)))
-            return Int(rv)
+            let rv = Int(gdk_visual_get_colormap_size(visual_ptr))
+            return rv
         }
     }
 
     /// Returns the bit depth of this visual.
-    var depth: Int {
+    @inlinable var depth: Int {
         /// Returns the bit depth of this visual.
         get {
-            let rv: Int = cast(gdk_visual_get_depth(cast(visual_ptr)))
-            return Int(rv)
+            let rv = Int(gdk_visual_get_depth(visual_ptr))
+            return rv
         }
     }
 
     /// Gets the screen to which this visual belongs
-    var screen: UnsafeMutablePointer<GdkScreen>! {
+    @inlinable var screen: ScreenRef! {
         /// Gets the screen to which this visual belongs
         get {
-            let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_visual_get_screen(cast(visual_ptr)))
-            return cast(rv)
+            let rv = ScreenRef(gconstpointer: gconstpointer(gdk_visual_get_screen(visual_ptr)))
+            return rv
         }
     }
 
     /// Returns the type of visual this is (PseudoColor, TrueColor, etc).
-    var visualType: GdkVisualType {
+    @inlinable var visualType: GdkVisualType {
         /// Returns the type of visual this is (PseudoColor, TrueColor, etc).
         get {
-            let rv = gdk_visual_get_visual_type(cast(visual_ptr))
-            return cast(rv)
+            let rv = gdk_visual_get_visual_type(visual_ptr)
+            return rv
         }
     }
 

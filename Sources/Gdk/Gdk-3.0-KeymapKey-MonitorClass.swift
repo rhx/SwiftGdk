@@ -20,10 +20,11 @@ import GdkPixbuf
 /// A `GdkKeymapKey` is a hardware key that can be mapped to a keyval.
 public protocol KeymapKeyProtocol {
         /// Untyped pointer to the underlying `GdkKeymapKey` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkKeymapKey` instance.
-    var _ptr: UnsafeMutablePointer<GdkKeymapKey> { get }
+    var _ptr: UnsafeMutablePointer<GdkKeymapKey>! { get }
+
 }
 
 /// The `KeymapKeyRef` type acts as a lightweight Swift reference to an underlying `GdkKeymapKey` instance.
@@ -34,46 +35,76 @@ public protocol KeymapKeyProtocol {
 public struct KeymapKeyRef: KeymapKeyProtocol {
         /// Untyped pointer to the underlying `GdkKeymapKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension KeymapKeyRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkKeymapKey>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkKeymapKey>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkKeymapKey>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkKeymapKey>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkKeymapKey>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `KeymapKeyProtocol`
-    init<T: KeymapKeyProtocol>(_ other: T) {
+    @inlinable init<T: KeymapKeyProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -87,95 +118,141 @@ public extension KeymapKeyRef {
 open class KeymapKey: KeymapKeyProtocol {
         /// Untyped pointer to the underlying `GdkKeymapKey` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `KeymapKey` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkKeymapKey>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkKeymapKey>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeymapKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkKeymapKey>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeymapKey` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeymapKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeymapKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkKeymapKey>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeymapKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkKeymapKey>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkKeymapKey` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `KeymapKey` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkKeymapKey>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkKeymapKey>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `KeymapKeyProtocol`
     /// `GdkKeymapKey` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `KeymapKeyProtocol`
-    public init<T: KeymapKeyProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+    @inlinable public init<T: KeymapKeyProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GdkKeymapKey`.
     deinit {
-        // no reference counting for GdkKeymapKey, cannot unref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkKeymapKey, cannot ref(cast(_ptr))
+        // no reference counting for GdkKeymapKey, cannot ref(_ptr)
     }
 
 
@@ -190,22 +267,22 @@ open class KeymapKey: KeymapKeyProtocol {
 // MARK: KeymapKey Record: KeymapKeyProtocol extension (methods and fields)
 public extension KeymapKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeymapKey` instance.
-    var _ptr: UnsafeMutablePointer<GdkKeymapKey> { return ptr.assumingMemoryBound(to: GdkKeymapKey.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GdkKeymapKey>! { return ptr?.assumingMemoryBound(to: GdkKeymapKey.self) }
 
 
     /// the hardware keycode. This is an identifying number for a
     ///   physical key.
-    var keycode: Int {
+    @inlinable var keycode: guint {
         /// the hardware keycode. This is an identifying number for a
         ///   physical key.
         get {
-            let rv: Int = cast(_ptr.pointee.keycode)
+            let rv = _ptr.pointee.keycode
             return rv
         }
         /// the hardware keycode. This is an identifying number for a
         ///   physical key.
          set {
-            _ptr.pointee.keycode = guint(newValue)
+            _ptr.pointee.keycode = newValue
         }
     }
 
@@ -213,13 +290,13 @@ public extension KeymapKeyProtocol {
     ///   for two different languages. In group 0, a key might have two English
     ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
     ///   characters will be printed on the key next to the English characters.
-    var group: Int {
+    @inlinable var group: gint {
         /// indicates movement in a horizontal direction. Usually groups are used
         ///   for two different languages. In group 0, a key might have two English
         ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
         ///   characters will be printed on the key next to the English characters.
         get {
-            let rv: Int = cast(_ptr.pointee.group)
+            let rv = _ptr.pointee.group
             return rv
         }
         /// indicates movement in a horizontal direction. Usually groups are used
@@ -227,7 +304,7 @@ public extension KeymapKeyProtocol {
         ///   characters, and in group 1 it might have two Hebrew characters. The Hebrew
         ///   characters will be printed on the key next to the English characters.
          set {
-            _ptr.pointee.group = gint(newValue)
+            _ptr.pointee.group = newValue
         }
     }
 
@@ -237,7 +314,7 @@ public extension KeymapKeyProtocol {
     ///   the “1” or the “!” symbol. The letter keys are considered to have a lowercase
     ///   letter at level 0, and an uppercase letter at level 1, though only the
     ///   uppercase letter is printed.
-    var level: Int {
+    @inlinable var level: gint {
         /// indicates which symbol on the key will be used, in a vertical direction.
         ///   So on a standard US keyboard, the key with the number “1” on it also has the
         ///   exclamation point ("!") character on it. The level indicates whether to use
@@ -245,7 +322,7 @@ public extension KeymapKeyProtocol {
         ///   letter at level 0, and an uppercase letter at level 1, though only the
         ///   uppercase letter is printed.
         get {
-            let rv: Int = cast(_ptr.pointee.level)
+            let rv = _ptr.pointee.level
             return rv
         }
         /// indicates which symbol on the key will be used, in a vertical direction.
@@ -255,7 +332,7 @@ public extension KeymapKeyProtocol {
         ///   letter at level 0, and an uppercase letter at level 1, though only the
         ///   uppercase letter is printed.
          set {
-            _ptr.pointee.level = gint(newValue)
+            _ptr.pointee.level = newValue
         }
     }
 
@@ -273,10 +350,11 @@ public extension KeymapKeyProtocol {
 
 public protocol MonitorClassProtocol {
         /// Untyped pointer to the underlying `GdkMonitorClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkMonitorClass` instance.
-    var _ptr: UnsafeMutablePointer<GdkMonitorClass> { get }
+    var _ptr: UnsafeMutablePointer<GdkMonitorClass>! { get }
+
 }
 
 /// The `MonitorClassRef` type acts as a lightweight Swift reference to an underlying `GdkMonitorClass` instance.
@@ -287,46 +365,76 @@ public protocol MonitorClassProtocol {
 public struct MonitorClassRef: MonitorClassProtocol {
         /// Untyped pointer to the underlying `GdkMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MonitorClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkMonitorClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkMonitorClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkMonitorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MonitorClassProtocol`
-    init<T: MonitorClassProtocol>(_ other: T) {
+    @inlinable init<T: MonitorClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -340,95 +448,141 @@ public extension MonitorClassRef {
 open class MonitorClass: MonitorClassProtocol {
         /// Untyped pointer to the underlying `GdkMonitorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `MonitorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkMonitorClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkMonitorClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkMonitorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MonitorClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkMonitorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `MonitorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkMonitorClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkMonitorClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `MonitorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkMonitorClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkMonitorClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `MonitorClassProtocol`
     /// `GdkMonitorClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `MonitorClassProtocol`
-    public init<T: MonitorClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: MonitorClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GdkMonitorClass`.
     deinit {
-        // no reference counting for GdkMonitorClass, cannot unref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkMonitorClass, cannot ref(cast(_ptr))
+        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
     }
 
 
@@ -443,7 +597,7 @@ open class MonitorClass: MonitorClassProtocol {
 // MARK: MonitorClass Record: MonitorClassProtocol extension (methods and fields)
 public extension MonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkMonitorClass` instance.
-    var _ptr: UnsafeMutablePointer<GdkMonitorClass> { return ptr.assumingMemoryBound(to: GdkMonitorClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GdkMonitorClass>! { return ptr?.assumingMemoryBound(to: GdkMonitorClass.self) }
 
 
 

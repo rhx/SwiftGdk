@@ -13,9 +13,9 @@ import GdkPixbuf
 /// Checks all open displays for a `GdkEvent` to process,to be processed
 /// on, fetching events from the windowing system if necessary.
 /// See `gdk_display_get_event()`.
-public func get() -> UnsafeMutablePointer<GdkEvent>! {
-    let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_get())
-    return cast(rv)
+@inlinable public func get() -> EventRef! {
+    guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_get())) else { return nil }
+    return rv
 }
 
 
@@ -27,8 +27,8 @@ public func get() -> UnsafeMutablePointer<GdkEvent>! {
 /// usually not useful for GTK+ applications. (Although an application
 /// can call this function then call `gtk_main_do_event()` to pass
 /// events to GTK+.)
-public func handlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) {
-    gdk_event_handler_set(func_, cast(data), notify)
+@inlinable public func handlerSet(`func`: GdkEventFunc?, data: gpointer! = nil, notify: GDestroyNotify?) {
+    gdk_event_handler_set(`func`, data, notify)
 
 }
 
@@ -37,9 +37,9 @@ public func handlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer
 
 /// If there is an event waiting in the event queue of some open
 /// display, returns a copy of it. See `gdk_display_peek_event()`.
-public func peek() -> UnsafeMutablePointer<GdkEvent>! {
-    let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_peek())
-    return cast(rv)
+@inlinable public func peek() -> EventRef! {
+    guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_peek())) else { return nil }
+    return rv
 }
 
 
@@ -64,8 +64,8 @@ public func peek() -> UnsafeMutablePointer<GdkEvent>! {
 /// }
 /// ```
 /// 
-public func requestMotions(event: EventMotionProtocol) {
-    gdk_event_request_motions(cast(event.ptr))
+@inlinable public func requestMotions<EventMotionT: EventMotionProtocol>(event: EventMotionT) {
+    gdk_event_request_motions(event._ptr)
 
 }
 
@@ -78,8 +78,8 @@ public func requestMotions(event: EventMotionProtocol) {
 /// **add_option_entries_libgtk_only is deprecated:**
 /// This symbol was never meant to be used outside
 ///   of GTK+
-@available(*, deprecated) public func addOptionEntriesLibgtkOnly(group: OptionGroupProtocol) {
-    gdk_add_option_entries_libgtk_only(cast(group.ptr))
+@available(*, deprecated) @inlinable public func addOptionEntriesLibgtkOnly<OptionGroupT: OptionGroupProtocol>(group: OptionGroupT) {
+    gdk_add_option_entries_libgtk_only(group.option_group_ptr)
 
 }
 
@@ -87,9 +87,9 @@ public func requestMotions(event: EventMotionProtocol) {
 
 
 /// Finds or creates an atom corresponding to a given string.
-public func atomIntern(atomName atom_name: UnsafePointer<gchar>, onlyIfExists only_if_exists: Bool) -> GdkAtom! {
-    let rv = gdk_atom_intern(atom_name, gboolean(only_if_exists ? 1 : 0))
-    return cast(rv)
+@inlinable public func atomIntern(atomName atom_name: UnsafePointer<gchar>!, onlyIfExists only_if_exists: Bool) -> GdkAtom! {
+    let rv = gdk_atom_intern(atom_name, gboolean((only_if_exists) ? 1 : 0))
+    return rv
 }
 
 
@@ -105,16 +105,16 @@ public func atomIntern(atomName atom_name: UnsafePointer<gchar>, onlyIfExists on
 /// allocated memory in dynamically loaded modules, if you expect to
 /// ever unload the module again (e.g. do not use this function in
 /// GTK+ theme engines).
-public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>) -> GdkAtom! {
+@inlinable public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>!) -> GdkAtom! {
     let rv = gdk_atom_intern_static_string(atom_name)
-    return cast(rv)
+    return rv
 }
 
 
 
 
 /// Emits a short beep on the default display.
-@available(*, deprecated) public func beep() {
+@inlinable @available(*, deprecated) public func beep() {
     gdk_beep()
 
 }
@@ -138,9 +138,9 @@ public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>) -> 
 /// **cairo_create is deprecated:**
 /// Use gdk_window_begin_draw_frame() and
 ///   gdk_drawing_context_get_cairo_context() instead
-@available(*, deprecated) public func cairoCreate(window: WindowProtocol) -> UnsafeMutablePointer<cairo_t>! {
-    let rv: UnsafeMutablePointer<cairo_t>! = cast(gdk_cairo_create(cast(window.ptr)))
-    return cast(rv)
+@available(*, deprecated) @inlinable public func cairoCreate<WindowT: WindowProtocol>(window: WindowT) -> Cairo.ContextRef! {
+    guard let rv = Cairo.ContextRef(gconstpointer: gconstpointer(gdk_cairo_create(window.window_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -162,8 +162,8 @@ public func atomInternStaticString(atomName atom_name: UnsafePointer<gchar>) -> 
 /// with alpha components, so make sure you use `GL_TEXTURE` if using alpha.
 /// 
 /// Calling this may change the current GL context.
-public func cairoDrawFromGl(cr: cairo.ContextProtocol, window: WindowProtocol, source: CInt, sourceType source_type: CInt, bufferScale buffer_scale: CInt, x: CInt, y: CInt, width: CInt, height: CInt) {
-    gdk_cairo_draw_from_gl(cast(cr.ptr), cast(window.ptr), source, source_type, buffer_scale, x, y, width, height)
+@inlinable public func cairoDrawFromGl<ContextT: Cairo.ContextProtocol, WindowT: WindowProtocol>(cr: ContextT, window: WindowT, source: Int, sourceType source_type: Int, bufferScale buffer_scale: Int, x: Int, y: Int, width: Int, height: Int) {
+    gdk_cairo_draw_from_gl(cr._ptr, window.window_ptr, gint(source), gint(source_type), gint(buffer_scale), gint(x), gint(y), gint(width), gint(height))
 
 }
 
@@ -173,9 +173,9 @@ public func cairoDrawFromGl(cr: cairo.ContextProtocol, window: WindowProtocol, s
 /// This is a convenience function around `cairo_clip_extents()`.
 /// It rounds the clip extents to integer coordinates and returns
 /// a boolean indicating if a clip area exists.
-public func cairoGetClipRectangle(cr: cairo.ContextProtocol, rect: RectangleProtocol) -> Bool {
-    let rv = gdk_cairo_get_clip_rectangle(cast(cr.ptr), cast(rect.ptr))
-    return Bool(rv != 0)
+@inlinable public func cairoGetClipRectangle<ContextT: Cairo.ContextProtocol, RectangleT: RectangleProtocol>(cr: ContextT, rect: RectangleT? = nil) -> Bool {
+    let rv = ((gdk_cairo_get_clip_rectangle(cr._ptr, rect?.rectangle_ptr)) != 0)
+    return rv
 }
 
 
@@ -183,17 +183,17 @@ public func cairoGetClipRectangle(cr: cairo.ContextProtocol, rect: RectangleProt
 
 /// Retrieves the `GdkDrawingContext` that created the Cairo
 /// context `cr`.
-public func cairoGetDrawingContext(cr: cairo.ContextProtocol) -> UnsafeMutablePointer<GdkDrawingContext>! {
-    let rv: UnsafeMutablePointer<GdkDrawingContext>! = cast(gdk_cairo_get_drawing_context(cast(cr.ptr)))
-    return cast(rv)
+@inlinable public func cairoGetDrawingContext<ContextT: Cairo.ContextProtocol>(cr: ContextT) -> DrawingContextRef! {
+    guard let rv = DrawingContextRef(gconstpointer: gconstpointer(gdk_cairo_get_drawing_context(cr._ptr))) else { return nil }
+    return rv
 }
 
 
 
 
 /// Adds the given rectangle to the current path of `cr`.
-public func cairoRectangle(cr: cairo.ContextProtocol, rectangle: RectangleProtocol) {
-    gdk_cairo_rectangle(cast(cr.ptr), cast(rectangle.ptr))
+@inlinable public func cairoRectangle<ContextT: Cairo.ContextProtocol, RectangleT: RectangleProtocol>(cr: ContextT, rectangle: RectangleT) {
+    gdk_cairo_rectangle(cr._ptr, rectangle.rectangle_ptr)
 
 }
 
@@ -201,8 +201,8 @@ public func cairoRectangle(cr: cairo.ContextProtocol, rectangle: RectangleProtoc
 
 
 /// Adds the given region to the current path of `cr`.
-public func cairoRegion(cr: cairo.ContextProtocol, region: RegionProtocol) {
-    gdk_cairo_region(cast(cr.ptr), cast(region.ptr))
+@inlinable public func cairoRegion<ContextT: Cairo.ContextProtocol, RegionT: RegionProtocol>(cr: ContextT, region: RegionT) {
+    gdk_cairo_region(cr._ptr, region._ptr)
 
 }
 
@@ -214,9 +214,9 @@ public func cairoRegion(cr: cairo.ContextProtocol, region: RegionProtocol) {
 /// 
 /// This function takes into account device offsets that might be
 /// set with `cairo_surface_set_device_offset()`.
-public func cairoRegionCreateFrom(surface: SurfaceProtocol) -> UnsafeMutablePointer<cairo_region_t>! {
-    let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_cairo_region_create_from_surface(cast(surface.ptr)))
-    return cast(rv)
+@inlinable public func cairoRegionCreateFrom<SurfaceT: SurfaceProtocol>(surface: SurfaceT) -> RegionRef! {
+    guard let rv = RegionRef(gconstpointer: gconstpointer(gdk_cairo_region_create_from_surface(surface._ptr))) else { return nil }
+    return rv
 }
 
 
@@ -226,8 +226,8 @@ public func cairoRegionCreateFrom(surface: SurfaceProtocol) -> UnsafeMutablePoin
 ///
 /// **cairo_set_source_color is deprecated:**
 /// Use gdk_cairo_set_source_rgba() instead
-@available(*, deprecated) public func cairoSetSourceColor(cr: cairo.ContextProtocol, color: ColorProtocol) {
-    gdk_cairo_set_source_color(cast(cr.ptr), cast(color.ptr))
+@available(*, deprecated) @inlinable public func cairoSetSourceColor<ColorT: ColorProtocol, ContextT: Cairo.ContextProtocol>(cr: ContextT, color: ColorT) {
+    gdk_cairo_set_source_color(cr._ptr, color.color_ptr)
 
 }
 
@@ -238,8 +238,8 @@ public func cairoRegionCreateFrom(surface: SurfaceProtocol) -> UnsafeMutablePoin
 /// 
 /// The pattern has an extend mode of `CAIRO_EXTEND_NONE` and is aligned
 /// so that the origin of `pixbuf` is `pixbuf_x`, `pixbuf_y`.
-public func cairoSetSourcePixbuf(cr: cairo.ContextProtocol, pixbuf: PixbufProtocol, pixbufX pixbuf_x: gdouble, pixbufY pixbuf_y: gdouble) {
-    gdk_cairo_set_source_pixbuf(cast(cr.ptr), cast(pixbuf.ptr), pixbuf_x, pixbuf_y)
+@inlinable public func cairoSetSourcePixbuf<ContextT: Cairo.ContextProtocol, PixbufT: PixbufProtocol>(cr: ContextT, pixbuf: PixbufT, pixbufX pixbuf_x: Double, pixbufY pixbuf_y: Double) {
+    gdk_cairo_set_source_pixbuf(cr._ptr, pixbuf.pixbuf_ptr, gdouble(pixbuf_x), gdouble(pixbuf_y))
 
 }
 
@@ -247,8 +247,8 @@ public func cairoSetSourcePixbuf(cr: cairo.ContextProtocol, pixbuf: PixbufProtoc
 
 
 /// Sets the specified `GdkRGBA` as the source color of `cr`.
-public func cairoSetSourceRgba(cr: cairo.ContextProtocol, rgba: RGBAProtocol) {
-    gdk_cairo_set_source_rgba(cast(cr.ptr), cast(rgba.ptr))
+@inlinable public func cairoSetSourceRgba<ContextT: Cairo.ContextProtocol, RGBAT: RGBAProtocol>(cr: ContextT, rgba: RGBAT) {
+    gdk_cairo_set_source_rgba(cr._ptr, rgba.rgba_ptr)
 
 }
 
@@ -263,8 +263,8 @@ public func cairoSetSourceRgba(cr: cairo.ContextProtocol, rgba: RGBAProtocol) {
 /// 
 /// Note that the contents of `window` are undefined outside of the
 /// visible part of `window`, so use this function with care.
-public func cairoSetSourceWindow(cr: cairo.ContextProtocol, window: WindowProtocol, x: gdouble, y: gdouble) {
-    gdk_cairo_set_source_window(cast(cr.ptr), cast(window.ptr), x, y)
+@inlinable public func cairoSetSourceWindow<ContextT: Cairo.ContextProtocol, WindowT: WindowProtocol>(cr: ContextT, window: WindowT, x: Double, y: Double) {
+    gdk_cairo_set_source_window(cr._ptr, window.window_ptr, gdouble(x), gdouble(y))
 
 }
 
@@ -273,9 +273,9 @@ public func cairoSetSourceWindow(cr: cairo.ContextProtocol, window: WindowProtoc
 
 /// Creates an image surface with the same contents as
 /// the pixbuf.
-public func cairoSurfaceCreateFrom(pixbuf: PixbufProtocol, scale: CInt, forWindow for_window: WindowProtocol) -> UnsafeMutablePointer<cairo_surface_t>! {
-    let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_cairo_surface_create_from_pixbuf(cast(pixbuf.ptr), scale, cast(for_window.ptr)))
-    return cast(rv)
+@inlinable public func cairoSurfaceCreateFrom<PixbufT: PixbufProtocol, WindowT: WindowProtocol>(pixbuf: PixbufT, scale: Int, forWindow for_window: WindowT? = nil) -> SurfaceRef! {
+    guard let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_cairo_surface_create_from_pixbuf(pixbuf.pixbuf_ptr, gint(scale), for_window?.window_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -294,9 +294,9 @@ public func cairoSurfaceCreateFrom(pixbuf: PixbufProtocol, scale: CInt, forWindo
 ///
 /// **color_parse is deprecated:**
 /// Use #GdkRGBA
-@available(*, deprecated) public func colorParse(spec: UnsafePointer<gchar>, color: ColorProtocol) -> Bool {
-    let rv = gdk_color_parse(spec, cast(color.ptr))
-    return Bool(rv != 0)
+@available(*, deprecated) @inlinable public func colorParse<ColorT: ColorProtocol>(spec: UnsafePointer<gchar>!, color: ColorT) -> Bool {
+    let rv = ((gdk_color_parse(spec, color.color_ptr)) != 0)
+    return rv
 }
 
 
@@ -310,7 +310,7 @@ public func cairoSurfaceCreateFrom(pixbuf: PixbufProtocol, scale: CInt, forWindo
 /// applications that do mixed GDK/Xlib calls could want to disable
 /// multidevice support if such Xlib code deals with input devices in
 /// any way and doesn’t observe the presence of XInput 2.
-public func disableMultidevice() {
+@inlinable public func disableMultidevice() {
     gdk_disable_multidevice()
 
 }
@@ -324,8 +324,8 @@ public func disableMultidevice() {
 /// 
 /// This function does not need to be called in managed drag and drop
 /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-public func dragAbort(context: DragContextProtocol, time_: UInt32) {
-    gdk_drag_abort(cast(context.ptr), guint32(time_))
+@inlinable public func dragAbort<DragContextT: DragContextProtocol>(context: DragContextT, time_: guint32) {
+    gdk_drag_abort(context.drag_context_ptr, time_)
 
 }
 
@@ -338,9 +338,9 @@ public func dragAbort(context: DragContextProtocol, time_: UInt32) {
 /// begin a drag with a different device.
 /// 
 /// This function is called by the drag source.
-public func dragBegin(window: WindowProtocol, targets: ListProtocol) -> UnsafeMutablePointer<GdkDragContext>! {
-    let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin(cast(window.ptr), cast(targets.ptr)))
-    return cast(rv)
+@inlinable public func dragBegin<ListT: ListProtocol, WindowT: WindowProtocol>(window: WindowT, targets: ListT) -> DragContextRef! {
+    guard let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin(window.window_ptr, targets._ptr))) else { return nil }
+    return rv
 }
 
 
@@ -349,9 +349,9 @@ public func dragBegin(window: WindowProtocol, targets: ListProtocol) -> UnsafeMu
 /// Starts a drag and creates a new drag context for it.
 /// 
 /// This function is called by the drag source.
-public func dragBeginForDevice(window: WindowProtocol, device: DeviceProtocol, targets: ListProtocol) -> UnsafeMutablePointer<GdkDragContext>! {
-    let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_for_device(cast(window.ptr), cast(device.ptr), cast(targets.ptr)))
-    return cast(rv)
+@inlinable public func dragBeginForDevice<DeviceT: DeviceProtocol, ListT: ListProtocol, WindowT: WindowProtocol>(window: WindowT, device: DeviceT, targets: ListT) -> DragContextRef! {
+    guard let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_for_device(window.window_ptr, device.device_ptr, targets._ptr))) else { return nil }
+    return rv
 }
 
 
@@ -360,9 +360,9 @@ public func dragBeginForDevice(window: WindowProtocol, device: DeviceProtocol, t
 /// Starts a drag and creates a new drag context for it.
 /// 
 /// This function is called by the drag source.
-public func dragBeginFromPoint(window: WindowProtocol, device: DeviceProtocol, targets: ListProtocol, xRoot x_root: CInt, yRoot y_root: CInt) -> UnsafeMutablePointer<GdkDragContext>! {
-    let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_from_point(cast(window.ptr), cast(device.ptr), cast(targets.ptr), gint(x_root), gint(y_root)))
-    return cast(rv)
+@inlinable public func dragBeginFromPoint<DeviceT: DeviceProtocol, ListT: ListProtocol, WindowT: WindowProtocol>(window: WindowT, device: DeviceT, targets: ListT, xRoot x_root: Int, yRoot y_root: Int) -> DragContextRef! {
+    guard let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window.window_ptr, device.device_ptr, targets._ptr, gint(x_root), gint(y_root)))) else { return nil }
+    return rv
 }
 
 
@@ -374,8 +374,8 @@ public func dragBeginFromPoint(window: WindowProtocol, device: DeviceProtocol, t
 /// 
 /// This function does not need to be called in managed drag and drop
 /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-public func dragDrop(context: DragContextProtocol, time_: UInt32) {
-    gdk_drag_drop(cast(context.ptr), guint32(time_))
+@inlinable public func dragDrop<DragContextT: DragContextProtocol>(context: DragContextT, time_: guint32) {
+    gdk_drag_drop(context.drag_context_ptr, time_)
 
 }
 
@@ -392,8 +392,8 @@ public func dragDrop(context: DragContextProtocol, time_: UInt32) {
 /// The `GdkDragContext` will only take the first `gdk_drag_drop_done()`
 /// call as effective, if this function is called multiple times,
 /// all subsequent calls will be ignored.
-public func dragDropDone(context: DragContextProtocol, success: Bool) {
-    gdk_drag_drop_done(cast(context.ptr), gboolean(success ? 1 : 0))
+@inlinable public func dragDropDone<DragContextT: DragContextProtocol>(context: DragContextT, success: Bool) {
+    gdk_drag_drop_done(context.drag_context_ptr, gboolean((success) ? 1 : 0))
 
 }
 
@@ -404,9 +404,9 @@ public func dragDropDone(context: DragContextProtocol, success: Bool) {
 /// transferred. This function is intended to be used while
 /// handling a `GDK_DROP_FINISHED` event, its return value is
 /// meaningless at other times.
-public func dragDropSucceeded(context: DragContextProtocol) -> Bool {
-    let rv = gdk_drag_drop_succeeded(cast(context.ptr))
-    return Bool(rv != 0)
+@inlinable public func dragDropSucceeded<DragContextT: DragContextProtocol>(context: DragContextT) -> Bool {
+    let rv = ((gdk_drag_drop_succeeded(context.drag_context_ptr)) != 0)
+    return rv
 }
 
 
@@ -417,8 +417,8 @@ public func dragDropSucceeded(context: DragContextProtocol) -> Bool {
 /// 
 /// This function is called by the drag source to obtain the
 /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
-public func dragFindWindowForScreen(context: DragContextProtocol, dragWindow drag_window: WindowProtocol, screen: ScreenProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
-    gdk_drag_find_window_for_screen(cast(context.ptr), cast(drag_window.ptr), cast(screen.ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
+@inlinable public func dragFindWindowForScreen<DragContextT: DragContextProtocol, ScreenT: ScreenProtocol, WindowT: WindowProtocol>(context: DragContextT, dragWindow drag_window: WindowT, screen: ScreenT, xRoot x_root: Int, yRoot y_root: Int, destWindow dest_window: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
+    gdk_drag_find_window_for_screen(context.drag_context_ptr, drag_window.window_ptr, screen.screen_ptr, gint(x_root), gint(y_root), dest_window, `protocol`)
 
 }
 
@@ -426,9 +426,9 @@ public func dragFindWindowForScreen(context: DragContextProtocol, dragWindow dra
 
 
 /// Returns the selection atom for the current source window.
-public func dragGetSelection(context: DragContextProtocol) -> GdkAtom! {
-    let rv = gdk_drag_get_selection(cast(context.ptr))
-    return cast(rv)
+@inlinable public func dragGetSelection<DragContextT: DragContextProtocol>(context: DragContextT) -> GdkAtom! {
+    let rv = gdk_drag_get_selection(context.drag_context_ptr)
+    return rv
 }
 
 
@@ -441,9 +441,9 @@ public func dragGetSelection(context: DragContextProtocol) -> GdkAtom! {
 /// 
 /// This function does not need to be called in managed drag and drop
 /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-public func dragMotion(context: DragContextProtocol, destWindow dest_window: WindowProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
-    let rv = gdk_drag_motion(cast(context.ptr), cast(dest_window.ptr), protocol_, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, guint32(time_))
-    return Bool(rv != 0)
+@inlinable public func dragMotion<DragContextT: DragContextProtocol, WindowT: WindowProtocol>(context: DragContextT, destWindow dest_window: WindowT, `protocol`: GdkDragProtocol, xRoot x_root: Int, yRoot y_root: Int, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: guint32) -> Bool {
+    let rv = ((gdk_drag_motion(context.drag_context_ptr, dest_window.window_ptr, `protocol`, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, time_)) != 0)
+    return rv
 }
 
 
@@ -453,8 +453,8 @@ public func dragMotion(context: DragContextProtocol, destWindow dest_window: Win
 /// 
 /// This function is called by the drag destination in response to
 /// `gdk_drag_motion()` called by the drag source.
-public func dragStatus(context: DragContextProtocol, action: DragAction, time_: UInt32) {
-    gdk_drag_status(cast(context.ptr), action.value, guint32(time_))
+@inlinable public func dragStatus<DragContextT: DragContextProtocol>(context: DragContextT, action: DragAction, time_: guint32) {
+    gdk_drag_status(context.drag_context_ptr, action.value, time_)
 
 }
 
@@ -464,8 +464,8 @@ public func dragStatus(context: DragContextProtocol, action: DragAction, time_: 
 /// Ends the drag operation after a drop.
 /// 
 /// This function is called by the drag destination.
-public func dropFinish(context: DragContextProtocol, success: Bool, time_: UInt32) {
-    gdk_drop_finish(cast(context.ptr), gboolean(success ? 1 : 0), guint32(time_))
+@inlinable public func dropFinish<DragContextT: DragContextProtocol>(context: DragContextT, success: Bool, time_: guint32) {
+    gdk_drop_finish(context.drag_context_ptr, gboolean((success) ? 1 : 0), time_)
 
 }
 
@@ -476,8 +476,8 @@ public func dropFinish(context: DragContextProtocol, success: Bool, time_: UInt3
 /// 
 /// This function is called by the drag destination in response
 /// to a drop initiated by the drag source.
-public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt32) {
-    gdk_drop_reply(cast(context.ptr), gboolean(accepted ? 1 : 0), guint32(time_))
+@inlinable public func dropReply<DragContextT: DragContextProtocol>(context: DragContextT, accepted: Bool, time_: guint32) {
+    gdk_drop_reply(context.drag_context_ptr, gboolean((accepted) ? 1 : 0), time_)
 
 }
 
@@ -495,9 +495,9 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 /// Prior to GDK 3.0, this function would not automatically
 /// sync for you, so you had to `gdk_flush()` if your last
 /// call to Xlib was not a blocking round trip.
-@available(*, deprecated) public func errorTrapPop() -> Int {
-    let rv: Int = cast(gdk_error_trap_pop())
-    return Int(rv)
+@inlinable @available(*, deprecated) public func errorTrapPop() -> Int {
+    let rv = Int(gdk_error_trap_pop())
+    return rv
 }
 
 
@@ -507,7 +507,7 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 /// without bothering to wait and see whether an error occurred.  If an
 /// error arrives later asynchronously that was triggered while the
 /// trap was pushed, that error will be ignored.
-@available(*, deprecated) public func errorTrapPopIgnored() {
+@inlinable @available(*, deprecated) public func errorTrapPopIgnored() {
     gdk_error_trap_pop_ignored()
 
 }
@@ -544,7 +544,7 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 ///  }
 /// ```
 /// 
-@available(*, deprecated) public func errorTrapPush() {
+@inlinable @available(*, deprecated) public func errorTrapPush() {
     gdk_error_trap_push()
 
 }
@@ -555,9 +555,9 @@ public func dropReply(context: DragContextProtocol, accepted: Bool, time_: UInt3
 /// Checks all open displays for a `GdkEvent` to process,to be processed
 /// on, fetching events from the windowing system if necessary.
 /// See `gdk_display_get_event()`.
-public func eventGet() -> UnsafeMutablePointer<GdkEvent>! {
-    let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_get())
-    return cast(rv)
+@inlinable public func eventGet() -> EventRef! {
+    guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_get())) else { return nil }
+    return rv
 }
 
 
@@ -569,8 +569,8 @@ public func eventGet() -> UnsafeMutablePointer<GdkEvent>! {
 /// usually not useful for GTK+ applications. (Although an application
 /// can call this function then call `gtk_main_do_event()` to pass
 /// events to GTK+.)
-public func eventHandlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) {
-    gdk_event_handler_set(func_, cast(data), notify)
+@inlinable public func eventHandlerSet(`func`: GdkEventFunc?, data: gpointer! = nil, notify: GDestroyNotify?) {
+    gdk_event_handler_set(`func`, data, notify)
 
 }
 
@@ -579,9 +579,9 @@ public func eventHandlerSet(func_: @escaping EventFunc, data: UnsafeMutableRawPo
 
 /// If there is an event waiting in the event queue of some open
 /// display, returns a copy of it. See `gdk_display_peek_event()`.
-public func eventPeek() -> UnsafeMutablePointer<GdkEvent>! {
-    let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_peek())
-    return cast(rv)
+@inlinable public func eventPeek() -> EventRef! {
+    guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_peek())) else { return nil }
+    return rv
 }
 
 
@@ -606,8 +606,8 @@ public func eventPeek() -> UnsafeMutablePointer<GdkEvent>! {
 /// }
 /// ```
 /// 
-public func eventRequestMotions(event: EventMotionProtocol) {
-    gdk_event_request_motions(cast(event.ptr))
+@inlinable public func eventRequestMotions<EventMotionT: EventMotionProtocol>(event: EventMotionT) {
+    gdk_event_request_motions(event._ptr)
 
 }
 
@@ -618,9 +618,9 @@ public func eventRequestMotions(event: EventMotionProtocol) {
 /// and return in `angle` the relative angle from `event1` to `event2`. The rotation
 /// direction for positive angles is from the positive X axis towards the positive
 /// Y axis.
-public func eventsGetAngle(event1: EventProtocol, event2: EventProtocol, angle: UnsafeMutablePointer<gdouble>) -> Bool {
-    let rv = gdk_events_get_angle(cast(event1.ptr), cast(event2.ptr), cast(angle))
-    return Bool(rv != 0)
+@inlinable public func eventsGetAngle<EventT: EventProtocol>(event1: EventT, event2: EventT, angle: UnsafeMutablePointer<gdouble>!) -> Bool {
+    let rv = ((gdk_events_get_angle(event1.event_ptr, event2.event_ptr, angle)) != 0)
+    return rv
 }
 
 
@@ -628,9 +628,9 @@ public func eventsGetAngle(event1: EventProtocol, event2: EventProtocol, angle: 
 
 /// If both events contain X/Y information, the center of both coordinates
 /// will be returned in `x` and `y`.
-public func eventsGetCenter(event1: EventProtocol, event2: EventProtocol, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) -> Bool {
-    let rv = gdk_events_get_center(cast(event1.ptr), cast(event2.ptr), cast(x), cast(y))
-    return Bool(rv != 0)
+@inlinable public func eventsGetCenter<EventT: EventProtocol>(event1: EventT, event2: EventT, x: UnsafeMutablePointer<gdouble>!, y: UnsafeMutablePointer<gdouble>!) -> Bool {
+    let rv = ((gdk_events_get_center(event1.event_ptr, event2.event_ptr, x, y)) != 0)
+    return rv
 }
 
 
@@ -638,18 +638,18 @@ public func eventsGetCenter(event1: EventProtocol, event2: EventProtocol, x: Uns
 
 /// If both events have X/Y information, the distance between both coordinates
 /// (as in a straight line going from `event1` to `event2`) will be returned.
-public func eventsGetDistance(event1: EventProtocol, event2: EventProtocol, distance: UnsafeMutablePointer<gdouble>) -> Bool {
-    let rv = gdk_events_get_distance(cast(event1.ptr), cast(event2.ptr), cast(distance))
-    return Bool(rv != 0)
+@inlinable public func eventsGetDistance<EventT: EventProtocol>(event1: EventT, event2: EventT, distance: UnsafeMutablePointer<gdouble>!) -> Bool {
+    let rv = ((gdk_events_get_distance(event1.event_ptr, event2.event_ptr, distance)) != 0)
+    return rv
 }
 
 
 
 
 /// Checks if any events are ready to be processed for any display.
-public func eventsPending() -> Bool {
-    let rv = gdk_events_pending()
-    return Bool(rv != 0)
+@inlinable public func eventsPending() -> Bool {
+    let rv = ((gdk_events_pending()) != 0)
+    return rv
 }
 
 
@@ -658,7 +658,7 @@ public func eventsPending() -> Bool {
 /// Flushes the output buffers of all display connections and waits
 /// until all requests have been processed.
 /// This is rarely needed by applications.
-@available(*, deprecated) public func flush() {
+@inlinable @available(*, deprecated) public func flush() {
     gdk_flush()
 
 }
@@ -668,9 +668,9 @@ public func eventsPending() -> Bool {
 
 /// Obtains the root window (parent all other windows are inside)
 /// for the default display and screen.
-public func getDefaultRootWindow() -> UnsafeMutablePointer<GdkWindow>! {
-    let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_get_default_root_window())
-    return cast(rv)
+@inlinable public func getDefaultRootWindow() -> WindowRef! {
+    guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_get_default_root_window())) else { return nil }
+    return rv
 }
 
 
@@ -683,9 +683,9 @@ public func getDefaultRootWindow() -> UnsafeMutablePointer<GdkWindow>! {
 /// **get_display is deprecated:**
 /// Call gdk_display_get_name (gdk_display_get_default ()))
 ///    instead.
-@available(*, deprecated) public func getDisplay() -> String! {
-    let rv: String! = cast(gdk_get_display())
-    return cast(rv)
+@available(*, deprecated) @inlinable public func getDisplay() -> String! {
+    guard let rv = gdk_get_display().map({ String(cString: $0) }) else { return nil }
+    return rv
 }
 
 
@@ -693,9 +693,9 @@ public func getDefaultRootWindow() -> UnsafeMutablePointer<GdkWindow>! {
 
 /// Gets the display name specified in the command line arguments passed
 /// to `gdk_init()` or `gdk_parse_args()`, if any.
-public func getDisplayArgName() -> String! {
-    let rv: String! = cast(gdk_get_display_arg_name())
-    return cast(rv)
+@inlinable public func getDisplayArgName() -> String! {
+    guard let rv = gdk_get_display_arg_name().map({ String(cString: $0) }) else { return nil }
+    return rv
 }
 
 
@@ -705,26 +705,26 @@ public func getDisplayArgName() -> String! {
 /// been set with `gdk_set_program_class()` or with the `--class`
 /// commandline option, the default value is the program name (determined
 /// with `g_get_prgname()`) with the first character converted to uppercase.
-public func getProgramClass() -> String! {
-    let rv: String! = cast(gdk_get_program_class())
-    return cast(rv)
+@inlinable public func getProgramClass() -> String! {
+    guard let rv = gdk_get_program_class().map({ String(cString: $0) }) else { return nil }
+    return rv
 }
 
 
 
 
 /// Gets whether event debugging output is enabled.
-public func getShowEvents() -> Bool {
-    let rv = gdk_get_show_events()
-    return Bool(rv != 0)
+@inlinable public func getShowEvents() -> Bool {
+    let rv = ((gdk_get_show_events()) != 0)
+    return rv
 }
 
 
 
 
-public func glErrorQuark() -> GQuark {
+@inlinable public func glErrorQuark() -> GQuark {
     let rv = gdk_gl_error_quark()
-    return cast(rv)
+    return rv
 }
 
 
@@ -739,8 +739,8 @@ public func glErrorQuark() -> GQuark {
 /// 
 /// GTK+ initializes GDK in `gtk_init()` and so this function is not usually
 /// needed by GTK+ applications.
-public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) {
-    gdk_init(cast(argc), cast(argv))
+@inlinable public func init_(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) {
+    gdk_init(argc, argv)
 
 }
 
@@ -755,9 +755,9 @@ public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<U
 /// 
 /// GTK+ initializes GDK in `gtk_init()` and so this function is not usually
 /// needed by GTK+ applications.
-public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> Bool {
-    let rv = gdk_init_check(cast(argc), cast(argv))
-    return Bool(rv != 0)
+@inlinable public func initCheck(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) -> Bool {
+    let rv = ((gdk_init_check(argc, argv)) != 0)
+    return rv
 }
 
 
@@ -773,9 +773,9 @@ public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 ///
 /// **keyboard_grab is deprecated:**
 /// Use gdk_device_grab() instead.
-@available(*, deprecated) public func keyboardGrab(window: WindowProtocol, ownerEvents owner_events: Bool, time_: UInt32) -> GdkGrabStatus {
-    let rv = gdk_keyboard_grab(cast(window.ptr), gboolean(owner_events ? 1 : 0), guint32(time_))
-    return cast(rv)
+@available(*, deprecated) @inlinable public func keyboardGrab<WindowT: WindowProtocol>(window: WindowT, ownerEvents owner_events: Bool, time_: guint32) -> GdkGrabStatus {
+    let rv = gdk_keyboard_grab(window.window_ptr, gboolean((owner_events) ? 1 : 0), time_)
+    return rv
 }
 
 
@@ -787,8 +787,8 @@ public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 /// **keyboard_ungrab is deprecated:**
 /// Use gdk_device_ungrab(), together with gdk_device_grab()
 ///             instead.
-@available(*, deprecated) public func keyboardUngrab(time_: UInt32) {
-    gdk_keyboard_ungrab(guint32(time_))
+@available(*, deprecated) @inlinable public func keyboardUngrab(time_: guint32) {
+    gdk_keyboard_ungrab(time_)
 
 }
 
@@ -797,8 +797,8 @@ public func initCheck(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 
 /// Obtains the upper- and lower-case versions of the keyval `symbol`.
 /// Examples of keyvals are `GDK_KEY_a`, `GDK_KEY_Enter`, `GDK_KEY_F1`, etc.
-public func keyvalConvertCase(symbol: CUnsignedInt, lower: UnsafeMutablePointer<CUnsignedInt>, upper: UnsafeMutablePointer<CUnsignedInt>) {
-    gdk_keyval_convert_case(guint(symbol), cast(lower), cast(upper))
+@inlinable public func keyvalConvertCase(symbol: Int, lower: UnsafeMutablePointer<guint>!, upper: UnsafeMutablePointer<guint>!) {
+    gdk_keyval_convert_case(guint(symbol), lower, upper)
 
 }
 
@@ -810,27 +810,27 @@ public func keyvalConvertCase(symbol: CUnsignedInt, lower: UnsafeMutablePointer<
 /// The names are the same as those in the
 /// `gdk/gdkkeysyms.h` header file
 /// but without the leading “GDK_KEY_”.
-public func keyvalFromName(keyvalName keyval_name: UnsafePointer<gchar>) -> Int {
-    let rv: Int = cast(gdk_keyval_from_name(keyval_name))
-    return Int(rv)
+@inlinable public func keyvalFromName(keyvalName keyval_name: UnsafePointer<gchar>!) -> Int {
+    let rv = Int(gdk_keyval_from_name(keyval_name))
+    return rv
 }
 
 
 
 
 /// Returns `true` if the given key value is in lower case.
-public func keyvalIsLower(keyval: CUnsignedInt) -> Bool {
-    let rv = gdk_keyval_is_lower(guint(keyval))
-    return Bool(rv != 0)
+@inlinable public func keyvalIsLower(keyval: Int) -> Bool {
+    let rv = ((gdk_keyval_is_lower(guint(keyval))) != 0)
+    return rv
 }
 
 
 
 
 /// Returns `true` if the given key value is in upper case.
-public func keyvalIsUpper(keyval: CUnsignedInt) -> Bool {
-    let rv = gdk_keyval_is_upper(guint(keyval))
-    return Bool(rv != 0)
+@inlinable public func keyvalIsUpper(keyval: Int) -> Bool {
+    let rv = ((gdk_keyval_is_upper(guint(keyval))) != 0)
+    return rv
 }
 
 
@@ -841,18 +841,18 @@ public func keyvalIsUpper(keyval: CUnsignedInt) -> Bool {
 /// The names are the same as those in the
 /// `gdk/gdkkeysyms.h` header file
 /// but without the leading “GDK_KEY_”.
-public func keyvalName(keyval: CUnsignedInt) -> String! {
-    let rv: String! = cast(gdk_keyval_name(guint(keyval)))
-    return cast(rv)
+@inlinable public func keyvalName(keyval: Int) -> String! {
+    guard let rv = gdk_keyval_name(guint(keyval)).map({ String(cString: $0) }) else { return nil }
+    return rv
 }
 
 
 
 
 /// Converts a key value to lower case, if applicable.
-public func keyvalToLower(keyval: CUnsignedInt) -> Int {
-    let rv: Int = cast(gdk_keyval_to_lower(guint(keyval)))
-    return Int(rv)
+@inlinable public func keyvalToLower(keyval: Int) -> Int {
+    let rv = Int(gdk_keyval_to_lower(guint(keyval)))
+    return rv
 }
 
 
@@ -860,18 +860,18 @@ public func keyvalToLower(keyval: CUnsignedInt) -> Int {
 
 /// Convert from a GDK key symbol to the corresponding ISO10646 (Unicode)
 /// character.
-public func keyvalToUnicode(keyval: CUnsignedInt) -> UInt32 {
+@inlinable public func keyvalToUnicode(keyval: Int) -> guint32 {
     let rv = gdk_keyval_to_unicode(guint(keyval))
-    return UInt32(rv)
+    return rv
 }
 
 
 
 
 /// Converts a key value to upper case, if applicable.
-public func keyvalToUpper(keyval: CUnsignedInt) -> Int {
-    let rv: Int = cast(gdk_keyval_to_upper(guint(keyval)))
-    return Int(rv)
+@inlinable public func keyvalToUpper(keyval: Int) -> Int {
+    let rv = Int(gdk_keyval_to_upper(guint(keyval)))
+    return rv
 }
 
 
@@ -887,9 +887,9 @@ public func keyvalToUpper(keyval: CUnsignedInt) -> Int {
 ///
 /// **list_visuals is deprecated:**
 /// Use gdk_screen_list_visuals (gdk_screen_get_default ()).
-@available(*, deprecated) public func listVisuals() -> UnsafeMutablePointer<GList>! {
-    let rv: UnsafeMutablePointer<GList>! = cast(gdk_list_visuals())
-    return cast(rv)
+@available(*, deprecated) @inlinable public func listVisuals() -> GLib.ListRef! {
+    guard let rv = ListRef(gconstpointer: gconstpointer(gdk_list_visuals())) else { return nil }
+    return rv
 }
 
 
@@ -903,7 +903,7 @@ public func keyvalToUpper(keyval: CUnsignedInt) -> Int {
 /// GTK+ will call this function automatically after opening the first
 /// `GtkWindow` unless `gtk_window_set_auto_startup_notification()` is called
 /// to disable that feature.
-public func notifyStartupComplete() {
+@inlinable public func notifyStartupComplete() {
     gdk_notify_startup_complete()
 
 }
@@ -918,7 +918,7 @@ public func notifyStartupComplete() {
 /// with custom startup-notification identifier unless
 /// `gtk_window_set_auto_startup_notification()` is called to
 /// disable that feature.
-public func notifyStartupCompleteWithId(startupId startup_id: UnsafePointer<gchar>) {
+@inlinable public func notifyStartupCompleteWithId(startupId startup_id: UnsafePointer<gchar>!) {
     gdk_notify_startup_complete_with_id(startup_id)
 
 }
@@ -927,9 +927,9 @@ public func notifyStartupCompleteWithId(startupId startup_id: UnsafePointer<gcha
 
 
 /// Gets the window that `window` is embedded in.
-public func offscreenWindowGetEmbedder(window: WindowProtocol) -> UnsafeMutablePointer<GdkWindow>! {
-    let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_offscreen_window_get_embedder(cast(window.ptr)))
-    return cast(rv)
+@inlinable public func offscreenWindowGetEmbedder<WindowT: WindowProtocol>(window: WindowT) -> WindowRef! {
+    guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_offscreen_window_get_embedder(window.window_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -938,9 +938,9 @@ public func offscreenWindowGetEmbedder(window: WindowProtocol) -> UnsafeMutableP
 /// Gets the offscreen surface that an offscreen window renders into.
 /// If you need to keep this around over window resizes, you need to
 /// add a reference to it.
-public func offscreenWindowGetSurface(window: WindowProtocol) -> UnsafeMutablePointer<cairo_surface_t>! {
-    let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_offscreen_window_get_surface(cast(window.ptr)))
-    return cast(rv)
+@inlinable public func offscreenWindowGetSurface<WindowT: WindowProtocol>(window: WindowT) -> SurfaceRef! {
+    guard let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_offscreen_window_get_surface(window.window_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -952,8 +952,8 @@ public func offscreenWindowGetSurface(window: WindowProtocol) -> UnsafeMutablePo
 /// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
 /// signal on the `embedder` and the `GdkWindow::to`-embedder and
 /// `GdkWindow::from`-embedder signals on `window`.
-public func offscreenWindowSetEmbedder(window: WindowProtocol, embedder: WindowProtocol) {
-    gdk_offscreen_window_set_embedder(cast(window.ptr), cast(embedder.ptr))
+@inlinable public func offscreenWindowSetEmbedder<WindowT: WindowProtocol>(window: WindowT, embedder: WindowT) {
+    gdk_offscreen_window_set_embedder(window.window_ptr, embedder.window_ptr)
 
 }
 
@@ -973,9 +973,9 @@ public func offscreenWindowSetEmbedder(window: WindowProtocol, embedder: WindowP
 /// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the screen’s font rendering settings.
-public func pangoContextGet() -> UnsafeMutablePointer<PangoContext>! {
-    let rv: UnsafeMutablePointer<PangoContext>! = cast(gdk_pango_context_get())
-    return cast(rv)
+@inlinable public func pangoContextGet() -> Pango.ContextRef! {
+    guard let rv = Pango.ContextRef(gconstpointer: gconstpointer(gdk_pango_context_get())) else { return nil }
+    return rv
 }
 
 
@@ -994,9 +994,9 @@ public func pangoContextGet() -> UnsafeMutablePointer<PangoContext>! {
 /// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the font rendering settings.
-public func pangoContextGetFor(display: DisplayProtocol) -> UnsafeMutablePointer<PangoContext>! {
-    let rv: UnsafeMutablePointer<PangoContext>! = cast(gdk_pango_context_get_for_display(cast(display.ptr)))
-    return cast(rv)
+@inlinable public func pangoContextGetFor<DisplayT: DisplayProtocol>(display: DisplayT) -> Pango.ContextRef! {
+    guard let rv = Pango.ContextRef(gconstpointer: gconstpointer(gdk_pango_context_get_for_display(display.display_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -1015,9 +1015,9 @@ public func pangoContextGetFor(display: DisplayProtocol) -> UnsafeMutablePointer
 /// change it will not be updated. Using `gtk_widget_get_pango_context()`
 /// is more convenient if you want to keep a context around and track
 /// changes to the screen’s font rendering settings.
-public func pangoContextGetFor(screen: ScreenProtocol) -> UnsafeMutablePointer<PangoContext>! {
-    let rv: UnsafeMutablePointer<PangoContext>! = cast(gdk_pango_context_get_for_screen(cast(screen.ptr)))
-    return cast(rv)
+@inlinable public func pangoContextGetFor<ScreenT: ScreenProtocol>(screen: ScreenT) -> Pango.ContextRef! {
+    guard let rv = Pango.ContextRef(gconstpointer: gconstpointer(gdk_pango_context_get_for_screen(screen.screen_ptr))) else { return nil }
+    return rv
 }
 
 
@@ -1032,9 +1032,9 @@ public func pangoContextGetFor(screen: ScreenProtocol) -> UnsafeMutablePointer<P
 /// ranges, not ink extents. So the drawn layout may in fact touch areas out of
 /// the clip region.  The clip region is mainly useful for highlightling parts
 /// of text, such as when text is selected.
-public func pangoLayoutGetClipRegion(layout: LayoutProtocol, xOrigin x_origin: CInt, yOrigin y_origin: CInt, indexRanges index_ranges: UnsafePointer<CInt>, nRanges n_ranges: CInt) -> UnsafeMutablePointer<cairo_region_t>! {
-    let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_pango_layout_get_clip_region(cast(layout.ptr), gint(x_origin), gint(y_origin), cast(index_ranges), gint(n_ranges)))
-    return cast(rv)
+@inlinable public func pangoLayoutGetClipRegion<LayoutT: LayoutProtocol>(layout: LayoutT, xOrigin x_origin: Int, yOrigin y_origin: Int, indexRanges index_ranges: UnsafePointer<gint>!, nRanges n_ranges: Int) -> RegionRef! {
+    guard let rv = RegionRef(gconstpointer: gconstpointer(gdk_pango_layout_get_clip_region(layout.layout_ptr, gint(x_origin), gint(y_origin), index_ranges, gint(n_ranges)))) else { return nil }
+    return rv
 }
 
 
@@ -1054,9 +1054,9 @@ public func pangoLayoutGetClipRegion(layout: LayoutProtocol, xOrigin x_origin: C
 /// ranges, not ink extents. So the drawn line may in fact touch areas out of
 /// the clip region.  The clip region is mainly useful for highlightling parts
 /// of text, such as when text is selected.
-public func pangoLayoutLineGetClipRegion(line: LayoutLineProtocol, xOrigin x_origin: CInt, yOrigin y_origin: CInt, indexRanges index_ranges: UnsafePointer<CInt>, nRanges n_ranges: CInt) -> UnsafeMutablePointer<cairo_region_t>! {
-    let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_pango_layout_line_get_clip_region(cast(line.ptr), gint(x_origin), gint(y_origin), cast(index_ranges), gint(n_ranges)))
-    return cast(rv)
+@inlinable public func pangoLayoutLineGetClipRegion<LayoutLineT: LayoutLineProtocol>(line: LayoutLineT, xOrigin x_origin: Int, yOrigin y_origin: Int, indexRanges index_ranges: UnsafePointer<gint>!, nRanges n_ranges: Int) -> RegionRef! {
+    guard let rv = RegionRef(gconstpointer: gconstpointer(gdk_pango_layout_line_get_clip_region(line.layout_line_ptr, gint(x_origin), gint(y_origin), index_ranges, gint(n_ranges)))) else { return nil }
+    return rv
 }
 
 
@@ -1070,8 +1070,8 @@ public func pangoLayoutLineGetClipRegion(line: LayoutLineProtocol, xOrigin x_ori
 /// 
 /// You shouldn’t call this function explicitly if you are using
 /// `gtk_init()`, `gtk_init_check()`, `gdk_init()`, or `gdk_init_check()`.
-public func parseArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) {
-    gdk_parse_args(cast(argc), cast(argv))
+@inlinable public func parseArgs(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) {
+    gdk_parse_args(argc, argv)
 
 }
 
@@ -1085,9 +1085,9 @@ public func parseArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePoint
 /// 
 /// This function will create an RGB pixbuf with 8 bits per channel.
 /// The pixbuf will contain an alpha channel if the `surface` contains one.
-public func pixbufGetFrom(surface: SurfaceProtocol, srcX src_x: CInt, srcY src_y: CInt, width: CInt, height: CInt) -> UnsafeMutablePointer<GdkPixbuf>! {
-    let rv: UnsafeMutablePointer<GdkPixbuf>! = cast(gdk_pixbuf_get_from_surface(cast(surface.ptr), gint(src_x), gint(src_y), gint(width), gint(height)))
-    return cast(rv)
+@inlinable public func pixbufGetFrom<SurfaceT: SurfaceProtocol>(surface: SurfaceT, srcX src_x: Int, srcY src_y: Int, width: Int, height: Int) -> PixbufRef! {
+    guard let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_surface(surface._ptr, gint(src_x), gint(src_y), gint(width), gint(height)))) else { return nil }
+    return rv
 }
 
 
@@ -1119,9 +1119,9 @@ public func pixbufGetFrom(surface: SurfaceProtocol, srcX src_x: CInt, srcY src_y
 /// 
 /// (In short, there are several ways this function can fail, and if it fails
 ///  it returns `nil`; so check the return value.)
-public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: CInt, width: CInt, height: CInt) -> UnsafeMutablePointer<GdkPixbuf>! {
-    let rv: UnsafeMutablePointer<GdkPixbuf>! = cast(gdk_pixbuf_get_from_window(cast(window.ptr), gint(src_x), gint(src_y), gint(width), gint(height)))
-    return cast(rv)
+@inlinable public func pixbufGetFrom<WindowT: WindowProtocol>(window: WindowT, srcX src_x: Int, srcY src_y: Int, width: Int, height: Int) -> PixbufRef! {
+    guard let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_window(window.window_ptr, gint(src_x), gint(src_y), gint(width), gint(height)))) else { return nil }
+    return rv
 }
 
 
@@ -1151,9 +1151,9 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 ///
 /// **pointer_grab is deprecated:**
 /// Use gdk_device_grab() instead.
-@available(*, deprecated) public func pointerGrab(window: WindowProtocol, ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowProtocol, cursor: CursorProtocol, time_: UInt32) -> GdkGrabStatus {
-    let rv = gdk_pointer_grab(cast(window.ptr), gboolean(owner_events ? 1 : 0), event_mask.value, cast(confine_to.ptr), cast(cursor.ptr), guint32(time_))
-    return cast(rv)
+@available(*, deprecated) @inlinable public func pointerGrab<CursorT: CursorProtocol, WindowT: WindowProtocol>(window: WindowT, ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowT? = nil, cursor: CursorT? = nil, time_: guint32) -> GdkGrabStatus {
+    let rv = gdk_pointer_grab(window.window_ptr, gboolean((owner_events) ? 1 : 0), event_mask.value, confine_to?.window_ptr, cursor?.cursor_ptr, time_)
+    return rv
 }
 
 
@@ -1167,9 +1167,9 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 ///
 /// **pointer_is_grabbed is deprecated:**
 /// Use gdk_display_device_is_grabbed() instead.
-@available(*, deprecated) public func pointerIsGrabbed() -> Bool {
-    let rv = gdk_pointer_is_grabbed()
-    return Bool(rv != 0)
+@available(*, deprecated) @inlinable public func pointerIsGrabbed() -> Bool {
+    let rv = ((gdk_pointer_is_grabbed()) != 0)
+    return rv
 }
 
 
@@ -1181,8 +1181,8 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 /// **pointer_ungrab is deprecated:**
 /// Use gdk_device_ungrab(), together with gdk_device_grab()
 ///             instead.
-@available(*, deprecated) public func pointerUngrab(time_: UInt32) {
-    gdk_pointer_ungrab(guint32(time_))
+@available(*, deprecated) @inlinable public func pointerUngrab(time_: guint32) {
+    gdk_pointer_ungrab(time_)
 
 }
 
@@ -1195,7 +1195,7 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 /// **pre_parse_libgtk_only is deprecated:**
 /// This symbol was never meant to be used outside
 ///   of GTK+
-@available(*, deprecated) public func preParseLibgtkOnly() {
+@available(*, deprecated) @inlinable public func preParseLibgtkOnly() {
     gdk_pre_parse_libgtk_only()
 
 }
@@ -1204,8 +1204,8 @@ public func pixbufGetFrom(window: WindowProtocol, srcX src_x: CInt, srcY src_y: 
 
 
 /// Changes the contents of a property on a window.
-public func propertyChange(window: WindowProtocol, property: Atom, type: Atom, format: CInt, mode: PropMode, data: UnsafePointer<guchar>, nelements: CInt) {
-    gdk_property_change(cast(window.ptr), cast(property.ptr), cast(type.ptr), gint(format), mode, cast(data), gint(nelements))
+@inlinable public func propertyChange<WindowT: WindowProtocol, AtomT: AtomProtocol>(window: WindowT, property: AtomT!, type: AtomT!, format: Int, mode: GdkPropMode, data: UnsafePointer<guchar>!, nelements: Int) {
+    gdk_property_change(window.window_ptr, property._ptr, type._ptr, gint(format), mode, data, gint(nelements))
 
 }
 
@@ -1213,30 +1213,17 @@ public func propertyChange(window: WindowProtocol, property: Atom, type: Atom, f
 
 
 /// Deletes a property from a window.
-public func propertyDelete(window: WindowProtocol, property: Atom) {
-    gdk_property_delete(cast(window.ptr), cast(property.ptr))
+@inlinable public func propertyDelete<WindowT: WindowProtocol>(window: WindowT, property: GdkAtom!) {
+    gdk_property_delete(window.window_ptr, property)
 
 }
 
 
 
 
-/// Retrieves a portion of the contents of a property. If the
-/// property does not exist, then the function returns `false`,
-/// and `GDK_NONE` will be stored in `actual_property_type`.
-/// 
-/// The `XGetWindowProperty()` function that `gdk_property_get()`
-/// uses has a very confusing and complicated set of semantics.
-/// Unfortunately, `gdk_property_get()` makes the situation
-/// worse instead of better (the semantics should be considered
-/// undefined), and also prints warnings to stderr in cases where it
-/// should return a useful error to the program. You are advised to use
-/// `XGetWindowProperty()` directly until a replacement function for
-/// `gdk_property_get()` is provided.
-public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offset: CUnsignedLong, length: CUnsignedLong, pdelete: CInt, actualPropertyType actual_property_type: AtomProtocol, actualFormat actual_format: UnsafeMutablePointer<CInt>, actualLength actual_length: UnsafeMutablePointer<CInt>, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>) -> Bool {
-    let rv = gdk_property_get(cast(window.ptr), cast(property.ptr), cast(type.ptr), gulong(offset), gulong(length), gint(pdelete), cast(actual_property_type.ptr), cast(actual_format), cast(actual_length), cast(data))
-    return Bool(rv != 0)
-}
+
+// *** propertyGet() causes a syntax error and is therefore not available!
+
 
 
 
@@ -1251,8 +1238,8 @@ public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offs
 /// **query_depths is deprecated:**
 /// Visual selection should be done using
 ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-@available(*, deprecated) public func query(depths: UnsafeMutablePointer<UnsafeMutablePointer<CInt>>, count: UnsafeMutablePointer<CInt>) {
-    gdk_query_depths(cast(depths), cast(count))
+@available(*, deprecated) @inlinable public func query(depths: UnsafeMutablePointer<UnsafeMutablePointer<gint>?>!, count: UnsafeMutablePointer<gint>!) {
+    gdk_query_depths(depths, count)
 
 }
 
@@ -1269,8 +1256,8 @@ public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offs
 /// **query_visual_types is deprecated:**
 /// Visual selection should be done using
 ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-@available(*, deprecated) public func query(visualTypes visual_types: UnsafeMutablePointer<UnsafeMutablePointer<GdkVisualType>>, count: UnsafeMutablePointer<CInt>) {
-    gdk_query_visual_types(cast(visual_types), cast(count))
+@available(*, deprecated) @inlinable public func query(visualTypes visual_types: UnsafeMutablePointer<UnsafeMutablePointer<GdkVisualType>?>!, count: UnsafeMutablePointer<gint>!) {
+    gdk_query_visual_types(visual_types, count)
 
 }
 
@@ -1279,8 +1266,8 @@ public func propertyGet(window: WindowProtocol, property: Atom, type: Atom, offs
 
 /// Retrieves the contents of a selection in a given
 /// form.
-public func selectionConvert(requestor: WindowProtocol, selection: Atom, target: Atom, time_: UInt32) {
-    gdk_selection_convert(cast(requestor.ptr), cast(selection.ptr), cast(target.ptr), guint32(time_))
+@inlinable public func selectionConvert<WindowT: WindowProtocol>(requestor: WindowT, selection: GdkAtom!, target: GdkAtom!, time_: guint32) {
+    gdk_selection_convert(requestor.window_ptr, selection, target, time_)
 
 }
 
@@ -1288,9 +1275,9 @@ public func selectionConvert(requestor: WindowProtocol, selection: Atom, target:
 
 
 /// Determines the owner of the given selection.
-public func selectionOwnerGet(selection: Atom) -> UnsafeMutablePointer<GdkWindow>! {
-    let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_selection_owner_get(cast(selection.ptr)))
-    return cast(rv)
+@inlinable public func selectionOwnerGet(selection: GdkAtom!) -> WindowRef! {
+    guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_selection_owner_get(selection))) else { return nil }
+    return rv
 }
 
 
@@ -1301,27 +1288,27 @@ public func selectionOwnerGet(selection: Atom) -> UnsafeMutablePointer<GdkWindow
 /// Note that the return value may be owned by a different
 /// process if a foreign window was previously created for that
 /// window, but a new foreign window will never be created by this call.
-public func selectionOwnerGetFor(display: DisplayProtocol, selection: Atom) -> UnsafeMutablePointer<GdkWindow>! {
-    let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_selection_owner_get_for_display(cast(display.ptr), cast(selection.ptr)))
-    return cast(rv)
+@inlinable public func selectionOwnerGetFor<DisplayT: DisplayProtocol>(display: DisplayT, selection: GdkAtom!) -> WindowRef! {
+    guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_selection_owner_get_for_display(display.display_ptr, selection))) else { return nil }
+    return rv
 }
 
 
 
 
 /// Sets the owner of the given selection.
-public func selectionOwnerSet(owner: WindowProtocol, selection: Atom, time_: UInt32, sendEvent send_event: Bool) -> Bool {
-    let rv = gdk_selection_owner_set(cast(owner.ptr), cast(selection.ptr), guint32(time_), gboolean(send_event ? 1 : 0))
-    return Bool(rv != 0)
+@inlinable public func selectionOwnerSet<WindowT: WindowProtocol>(owner: WindowT? = nil, selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
+    let rv = ((gdk_selection_owner_set(owner?.window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+    return rv
 }
 
 
 
 
 /// Sets the `GdkWindow` `owner` as the current owner of the selection `selection`.
-public func selectionOwnerSetFor(display: DisplayProtocol, owner: WindowProtocol, selection: Atom, time_: UInt32, sendEvent send_event: Bool) -> Bool {
-    let rv = gdk_selection_owner_set_for_display(cast(display.ptr), cast(owner.ptr), cast(selection.ptr), guint32(time_), gboolean(send_event ? 1 : 0))
-    return Bool(rv != 0)
+@inlinable public func selectionOwnerSetFor<DisplayT: DisplayProtocol, WindowT: WindowProtocol>(display: DisplayT, owner: WindowT? = nil, selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
+    let rv = ((gdk_selection_owner_set_for_display(display.display_ptr, owner?.window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+    return rv
 }
 
 
@@ -1331,17 +1318,17 @@ public func selectionOwnerSetFor(display: DisplayProtocol, owner: WindowProtocol
 /// data in response to a call to `gdk_selection_convert()`. This function
 /// will not be used by applications, who should use the `GtkClipboard`
 /// API instead.
-public func selectionPropertyGet(requestor: WindowProtocol, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propType prop_type: AtomProtocol, propFormat prop_format: UnsafeMutablePointer<CInt>) -> Int {
-    let rv: Int = cast(gdk_selection_property_get(cast(requestor.ptr), cast(data), cast(prop_type.ptr), cast(prop_format)))
-    return Int(rv)
+@inlinable public func selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>!, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int {
+    let rv = Int(gdk_selection_property_get(requestor.window_ptr, data, propertyType, prop_format))
+    return rv
 }
 
 
 
 
 /// Sends a response to SelectionRequest event.
-public func selectionSendNotify(requestor: WindowProtocol, selection: Atom, target: Atom, property: Atom, time_: UInt32) {
-    gdk_selection_send_notify(cast(requestor.ptr), cast(selection.ptr), cast(target.ptr), cast(property.ptr), guint32(time_))
+@inlinable public func selectionSendNotify<WindowT: WindowProtocol>(requestor: WindowT, selection: GdkAtom!, target: GdkAtom!, property: GdkAtom!, time_: guint32) {
+    gdk_selection_send_notify(requestor.window_ptr, selection, target, property, time_)
 
 }
 
@@ -1349,8 +1336,8 @@ public func selectionSendNotify(requestor: WindowProtocol, selection: Atom, targ
 
 
 /// Send a response to SelectionRequest event.
-public func selectionSendNotifyFor(display: DisplayProtocol, requestor: WindowProtocol, selection: Atom, target: Atom, property: Atom, time_: UInt32) {
-    gdk_selection_send_notify_for_display(cast(display.ptr), cast(requestor.ptr), cast(selection.ptr), cast(target.ptr), cast(property.ptr), guint32(time_))
+@inlinable public func selectionSendNotifyFor<DisplayT: DisplayProtocol, WindowT: WindowProtocol>(display: DisplayT, requestor: WindowT, selection: GdkAtom!, target: GdkAtom!, property: GdkAtom!, time_: guint32) {
+    gdk_selection_send_notify_for_display(display.display_ptr, requestor.window_ptr, selection, target, property, time_)
 
 }
 
@@ -1385,7 +1372,7 @@ public func selectionSendNotifyFor(display: DisplayProtocol, requestor: WindowPr
 /// This call must happen prior to `gdk_display_open()`,
 /// `gtk_init()`, `gtk_init_with_args()` or `gtk_init_check()`
 /// in order to take effect.
-public func setAllowed(backends: UnsafePointer<gchar>) {
+@inlinable public func setAllowed(backends: UnsafePointer<gchar>!) {
     gdk_set_allowed_backends(backends)
 
 }
@@ -1398,7 +1385,7 @@ public func setAllowed(backends: UnsafePointer<gchar>) {
 /// See also `gdk_display_set_double_click_distance()`.
 /// Applications should not set this, it is a
 /// global user-configured setting.
-@available(*, deprecated) public func setDoubleClickTime(msec: CUnsignedInt) {
+@inlinable @available(*, deprecated) public func setDoubleClickTime(msec: Int) {
     gdk_set_double_click_time(guint(msec))
 
 }
@@ -1412,7 +1399,7 @@ public func setAllowed(backends: UnsafePointer<gchar>) {
 /// 
 /// The program class can still be overridden with the --class command
 /// line option.
-public func set(programClass program_class: UnsafePointer<gchar>) {
+@inlinable public func set(programClass program_class: UnsafePointer<gchar>!) {
     gdk_set_program_class(program_class)
 
 }
@@ -1424,8 +1411,8 @@ public func set(programClass program_class: UnsafePointer<gchar>) {
 /// Note that GTK+ must be compiled with debugging (that is,
 /// configured using the `--enable-debug` option)
 /// to use this option.
-public func set(showEvents show_events: Bool) {
-    gdk_set_show_events(gboolean(show_events ? 1 : 0))
+@inlinable public func set(showEvents show_events: Bool) {
+    gdk_set_show_events(gboolean((show_events) ? 1 : 0))
 
 }
 
@@ -1434,16 +1421,16 @@ public func set(showEvents show_events: Bool) {
 
 /// Obtains a desktop-wide setting, such as the double-click time,
 /// for the default screen. See `gdk_screen_get_setting()`.
-public func settingGet(name: UnsafePointer<gchar>, value: ValueProtocol) -> Bool {
-    let rv = gdk_setting_get(name, cast(value.ptr))
-    return Bool(rv != 0)
+@inlinable public func settingGet<ValueT: ValueProtocol>(name: UnsafePointer<gchar>!, value: ValueT) -> Bool {
+    let rv = ((gdk_setting_get(name, value.value_ptr)) != 0)
+    return rv
 }
 
 
 
 
-public func synthesizeWindowState(window: WindowProtocol, unsetFlags unset_flags: WindowState, setFlags set_flags: WindowState) {
-    gdk_synthesize_window_state(cast(window.ptr), unset_flags.value, set_flags.value)
+@inlinable public func synthesizeWindowState<WindowT: WindowProtocol>(window: WindowT, unsetFlags unset_flags: WindowState, setFlags set_flags: WindowState) {
+    gdk_synthesize_window_state(window.window_ptr, unset_flags.value, set_flags.value)
 
 }
 
@@ -1455,8 +1442,8 @@ public func synthesizeWindowState(window: WindowProtocol, unsetFlags unset_flags
 /// 
 /// This function is intended to be used to synchronize with rendering
 /// pipelines, to benchmark windowing system rendering operations.
-public func testRenderSync(window: WindowProtocol) {
-    gdk_test_render_sync(cast(window.ptr))
+@inlinable public func testRenderSync<WindowT: WindowProtocol>(window: WindowT) {
+    gdk_test_render_sync(window.window_ptr)
 
 }
 
@@ -1475,9 +1462,9 @@ public func testRenderSync(window: WindowProtocol) {
 /// for most testing purposes, `gtk_test_widget_click()` is the right
 /// function to call which will generate a button press event followed
 /// by its accompanying button release event.
-public func testSimulateButton(window: WindowProtocol, x: CInt, y: CInt, button: CUnsignedInt, modifiers: ModifierType, buttonPressrelease button_pressrelease: EventType) -> Bool {
-    let rv = gdk_test_simulate_button(cast(window.ptr), gint(x), gint(y), guint(button), modifiers.value, button_pressrelease)
-    return Bool(rv != 0)
+@inlinable public func testSimulateButton<WindowT: WindowProtocol>(window: WindowT, x: Int, y: Int, button: Int, modifiers: ModifierType, buttonPressrelease button_pressrelease: GdkEventType) -> Bool {
+    let rv = ((gdk_test_simulate_button(window.window_ptr, gint(x), gint(y), guint(button), modifiers.value, button_pressrelease)) != 0)
+    return rv
 }
 
 
@@ -1499,9 +1486,9 @@ public func testSimulateButton(window: WindowProtocol, x: CInt, y: CInt, button:
 /// for most testing purposes, `gtk_test_widget_send_key()` is the
 /// right function to call which will generate a key press event
 /// followed by its accompanying key release event.
-public func testSimulateKey(window: WindowProtocol, x: CInt, y: CInt, keyval: CUnsignedInt, modifiers: ModifierType, keyPressrelease key_pressrelease: EventType) -> Bool {
-    let rv = gdk_test_simulate_key(cast(window.ptr), gint(x), gint(y), guint(keyval), modifiers.value, key_pressrelease)
-    return Bool(rv != 0)
+@inlinable public func testSimulateKey<WindowT: WindowProtocol>(window: WindowT, x: Int, y: Int, keyval: Int, modifiers: ModifierType, keyPressrelease key_pressrelease: GdkEventType) -> Bool {
+    let rv = ((gdk_test_simulate_key(window.window_ptr, gint(x), gint(y), guint(keyval), modifiers.value, key_pressrelease)) != 0)
+    return rv
 }
 
 
@@ -1509,9 +1496,9 @@ public func testSimulateKey(window: WindowProtocol, x: CInt, y: CInt, keyval: CU
 
 /// Converts a text property in the given encoding to
 /// a list of UTF-8 strings.
-public func textPropertyToUtf8ListFor(display: DisplayProtocol, encoding: Atom, format: CInt, text: UnsafePointer<guchar>, length: CInt, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>>>) -> Int {
-    let rv: Int = cast(gdk_text_property_to_utf8_list_for_display(cast(display.ptr), cast(encoding.ptr), gint(format), cast(text), gint(length), cast(list)))
-    return Int(rv)
+@inlinable public func textPropertyToUtf8ListFor<DisplayT: DisplayProtocol>(display: DisplayT, encoding: GdkAtom!, format: Int, text: UnsafePointer<guchar>!, length: Int, list: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>?>!) -> Int {
+    let rv = Int(gdk_text_property_to_utf8_list_for_display(display.display_ptr, encoding, gint(format), text, gint(length), list))
+    return rv
 }
 
 
@@ -1521,9 +1508,9 @@ public func textPropertyToUtf8ListFor(display: DisplayProtocol, encoding: Atom, 
 /// assigning the default priority, `G_PRIORITY_DEFAULT_IDLE`.
 /// 
 /// See `gdk_threads_add_idle_full()`.
-public func threadsAddIdle(function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
-    let rv: Int = cast(gdk_threads_add_idle(function, cast(data)))
-    return Int(rv)
+@inlinable public func threadsAddIdle(function: GSourceFunc?, data: gpointer! = nil) -> Int {
+    let rv = Int(gdk_threads_add_idle(function, data))
+    return rv
 }
 
 
@@ -1572,9 +1559,9 @@ public func threadsAddIdle(function: @escaping GLib.SourceFunc, data: UnsafeMuta
 /// }
 /// ```
 /// 
-public func threadsAddIdleFull(priority: CInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
-    let rv: Int = cast(gdk_threads_add_idle_full(gint(priority), function, cast(data), notify))
-    return Int(rv)
+@inlinable public func threadsAddIdleFull(priority: Int, function: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) -> Int {
+    let rv = Int(gdk_threads_add_idle_full(gint(priority), function, data, notify))
+    return rv
 }
 
 
@@ -1584,9 +1571,9 @@ public func threadsAddIdleFull(priority: CInt, function: @escaping GLib.SourceFu
 /// assigning the default priority, `G_PRIORITY_DEFAULT`.
 /// 
 /// See `gdk_threads_add_timeout_full()`.
-public func threadsAddTimeout(interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
-    let rv: Int = cast(gdk_threads_add_timeout(guint(interval), function, cast(data)))
-    return Int(rv)
+@inlinable public func threadsAddTimeout(interval: Int, function: GSourceFunc?, data: gpointer! = nil) -> Int {
+    let rv = Int(gdk_threads_add_timeout(guint(interval), function, data))
+    return rv
 }
 
 
@@ -1637,9 +1624,9 @@ public func threadsAddTimeout(interval: CUnsignedInt, function: @escaping GLib.S
 /// }
 /// ```
 /// 
-public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
-    let rv: Int = cast(gdk_threads_add_timeout_full(gint(priority), guint(interval), function, cast(data), notify))
-    return Int(rv)
+@inlinable public func threadsAddTimeoutFull(priority: Int, interval: Int, function: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) -> Int {
+    let rv = Int(gdk_threads_add_timeout_full(gint(priority), guint(interval), function, data, notify))
+    return rv
 }
 
 
@@ -1649,9 +1636,9 @@ public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, functi
 /// assigning the default priority, `G_PRIORITY_DEFAULT`.
 /// 
 /// For details, see `gdk_threads_add_timeout_full()`.
-public func threadsAddTimeoutSeconds(interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
-    let rv: Int = cast(gdk_threads_add_timeout_seconds(guint(interval), function, cast(data)))
-    return Int(rv)
+@inlinable public func threadsAddTimeoutSeconds(interval: Int, function: GSourceFunc?, data: gpointer! = nil) -> Int {
+    let rv = Int(gdk_threads_add_timeout_seconds(guint(interval), function, data))
+    return rv
 }
 
 
@@ -1660,9 +1647,9 @@ public func threadsAddTimeoutSeconds(interval: CUnsignedInt, function: @escaping
 /// A variant of `gdk_threads_add_timeout_full()` with second-granularity.
 /// See `g_timeout_add_seconds_full()` for a discussion of why it is
 /// a good idea to use this function if you don’t need finer granularity.
-public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt, function: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
-    let rv: Int = cast(gdk_threads_add_timeout_seconds_full(gint(priority), guint(interval), function, cast(data), notify))
-    return Int(rv)
+@inlinable public func threadsAddTimeoutSecondsFull(priority: Int, interval: Int, function: GSourceFunc?, data: gpointer! = nil, notify: GDestroyNotify? = nil) -> Int {
+    let rv = Int(gdk_threads_add_timeout_seconds_full(gint(priority), guint(interval), function, data, notify))
+    return rv
 }
 
 
@@ -1676,7 +1663,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 /// **threads_enter is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
 ///     thread
-@available(*, deprecated) public func threadsEnter() {
+@available(*, deprecated) @inlinable public func threadsEnter() {
     gdk_threads_enter()
 
 }
@@ -1693,7 +1680,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 /// **threads_init is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
 ///     thread
-@available(*, deprecated) public func threadsInit() {
+@available(*, deprecated) @inlinable public func threadsInit() {
     gdk_threads_init()
 
 }
@@ -1706,7 +1693,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 /// **threads_leave is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
 ///     thread
-@available(*, deprecated) public func threadsLeave() {
+@available(*, deprecated) @inlinable public func threadsLeave() {
     gdk_threads_leave()
 
 }
@@ -1739,7 +1726,7 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 /// **threads_set_lock_functions is deprecated:**
 /// All GDK and GTK+ calls should be made from the main
 ///     thread
-@available(*, deprecated) public func threadsSetLockFunctions(enterFn enter_fn: @escaping GLibObject.Callback, leaveFn leave_fn: @escaping GLibObject.Callback) {
+@available(*, deprecated) @inlinable public func threadsSetLockFunctions(enterFn enter_fn: GCallback?, leaveFn leave_fn: GCallback?) {
     gdk_threads_set_lock_functions(enter_fn, leave_fn)
 
 }
@@ -1748,9 +1735,9 @@ public func threadsAddTimeoutSecondsFull(priority: CInt, interval: CUnsignedInt,
 
 
 /// Convert from a ISO10646 character to a key symbol.
-public func unicodeToKeyval(wc: UInt32) -> Int {
-    let rv: Int = cast(gdk_unicode_to_keyval(guint32(wc)))
-    return Int(rv)
+@inlinable public func unicodeToKeyval(wc: guint32) -> Int {
+    let rv = Int(gdk_unicode_to_keyval(wc))
+    return rv
 }
 
 
@@ -1760,9 +1747,9 @@ public func unicodeToKeyval(wc: UInt32) -> Int {
 /// as a STRING. The representation of characters not in STRING
 /// is not specified; it may be as pseudo-escape sequences
 /// \x{ABCD}, or it may be in some other form of approximation.
-public func utf8ToStringTarget(str: UnsafePointer<gchar>) -> String! {
-    let rv: String! = cast(gdk_utf8_to_string_target(str))
-    return cast(rv)
+@inlinable public func utf8ToStringTarget(str: UnsafePointer<gchar>!) -> String! {
+    guard let rv = gdk_utf8_to_string_target(str).map({ String(cString: $0) }) else { return nil }
+    return rv
 }
 
 

@@ -53,10 +53,11 @@ import GdkPixbuf
 /// 
 public protocol EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkEvent` instance.
-    var event_ptr: UnsafeMutablePointer<GdkEvent> { get }
+    var event_ptr: UnsafeMutablePointer<GdkEvent>! { get }
+
 }
 
 /// The `EventRef` type acts as a lightweight Swift reference to an underlying `GdkEvent` instance.
@@ -100,67 +101,97 @@ public protocol EventProtocol {
 public struct EventRef: EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension EventRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkEvent>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkEvent>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkEvent>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `EventProtocol`
-    init<T: EventProtocol>(_ other: T) {
+    @inlinable init<T: EventProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new event of the given type. All fields are set to 0.
-    init( type: EventType) {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_new(type))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( type: GdkEventType) {
+        let rv = gdk_event_new(type)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Checks all open displays for a `GdkEvent` to process,to be processed
     /// on, fetching events from the windowing system if necessary.
     /// See `gdk_display_get_event()`.
-    static func get() -> EventRef! {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_get())
-        return rv.map { EventRef(cast($0)) }
+    @inlinable static func get() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_get())) else { return nil }
+        return rv
     }
 
     /// If there is an event waiting in the event queue of some open
     /// display, returns a copy of it. See `gdk_display_peek_event()`.
-    static func peek() -> EventRef! {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_peek())
-        return rv.map { EventRef(cast($0)) }
+    @inlinable static func peek() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_peek())) else { return nil }
+        return rv
     }
 }
 
@@ -205,116 +236,162 @@ public extension EventRef {
 open class Event: EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Event` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkEvent>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkEvent>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkEvent>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkEvent` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Event` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkEvent>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkEvent>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Reference intialiser for a related type that implements `EventProtocol`
     /// `GdkEvent` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `EventProtocol`
-    public init<T: EventProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.event_ptr)
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+    @inlinable public init<T: EventProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Do-nothing destructor for `GdkEvent`.
     deinit {
-        // no reference counting for GdkEvent, cannot unref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot unref(event_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkEvent, cannot ref(cast(event_ptr))
+        // no reference counting for GdkEvent, cannot ref(event_ptr)
     }
 
     /// Creates a new event of the given type. All fields are set to 0.
-    public init( type: EventType) {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_new(type))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( type: GdkEventType) {
+        let rv = gdk_event_new(type)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Checks all open displays for a `GdkEvent` to process,to be processed
     /// on, fetching events from the windowing system if necessary.
     /// See `gdk_display_get_event()`.
-    public static func get() -> Event! {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_get())
-        return rv.map { Event(cast($0)) }
+    @inlinable public static func get() -> Event! {
+        guard let rv = Event(gconstpointer: gconstpointer(gdk_event_get())) else { return nil }
+        return rv
     }
 
     /// If there is an event waiting in the event queue of some open
     /// display, returns a copy of it. See `gdk_display_peek_event()`.
-    public static func peek() -> Event! {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_peek())
-        return rv.map { Event(cast($0)) }
+    @inlinable public static func peek() -> Event! {
+        guard let rv = Event(gconstpointer: gconstpointer(gdk_event_peek())) else { return nil }
+        return rv
     }
 
 }
@@ -327,77 +404,77 @@ open class Event: EventProtocol {
 // MARK: Event Union: EventProtocol extension (methods and fields)
 public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEvent` instance.
-    var event_ptr: UnsafeMutablePointer<GdkEvent> { return ptr.assumingMemoryBound(to: GdkEvent.self) }
+    @inlinable var event_ptr: UnsafeMutablePointer<GdkEvent>! { return ptr?.assumingMemoryBound(to: GdkEvent.self) }
 
     /// If both events contain X/Y information, this function will return `true`
     /// and return in `angle` the relative angle from `event1` to `event2`. The rotation
     /// direction for positive angles is from the positive X axis towards the positive
     /// Y axis.
-    func GetAngle(event2: EventProtocol, angle: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_angle(cast(event_ptr), cast(event2.ptr), cast(angle))
-        return Bool(rv != 0)
+    @inlinable func GetAngle<EventT: EventProtocol>(event2: EventT, angle: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_angle(event_ptr, event2.event_ptr, angle)) != 0)
+        return rv
     }
 
     /// If both events contain X/Y information, the center of both coordinates
     /// will be returned in `x` and `y`.
-    func GetCenter(event2: EventProtocol, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_center(cast(event_ptr), cast(event2.ptr), cast(x), cast(y))
-        return Bool(rv != 0)
+    @inlinable func GetCenter<EventT: EventProtocol>(event2: EventT, x: UnsafeMutablePointer<gdouble>!, y: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_center(event_ptr, event2.event_ptr, x, y)) != 0)
+        return rv
     }
 
     /// If both events have X/Y information, the distance between both coordinates
     /// (as in a straight line going from `event1` to `event2`) will be returned.
-    func GetDistance(event2: EventProtocol, distance: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_distance(cast(event_ptr), cast(event2.ptr), cast(distance))
-        return Bool(rv != 0)
+    @inlinable func GetDistance<EventT: EventProtocol>(event2: EventT, distance: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_distance(event_ptr, event2.event_ptr, distance)) != 0)
+        return rv
     }
 
     /// Copies a `GdkEvent`, copying or incrementing the reference count of the
     /// resources associated with it (e.g. `GdkWindow`’s and strings).
-    func copy() -> UnsafeMutablePointer<GdkEvent>! {
-        let rv: UnsafeMutablePointer<GdkEvent>! = cast(gdk_event_copy(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(gdk_event_copy(event_ptr))) else { return nil }
+        return rv
     }
 
     /// Frees a `GdkEvent`, freeing or decrementing any resources associated with it.
     /// Note that this function should only be called with events returned from
     /// functions such as `gdk_event_peek()`, `gdk_event_get()`, `gdk_event_copy()`
     /// and `gdk_event_new()`.
-    func free() {
-        gdk_event_free(cast(event_ptr))
+    @inlinable func free() {
+        gdk_event_free(event_ptr)
     
     }
 
     /// Extract the axis value for a particular axis use from
     /// an event structure.
-    func getAxis(axisUse axis_use: AxisUse, value: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_event_get_axis(cast(event_ptr), axis_use, cast(value))
-        return Bool(rv != 0)
+    @inlinable func getAxis(axisUse axis_use: GdkAxisUse, value: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_event_get_axis(event_ptr, axis_use, value)) != 0)
+        return rv
     }
 
     /// Extract the button number from an event.
-    func get(button: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
-        let rv = gdk_event_get_button(cast(event_ptr), cast(button))
-        return Bool(rv != 0)
+    @inlinable func get(button: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((gdk_event_get_button(event_ptr, button)) != 0)
+        return rv
     }
 
     /// Extracts the click count from an event.
-    func get(clickCount click_count: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
-        let rv = gdk_event_get_click_count(cast(event_ptr), cast(click_count))
-        return Bool(rv != 0)
+    @inlinable func get(clickCount click_count: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((gdk_event_get_click_count(event_ptr, click_count)) != 0)
+        return rv
     }
 
     /// Extract the event window relative x/y coordinates from an event.
-    func getCoords(xWin x_win: UnsafeMutablePointer<gdouble>, yWin y_win: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_event_get_coords(cast(event_ptr), cast(x_win), cast(y_win))
-        return Bool(rv != 0)
+    @inlinable func getCoords(xWin x_win: UnsafeMutablePointer<gdouble>! = nil, yWin y_win: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
+        let rv = ((gdk_event_get_coords(event_ptr, x_win, y_win)) != 0)
+        return rv
     }
 
     /// If the event contains a “device” field, this function will return
     /// it, else it will return `nil`.
-    func getDevice() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_event_get_device(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getDevice() -> DeviceRef! {
+        let rv = DeviceRef(gconstpointer: gconstpointer(gdk_event_get_device(event_ptr)))
+        return rv
     }
 
     /// If the event was generated by a device that supports
@@ -408,51 +485,51 @@ public extension EventProtocol {
     /// Note: the `GdkDeviceTool`<!-- -->s will be constant during
     /// the application lifetime, if settings must be stored
     /// persistently across runs, see `gdk_device_tool_get_serial()`
-    func getDeviceTool() -> UnsafeMutablePointer<GdkDeviceTool>! {
-        let rv: UnsafeMutablePointer<GdkDeviceTool>! = cast(gdk_event_get_device_tool(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getDeviceTool() -> DeviceToolRef! {
+        let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_event_get_device_tool(event_ptr)))
+        return rv
     }
 
     /// If `event` if of type `GDK_TOUCH_BEGIN`, `GDK_TOUCH_UPDATE`,
     /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`, returns the `GdkEventSequence`
     /// to which the event belongs. Otherwise, return `nil`.
-    func getEventSequence() -> UnsafeMutablePointer<GdkEventSequence>! {
-        let rv: UnsafeMutablePointer<GdkEventSequence>! = cast(gdk_event_get_event_sequence(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getEventSequence() -> EventSequenceRef! {
+        let rv = EventSequenceRef(gconstpointer: gconstpointer(gdk_event_get_event_sequence(event_ptr)))
+        return rv
     }
 
     /// Retrieves the type of the event.
-    func getEventType() -> GdkEventType {
-        let rv = gdk_event_get_event_type(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getEventType() -> GdkEventType {
+        let rv = gdk_event_get_event_type(event_ptr)
+        return rv
     }
 
     /// Extracts the hardware keycode from an event.
     /// 
     /// Also see `gdk_event_get_scancode()`.
-    func get(keycode: UnsafeMutablePointer<UInt16>) -> Bool {
-        let rv = gdk_event_get_keycode(cast(event_ptr), cast(keycode))
-        return Bool(rv != 0)
+    @inlinable func get(keycode: UnsafeMutablePointer<guint16>!) -> Bool {
+        let rv = ((gdk_event_get_keycode(event_ptr, keycode)) != 0)
+        return rv
     }
 
     /// Extracts the keyval from an event.
-    func get(keyval: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
-        let rv = gdk_event_get_keyval(cast(event_ptr), cast(keyval))
-        return Bool(rv != 0)
+    @inlinable func get(keyval: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((gdk_event_get_keyval(event_ptr, keyval)) != 0)
+        return rv
     }
 
     /// `event:` a `GdkEvent`
     /// Returns whether this event is an 'emulated' pointer event (typically
     /// from a touch event), as opposed to a real one.
-    func getPointerEmulated() -> Bool {
-        let rv = gdk_event_get_pointer_emulated(cast(event_ptr))
-        return Bool(rv != 0)
+    @inlinable func getPointerEmulated() -> Bool {
+        let rv = ((gdk_event_get_pointer_emulated(event_ptr)) != 0)
+        return rv
     }
 
     /// Extract the root window relative x/y coordinates from an event.
-    func getRootCoords(xRoot x_root: UnsafeMutablePointer<gdouble>, yRoot y_root: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_event_get_root_coords(cast(event_ptr), cast(x_root), cast(y_root))
-        return Bool(rv != 0)
+    @inlinable func getRootCoords(xRoot x_root: UnsafeMutablePointer<gdouble>! = nil, yRoot y_root: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
+        let rv = ((gdk_event_get_root_coords(event_ptr, x_root, y_root)) != 0)
+        return rv
     }
 
     /// Gets the keyboard low-level scancode of a key event.
@@ -460,9 +537,9 @@ public extension EventProtocol {
     /// This is usually hardware_keycode. On Windows this is the high
     /// word of WM_KEY{DOWN,UP} lParam which contains the scancode and
     /// some extended flags.
-    func getScancode() -> Int {
-        let rv: Int = cast(gdk_event_get_scancode(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getScancode() -> Int {
+        let rv = Int(gdk_event_get_scancode(event_ptr))
+        return rv
     }
 
     /// Returns the screen for the event. The screen is
@@ -472,17 +549,17 @@ public extension EventProtocol {
     /// that is, the screen which has the root window
     /// to which `event->motion.x_root` and
     /// `event->motion.y_root` are relative.
-    func getScreen() -> UnsafeMutablePointer<GdkScreen>! {
-        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_event_get_screen(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getScreen() -> ScreenRef! {
+        let rv = ScreenRef(gconstpointer: gconstpointer(gdk_event_get_screen(event_ptr)))
+        return rv
     }
 
     /// Retrieves the scroll deltas from a `GdkEvent`
     /// 
     /// See also: `gdk_event_get_scroll_direction()`
-    func getScrollDeltas(deltaX delta_x: UnsafeMutablePointer<gdouble>, deltaY delta_y: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_event_get_scroll_deltas(cast(event_ptr), cast(delta_x), cast(delta_y))
-        return Bool(rv != 0)
+    @inlinable func getScrollDeltas(deltaX delta_x: UnsafeMutablePointer<gdouble>!, deltaY delta_y: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_event_get_scroll_deltas(event_ptr, delta_x, delta_y)) != 0)
+        return rv
     }
 
     /// Extracts the scroll direction from an event.
@@ -525,15 +602,15 @@ public extension EventProtocol {
     ///     }
     /// ```
     /// 
-    func getScroll(direction: UnsafeMutablePointer<GdkScrollDirection>) -> Bool {
-        let rv = gdk_event_get_scroll_direction(cast(event_ptr), cast(direction))
-        return Bool(rv != 0)
+    @inlinable func getScroll(direction: UnsafeMutablePointer<GdkScrollDirection>!) -> Bool {
+        let rv = ((gdk_event_get_scroll_direction(event_ptr, direction)) != 0)
+        return rv
     }
 
     /// Returns the `GdkSeat` this event was generated for.
-    func getSeat() -> UnsafeMutablePointer<GdkSeat>! {
-        let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_event_get_seat(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getSeat() -> SeatRef! {
+        let rv = SeatRef(gconstpointer: gconstpointer(gdk_event_get_seat(event_ptr)))
+        return rv
     }
 
     /// This function returns the hardware (slave) `GdkDevice` that has
@@ -545,60 +622,60 @@ public extension EventProtocol {
     /// 
     /// If the event does not contain a device field, this function will
     /// return `nil`.
-    func getSourceDevice() -> UnsafeMutablePointer<GdkDevice>! {
-        let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_event_get_source_device(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getSourceDevice() -> DeviceRef! {
+        let rv = DeviceRef(gconstpointer: gconstpointer(gdk_event_get_source_device(event_ptr)))
+        return rv
     }
 
     /// If the event contains a “state” field, puts that field in `state`. Otherwise
     /// stores an empty state (0). Returns `true` if there was a state field
     /// in the event. `event` may be `nil`, in which case it’s treated
     /// as if the event had no state field.
-    func get(state: UnsafeMutablePointer<GdkModifierType>) -> Bool {
-        let rv = gdk_event_get_state(cast(event_ptr), cast(state))
-        return Bool(rv != 0)
+    @inlinable func get(state: UnsafeMutablePointer<GdkModifierType>!) -> Bool {
+        let rv = ((gdk_event_get_state(event_ptr, state)) != 0)
+        return rv
     }
 
     /// Returns the time stamp from `event`, if there is one; otherwise
     /// returns `GDK_CURRENT_TIME`. If `event` is `nil`, returns `GDK_CURRENT_TIME`.
-    func getTime() -> UInt32 {
-        let rv = gdk_event_get_time(cast(event_ptr))
-        return UInt32(rv)
+    @inlinable func getTime() -> guint32 {
+        let rv = gdk_event_get_time(event_ptr)
+        return rv
     }
 
     /// Extracts the `GdkWindow` associated with an event.
-    func getWindow() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_event_get_window(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getWindow() -> WindowRef! {
+        let rv = WindowRef(gconstpointer: gconstpointer(gdk_event_get_window(event_ptr)))
+        return rv
     }
 
     /// Appends a copy of the given event onto the front of the event
     /// queue for event->any.window’s display, or the default event
     /// queue if event->any.window is `nil`. See `gdk_display_put_event()`.
-    func put() {
-        gdk_event_put(cast(event_ptr))
+    @inlinable func put() {
+        gdk_event_put(event_ptr)
     
     }
 
     /// Sets the device for `event` to `device`. The event must
     /// have been allocated by GTK+, for instance, by
     /// `gdk_event_copy()`.
-    func set(device: DeviceProtocol) {
-        gdk_event_set_device(cast(event_ptr), cast(device.ptr))
+    @inlinable func set<DeviceT: DeviceProtocol>(device: DeviceT) {
+        gdk_event_set_device(event_ptr, device.device_ptr)
     
     }
 
     /// Sets the device tool for this event, should be rarely used.
-    func setDevice(tool: DeviceToolProtocol) {
-        gdk_event_set_device_tool(cast(event_ptr), cast(tool.ptr))
+    @inlinable func setDevice<DeviceToolT: DeviceToolProtocol>(tool: DeviceToolT? = nil) {
+        gdk_event_set_device_tool(event_ptr, tool?.device_tool_ptr)
     
     }
 
     /// Sets the screen for `event` to `screen`. The event must
     /// have been allocated by GTK+, for instance, by
     /// `gdk_event_copy()`.
-    func set(screen: ScreenProtocol) {
-        gdk_event_set_screen(cast(event_ptr), cast(screen.ptr))
+    @inlinable func set<ScreenT: ScreenProtocol>(screen: ScreenT) {
+        gdk_event_set_screen(event_ptr, screen.screen_ptr)
     
     }
 
@@ -606,8 +683,8 @@ public extension EventProtocol {
     /// 
     /// The event must have been allocated by GTK+,
     /// for instance by `gdk_event_copy()`.
-    func setSource(device: DeviceProtocol) {
-        gdk_event_set_source_device(cast(event_ptr), cast(device.ptr))
+    @inlinable func setSource<DeviceT: DeviceProtocol>(device: DeviceT) {
+        gdk_event_set_source_device(event_ptr, device.device_ptr)
     
     }
 
@@ -620,47 +697,47 @@ public extension EventProtocol {
     /// 
     /// This function should always be used instead of simply checking for
     /// event->button == `GDK_BUTTON_SECONDARY`.
-    func triggersContextMenu() -> Bool {
-        let rv = gdk_event_triggers_context_menu(cast(event_ptr))
-        return Bool(rv != 0)
+    @inlinable func triggersContextMenu() -> Bool {
+        let rv = ((gdk_event_triggers_context_menu(event_ptr)) != 0)
+        return rv
     }
 
     /// If both events contain X/Y information, this function will return `true`
     /// and return in `angle` the relative angle from `event1` to `event2`. The rotation
     /// direction for positive angles is from the positive X axis towards the positive
     /// Y axis.
-    func eventsGetAngle(event2: EventProtocol, angle: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_angle(cast(event_ptr), cast(event2.ptr), cast(angle))
-        return Bool(rv != 0)
+    @inlinable func eventsGetAngle<EventT: EventProtocol>(event2: EventT, angle: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_angle(event_ptr, event2.event_ptr, angle)) != 0)
+        return rv
     }
 
     /// If both events contain X/Y information, the center of both coordinates
     /// will be returned in `x` and `y`.
-    func eventsGetCenter(event2: EventProtocol, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_center(cast(event_ptr), cast(event2.ptr), cast(x), cast(y))
-        return Bool(rv != 0)
+    @inlinable func eventsGetCenter<EventT: EventProtocol>(event2: EventT, x: UnsafeMutablePointer<gdouble>!, y: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_center(event_ptr, event2.event_ptr, x, y)) != 0)
+        return rv
     }
 
     /// If both events have X/Y information, the distance between both coordinates
     /// (as in a straight line going from `event1` to `event2`) will be returned.
-    func eventsGetDistance(event2: EventProtocol, distance: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = gdk_events_get_distance(cast(event_ptr), cast(event2.ptr), cast(distance))
-        return Bool(rv != 0)
+    @inlinable func eventsGetDistance<EventT: EventProtocol>(event2: EventT, distance: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_events_get_distance(event_ptr, event2.event_ptr, distance)) != 0)
+        return rv
     }
     /// If the event contains a “device” field, this function will return
     /// it, else it will return `nil`.
-    var device: UnsafeMutablePointer<GdkDevice>! {
+    @inlinable var device: DeviceRef! {
         /// If the event contains a “device” field, this function will return
         /// it, else it will return `nil`.
         get {
-            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_event_get_device(cast(event_ptr)))
-            return cast(rv)
+            let rv = DeviceRef(gconstpointer: gconstpointer(gdk_event_get_device(event_ptr)))
+            return rv
         }
         /// Sets the device for `event` to `device`. The event must
         /// have been allocated by GTK+, for instance, by
         /// `gdk_event_copy()`.
         nonmutating set {
-            gdk_event_set_device(cast(event_ptr), cast(newValue))
+            gdk_event_set_device(event_ptr, UnsafeMutablePointer<GdkDevice>(newValue?.device_ptr))
         }
     }
 
@@ -672,7 +749,7 @@ public extension EventProtocol {
     /// Note: the `GdkDeviceTool`<!-- -->s will be constant during
     /// the application lifetime, if settings must be stored
     /// persistently across runs, see `gdk_device_tool_get_serial()`
-    var deviceTool: UnsafeMutablePointer<GdkDeviceTool>! {
+    @inlinable var deviceTool: DeviceToolRef! {
         /// If the event was generated by a device that supports
         /// different tools (eg. a tablet), this function will
         /// return a `GdkDeviceTool` representing the tool that
@@ -682,34 +759,34 @@ public extension EventProtocol {
         /// the application lifetime, if settings must be stored
         /// persistently across runs, see `gdk_device_tool_get_serial()`
         get {
-            let rv: UnsafeMutablePointer<GdkDeviceTool>! = cast(gdk_event_get_device_tool(cast(event_ptr)))
-            return cast(rv)
+            let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_event_get_device_tool(event_ptr)))
+            return rv
         }
         /// Sets the device tool for this event, should be rarely used.
         nonmutating set {
-            gdk_event_set_device_tool(cast(event_ptr), cast(newValue))
+            gdk_event_set_device_tool(event_ptr, UnsafeMutablePointer<GdkDeviceTool>(newValue?.device_tool_ptr))
         }
     }
 
     /// If `event` if of type `GDK_TOUCH_BEGIN`, `GDK_TOUCH_UPDATE`,
     /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`, returns the `GdkEventSequence`
     /// to which the event belongs. Otherwise, return `nil`.
-    var eventSequence: UnsafeMutablePointer<GdkEventSequence>! {
+    @inlinable var eventSequence: EventSequenceRef! {
         /// If `event` if of type `GDK_TOUCH_BEGIN`, `GDK_TOUCH_UPDATE`,
         /// `GDK_TOUCH_END` or `GDK_TOUCH_CANCEL`, returns the `GdkEventSequence`
         /// to which the event belongs. Otherwise, return `nil`.
         get {
-            let rv: UnsafeMutablePointer<GdkEventSequence>! = cast(gdk_event_get_event_sequence(cast(event_ptr)))
-            return cast(rv)
+            let rv = EventSequenceRef(gconstpointer: gconstpointer(gdk_event_get_event_sequence(event_ptr)))
+            return rv
         }
     }
 
     /// Retrieves the type of the event.
-    var eventType: GdkEventType {
+    @inlinable var eventType: GdkEventType {
         /// Retrieves the type of the event.
         get {
-            let rv = gdk_event_get_event_type(cast(event_ptr))
-            return cast(rv)
+            let rv = gdk_event_get_event_type(event_ptr)
+            return rv
         }
     }
 
@@ -720,7 +797,7 @@ public extension EventProtocol {
     /// scrolling based on the current velocity.
     /// 
     /// Stop scroll events always have a a delta of 0/0.
-    var isScrollStopEvent: Bool {
+    @inlinable var isScrollStopEvent: Bool {
         /// Check whether a scroll event is a stop scroll event. Scroll sequences
         /// with smooth scroll information may provide a stop scroll event once the
         /// interaction with the device finishes, e.g. by lifting a finger. This
@@ -729,21 +806,21 @@ public extension EventProtocol {
         /// 
         /// Stop scroll events always have a a delta of 0/0.
         get {
-            let rv = gdk_event_is_scroll_stop_event(cast(event_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_event_is_scroll_stop_event(event_ptr)) != 0)
+            return rv
         }
     }
 
     /// `event:` a `GdkEvent`
     /// Returns whether this event is an 'emulated' pointer event (typically
     /// from a touch event), as opposed to a real one.
-    var pointerEmulated: Bool {
+    @inlinable var pointerEmulated: Bool {
         /// `event:` a `GdkEvent`
         /// Returns whether this event is an 'emulated' pointer event (typically
         /// from a touch event), as opposed to a real one.
         get {
-            let rv = gdk_event_get_pointer_emulated(cast(event_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_event_get_pointer_emulated(event_ptr)) != 0)
+            return rv
         }
     }
 
@@ -752,15 +829,15 @@ public extension EventProtocol {
     /// This is usually hardware_keycode. On Windows this is the high
     /// word of WM_KEY{DOWN,UP} lParam which contains the scancode and
     /// some extended flags.
-    var scancode: Int {
+    @inlinable var scancode: Int {
         /// Gets the keyboard low-level scancode of a key event.
         /// 
         /// This is usually hardware_keycode. On Windows this is the high
         /// word of WM_KEY{DOWN,UP} lParam which contains the scancode and
         /// some extended flags.
         get {
-            let rv: Int = cast(gdk_event_get_scancode(cast(event_ptr)))
-            return cast(rv)
+            let rv = Int(gdk_event_get_scancode(event_ptr))
+            return rv
         }
     }
 
@@ -771,7 +848,7 @@ public extension EventProtocol {
     /// that is, the screen which has the root window
     /// to which `event->motion.x_root` and
     /// `event->motion.y_root` are relative.
-    var screen: UnsafeMutablePointer<GdkScreen>! {
+    @inlinable var screen: ScreenRef! {
         /// Returns the screen for the event. The screen is
         /// typically the screen for `event->any.window`, but
         /// for events such as mouse events, it is the screen
@@ -780,23 +857,23 @@ public extension EventProtocol {
         /// to which `event->motion.x_root` and
         /// `event->motion.y_root` are relative.
         get {
-            let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_event_get_screen(cast(event_ptr)))
-            return cast(rv)
+            let rv = ScreenRef(gconstpointer: gconstpointer(gdk_event_get_screen(event_ptr)))
+            return rv
         }
         /// Sets the screen for `event` to `screen`. The event must
         /// have been allocated by GTK+, for instance, by
         /// `gdk_event_copy()`.
         nonmutating set {
-            gdk_event_set_screen(cast(event_ptr), cast(newValue))
+            gdk_event_set_screen(event_ptr, UnsafeMutablePointer<GdkScreen>(newValue?.screen_ptr))
         }
     }
 
     /// Returns the `GdkSeat` this event was generated for.
-    var seat: UnsafeMutablePointer<GdkSeat>! {
+    @inlinable var seat: SeatRef! {
         /// Returns the `GdkSeat` this event was generated for.
         get {
-            let rv: UnsafeMutablePointer<GdkSeat>! = cast(gdk_event_get_seat(cast(event_ptr)))
-            return cast(rv)
+            let rv = SeatRef(gconstpointer: gconstpointer(gdk_event_get_seat(event_ptr)))
+            return rv
         }
     }
 
@@ -809,7 +886,7 @@ public extension EventProtocol {
     /// 
     /// If the event does not contain a device field, this function will
     /// return `nil`.
-    var sourceDevice: UnsafeMutablePointer<GdkDevice>! {
+    @inlinable var sourceDevice: DeviceRef! {
         /// This function returns the hardware (slave) `GdkDevice` that has
         /// triggered the event, falling back to the virtual (master) device
         /// (as in `gdk_event_get_device()`) if the event wasn’t caused by
@@ -820,360 +897,360 @@ public extension EventProtocol {
         /// If the event does not contain a device field, this function will
         /// return `nil`.
         get {
-            let rv: UnsafeMutablePointer<GdkDevice>! = cast(gdk_event_get_source_device(cast(event_ptr)))
-            return cast(rv)
+            let rv = DeviceRef(gconstpointer: gconstpointer(gdk_event_get_source_device(event_ptr)))
+            return rv
         }
         /// Sets the slave device for `event` to `device`.
         /// 
         /// The event must have been allocated by GTK+,
         /// for instance by `gdk_event_copy()`.
         nonmutating set {
-            gdk_event_set_source_device(cast(event_ptr), cast(newValue))
+            gdk_event_set_source_device(event_ptr, UnsafeMutablePointer<GdkDevice>(newValue?.device_ptr))
         }
     }
 
     /// Returns the time stamp from `event`, if there is one; otherwise
     /// returns `GDK_CURRENT_TIME`. If `event` is `nil`, returns `GDK_CURRENT_TIME`.
-    var time: UInt32 {
+    @inlinable var time: guint32 {
         /// Returns the time stamp from `event`, if there is one; otherwise
         /// returns `GDK_CURRENT_TIME`. If `event` is `nil`, returns `GDK_CURRENT_TIME`.
         get {
-            let rv = gdk_event_get_time(cast(event_ptr))
-            return UInt32(rv)
+            let rv = gdk_event_get_time(event_ptr)
+            return rv
         }
     }
 
     /// Extracts the `GdkWindow` associated with an event.
-    var window: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var window: WindowRef! {
         /// Extracts the `GdkWindow` associated with an event.
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_event_get_window(cast(event_ptr)))
-            return cast(rv)
+            let rv = WindowRef(gconstpointer: gconstpointer(gdk_event_get_window(event_ptr)))
+            return rv
         }
     }
 
     /// the `GdkEventType`
-    var type: GdkEventType {
+    @inlinable var type: GdkEventType {
         /// the `GdkEventType`
         get {
-            let rv: GdkEventType = cast(event_ptr.pointee.type)
+            let rv = event_ptr.pointee.type
             return rv
         }
         /// the `GdkEventType`
          set {
-            event_ptr.pointee.type = cast(newValue)
+            event_ptr.pointee.type = newValue
         }
     }
 
     /// a `GdkEventAny`
-    var any: GdkEventAny {
+    @inlinable var any: GdkEventAny {
         /// a `GdkEventAny`
         get {
-            let rv: GdkEventAny = cast(event_ptr.pointee.any)
+            let rv = event_ptr.pointee.any
             return rv
         }
         /// a `GdkEventAny`
          set {
-            event_ptr.pointee.any = cast(newValue)
+            event_ptr.pointee.any = newValue
         }
     }
 
     /// a `GdkEventExpose`
-    var expose: GdkEventExpose {
+    @inlinable var expose: GdkEventExpose {
         /// a `GdkEventExpose`
         get {
-            let rv: GdkEventExpose = cast(event_ptr.pointee.expose)
+            let rv = event_ptr.pointee.expose
             return rv
         }
         /// a `GdkEventExpose`
          set {
-            event_ptr.pointee.expose = cast(newValue)
+            event_ptr.pointee.expose = newValue
         }
     }
 
     /// a `GdkEventVisibility`
-    var visibility: GdkEventVisibility {
+    @inlinable var visibility: GdkEventVisibility {
         /// a `GdkEventVisibility`
         get {
-            let rv: GdkEventVisibility = cast(event_ptr.pointee.visibility)
+            let rv = event_ptr.pointee.visibility
             return rv
         }
         /// a `GdkEventVisibility`
          set {
-            event_ptr.pointee.visibility = cast(newValue)
+            event_ptr.pointee.visibility = newValue
         }
     }
 
     /// a `GdkEventMotion`
-    var motion: GdkEventMotion {
+    @inlinable var motion: GdkEventMotion {
         /// a `GdkEventMotion`
         get {
-            let rv: GdkEventMotion = cast(event_ptr.pointee.motion)
+            let rv = event_ptr.pointee.motion
             return rv
         }
         /// a `GdkEventMotion`
          set {
-            event_ptr.pointee.motion = cast(newValue)
+            event_ptr.pointee.motion = newValue
         }
     }
 
     /// a `GdkEventButton`
-    var button: GdkEventButton {
+    @inlinable var button: GdkEventButton {
         /// a `GdkEventButton`
         get {
-            let rv: GdkEventButton = cast(event_ptr.pointee.button)
+            let rv = event_ptr.pointee.button
             return rv
         }
         /// a `GdkEventButton`
          set {
-            event_ptr.pointee.button = cast(newValue)
+            event_ptr.pointee.button = newValue
         }
     }
 
     /// a `GdkEventTouch`
-    var touch: GdkEventTouch {
+    @inlinable var touch: GdkEventTouch {
         /// a `GdkEventTouch`
         get {
-            let rv: GdkEventTouch = cast(event_ptr.pointee.touch)
+            let rv = event_ptr.pointee.touch
             return rv
         }
         /// a `GdkEventTouch`
          set {
-            event_ptr.pointee.touch = cast(newValue)
+            event_ptr.pointee.touch = newValue
         }
     }
 
     /// a `GdkEventScroll`
-    var scroll: GdkEventScroll {
+    @inlinable var scroll: GdkEventScroll {
         /// a `GdkEventScroll`
         get {
-            let rv: GdkEventScroll = cast(event_ptr.pointee.scroll)
+            let rv = event_ptr.pointee.scroll
             return rv
         }
         /// a `GdkEventScroll`
          set {
-            event_ptr.pointee.scroll = cast(newValue)
+            event_ptr.pointee.scroll = newValue
         }
     }
 
     /// a `GdkEventKey`
-    var key: GdkEventKey {
+    @inlinable var key: GdkEventKey {
         /// a `GdkEventKey`
         get {
-            let rv: GdkEventKey = cast(event_ptr.pointee.key)
+            let rv = event_ptr.pointee.key
             return rv
         }
         /// a `GdkEventKey`
          set {
-            event_ptr.pointee.key = cast(newValue)
+            event_ptr.pointee.key = newValue
         }
     }
 
     /// a `GdkEventCrossing`
-    var crossing: GdkEventCrossing {
+    @inlinable var crossing: GdkEventCrossing {
         /// a `GdkEventCrossing`
         get {
-            let rv: GdkEventCrossing = cast(event_ptr.pointee.crossing)
+            let rv = event_ptr.pointee.crossing
             return rv
         }
         /// a `GdkEventCrossing`
          set {
-            event_ptr.pointee.crossing = cast(newValue)
+            event_ptr.pointee.crossing = newValue
         }
     }
 
     /// a `GdkEventFocus`
-    var focusChange: GdkEventFocus {
+    @inlinable var focusChange: GdkEventFocus {
         /// a `GdkEventFocus`
         get {
-            let rv: GdkEventFocus = cast(event_ptr.pointee.focus_change)
+            let rv = event_ptr.pointee.focus_change
             return rv
         }
         /// a `GdkEventFocus`
          set {
-            event_ptr.pointee.focus_change = cast(newValue)
+            event_ptr.pointee.focus_change = newValue
         }
     }
 
     /// a `GdkEventConfigure`
-    var configure: GdkEventConfigure {
+    @inlinable var configure: GdkEventConfigure {
         /// a `GdkEventConfigure`
         get {
-            let rv: GdkEventConfigure = cast(event_ptr.pointee.configure)
+            let rv = event_ptr.pointee.configure
             return rv
         }
         /// a `GdkEventConfigure`
          set {
-            event_ptr.pointee.configure = cast(newValue)
+            event_ptr.pointee.configure = newValue
         }
     }
 
     /// a `GdkEventProperty`
-    var property: GdkEventProperty {
+    @inlinable var property: GdkEventProperty {
         /// a `GdkEventProperty`
         get {
-            let rv: GdkEventProperty = cast(event_ptr.pointee.property)
+            let rv = event_ptr.pointee.property
             return rv
         }
         /// a `GdkEventProperty`
          set {
-            event_ptr.pointee.property = cast(newValue)
+            event_ptr.pointee.property = newValue
         }
     }
 
     /// a `GdkEventSelection`
-    var selection: GdkEventSelection {
+    @inlinable var selection: GdkEventSelection {
         /// a `GdkEventSelection`
         get {
-            let rv: GdkEventSelection = cast(event_ptr.pointee.selection)
+            let rv = event_ptr.pointee.selection
             return rv
         }
         /// a `GdkEventSelection`
          set {
-            event_ptr.pointee.selection = cast(newValue)
+            event_ptr.pointee.selection = newValue
         }
     }
 
     /// a `GdkEventOwnerChange`
-    var ownerChange: GdkEventOwnerChange {
+    @inlinable var ownerChange: GdkEventOwnerChange {
         /// a `GdkEventOwnerChange`
         get {
-            let rv: GdkEventOwnerChange = cast(event_ptr.pointee.owner_change)
+            let rv = event_ptr.pointee.owner_change
             return rv
         }
         /// a `GdkEventOwnerChange`
          set {
-            event_ptr.pointee.owner_change = cast(newValue)
+            event_ptr.pointee.owner_change = newValue
         }
     }
 
     /// a `GdkEventProximity`
-    var proximity: GdkEventProximity {
+    @inlinable var proximity: GdkEventProximity {
         /// a `GdkEventProximity`
         get {
-            let rv: GdkEventProximity = cast(event_ptr.pointee.proximity)
+            let rv = event_ptr.pointee.proximity
             return rv
         }
         /// a `GdkEventProximity`
          set {
-            event_ptr.pointee.proximity = cast(newValue)
+            event_ptr.pointee.proximity = newValue
         }
     }
 
     /// a `GdkEventDND`
-    var dnd: GdkEventDND {
+    @inlinable var dnd: GdkEventDND {
         /// a `GdkEventDND`
         get {
-            let rv: GdkEventDND = cast(event_ptr.pointee.dnd)
+            let rv = event_ptr.pointee.dnd
             return rv
         }
         /// a `GdkEventDND`
          set {
-            event_ptr.pointee.dnd = cast(newValue)
+            event_ptr.pointee.dnd = newValue
         }
     }
 
     /// a `GdkEventWindowState`
-    var windowState: GdkEventWindowState {
+    @inlinable var windowState: GdkEventWindowState {
         /// a `GdkEventWindowState`
         get {
-            let rv: GdkEventWindowState = cast(event_ptr.pointee.window_state)
+            let rv = event_ptr.pointee.window_state
             return rv
         }
         /// a `GdkEventWindowState`
          set {
-            event_ptr.pointee.window_state = cast(newValue)
+            event_ptr.pointee.window_state = newValue
         }
     }
 
     /// a `GdkEventSetting`
-    var setting: GdkEventSetting {
+    @inlinable var setting: GdkEventSetting {
         /// a `GdkEventSetting`
         get {
-            let rv: GdkEventSetting = cast(event_ptr.pointee.setting)
+            let rv = event_ptr.pointee.setting
             return rv
         }
         /// a `GdkEventSetting`
          set {
-            event_ptr.pointee.setting = cast(newValue)
+            event_ptr.pointee.setting = newValue
         }
     }
 
     /// a `GdkEventGrabBroken`
-    var grabBroken: GdkEventGrabBroken {
+    @inlinable var grabBroken: GdkEventGrabBroken {
         /// a `GdkEventGrabBroken`
         get {
-            let rv: GdkEventGrabBroken = cast(event_ptr.pointee.grab_broken)
+            let rv = event_ptr.pointee.grab_broken
             return rv
         }
         /// a `GdkEventGrabBroken`
          set {
-            event_ptr.pointee.grab_broken = cast(newValue)
+            event_ptr.pointee.grab_broken = newValue
         }
     }
 
     /// a `GdkEventTouchpadSwipe`
-    var touchpadSwipe: GdkEventTouchpadSwipe {
+    @inlinable var touchpadSwipe: GdkEventTouchpadSwipe {
         /// a `GdkEventTouchpadSwipe`
         get {
-            let rv: GdkEventTouchpadSwipe = cast(event_ptr.pointee.touchpad_swipe)
+            let rv = event_ptr.pointee.touchpad_swipe
             return rv
         }
         /// a `GdkEventTouchpadSwipe`
          set {
-            event_ptr.pointee.touchpad_swipe = cast(newValue)
+            event_ptr.pointee.touchpad_swipe = newValue
         }
     }
 
     /// a `GdkEventTouchpadPinch`
-    var touchpadPinch: GdkEventTouchpadPinch {
+    @inlinable var touchpadPinch: GdkEventTouchpadPinch {
         /// a `GdkEventTouchpadPinch`
         get {
-            let rv: GdkEventTouchpadPinch = cast(event_ptr.pointee.touchpad_pinch)
+            let rv = event_ptr.pointee.touchpad_pinch
             return rv
         }
         /// a `GdkEventTouchpadPinch`
          set {
-            event_ptr.pointee.touchpad_pinch = cast(newValue)
+            event_ptr.pointee.touchpad_pinch = newValue
         }
     }
 
     /// a `GdkEventPadButton`
-    var padButton: GdkEventPadButton {
+    @inlinable var padButton: GdkEventPadButton {
         /// a `GdkEventPadButton`
         get {
-            let rv: GdkEventPadButton = cast(event_ptr.pointee.pad_button)
+            let rv = event_ptr.pointee.pad_button
             return rv
         }
         /// a `GdkEventPadButton`
          set {
-            event_ptr.pointee.pad_button = cast(newValue)
+            event_ptr.pointee.pad_button = newValue
         }
     }
 
     /// a `GdkEventPadAxis`
-    var padAxis: GdkEventPadAxis {
+    @inlinable var padAxis: GdkEventPadAxis {
         /// a `GdkEventPadAxis`
         get {
-            let rv: GdkEventPadAxis = cast(event_ptr.pointee.pad_axis)
+            let rv = event_ptr.pointee.pad_axis
             return rv
         }
         /// a `GdkEventPadAxis`
          set {
-            event_ptr.pointee.pad_axis = cast(newValue)
+            event_ptr.pointee.pad_axis = newValue
         }
     }
 
     /// a `GdkEventPadGroupMode`
-    var padGroupMode: GdkEventPadGroupMode {
+    @inlinable var padGroupMode: GdkEventPadGroupMode {
         /// a `GdkEventPadGroupMode`
         get {
-            let rv: GdkEventPadGroupMode = cast(event_ptr.pointee.pad_group_mode)
+            let rv = event_ptr.pointee.pad_group_mode
             return rv
         }
         /// a `GdkEventPadGroupMode`
          set {
-            event_ptr.pointee.pad_group_mode = cast(newValue)
+            event_ptr.pointee.pad_group_mode = newValue
         }
     }
 

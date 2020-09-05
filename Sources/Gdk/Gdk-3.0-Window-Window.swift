@@ -20,10 +20,11 @@ import GdkPixbuf
 
 public protocol WindowProtocol: ObjectProtocol {
         /// Untyped pointer to the underlying `GdkWindow` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkWindow` instance.
-    var window_ptr: UnsafeMutablePointer<GdkWindow> { get }
+    var window_ptr: UnsafeMutablePointer<GdkWindow>! { get }
+
 }
 
 /// The `WindowRef` type acts as a lightweight Swift reference to an underlying `GdkWindow` instance.
@@ -34,46 +35,76 @@ public protocol WindowProtocol: ObjectProtocol {
 public struct WindowRef: WindowProtocol {
         /// Untyped pointer to the underlying `GdkWindow` instance.
     /// For type-safe access, use the generated, typed pointer `window_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension WindowRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkWindow>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkWindow>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkWindow>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkWindow>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkWindow>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `WindowProtocol`
-    init<T: WindowProtocol>(_ other: T) {
+    @inlinable init<T: WindowProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -88,9 +119,9 @@ public extension WindowRef {
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
-    @available(*, deprecated) static func atPointer(winX win_x: UnsafeMutablePointer<CInt>, winY win_y: UnsafeMutablePointer<CInt>) -> WindowRef! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_at_pointer(cast(win_x), cast(win_y)))
-        return rv.map { WindowRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func atPointer(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_at_pointer(win_x, win_y))) else { return nil }
+        return rv
     }
 }
 
@@ -104,77 +135,123 @@ open class Window: Object, WindowProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Window` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkWindow>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkWindow>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Window` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkWindow>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Window` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Window` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Window` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkWindow>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Window` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkWindow>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GdkWindow`.
     /// i.e., ownership is transferred to the `Window` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkWindow>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkWindow>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `WindowProtocol`
     /// Will retain `GdkWindow`.
     /// - Parameter other: an instance of a related type that implements `WindowProtocol`
-    public init<T: WindowProtocol>(window other: T) {
-        super.init(retaining: cast(other.window_ptr))
+    @inlinable public init<T: WindowProtocol>(window other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -190,9 +267,9 @@ open class Window: Object, WindowProtocol {
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
-    @available(*, deprecated) public static func atPointer(winX win_x: UnsafeMutablePointer<CInt>, winY win_y: UnsafeMutablePointer<CInt>) -> Window! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_at_pointer(cast(win_x), cast(win_y)))
-        return rv.map { Window(cast($0)) }
+    @available(*, deprecated) @inlinable public static func atPointer(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> Window! {
+        guard let rv = Window(gconstpointer: gconstpointer(gdk_window_at_pointer(win_x, win_y))) else { return nil }
+        return rv
     }
 
 }
@@ -212,18 +289,18 @@ public extension WindowProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: WindowPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: WindowPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(window_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -241,7 +318,7 @@ public extension WindowProtocol {
     /// Get the value of a Window property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: WindowPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: WindowPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -251,7 +328,7 @@ public extension WindowProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: WindowPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: WindowPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -329,11 +406,11 @@ public extension WindowProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: WindowSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: WindowSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(window_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -354,7 +431,7 @@ public extension WindowProtocol {
 // MARK: Window Class: WindowProtocol extension (methods and fields)
 public extension WindowProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkWindow` instance.
-    var window_ptr: UnsafeMutablePointer<GdkWindow> { return ptr.assumingMemoryBound(to: GdkWindow.self) }
+    @inlinable var window_ptr: UnsafeMutablePointer<GdkWindow>! { return ptr?.assumingMemoryBound(to: GdkWindow.self) }
 
     /// Adds an event filter to `window`, allowing you to intercept events
     /// before they reach GDK. This is a low-level operation and makes it
@@ -365,16 +442,16 @@ public extension WindowProtocol {
     /// If you are interested in X GenericEvents, bear in mind that
     /// `XGetEventData()` has been already called on the event, and
     /// `XFreeEventData()` must not be called within `function`.
-    func addFilter(function: @escaping FilterFunc, data: UnsafeMutableRawPointer) {
-        gdk_window_add_filter(cast(window_ptr), function, cast(data))
+    @inlinable func addFilter(function: GdkFilterFunc?, data: gpointer! = nil) {
+        gdk_window_add_filter(window_ptr, function, data)
     
     }
 
     /// Emits a short beep associated to `window` in the appropriate
     /// display, if supported. Otherwise, emits a short beep on
     /// the display just as `gdk_display_beep()`.
-    func beep() {
-        gdk_window_beep(cast(window_ptr))
+    @inlinable func beep() {
+        gdk_window_beep(window_ptr)
     
     }
 
@@ -405,9 +482,9 @@ public extension WindowProtocol {
     /// and already has a backing store. Therefore in most cases, application
     /// code in GTK does not need to call `gdk_window_begin_draw_frame()`
     /// explicitly.
-    func beginDrawFrame(region: RegionProtocol) -> UnsafeMutablePointer<GdkDrawingContext>! {
-        let rv: UnsafeMutablePointer<GdkDrawingContext>! = cast(gdk_window_begin_draw_frame(cast(window_ptr), cast(region.ptr)))
-        return cast(rv)
+    @inlinable func beginDrawFrame<RegionT: RegionProtocol>(region: RegionT) -> DrawingContextRef! {
+        let rv = DrawingContextRef(gconstpointer: gconstpointer(gdk_window_begin_draw_frame(window_ptr, region._ptr)))
+        return rv
     }
 
     /// Begins a window move operation (for a toplevel window).
@@ -415,8 +492,8 @@ public extension WindowProtocol {
     /// This function assumes that the drag is controlled by the
     /// client pointer device, use `gdk_window_begin_move_drag_for_device()`
     /// to begin a drag with a different device.
-    func beginMoveDrag(button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
-        gdk_window_begin_move_drag(cast(window_ptr), gint(button), gint(root_x), gint(root_y), guint32(timestamp))
+    @inlinable func beginMoveDrag(button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
+        gdk_window_begin_move_drag(window_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
     
     }
 
@@ -425,8 +502,8 @@ public extension WindowProtocol {
     /// example. The function works best with window managers that support the
     /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
     /// but has a fallback implementation for other window managers.
-    func beginMoveDragFor(device: DeviceProtocol, button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
-        gdk_window_begin_move_drag_for_device(cast(window_ptr), cast(device.ptr), gint(button), gint(root_x), gint(root_y), guint32(timestamp))
+    @inlinable func beginMoveDragFor<DeviceT: DeviceProtocol>(device: DeviceT, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
+        gdk_window_begin_move_drag_for_device(window_ptr, device.device_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
     
     }
 
@@ -436,8 +513,8 @@ public extension WindowProtocol {
     ///
     /// **begin_paint_rect is deprecated:**
     /// Use gdk_window_begin_draw_frame() instead
-    @available(*, deprecated) func beginPaintRect(rectangle: RectangleProtocol) {
-        gdk_window_begin_paint_rect(cast(window_ptr), cast(rectangle.ptr))
+    @available(*, deprecated) @inlinable func beginPaintRect<RectangleT: RectangleProtocol>(rectangle: RectangleT) {
+        gdk_window_begin_paint_rect(window_ptr, rectangle.rectangle_ptr)
     
     }
 
@@ -482,8 +559,8 @@ public extension WindowProtocol {
     ///
     /// **begin_paint_region is deprecated:**
     /// Use gdk_window_begin_draw_frame() instead
-    @available(*, deprecated) func beginPaint(region: RegionProtocol) {
-        gdk_window_begin_paint_region(cast(window_ptr), cast(region.ptr))
+    @available(*, deprecated) @inlinable func beginPaint<RegionT: RegionProtocol>(region: RegionT) {
+        gdk_window_begin_paint_region(window_ptr, region._ptr)
     
     }
 
@@ -492,8 +569,8 @@ public extension WindowProtocol {
     /// This function assumes that the drag is controlled by the
     /// client pointer device, use `gdk_window_begin_resize_drag_for_device()`
     /// to begin a drag with a different device.
-    func beginResizeDrag(edge: WindowEdge, button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
-        gdk_window_begin_resize_drag(cast(window_ptr), edge, gint(button), gint(root_x), gint(root_y), guint32(timestamp))
+    @inlinable func beginResizeDrag(edge: GdkWindowEdge, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
+        gdk_window_begin_resize_drag(window_ptr, edge, gint(button), gint(root_x), gint(root_y), timestamp)
     
     }
 
@@ -503,8 +580,8 @@ public extension WindowProtocol {
     /// with window managers that support the
     /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
     /// but has a fallback implementation for other window managers.
-    func beginResizeDragForDevice(edge: WindowEdge, device: DeviceProtocol, button: CInt, rootX root_x: CInt, rootY root_y: CInt, timestamp: UInt32) {
-        gdk_window_begin_resize_drag_for_device(cast(window_ptr), edge, cast(device.ptr), gint(button), gint(root_x), gint(root_y), guint32(timestamp))
+    @inlinable func beginResizeDragForDevice<DeviceT: DeviceProtocol>(edge: GdkWindowEdge, device: DeviceT, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
+        gdk_window_begin_resize_drag_for_device(window_ptr, edge, device.device_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
     
     }
 
@@ -512,8 +589,8 @@ public extension WindowProtocol {
     ///
     /// **configure_finished is deprecated:**
     /// this function is no longer needed
-    @available(*, deprecated) func configureFinished() {
-        gdk_window_configure_finished(cast(window_ptr))
+    @available(*, deprecated) @inlinable func configureFinished() {
+        gdk_window_configure_finished(window_ptr)
     
     }
 
@@ -533,8 +610,8 @@ public extension WindowProtocol {
     /// walks down a window hierarchy.
     /// 
     /// See also: `gdk_window_coords_to_parent()`
-    func coordsFromParent(parentX parent_x: gdouble, parentY parent_y: gdouble, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>) {
-        gdk_window_coords_from_parent(cast(window_ptr), parent_x, parent_y, cast(x), cast(y))
+    @inlinable func coordsFromParent(parentX parent_x: Double, parentY parent_y: Double, x: UnsafeMutablePointer<gdouble>! = nil, y: UnsafeMutablePointer<gdouble>! = nil) {
+        gdk_window_coords_from_parent(window_ptr, gdouble(parent_x), gdouble(parent_y), x, y)
     
     }
 
@@ -554,8 +631,8 @@ public extension WindowProtocol {
     /// walks up a window hierarchy.
     /// 
     /// See also: `gdk_window_coords_from_parent()`
-    func coordsToParent(x: gdouble, y: gdouble, parentX parent_x: UnsafeMutablePointer<gdouble>, parentY parent_y: UnsafeMutablePointer<gdouble>) {
-        gdk_window_coords_to_parent(cast(window_ptr), x, y, cast(parent_x), cast(parent_y))
+    @inlinable func coordsToParent(x: Double, y: Double, parentX parent_x: UnsafeMutablePointer<gdouble>! = nil, parentY parent_y: UnsafeMutablePointer<gdouble>! = nil) {
+        gdk_window_coords_to_parent(window_ptr, gdouble(x), gdouble(y), parent_x, parent_y)
     
     }
 
@@ -567,11 +644,11 @@ public extension WindowProtocol {
     /// 
     /// Before using the returned `GdkGLContext`, you will need to
     /// call `gdk_gl_context_make_current()` or `gdk_gl_context_realize()`.
-    func createGlContext() throws -> UnsafeMutablePointer<GdkGLContext>! {
+    @inlinable func createGlContext() throws -> GLContextRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<GdkGLContext>! = cast(gdk_window_create_gl_context(cast(window_ptr), &error))
-        if let error = error { throw ErrorType(error) }
-        return cast(rv)
+        let rv = GLContextRef(gconstpointer: gconstpointer(gdk_window_create_gl_context(window_ptr, &error)))
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Create a new image surface that is efficient to draw on the
@@ -603,9 +680,9 @@ public extension WindowProtocol {
     /// Note that unlike `cairo_surface_create_similar_image()`, the new
     /// surface's device scale is set to `scale`, or to the scale factor of
     /// `window` if `scale` is 0.
-    func createSimilarImageSurface(format: cairo_format_t, width: CInt, height: CInt, scale: CInt) -> UnsafeMutablePointer<cairo_surface_t>! {
-        let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_window_create_similar_image_surface(cast(window_ptr), format, width, height, scale))
-        return cast(rv)
+    @inlinable func createSimilarImageSurface(format: cairo_format_t, width: Int, height: Int, scale: Int) -> SurfaceRef! {
+        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_window_create_similar_image_surface(window_ptr, format, gint(width), gint(height), gint(scale))))
+        return rv
     }
 
     /// Create a new surface that is as compatible as possible with the
@@ -617,9 +694,9 @@ public extension WindowProtocol {
     /// 
     /// Initially the surface contents are all 0 (transparent if contents
     /// have transparency, black otherwise.)
-    func createSimilarSurface(content: cairo.Content, width: CInt, height: CInt) -> UnsafeMutablePointer<cairo_surface_t>! {
-        let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_window_create_similar_surface(cast(window_ptr), content, width, height))
-        return cast(rv)
+    @inlinable func createSimilarSurface(content: cairo_content_t, width: Int, height: Int) -> SurfaceRef! {
+        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_window_create_similar_surface(window_ptr, content, gint(width), gint(height))))
+        return rv
     }
 
     /// Attempt to deiconify (unminimize) `window`. On X11 the window manager may
@@ -627,8 +704,8 @@ public extension WindowProtocol {
     /// use `gtk_window_deiconify()` instead of the `GdkWindow` variant. Or better yet,
     /// you probably want to use `gtk_window_present_with_time()`, which raises the window, focuses it,
     /// unminimizes it, and puts it on the current desktop.
-    func deiconify() {
-        gdk_window_deiconify(cast(window_ptr))
+    @inlinable func deiconify() {
+        gdk_window_deiconify(window_ptr)
     
     }
 
@@ -638,13 +715,13 @@ public extension WindowProtocol {
     /// 
     /// Note that a window will not be destroyed automatically when its reference count
     /// reaches zero. You must call this function yourself before that happens.
-    func destroy() {
-        gdk_window_destroy(cast(window_ptr))
+    @inlinable func destroy() {
+        gdk_window_destroy(window_ptr)
     
     }
 
-    func destroyNotify() {
-        gdk_window_destroy_notify(cast(window_ptr))
+    @inlinable func destroyNotify() {
+        gdk_window_destroy_notify(window_ptr)
     
     }
 
@@ -652,8 +729,8 @@ public extension WindowProtocol {
     ///
     /// **enable_synchronized_configure is deprecated:**
     /// this function is no longer needed
-    @available(*, deprecated) func enableSynchronizedConfigure() {
-        gdk_window_enable_synchronized_configure(cast(window_ptr))
+    @available(*, deprecated) @inlinable func enableSynchronizedConfigure() {
+        gdk_window_enable_synchronized_configure(window_ptr)
     
     }
 
@@ -664,8 +741,8 @@ public extension WindowProtocol {
     /// 
     /// It is an error to call this function without a matching
     /// `gdk_window_begin_frame()` first.
-    func endDrawFrame(context: DrawingContextProtocol) {
-        gdk_window_end_draw_frame(cast(window_ptr), cast(context.ptr))
+    @inlinable func endDrawFrame<DrawingContextT: DrawingContextProtocol>(context: DrawingContextT) {
+        gdk_window_end_draw_frame(window_ptr, context.drawing_context_ptr)
     
     }
 
@@ -677,8 +754,8 @@ public extension WindowProtocol {
     /// 
     /// It is an error to call this function without a matching
     /// `gdk_window_begin_paint_region()` first.
-    @available(*, deprecated) func endPaint() {
-        gdk_window_end_paint(cast(window_ptr))
+    @inlinable @available(*, deprecated) func endPaint() {
+        gdk_window_end_paint(window_ptr)
     
     }
 
@@ -688,24 +765,24 @@ public extension WindowProtocol {
     /// Offscreen window and children of them can never have native windows.
     /// 
     /// Some backends may not support native child windows.
-    func ensureNative() -> Bool {
-        let rv = gdk_window_ensure_native(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func ensureNative() -> Bool {
+        let rv = ((gdk_window_ensure_native(window_ptr)) != 0)
+        return rv
     }
 
     /// This function does nothing.
     ///
     /// **flush is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func flush() {
-        gdk_window_flush(cast(window_ptr))
+    @available(*, deprecated) @inlinable func flush() {
+        gdk_window_flush(window_ptr)
     
     }
 
     /// Sets keyboard focus to `window`. In most cases, `gtk_window_present_with_time()`
     /// should be used on a `GtkWindow`, rather than calling this function.
-    func focus(timestamp: UInt32) {
-        gdk_window_focus(cast(window_ptr), guint32(timestamp))
+    @inlinable func focus(timestamp: guint32) {
+        gdk_window_focus(window_ptr, timestamp)
     
     }
 
@@ -722,8 +799,8 @@ public extension WindowProtocol {
     ///
     /// **freeze_toplevel_updates_libgtk_only is deprecated:**
     /// This symbol was never meant to be used outside of GTK+
-    @available(*, deprecated) func freezeToplevelUpdatesLibgtkOnly() {
-        gdk_window_freeze_toplevel_updates_libgtk_only(cast(window_ptr))
+    @available(*, deprecated) @inlinable func freezeToplevelUpdatesLibgtkOnly() {
+        gdk_window_freeze_toplevel_updates_libgtk_only(window_ptr)
     
     }
 
@@ -732,8 +809,8 @@ public extension WindowProtocol {
     /// `gdk_window_thaw_updates()` is called. If `gdk_window_freeze_updates()`
     /// has been called more than once, `gdk_window_thaw_updates()` must be called
     /// an equal number of times to begin processing exposes.
-    func freezeUpdates() {
-        gdk_window_freeze_updates(cast(window_ptr))
+    @inlinable func freezeUpdates() {
+        gdk_window_freeze_updates(window_ptr)
     
     }
 
@@ -750,8 +827,8 @@ public extension WindowProtocol {
     /// fullscreenification actually happening. But it will happen with
     /// most standard window managers, and GDK makes a best effort to get
     /// it to happen.
-    func fullscreen() {
-        gdk_window_fullscreen(cast(window_ptr))
+    @inlinable func fullscreen() {
+        gdk_window_fullscreen(window_ptr)
     
     }
 
@@ -759,33 +836,33 @@ public extension WindowProtocol {
     /// the window covers the entire screen and is above any panels or task bars.
     /// 
     /// If the window was already fullscreen, then this function does nothing.
-    func fullscreenOn(monitor: CInt) {
-        gdk_window_fullscreen_on_monitor(cast(window_ptr), gint(monitor))
+    @inlinable func fullscreenOn(monitor: Int) {
+        gdk_window_fullscreen_on_monitor(window_ptr, gint(monitor))
     
     }
 
     /// This function informs GDK that the geometry of an embedded
     /// offscreen window has changed. This is necessary for GDK to keep
     /// track of which offscreen window the pointer is in.
-    func geometryChanged() {
-        gdk_window_geometry_changed(cast(window_ptr))
+    @inlinable func geometryChanged() {
+        gdk_window_geometry_changed(window_ptr)
     
     }
 
     /// Determines whether or not the desktop environment shuld be hinted that
     /// the window does not want to receive input focus.
-    func getAcceptFocus() -> Bool {
-        let rv = gdk_window_get_accept_focus(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getAcceptFocus() -> Bool {
+        let rv = ((gdk_window_get_accept_focus(window_ptr)) != 0)
+        return rv
     }
 
     /// Gets the pattern used to clear the background on `window`.
     ///
     /// **get_background_pattern is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) func getBackgroundPattern() -> UnsafeMutablePointer<cairo_pattern_t>! {
-        let rv: UnsafeMutablePointer<cairo_pattern_t>! = cast(gdk_window_get_background_pattern(cast(window_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getBackgroundPattern() -> PatternRef! {
+        let rv = PatternRef(gconstpointer: gconstpointer(gdk_window_get_background_pattern(window_ptr)))
+        return rv
     }
 
     /// Gets the list of children of `window` known to GDK.
@@ -795,9 +872,9 @@ public extension WindowProtocol {
     /// 
     /// The returned list must be freed, but the elements in the
     /// list need not be.
-    func getChildren() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(gdk_window_get_children(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getChildren() -> GLib.ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children(window_ptr)))
+        return rv
     }
 
     /// Gets the list of children of `window` known to GDK with a
@@ -808,9 +885,9 @@ public extension WindowProtocol {
     /// 
     /// The list is returned in (relative) stacking order, i.e. the
     /// lowest window is first.
-    func getChildrenWith(userData user_data: UnsafeMutableRawPointer) -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(gdk_window_get_children_with_user_data(cast(window_ptr), cast(user_data)))
-        return cast(rv)
+    @inlinable func getChildrenWith(userData user_data: gpointer! = nil) -> GLib.ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children_with_user_data(window_ptr, user_data)))
+        return rv
     }
 
     /// Computes the region of a window that potentially can be written
@@ -818,9 +895,9 @@ public extension WindowProtocol {
     /// other factors such as if the window is obscured by other windows,
     /// but no area outside of this region will be affected by drawing
     /// primitives.
-    func getClipRegion() -> UnsafeMutablePointer<cairo_region_t>! {
-        let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_clip_region(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getClipRegion() -> RegionRef! {
+        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_clip_region(window_ptr)))
+        return rv
     }
 
     /// Determines whether `window` is composited.
@@ -830,40 +907,40 @@ public extension WindowProtocol {
     /// **get_composited is deprecated:**
     /// Compositing is an outdated technology that
     ///   only ever worked on X11.
-    @available(*, deprecated) func getComposited() -> Bool {
-        let rv = gdk_window_get_composited(cast(window_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getComposited() -> Bool {
+        let rv = ((gdk_window_get_composited(window_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves a `GdkCursor` pointer for the cursor currently set on the
     /// specified `GdkWindow`, or `nil`.  If the return value is `nil` then
     /// there is no custom cursor set on the specified window, and it is
     /// using the cursor for its parent window.
-    func getCursor() -> UnsafeMutablePointer<GdkCursor>! {
-        let rv: UnsafeMutablePointer<GdkCursor>! = cast(gdk_window_get_cursor(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getCursor() -> CursorRef! {
+        let rv = CursorRef(gconstpointer: gconstpointer(gdk_window_get_cursor(window_ptr)))
+        return rv
     }
 
     /// Returns the decorations set on the GdkWindow with
     /// `gdk_window_set_decorations()`.
-    func get(decorations: UnsafeMutablePointer<GdkWMDecoration>) -> Bool {
-        let rv = gdk_window_get_decorations(cast(window_ptr), cast(decorations))
-        return Bool(rv != 0)
+    @inlinable func get(decorations: UnsafeMutablePointer<GdkWMDecoration>!) -> Bool {
+        let rv = ((gdk_window_get_decorations(window_ptr, decorations)) != 0)
+        return rv
     }
 
     /// Retrieves a `GdkCursor` pointer for the `device` currently set on the
     /// specified `GdkWindow`, or `nil`.  If the return value is `nil` then
     /// there is no custom cursor set on the specified window, and it is
     /// using the cursor for its parent window.
-    func getDeviceCursor(device: DeviceProtocol) -> UnsafeMutablePointer<GdkCursor>! {
-        let rv: UnsafeMutablePointer<GdkCursor>! = cast(gdk_window_get_device_cursor(cast(window_ptr), cast(device.ptr)))
-        return cast(rv)
+    @inlinable func getDeviceCursor<DeviceT: DeviceProtocol>(device: DeviceT) -> CursorRef! {
+        let rv = CursorRef(gconstpointer: gconstpointer(gdk_window_get_device_cursor(window_ptr, device.device_ptr)))
+        return rv
     }
 
     /// Returns the event mask for `window` corresponding to an specific device.
-    func getDeviceEvents(device: DeviceProtocol) -> GdkEventMask {
-        let rv = gdk_window_get_device_events(cast(window_ptr), cast(device.ptr))
-        return cast(rv)
+    @inlinable func getDeviceEvents<DeviceT: DeviceProtocol>(device: DeviceT) -> EventMask {
+        let rv = EventMask(gdk_window_get_device_events(window_ptr, device.device_ptr))
+        return rv
     }
 
     /// Obtains the current device position and modifier state.
@@ -871,29 +948,29 @@ public extension WindowProtocol {
     /// corner of `window`.
     /// 
     /// Use `gdk_window_get_device_position_double()` if you need subpixel precision.
-    func getDevicePosition(device: DeviceProtocol, x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>, mask: UnsafeMutablePointer<GdkModifierType>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_device_position(cast(window_ptr), cast(device.ptr), cast(x), cast(y), cast(mask)))
-        return cast(rv)
+    @inlinable func getDevicePosition<DeviceT: DeviceProtocol>(device: DeviceT, x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil, mask: UnsafeMutablePointer<GdkModifierType>! = nil) -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_device_position(window_ptr, device.device_ptr, x, y, mask))) else { return nil }
+        return rv
     }
 
     /// Obtains the current device position in doubles and modifier state.
     /// The position is given in coordinates relative to the upper left
     /// corner of `window`.
-    func getDevicePositionDouble(device: DeviceProtocol, x: UnsafeMutablePointer<gdouble>, y: UnsafeMutablePointer<gdouble>, mask: UnsafeMutablePointer<GdkModifierType>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_device_position_double(cast(window_ptr), cast(device.ptr), cast(x), cast(y), cast(mask)))
-        return cast(rv)
+    @inlinable func getDevicePositionDouble<DeviceT: DeviceProtocol>(device: DeviceT, x: UnsafeMutablePointer<gdouble>! = nil, y: UnsafeMutablePointer<gdouble>! = nil, mask: UnsafeMutablePointer<GdkModifierType>! = nil) -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_device_position_double(window_ptr, device.device_ptr, x, y, mask))) else { return nil }
+        return rv
     }
 
     /// Gets the `GdkDisplay` associated with a `GdkWindow`.
-    func getDisplay() -> UnsafeMutablePointer<GdkDisplay>! {
-        let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_window_get_display(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getDisplay() -> DisplayRef! {
+        let rv = DisplayRef(gconstpointer: gconstpointer(gdk_window_get_display(window_ptr)))
+        return rv
     }
 
     /// Finds out the DND protocol supported by a window.
-    func getDragProtocol(target: WindowProtocol) -> GdkDragProtocol {
-        let rv = gdk_window_get_drag_protocol(cast(window_ptr), cast(target.ptr))
-        return cast(rv)
+    @inlinable func getDragProtocol(target: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>! = nil) -> GdkDragProtocol {
+        let rv = gdk_window_get_drag_protocol(window_ptr, target)
+        return rv
     }
 
     /// Obtains the parent of `window`, as known to GDK. Works like
@@ -901,9 +978,9 @@ public extension WindowProtocol {
     /// window’s embedder for offscreen windows.
     /// 
     /// See also: `gdk_offscreen_window_get_embedder()`
-    func getEffectiveParent() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_effective_parent(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getEffectiveParent() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_effective_parent(window_ptr))) else { return nil }
+        return rv
     }
 
     /// Gets the toplevel window that’s an ancestor of `window`.
@@ -912,52 +989,52 @@ public extension WindowProtocol {
     /// embedder as its parent, using `gdk_window_get_effective_parent()`.
     /// 
     /// See also: `gdk_offscreen_window_get_embedder()`
-    func getEffectiveToplevel() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_effective_toplevel(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getEffectiveToplevel() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_effective_toplevel(window_ptr))) else { return nil }
+        return rv
     }
 
     /// Get the current event compression setting for this window.
-    func getEventCompression() -> Bool {
-        let rv = gdk_window_get_event_compression(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getEventCompression() -> Bool {
+        let rv = ((gdk_window_get_event_compression(window_ptr)) != 0)
+        return rv
     }
 
     /// Gets the event mask for `window` for all master input devices. See
     /// `gdk_window_set_events()`.
-    func getEvents() -> GdkEventMask {
-        let rv = gdk_window_get_events(cast(window_ptr))
-        return cast(rv)
+    @inlinable func getEvents() -> EventMask {
+        let rv = EventMask(gdk_window_get_events(window_ptr))
+        return rv
     }
 
     /// Determines whether or not the desktop environment should be hinted that the
     /// window does not want to receive input focus when it is mapped.
-    func getFocusOnMap() -> Bool {
-        let rv = gdk_window_get_focus_on_map(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getFocusOnMap() -> Bool {
+        let rv = ((gdk_window_get_focus_on_map(window_ptr)) != 0)
+        return rv
     }
 
     /// Gets the frame clock for the window. The frame clock for a window
     /// never changes unless the window is reparented to a new toplevel
     /// window.
-    func getFrameClock() -> UnsafeMutablePointer<GdkFrameClock>! {
-        let rv: UnsafeMutablePointer<GdkFrameClock>! = cast(gdk_window_get_frame_clock(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getFrameClock() -> FrameClockRef! {
+        let rv = FrameClockRef(gconstpointer: gconstpointer(gdk_window_get_frame_clock(window_ptr)))
+        return rv
     }
 
     /// Obtains the bounding box of the window, including window manager
     /// titlebar/borders if any. The frame position is given in root window
     /// coordinates. To get the position of the window itself (rather than
     /// the frame) in root window coordinates, use `gdk_window_get_origin()`.
-    func getFrameExtents(rect: RectangleProtocol) {
-        gdk_window_get_frame_extents(cast(window_ptr), cast(rect.ptr))
+    @inlinable func getFrameExtents<RectangleT: RectangleProtocol>(rect: RectangleT) {
+        gdk_window_get_frame_extents(window_ptr, rect.rectangle_ptr)
     
     }
 
     /// Obtains the `GdkFullscreenMode` of the `window`.
-    func getFullscreenMode() -> GdkFullscreenMode {
-        let rv = gdk_window_get_fullscreen_mode(cast(window_ptr))
-        return cast(rv)
+    @inlinable func getFullscreenMode() -> GdkFullscreenMode {
+        let rv = gdk_window_get_fullscreen_mode(window_ptr)
+        return rv
     }
 
     /// Any of the return location arguments to this function may be `nil`,
@@ -980,15 +1057,15 @@ public extension WindowProtocol {
     /// the X server and because these functions support the full 32-bit
     /// coordinate space, whereas `gdk_window_get_geometry()` is restricted to
     /// the 16-bit coordinates of X11.
-    func getGeometry(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>, width: UnsafeMutablePointer<CInt>, height: UnsafeMutablePointer<CInt>) {
-        gdk_window_get_geometry(cast(window_ptr), cast(x), cast(y), cast(width), cast(height))
+    @inlinable func getGeometry(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil, width: UnsafeMutablePointer<gint>! = nil, height: UnsafeMutablePointer<gint>! = nil) {
+        gdk_window_get_geometry(window_ptr, x, y, width, height)
     
     }
 
     /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
-    func getGroup() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_group(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getGroup() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_group(window_ptr))) else { return nil }
+        return rv
     }
 
     /// Returns the height of the given `window`.
@@ -996,25 +1073,25 @@ public extension WindowProtocol {
     /// On the X11 platform the returned size is the size reported in the
     /// most-recently-processed configure event, rather than the current
     /// size on the X server.
-    func getHeight() -> Int {
-        let rv: Int = cast(gdk_window_get_height(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getHeight() -> Int {
+        let rv = Int(gdk_window_get_height(window_ptr))
+        return rv
     }
 
     /// Determines whether or not the window manager is hinted that `window`
     /// has modal behaviour.
-    func getModalHint() -> Bool {
-        let rv = gdk_window_get_modal_hint(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getModalHint() -> Bool {
+        let rv = ((gdk_window_get_modal_hint(window_ptr)) != 0)
+        return rv
     }
 
     /// Obtains the position of a window in root window coordinates.
     /// (Compare with `gdk_window_get_position()` and
     /// `gdk_window_get_geometry()` which return the position of a window
     /// relative to its parent window.)
-    func getOrigin(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>) -> Int {
-        let rv: Int = cast(gdk_window_get_origin(cast(window_ptr), cast(x), cast(y)))
-        return Int(rv)
+    @inlinable func getOrigin(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil) -> Int {
+        let rv = Int(gdk_window_get_origin(window_ptr, x, y))
+        return rv
     }
 
     /// Obtains the parent of `window`, as known to GDK. Does not query the
@@ -1028,18 +1105,18 @@ public extension WindowProtocol {
     /// writing generic code that walks up a window hierarchy, because
     /// `gdk_window_get_parent()` will most likely not do what you expect if
     /// there are offscreen windows in the hierarchy.
-    func getParent() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_parent(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getParent() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_parent(window_ptr))) else { return nil }
+        return rv
     }
 
     /// Returns whether input to the window is passed through to the window
     /// below.
     /// 
     /// See `gdk_window_set_pass_through()` for details
-    func getPassThrough() -> Bool {
-        let rv = gdk_window_get_pass_through(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getPassThrough() -> Bool {
+        let rv = ((gdk_window_get_pass_through(window_ptr)) != 0)
+        return rv
     }
 
     /// Obtains the current pointer position and modifier state.
@@ -1048,9 +1125,9 @@ public extension WindowProtocol {
     ///
     /// **get_pointer is deprecated:**
     /// Use gdk_window_get_device_position() instead.
-    @available(*, deprecated) func getPointer(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>, mask: UnsafeMutablePointer<GdkModifierType>) -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_pointer(cast(window_ptr), cast(x), cast(y), cast(mask)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPointer(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil, mask: UnsafeMutablePointer<GdkModifierType>! = nil) -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_pointer(window_ptr, x, y, mask))) else { return nil }
+        return rv
     }
 
     /// Obtains the position of the window as reported in the
@@ -1060,8 +1137,8 @@ public extension WindowProtocol {
     /// received or processed.
     /// 
     /// The position coordinates are relative to the window’s parent window.
-    func getPosition(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>) {
-        gdk_window_get_position(cast(window_ptr), cast(x), cast(y))
+    @inlinable func getPosition(x: UnsafeMutablePointer<gint>! = nil, y: UnsafeMutablePointer<gint>! = nil) {
+        gdk_window_get_position(window_ptr, x, y)
     
     }
 
@@ -1069,15 +1146,15 @@ public extension WindowProtocol {
     /// window coordinates. This is similar to
     /// `gdk_window_get_origin()` but allows you to pass
     /// in any position in the window, not just the origin.
-    func getRootCoords(x: CInt, y: CInt, rootX root_x: UnsafeMutablePointer<CInt>, rootY root_y: UnsafeMutablePointer<CInt>) {
-        gdk_window_get_root_coords(cast(window_ptr), gint(x), gint(y), cast(root_x), cast(root_y))
+    @inlinable func getRootCoords(x: Int, y: Int, rootX root_x: UnsafeMutablePointer<gint>!, rootY root_y: UnsafeMutablePointer<gint>!) {
+        gdk_window_get_root_coords(window_ptr, gint(x), gint(y), root_x, root_y)
     
     }
 
     /// Obtains the top-left corner of the window manager frame in root
     /// window coordinates.
-    func getRootOrigin(x: UnsafeMutablePointer<CInt>, y: UnsafeMutablePointer<CInt>) {
-        gdk_window_get_root_origin(cast(window_ptr), cast(x), cast(y))
+    @inlinable func getRootOrigin(x: UnsafeMutablePointer<gint>!, y: UnsafeMutablePointer<gint>!) {
+        gdk_window_get_root_origin(window_ptr, x, y)
     
     }
 
@@ -1093,36 +1170,36 @@ public extension WindowProtocol {
     /// 
     /// The scale of a window may change during runtime, if this happens
     /// a configure event will be sent to the toplevel window.
-    func getScaleFactor() -> Int {
-        let rv: Int = cast(gdk_window_get_scale_factor(cast(window_ptr)))
-        return Int(rv)
+    @inlinable func getScaleFactor() -> Int {
+        let rv = Int(gdk_window_get_scale_factor(window_ptr))
+        return rv
     }
 
     /// Gets the `GdkScreen` associated with a `GdkWindow`.
-    func getScreen() -> UnsafeMutablePointer<GdkScreen>! {
-        let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_window_get_screen(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getScreen() -> ScreenRef! {
+        let rv = ScreenRef(gconstpointer: gconstpointer(gdk_window_get_screen(window_ptr)))
+        return rv
     }
 
     /// Returns the event mask for `window` corresponding to the device class specified
     /// by `source`.
-    func getSourceEvents(source: InputSource) -> GdkEventMask {
-        let rv = gdk_window_get_source_events(cast(window_ptr), source)
-        return cast(rv)
+    @inlinable func getSourceEvents(source: GdkInputSource) -> EventMask {
+        let rv = EventMask(gdk_window_get_source_events(window_ptr, source))
+        return rv
     }
 
     /// Gets the bitwise OR of the currently active window state flags,
     /// from the `GdkWindowState` enumeration.
-    func getState() -> GdkWindowState {
-        let rv = gdk_window_get_state(cast(window_ptr))
-        return cast(rv)
+    @inlinable func getState() -> WindowState {
+        let rv = WindowState(gdk_window_get_state(window_ptr))
+        return rv
     }
 
     /// Returns `true` if the window is aware of the existence of multiple
     /// devices.
-    func getSupportMultidevice() -> Bool {
-        let rv = gdk_window_get_support_multidevice(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func getSupportMultidevice() -> Bool {
+        let rv = ((gdk_window_get_support_multidevice(window_ptr)) != 0)
+        return rv
     }
 
     /// Gets the toplevel window that’s an ancestor of `window`.
@@ -1135,15 +1212,15 @@ public extension WindowProtocol {
     /// you want to get to a window’s toplevel as seen on screen, because
     /// `gdk_window_get_toplevel()` will most likely not do what you expect
     /// if there are offscreen windows in the hierarchy.
-    func getToplevel() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_toplevel(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getToplevel() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_toplevel(window_ptr))) else { return nil }
+        return rv
     }
 
     /// This function returns the type hint set for a window.
-    func getTypeHint() -> GdkWindowTypeHint {
-        let rv = gdk_window_get_type_hint(cast(window_ptr))
-        return cast(rv)
+    @inlinable func getTypeHint() -> GdkWindowTypeHint {
+        let rv = gdk_window_get_type_hint(window_ptr)
+        return rv
     }
 
     /// Transfers ownership of the update area from `window` to the caller
@@ -1152,15 +1229,15 @@ public extension WindowProtocol {
     /// from `window` and handed to you. If a window has no update area,
     /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
     /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
-    func getUpdateArea() -> UnsafeMutablePointer<cairo_region_t>! {
-        let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_update_area(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getUpdateArea() -> RegionRef! {
+        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_update_area(window_ptr)))
+        return rv
     }
 
     /// Retrieves the user data for `window`, which is normally the widget
     /// that `window` belongs to. See `gdk_window_set_user_data()`.
-    func getUser(data: UnsafeMutablePointer<UnsafeMutableRawPointer>) {
-        gdk_window_get_user_data(cast(window_ptr), cast(data))
+    @inlinable func getUser(data: UnsafeMutablePointer<gpointer?>?) {
+        gdk_window_get_user_data(window_ptr, data)
     
     }
 
@@ -1168,15 +1245,15 @@ public extension WindowProtocol {
     /// This does not necessarily take into account if the window is
     /// obscured by other windows, but no area outside of this region
     /// is visible.
-    func getVisibleRegion() -> UnsafeMutablePointer<cairo_region_t>! {
-        let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_visible_region(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getVisibleRegion() -> RegionRef! {
+        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_visible_region(window_ptr)))
+        return rv
     }
 
     /// Gets the `GdkVisual` describing the pixel format of `window`.
-    func getVisual() -> UnsafeMutablePointer<GdkVisual>! {
-        let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_window_get_visual(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getVisual() -> VisualRef! {
+        let rv = VisualRef(gconstpointer: gconstpointer(gdk_window_get_visual(window_ptr)))
+        return rv
     }
 
     /// Returns the width of the given `window`.
@@ -1184,30 +1261,30 @@ public extension WindowProtocol {
     /// On the X11 platform the returned size is the size reported in the
     /// most-recently-processed configure event, rather than the current
     /// size on the X server.
-    func getWidth() -> Int {
-        let rv: Int = cast(gdk_window_get_width(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func getWidth() -> Int {
+        let rv = Int(gdk_window_get_width(window_ptr))
+        return rv
     }
 
     /// Gets the type of the window. See `GdkWindowType`.
-    func getWindowType() -> GdkWindowType {
-        let rv = gdk_window_get_window_type(cast(window_ptr))
-        return cast(rv)
+    @inlinable func getWindowType() -> GdkWindowType {
+        let rv = gdk_window_get_window_type(window_ptr)
+        return rv
     }
 
     /// Checks whether the window has a native window or not. Note that
     /// you can use `gdk_window_ensure_native()` if a native window is needed.
-    func hasNative() -> Bool {
-        let rv = gdk_window_has_native(cast(window_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasNative() -> Bool {
+        let rv = ((gdk_window_has_native(window_ptr)) != 0)
+        return rv
     }
 
     /// For toplevel windows, withdraws them, so they will no longer be
     /// known to the window manager; for all windows, unmaps them, so
     /// they won’t be displayed. Normally done automatically as
     /// part of `gtk_widget_hide()`.
-    func hide() {
-        gdk_window_hide(cast(window_ptr))
+    @inlinable func hide() {
+        gdk_window_hide(window_ptr)
     
     }
 
@@ -1216,8 +1293,8 @@ public extension WindowProtocol {
     /// `gtk_window_iconify()` is preferred, if you have a `GtkWindow` widget.
     /// 
     /// This function only makes sense when `window` is a toplevel window.
-    func iconify() {
-        gdk_window_iconify(cast(window_ptr))
+    @inlinable func iconify() {
+        gdk_window_iconify(window_ptr)
     
     }
 
@@ -1237,8 +1314,8 @@ public extension WindowProtocol {
     /// 
     /// On the Win32 platform, this functionality is not present and the
     /// function does nothing.
-    func inputShapeCombineRegion(shapeRegion shape_region: RegionProtocol, offsetX offset_x: CInt, offsetY offset_y: CInt) {
-        gdk_window_input_shape_combine_region(cast(window_ptr), cast(shape_region.ptr), gint(offset_x), gint(offset_y))
+    @inlinable func inputShapeCombineRegion<RegionT: RegionProtocol>(shapeRegion shape_region: RegionT, offsetX offset_x: Int, offsetY offset_y: Int) {
+        gdk_window_input_shape_combine_region(window_ptr, shape_region._ptr, gint(offset_x), gint(offset_y))
     
     }
 
@@ -1258,16 +1335,16 @@ public extension WindowProtocol {
     /// each child window that intersects `region` will also be invalidated.
     /// Only children for which `child_func` returns `TRUE` will have the area
     /// invalidated.
-    func invalidateMaybeRecurse(region: RegionProtocol, childFunc child_func: @escaping WindowChildFunc, userData user_data: UnsafeMutableRawPointer) {
-        gdk_window_invalidate_maybe_recurse(cast(window_ptr), cast(region.ptr), child_func, cast(user_data))
+    @inlinable func invalidateMaybeRecurse<RegionT: RegionProtocol>(region: RegionT, childFunc child_func: GdkWindowChildFunc? = nil, userData user_data: gpointer! = nil) {
+        gdk_window_invalidate_maybe_recurse(window_ptr, region._ptr, child_func, user_data)
     
     }
 
     /// A convenience wrapper around `gdk_window_invalidate_region()` which
     /// invalidates a rectangular region. See
     /// `gdk_window_invalidate_region()` for details.
-    func invalidate(rect: RectangleProtocol, invalidateChildren invalidate_children: Bool) {
-        gdk_window_invalidate_rect(cast(window_ptr), cast(rect.ptr), gboolean(invalidate_children ? 1 : 0))
+    @inlinable func invalidate<RectangleT: RectangleProtocol>(rect: RectangleT? = nil, invalidateChildren invalidate_children: Bool) {
+        gdk_window_invalidate_rect(window_ptr, rect?.rectangle_ptr, gboolean((invalidate_children) ? 1 : 0))
     
     }
 
@@ -1288,8 +1365,8 @@ public extension WindowProtocol {
     /// If `false`, then the update area for child windows will remain
     /// unaffected. See gdk_window_invalidate_maybe_recurse if you need
     /// fine grained control over which children are invalidated.
-    func invalidate(region: RegionProtocol, invalidateChildren invalidate_children: Bool) {
-        gdk_window_invalidate_region(cast(window_ptr), cast(region.ptr), gboolean(invalidate_children ? 1 : 0))
+    @inlinable func invalidate<RegionT: RegionProtocol>(region: RegionT, invalidateChildren invalidate_children: Bool) {
+        gdk_window_invalidate_region(window_ptr, region._ptr, gboolean((invalidate_children) ? 1 : 0))
     
     }
 
@@ -1303,8 +1380,8 @@ public extension WindowProtocol {
     /// 
     /// Note that `gdk_window_show()` raises the window again, so don’t call this
     /// function before `gdk_window_show()`. (Try `gdk_window_show_unraised()`.)
-    func lower() {
-        gdk_window_lower(cast(window_ptr))
+    @inlinable func lower() {
+        gdk_window_lower(window_ptr)
     
     }
 
@@ -1316,8 +1393,8 @@ public extension WindowProtocol {
     /// 
     /// This is typically called automatically by GTK+ and you don't need
     /// to care about this.
-    func markPaintFromClip(cr: cairo.ContextProtocol) {
-        gdk_window_mark_paint_from_clip(cast(window_ptr), cast(cr.ptr))
+    @inlinable func markPaintFromClip<ContextT: Cairo.ContextProtocol>(cr: ContextT) {
+        gdk_window_mark_paint_from_clip(window_ptr, cr._ptr)
     
     }
 
@@ -1332,8 +1409,8 @@ public extension WindowProtocol {
     /// and GDK makes a best effort to get it to happen.
     /// 
     /// On Windows, reliably maximizes the window.
-    func maximize() {
-        gdk_window_maximize(cast(window_ptr))
+    @inlinable func maximize() {
+        gdk_window_maximize(window_ptr)
     
     }
 
@@ -1345,8 +1422,8 @@ public extension WindowProtocol {
     /// This function is distinct from `gdk_window_set_child_input_shapes()`
     /// because it includes `window`’s input shape mask in the set of
     /// shapes to be merged.
-    func mergeChildInputShapes() {
-        gdk_window_merge_child_input_shapes(cast(window_ptr))
+    @inlinable func mergeChildInputShapes() {
+        gdk_window_merge_child_input_shapes(window_ptr)
     
     }
 
@@ -1358,8 +1435,8 @@ public extension WindowProtocol {
     /// This function is distinct from `gdk_window_set_child_shapes()`
     /// because it includes `window`’s shape mask in the set of shapes to
     /// be merged.
-    func mergeChildShapes() {
-        gdk_window_merge_child_shapes(cast(window_ptr))
+    @inlinable func mergeChildShapes() {
+        gdk_window_merge_child_shapes(window_ptr)
     
     }
 
@@ -1371,8 +1448,8 @@ public extension WindowProtocol {
     /// 
     /// If you’re also planning to resize the window, use `gdk_window_move_resize()`
     /// to both move and resize simultaneously, for a nicer visual effect.
-    func move(x: CInt, y: CInt) {
-        gdk_window_move(cast(window_ptr), gint(x), gint(y))
+    @inlinable func move(x: Int, y: Int) {
+        gdk_window_move(window_ptr, gint(x), gint(y))
     
     }
 
@@ -1381,8 +1458,8 @@ public extension WindowProtocol {
     /// that not covered by the new position of `region` are invalidated.
     /// 
     /// Child windows are not moved.
-    func move(region: RegionProtocol, dx: CInt, dy: CInt) {
-        gdk_window_move_region(cast(window_ptr), cast(region.ptr), gint(dx), gint(dy))
+    @inlinable func move<RegionT: RegionProtocol>(region: RegionT, dx: Int, dy: Int) {
+        gdk_window_move_region(window_ptr, region._ptr, gint(dx), gint(dy))
     
     }
 
@@ -1390,8 +1467,8 @@ public extension WindowProtocol {
     /// except that both operations are performed at once, avoiding strange
     /// visual effects. (i.e. the user may be able to see the window first
     /// move, then resize, if you don’t use `gdk_window_move_resize()`.)
-    func moveResize(x: CInt, y: CInt, width: CInt, height: CInt) {
-        gdk_window_move_resize(cast(window_ptr), gint(x), gint(y), gint(width), gint(height))
+    @inlinable func moveResize(x: Int, y: Int, width: Int, height: Int) {
+        gdk_window_move_resize(window_ptr, gint(x), gint(y), gint(width), gint(height))
     
     }
 
@@ -1410,16 +1487,16 @@ public extension WindowProtocol {
     /// 
     /// Connect to the `GdkWindow::moved`-to-rect signal to find out how it was
     /// actually positioned.
-    func moveTo(rect: RectangleProtocol, rectAnchor rect_anchor: Gravity, windowAnchor window_anchor: Gravity, anchorHints anchor_hints: AnchorHints, rectAnchorDx rect_anchor_dx: CInt, rectAnchorDy rect_anchor_dy: CInt) {
-        gdk_window_move_to_rect(cast(window_ptr), cast(rect.ptr), rect_anchor, window_anchor, anchor_hints.value, gint(rect_anchor_dx), gint(rect_anchor_dy))
+    @inlinable func moveTo<RectangleT: RectangleProtocol>(rect: RectangleT, rectAnchor rect_anchor: GdkGravity, windowAnchor window_anchor: GdkGravity, anchorHints anchor_hints: AnchorHints, rectAnchorDx rect_anchor_dx: Int, rectAnchorDy rect_anchor_dy: Int) {
+        gdk_window_move_to_rect(window_ptr, rect.rectangle_ptr, rect_anchor, window_anchor, anchor_hints.value, gint(rect_anchor_dx), gint(rect_anchor_dy))
     
     }
 
     /// Like `gdk_window_get_children()`, but does not copy the list of
     /// children, so the list does not need to be freed.
-    func peekChildren() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(gdk_window_peek_children(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func peekChildren() -> GLib.ListRef! {
+        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_peek_children(window_ptr)))
+        return rv
     }
 
     /// Sends one or more expose events to `window`. The areas in each
@@ -1433,8 +1510,8 @@ public extension WindowProtocol {
     ///
     /// **process_updates is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func processUpdates(updateChildren update_children: Bool) {
-        gdk_window_process_updates(cast(window_ptr), gboolean(update_children ? 1 : 0))
+    @available(*, deprecated) @inlinable func processUpdates(updateChildren update_children: Bool) {
+        gdk_window_process_updates(window_ptr, gboolean((update_children) ? 1 : 0))
     
     }
 
@@ -1445,27 +1522,27 @@ public extension WindowProtocol {
     /// If `window` is a toplevel, the window manager may choose to deny the
     /// request to move the window in the Z-order, `gdk_window_raise()` only
     /// requests the restack, does not guarantee it.
-    func raise() {
-        gdk_window_raise(cast(window_ptr))
+    @inlinable func raise() {
+        gdk_window_raise(window_ptr)
     
     }
 
     /// Registers a window as a potential drop destination.
-    func registerDnd() {
-        gdk_window_register_dnd(cast(window_ptr))
+    @inlinable func registerDnd() {
+        gdk_window_register_dnd(window_ptr)
     
     }
 
     /// Remove a filter previously added with `gdk_window_add_filter()`.
-    func removeFilter(function: @escaping FilterFunc, data: UnsafeMutableRawPointer) {
-        gdk_window_remove_filter(cast(window_ptr), function, cast(data))
+    @inlinable func removeFilter(function: GdkFilterFunc?, data: gpointer! = nil) {
+        gdk_window_remove_filter(window_ptr, function, data)
     
     }
 
     /// Reparents `window` into the given `new_parent`. The window being
     /// reparented will be unmapped as a side effect.
-    func reparent(newParent new_parent: WindowProtocol, x: CInt, y: CInt) {
-        gdk_window_reparent(cast(window_ptr), cast(new_parent.ptr), gint(x), gint(y))
+    @inlinable func reparent<WindowT: WindowProtocol>(newParent new_parent: WindowT, x: Int, y: Int) {
+        gdk_window_reparent(window_ptr, new_parent.window_ptr, gint(x), gint(y))
     
     }
 
@@ -1477,8 +1554,8 @@ public extension WindowProtocol {
     /// 
     /// If you’re also planning to move the window, use `gdk_window_move_resize()`
     /// to both move and resize simultaneously, for a nicer visual effect.
-    func resize(width: CInt, height: CInt) {
-        gdk_window_resize(cast(window_ptr), gint(width), gint(height))
+    @inlinable func resize(width: Int, height: Int) {
+        gdk_window_resize(window_ptr, gint(width), gint(height))
     
     }
 
@@ -1492,8 +1569,8 @@ public extension WindowProtocol {
     /// If `window` is a toplevel, the window manager may choose to deny the
     /// request to move the window in the Z-order, `gdk_window_restack()` only
     /// requests the restack, does not guarantee it.
-    func restack(sibling: WindowProtocol, above: Bool) {
-        gdk_window_restack(cast(window_ptr), cast(sibling.ptr), gboolean(above ? 1 : 0))
+    @inlinable func restack<WindowT: WindowProtocol>(sibling: WindowT? = nil, above: Bool) {
+        gdk_window_restack(window_ptr, sibling?.window_ptr, gboolean((above) ? 1 : 0))
     
     }
 
@@ -1508,8 +1585,8 @@ public extension WindowProtocol {
     /// beyond the edges of the window. In other cases, a multi-step process
     /// is used to scroll the window which may produce temporary visual
     /// artifacts and unnecessary invalidations.
-    func scroll(dx: CInt, dy: CInt) {
-        gdk_window_scroll(cast(window_ptr), gint(dx), gint(dy))
+    @inlinable func scroll(dx: Int, dy: Int) {
+        gdk_window_scroll(window_ptr, gint(dx), gint(dy))
     
     }
 
@@ -1518,8 +1595,8 @@ public extension WindowProtocol {
     /// 
     /// On X, it is the responsibility of the window manager to interpret this
     /// hint. ICCCM-compliant window manager usually respect it.
-    func set(acceptFocus accept_focus: Bool) {
-        gdk_window_set_accept_focus(cast(window_ptr), gboolean(accept_focus ? 1 : 0))
+    @inlinable func set(acceptFocus accept_focus: Bool) {
+        gdk_window_set_accept_focus(window_ptr, gboolean((accept_focus) ? 1 : 0))
     
     }
 
@@ -1532,8 +1609,8 @@ public extension WindowProtocol {
     ///
     /// **set_background is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) func setBackground(color: ColorProtocol) {
-        gdk_window_set_background(cast(window_ptr), cast(color.ptr))
+    @available(*, deprecated) @inlinable func setBackground<ColorT: ColorProtocol>(color: ColorT) {
+        gdk_window_set_background(window_ptr, color.color_ptr)
     
     }
 
@@ -1548,8 +1625,8 @@ public extension WindowProtocol {
     ///
     /// **set_background_pattern is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) func setBackground(pattern: PatternProtocol) {
-        gdk_window_set_background_pattern(cast(window_ptr), cast(pattern.ptr))
+    @available(*, deprecated) @inlinable func setBackground<PatternT: PatternProtocol>(pattern: PatternT? = nil) {
+        gdk_window_set_background_pattern(window_ptr, pattern?._ptr)
     
     }
 
@@ -1559,8 +1636,8 @@ public extension WindowProtocol {
     ///
     /// **set_background_rgba is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) func setBackground(rgba: RGBAProtocol) {
-        gdk_window_set_background_rgba(cast(window_ptr), cast(rgba.ptr))
+    @available(*, deprecated) @inlinable func setBackground<RGBAT: RGBAProtocol>(rgba: RGBAT) {
+        gdk_window_set_background_rgba(window_ptr, rgba.rgba_ptr)
     
     }
 
@@ -1568,8 +1645,8 @@ public extension WindowProtocol {
     /// for all children of `window`, ignoring the input shape mask of `window`
     /// itself. Contrast with `gdk_window_merge_child_input_shapes()` which includes
     /// the input shape mask of `window` in the masks to be merged.
-    func setChildInputShapes() {
-        gdk_window_set_child_input_shapes(cast(window_ptr))
+    @inlinable func setChildInputShapes() {
+        gdk_window_set_child_input_shapes(window_ptr)
     
     }
 
@@ -1577,8 +1654,8 @@ public extension WindowProtocol {
     /// for all children of `window`, ignoring the shape mask of `window`
     /// itself. Contrast with `gdk_window_merge_child_shapes()` which includes
     /// the shape mask of `window` in the masks to be merged.
-    func setChildShapes() {
-        gdk_window_set_child_shapes(cast(window_ptr))
+    @inlinable func setChildShapes() {
+        gdk_window_set_child_shapes(window_ptr)
     
     }
 
@@ -1608,8 +1685,8 @@ public extension WindowProtocol {
     /// **set_composited is deprecated:**
     /// Compositing is an outdated technology that
     ///   only ever worked on X11.
-    @available(*, deprecated) func set(composited: Bool) {
-        gdk_window_set_composited(cast(window_ptr), gboolean(composited ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(composited: Bool) {
+        gdk_window_set_composited(window_ptr, gboolean((composited) ? 1 : 0))
     
     }
 
@@ -1622,8 +1699,8 @@ public extension WindowProtocol {
     /// Passing `nil` for the `cursor` argument to `gdk_window_set_cursor()` means
     /// that `window` will use the cursor of its parent window. Most windows
     /// should use this default.
-    func set(cursor: CursorProtocol) {
-        gdk_window_set_cursor(cast(window_ptr), cast(cursor.ptr))
+    @inlinable func set<CursorT: CursorProtocol>(cursor: CursorT? = nil) {
+        gdk_window_set_cursor(window_ptr, cursor?.cursor_ptr)
     
     }
 
@@ -1641,8 +1718,8 @@ public extension WindowProtocol {
     /// 
     /// Most window managers honor a decorations hint of 0 to disable all decorations,
     /// but very few honor all possible combinations of bits.
-    func set(decorations: WMDecoration) {
-        gdk_window_set_decorations(cast(window_ptr), decorations.value)
+    @inlinable func set(decorations: WMDecoration) {
+        gdk_window_set_decorations(window_ptr, decorations.value)
     
     }
 
@@ -1652,8 +1729,8 @@ public extension WindowProtocol {
     /// `nil` for the `cursor` argument to `gdk_window_set_cursor()` means that
     /// `window` will use the cursor of its parent window. Most windows should
     /// use this default.
-    func setDeviceCursor(device: DeviceProtocol, cursor: CursorProtocol) {
-        gdk_window_set_device_cursor(cast(window_ptr), cast(device.ptr), cast(cursor.ptr))
+    @inlinable func setDeviceCursor<CursorT: CursorProtocol, DeviceT: DeviceProtocol>(device: DeviceT, cursor: CursorT) {
+        gdk_window_set_device_cursor(window_ptr, device.device_ptr, cursor.cursor_ptr)
     
     }
 
@@ -1664,8 +1741,8 @@ public extension WindowProtocol {
     /// `GdkEventMask` enumeration.
     /// 
     /// See the [input handling overview](#event-masks) for details.
-    func setDeviceEvents(device: DeviceProtocol, eventMask event_mask: EventMask) {
-        gdk_window_set_device_events(cast(window_ptr), cast(device.ptr), event_mask.value)
+    @inlinable func setDeviceEvents<DeviceT: DeviceProtocol>(device: DeviceT, eventMask event_mask: EventMask) {
+        gdk_window_set_device_events(window_ptr, device.device_ptr, event_mask.value)
     
     }
 
@@ -1677,8 +1754,8 @@ public extension WindowProtocol {
     /// motion events and will benefit from turning off event compression.
     /// 
     /// By default, event compression is enabled.
-    func set(eventCompression event_compression: Bool) {
-        gdk_window_set_event_compression(cast(window_ptr), gboolean(event_compression ? 1 : 0))
+    @inlinable func set(eventCompression event_compression: Bool) {
+        gdk_window_set_event_compression(window_ptr, gboolean((event_compression) ? 1 : 0))
     
     }
 
@@ -1689,8 +1766,8 @@ public extension WindowProtocol {
     /// `GdkEventMask` enumeration.
     /// 
     /// See the [input handling overview](#event-masks) for details.
-    func setEvents(eventMask event_mask: EventMask) {
-        gdk_window_set_events(cast(window_ptr), event_mask.value)
+    @inlinable func setEvents(eventMask event_mask: EventMask) {
+        gdk_window_set_events(window_ptr, event_mask.value)
     
     }
 
@@ -1702,8 +1779,8 @@ public extension WindowProtocol {
     /// On X, it is the responsibility of the window manager to interpret
     /// this hint. Window managers following the freedesktop.org window
     /// manager extension specification should respect it.
-    func set(focusOnMap focus_on_map: Bool) {
-        gdk_window_set_focus_on_map(cast(window_ptr), gboolean(focus_on_map ? 1 : 0))
+    @inlinable func set(focusOnMap focus_on_map: Bool) {
+        gdk_window_set_focus_on_map(window_ptr, gboolean((focus_on_map) ? 1 : 0))
     
     }
 
@@ -1724,8 +1801,8 @@ public extension WindowProtocol {
     /// Not all window managers support this, so you can’t rely on the fullscreen
     /// window to span over the multiple monitors when `GDK_FULLSCREEN_ON_ALL_MONITORS`
     /// is specified.
-    func setFullscreen(mode: FullscreenMode) {
-        gdk_window_set_fullscreen_mode(cast(window_ptr), mode)
+    @inlinable func setFullscreen(mode: GdkFullscreenMode) {
+        gdk_window_set_fullscreen_mode(window_ptr, mode)
     
     }
 
@@ -1742,8 +1819,8 @@ public extension WindowProtocol {
     /// then the other bits indicate which functions to disable; if
     /// it doesn’t include `GDK_FUNC_ALL`, it indicates which functions to
     /// enable.
-    func set(functions: WMFunction) {
-        gdk_window_set_functions(cast(window_ptr), functions.value)
+    @inlinable func set(functions: WMFunction) {
+        gdk_window_set_functions(window_ptr, functions.value)
     
     }
 
@@ -1768,8 +1845,8 @@ public extension WindowProtocol {
     /// constraints for programmatic resizes, you should generally
     /// call `gdk_window_constrain_size()` yourself to determine
     /// appropriate sizes.
-    func setGeometryHints(geometry: GeometryProtocol, geomMask geom_mask: WindowHints) {
-        gdk_window_set_geometry_hints(cast(window_ptr), cast(geometry.ptr), geom_mask.value)
+    @inlinable func setGeometryHints<GeometryT: GeometryProtocol>(geometry: GeometryT, geomMask geom_mask: WindowHints) {
+        gdk_window_set_geometry_hints(window_ptr, geometry._ptr, geom_mask.value)
     
     }
 
@@ -1783,8 +1860,8 @@ public extension WindowProtocol {
     /// allow users to minimize/unminimize all windows belonging to an
     /// application at once. You should only set a non-default group window
     /// if your application pretends to be multiple applications.
-    func setGroup(leader: WindowProtocol) {
-        gdk_window_set_group(cast(window_ptr), cast(leader.ptr))
+    @inlinable func setGroup<WindowT: WindowProtocol>(leader: WindowT? = nil) {
+        gdk_window_set_group(window_ptr, leader?.window_ptr)
     
     }
 
@@ -1797,8 +1874,8 @@ public extension WindowProtocol {
     /// icon by a small amount or not at all.
     /// 
     /// Note that some platforms don't support window icons.
-    func setIconList(pixbufs: ListProtocol) {
-        gdk_window_set_icon_list(cast(window_ptr), cast(pixbufs.ptr))
+    @inlinable func setIconList<ListT: ListProtocol>(pixbufs: ListT) {
+        gdk_window_set_icon_list(window_ptr, pixbufs._ptr)
     
     }
 
@@ -1814,8 +1891,8 @@ public extension WindowProtocol {
     /// `gdk_window_set_title()` will again update the icon title as well.
     /// 
     /// Note that some platforms don't support window icons.
-    func setIcon(name: UnsafePointer<gchar>) {
-        gdk_window_set_icon_name(cast(window_ptr), name)
+    @inlinable func setIcon(name: UnsafePointer<gchar>? = nil) {
+        gdk_window_set_icon_name(window_ptr, name)
     
     }
 
@@ -1828,8 +1905,8 @@ public extension WindowProtocol {
     /// and want to keep it up to date. You can also modify the
     /// invalidated region in case you’re doing some effect where
     /// e.g. a child widget appears in multiple places.
-    func setInvalidate(handler: @escaping WindowInvalidateHandlerFunc) {
-        gdk_window_set_invalidate_handler(cast(window_ptr), handler)
+    @inlinable func setInvalidate(handler: GdkWindowInvalidateHandlerFunc?) {
+        gdk_window_set_invalidate_handler(window_ptr, handler)
     
     }
 
@@ -1842,8 +1919,8 @@ public extension WindowProtocol {
     /// “keep above”; so you can’t rely on the window being kept above.
     /// But it will happen with most standard window managers,
     /// and GDK makes a best effort to get it to happen.
-    func setKeepAbove(setting: Bool) {
-        gdk_window_set_keep_above(cast(window_ptr), gboolean(setting ? 1 : 0))
+    @inlinable func setKeepAbove(setting: Bool) {
+        gdk_window_set_keep_above(window_ptr, gboolean((setting) ? 1 : 0))
     
     }
 
@@ -1856,8 +1933,8 @@ public extension WindowProtocol {
     /// “keep below”; so you can’t rely on the window being kept below.
     /// But it will happen with most standard window managers,
     /// and GDK makes a best effort to get it to happen.
-    func setKeepBelow(setting: Bool) {
-        gdk_window_set_keep_below(cast(window_ptr), gboolean(setting ? 1 : 0))
+    @inlinable func setKeepBelow(setting: Bool) {
+        gdk_window_set_keep_below(window_ptr, gboolean((setting) ? 1 : 0))
     
     }
 
@@ -1868,8 +1945,8 @@ public extension WindowProtocol {
     /// 
     /// You should only use this on windows for which you have
     /// previously called `gdk_window_set_transient_for()`
-    func setModalHint(modal: Bool) {
-        gdk_window_set_modal_hint(cast(window_ptr), gboolean(modal ? 1 : 0))
+    @inlinable func setModalHint(modal: Bool) {
+        gdk_window_set_modal_hint(window_ptr, gboolean((modal) ? 1 : 0))
     
     }
 
@@ -1892,8 +1969,8 @@ public extension WindowProtocol {
     /// and for non-toplevels, see `gdk_window_set_composited()`.
     /// 
     /// Support for non-toplevel windows was added in 3.8.
-    func set(opacity: gdouble) {
-        gdk_window_set_opacity(cast(window_ptr), opacity)
+    @inlinable func set(opacity: Double) {
+        gdk_window_set_opacity(window_ptr, gdouble(opacity))
     
     }
 
@@ -1910,8 +1987,8 @@ public extension WindowProtocol {
     /// the `window` background is opaque, as we know where the opaque regions
     /// are. If your window background is not opaque, please update this
     /// property in your `GtkWidget::style`-updated handler.
-    func setOpaque(region: RegionProtocol) {
-        gdk_window_set_opaque_region(cast(window_ptr), cast(region.ptr))
+    @inlinable func setOpaque<RegionT: RegionProtocol>(region: RegionT? = nil) {
+        gdk_window_set_opaque_region(window_ptr, region?._ptr)
     
     }
 
@@ -1923,8 +2000,8 @@ public extension WindowProtocol {
     /// Override redirect should only be used for short-lived temporary
     /// windows, such as popup menus. `GtkMenu` uses an override redirect
     /// window in its implementation, for example.
-    func set(overrideRedirect override_redirect: Bool) {
-        gdk_window_set_override_redirect(cast(window_ptr), gboolean(override_redirect ? 1 : 0))
+    @inlinable func set(overrideRedirect override_redirect: Bool) {
+        gdk_window_set_override_redirect(window_ptr, gboolean((override_redirect) ? 1 : 0))
     
     }
 
@@ -1946,8 +2023,8 @@ public extension WindowProtocol {
     /// without pass through, so you can get events on a subset of a window. And in
     /// that cases you would get the in-between related events such as the pointer
     /// enter/leave events on its way to the destination window.
-    func set(passThrough pass_through: Bool) {
-        gdk_window_set_pass_through(cast(window_ptr), gboolean(pass_through ? 1 : 0))
+    @inlinable func set(passThrough pass_through: Bool) {
+        gdk_window_set_pass_through(window_ptr, gboolean((pass_through) ? 1 : 0))
     
     }
 
@@ -1963,8 +2040,8 @@ public extension WindowProtocol {
     /// should set the role on those windows. It doesn’t matter what string
     /// you use for the role, as long as you have a different role for each
     /// non-interchangeable kind of window.
-    func set(role: UnsafePointer<gchar>) {
-        gdk_window_set_role(cast(window_ptr), role)
+    @inlinable func set(role: UnsafePointer<gchar>!) {
+        gdk_window_set_role(window_ptr, role)
     
     }
 
@@ -1977,8 +2054,8 @@ public extension WindowProtocol {
     /// Note that this property is automatically updated by GTK+, so this
     /// function should only be used by applications which do not use GTK+
     /// to create toplevel windows.
-    func setShadowWidth(left_: CInt, right_: CInt, top: CInt, bottom: CInt) {
-        gdk_window_set_shadow_width(cast(window_ptr), gint(left_), gint(right_), gint(top), gint(bottom))
+    @inlinable func setShadowWidth(`left`: Int, `right`: Int, top: Int, bottom: Int) {
+        gdk_window_set_shadow_width(window_ptr, gint(`left`), gint(`right`), gint(top), gint(bottom))
     
     }
 
@@ -1990,8 +2067,8 @@ public extension WindowProtocol {
     /// not be called in addition, instead you should
     /// allow the window to be treated according to standard policy for
     /// its semantic type.
-    func setSkipPagerHint(skipsPager skips_pager: Bool) {
-        gdk_window_set_skip_pager_hint(cast(window_ptr), gboolean(skips_pager ? 1 : 0))
+    @inlinable func setSkipPagerHint(skipsPager skips_pager: Bool) {
+        gdk_window_set_skip_pager_hint(window_ptr, gboolean((skips_pager) ? 1 : 0))
     
     }
 
@@ -2001,8 +2078,8 @@ public extension WindowProtocol {
     /// function should not be called in addition,
     /// instead you should allow the window to be treated according to
     /// standard policy for its semantic type.
-    func setSkipTaskbarHint(skipsTaskbar skips_taskbar: Bool) {
-        gdk_window_set_skip_taskbar_hint(cast(window_ptr), gboolean(skips_taskbar ? 1 : 0))
+    @inlinable func setSkipTaskbarHint(skipsTaskbar skips_taskbar: Bool) {
+        gdk_window_set_skip_taskbar_hint(window_ptr, gboolean((skips_taskbar) ? 1 : 0))
     
     }
 
@@ -2010,15 +2087,15 @@ public extension WindowProtocol {
     /// visible pointer) that has the source defined as `source`. This event
     /// mask will be applied both to currently existing, newly added devices
     /// after this call, and devices being attached/detached.
-    func setSourceEvents(source: InputSource, eventMask event_mask: EventMask) {
-        gdk_window_set_source_events(cast(window_ptr), source, event_mask.value)
+    @inlinable func setSourceEvents(source: GdkInputSource, eventMask event_mask: EventMask) {
+        gdk_window_set_source_events(window_ptr, source, event_mask.value)
     
     }
 
     /// When using GTK+, typically you should use `gtk_window_set_startup_id()`
     /// instead of this low-level function.
-    func set(startupId startup_id: UnsafePointer<gchar>) {
-        gdk_window_set_startup_id(cast(window_ptr), startup_id)
+    @inlinable func set(startupId startup_id: UnsafePointer<gchar>!) {
+        gdk_window_set_startup_id(window_ptr, startup_id)
     
     }
 
@@ -2030,17 +2107,17 @@ public extension WindowProtocol {
     /// **set_static_gravities is deprecated:**
     /// static gravities haven't worked on anything but X11
     ///   for a long time.
-    @available(*, deprecated) func setStaticGravities(useStatic use_static: Bool) -> Bool {
-        let rv = gdk_window_set_static_gravities(cast(window_ptr), gboolean(use_static ? 1 : 0))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func setStaticGravities(useStatic use_static: Bool) -> Bool {
+        let rv = ((gdk_window_set_static_gravities(window_ptr, gboolean((use_static) ? 1 : 0))) != 0)
+        return rv
     }
 
     /// This function will enable multidevice features in `window`.
     /// 
     /// Multidevice aware windows will need to handle properly multiple,
     /// per device enter/leave events, device grabs and grab ownerships.
-    func set(supportMultidevice support_multidevice: Bool) {
-        gdk_window_set_support_multidevice(cast(window_ptr), gboolean(support_multidevice ? 1 : 0))
+    @inlinable func set(supportMultidevice support_multidevice: Bool) {
+        gdk_window_set_support_multidevice(window_ptr, gboolean((support_multidevice) ? 1 : 0))
     
     }
 
@@ -2049,8 +2126,8 @@ public extension WindowProtocol {
     /// (using `gdk_window_set_icon_name()`), the icon name will be set to
     /// `title` as well. `title` must be in UTF-8 encoding (as with all
     /// user-readable strings in GDK/GTK+). `title` may not be `nil`.
-    func set(title: UnsafePointer<gchar>) {
-        gdk_window_set_title(cast(window_ptr), title)
+    @inlinable func set(title: UnsafePointer<gchar>!) {
+        gdk_window_set_title(window_ptr, title)
     
     }
 
@@ -2061,8 +2138,8 @@ public extension WindowProtocol {
     /// 
     /// See `gtk_window_set_transient_for()` if you’re using `GtkWindow` or
     /// `GtkDialog`.
-    func setTransientFor(parent: WindowProtocol) {
-        gdk_window_set_transient_for(cast(window_ptr), cast(parent.ptr))
+    @inlinable func setTransientFor<WindowT: WindowProtocol>(parent: WindowT) {
+        gdk_window_set_transient_for(window_ptr, parent.window_ptr)
     
     }
 
@@ -2072,15 +2149,15 @@ public extension WindowProtocol {
     /// of the window.
     /// 
     /// The hint must be set before the window is mapped.
-    func setType(hint: WindowTypeHint) {
-        gdk_window_set_type_hint(cast(window_ptr), hint)
+    @inlinable func setType(hint: GdkWindowTypeHint) {
+        gdk_window_set_type_hint(window_ptr, hint)
     
     }
 
     /// Toggles whether a window needs the user's
     /// urgent attention.
-    func setUrgencyHint(urgent: Bool) {
-        gdk_window_set_urgency_hint(cast(window_ptr), gboolean(urgent ? 1 : 0))
+    @inlinable func setUrgencyHint(urgent: Bool) {
+        gdk_window_set_urgency_hint(window_ptr, gboolean((urgent) ? 1 : 0))
     
     }
 
@@ -2091,8 +2168,8 @@ public extension WindowProtocol {
     /// this function for that. If GTK+ receives an event for a `GdkWindow`,
     /// and the user data for the window is non-`nil`, GTK+ will assume the
     /// user data is a `GtkWidget`, and forward the event to that widget.
-    func set(userData user_data: ObjectProtocol) {
-        gdk_window_set_user_data(cast(window_ptr), cast(user_data.ptr))
+    @inlinable func set<ObjectT: ObjectProtocol>(userData user_data: ObjectT? = nil) {
+        gdk_window_set_user_data(window_ptr, user_data?.object_ptr)
     
     }
 
@@ -2110,8 +2187,8 @@ public extension WindowProtocol {
     /// will do nothing.
     /// 
     /// This function works on both toplevel and child windows.
-    func shapeCombineRegion(shapeRegion shape_region: RegionProtocol, offsetX offset_x: CInt, offsetY offset_y: CInt) {
-        gdk_window_shape_combine_region(cast(window_ptr), cast(shape_region.ptr), gint(offset_x), gint(offset_y))
+    @inlinable func shapeCombineRegion<RegionT: RegionProtocol>(shapeRegion shape_region: RegionT? = nil, offsetX offset_x: Int, offsetY offset_y: Int) {
+        gdk_window_shape_combine_region(window_ptr, shape_region?._ptr, gint(offset_x), gint(offset_y))
     
     }
 
@@ -2124,8 +2201,8 @@ public extension WindowProtocol {
     /// 
     /// When implementing a `GtkWidget`, you should call this function on the widget's
     /// `GdkWindow` as part of the “map” method.
-    func show() {
-        gdk_window_show(cast(window_ptr))
+    @inlinable func show() {
+        gdk_window_show(window_ptr)
     
     }
 
@@ -2136,8 +2213,8 @@ public extension WindowProtocol {
     /// On the X11 platform, in Xlib terms, this function calls
     /// `XMapWindow()` (it also updates some internal GDK state, which means
     /// that you can’t really use `XMapWindow()` directly on a GDK window).
-    func showUnraised() {
-        gdk_window_show_unraised(cast(window_ptr))
+    @inlinable func showUnraised() {
+        gdk_window_show_unraised(window_ptr)
     
     }
 
@@ -2146,9 +2223,9 @@ public extension WindowProtocol {
     /// windows managed by the window manager. This is useful for windows
     /// using client-side decorations, activating it with a right-click
     /// on the window decorations.
-    func showWindowMenu(event: EventProtocol) -> Bool {
-        let rv = gdk_window_show_window_menu(cast(window_ptr), cast(event.ptr))
-        return Bool(rv != 0)
+    @inlinable func showWindowMenu<EventT: EventProtocol>(event: EventT) -> Bool {
+        let rv = ((gdk_window_show_window_menu(window_ptr, event.event_ptr)) != 0)
+        return rv
     }
 
     /// “Pins” a window such that it’s on all workspaces and does not scroll
@@ -2160,8 +2237,8 @@ public extension WindowProtocol {
     /// GDK will do the best it can to convince the window manager to stick
     /// the window. For window managers that don’t support this operation,
     /// there’s nothing you can do to force it to happen.
-    func stick() {
-        gdk_window_stick(cast(window_ptr))
+    @inlinable func stick() {
+        gdk_window_stick(window_ptr)
     
     }
 
@@ -2173,14 +2250,14 @@ public extension WindowProtocol {
     ///
     /// **thaw_toplevel_updates_libgtk_only is deprecated:**
     /// This symbol was never meant to be used outside of GTK+
-    @available(*, deprecated) func thawToplevelUpdatesLibgtkOnly() {
-        gdk_window_thaw_toplevel_updates_libgtk_only(cast(window_ptr))
+    @available(*, deprecated) @inlinable func thawToplevelUpdatesLibgtkOnly() {
+        gdk_window_thaw_toplevel_updates_libgtk_only(window_ptr)
     
     }
 
     /// Thaws a window frozen with `gdk_window_freeze_updates()`.
-    func thawUpdates() {
-        gdk_window_thaw_updates(cast(window_ptr))
+    @inlinable func thawUpdates() {
+        gdk_window_thaw_updates(window_ptr)
     
     }
 
@@ -2194,8 +2271,8 @@ public extension WindowProtocol {
     /// unfullscreenification actually happening. But it will happen with
     /// most standard window managers, and GDK makes a best effort to get
     /// it to happen.
-    func unfullscreen() {
-        gdk_window_unfullscreen(cast(window_ptr))
+    @inlinable func unfullscreen() {
+        gdk_window_unfullscreen(window_ptr)
     
     }
 
@@ -2210,23 +2287,23 @@ public extension WindowProtocol {
     /// managers, and GDK makes a best effort to get it to happen.
     /// 
     /// On Windows, reliably unmaximizes the window.
-    func unmaximize() {
-        gdk_window_unmaximize(cast(window_ptr))
+    @inlinable func unmaximize() {
+        gdk_window_unmaximize(window_ptr)
     
     }
 
     /// Reverse operation for `gdk_window_stick()`; see `gdk_window_stick()`,
     /// and `gtk_window_unstick()`.
-    func unstick() {
-        gdk_window_unstick(cast(window_ptr))
+    @inlinable func unstick() {
+        gdk_window_unstick(window_ptr)
     
     }
 
     /// Withdraws a window (unmaps it and asks the window manager to forget about it).
     /// This function is not really useful as `gdk_window_hide()` automatically
     /// withdraws toplevel windows before hiding them.
-    func withdraw() {
-        gdk_window_withdraw(cast(window_ptr))
+    @inlinable func withdraw() {
+        gdk_window_withdraw(window_ptr)
     
     }
 
@@ -2246,9 +2323,9 @@ public extension WindowProtocol {
     /// **cairo_create is deprecated:**
     /// Use gdk_window_begin_draw_frame() and
     ///   gdk_drawing_context_get_cairo_context() instead
-    @available(*, deprecated) func cairoCreate() -> UnsafeMutablePointer<cairo_t>! {
-        let rv: UnsafeMutablePointer<cairo_t>! = cast(gdk_cairo_create(cast(window_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func cairoCreate() -> Cairo.ContextRef! {
+        let rv = Cairo.ContextRef(gconstpointer: gconstpointer(gdk_cairo_create(window_ptr)))
+        return rv
     }
 
     /// This is the main way to draw GL content in GTK+. It takes a render buffer ID
@@ -2267,8 +2344,8 @@ public extension WindowProtocol {
     /// with alpha components, so make sure you use `GL_TEXTURE` if using alpha.
     /// 
     /// Calling this may change the current GL context.
-    func cairoDrawFromGl(cr: cairo.ContextProtocol, source: CInt, sourceType source_type: CInt, bufferScale buffer_scale: CInt, x: CInt, y: CInt, width: CInt, height: CInt) {
-        gdk_cairo_draw_from_gl(cast(cr.ptr), cast(window_ptr), source, source_type, buffer_scale, x, y, width, height)
+    @inlinable func cairoDrawFromGl<ContextT: Cairo.ContextProtocol>(cr: ContextT, source: Int, sourceType source_type: Int, bufferScale buffer_scale: Int, x: Int, y: Int, width: Int, height: Int) {
+        gdk_cairo_draw_from_gl(cr._ptr, window_ptr, gint(source), gint(source_type), gint(buffer_scale), gint(x), gint(y), gint(width), gint(height))
     
     }
 
@@ -2280,16 +2357,16 @@ public extension WindowProtocol {
     /// 
     /// Note that the contents of `window` are undefined outside of the
     /// visible part of `window`, so use this function with care.
-    func cairoSetSourceWindow(cr: cairo.ContextProtocol, x: gdouble, y: gdouble) {
-        gdk_cairo_set_source_window(cast(cr.ptr), cast(window_ptr), x, y)
+    @inlinable func cairoSetSourceWindow<ContextT: Cairo.ContextProtocol>(cr: ContextT, x: Double, y: Double) {
+        gdk_cairo_set_source_window(cr._ptr, window_ptr, gdouble(x), gdouble(y))
     
     }
 
     /// Creates an image surface with the same contents as
     /// the pixbuf.
-    func cairoSurfaceCreateFrom(pixbuf: PixbufProtocol, scale: CInt) -> UnsafeMutablePointer<cairo_surface_t>! {
-        let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_cairo_surface_create_from_pixbuf(cast(pixbuf.ptr), scale, cast(window_ptr)))
-        return cast(rv)
+    @inlinable func cairoSurfaceCreateFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT, scale: Int) -> SurfaceRef! {
+        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_cairo_surface_create_from_pixbuf(pixbuf.pixbuf_ptr, gint(scale), window_ptr)))
+        return rv
     }
 
     /// Starts a drag and creates a new drag context for it.
@@ -2298,25 +2375,25 @@ public extension WindowProtocol {
     /// begin a drag with a different device.
     /// 
     /// This function is called by the drag source.
-    func dragBegin(targets: ListProtocol) -> UnsafeMutablePointer<GdkDragContext>! {
-        let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin(cast(window_ptr), cast(targets.ptr)))
-        return cast(rv)
+    @inlinable func dragBegin<ListT: ListProtocol>(targets: ListT) -> DragContextRef! {
+        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin(window_ptr, targets._ptr)))
+        return rv
     }
 
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    func dragBeginFor(device: DeviceProtocol, targets: ListProtocol) -> UnsafeMutablePointer<GdkDragContext>! {
-        let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_for_device(cast(window_ptr), cast(device.ptr), cast(targets.ptr)))
-        return cast(rv)
+    @inlinable func dragBeginFor<DeviceT: DeviceProtocol, ListT: ListProtocol>(device: DeviceT, targets: ListT) -> DragContextRef! {
+        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_for_device(window_ptr, device.device_ptr, targets._ptr)))
+        return rv
     }
 
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    func dragBeginFromPoint(device: DeviceProtocol, targets: ListProtocol, xRoot x_root: CInt, yRoot y_root: CInt) -> UnsafeMutablePointer<GdkDragContext>! {
-        let rv: UnsafeMutablePointer<GdkDragContext>! = cast(gdk_drag_begin_from_point(cast(window_ptr), cast(device.ptr), cast(targets.ptr), gint(x_root), gint(y_root)))
-        return cast(rv)
+    @inlinable func dragBeginFromPoint<DeviceT: DeviceProtocol, ListT: ListProtocol>(device: DeviceT, targets: ListT, xRoot x_root: Int, yRoot y_root: Int) -> DragContextRef! {
+        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window_ptr, device.device_ptr, targets._ptr, gint(x_root), gint(y_root))))
+        return rv
     }
 
     /// Finds the destination window and DND protocol to use at the
@@ -2324,8 +2401,8 @@ public extension WindowProtocol {
     /// 
     /// This function is called by the drag source to obtain the
     /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
-    func dragFindWindowForScreen(context: DragContextProtocol, screen: ScreenProtocol, xRoot x_root: CInt, yRoot y_root: CInt, destWindow dest_window: WindowProtocol, protocol_: UnsafeMutablePointer<GdkDragProtocol>) {
-        gdk_drag_find_window_for_screen(cast(context.ptr), cast(window_ptr), cast(screen.ptr), gint(x_root), gint(y_root), cast(dest_window.ptr), cast(protocol_))
+    @inlinable func dragFindWindowForScreen<DragContextT: DragContextProtocol, ScreenT: ScreenProtocol>(context: DragContextT, screen: ScreenT, xRoot x_root: Int, yRoot y_root: Int, destWindow dest_window: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
+        gdk_drag_find_window_for_screen(context.drag_context_ptr, window_ptr, screen.screen_ptr, gint(x_root), gint(y_root), dest_window, `protocol`)
     
     }
 
@@ -2336,9 +2413,9 @@ public extension WindowProtocol {
     /// 
     /// This function does not need to be called in managed drag and drop
     /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-    func dragMotion(context: DragContextProtocol, protocol_: Drag_Protocol, xRoot x_root: CInt, yRoot y_root: CInt, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: UInt32) -> Bool {
-        let rv = gdk_drag_motion(cast(context.ptr), cast(window_ptr), protocol_, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, guint32(time_))
-        return Bool(rv != 0)
+    @inlinable func dragMotion<DragContextT: DragContextProtocol>(context: DragContextT, `protocol`: GdkDragProtocol, xRoot x_root: Int, yRoot y_root: Int, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: guint32) -> Bool {
+        let rv = ((gdk_drag_motion(context.drag_context_ptr, window_ptr, `protocol`, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, time_)) != 0)
+        return rv
     }
 
     /// Grabs the keyboard so that all events are passed to this
@@ -2351,23 +2428,23 @@ public extension WindowProtocol {
     ///
     /// **keyboard_grab is deprecated:**
     /// Use gdk_device_grab() instead.
-    @available(*, deprecated) func keyboardGrab(ownerEvents owner_events: Bool, time_: UInt32) -> GdkGrabStatus {
-        let rv = gdk_keyboard_grab(cast(window_ptr), gboolean(owner_events ? 1 : 0), guint32(time_))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func keyboardGrab(ownerEvents owner_events: Bool, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_keyboard_grab(window_ptr, gboolean((owner_events) ? 1 : 0), time_)
+        return rv
     }
 
     /// Gets the window that `window` is embedded in.
-    func offscreenWindowGetEmbedder() -> UnsafeMutablePointer<GdkWindow>! {
-        let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_offscreen_window_get_embedder(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func offscreenWindowGetEmbedder() -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_offscreen_window_get_embedder(window_ptr))) else { return nil }
+        return rv
     }
 
     /// Gets the offscreen surface that an offscreen window renders into.
     /// If you need to keep this around over window resizes, you need to
     /// add a reference to it.
-    func offscreenWindowGetSurface() -> UnsafeMutablePointer<cairo_surface_t>! {
-        let rv: UnsafeMutablePointer<cairo_surface_t>! = cast(gdk_offscreen_window_get_surface(cast(window_ptr)))
-        return cast(rv)
+    @inlinable func offscreenWindowGetSurface() -> SurfaceRef! {
+        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_offscreen_window_get_surface(window_ptr)))
+        return rv
     }
 
     /// Sets `window` to be embedded in `embedder`.
@@ -2376,8 +2453,8 @@ public extension WindowProtocol {
     /// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
     /// signal on the `embedder` and the `GdkWindow::to`-embedder and
     /// `GdkWindow::from`-embedder signals on `window`.
-    func offscreenWindowSet(embedder: WindowProtocol) {
-        gdk_offscreen_window_set_embedder(cast(window_ptr), cast(embedder.ptr))
+    @inlinable func offscreenWindowSet<WindowT: WindowProtocol>(embedder: WindowT) {
+        gdk_offscreen_window_set_embedder(window_ptr, embedder.window_ptr)
     
     }
 
@@ -2407,9 +2484,9 @@ public extension WindowProtocol {
     /// 
     /// (In short, there are several ways this function can fail, and if it fails
     ///  it returns `nil`; so check the return value.)
-    func pixbufGetFromWindow(srcX src_x: CInt, srcY src_y: CInt, width: CInt, height: CInt) -> UnsafeMutablePointer<GdkPixbuf>! {
-        let rv: UnsafeMutablePointer<GdkPixbuf>! = cast(gdk_pixbuf_get_from_window(cast(window_ptr), gint(src_x), gint(src_y), gint(width), gint(height)))
-        return cast(rv)
+    @inlinable func pixbufGetFromWindow(srcX src_x: Int, srcY src_y: Int, width: Int, height: Int) -> PixbufRef! {
+        let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_window(window_ptr, gint(src_x), gint(src_y), gint(width), gint(height))))
+        return rv
     }
 
     /// Grabs the pointer (usually a mouse) so that all events are passed to this
@@ -2436,82 +2513,69 @@ public extension WindowProtocol {
     ///
     /// **pointer_grab is deprecated:**
     /// Use gdk_device_grab() instead.
-    @available(*, deprecated) func pointerGrab(ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowProtocol, cursor: CursorProtocol, time_: UInt32) -> GdkGrabStatus {
-        let rv = gdk_pointer_grab(cast(window_ptr), gboolean(owner_events ? 1 : 0), event_mask.value, cast(confine_to.ptr), cast(cursor.ptr), guint32(time_))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func pointerGrab<CursorT: CursorProtocol, WindowT: WindowProtocol>(ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowT? = nil, cursor: CursorT? = nil, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_pointer_grab(window_ptr, gboolean((owner_events) ? 1 : 0), event_mask.value, confine_to?.window_ptr, cursor?.cursor_ptr, time_)
+        return rv
     }
 
     /// Changes the contents of a property on a window.
-    func propertyChange(property: Atom, type: Atom, format: CInt, mode: PropMode, data: UnsafePointer<guchar>, nelements: CInt) {
-        gdk_property_change(cast(window_ptr), cast(property.ptr), cast(type.ptr), gint(format), mode, cast(data), gint(nelements))
+    @inlinable func propertyChange<AtomT: AtomProtocol>(property: AtomT!, type: AtomT!, format: Int, mode: GdkPropMode, data: UnsafePointer<guchar>!, nelements: Int) {
+        gdk_property_change(window_ptr, property._ptr, type._ptr, gint(format), mode, data, gint(nelements))
     
     }
 
     /// Deletes a property from a window.
-    func propertyDelete(property: Atom) {
-        gdk_property_delete(cast(window_ptr), cast(property.ptr))
+    @inlinable func propertyDelete(property: GdkAtom!) {
+        gdk_property_delete(window_ptr, property)
     
     }
 
-    /// Retrieves a portion of the contents of a property. If the
-    /// property does not exist, then the function returns `false`,
-    /// and `GDK_NONE` will be stored in `actual_property_type`.
-    /// 
-    /// The `XGetWindowProperty()` function that `gdk_property_get()`
-    /// uses has a very confusing and complicated set of semantics.
-    /// Unfortunately, `gdk_property_get()` makes the situation
-    /// worse instead of better (the semantics should be considered
-    /// undefined), and also prints warnings to stderr in cases where it
-    /// should return a useful error to the program. You are advised to use
-    /// `XGetWindowProperty()` directly until a replacement function for
-    /// `gdk_property_get()` is provided.
-    func propertyGet(property: Atom, type: Atom, offset: CUnsignedLong, length: CUnsignedLong, pdelete: CInt, actualPropertyType actual_property_type: AtomProtocol, actualFormat actual_format: UnsafeMutablePointer<CInt>, actualLength actual_length: UnsafeMutablePointer<CInt>, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>) -> Bool {
-        let rv = gdk_property_get(cast(window_ptr), cast(property.ptr), cast(type.ptr), gulong(offset), gulong(length), gint(pdelete), cast(actual_property_type.ptr), cast(actual_format), cast(actual_length), cast(data))
-        return Bool(rv != 0)
-    }
+
+    // *** propertyGet() causes a syntax error and is therefore not available!
+
 
     /// Retrieves the contents of a selection in a given
     /// form.
-    func selectionConvert(selection: Atom, target: Atom, time_: UInt32) {
-        gdk_selection_convert(cast(window_ptr), cast(selection.ptr), cast(target.ptr), guint32(time_))
+    @inlinable func selectionConvert(selection: GdkAtom!, target: GdkAtom!, time_: guint32) {
+        gdk_selection_convert(window_ptr, selection, target, time_)
     
     }
 
     /// Sets the owner of the given selection.
-    func selectionOwnerSet(selection: Atom, time_: UInt32, sendEvent send_event: Bool) -> Bool {
-        let rv = gdk_selection_owner_set(cast(window_ptr), cast(selection.ptr), guint32(time_), gboolean(send_event ? 1 : 0))
-        return Bool(rv != 0)
+    @inlinable func selectionOwnerSet(selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set(window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+        return rv
     }
 
     /// Sets the `GdkWindow` `owner` as the current owner of the selection `selection`.
-    func selectionOwnerSetFor(display: DisplayProtocol, selection: Atom, time_: UInt32, sendEvent send_event: Bool) -> Bool {
-        let rv = gdk_selection_owner_set_for_display(cast(display.ptr), cast(window_ptr), cast(selection.ptr), guint32(time_), gboolean(send_event ? 1 : 0))
-        return Bool(rv != 0)
+    @inlinable func selectionOwnerSetFor<DisplayT: DisplayProtocol>(display: DisplayT, selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set_for_display(display.display_ptr, window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+        return rv
     }
 
     /// Retrieves selection data that was stored by the selection
     /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
-    func selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>>, propType prop_type: AtomProtocol, propFormat prop_format: UnsafeMutablePointer<CInt>) -> Int {
-        let rv: Int = cast(gdk_selection_property_get(cast(window_ptr), cast(data), cast(prop_type.ptr), cast(prop_format)))
-        return Int(rv)
+    @inlinable func selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int {
+        let rv = Int(gdk_selection_property_get(window_ptr, data, propertyType, prop_format))
+        return rv
     }
 
     /// Sends a response to SelectionRequest event.
-    func selectionSendNotify(selection: Atom, target: Atom, property: Atom, time_: UInt32) {
-        gdk_selection_send_notify(cast(window_ptr), cast(selection.ptr), cast(target.ptr), cast(property.ptr), guint32(time_))
+    @inlinable func selectionSendNotify(selection: GdkAtom!, target: GdkAtom!, property: GdkAtom!, time_: guint32) {
+        gdk_selection_send_notify(window_ptr, selection, target, property, time_)
     
     }
 
     /// Send a response to SelectionRequest event.
-    func selectionSendNotifyFor(display: DisplayProtocol, selection: Atom, target: Atom, property: Atom, time_: UInt32) {
-        gdk_selection_send_notify_for_display(cast(display.ptr), cast(window_ptr), cast(selection.ptr), cast(target.ptr), cast(property.ptr), guint32(time_))
+    @inlinable func selectionSendNotifyFor<DisplayT: DisplayProtocol>(display: DisplayT, selection: GdkAtom!, target: GdkAtom!, property: GdkAtom!, time_: guint32) {
+        gdk_selection_send_notify_for_display(display.display_ptr, window_ptr, selection, target, property, time_)
     
     }
 
-    func synthesizeWindowState(unsetFlags unset_flags: WindowState, setFlags set_flags: WindowState) {
-        gdk_synthesize_window_state(cast(window_ptr), unset_flags.value, set_flags.value)
+    @inlinable func synthesizeWindowState(unsetFlags unset_flags: WindowState, setFlags set_flags: WindowState) {
+        gdk_synthesize_window_state(window_ptr, unset_flags.value, set_flags.value)
     
     }
 
@@ -2520,8 +2584,8 @@ public extension WindowProtocol {
     /// 
     /// This function is intended to be used to synchronize with rendering
     /// pipelines, to benchmark windowing system rendering operations.
-    func testRenderSync() {
-        gdk_test_render_sync(cast(window_ptr))
+    @inlinable func testRenderSync() {
+        gdk_test_render_sync(window_ptr)
     
     }
 
@@ -2537,9 +2601,9 @@ public extension WindowProtocol {
     /// for most testing purposes, `gtk_test_widget_click()` is the right
     /// function to call which will generate a button press event followed
     /// by its accompanying button release event.
-    func testSimulateButton(x: CInt, y: CInt, button: CUnsignedInt, modifiers: ModifierType, buttonPressrelease button_pressrelease: EventType) -> Bool {
-        let rv = gdk_test_simulate_button(cast(window_ptr), gint(x), gint(y), guint(button), modifiers.value, button_pressrelease)
-        return Bool(rv != 0)
+    @inlinable func testSimulateButton(x: Int, y: Int, button: Int, modifiers: ModifierType, buttonPressrelease button_pressrelease: GdkEventType) -> Bool {
+        let rv = ((gdk_test_simulate_button(window_ptr, gint(x), gint(y), guint(button), modifiers.value, button_pressrelease)) != 0)
+        return rv
     }
 
     /// This function is intended to be used in GTK+ test programs.
@@ -2558,18 +2622,18 @@ public extension WindowProtocol {
     /// for most testing purposes, `gtk_test_widget_send_key()` is the
     /// right function to call which will generate a key press event
     /// followed by its accompanying key release event.
-    func testSimulateKey(x: CInt, y: CInt, keyval: CUnsignedInt, modifiers: ModifierType, keyPressrelease key_pressrelease: EventType) -> Bool {
-        let rv = gdk_test_simulate_key(cast(window_ptr), gint(x), gint(y), guint(keyval), modifiers.value, key_pressrelease)
-        return Bool(rv != 0)
+    @inlinable func testSimulateKey(x: Int, y: Int, keyval: Int, modifiers: ModifierType, keyPressrelease key_pressrelease: GdkEventType) -> Bool {
+        let rv = ((gdk_test_simulate_key(window_ptr, gint(x), gint(y), guint(keyval), modifiers.value, key_pressrelease)) != 0)
+        return rv
     }
     /// Determines whether or not the desktop environment shuld be hinted that
     /// the window does not want to receive input focus.
-    var acceptFocus: Bool {
+    @inlinable var acceptFocus: Bool {
         /// Determines whether or not the desktop environment shuld be hinted that
         /// the window does not want to receive input focus.
         get {
-            let rv = gdk_window_get_accept_focus(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_accept_focus(window_ptr)) != 0)
+            return rv
         }
         /// Setting `accept_focus` to `false` hints the desktop environment that the
         /// window doesn’t want to receive input focus.
@@ -2577,7 +2641,7 @@ public extension WindowProtocol {
         /// On X, it is the responsibility of the window manager to interpret this
         /// hint. ICCCM-compliant window manager usually respect it.
         nonmutating set {
-            gdk_window_set_accept_focus(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_accept_focus(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -2585,14 +2649,14 @@ public extension WindowProtocol {
     ///
     /// **get_background_pattern is deprecated:**
     /// Don't use this function
-    var backgroundPattern: UnsafeMutablePointer<cairo_pattern_t>! {
+    @inlinable var backgroundPattern: PatternRef! {
         /// Gets the pattern used to clear the background on `window`.
         ///
         /// **get_background_pattern is deprecated:**
         /// Don't use this function
         @available(*, deprecated) get {
-            let rv: UnsafeMutablePointer<cairo_pattern_t>! = cast(gdk_window_get_background_pattern(cast(window_ptr)))
-            return cast(rv)
+            let rv = PatternRef(gconstpointer: gconstpointer(gdk_window_get_background_pattern(window_ptr)))
+            return rv
         }
         /// Sets the background of `window`.
         /// 
@@ -2606,7 +2670,7 @@ public extension WindowProtocol {
         /// **set_background_pattern is deprecated:**
         /// Don't use this function
         @available(*, deprecated) nonmutating set {
-            gdk_window_set_background_pattern(cast(window_ptr), cast(newValue))
+            gdk_window_set_background_pattern(window_ptr, UnsafeMutablePointer<cairo_pattern_t>(newValue?._ptr))
         }
     }
 
@@ -2617,7 +2681,7 @@ public extension WindowProtocol {
     /// 
     /// The returned list must be freed, but the elements in the
     /// list need not be.
-    var children: UnsafeMutablePointer<GList>! {
+    @inlinable var children: GLib.ListRef! {
         /// Gets the list of children of `window` known to GDK.
         /// This function only returns children created via GDK,
         /// so for example it’s useless when used with the root window;
@@ -2626,8 +2690,8 @@ public extension WindowProtocol {
         /// The returned list must be freed, but the elements in the
         /// list need not be.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(gdk_window_get_children(cast(window_ptr)))
-            return cast(rv)
+            let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children(window_ptr)))
+            return rv
         }
     }
 
@@ -2636,15 +2700,15 @@ public extension WindowProtocol {
     /// other factors such as if the window is obscured by other windows,
     /// but no area outside of this region will be affected by drawing
     /// primitives.
-    var clipRegion: UnsafeMutablePointer<cairo_region_t>! {
+    @inlinable var clipRegion: RegionRef! {
         /// Computes the region of a window that potentially can be written
         /// to by drawing primitives. This region may not take into account
         /// other factors such as if the window is obscured by other windows,
         /// but no area outside of this region will be affected by drawing
         /// primitives.
         get {
-            let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_clip_region(cast(window_ptr)))
-            return cast(rv)
+            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_clip_region(window_ptr)))
+            return rv
         }
     }
 
@@ -2655,7 +2719,7 @@ public extension WindowProtocol {
     /// **get_composited is deprecated:**
     /// Compositing is an outdated technology that
     ///   only ever worked on X11.
-    var composited: Bool {
+    @inlinable var composited: Bool {
         /// Determines whether `window` is composited.
         /// 
         /// See `gdk_window_set_composited()`.
@@ -2664,8 +2728,8 @@ public extension WindowProtocol {
         /// Compositing is an outdated technology that
         ///   only ever worked on X11.
         @available(*, deprecated) get {
-            let rv = gdk_window_get_composited(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_composited(window_ptr)) != 0)
+            return rv
         }
         /// Sets a `GdkWindow` as composited, or unsets it. Composited
         /// windows do not automatically have their contents drawn to
@@ -2694,20 +2758,20 @@ public extension WindowProtocol {
         /// Compositing is an outdated technology that
         ///   only ever worked on X11.
         @available(*, deprecated) nonmutating set {
-            gdk_window_set_composited(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_composited(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
     /// `gdk_window_get_cursor()` for details.
-    var cursor: UnsafeMutablePointer<GdkCursor>! {
+    @inlinable var cursor: CursorRef! {
         /// Retrieves a `GdkCursor` pointer for the cursor currently set on the
         /// specified `GdkWindow`, or `nil`.  If the return value is `nil` then
         /// there is no custom cursor set on the specified window, and it is
         /// using the cursor for its parent window.
         get {
-            let rv: UnsafeMutablePointer<GdkCursor>! = cast(gdk_window_get_cursor(cast(window_ptr)))
-            return cast(rv)
+            let rv = CursorRef(gconstpointer: gconstpointer(gdk_window_get_cursor(window_ptr)))
+            return rv
         }
         /// Sets the default mouse pointer for a `GdkWindow`.
         /// 
@@ -2719,16 +2783,16 @@ public extension WindowProtocol {
         /// that `window` will use the cursor of its parent window. Most windows
         /// should use this default.
         nonmutating set {
-            gdk_window_set_cursor(cast(window_ptr), cast(newValue))
+            gdk_window_set_cursor(window_ptr, UnsafeMutablePointer<GdkCursor>(newValue?.cursor_ptr))
         }
     }
 
     /// Gets the `GdkDisplay` associated with a `GdkWindow`.
-    var display: UnsafeMutablePointer<GdkDisplay>! {
+    @inlinable var display: DisplayRef! {
         /// Gets the `GdkDisplay` associated with a `GdkWindow`.
         get {
-            let rv: UnsafeMutablePointer<GdkDisplay>! = cast(gdk_window_get_display(cast(window_ptr)))
-            return cast(rv)
+            let rv = DisplayRef(gconstpointer: gconstpointer(gdk_window_get_display(window_ptr)))
+            return rv
         }
     }
 
@@ -2737,15 +2801,15 @@ public extension WindowProtocol {
     /// window’s embedder for offscreen windows.
     /// 
     /// See also: `gdk_offscreen_window_get_embedder()`
-    var effectiveParent: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var effectiveParent: WindowRef! {
         /// Obtains the parent of `window`, as known to GDK. Works like
         /// `gdk_window_get_parent()` for normal windows, but returns the
         /// window’s embedder for offscreen windows.
         /// 
         /// See also: `gdk_offscreen_window_get_embedder()`
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_effective_parent(cast(window_ptr)))
-            return cast(rv)
+            guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_effective_parent(window_ptr))) else { return nil }
+            return rv
         }
     }
 
@@ -2755,7 +2819,7 @@ public extension WindowProtocol {
     /// embedder as its parent, using `gdk_window_get_effective_parent()`.
     /// 
     /// See also: `gdk_offscreen_window_get_embedder()`
-    var effectiveToplevel: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var effectiveToplevel: WindowRef! {
         /// Gets the toplevel window that’s an ancestor of `window`.
         /// 
         /// Works like `gdk_window_get_toplevel()`, but treats an offscreen window's
@@ -2763,17 +2827,17 @@ public extension WindowProtocol {
         /// 
         /// See also: `gdk_offscreen_window_get_embedder()`
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_effective_toplevel(cast(window_ptr)))
-            return cast(rv)
+            guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_effective_toplevel(window_ptr))) else { return nil }
+            return rv
         }
     }
 
     /// Get the current event compression setting for this window.
-    var eventCompression: Bool {
+    @inlinable var eventCompression: Bool {
         /// Get the current event compression setting for this window.
         get {
-            let rv = gdk_window_get_event_compression(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_event_compression(window_ptr)) != 0)
+            return rv
         }
         /// Determines whether or not extra unprocessed motion events in
         /// the event queue can be discarded. If `true` only the most recent
@@ -2784,18 +2848,18 @@ public extension WindowProtocol {
         /// 
         /// By default, event compression is enabled.
         nonmutating set {
-            gdk_window_set_event_compression(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_event_compression(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Gets the event mask for `window` for all master input devices. See
     /// `gdk_window_set_events()`.
-    var events: GdkEventMask {
+    @inlinable var events: EventMask {
         /// Gets the event mask for `window` for all master input devices. See
         /// `gdk_window_set_events()`.
         get {
-            let rv = gdk_window_get_events(cast(window_ptr))
-            return cast(rv)
+            let rv = EventMask(gdk_window_get_events(window_ptr))
+            return rv
         }
         /// The event mask for a window determines which events will be reported
         /// for that window from all master input devices. For example, an event mask
@@ -2805,18 +2869,18 @@ public extension WindowProtocol {
         /// 
         /// See the [input handling overview](#event-masks) for details.
         nonmutating set {
-            gdk_window_set_events(cast(window_ptr), cast(newValue))
+            gdk_window_set_events(window_ptr, newValue.value)
         }
     }
 
     /// Determines whether or not the desktop environment should be hinted that the
     /// window does not want to receive input focus when it is mapped.
-    var focusOnMap: Bool {
+    @inlinable var focusOnMap: Bool {
         /// Determines whether or not the desktop environment should be hinted that the
         /// window does not want to receive input focus when it is mapped.
         get {
-            let rv = gdk_window_get_focus_on_map(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_focus_on_map(window_ptr)) != 0)
+            return rv
         }
         /// Setting `focus_on_map` to `false` hints the desktop environment that the
         /// window doesn’t want to receive input focus when it is mapped.
@@ -2827,29 +2891,29 @@ public extension WindowProtocol {
         /// this hint. Window managers following the freedesktop.org window
         /// manager extension specification should respect it.
         nonmutating set {
-            gdk_window_set_focus_on_map(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_focus_on_map(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Gets the frame clock for the window. The frame clock for a window
     /// never changes unless the window is reparented to a new toplevel
     /// window.
-    var frameClock: UnsafeMutablePointer<GdkFrameClock>! {
+    @inlinable var frameClock: FrameClockRef! {
         /// Gets the frame clock for the window. The frame clock for a window
         /// never changes unless the window is reparented to a new toplevel
         /// window.
         get {
-            let rv: UnsafeMutablePointer<GdkFrameClock>! = cast(gdk_window_get_frame_clock(cast(window_ptr)))
-            return cast(rv)
+            let rv = FrameClockRef(gconstpointer: gconstpointer(gdk_window_get_frame_clock(window_ptr)))
+            return rv
         }
     }
 
     /// Obtains the `GdkFullscreenMode` of the `window`.
-    var fullscreenMode: GdkFullscreenMode {
+    @inlinable var fullscreenMode: GdkFullscreenMode {
         /// Obtains the `GdkFullscreenMode` of the `window`.
         get {
-            let rv = gdk_window_get_fullscreen_mode(cast(window_ptr))
-            return cast(rv)
+            let rv = gdk_window_get_fullscreen_mode(window_ptr)
+            return rv
         }
         /// Specifies whether the `window` should span over all monitors (in a multi-head
         /// setup) or only the current monitor when in fullscreen mode.
@@ -2869,16 +2933,16 @@ public extension WindowProtocol {
         /// window to span over the multiple monitors when `GDK_FULLSCREEN_ON_ALL_MONITORS`
         /// is specified.
         nonmutating set {
-            gdk_window_set_fullscreen_mode(cast(window_ptr), cast(newValue))
+            gdk_window_set_fullscreen_mode(window_ptr, newValue)
         }
     }
 
     /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
-    var group: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var group: WindowRef! {
         /// Returns the group leader window for `window`. See `gdk_window_set_group()`.
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_group(cast(window_ptr)))
-            return cast(rv)
+            guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_group(window_ptr))) else { return nil }
+            return rv
         }
         /// Sets the group leader window for `window`. By default,
         /// GDK sets the group leader for all toplevel windows
@@ -2891,7 +2955,7 @@ public extension WindowProtocol {
         /// application at once. You should only set a non-default group window
         /// if your application pretends to be multiple applications.
         nonmutating set {
-            gdk_window_set_group(cast(window_ptr), cast(window_ptr))
+            gdk_window_set_group(window_ptr, window_ptr)
         }
     }
 
@@ -2900,42 +2964,42 @@ public extension WindowProtocol {
     /// On the X11 platform the returned size is the size reported in the
     /// most-recently-processed configure event, rather than the current
     /// size on the X server.
-    var height: Int {
+    @inlinable var height: Int {
         /// Returns the height of the given `window`.
         /// 
         /// On the X11 platform the returned size is the size reported in the
         /// most-recently-processed configure event, rather than the current
         /// size on the X server.
         get {
-            let rv: Int = cast(gdk_window_get_height(cast(window_ptr)))
-            return cast(rv)
+            let rv = Int(gdk_window_get_height(window_ptr))
+            return rv
         }
     }
 
     /// Check to see if a window is destroyed..
-    var isDestroyed: Bool {
+    @inlinable var isDestroyed: Bool {
         /// Check to see if a window is destroyed..
         get {
-            let rv = gdk_window_is_destroyed(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_is_destroyed(window_ptr)) != 0)
+            return rv
         }
     }
 
     /// Determines whether or not the window is an input only window.
-    var isInputOnly: Bool {
+    @inlinable var isInputOnly: Bool {
         /// Determines whether or not the window is an input only window.
         get {
-            let rv = gdk_window_is_input_only(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_is_input_only(window_ptr)) != 0)
+            return rv
         }
     }
 
     /// Determines whether or not the window is shaped.
-    var isShaped: Bool {
+    @inlinable var isShaped: Bool {
         /// Determines whether or not the window is shaped.
         get {
-            let rv = gdk_window_is_shaped(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_is_shaped(window_ptr)) != 0)
+            return rv
         }
     }
 
@@ -2943,36 +3007,36 @@ public extension WindowProtocol {
     /// mapped. (This is not necessarily "viewable" in the X sense, since
     /// we only check as far as we have GDK window parents, not to the root
     /// window.)
-    var isViewable: Bool {
+    @inlinable var isViewable: Bool {
         /// Check if the window and all ancestors of the window are
         /// mapped. (This is not necessarily "viewable" in the X sense, since
         /// we only check as far as we have GDK window parents, not to the root
         /// window.)
         get {
-            let rv = gdk_window_is_viewable(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_is_viewable(window_ptr)) != 0)
+            return rv
         }
     }
 
     /// Checks whether the window has been mapped (with `gdk_window_show()` or
     /// `gdk_window_show_unraised()`).
-    var isVisible: Bool {
+    @inlinable var isVisible: Bool {
         /// Checks whether the window has been mapped (with `gdk_window_show()` or
         /// `gdk_window_show_unraised()`).
         get {
-            let rv = gdk_window_is_visible(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_is_visible(window_ptr)) != 0)
+            return rv
         }
     }
 
     /// Determines whether or not the window manager is hinted that `window`
     /// has modal behaviour.
-    var modalHint: Bool {
+    @inlinable var modalHint: Bool {
         /// Determines whether or not the window manager is hinted that `window`
         /// has modal behaviour.
         get {
-            let rv = gdk_window_get_modal_hint(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_modal_hint(window_ptr)) != 0)
+            return rv
         }
         /// The application can use this hint to tell the window manager
         /// that a certain window has modal behaviour. The window manager
@@ -2982,7 +3046,7 @@ public extension WindowProtocol {
         /// You should only use this on windows for which you have
         /// previously called `gdk_window_set_transient_for()`
         nonmutating set {
-            gdk_window_set_modal_hint(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_modal_hint(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -2997,7 +3061,7 @@ public extension WindowProtocol {
     /// writing generic code that walks up a window hierarchy, because
     /// `gdk_window_get_parent()` will most likely not do what you expect if
     /// there are offscreen windows in the hierarchy.
-    var parent: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var parent: WindowRef! {
         /// Obtains the parent of `window`, as known to GDK. Does not query the
         /// X server; thus this returns the parent as passed to `gdk_window_new()`,
         /// not the actual parent. This should never matter unless you’re using
@@ -3010,8 +3074,8 @@ public extension WindowProtocol {
         /// `gdk_window_get_parent()` will most likely not do what you expect if
         /// there are offscreen windows in the hierarchy.
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_parent(cast(window_ptr)))
-            return cast(rv)
+            guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_parent(window_ptr))) else { return nil }
+            return rv
         }
     }
 
@@ -3019,14 +3083,14 @@ public extension WindowProtocol {
     /// below.
     /// 
     /// See `gdk_window_set_pass_through()` for details
-    var passThrough: Bool {
+    @inlinable var passThrough: Bool {
         /// Returns whether input to the window is passed through to the window
         /// below.
         /// 
         /// See `gdk_window_set_pass_through()` for details
         get {
-            let rv = gdk_window_get_pass_through(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_pass_through(window_ptr)) != 0)
+            return rv
         }
         /// Sets whether input to the window is passed through to the window
         /// below.
@@ -3047,7 +3111,7 @@ public extension WindowProtocol {
         /// that cases you would get the in-between related events such as the pointer
         /// enter/leave events on its way to the destination window.
         nonmutating set {
-            gdk_window_set_pass_through(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_pass_through(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -3063,7 +3127,7 @@ public extension WindowProtocol {
     /// 
     /// The scale of a window may change during runtime, if this happens
     /// a configure event will be sent to the toplevel window.
-    var scaleFactor: Int {
+    @inlinable var scaleFactor: Int {
         /// Returns the internal scale factor that maps from window coordiantes
         /// to the actual device pixels. On traditional systems this is 1, but
         /// on very high density outputs this can be a higher value (often 2).
@@ -3077,46 +3141,46 @@ public extension WindowProtocol {
         /// The scale of a window may change during runtime, if this happens
         /// a configure event will be sent to the toplevel window.
         get {
-            let rv: Int = cast(gdk_window_get_scale_factor(cast(window_ptr)))
-            return Int(rv)
+            let rv = Int(gdk_window_get_scale_factor(window_ptr))
+            return rv
         }
     }
 
     /// Gets the `GdkScreen` associated with a `GdkWindow`.
-    var screen: UnsafeMutablePointer<GdkScreen>! {
+    @inlinable var screen: ScreenRef! {
         /// Gets the `GdkScreen` associated with a `GdkWindow`.
         get {
-            let rv: UnsafeMutablePointer<GdkScreen>! = cast(gdk_window_get_screen(cast(window_ptr)))
-            return cast(rv)
+            let rv = ScreenRef(gconstpointer: gconstpointer(gdk_window_get_screen(window_ptr)))
+            return rv
         }
     }
 
     /// Gets the bitwise OR of the currently active window state flags,
     /// from the `GdkWindowState` enumeration.
-    var state: GdkWindowState {
+    @inlinable var state: WindowState {
         /// Gets the bitwise OR of the currently active window state flags,
         /// from the `GdkWindowState` enumeration.
         get {
-            let rv = gdk_window_get_state(cast(window_ptr))
-            return cast(rv)
+            let rv = WindowState(gdk_window_get_state(window_ptr))
+            return rv
         }
     }
 
     /// Returns `true` if the window is aware of the existence of multiple
     /// devices.
-    var supportMultidevice: Bool {
+    @inlinable var supportMultidevice: Bool {
         /// Returns `true` if the window is aware of the existence of multiple
         /// devices.
         get {
-            let rv = gdk_window_get_support_multidevice(cast(window_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_window_get_support_multidevice(window_ptr)) != 0)
+            return rv
         }
         /// This function will enable multidevice features in `window`.
         /// 
         /// Multidevice aware windows will need to handle properly multiple,
         /// per device enter/leave events, device grabs and grab ownerships.
         nonmutating set {
-            gdk_window_set_support_multidevice(cast(window_ptr), gboolean(newValue ? 1 : 0))
+            gdk_window_set_support_multidevice(window_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -3130,7 +3194,7 @@ public extension WindowProtocol {
     /// you want to get to a window’s toplevel as seen on screen, because
     /// `gdk_window_get_toplevel()` will most likely not do what you expect
     /// if there are offscreen windows in the hierarchy.
-    var toplevel: UnsafeMutablePointer<GdkWindow>! {
+    @inlinable var toplevel: WindowRef! {
         /// Gets the toplevel window that’s an ancestor of `window`.
         /// 
         /// Any window type but `GDK_WINDOW_CHILD` is considered a
@@ -3142,17 +3206,17 @@ public extension WindowProtocol {
         /// `gdk_window_get_toplevel()` will most likely not do what you expect
         /// if there are offscreen windows in the hierarchy.
         get {
-            let rv: UnsafeMutablePointer<GdkWindow>! = cast(gdk_window_get_toplevel(cast(window_ptr)))
-            return cast(rv)
+            guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_get_toplevel(window_ptr))) else { return nil }
+            return rv
         }
     }
 
     /// This function returns the type hint set for a window.
-    var typeHint: GdkWindowTypeHint {
+    @inlinable var typeHint: GdkWindowTypeHint {
         /// This function returns the type hint set for a window.
         get {
-            let rv = gdk_window_get_type_hint(cast(window_ptr))
-            return cast(rv)
+            let rv = gdk_window_get_type_hint(window_ptr)
+            return rv
         }
         /// The application can use this call to provide a hint to the window
         /// manager about the functionality of a window. The window manager
@@ -3161,7 +3225,7 @@ public extension WindowProtocol {
         /// 
         /// The hint must be set before the window is mapped.
         nonmutating set {
-            gdk_window_set_type_hint(cast(window_ptr), cast(newValue))
+            gdk_window_set_type_hint(window_ptr, newValue)
         }
     }
 
@@ -3171,7 +3235,7 @@ public extension WindowProtocol {
     /// from `window` and handed to you. If a window has no update area,
     /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
     /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
-    var updateArea: UnsafeMutablePointer<cairo_region_t>! {
+    @inlinable var updateArea: RegionRef! {
         /// Transfers ownership of the update area from `window` to the caller
         /// of the function. That is, after calling this function, `window` will
         /// no longer have an invalid/dirty region; the update area is removed
@@ -3179,8 +3243,8 @@ public extension WindowProtocol {
         /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
         /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
         get {
-            let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_update_area(cast(window_ptr)))
-            return cast(rv)
+            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_update_area(window_ptr)))
+            return rv
         }
     }
 
@@ -3188,23 +3252,23 @@ public extension WindowProtocol {
     /// This does not necessarily take into account if the window is
     /// obscured by other windows, but no area outside of this region
     /// is visible.
-    var visibleRegion: UnsafeMutablePointer<cairo_region_t>! {
+    @inlinable var visibleRegion: RegionRef! {
         /// Computes the region of the `window` that is potentially visible.
         /// This does not necessarily take into account if the window is
         /// obscured by other windows, but no area outside of this region
         /// is visible.
         get {
-            let rv: UnsafeMutablePointer<cairo_region_t>! = cast(gdk_window_get_visible_region(cast(window_ptr)))
-            return cast(rv)
+            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_visible_region(window_ptr)))
+            return rv
         }
     }
 
     /// Gets the `GdkVisual` describing the pixel format of `window`.
-    var visual: UnsafeMutablePointer<GdkVisual>! {
+    @inlinable var visual: VisualRef! {
         /// Gets the `GdkVisual` describing the pixel format of `window`.
         get {
-            let rv: UnsafeMutablePointer<GdkVisual>! = cast(gdk_window_get_visual(cast(window_ptr)))
-            return cast(rv)
+            let rv = VisualRef(gconstpointer: gconstpointer(gdk_window_get_visual(window_ptr)))
+            return rv
         }
     }
 
@@ -3213,24 +3277,24 @@ public extension WindowProtocol {
     /// On the X11 platform the returned size is the size reported in the
     /// most-recently-processed configure event, rather than the current
     /// size on the X server.
-    var width: Int {
+    @inlinable var width: Int {
         /// Returns the width of the given `window`.
         /// 
         /// On the X11 platform the returned size is the size reported in the
         /// most-recently-processed configure event, rather than the current
         /// size on the X server.
         get {
-            let rv: Int = cast(gdk_window_get_width(cast(window_ptr)))
-            return cast(rv)
+            let rv = Int(gdk_window_get_width(window_ptr))
+            return rv
         }
     }
 
     /// Gets the type of the window. See `GdkWindowType`.
-    var windowType: GdkWindowType {
+    @inlinable var windowType: GdkWindowType {
         /// Gets the type of the window. See `GdkWindowType`.
         get {
-            let rv = gdk_window_get_window_type(cast(window_ptr))
-            return cast(rv)
+            let rv = gdk_window_get_window_type(window_ptr)
+            return rv
         }
     }
 

@@ -20,10 +20,11 @@ import GdkPixbuf
 
 public protocol FrameClockPrivateProtocol {
         /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkFrameClockPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GdkFrameClockPrivate> { get }
+    var _ptr: UnsafeMutablePointer<GdkFrameClockPrivate>! { get }
+
 }
 
 /// The `FrameClockPrivateRef` type acts as a lightweight Swift reference to an underlying `GdkFrameClockPrivate` instance.
@@ -34,46 +35,76 @@ public protocol FrameClockPrivateProtocol {
 public struct FrameClockPrivateRef: FrameClockPrivateProtocol {
         /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FrameClockPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkFrameClockPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkFrameClockPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkFrameClockPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkFrameClockPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkFrameClockPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FrameClockPrivateProtocol`
-    init<T: FrameClockPrivateProtocol>(_ other: T) {
+    @inlinable init<T: FrameClockPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -87,95 +118,141 @@ public extension FrameClockPrivateRef {
 open class FrameClockPrivate: FrameClockPrivateProtocol {
         /// Untyped pointer to the underlying `GdkFrameClockPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkFrameClockPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkFrameClockPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkFrameClockPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkFrameClockPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkFrameClockPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkFrameClockPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `FrameClockPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkFrameClockPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkFrameClockPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `FrameClockPrivateProtocol`
     /// `GdkFrameClockPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `FrameClockPrivateProtocol`
-    public init<T: FrameClockPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: FrameClockPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GdkFrameClockPrivate`.
     deinit {
-        // no reference counting for GdkFrameClockPrivate, cannot unref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkFrameClockPrivate, cannot ref(cast(_ptr))
+        // no reference counting for GdkFrameClockPrivate, cannot ref(_ptr)
     }
 
 
@@ -190,7 +267,7 @@ open class FrameClockPrivate: FrameClockPrivateProtocol {
 // MARK: FrameClockPrivate Record: FrameClockPrivateProtocol extension (methods and fields)
 public extension FrameClockPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameClockPrivate` instance.
-    var _ptr: UnsafeMutablePointer<GdkFrameClockPrivate> { return ptr.assumingMemoryBound(to: GdkFrameClockPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GdkFrameClockPrivate>! { return ptr?.assumingMemoryBound(to: GdkFrameClockPrivate.self) }
 
 
 
@@ -213,10 +290,11 @@ public extension FrameClockPrivateProtocol {
 /// quality metrics for the application’s display, such as latency and jitter.
 public protocol FrameTimingsProtocol {
         /// Untyped pointer to the underlying `GdkFrameTimings` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkFrameTimings` instance.
-    var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings> { get }
+    var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { get }
+
 }
 
 /// The `FrameTimingsRef` type acts as a lightweight Swift reference to an underlying `GdkFrameTimings` instance.
@@ -232,46 +310,76 @@ public protocol FrameTimingsProtocol {
 public struct FrameTimingsRef: FrameTimingsProtocol {
         /// Untyped pointer to the underlying `GdkFrameTimings` instance.
     /// For type-safe access, use the generated, typed pointer `frame_timings_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FrameTimingsRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkFrameTimings>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkFrameTimings>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkFrameTimings>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkFrameTimings>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkFrameTimings>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FrameTimingsProtocol`
-    init<T: FrameTimingsProtocol>(_ other: T) {
+    @inlinable init<T: FrameTimingsProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -290,95 +398,141 @@ public extension FrameTimingsRef {
 open class FrameTimings: FrameTimingsProtocol {
         /// Untyped pointer to the underlying `GdkFrameTimings` instance.
     /// For type-safe access, use the generated, typed pointer `frame_timings_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FrameTimings` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkFrameTimings>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkFrameTimings>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameTimings` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkFrameTimings>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameTimings` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameTimings` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameTimings` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkFrameTimings>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FrameTimings` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkFrameTimings>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `GdkFrameTimings`.
     /// i.e., ownership is transferred to the `FrameTimings` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkFrameTimings>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkFrameTimings>) {
         ptr = UnsafeMutableRawPointer(op)
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Reference intialiser for a related type that implements `FrameTimingsProtocol`
     /// Will retain `GdkFrameTimings`.
     /// - Parameter other: an instance of a related type that implements `FrameTimingsProtocol`
-    public init<T: FrameTimingsProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.frame_timings_ptr)
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+    @inlinable public init<T: FrameTimingsProtocol>(_ other: T) {
+        ptr = other.ptr
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Releases the underlying `GdkFrameTimings` instance using `gdk_frame_timings_unref`.
     deinit {
-        gdk_frame_timings_unref(cast(frame_timings_ptr))
+        gdk_frame_timings_unref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        gdk_frame_timings_ref(cast(frame_timings_ptr))
+        gdk_frame_timings_ref(ptr.assumingMemoryBound(to: GdkFrameTimings.self))
     }
 
 
@@ -393,7 +547,7 @@ open class FrameTimings: FrameTimingsProtocol {
 // MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
 public extension FrameTimingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameTimings` instance.
-    var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings> { return ptr.assumingMemoryBound(to: GdkFrameTimings.self) }
+    @inlinable var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { return ptr?.assumingMemoryBound(to: GdkFrameTimings.self) }
 
     /// The timing information in a `GdkFrameTimings` is filled in
     /// incrementally as the frame as drawn and passed off to the
@@ -404,24 +558,24 @@ public extension FrameTimingsProtocol {
     /// available at all. Once `gdk_frame_timings_get_complete()` returns
     /// `true` for a frame, you can be certain that no further values
     /// will become available and be stored in the `GdkFrameTimings`.
-    func getComplete() -> Bool {
-        let rv = gdk_frame_timings_get_complete(cast(frame_timings_ptr))
-        return Bool(rv != 0)
+    @inlinable func getComplete() -> Bool {
+        let rv = ((gdk_frame_timings_get_complete(frame_timings_ptr)) != 0)
+        return rv
     }
 
     /// Gets the frame counter value of the `GdkFrameClock` when this
     /// this frame was drawn.
-    func getFrameCounter() -> Int64 {
-        let rv = gdk_frame_timings_get_frame_counter(cast(frame_timings_ptr))
-        return Int64(rv)
+    @inlinable func getFrameCounter() -> gint64 {
+        let rv = gdk_frame_timings_get_frame_counter(frame_timings_ptr)
+        return rv
     }
 
     /// Returns the frame time for the frame. This is the time value
     /// that is typically used to time animations for the frame. See
     /// `gdk_frame_clock_get_frame_time()`.
-    func getFrameTime() -> Int64 {
-        let rv = gdk_frame_timings_get_frame_time(cast(frame_timings_ptr))
-        return Int64(rv)
+    @inlinable func getFrameTime() -> gint64 {
+        let rv = gdk_frame_timings_get_frame_time(frame_timings_ptr)
+        return rv
     }
 
     /// Gets the predicted time at which this frame will be displayed. Although
@@ -433,36 +587,36 @@ public extension FrameTimingsProtocol {
     /// than this function, but this function is useful for applications
     /// that want exact control over latency. For example, a movie player
     /// may want this information for Audio/Video synchronization.
-    func getPredictedPresentationTime() -> Int64 {
-        let rv = gdk_frame_timings_get_predicted_presentation_time(cast(frame_timings_ptr))
-        return Int64(rv)
+    @inlinable func getPredictedPresentationTime() -> gint64 {
+        let rv = gdk_frame_timings_get_predicted_presentation_time(frame_timings_ptr)
+        return rv
     }
 
     /// Reurns the presentation time. This is the time at which the frame
     /// became visible to the user.
-    func getPresentationTime() -> Int64 {
-        let rv = gdk_frame_timings_get_presentation_time(cast(frame_timings_ptr))
-        return Int64(rv)
+    @inlinable func getPresentationTime() -> gint64 {
+        let rv = gdk_frame_timings_get_presentation_time(frame_timings_ptr)
+        return rv
     }
 
     /// Gets the natural interval between presentation times for
     /// the display that this frame was displayed on. Frame presentation
     /// usually happens during the “vertical blanking interval”.
-    func getRefreshInterval() -> Int64 {
-        let rv = gdk_frame_timings_get_refresh_interval(cast(frame_timings_ptr))
-        return Int64(rv)
+    @inlinable func getRefreshInterval() -> gint64 {
+        let rv = gdk_frame_timings_get_refresh_interval(frame_timings_ptr)
+        return rv
     }
 
     /// Increases the reference count of `timings`.
-    func ref() -> UnsafeMutablePointer<GdkFrameTimings>! {
-        let rv: UnsafeMutablePointer<GdkFrameTimings>! = cast(gdk_frame_timings_ref(cast(frame_timings_ptr)))
-        return cast(rv)
+    @discardableResult @inlinable func ref() -> FrameTimingsRef! {
+        guard let rv = FrameTimingsRef(gconstpointer: gconstpointer(gdk_frame_timings_ref(frame_timings_ptr))) else { return nil }
+        return rv
     }
 
     /// Decreases the reference count of `timings`. If `timings`
     /// is no longer referenced, it will be freed.
-    func unref() {
-        gdk_frame_timings_unref(cast(frame_timings_ptr))
+    @inlinable func unref() {
+        gdk_frame_timings_unref(frame_timings_ptr)
     
     }
     /// The timing information in a `GdkFrameTimings` is filled in
@@ -474,7 +628,7 @@ public extension FrameTimingsProtocol {
     /// available at all. Once `gdk_frame_timings_get_complete()` returns
     /// `true` for a frame, you can be certain that no further values
     /// will become available and be stored in the `GdkFrameTimings`.
-    var complete: Bool {
+    @inlinable var complete: Bool {
         /// The timing information in a `GdkFrameTimings` is filled in
         /// incrementally as the frame as drawn and passed off to the
         /// window system for processing and display to the user. The
@@ -485,32 +639,32 @@ public extension FrameTimingsProtocol {
         /// `true` for a frame, you can be certain that no further values
         /// will become available and be stored in the `GdkFrameTimings`.
         get {
-            let rv = gdk_frame_timings_get_complete(cast(frame_timings_ptr))
-            return Bool(rv != 0)
+            let rv = ((gdk_frame_timings_get_complete(frame_timings_ptr)) != 0)
+            return rv
         }
     }
 
     /// Gets the frame counter value of the `GdkFrameClock` when this
     /// this frame was drawn.
-    var frameCounter: Int64 {
+    @inlinable var frameCounter: gint64 {
         /// Gets the frame counter value of the `GdkFrameClock` when this
         /// this frame was drawn.
         get {
-            let rv = gdk_frame_timings_get_frame_counter(cast(frame_timings_ptr))
-            return Int64(rv)
+            let rv = gdk_frame_timings_get_frame_counter(frame_timings_ptr)
+            return rv
         }
     }
 
     /// Returns the frame time for the frame. This is the time value
     /// that is typically used to time animations for the frame. See
     /// `gdk_frame_clock_get_frame_time()`.
-    var frameTime: Int64 {
+    @inlinable var frameTime: gint64 {
         /// Returns the frame time for the frame. This is the time value
         /// that is typically used to time animations for the frame. See
         /// `gdk_frame_clock_get_frame_time()`.
         get {
-            let rv = gdk_frame_timings_get_frame_time(cast(frame_timings_ptr))
-            return Int64(rv)
+            let rv = gdk_frame_timings_get_frame_time(frame_timings_ptr)
+            return rv
         }
     }
 
@@ -523,7 +677,7 @@ public extension FrameTimingsProtocol {
     /// than this function, but this function is useful for applications
     /// that want exact control over latency. For example, a movie player
     /// may want this information for Audio/Video synchronization.
-    var predictedPresentationTime: Int64 {
+    @inlinable var predictedPresentationTime: gint64 {
         /// Gets the predicted time at which this frame will be displayed. Although
         /// no predicted time may be available, if one is available, it will
         /// be available while the frame is being generated, in contrast to
@@ -534,32 +688,32 @@ public extension FrameTimingsProtocol {
         /// that want exact control over latency. For example, a movie player
         /// may want this information for Audio/Video synchronization.
         get {
-            let rv = gdk_frame_timings_get_predicted_presentation_time(cast(frame_timings_ptr))
-            return Int64(rv)
+            let rv = gdk_frame_timings_get_predicted_presentation_time(frame_timings_ptr)
+            return rv
         }
     }
 
     /// Reurns the presentation time. This is the time at which the frame
     /// became visible to the user.
-    var presentationTime: Int64 {
+    @inlinable var presentationTime: gint64 {
         /// Reurns the presentation time. This is the time at which the frame
         /// became visible to the user.
         get {
-            let rv = gdk_frame_timings_get_presentation_time(cast(frame_timings_ptr))
-            return Int64(rv)
+            let rv = gdk_frame_timings_get_presentation_time(frame_timings_ptr)
+            return rv
         }
     }
 
     /// Gets the natural interval between presentation times for
     /// the display that this frame was displayed on. Frame presentation
     /// usually happens during the “vertical blanking interval”.
-    var refreshInterval: Int64 {
+    @inlinable var refreshInterval: gint64 {
         /// Gets the natural interval between presentation times for
         /// the display that this frame was displayed on. Frame presentation
         /// usually happens during the “vertical blanking interval”.
         get {
-            let rv = gdk_frame_timings_get_refresh_interval(cast(frame_timings_ptr))
-            return Int64(rv)
+            let rv = gdk_frame_timings_get_refresh_interval(frame_timings_ptr)
+            return rv
         }
     }
 
@@ -633,10 +787,11 @@ public extension FrameTimingsProtocol {
 /// aspect ratio.
 public protocol GeometryProtocol {
         /// Untyped pointer to the underlying `GdkGeometry` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkGeometry` instance.
-    var _ptr: UnsafeMutablePointer<GdkGeometry> { get }
+    var _ptr: UnsafeMutablePointer<GdkGeometry>! { get }
+
 }
 
 /// The `GeometryRef` type acts as a lightweight Swift reference to an underlying `GdkGeometry` instance.
@@ -702,46 +857,76 @@ public protocol GeometryProtocol {
 public struct GeometryRef: GeometryProtocol {
         /// Untyped pointer to the underlying `GdkGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension GeometryRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkGeometry>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkGeometry>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkGeometry>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkGeometry>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkGeometry>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `GeometryProtocol`
-    init<T: GeometryProtocol>(_ other: T) {
+    @inlinable init<T: GeometryProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -810,95 +995,141 @@ public extension GeometryRef {
 open class Geometry: GeometryProtocol {
         /// Untyped pointer to the underlying `GdkGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Geometry` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkGeometry>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkGeometry>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Geometry` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkGeometry>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Geometry` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Geometry` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Geometry` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkGeometry>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Geometry` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkGeometry>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkGeometry` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Geometry` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkGeometry>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkGeometry>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `GeometryProtocol`
     /// `GdkGeometry` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `GeometryProtocol`
-    public init<T: GeometryProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+    @inlinable public init<T: GeometryProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GdkGeometry`.
     deinit {
-        // no reference counting for GdkGeometry, cannot unref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkGeometry, cannot ref(cast(_ptr))
+        // no reference counting for GdkGeometry, cannot ref(_ptr)
     }
 
 
@@ -913,167 +1144,167 @@ open class Geometry: GeometryProtocol {
 // MARK: Geometry Record: GeometryProtocol extension (methods and fields)
 public extension GeometryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGeometry` instance.
-    var _ptr: UnsafeMutablePointer<GdkGeometry> { return ptr.assumingMemoryBound(to: GdkGeometry.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GdkGeometry>! { return ptr?.assumingMemoryBound(to: GdkGeometry.self) }
 
 
     /// minimum width of window (or -1 to use requisition, with
     ///  `GtkWindow` only)
-    var minWidth: Int {
+    @inlinable var minWidth: gint {
         /// minimum width of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
         get {
-            let rv: Int = cast(_ptr.pointee.min_width)
+            let rv = _ptr.pointee.min_width
             return rv
         }
         /// minimum width of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
          set {
-            _ptr.pointee.min_width = gint(newValue)
+            _ptr.pointee.min_width = newValue
         }
     }
 
     /// minimum height of window (or -1 to use requisition, with
     ///  `GtkWindow` only)
-    var minHeight: Int {
+    @inlinable var minHeight: gint {
         /// minimum height of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
         get {
-            let rv: Int = cast(_ptr.pointee.min_height)
+            let rv = _ptr.pointee.min_height
             return rv
         }
         /// minimum height of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
          set {
-            _ptr.pointee.min_height = gint(newValue)
+            _ptr.pointee.min_height = newValue
         }
     }
 
     /// maximum width of window (or -1 to use requisition, with
     ///  `GtkWindow` only)
-    var maxWidth: Int {
+    @inlinable var maxWidth: gint {
         /// maximum width of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
         get {
-            let rv: Int = cast(_ptr.pointee.max_width)
+            let rv = _ptr.pointee.max_width
             return rv
         }
         /// maximum width of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
          set {
-            _ptr.pointee.max_width = gint(newValue)
+            _ptr.pointee.max_width = newValue
         }
     }
 
     /// maximum height of window (or -1 to use requisition, with
     ///  `GtkWindow` only)
-    var maxHeight: Int {
+    @inlinable var maxHeight: gint {
         /// maximum height of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
         get {
-            let rv: Int = cast(_ptr.pointee.max_height)
+            let rv = _ptr.pointee.max_height
             return rv
         }
         /// maximum height of window (or -1 to use requisition, with
         ///  `GtkWindow` only)
          set {
-            _ptr.pointee.max_height = gint(newValue)
+            _ptr.pointee.max_height = newValue
         }
     }
 
     /// allowed window widths are `base_width` + `width_inc` * N where N
     ///  is any integer (-1 allowed with `GtkWindow`)
-    var baseWidth: Int {
+    @inlinable var baseWidth: gint {
         /// allowed window widths are `base_width` + `width_inc` * N where N
         ///  is any integer (-1 allowed with `GtkWindow`)
         get {
-            let rv: Int = cast(_ptr.pointee.base_width)
+            let rv = _ptr.pointee.base_width
             return rv
         }
         /// allowed window widths are `base_width` + `width_inc` * N where N
         ///  is any integer (-1 allowed with `GtkWindow`)
          set {
-            _ptr.pointee.base_width = gint(newValue)
+            _ptr.pointee.base_width = newValue
         }
     }
 
     /// allowed window widths are `base_height` + `height_inc` * N where
     ///  N is any integer (-1 allowed with `GtkWindow`)
-    var baseHeight: Int {
+    @inlinable var baseHeight: gint {
         /// allowed window widths are `base_height` + `height_inc` * N where
         ///  N is any integer (-1 allowed with `GtkWindow`)
         get {
-            let rv: Int = cast(_ptr.pointee.base_height)
+            let rv = _ptr.pointee.base_height
             return rv
         }
         /// allowed window widths are `base_height` + `height_inc` * N where
         ///  N is any integer (-1 allowed with `GtkWindow`)
          set {
-            _ptr.pointee.base_height = gint(newValue)
+            _ptr.pointee.base_height = newValue
         }
     }
 
     /// width resize increment
-    var widthInc: Int {
+    @inlinable var widthInc: gint {
         /// width resize increment
         get {
-            let rv: Int = cast(_ptr.pointee.width_inc)
+            let rv = _ptr.pointee.width_inc
             return rv
         }
         /// width resize increment
          set {
-            _ptr.pointee.width_inc = gint(newValue)
+            _ptr.pointee.width_inc = newValue
         }
     }
 
     /// height resize increment
-    var heightInc: Int {
+    @inlinable var heightInc: gint {
         /// height resize increment
         get {
-            let rv: Int = cast(_ptr.pointee.height_inc)
+            let rv = _ptr.pointee.height_inc
             return rv
         }
         /// height resize increment
          set {
-            _ptr.pointee.height_inc = gint(newValue)
+            _ptr.pointee.height_inc = newValue
         }
     }
 
     /// minimum width/height ratio
-    var minAspect: Double {
+    @inlinable var minAspect: gdouble {
         /// minimum width/height ratio
         get {
-            let rv: Double = cast(_ptr.pointee.min_aspect)
+            let rv = _ptr.pointee.min_aspect
             return rv
         }
         /// minimum width/height ratio
          set {
-            _ptr.pointee.min_aspect = cast(newValue)
+            _ptr.pointee.min_aspect = newValue
         }
     }
 
     /// maximum width/height ratio
-    var maxAspect: Double {
+    @inlinable var maxAspect: gdouble {
         /// maximum width/height ratio
         get {
-            let rv: Double = cast(_ptr.pointee.max_aspect)
+            let rv = _ptr.pointee.max_aspect
             return rv
         }
         /// maximum width/height ratio
          set {
-            _ptr.pointee.max_aspect = cast(newValue)
+            _ptr.pointee.max_aspect = newValue
         }
     }
 
     /// window gravity, see `gtk_window_set_gravity()`
-    var winGravity: GdkGravity {
+    @inlinable var winGravity: GdkGravity {
         /// window gravity, see `gtk_window_set_gravity()`
         get {
-            let rv: GdkGravity = cast(_ptr.pointee.win_gravity)
+            let rv = _ptr.pointee.win_gravity
             return rv
         }
         /// window gravity, see `gtk_window_set_gravity()`
          set {
-            _ptr.pointee.win_gravity = cast(newValue)
+            _ptr.pointee.win_gravity = newValue
         }
     }
 

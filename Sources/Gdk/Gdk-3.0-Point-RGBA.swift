@@ -20,10 +20,11 @@ import GdkPixbuf
 /// Defines the x and y coordinates of a point.
 public protocol PointProtocol {
         /// Untyped pointer to the underlying `GdkPoint` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkPoint` instance.
-    var _ptr: UnsafeMutablePointer<GdkPoint> { get }
+    var _ptr: UnsafeMutablePointer<GdkPoint>! { get }
+
 }
 
 /// The `PointRef` type acts as a lightweight Swift reference to an underlying `GdkPoint` instance.
@@ -34,46 +35,76 @@ public protocol PointProtocol {
 public struct PointRef: PointProtocol {
         /// Untyped pointer to the underlying `GdkPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension PointRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkPoint>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkPoint>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkPoint>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkPoint>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkPoint>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `PointProtocol`
-    init<T: PointProtocol>(_ other: T) {
+    @inlinable init<T: PointProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -87,95 +118,141 @@ public extension PointRef {
 open class Point: PointProtocol {
         /// Untyped pointer to the underlying `GdkPoint` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Point` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkPoint>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkPoint>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Point` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkPoint>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Point` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Point` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Point` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkPoint>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Point` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkPoint>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkPoint` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Point` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkPoint>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkPoint>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `PointProtocol`
     /// `GdkPoint` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `PointProtocol`
-    public init<T: PointProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+    @inlinable public init<T: PointProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `GdkPoint`.
     deinit {
-        // no reference counting for GdkPoint, cannot unref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkPoint, cannot ref(cast(_ptr))
+        // no reference counting for GdkPoint, cannot ref(_ptr)
     }
 
 
@@ -190,32 +267,32 @@ open class Point: PointProtocol {
 // MARK: Point Record: PointProtocol extension (methods and fields)
 public extension PointProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPoint` instance.
-    var _ptr: UnsafeMutablePointer<GdkPoint> { return ptr.assumingMemoryBound(to: GdkPoint.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<GdkPoint>! { return ptr?.assumingMemoryBound(to: GdkPoint.self) }
 
 
     /// the x coordinate of the point.
-    var x: Int {
+    @inlinable var x: gint {
         /// the x coordinate of the point.
         get {
-            let rv: Int = cast(_ptr.pointee.x)
+            let rv = _ptr.pointee.x
             return rv
         }
         /// the x coordinate of the point.
          set {
-            _ptr.pointee.x = gint(newValue)
+            _ptr.pointee.x = newValue
         }
     }
 
     /// the y coordinate of the point.
-    var y: Int {
+    @inlinable var y: gint {
         /// the y coordinate of the point.
         get {
-            let rv: Int = cast(_ptr.pointee.y)
+            let rv = _ptr.pointee.y
             return rv
         }
         /// the y coordinate of the point.
          set {
-            _ptr.pointee.y = gint(newValue)
+            _ptr.pointee.y = newValue
         }
     }
 
@@ -234,10 +311,11 @@ public extension PointProtocol {
 /// color, in a way that is compatible with cairo’s notion of color.
 public protocol RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `GdkRGBA` instance.
-    var rgba_ptr: UnsafeMutablePointer<GdkRGBA> { get }
+    var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { get }
+
 }
 
 /// The `RGBARef` type acts as a lightweight Swift reference to an underlying `GdkRGBA` instance.
@@ -249,46 +327,76 @@ public protocol RGBAProtocol {
 public struct RGBARef: RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension RGBARef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<GdkRGBA>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<GdkRGBA>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<GdkRGBA>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<GdkRGBA>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<GdkRGBA>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `RGBAProtocol`
-    init<T: RGBAProtocol>(_ other: T) {
+    @inlinable init<T: RGBAProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -303,95 +411,141 @@ public extension RGBARef {
 open class RGBA: RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RGBA` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<GdkRGBA>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<GdkRGBA>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RGBA` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<GdkRGBA>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RGBA` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RGBA` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RGBA` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<GdkRGBA>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RGBA` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<GdkRGBA>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `GdkRGBA` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `RGBA` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<GdkRGBA>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<GdkRGBA>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
     /// Reference intialiser for a related type that implements `RGBAProtocol`
     /// `GdkRGBA` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `RGBAProtocol`
-    public init<T: RGBAProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.rgba_ptr)
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+    @inlinable public init<T: RGBAProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
     /// Do-nothing destructor for `GdkRGBA`.
     deinit {
-        // no reference counting for GdkRGBA, cannot unref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot unref(rgba_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkRGBA, cannot ref(cast(rgba_ptr))
+        // no reference counting for GdkRGBA, cannot ref(rgba_ptr)
     }
 
 
@@ -406,33 +560,33 @@ open class RGBA: RGBAProtocol {
 // MARK: RGBA Record: RGBAProtocol extension (methods and fields)
 public extension RGBAProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRGBA` instance.
-    var rgba_ptr: UnsafeMutablePointer<GdkRGBA> { return ptr.assumingMemoryBound(to: GdkRGBA.self) }
+    @inlinable var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { return ptr?.assumingMemoryBound(to: GdkRGBA.self) }
 
     /// Makes a copy of a `GdkRGBA`.
     /// 
     /// The result must be freed through `gdk_rgba_free()`.
-    func copy() -> UnsafeMutablePointer<GdkRGBA>! {
-        let rv: UnsafeMutablePointer<GdkRGBA>! = cast(gdk_rgba_copy(cast(rgba_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> RGBARef! {
+        guard let rv = RGBARef(gconstpointer: gconstpointer(gdk_rgba_copy(rgba_ptr))) else { return nil }
+        return rv
     }
 
     /// Compares two RGBA colors.
-    func equal(p2: RGBAProtocol) -> Bool {
-        let rv = gdk_rgba_equal(cast(rgba_ptr), cast(p2.ptr))
-        return Bool(rv != 0)
+    @inlinable func equal<RGBAT: RGBAProtocol>(p2: RGBAT) -> Bool {
+        let rv = ((gdk_rgba_equal(rgba_ptr, p2.rgba_ptr)) != 0)
+        return rv
     }
 
     /// Frees a `GdkRGBA` created with `gdk_rgba_copy()`
-    func free() {
-        gdk_rgba_free(cast(rgba_ptr))
+    @inlinable func free() {
+        gdk_rgba_free(rgba_ptr)
     
     }
 
     /// A hash function suitable for using for a hash
     /// table that stores `GdkRGBAs`.
-    func hash() -> Int {
-        let rv: Int = cast(gdk_rgba_hash(cast(rgba_ptr)))
-        return Int(rv)
+    @inlinable func hash() -> Int {
+        let rv = Int(gdk_rgba_hash(rgba_ptr))
+        return rv
     }
 
     /// Parses a textual representation of a color, filling in
@@ -450,9 +604,9 @@ public extension RGBAProtocol {
     /// alpha color values. In the last two cases, “r”, “g”, and “b” are either integers
     /// in the range 0 to 255 or percentage values in the range 0% to 100``, and
     /// a is a floating point value in the range 0 to 1.
-    func parse(spec: UnsafePointer<gchar>) -> Bool {
-        let rv = gdk_rgba_parse(cast(rgba_ptr), spec)
-        return Bool(rv != 0)
+    @inlinable func parse(spec: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((gdk_rgba_parse(rgba_ptr, spec)) != 0)
+        return rv
     }
 
     /// Returns a textual specification of `rgba` in the form
@@ -470,69 +624,69 @@ public extension RGBAProtocol {
     /// precision, since “r”, “g” and “b” are represented as 8-bit
     /// integers. If this is a concern, you should use a
     /// different representation.
-    func toString() -> String! {
-        let rv: String! = cast(gdk_rgba_to_string(cast(rgba_ptr)))
-        return cast(rv)
+    @inlinable func toString() -> String! {
+        let rv = gdk_rgba_to_string(rgba_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Sets the specified `GdkRGBA` as the source color of `cr`.
-    func cairoSetSourceRgba(cr: cairo.ContextProtocol) {
-        gdk_cairo_set_source_rgba(cast(cr.ptr), cast(rgba_ptr))
+    @inlinable func cairoSetSourceRgba<ContextT: Cairo.ContextProtocol>(cr: ContextT) {
+        gdk_cairo_set_source_rgba(cr._ptr, rgba_ptr)
     
     }
 
     /// The intensity of the red channel from 0.0 to 1.0 inclusive
-    var red: Double {
+    @inlinable var red: gdouble {
         /// The intensity of the red channel from 0.0 to 1.0 inclusive
         get {
-            let rv: Double = cast(rgba_ptr.pointee.red)
+            let rv = rgba_ptr.pointee.red
             return rv
         }
         /// The intensity of the red channel from 0.0 to 1.0 inclusive
          set {
-            rgba_ptr.pointee.red = cast(newValue)
+            rgba_ptr.pointee.red = newValue
         }
     }
 
     /// The intensity of the green channel from 0.0 to 1.0 inclusive
-    var green: Double {
+    @inlinable var green: gdouble {
         /// The intensity of the green channel from 0.0 to 1.0 inclusive
         get {
-            let rv: Double = cast(rgba_ptr.pointee.green)
+            let rv = rgba_ptr.pointee.green
             return rv
         }
         /// The intensity of the green channel from 0.0 to 1.0 inclusive
          set {
-            rgba_ptr.pointee.green = cast(newValue)
+            rgba_ptr.pointee.green = newValue
         }
     }
 
     /// The intensity of the blue channel from 0.0 to 1.0 inclusive
-    var blue: Double {
+    @inlinable var blue: gdouble {
         /// The intensity of the blue channel from 0.0 to 1.0 inclusive
         get {
-            let rv: Double = cast(rgba_ptr.pointee.blue)
+            let rv = rgba_ptr.pointee.blue
             return rv
         }
         /// The intensity of the blue channel from 0.0 to 1.0 inclusive
          set {
-            rgba_ptr.pointee.blue = cast(newValue)
+            rgba_ptr.pointee.blue = newValue
         }
     }
 
     /// The opacity of the color from 0.0 for completely translucent to
     ///   1.0 for opaque
-    var alpha: Double {
+    @inlinable var alpha: gdouble {
         /// The opacity of the color from 0.0 for completely translucent to
         ///   1.0 for opaque
         get {
-            let rv: Double = cast(rgba_ptr.pointee.alpha)
+            let rv = rgba_ptr.pointee.alpha
             return rv
         }
         /// The opacity of the color from 0.0 for completely translucent to
         ///   1.0 for opaque
          set {
-            rgba_ptr.pointee.alpha = cast(newValue)
+            rgba_ptr.pointee.alpha = newValue
         }
     }
 
