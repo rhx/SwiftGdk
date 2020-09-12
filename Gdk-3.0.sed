@@ -1,16 +1,9 @@
 s/EVENT_STOP: Bool = 5/EVENT_STOP: gboolean = 1/
 s/gdk_cursor_ref/g_object_ref/g
 s/gdk_cursor_unref/g_object_unref/g
-s/ContextProtocol>(cr:/Cairo.ContextProtocol>(cr:/
-s/\(airo.*T: \)\(ContextProtocol\)/\1Cairo.\2/
-s/\(airo.* -> \)\(ContextRef\)/\1Cairo.\2/
-s/\(airo.*: \)\(ContextRef\)/\1Cairo.\2/
-s/\(rv = \)\(ContextRef.*cairo\)/\1Cairo.\2/
-s/\(rv = \)\(ContextRef.*pango\)/\1Pango.\2/
-s/\(ango.* -> \)\(ContextRef\)/\1Pango.\2/
-s/-> ListRef/-> GLib.ListRef/
-s/: ListRef/: GLib.ListRef/
 s/createSimilarImageSurface(format: CInt/createSimilarImageSurface(format: cairo_format_t/
+s/\(@available(., deprecated) @inlinable\) \(public init() {\)/\1 override \2/
+s/\(public init<T: AppLaunchContextProtocol>(\)appLaunchContext \(other: T)\)/\1_ \2/
 s/-> GdkAtom {/-> GdkAtom! {/g
 s/: GdkAtom/: GdkAtom!/g
 s/UnsafeMutablePointer<GdkAtom>/GdkAtom/
