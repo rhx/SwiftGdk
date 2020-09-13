@@ -1,16 +1,9 @@
 s/EVENT_STOP: Bool = 5/EVENT_STOP: gboolean = 1/
 s/gdk_cursor_ref/g_object_ref/g
 s/gdk_cursor_unref/g_object_unref/g
-s/ContextProtocol>(cr:/Cairo.ContextProtocol>(cr:/
-s/\(airo.*T: \)\(ContextProtocol\)/\1Cairo.\2/
-s/\(airo.* -> \)\(ContextRef\)/\1Cairo.\2/
-s/\(airo.*: \)\(ContextRef\)/\1Cairo.\2/
-s/\(rv = \)\(ContextRef.*cairo\)/\1Cairo.\2/
-s/\(rv = \)\(ContextRef.*pango\)/\1Pango.\2/
-s/\(ango.* -> \)\(ContextRef\)/\1Pango.\2/
-s/-> ListRef/-> GLib.ListRef/
-s/: ListRef/: GLib.ListRef/
 s/createSimilarImageSurface(format: CInt/createSimilarImageSurface(format: cairo_format_t/
+s/\(@available(., deprecated) @inlinable\) \(public init() {\)/\1 override \2/
+s/\(public init<T: AppLaunchContextProtocol>(\)appLaunchContext \(other: T)\)/\1_ \2/
 s/-> GdkAtom {/-> GdkAtom! {/g
 s/: GdkAtom/: GdkAtom!/g
 s/UnsafeMutablePointer<GdkAtom>/GdkAtom/
@@ -24,12 +17,14 @@ s/propertyChange<WindowT: WindowProtocol>/propertyChange<WindowT: WindowProtocol
 s/func propertyChange(property: AtomT/func propertyChange<AtomT: AtomProtocol>(property: AtomT/
 s/\(propertyGet.*\)window: WindowT, property: AtomT!, type: AtomT!/\1window: WindowT, property: UnsafeMutablePointer<GdkAtom?>, type: AtomT!/
 s/(gdk_property_get(window.window_ptr, property._ptr, type._ptr, gulong(offset), gulong(length), gint(pdelete), _ptr, actual_format, actual_length, data)/(gdk_property_get(window.window_ptr, _ptr, type._ptr, gulong(offset), gulong(length), gint(pdelete), property, actual_format, actual_length, data)/
-s/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propFormat/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, property _ptr: UnsafeMutablePointer<GdkAtom?>, propFormat/
-s/selectionPropertyGet<AtomT: AtomProtocol>(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propType prop_type: AtomT, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int/selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int/
+s/selectionPropertyGet<AtomT: AtomProtocol, WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>.>!, propType: AtomT/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>!/
+s/selectionPropertyGet<AtomT: AtomProtocol>(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propType: AtomT, propFormat: UnsafeMutablePointer<gint>!) -> Int/selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>, propertyFormat: UnsafeMutablePointer<gint>!) -> Int/
+s/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>.>!, propFormat/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, property _ptr: UnsafeMutablePointer<GdkAtom?>, propertyFormat/
+s/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>.>!, propertyType: UnsafeMutablePointer<GdkAtom.>!, propFormat:/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>!, propertyFormat:/
 s/property._ptr, type._ptr, gulong(offset), gulong(length), gint(pdelete), actual_property_type._ptr/_ptr, type._ptr, gulong(offset), gulong(length), gint(pdelete), actual_property_type/
-s/selectionPropertyGet<AtomT: AtomProtocol, WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>.>!, propType prop_type: AtomT/selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>!/
-s/rv = Int(gdk_selection_property_get(requestor.window_ptr, data, prop_type._ptr, prop_format))/rv = Int(gdk_selection_property_get(requestor.window_ptr, data, propertyType, prop_format))/
-s/Int(gdk_selection_property_get(window_ptr, data, prop_type._ptr, prop_format))/Int(gdk_selection_property_get(window_ptr, data, propertyType, prop_format))/
+s/rv = Int(gdk_selection_property_get(requestor.window_ptr, data, propType._ptr, propFormat))/rv = Int(gdk_selection_property_get(requestor.window_ptr, data, propertyType, propertyFormat))/
+s/Int(gdk_selection_property_get(window_ptr, data, propType._ptr, propFormat))/Int(gdk_selection_property_get(window_ptr, data, propertyType, propertyFormat))/
+s/Int(gdk_selection_property_get(requestor.window_ptr, data, _ptr, propFormat))/Int(gdk_selection_property_get(requestor.window_ptr, data, _ptr, propertyFormat))/
 s/gdk_gl_context_set_use_es(gl_context_ptr, gint(newValue))/gdk_gl_context_set_use_es(gl_context_ptr, newValue ? 1 : 0)/
 s/: \([A-Za-z.]*Notify[,)]\)/: @escaping \1/g
 s/: \([A-Za-z.]*Func[,)]\)/: @escaping \1/g
