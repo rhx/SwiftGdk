@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -18,7 +19,7 @@ import GdkPixbuf
 /// Alternatively, use `WindowRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 
-public protocol WindowProtocol: ObjectProtocol {
+public protocol WindowProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkWindow` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -92,7 +93,7 @@ public extension WindowRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -119,8 +120,8 @@ public extension WindowRef {
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
-    @available(*, deprecated) @inlinable static func atPointer(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
-        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_at_pointer(win_x, win_y))) else { return nil }
+    @available(*, deprecated) @inlinable static func atPointer(winX: UnsafeMutablePointer<gint>! = nil, winY: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
+        guard let rv = WindowRef(gconstpointer: gconstpointer(gdk_window_at_pointer(winX, winY))) else { return nil }
         return rv
     }
 }
@@ -130,7 +131,7 @@ public extension WindowRef {
 /// Use `Window` as a strong reference or owner of a `GdkWindow` instance.
 ///
 
-open class Window: Object, WindowProtocol {
+open class Window: GLibObject.Object, WindowProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Window` instance.
@@ -267,8 +268,8 @@ open class Window: Object, WindowProtocol {
     ///
     /// **at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
-    @available(*, deprecated) @inlinable public static func atPointer(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> Window! {
-        guard let rv = Window(gconstpointer: gconstpointer(gdk_window_at_pointer(win_x, win_y))) else { return nil }
+    @available(*, deprecated) @inlinable public static func atPointer(winX: UnsafeMutablePointer<gint>! = nil, winY: UnsafeMutablePointer<gint>! = nil) -> Window! {
+        guard let rv = Window(gconstpointer: gconstpointer(gdk_window_at_pointer(winX, winY))) else { return nil }
         return rv
     }
 
@@ -289,7 +290,7 @@ public extension WindowProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: WindowPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: WindowPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -482,7 +483,7 @@ public extension WindowProtocol {
     /// and already has a backing store. Therefore in most cases, application
     /// code in GTK does not need to call `gdk_window_begin_draw_frame()`
     /// explicitly.
-    @inlinable func beginDrawFrame<RegionT: RegionProtocol>(region: RegionT) -> DrawingContextRef! {
+    @inlinable func beginDrawFrame<RegionT: Cairo.RegionProtocol>(region: RegionT) -> DrawingContextRef! {
         let rv = DrawingContextRef(gconstpointer: gconstpointer(gdk_window_begin_draw_frame(window_ptr, region._ptr)))
         return rv
     }
@@ -492,8 +493,8 @@ public extension WindowProtocol {
     /// This function assumes that the drag is controlled by the
     /// client pointer device, use `gdk_window_begin_move_drag_for_device()`
     /// to begin a drag with a different device.
-    @inlinable func beginMoveDrag(button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
-        gdk_window_begin_move_drag(window_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
+    @inlinable func beginMoveDrag(button: Int, rootX: Int, rootY: Int, timestamp: guint32) {
+        gdk_window_begin_move_drag(window_ptr, gint(button), gint(rootX), gint(rootY), timestamp)
     
     }
 
@@ -502,8 +503,8 @@ public extension WindowProtocol {
     /// example. The function works best with window managers that support the
     /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
     /// but has a fallback implementation for other window managers.
-    @inlinable func beginMoveDragFor<DeviceT: DeviceProtocol>(device: DeviceT, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
-        gdk_window_begin_move_drag_for_device(window_ptr, device.device_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
+    @inlinable func beginMoveDragFor<DeviceT: DeviceProtocol>(device: DeviceT, button: Int, rootX: Int, rootY: Int, timestamp: guint32) {
+        gdk_window_begin_move_drag_for_device(window_ptr, device.device_ptr, gint(button), gint(rootX), gint(rootY), timestamp)
     
     }
 
@@ -559,7 +560,7 @@ public extension WindowProtocol {
     ///
     /// **begin_paint_region is deprecated:**
     /// Use gdk_window_begin_draw_frame() instead
-    @available(*, deprecated) @inlinable func beginPaint<RegionT: RegionProtocol>(region: RegionT) {
+    @available(*, deprecated) @inlinable func beginPaint<RegionT: Cairo.RegionProtocol>(region: RegionT) {
         gdk_window_begin_paint_region(window_ptr, region._ptr)
     
     }
@@ -569,8 +570,8 @@ public extension WindowProtocol {
     /// This function assumes that the drag is controlled by the
     /// client pointer device, use `gdk_window_begin_resize_drag_for_device()`
     /// to begin a drag with a different device.
-    @inlinable func beginResizeDrag(edge: GdkWindowEdge, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
-        gdk_window_begin_resize_drag(window_ptr, edge, gint(button), gint(root_x), gint(root_y), timestamp)
+    @inlinable func beginResizeDrag(edge: GdkWindowEdge, button: Int, rootX: Int, rootY: Int, timestamp: guint32) {
+        gdk_window_begin_resize_drag(window_ptr, edge, gint(button), gint(rootX), gint(rootY), timestamp)
     
     }
 
@@ -580,8 +581,8 @@ public extension WindowProtocol {
     /// with window managers that support the
     /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec)
     /// but has a fallback implementation for other window managers.
-    @inlinable func beginResizeDragForDevice<DeviceT: DeviceProtocol>(edge: GdkWindowEdge, device: DeviceT, button: Int, rootX root_x: Int, rootY root_y: Int, timestamp: guint32) {
-        gdk_window_begin_resize_drag_for_device(window_ptr, edge, device.device_ptr, gint(button), gint(root_x), gint(root_y), timestamp)
+    @inlinable func beginResizeDragForDevice<DeviceT: DeviceProtocol>(edge: GdkWindowEdge, device: DeviceT, button: Int, rootX: Int, rootY: Int, timestamp: guint32) {
+        gdk_window_begin_resize_drag_for_device(window_ptr, edge, device.device_ptr, gint(button), gint(rootX), gint(rootY), timestamp)
     
     }
 
@@ -610,8 +611,8 @@ public extension WindowProtocol {
     /// walks down a window hierarchy.
     /// 
     /// See also: `gdk_window_coords_to_parent()`
-    @inlinable func coordsFromParent(parentX parent_x: Double, parentY parent_y: Double, x: UnsafeMutablePointer<gdouble>! = nil, y: UnsafeMutablePointer<gdouble>! = nil) {
-        gdk_window_coords_from_parent(window_ptr, gdouble(parent_x), gdouble(parent_y), x, y)
+    @inlinable func coordsFromParent(parentX: Double, parentY: Double, x: UnsafeMutablePointer<gdouble>! = nil, y: UnsafeMutablePointer<gdouble>! = nil) {
+        gdk_window_coords_from_parent(window_ptr, gdouble(parentX), gdouble(parentY), x, y)
     
     }
 
@@ -631,8 +632,8 @@ public extension WindowProtocol {
     /// walks up a window hierarchy.
     /// 
     /// See also: `gdk_window_coords_from_parent()`
-    @inlinable func coordsToParent(x: Double, y: Double, parentX parent_x: UnsafeMutablePointer<gdouble>! = nil, parentY parent_y: UnsafeMutablePointer<gdouble>! = nil) {
-        gdk_window_coords_to_parent(window_ptr, gdouble(x), gdouble(y), parent_x, parent_y)
+    @inlinable func coordsToParent(x: Double, y: Double, parentX: UnsafeMutablePointer<gdouble>! = nil, parentY: UnsafeMutablePointer<gdouble>! = nil) {
+        gdk_window_coords_to_parent(window_ptr, gdouble(x), gdouble(y), parentX, parentY)
     
     }
 
@@ -680,8 +681,8 @@ public extension WindowProtocol {
     /// Note that unlike `cairo_surface_create_similar_image()`, the new
     /// surface's device scale is set to `scale`, or to the scale factor of
     /// `window` if `scale` is 0.
-    @inlinable func createSimilarImageSurface(format: cairo_format_t, width: Int, height: Int, scale: Int) -> SurfaceRef! {
-        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_window_create_similar_image_surface(window_ptr, format, gint(width), gint(height), gint(scale))))
+    @inlinable func createSimilarImageSurface(format: cairo_format_t, width: Int, height: Int, scale: Int) -> Cairo.SurfaceRef! {
+        let rv = Cairo.SurfaceRef(gdk_window_create_similar_image_surface(window_ptr, format, gint(width), gint(height), gint(scale)))
         return rv
     }
 
@@ -694,8 +695,8 @@ public extension WindowProtocol {
     /// 
     /// Initially the surface contents are all 0 (transparent if contents
     /// have transparency, black otherwise.)
-    @inlinable func createSimilarSurface(content: cairo_content_t, width: Int, height: Int) -> SurfaceRef! {
-        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_window_create_similar_surface(window_ptr, content, gint(width), gint(height))))
+    @inlinable func createSimilarSurface(content: cairo_content_t, width: Int, height: Int) -> Cairo.SurfaceRef! {
+        let rv = Cairo.SurfaceRef(gdk_window_create_similar_surface(window_ptr, content, gint(width), gint(height)))
         return rv
     }
 
@@ -860,8 +861,8 @@ public extension WindowProtocol {
     ///
     /// **get_background_pattern is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) @inlinable func getBackgroundPattern() -> PatternRef! {
-        let rv = PatternRef(gconstpointer: gconstpointer(gdk_window_get_background_pattern(window_ptr)))
+    @available(*, deprecated) @inlinable func getBackgroundPattern() -> Cairo.PatternRef! {
+        let rv = Cairo.PatternRef(gdk_window_get_background_pattern(window_ptr))
         return rv
     }
 
@@ -873,7 +874,7 @@ public extension WindowProtocol {
     /// The returned list must be freed, but the elements in the
     /// list need not be.
     @inlinable func getChildren() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children(window_ptr)))
+        let rv = GLib.ListRef(gdk_window_get_children(window_ptr))
         return rv
     }
 
@@ -885,8 +886,8 @@ public extension WindowProtocol {
     /// 
     /// The list is returned in (relative) stacking order, i.e. the
     /// lowest window is first.
-    @inlinable func getChildrenWith(userData user_data: gpointer! = nil) -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children_with_user_data(window_ptr, user_data)))
+    @inlinable func getChildrenWith(userData: gpointer! = nil) -> GLib.ListRef! {
+        let rv = GLib.ListRef(gdk_window_get_children_with_user_data(window_ptr, userData))
         return rv
     }
 
@@ -895,8 +896,8 @@ public extension WindowProtocol {
     /// other factors such as if the window is obscured by other windows,
     /// but no area outside of this region will be affected by drawing
     /// primitives.
-    @inlinable func getClipRegion() -> RegionRef! {
-        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_clip_region(window_ptr)))
+    @inlinable func getClipRegion() -> Cairo.RegionRef! {
+        let rv = Cairo.RegionRef(gdk_window_get_clip_region(window_ptr))
         return rv
     }
 
@@ -1146,8 +1147,8 @@ public extension WindowProtocol {
     /// window coordinates. This is similar to
     /// `gdk_window_get_origin()` but allows you to pass
     /// in any position in the window, not just the origin.
-    @inlinable func getRootCoords(x: Int, y: Int, rootX root_x: UnsafeMutablePointer<gint>!, rootY root_y: UnsafeMutablePointer<gint>!) {
-        gdk_window_get_root_coords(window_ptr, gint(x), gint(y), root_x, root_y)
+    @inlinable func getRootCoords(x: Int, y: Int, rootX: UnsafeMutablePointer<gint>!, rootY: UnsafeMutablePointer<gint>!) {
+        gdk_window_get_root_coords(window_ptr, gint(x), gint(y), rootX, rootY)
     
     }
 
@@ -1229,8 +1230,8 @@ public extension WindowProtocol {
     /// from `window` and handed to you. If a window has no update area,
     /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
     /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
-    @inlinable func getUpdateArea() -> RegionRef! {
-        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_update_area(window_ptr)))
+    @inlinable func getUpdateArea() -> Cairo.RegionRef! {
+        let rv = Cairo.RegionRef(gdk_window_get_update_area(window_ptr))
         return rv
     }
 
@@ -1245,8 +1246,8 @@ public extension WindowProtocol {
     /// This does not necessarily take into account if the window is
     /// obscured by other windows, but no area outside of this region
     /// is visible.
-    @inlinable func getVisibleRegion() -> RegionRef! {
-        let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_visible_region(window_ptr)))
+    @inlinable func getVisibleRegion() -> Cairo.RegionRef! {
+        let rv = Cairo.RegionRef(gdk_window_get_visible_region(window_ptr))
         return rv
     }
 
@@ -1314,8 +1315,8 @@ public extension WindowProtocol {
     /// 
     /// On the Win32 platform, this functionality is not present and the
     /// function does nothing.
-    @inlinable func inputShapeCombineRegion<RegionT: RegionProtocol>(shapeRegion shape_region: RegionT, offsetX offset_x: Int, offsetY offset_y: Int) {
-        gdk_window_input_shape_combine_region(window_ptr, shape_region._ptr, gint(offset_x), gint(offset_y))
+    @inlinable func inputShapeCombineRegion<RegionT: Cairo.RegionProtocol>(shapeRegion: RegionT, offsetX: Int, offsetY: Int) {
+        gdk_window_input_shape_combine_region(window_ptr, shapeRegion._ptr, gint(offsetX), gint(offsetY))
     
     }
 
@@ -1335,16 +1336,23 @@ public extension WindowProtocol {
     /// each child window that intersects `region` will also be invalidated.
     /// Only children for which `child_func` returns `TRUE` will have the area
     /// invalidated.
-    @inlinable func invalidateMaybeRecurse<RegionT: RegionProtocol>(region: RegionT, childFunc child_func: GdkWindowChildFunc? = nil, userData user_data: gpointer! = nil) {
-        gdk_window_invalidate_maybe_recurse(window_ptr, region._ptr, child_func, user_data)
+    @inlinable func invalidateMaybeRecurse<RegionT: Cairo.RegionProtocol>(region: RegionT, childFunc: GdkWindowChildFunc? = nil, userData: gpointer! = nil) {
+        gdk_window_invalidate_maybe_recurse(window_ptr, region._ptr, childFunc, userData)
     
     }
 
     /// A convenience wrapper around `gdk_window_invalidate_region()` which
     /// invalidates a rectangular region. See
     /// `gdk_window_invalidate_region()` for details.
-    @inlinable func invalidate<RectangleT: RectangleProtocol>(rect: RectangleT? = nil, invalidateChildren invalidate_children: Bool) {
-        gdk_window_invalidate_rect(window_ptr, rect?.rectangle_ptr, gboolean((invalidate_children) ? 1 : 0))
+    @inlinable func invalidate(rect: RectangleRef? = nil, invalidateChildren: Bool) {
+        gdk_window_invalidate_rect(window_ptr, rect?.rectangle_ptr, gboolean((invalidateChildren) ? 1 : 0))
+    
+    }
+    /// A convenience wrapper around `gdk_window_invalidate_region()` which
+    /// invalidates a rectangular region. See
+    /// `gdk_window_invalidate_region()` for details.
+    @inlinable func invalidate<RectangleT: RectangleProtocol>(rect: RectangleT?, invalidateChildren: Bool) {
+        gdk_window_invalidate_rect(window_ptr, rect?.rectangle_ptr, gboolean((invalidateChildren) ? 1 : 0))
     
     }
 
@@ -1365,8 +1373,8 @@ public extension WindowProtocol {
     /// If `false`, then the update area for child windows will remain
     /// unaffected. See gdk_window_invalidate_maybe_recurse if you need
     /// fine grained control over which children are invalidated.
-    @inlinable func invalidate<RegionT: RegionProtocol>(region: RegionT, invalidateChildren invalidate_children: Bool) {
-        gdk_window_invalidate_region(window_ptr, region._ptr, gboolean((invalidate_children) ? 1 : 0))
+    @inlinable func invalidate<RegionT: Cairo.RegionProtocol>(region: RegionT, invalidateChildren: Bool) {
+        gdk_window_invalidate_region(window_ptr, region._ptr, gboolean((invalidateChildren) ? 1 : 0))
     
     }
 
@@ -1458,7 +1466,7 @@ public extension WindowProtocol {
     /// that not covered by the new position of `region` are invalidated.
     /// 
     /// Child windows are not moved.
-    @inlinable func move<RegionT: RegionProtocol>(region: RegionT, dx: Int, dy: Int) {
+    @inlinable func move<RegionT: Cairo.RegionProtocol>(region: RegionT, dx: Int, dy: Int) {
         gdk_window_move_region(window_ptr, region._ptr, gint(dx), gint(dy))
     
     }
@@ -1487,15 +1495,15 @@ public extension WindowProtocol {
     /// 
     /// Connect to the `GdkWindow::moved`-to-rect signal to find out how it was
     /// actually positioned.
-    @inlinable func moveTo<RectangleT: RectangleProtocol>(rect: RectangleT, rectAnchor rect_anchor: GdkGravity, windowAnchor window_anchor: GdkGravity, anchorHints anchor_hints: AnchorHints, rectAnchorDx rect_anchor_dx: Int, rectAnchorDy rect_anchor_dy: Int) {
-        gdk_window_move_to_rect(window_ptr, rect.rectangle_ptr, rect_anchor, window_anchor, anchor_hints.value, gint(rect_anchor_dx), gint(rect_anchor_dy))
+    @inlinable func moveTo<RectangleT: RectangleProtocol>(rect: RectangleT, rectAnchor: GdkGravity, windowAnchor: GdkGravity, anchorHints: AnchorHints, rectAnchorDx: Int, rectAnchorDy: Int) {
+        gdk_window_move_to_rect(window_ptr, rect.rectangle_ptr, rectAnchor, windowAnchor, anchorHints.value, gint(rectAnchorDx), gint(rectAnchorDy))
     
     }
 
     /// Like `gdk_window_get_children()`, but does not copy the list of
     /// children, so the list does not need to be freed.
     @inlinable func peekChildren() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_window_peek_children(window_ptr)))
+        let rv = GLib.ListRef(gdk_window_peek_children(window_ptr))
         return rv
     }
 
@@ -1510,8 +1518,8 @@ public extension WindowProtocol {
     ///
     /// **process_updates is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func processUpdates(updateChildren update_children: Bool) {
-        gdk_window_process_updates(window_ptr, gboolean((update_children) ? 1 : 0))
+    @available(*, deprecated) @inlinable func processUpdates(updateChildren: Bool) {
+        gdk_window_process_updates(window_ptr, gboolean((updateChildren) ? 1 : 0))
     
     }
 
@@ -1541,8 +1549,8 @@ public extension WindowProtocol {
 
     /// Reparents `window` into the given `new_parent`. The window being
     /// reparented will be unmapped as a side effect.
-    @inlinable func reparent<WindowT: WindowProtocol>(newParent new_parent: WindowT, x: Int, y: Int) {
-        gdk_window_reparent(window_ptr, new_parent.window_ptr, gint(x), gint(y))
+    @inlinable func reparent<WindowT: WindowProtocol>(newParent: WindowT, x: Int, y: Int) {
+        gdk_window_reparent(window_ptr, newParent.window_ptr, gint(x), gint(y))
     
     }
 
@@ -1569,7 +1577,21 @@ public extension WindowProtocol {
     /// If `window` is a toplevel, the window manager may choose to deny the
     /// request to move the window in the Z-order, `gdk_window_restack()` only
     /// requests the restack, does not guarantee it.
-    @inlinable func restack<WindowT: WindowProtocol>(sibling: WindowT? = nil, above: Bool) {
+    @inlinable func restack(sibling: WindowRef? = nil, above: Bool) {
+        gdk_window_restack(window_ptr, sibling?.window_ptr, gboolean((above) ? 1 : 0))
+    
+    }
+    /// Changes the position of  `window` in the Z-order (stacking order), so that
+    /// it is above `sibling` (if `above` is `true`) or below `sibling` (if `above` is
+    /// `false`).
+    /// 
+    /// If `sibling` is `nil`, then this either raises (if `above` is `true`) or
+    /// lowers the window.
+    /// 
+    /// If `window` is a toplevel, the window manager may choose to deny the
+    /// request to move the window in the Z-order, `gdk_window_restack()` only
+    /// requests the restack, does not guarantee it.
+    @inlinable func restack<WindowT: WindowProtocol>(sibling: WindowT?, above: Bool) {
         gdk_window_restack(window_ptr, sibling?.window_ptr, gboolean((above) ? 1 : 0))
     
     }
@@ -1595,8 +1617,8 @@ public extension WindowProtocol {
     /// 
     /// On X, it is the responsibility of the window manager to interpret this
     /// hint. ICCCM-compliant window manager usually respect it.
-    @inlinable func set(acceptFocus accept_focus: Bool) {
-        gdk_window_set_accept_focus(window_ptr, gboolean((accept_focus) ? 1 : 0))
+    @inlinable func set(acceptFocus: Bool) {
+        gdk_window_set_accept_focus(window_ptr, gboolean((acceptFocus) ? 1 : 0))
     
     }
 
@@ -1625,7 +1647,22 @@ public extension WindowProtocol {
     ///
     /// **set_background_pattern is deprecated:**
     /// Don't use this function
-    @available(*, deprecated) @inlinable func setBackground<PatternT: PatternProtocol>(pattern: PatternT? = nil) {
+    @available(*, deprecated) @inlinable func setBackground(pattern: Cairo.PatternRef? = nil) {
+        gdk_window_set_background_pattern(window_ptr, pattern?._ptr)
+    
+    }
+    /// Sets the background of `window`.
+    /// 
+    /// A background of `nil` means that the window won't have any background. On the
+    /// X11 backend it's also possible to inherit the background from the parent
+    /// window using `gdk_x11_get_parent_relative_pattern()`.
+    /// 
+    /// The windowing system will normally fill a window with its background
+    /// when the window is obscured then exposed.
+    ///
+    /// **set_background_pattern is deprecated:**
+    /// Don't use this function
+    @available(*, deprecated) @inlinable func setBackground<PatternT: Cairo.PatternProtocol>(pattern: PatternT?) {
         gdk_window_set_background_pattern(window_ptr, pattern?._ptr)
     
     }
@@ -1699,7 +1736,20 @@ public extension WindowProtocol {
     /// Passing `nil` for the `cursor` argument to `gdk_window_set_cursor()` means
     /// that `window` will use the cursor of its parent window. Most windows
     /// should use this default.
-    @inlinable func set<CursorT: CursorProtocol>(cursor: CursorT? = nil) {
+    @inlinable func set(cursor: CursorRef? = nil) {
+        gdk_window_set_cursor(window_ptr, cursor?.cursor_ptr)
+    
+    }
+    /// Sets the default mouse pointer for a `GdkWindow`.
+    /// 
+    /// Note that `cursor` must be for the same display as `window`.
+    /// 
+    /// Use `gdk_cursor_new_for_display()` or `gdk_cursor_new_from_pixbuf()` to
+    /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
+    /// Passing `nil` for the `cursor` argument to `gdk_window_set_cursor()` means
+    /// that `window` will use the cursor of its parent window. Most windows
+    /// should use this default.
+    @inlinable func set<CursorT: CursorProtocol>(cursor: CursorT?) {
         gdk_window_set_cursor(window_ptr, cursor?.cursor_ptr)
     
     }
@@ -1741,8 +1791,8 @@ public extension WindowProtocol {
     /// `GdkEventMask` enumeration.
     /// 
     /// See the [input handling overview](#event-masks) for details.
-    @inlinable func setDeviceEvents<DeviceT: DeviceProtocol>(device: DeviceT, eventMask event_mask: EventMask) {
-        gdk_window_set_device_events(window_ptr, device.device_ptr, event_mask.value)
+    @inlinable func setDeviceEvents<DeviceT: DeviceProtocol>(device: DeviceT, eventMask: EventMask) {
+        gdk_window_set_device_events(window_ptr, device.device_ptr, eventMask.value)
     
     }
 
@@ -1754,8 +1804,8 @@ public extension WindowProtocol {
     /// motion events and will benefit from turning off event compression.
     /// 
     /// By default, event compression is enabled.
-    @inlinable func set(eventCompression event_compression: Bool) {
-        gdk_window_set_event_compression(window_ptr, gboolean((event_compression) ? 1 : 0))
+    @inlinable func set(eventCompression: Bool) {
+        gdk_window_set_event_compression(window_ptr, gboolean((eventCompression) ? 1 : 0))
     
     }
 
@@ -1766,8 +1816,8 @@ public extension WindowProtocol {
     /// `GdkEventMask` enumeration.
     /// 
     /// See the [input handling overview](#event-masks) for details.
-    @inlinable func setEvents(eventMask event_mask: EventMask) {
-        gdk_window_set_events(window_ptr, event_mask.value)
+    @inlinable func setEvents(eventMask: EventMask) {
+        gdk_window_set_events(window_ptr, eventMask.value)
     
     }
 
@@ -1779,8 +1829,8 @@ public extension WindowProtocol {
     /// On X, it is the responsibility of the window manager to interpret
     /// this hint. Window managers following the freedesktop.org window
     /// manager extension specification should respect it.
-    @inlinable func set(focusOnMap focus_on_map: Bool) {
-        gdk_window_set_focus_on_map(window_ptr, gboolean((focus_on_map) ? 1 : 0))
+    @inlinable func set(focusOnMap: Bool) {
+        gdk_window_set_focus_on_map(window_ptr, gboolean((focusOnMap) ? 1 : 0))
     
     }
 
@@ -1845,8 +1895,8 @@ public extension WindowProtocol {
     /// constraints for programmatic resizes, you should generally
     /// call `gdk_window_constrain_size()` yourself to determine
     /// appropriate sizes.
-    @inlinable func setGeometryHints<GeometryT: GeometryProtocol>(geometry: GeometryT, geomMask geom_mask: WindowHints) {
-        gdk_window_set_geometry_hints(window_ptr, geometry._ptr, geom_mask.value)
+    @inlinable func setGeometryHints<GeometryT: GeometryProtocol>(geometry: GeometryT, geomMask: WindowHints) {
+        gdk_window_set_geometry_hints(window_ptr, geometry._ptr, geomMask.value)
     
     }
 
@@ -1860,7 +1910,21 @@ public extension WindowProtocol {
     /// allow users to minimize/unminimize all windows belonging to an
     /// application at once. You should only set a non-default group window
     /// if your application pretends to be multiple applications.
-    @inlinable func setGroup<WindowT: WindowProtocol>(leader: WindowT? = nil) {
+    @inlinable func setGroup(leader: WindowRef? = nil) {
+        gdk_window_set_group(window_ptr, leader?.window_ptr)
+    
+    }
+    /// Sets the group leader window for `window`. By default,
+    /// GDK sets the group leader for all toplevel windows
+    /// to a global window implicitly created by GDK. With this function
+    /// you can override this default.
+    /// 
+    /// The group leader window allows the window manager to distinguish
+    /// all windows that belong to a single application. It may for example
+    /// allow users to minimize/unminimize all windows belonging to an
+    /// application at once. You should only set a non-default group window
+    /// if your application pretends to be multiple applications.
+    @inlinable func setGroup<WindowT: WindowProtocol>(leader: WindowT?) {
         gdk_window_set_group(window_ptr, leader?.window_ptr)
     
     }
@@ -1874,7 +1938,7 @@ public extension WindowProtocol {
     /// icon by a small amount or not at all.
     /// 
     /// Note that some platforms don't support window icons.
-    @inlinable func setIconList<ListT: ListProtocol>(pixbufs: ListT) {
+    @inlinable func setIconList<ListT: GLib.ListProtocol>(pixbufs: ListT) {
         gdk_window_set_icon_list(window_ptr, pixbufs._ptr)
     
     }
@@ -1987,7 +2051,24 @@ public extension WindowProtocol {
     /// the `window` background is opaque, as we know where the opaque regions
     /// are. If your window background is not opaque, please update this
     /// property in your `GtkWidget::style`-updated handler.
-    @inlinable func setOpaque<RegionT: RegionProtocol>(region: RegionT? = nil) {
+    @inlinable func setOpaque(region: Cairo.RegionRef? = nil) {
+        gdk_window_set_opaque_region(window_ptr, region?._ptr)
+    
+    }
+    /// For optimisation purposes, compositing window managers may
+    /// like to not draw obscured regions of windows, or turn off blending
+    /// during for these regions. With RGB windows with no transparency,
+    /// this is just the shape of the window, but with ARGB32 windows, the
+    /// compositor does not know what regions of the window are transparent
+    /// or not.
+    /// 
+    /// This function only works for toplevel windows.
+    /// 
+    /// GTK+ will update this property automatically if
+    /// the `window` background is opaque, as we know where the opaque regions
+    /// are. If your window background is not opaque, please update this
+    /// property in your `GtkWidget::style`-updated handler.
+    @inlinable func setOpaque<RegionT: Cairo.RegionProtocol>(region: RegionT?) {
         gdk_window_set_opaque_region(window_ptr, region?._ptr)
     
     }
@@ -2000,8 +2081,8 @@ public extension WindowProtocol {
     /// Override redirect should only be used for short-lived temporary
     /// windows, such as popup menus. `GtkMenu` uses an override redirect
     /// window in its implementation, for example.
-    @inlinable func set(overrideRedirect override_redirect: Bool) {
-        gdk_window_set_override_redirect(window_ptr, gboolean((override_redirect) ? 1 : 0))
+    @inlinable func set(overrideRedirect: Bool) {
+        gdk_window_set_override_redirect(window_ptr, gboolean((overrideRedirect) ? 1 : 0))
     
     }
 
@@ -2023,8 +2104,8 @@ public extension WindowProtocol {
     /// without pass through, so you can get events on a subset of a window. And in
     /// that cases you would get the in-between related events such as the pointer
     /// enter/leave events on its way to the destination window.
-    @inlinable func set(passThrough pass_through: Bool) {
-        gdk_window_set_pass_through(window_ptr, gboolean((pass_through) ? 1 : 0))
+    @inlinable func set(passThrough: Bool) {
+        gdk_window_set_pass_through(window_ptr, gboolean((passThrough) ? 1 : 0))
     
     }
 
@@ -2067,8 +2148,8 @@ public extension WindowProtocol {
     /// not be called in addition, instead you should
     /// allow the window to be treated according to standard policy for
     /// its semantic type.
-    @inlinable func setSkipPagerHint(skipsPager skips_pager: Bool) {
-        gdk_window_set_skip_pager_hint(window_ptr, gboolean((skips_pager) ? 1 : 0))
+    @inlinable func setSkipPagerHint(skipsPager: Bool) {
+        gdk_window_set_skip_pager_hint(window_ptr, gboolean((skipsPager) ? 1 : 0))
     
     }
 
@@ -2078,8 +2159,8 @@ public extension WindowProtocol {
     /// function should not be called in addition,
     /// instead you should allow the window to be treated according to
     /// standard policy for its semantic type.
-    @inlinable func setSkipTaskbarHint(skipsTaskbar skips_taskbar: Bool) {
-        gdk_window_set_skip_taskbar_hint(window_ptr, gboolean((skips_taskbar) ? 1 : 0))
+    @inlinable func setSkipTaskbarHint(skipsTaskbar: Bool) {
+        gdk_window_set_skip_taskbar_hint(window_ptr, gboolean((skipsTaskbar) ? 1 : 0))
     
     }
 
@@ -2087,15 +2168,15 @@ public extension WindowProtocol {
     /// visible pointer) that has the source defined as `source`. This event
     /// mask will be applied both to currently existing, newly added devices
     /// after this call, and devices being attached/detached.
-    @inlinable func setSourceEvents(source: GdkInputSource, eventMask event_mask: EventMask) {
-        gdk_window_set_source_events(window_ptr, source, event_mask.value)
+    @inlinable func setSourceEvents(source: GdkInputSource, eventMask: EventMask) {
+        gdk_window_set_source_events(window_ptr, source, eventMask.value)
     
     }
 
     /// When using GTK+, typically you should use `gtk_window_set_startup_id()`
     /// instead of this low-level function.
-    @inlinable func set(startupId startup_id: UnsafePointer<gchar>!) {
-        gdk_window_set_startup_id(window_ptr, startup_id)
+    @inlinable func set(startupId: UnsafePointer<gchar>!) {
+        gdk_window_set_startup_id(window_ptr, startupId)
     
     }
 
@@ -2107,8 +2188,8 @@ public extension WindowProtocol {
     /// **set_static_gravities is deprecated:**
     /// static gravities haven't worked on anything but X11
     ///   for a long time.
-    @available(*, deprecated) @inlinable func setStaticGravities(useStatic use_static: Bool) -> Bool {
-        let rv = ((gdk_window_set_static_gravities(window_ptr, gboolean((use_static) ? 1 : 0))) != 0)
+    @available(*, deprecated) @inlinable func setStaticGravities(useStatic: Bool) -> Bool {
+        let rv = ((gdk_window_set_static_gravities(window_ptr, gboolean((useStatic) ? 1 : 0))) != 0)
         return rv
     }
 
@@ -2116,8 +2197,8 @@ public extension WindowProtocol {
     /// 
     /// Multidevice aware windows will need to handle properly multiple,
     /// per device enter/leave events, device grabs and grab ownerships.
-    @inlinable func set(supportMultidevice support_multidevice: Bool) {
-        gdk_window_set_support_multidevice(window_ptr, gboolean((support_multidevice) ? 1 : 0))
+    @inlinable func set(supportMultidevice: Bool) {
+        gdk_window_set_support_multidevice(window_ptr, gboolean((supportMultidevice) ? 1 : 0))
     
     }
 
@@ -2168,8 +2249,19 @@ public extension WindowProtocol {
     /// this function for that. If GTK+ receives an event for a `GdkWindow`,
     /// and the user data for the window is non-`nil`, GTK+ will assume the
     /// user data is a `GtkWidget`, and forward the event to that widget.
-    @inlinable func set<ObjectT: ObjectProtocol>(userData user_data: ObjectT? = nil) {
-        gdk_window_set_user_data(window_ptr, user_data?.object_ptr)
+    @inlinable func set(userData: GLibObject.ObjectRef? = nil) {
+        gdk_window_set_user_data(window_ptr, userData?.object_ptr)
+    
+    }
+    /// For most purposes this function is deprecated in favor of
+    /// `g_object_set_data()`. However, for historical reasons GTK+ stores
+    /// the `GtkWidget` that owns a `GdkWindow` as user data on the
+    /// `GdkWindow`. So, custom widget implementations should use
+    /// this function for that. If GTK+ receives an event for a `GdkWindow`,
+    /// and the user data for the window is non-`nil`, GTK+ will assume the
+    /// user data is a `GtkWidget`, and forward the event to that widget.
+    @inlinable func set<ObjectT: GLibObject.ObjectProtocol>(userData: ObjectT?) {
+        gdk_window_set_user_data(window_ptr, userData?.object_ptr)
     
     }
 
@@ -2187,8 +2279,26 @@ public extension WindowProtocol {
     /// will do nothing.
     /// 
     /// This function works on both toplevel and child windows.
-    @inlinable func shapeCombineRegion<RegionT: RegionProtocol>(shapeRegion shape_region: RegionT? = nil, offsetX offset_x: Int, offsetY offset_y: Int) {
-        gdk_window_shape_combine_region(window_ptr, shape_region?._ptr, gint(offset_x), gint(offset_y))
+    @inlinable func shapeCombineRegion(shapeRegion: Cairo.RegionRef? = nil, offsetX: Int, offsetY: Int) {
+        gdk_window_shape_combine_region(window_ptr, shapeRegion?._ptr, gint(offsetX), gint(offsetY))
+    
+    }
+    /// Makes pixels in `window` outside `shape_region` be transparent,
+    /// so that the window may be nonrectangular.
+    /// 
+    /// If `shape_region` is `nil`, the shape will be unset, so the whole
+    /// window will be opaque again. `offset_x` and `offset_y` are ignored
+    /// if `shape_region` is `nil`.
+    /// 
+    /// On the X11 platform, this uses an X server extension which is
+    /// widely available on most common platforms, but not available on
+    /// very old X servers, and occasionally the implementation will be
+    /// buggy. On servers without the shape extension, this function
+    /// will do nothing.
+    /// 
+    /// This function works on both toplevel and child windows.
+    @inlinable func shapeCombineRegion<RegionT: Cairo.RegionProtocol>(shapeRegion: RegionT?, offsetX: Int, offsetY: Int) {
+        gdk_window_shape_combine_region(window_ptr, shapeRegion?._ptr, gint(offsetX), gint(offsetY))
     
     }
 
@@ -2324,7 +2434,7 @@ public extension WindowProtocol {
     /// Use gdk_window_begin_draw_frame() and
     ///   gdk_drawing_context_get_cairo_context() instead
     @available(*, deprecated) @inlinable func cairoCreate() -> Cairo.ContextRef! {
-        let rv = Cairo.ContextRef(gconstpointer: gconstpointer(gdk_cairo_create(window_ptr)))
+        let rv = Cairo.ContextRef(gdk_cairo_create(window_ptr))
         return rv
     }
 
@@ -2344,8 +2454,8 @@ public extension WindowProtocol {
     /// with alpha components, so make sure you use `GL_TEXTURE` if using alpha.
     /// 
     /// Calling this may change the current GL context.
-    @inlinable func cairoDrawFromGl<ContextT: Cairo.ContextProtocol>(cr: ContextT, source: Int, sourceType source_type: Int, bufferScale buffer_scale: Int, x: Int, y: Int, width: Int, height: Int) {
-        gdk_cairo_draw_from_gl(cr._ptr, window_ptr, gint(source), gint(source_type), gint(buffer_scale), gint(x), gint(y), gint(width), gint(height))
+    @inlinable func cairoDrawFromGl<ContextT: Cairo.ContextProtocol>(cr: ContextT, source: Int, sourceType: Int, bufferScale: Int, x: Int, y: Int, width: Int, height: Int) {
+        gdk_cairo_draw_from_gl(cr._ptr, window_ptr, gint(source), gint(sourceType), gint(bufferScale), gint(x), gint(y), gint(width), gint(height))
     
     }
 
@@ -2364,8 +2474,8 @@ public extension WindowProtocol {
 
     /// Creates an image surface with the same contents as
     /// the pixbuf.
-    @inlinable func cairoSurfaceCreateFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT, scale: Int) -> SurfaceRef! {
-        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_cairo_surface_create_from_pixbuf(pixbuf.pixbuf_ptr, gint(scale), window_ptr)))
+    @inlinable func cairoSurfaceCreateFrom<PixbufT: PixbufProtocol>(pixbuf: PixbufT, scale: Int) -> Cairo.SurfaceRef! {
+        let rv = Cairo.SurfaceRef(gdk_cairo_surface_create_from_pixbuf(pixbuf.pixbuf_ptr, gint(scale), window_ptr))
         return rv
     }
 
@@ -2375,7 +2485,7 @@ public extension WindowProtocol {
     /// begin a drag with a different device.
     /// 
     /// This function is called by the drag source.
-    @inlinable func dragBegin<ListT: ListProtocol>(targets: ListT) -> DragContextRef! {
+    @inlinable func dragBegin<ListT: GLib.ListProtocol>(targets: ListT) -> DragContextRef! {
         let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin(window_ptr, targets._ptr)))
         return rv
     }
@@ -2383,7 +2493,7 @@ public extension WindowProtocol {
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    @inlinable func dragBeginFor<DeviceT: DeviceProtocol, ListT: ListProtocol>(device: DeviceT, targets: ListT) -> DragContextRef! {
+    @inlinable func dragBeginFor<DeviceT: DeviceProtocol, ListT: GLib.ListProtocol>(device: DeviceT, targets: ListT) -> DragContextRef! {
         let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_for_device(window_ptr, device.device_ptr, targets._ptr)))
         return rv
     }
@@ -2391,8 +2501,8 @@ public extension WindowProtocol {
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    @inlinable func dragBeginFromPoint<DeviceT: DeviceProtocol, ListT: ListProtocol>(device: DeviceT, targets: ListT, xRoot x_root: Int, yRoot y_root: Int) -> DragContextRef! {
-        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window_ptr, device.device_ptr, targets._ptr, gint(x_root), gint(y_root))))
+    @inlinable func dragBeginFromPoint<DeviceT: DeviceProtocol, ListT: GLib.ListProtocol>(device: DeviceT, targets: ListT, xRoot: Int, yRoot: Int) -> DragContextRef! {
+        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window_ptr, device.device_ptr, targets._ptr, gint(xRoot), gint(yRoot))))
         return rv
     }
 
@@ -2401,8 +2511,8 @@ public extension WindowProtocol {
     /// 
     /// This function is called by the drag source to obtain the
     /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
-    @inlinable func dragFindWindowForScreen<DragContextT: DragContextProtocol, ScreenT: ScreenProtocol>(context: DragContextT, screen: ScreenT, xRoot x_root: Int, yRoot y_root: Int, destWindow dest_window: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
-        gdk_drag_find_window_for_screen(context.drag_context_ptr, window_ptr, screen.screen_ptr, gint(x_root), gint(y_root), dest_window, `protocol`)
+    @inlinable func dragFindWindowForScreen<DragContextT: DragContextProtocol, ScreenT: ScreenProtocol>(context: DragContextT, screen: ScreenT, xRoot: Int, yRoot: Int, destWindow: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
+        gdk_drag_find_window_for_screen(context.drag_context_ptr, window_ptr, screen.screen_ptr, gint(xRoot), gint(yRoot), destWindow, `protocol`)
     
     }
 
@@ -2413,8 +2523,8 @@ public extension WindowProtocol {
     /// 
     /// This function does not need to be called in managed drag and drop
     /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-    @inlinable func dragMotion<DragContextT: DragContextProtocol>(context: DragContextT, `protocol`: GdkDragProtocol, xRoot x_root: Int, yRoot y_root: Int, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: guint32) -> Bool {
-        let rv = ((gdk_drag_motion(context.drag_context_ptr, window_ptr, `protocol`, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, time_)) != 0)
+    @inlinable func dragMotion<DragContextT: DragContextProtocol>(context: DragContextT, `protocol`: GdkDragProtocol, xRoot: Int, yRoot: Int, suggestedAction: DragAction, possibleActions: DragAction, time_: guint32) -> Bool {
+        let rv = ((gdk_drag_motion(context.drag_context_ptr, window_ptr, `protocol`, gint(xRoot), gint(yRoot), suggestedAction.value, possibleActions.value, time_)) != 0)
         return rv
     }
 
@@ -2428,8 +2538,8 @@ public extension WindowProtocol {
     ///
     /// **keyboard_grab is deprecated:**
     /// Use gdk_device_grab() instead.
-    @available(*, deprecated) @inlinable func keyboardGrab(ownerEvents owner_events: Bool, time_: guint32) -> GdkGrabStatus {
-        let rv = gdk_keyboard_grab(window_ptr, gboolean((owner_events) ? 1 : 0), time_)
+    @available(*, deprecated) @inlinable func keyboardGrab(ownerEvents: Bool, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_keyboard_grab(window_ptr, gboolean((ownerEvents) ? 1 : 0), time_)
         return rv
     }
 
@@ -2442,8 +2552,8 @@ public extension WindowProtocol {
     /// Gets the offscreen surface that an offscreen window renders into.
     /// If you need to keep this around over window resizes, you need to
     /// add a reference to it.
-    @inlinable func offscreenWindowGetSurface() -> SurfaceRef! {
-        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_offscreen_window_get_surface(window_ptr)))
+    @inlinable func offscreenWindowGetSurface() -> Cairo.SurfaceRef! {
+        let rv = Cairo.SurfaceRef(gdk_offscreen_window_get_surface(window_ptr))
         return rv
     }
 
@@ -2484,8 +2594,8 @@ public extension WindowProtocol {
     /// 
     /// (In short, there are several ways this function can fail, and if it fails
     ///  it returns `nil`; so check the return value.)
-    @inlinable func pixbufGetFromWindow(srcX src_x: Int, srcY src_y: Int, width: Int, height: Int) -> PixbufRef! {
-        let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_window(window_ptr, gint(src_x), gint(src_y), gint(width), gint(height))))
+    @inlinable func pixbufGetFromWindow(srcX: Int, srcY: Int, width: Int, height: Int) -> PixbufRef! {
+        let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_window(window_ptr, gint(srcX), gint(srcY), gint(width), gint(height))))
         return rv
     }
 
@@ -2513,8 +2623,36 @@ public extension WindowProtocol {
     ///
     /// **pointer_grab is deprecated:**
     /// Use gdk_device_grab() instead.
-    @available(*, deprecated) @inlinable func pointerGrab<CursorT: CursorProtocol, WindowT: WindowProtocol>(ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowT? = nil, cursor: CursorT? = nil, time_: guint32) -> GdkGrabStatus {
-        let rv = gdk_pointer_grab(window_ptr, gboolean((owner_events) ? 1 : 0), event_mask.value, confine_to?.window_ptr, cursor?.cursor_ptr, time_)
+    @available(*, deprecated) @inlinable func pointerGrab(ownerEvents: Bool, eventMask: EventMask, confineTo: WindowRef? = nil, cursor: CursorRef? = nil, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_pointer_grab(window_ptr, gboolean((ownerEvents) ? 1 : 0), eventMask.value, confineTo?.window_ptr, cursor?.cursor_ptr, time_)
+        return rv
+    }
+    /// Grabs the pointer (usually a mouse) so that all events are passed to this
+    /// application until the pointer is ungrabbed with `gdk_pointer_ungrab()`, or
+    /// the grab window becomes unviewable.
+    /// This overrides any previous pointer grab by this client.
+    /// 
+    /// Pointer grabs are used for operations which need complete control over mouse
+    /// events, even if the mouse leaves the application.
+    /// For example in GTK+ it is used for Drag and Drop, for dragging the handle in
+    /// the `GtkHPaned` and `GtkVPaned` widgets.
+    /// 
+    /// Note that if the event mask of an X window has selected both button press and
+    /// button release events, then a button press event will cause an automatic
+    /// pointer grab until the button is released.
+    /// X does this automatically since most applications expect to receive button
+    /// press and release events in pairs.
+    /// It is equivalent to a pointer grab on the window with `owner_events` set to
+    /// `true`.
+    /// 
+    /// If you set up anything at the time you take the grab that needs to be cleaned
+    /// up when the grab ends, you should handle the `GdkEventGrabBroken` events that
+    /// are emitted when the grab ends unvoluntarily.
+    ///
+    /// **pointer_grab is deprecated:**
+    /// Use gdk_device_grab() instead.
+    @available(*, deprecated) @inlinable func pointerGrab<CursorT: CursorProtocol, WindowT: WindowProtocol>(ownerEvents: Bool, eventMask: EventMask, confineTo: WindowT?, cursor: CursorT?, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_pointer_grab(window_ptr, gboolean((ownerEvents) ? 1 : 0), eventMask.value, confineTo?.window_ptr, cursor?.cursor_ptr, time_)
         return rv
     }
 
@@ -2542,14 +2680,14 @@ public extension WindowProtocol {
     }
 
     /// Sets the owner of the given selection.
-    @inlinable func selectionOwnerSet(selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
-        let rv = ((gdk_selection_owner_set(window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+    @inlinable func selectionOwnerSet(selection: GdkAtom!, time_: guint32, sendEvent: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set(window_ptr, selection, time_, gboolean((sendEvent) ? 1 : 0))) != 0)
         return rv
     }
 
     /// Sets the `GdkWindow` `owner` as the current owner of the selection `selection`.
-    @inlinable func selectionOwnerSetFor<DisplayT: DisplayProtocol>(display: DisplayT, selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
-        let rv = ((gdk_selection_owner_set_for_display(display.display_ptr, window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+    @inlinable func selectionOwnerSetFor<DisplayT: DisplayProtocol>(display: DisplayT, selection: GdkAtom!, time_: guint32, sendEvent: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set_for_display(display.display_ptr, window_ptr, selection, time_, gboolean((sendEvent) ? 1 : 0))) != 0)
         return rv
     }
 
@@ -2557,8 +2695,8 @@ public extension WindowProtocol {
     /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
-    @inlinable func selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int {
-        let rv = Int(gdk_selection_property_get(window_ptr, data, propertyType, prop_format))
+    @inlinable func selectionPropertyGet(data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, propertyType: UnsafeMutablePointer<GdkAtom?>, propertyFormat: UnsafeMutablePointer<gint>!) -> Int {
+        let rv = Int(gdk_selection_property_get(window_ptr, data, propertyType, propertyFormat))
         return rv
     }
 
@@ -2574,8 +2712,8 @@ public extension WindowProtocol {
     
     }
 
-    @inlinable func synthesizeWindowState(unsetFlags unset_flags: WindowState, setFlags set_flags: WindowState) {
-        gdk_synthesize_window_state(window_ptr, unset_flags.value, set_flags.value)
+    @inlinable func synthesizeWindowState(unsetFlags: WindowState, setFlags: WindowState) {
+        gdk_synthesize_window_state(window_ptr, unsetFlags.value, setFlags.value)
     
     }
 
@@ -2601,8 +2739,8 @@ public extension WindowProtocol {
     /// for most testing purposes, `gtk_test_widget_click()` is the right
     /// function to call which will generate a button press event followed
     /// by its accompanying button release event.
-    @inlinable func testSimulateButton(x: Int, y: Int, button: Int, modifiers: ModifierType, buttonPressrelease button_pressrelease: GdkEventType) -> Bool {
-        let rv = ((gdk_test_simulate_button(window_ptr, gint(x), gint(y), guint(button), modifiers.value, button_pressrelease)) != 0)
+    @inlinable func testSimulateButton(x: Int, y: Int, button: Int, modifiers: ModifierType, buttonPressrelease: GdkEventType) -> Bool {
+        let rv = ((gdk_test_simulate_button(window_ptr, gint(x), gint(y), guint(button), modifiers.value, buttonPressrelease)) != 0)
         return rv
     }
 
@@ -2622,8 +2760,8 @@ public extension WindowProtocol {
     /// for most testing purposes, `gtk_test_widget_send_key()` is the
     /// right function to call which will generate a key press event
     /// followed by its accompanying key release event.
-    @inlinable func testSimulateKey(x: Int, y: Int, keyval: Int, modifiers: ModifierType, keyPressrelease key_pressrelease: GdkEventType) -> Bool {
-        let rv = ((gdk_test_simulate_key(window_ptr, gint(x), gint(y), guint(keyval), modifiers.value, key_pressrelease)) != 0)
+    @inlinable func testSimulateKey(x: Int, y: Int, keyval: Int, modifiers: ModifierType, keyPressrelease: GdkEventType) -> Bool {
+        let rv = ((gdk_test_simulate_key(window_ptr, gint(x), gint(y), guint(keyval), modifiers.value, keyPressrelease)) != 0)
         return rv
     }
     /// Determines whether or not the desktop environment shuld be hinted that
@@ -2649,13 +2787,13 @@ public extension WindowProtocol {
     ///
     /// **get_background_pattern is deprecated:**
     /// Don't use this function
-    @inlinable var backgroundPattern: PatternRef! {
+    @inlinable var backgroundPattern: Cairo.PatternRef! {
         /// Gets the pattern used to clear the background on `window`.
         ///
         /// **get_background_pattern is deprecated:**
         /// Don't use this function
         @available(*, deprecated) get {
-            let rv = PatternRef(gconstpointer: gconstpointer(gdk_window_get_background_pattern(window_ptr)))
+            let rv = Cairo.PatternRef(gdk_window_get_background_pattern(window_ptr))
             return rv
         }
         /// Sets the background of `window`.
@@ -2690,7 +2828,7 @@ public extension WindowProtocol {
         /// The returned list must be freed, but the elements in the
         /// list need not be.
         get {
-            let rv = ListRef(gconstpointer: gconstpointer(gdk_window_get_children(window_ptr)))
+            let rv = GLib.ListRef(gdk_window_get_children(window_ptr))
             return rv
         }
     }
@@ -2700,14 +2838,14 @@ public extension WindowProtocol {
     /// other factors such as if the window is obscured by other windows,
     /// but no area outside of this region will be affected by drawing
     /// primitives.
-    @inlinable var clipRegion: RegionRef! {
+    @inlinable var clipRegion: Cairo.RegionRef! {
         /// Computes the region of a window that potentially can be written
         /// to by drawing primitives. This region may not take into account
         /// other factors such as if the window is obscured by other windows,
         /// but no area outside of this region will be affected by drawing
         /// primitives.
         get {
-            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_clip_region(window_ptr)))
+            let rv = Cairo.RegionRef(gdk_window_get_clip_region(window_ptr))
             return rv
         }
     }
@@ -3235,7 +3373,7 @@ public extension WindowProtocol {
     /// from `window` and handed to you. If a window has no update area,
     /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
     /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
-    @inlinable var updateArea: RegionRef! {
+    @inlinable var updateArea: Cairo.RegionRef! {
         /// Transfers ownership of the update area from `window` to the caller
         /// of the function. That is, after calling this function, `window` will
         /// no longer have an invalid/dirty region; the update area is removed
@@ -3243,7 +3381,7 @@ public extension WindowProtocol {
         /// `gdk_window_get_update_area()` returns `nil`. You are responsible for
         /// calling `cairo_region_destroy()` on the returned region if it’s non-`nil`.
         get {
-            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_update_area(window_ptr)))
+            let rv = Cairo.RegionRef(gdk_window_get_update_area(window_ptr))
             return rv
         }
     }
@@ -3252,13 +3390,13 @@ public extension WindowProtocol {
     /// This does not necessarily take into account if the window is
     /// obscured by other windows, but no area outside of this region
     /// is visible.
-    @inlinable var visibleRegion: RegionRef! {
+    @inlinable var visibleRegion: Cairo.RegionRef! {
         /// Computes the region of the `window` that is potentially visible.
         /// This does not necessarily take into account if the window is
         /// obscured by other windows, but no area outside of this region
         /// is visible.
         get {
-            let rv = RegionRef(gconstpointer: gconstpointer(gdk_window_get_visible_region(window_ptr)))
+            let rv = Cairo.RegionRef(gdk_window_get_visible_region(window_ptr))
             return rv
         }
     }

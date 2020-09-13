@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo

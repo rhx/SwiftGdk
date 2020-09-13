@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -158,7 +159,7 @@ public extension EventRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -447,8 +448,8 @@ public extension EventProtocol {
 
     /// Extract the axis value for a particular axis use from
     /// an event structure.
-    @inlinable func getAxis(axisUse axis_use: GdkAxisUse, value: UnsafeMutablePointer<gdouble>!) -> Bool {
-        let rv = ((gdk_event_get_axis(event_ptr, axis_use, value)) != 0)
+    @inlinable func getAxis(axisUse: GdkAxisUse, value: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_event_get_axis(event_ptr, axisUse, value)) != 0)
         return rv
     }
 
@@ -459,14 +460,14 @@ public extension EventProtocol {
     }
 
     /// Extracts the click count from an event.
-    @inlinable func get(clickCount click_count: UnsafeMutablePointer<guint>!) -> Bool {
-        let rv = ((gdk_event_get_click_count(event_ptr, click_count)) != 0)
+    @inlinable func get(clickCount: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((gdk_event_get_click_count(event_ptr, clickCount)) != 0)
         return rv
     }
 
     /// Extract the event window relative x/y coordinates from an event.
-    @inlinable func getCoords(xWin x_win: UnsafeMutablePointer<gdouble>! = nil, yWin y_win: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
-        let rv = ((gdk_event_get_coords(event_ptr, x_win, y_win)) != 0)
+    @inlinable func getCoords(xWin: UnsafeMutablePointer<gdouble>! = nil, yWin: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
+        let rv = ((gdk_event_get_coords(event_ptr, xWin, yWin)) != 0)
         return rv
     }
 
@@ -527,8 +528,8 @@ public extension EventProtocol {
     }
 
     /// Extract the root window relative x/y coordinates from an event.
-    @inlinable func getRootCoords(xRoot x_root: UnsafeMutablePointer<gdouble>! = nil, yRoot y_root: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
-        let rv = ((gdk_event_get_root_coords(event_ptr, x_root, y_root)) != 0)
+    @inlinable func getRootCoords(xRoot: UnsafeMutablePointer<gdouble>! = nil, yRoot: UnsafeMutablePointer<gdouble>! = nil) -> Bool {
+        let rv = ((gdk_event_get_root_coords(event_ptr, xRoot, yRoot)) != 0)
         return rv
     }
 
@@ -557,8 +558,8 @@ public extension EventProtocol {
     /// Retrieves the scroll deltas from a `GdkEvent`
     /// 
     /// See also: `gdk_event_get_scroll_direction()`
-    @inlinable func getScrollDeltas(deltaX delta_x: UnsafeMutablePointer<gdouble>!, deltaY delta_y: UnsafeMutablePointer<gdouble>!) -> Bool {
-        let rv = ((gdk_event_get_scroll_deltas(event_ptr, delta_x, delta_y)) != 0)
+    @inlinable func getScrollDeltas(deltaX: UnsafeMutablePointer<gdouble>!, deltaY: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_event_get_scroll_deltas(event_ptr, deltaX, deltaY)) != 0)
         return rv
     }
 
@@ -666,7 +667,12 @@ public extension EventProtocol {
     }
 
     /// Sets the device tool for this event, should be rarely used.
-    @inlinable func setDevice<DeviceToolT: DeviceToolProtocol>(tool: DeviceToolT? = nil) {
+    @inlinable func setDevice(tool: DeviceToolRef? = nil) {
+        gdk_event_set_device_tool(event_ptr, tool?.device_tool_ptr)
+    
+    }
+    /// Sets the device tool for this event, should be rarely used.
+    @inlinable func setDevice<DeviceToolT: DeviceToolProtocol>(tool: DeviceToolT?) {
         gdk_event_set_device_tool(event_ptr, tool?.device_tool_ptr)
     
     }

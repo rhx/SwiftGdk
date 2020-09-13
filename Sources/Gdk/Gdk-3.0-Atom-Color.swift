@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -94,7 +95,7 @@ public extension AtomRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AtomProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -286,8 +287,8 @@ public extension AtomProtocol {
     /// data in response to a call to `gdk_selection_convert()`. This function
     /// will not be used by applications, who should use the `GtkClipboard`
     /// API instead.
-    @inlinable func selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, property _ptr: UnsafeMutablePointer<GdkAtom?>, propFormat prop_format: UnsafeMutablePointer<gint>!) -> Int {
-        let rv = Int(gdk_selection_property_get(requestor.window_ptr, data, _ptr, prop_format))
+    @inlinable func selectionPropertyGet<WindowT: WindowProtocol>(requestor: WindowT, data: UnsafeMutablePointer<UnsafeMutablePointer<guchar>?>!, property _ptr: UnsafeMutablePointer<GdkAtom?>, propertyFormat: UnsafeMutablePointer<gint>!) -> Int {
+        let rv = Int(gdk_selection_property_get(requestor.window_ptr, data, _ptr, propertyFormat))
         return rv
     }
 
@@ -380,7 +381,7 @@ public extension ColorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

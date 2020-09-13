@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -19,7 +20,7 @@ import GdkPixbuf
 ///
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
-public protocol SeatProtocol: ObjectProtocol {
+public protocol SeatProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkSeat` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -94,7 +95,7 @@ public extension SeatRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -118,7 +119,7 @@ public extension SeatRef {
 ///
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
-open class Seat: Object, SeatProtocol {
+open class Seat: GLibObject.Object, SeatProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Seat` instance.
@@ -261,7 +262,7 @@ public extension SeatProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: SeatPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -410,7 +411,7 @@ public extension SeatProtocol {
 
     /// Returns the slave devices that match the given capabilities.
     @inlinable func getSlaves(capabilities: SeatCapabilities) -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_seat_get_slaves(seat_ptr, capabilities.value)))
+        let rv = GLib.ListRef(gdk_seat_get_slaves(seat_ptr, capabilities.value))
         return rv
     }
 
@@ -438,8 +439,36 @@ public extension SeatProtocol {
     /// If you set up anything at the time you take the grab that needs to be
     /// cleaned up when the grab ends, you should handle the `GdkEventGrabBroken`
     /// events that are emitted when the grab ends unvoluntarily.
-    @inlinable func grab<CursorT: CursorProtocol, EventT: EventProtocol, WindowT: WindowProtocol>(window: WindowT, capabilities: SeatCapabilities, ownerEvents owner_events: Bool, cursor: CursorT? = nil, event: EventT? = nil, prepareFunc prepare_func: GdkSeatGrabPrepareFunc? = nil, prepareFuncData prepare_func_data: gpointer! = nil) -> GdkGrabStatus {
-        let rv = gdk_seat_grab(seat_ptr, window.window_ptr, capabilities.value, gboolean((owner_events) ? 1 : 0), cursor?.cursor_ptr, event?.event_ptr, prepare_func, prepare_func_data)
+    @inlinable func grab<WindowT: WindowProtocol>(window: WindowT, capabilities: SeatCapabilities, ownerEvents: Bool, cursor: CursorRef? = nil, event: EventRef? = nil, prepareFunc: GdkSeatGrabPrepareFunc? = nil, prepareFuncData: gpointer! = nil) -> GdkGrabStatus {
+        let rv = gdk_seat_grab(seat_ptr, window.window_ptr, capabilities.value, gboolean((ownerEvents) ? 1 : 0), cursor?.cursor_ptr, event?.event_ptr, prepareFunc, prepareFuncData)
+        return rv
+    }
+    /// Grabs the seat so that all events corresponding to the given `capabilities`
+    /// are passed to this application until the seat is ungrabbed with `gdk_seat_ungrab()`,
+    /// or the window becomes hidden. This overrides any previous grab on the
+    /// seat by this client.
+    /// 
+    /// As a rule of thumb, if a grab is desired over `GDK_SEAT_CAPABILITY_POINTER`,
+    /// all other "pointing" capabilities (eg. `GDK_SEAT_CAPABILITY_TOUCH`) should
+    /// be grabbed too, so the user is able to interact with all of those while
+    /// the grab holds, you should thus use `GDK_SEAT_CAPABILITY_ALL_POINTING` most
+    /// commonly.
+    /// 
+    /// Grabs are used for operations which need complete control over the
+    /// events corresponding to the given capabilities. For example in GTK+ this
+    /// is used for Drag and Drop operations, popup menus and such.
+    /// 
+    /// Note that if the event mask of a `GdkWindow` has selected both button press
+    /// and button release events, or touch begin and touch end, then a press event
+    /// will cause an automatic grab until the button is released, equivalent to a
+    /// grab on the window with `owner_events` set to `true`. This is done because most
+    /// applications expect to receive paired press and release events.
+    /// 
+    /// If you set up anything at the time you take the grab that needs to be
+    /// cleaned up when the grab ends, you should handle the `GdkEventGrabBroken`
+    /// events that are emitted when the grab ends unvoluntarily.
+    @inlinable func grab<CursorT: CursorProtocol, EventT: EventProtocol, WindowT: WindowProtocol>(window: WindowT, capabilities: SeatCapabilities, ownerEvents: Bool, cursor: CursorT?, event: EventT?, prepareFunc: GdkSeatGrabPrepareFunc? = nil, prepareFuncData: gpointer! = nil) -> GdkGrabStatus {
+        let rv = gdk_seat_grab(seat_ptr, window.window_ptr, capabilities.value, gboolean((ownerEvents) ? 1 : 0), cursor?.cursor_ptr, event?.event_ptr, prepareFunc, prepareFuncData)
         return rv
     }
 
@@ -504,7 +533,7 @@ public extension SeatProtocol {
 ///
 /// A `GdkVisual` contains information about
 /// a particular visual.
-public protocol VisualProtocol: ObjectProtocol {
+public protocol VisualProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkVisual` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -579,7 +608,7 @@ public extension VisualRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -612,8 +641,8 @@ public extension VisualRef {
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) @inlinable static func getBestWith(both depth: Int, visualType visual_type: GdkVisualType) -> VisualRef! {
-        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visual_type))) else { return nil }
+    @available(*, deprecated) @inlinable static func getBestWith(both depth: Int, visualType: GdkVisualType) -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visualType))) else { return nil }
         return rv
     }
 
@@ -638,8 +667,8 @@ public extension VisualRef {
     /// **get_best_with_type is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) @inlinable static func getBestWith(type visual_type: GdkVisualType) -> VisualRef! {
-        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visual_type))) else { return nil }
+    @available(*, deprecated) @inlinable static func getBestWith(type visualType: GdkVisualType) -> VisualRef! {
+        guard let rv = VisualRef(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visualType))) else { return nil }
         return rv
     }
 
@@ -661,7 +690,7 @@ public extension VisualRef {
 ///
 /// A `GdkVisual` contains information about
 /// a particular visual.
-open class Visual: Object, VisualProtocol {
+open class Visual: GLibObject.Object, VisualProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Visual` instance.
@@ -804,8 +833,8 @@ open class Visual: Object, VisualProtocol {
     /// **get_best_with_both is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) @inlinable public static func getBestWith(both depth: Int, visualType visual_type: GdkVisualType) -> Visual! {
-        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visual_type))) else { return nil }
+    @available(*, deprecated) @inlinable public static func getBestWith(both depth: Int, visualType: GdkVisualType) -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visualType))) else { return nil }
         return rv
     }
 
@@ -830,8 +859,8 @@ open class Visual: Object, VisualProtocol {
     /// **get_best_with_type is deprecated:**
     /// Visual selection should be done using
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
-    @available(*, deprecated) @inlinable public static func getBestWith(type visual_type: GdkVisualType) -> Visual! {
-        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visual_type))) else { return nil }
+    @available(*, deprecated) @inlinable public static func getBestWith(type visualType: GdkVisualType) -> Visual! {
+        guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visualType))) else { return nil }
         return rv
     }
 

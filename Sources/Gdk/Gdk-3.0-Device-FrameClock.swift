@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -23,7 +24,7 @@ import GdkPixbuf
 /// See the `GdkDeviceManager` documentation for more information
 /// about the various kinds of master and slave devices, and their
 /// relationships.
-public protocol DeviceProtocol: ObjectProtocol {
+public protocol DeviceProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDevice` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -102,7 +103,7 @@ public extension DeviceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -130,7 +131,7 @@ public extension DeviceRef {
 /// See the `GdkDeviceManager` documentation for more information
 /// about the various kinds of master and slave devices, and their
 /// relationships.
-open class Device: Object, DeviceProtocol {
+open class Device: GLibObject.Object, DeviceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Device` instance.
@@ -303,7 +304,7 @@ public extension DeviceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -487,8 +488,8 @@ public extension DeviceProtocol {
     /// Interprets an array of double as axis values for a given device,
     /// and locates the value in the array for a given axis label, as returned
     /// by `gdk_device_list_axes()`
-    @inlinable func getAxisValue(axes: UnsafeMutablePointer<gdouble>!, axisLabel axis_label: GdkAtom!, value: UnsafeMutablePointer<gdouble>!) -> Bool {
-        let rv = ((gdk_device_get_axis_value(device_ptr, axes, axis_label, value)) != 0)
+    @inlinable func getAxisValue(axes: UnsafeMutablePointer<gdouble>!, axisLabel: GdkAtom!, value: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((gdk_device_get_axis_value(device_ptr, axes, axisLabel, value)) != 0)
         return rv
     }
 
@@ -521,8 +522,8 @@ public extension DeviceProtocol {
     /// Note that there is also `gdk_window_set_event_compression()` to get
     /// more motion events delivered directly, independent of the windowing
     /// system.
-    @inlinable func getHistory<WindowT: WindowProtocol>(window: WindowT, start: guint32, stop: guint32, events: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<GdkTimeCoord>?>?>! = nil, nEvents n_events: UnsafeMutablePointer<gint>! = nil) -> Bool {
-        let rv = ((gdk_device_get_history(device_ptr, window.window_ptr, start, stop, events, n_events)) != 0)
+    @inlinable func getHistory<WindowT: WindowProtocol>(window: WindowT, start: guint32, stop: guint32, events: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<GdkTimeCoord>?>?>! = nil, nEvents: UnsafeMutablePointer<gint>! = nil) -> Bool {
+        let rv = ((gdk_device_get_history(device_ptr, window.window_ptr, start, stop, events, nEvents)) != 0)
         return rv
     }
 
@@ -653,8 +654,8 @@ public extension DeviceProtocol {
     /// As a slave device coordinates are those of its master pointer, This
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
     /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
-    @inlinable func getWindowAtPosition(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
-        let rv = WindowRef(gconstpointer: gconstpointer(gdk_device_get_window_at_position(device_ptr, win_x, win_y)))
+    @inlinable func getWindowAtPosition(winX: UnsafeMutablePointer<gint>! = nil, winY: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
+        let rv = WindowRef(gconstpointer: gconstpointer(gdk_device_get_window_at_position(device_ptr, winX, winY)))
         return rv
     }
 
@@ -665,8 +666,8 @@ public extension DeviceProtocol {
     /// As a slave device coordinates are those of its master pointer, This
     /// function may not be called on devices of type `GDK_DEVICE_TYPE_SLAVE`,
     /// unless there is an ongoing grab on them, see `gdk_device_grab()`.
-    @inlinable func getWindowAtPositionDouble(winX win_x: UnsafeMutablePointer<gdouble>! = nil, winY win_y: UnsafeMutablePointer<gdouble>! = nil) -> WindowRef! {
-        let rv = WindowRef(gconstpointer: gconstpointer(gdk_device_get_window_at_position_double(device_ptr, win_x, win_y)))
+    @inlinable func getWindowAtPositionDouble(winX: UnsafeMutablePointer<gdouble>! = nil, winY: UnsafeMutablePointer<gdouble>! = nil) -> WindowRef! {
+        let rv = WindowRef(gconstpointer: gconstpointer(gdk_device_get_window_at_position_double(device_ptr, winX, winY)))
         return rv
     }
 
@@ -694,15 +695,43 @@ public extension DeviceProtocol {
     ///
     /// **grab is deprecated:**
     /// Use gdk_seat_grab() instead.
-    @available(*, deprecated) @inlinable func grab<CursorT: CursorProtocol, WindowT: WindowProtocol>(window: WindowT, grabOwnership grab_ownership: GdkGrabOwnership, ownerEvents owner_events: Bool, eventMask event_mask: EventMask, cursor: CursorT? = nil, time_: guint32) -> GdkGrabStatus {
-        let rv = gdk_device_grab(device_ptr, window.window_ptr, grab_ownership, gboolean((owner_events) ? 1 : 0), event_mask.value, cursor?.cursor_ptr, time_)
+    @available(*, deprecated) @inlinable func grab<WindowT: WindowProtocol>(window: WindowT, grabOwnership: GdkGrabOwnership, ownerEvents: Bool, eventMask: EventMask, cursor: CursorRef? = nil, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_device_grab(device_ptr, window.window_ptr, grabOwnership, gboolean((ownerEvents) ? 1 : 0), eventMask.value, cursor?.cursor_ptr, time_)
+        return rv
+    }
+    /// Grabs the device so that all events coming from this device are passed to
+    /// this application until the device is ungrabbed with `gdk_device_ungrab()`,
+    /// or the window becomes unviewable. This overrides any previous grab on the device
+    /// by this client.
+    /// 
+    /// Note that `device` and `window` need to be on the same display.
+    /// 
+    /// Device grabs are used for operations which need complete control over the
+    /// given device events (either pointer or keyboard). For example in GTK+ this
+    /// is used for Drag and Drop operations, popup menus and such.
+    /// 
+    /// Note that if the event mask of an X window has selected both button press
+    /// and button release events, then a button press event will cause an automatic
+    /// pointer grab until the button is released. X does this automatically since
+    /// most applications expect to receive button press and release events in pairs.
+    /// It is equivalent to a pointer grab on the window with `owner_events` set to
+    /// `true`.
+    /// 
+    /// If you set up anything at the time you take the grab that needs to be
+    /// cleaned up when the grab ends, you should handle the `GdkEventGrabBroken`
+    /// events that are emitted when the grab ends unvoluntarily.
+    ///
+    /// **grab is deprecated:**
+    /// Use gdk_seat_grab() instead.
+    @available(*, deprecated) @inlinable func grab<CursorT: CursorProtocol, WindowT: WindowProtocol>(window: WindowT, grabOwnership: GdkGrabOwnership, ownerEvents: Bool, eventMask: EventMask, cursor: CursorT?, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_device_grab(device_ptr, window.window_ptr, grabOwnership, gboolean((ownerEvents) ? 1 : 0), eventMask.value, cursor?.cursor_ptr, time_)
         return rv
     }
 
     /// Returns a `GList` of `GdkAtoms`, containing the labels for
     /// the axes that `device` currently has.
     @inlinable func listAxes() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_device_list_axes(device_ptr)))
+        let rv = GLib.ListRef(gdk_device_list_axes(device_ptr))
         return rv
     }
 
@@ -710,7 +739,7 @@ public extension DeviceProtocol {
     /// the list of slave devices attached to it, otherwise it will return
     /// `nil`
     @inlinable func listSlaveDevices() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_device_list_slave_devices(device_ptr)))
+        let rv = GLib.ListRef(gdk_device_list_slave_devices(device_ptr))
         return rv
     }
 
@@ -770,15 +799,15 @@ public extension DeviceProtocol {
     /// **grab_info_libgtk_only is deprecated:**
     /// The symbol was never meant to be used outside
     ///   of GTK+
-    @available(*, deprecated) @inlinable func grabInfoLibgtkOnly<DisplayT: DisplayProtocol>(display: DisplayT, grabWindow grab_window: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, ownerEvents owner_events: UnsafeMutablePointer<gboolean>!) -> Bool {
-        let rv = ((gdk_device_grab_info_libgtk_only(display.display_ptr, device_ptr, grab_window, owner_events)) != 0)
+    @available(*, deprecated) @inlinable func grabInfoLibgtkOnly<DisplayT: DisplayProtocol>(display: DisplayT, grabWindow: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, ownerEvents: UnsafeMutablePointer<gboolean>!) -> Bool {
+        let rv = ((gdk_device_grab_info_libgtk_only(display.display_ptr, device_ptr, grabWindow, ownerEvents)) != 0)
         return rv
     }
 
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    @inlinable func dragBeginForDevice<ListT: ListProtocol, WindowT: WindowProtocol>(window: WindowT, targets: ListT) -> DragContextRef! {
+    @inlinable func dragBeginForDevice<ListT: GLib.ListProtocol, WindowT: WindowProtocol>(window: WindowT, targets: ListT) -> DragContextRef! {
         let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_for_device(window.window_ptr, device_ptr, targets._ptr)))
         return rv
     }
@@ -786,8 +815,8 @@ public extension DeviceProtocol {
     /// Starts a drag and creates a new drag context for it.
     /// 
     /// This function is called by the drag source.
-    @inlinable func dragBeginFromPoint<ListT: ListProtocol, WindowT: WindowProtocol>(window: WindowT, targets: ListT, xRoot x_root: Int, yRoot y_root: Int) -> DragContextRef! {
-        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window.window_ptr, device_ptr, targets._ptr, gint(x_root), gint(y_root))))
+    @inlinable func dragBeginFromPoint<ListT: GLib.ListProtocol, WindowT: WindowProtocol>(window: WindowT, targets: ListT, xRoot: Int, yRoot: Int) -> DragContextRef! {
+        let rv = DragContextRef(gconstpointer: gconstpointer(gdk_drag_begin_from_point(window.window_ptr, device_ptr, targets._ptr, gint(xRoot), gint(yRoot))))
         return rv
     }
     /// Returns the associated device to `device`, if `device` is of type
@@ -1136,7 +1165,7 @@ public extension DeviceProtocol {
 /// In GTK+ 3.20, a new `GdkSeat` object has been introduced that
 /// supersedes `GdkDeviceManager` and should be preferred in newly
 /// written code.
-public protocol DeviceManagerProtocol: ObjectProtocol {
+public protocol DeviceManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDeviceManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1323,7 +1352,7 @@ public extension DeviceManagerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceManagerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1459,7 +1488,7 @@ public extension DeviceManagerRef {
 /// In GTK+ 3.20, a new `GdkSeat` object has been introduced that
 /// supersedes `GdkDeviceManager` and should be preferred in newly
 /// written code.
-open class DeviceManager: Object, DeviceManagerProtocol {
+open class DeviceManager: GLibObject.Object, DeviceManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DeviceManager` instance.
@@ -1601,7 +1630,7 @@ public extension DeviceManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1753,7 +1782,7 @@ public extension DeviceManagerProtocol {
     /// , use gdk_seat_get_pointer(), gdk_seat_get_keyboard()
     ///             and gdk_seat_get_slaves() instead.
     @available(*, deprecated) @inlinable func listDevices(type: GdkDeviceType) -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_device_manager_list_devices(device_manager_ptr, type)))
+        let rv = GLib.ListRef(gdk_device_manager_list_devices(device_manager_ptr, type))
         return rv
     }
     /// Returns the client pointer, that is, the master pointer that acts as the core pointer
@@ -1802,7 +1831,7 @@ public extension DeviceManagerProtocol {
 /// Alternatively, use `DeviceToolRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 
-public protocol DeviceToolProtocol: ObjectProtocol {
+public protocol DeviceToolProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDeviceTool` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1876,7 +1905,7 @@ public extension DeviceToolRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceToolProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1899,7 +1928,7 @@ public extension DeviceToolRef {
 /// Use `DeviceTool` as a strong reference or owner of a `GdkDeviceTool` instance.
 ///
 
-open class DeviceTool: Object, DeviceToolProtocol {
+open class DeviceTool: GLibObject.Object, DeviceToolProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DeviceTool` instance.
@@ -2044,7 +2073,7 @@ public extension DeviceToolProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DeviceToolPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DeviceToolPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -2252,7 +2281,7 @@ public extension DeviceToolProtocol {
 /// the separate `GdkDeviceManager` object. Every display has a
 /// device manager, which you can obtain using
 /// `gdk_display_get_device_manager()`.
-public protocol DisplayProtocol: ObjectProtocol {
+public protocol DisplayProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDisplay` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2343,7 +2372,7 @@ public extension DisplayRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2368,8 +2397,8 @@ public extension DisplayRef {
     }
 
     /// Opens a display.
-    @inlinable static func open(displayName display_name: UnsafePointer<gchar>!) -> DisplayRef! {
-        guard let rv = DisplayRef(gconstpointer: gconstpointer(gdk_display_open(display_name))) else { return nil }
+    @inlinable static func open(displayName: UnsafePointer<gchar>!) -> DisplayRef! {
+        guard let rv = DisplayRef(gconstpointer: gconstpointer(gdk_display_open(displayName))) else { return nil }
         return rv
     }
 
@@ -2410,7 +2439,7 @@ public extension DisplayRef {
 /// the separate `GdkDeviceManager` object. Every display has a
 /// device manager, which you can obtain using
 /// `gdk_display_get_device_manager()`.
-open class Display: Object, DisplayProtocol {
+open class Display: GLibObject.Object, DisplayProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Display` instance.
@@ -2545,8 +2574,8 @@ open class Display: Object, DisplayProtocol {
     }
 
     /// Opens a display.
-    @inlinable public static func open(displayName display_name: UnsafePointer<gchar>!) -> Display! {
-        guard let rv = Display(gconstpointer: gconstpointer(gdk_display_open(display_name))) else { return nil }
+    @inlinable public static func open(displayName: UnsafePointer<gchar>!) -> Display! {
+        guard let rv = Display(gconstpointer: gconstpointer(gdk_display_open(displayName))) else { return nil }
         return rv
     }
 
@@ -2737,8 +2766,8 @@ public extension DisplayProtocol {
     }
 
     /// Gets a monitor associated with this display.
-    @inlinable func getMonitor(monitorNum monitor_num: Int) -> MonitorRef! {
-        let rv = MonitorRef(gconstpointer: gconstpointer(gdk_display_get_monitor(display_ptr, gint(monitor_num))))
+    @inlinable func getMonitor(monitorNum: Int) -> MonitorRef! {
+        let rv = MonitorRef(gconstpointer: gconstpointer(gdk_display_get_monitor(display_ptr, gint(monitorNum))))
         return rv
     }
 
@@ -2806,8 +2835,8 @@ public extension DisplayProtocol {
     ///
     /// **get_screen is deprecated:**
     /// There is only one screen; use gdk_display_get_default_screen() to get it.
-    @available(*, deprecated) @inlinable func getScreen(screenNum screen_num: Int) -> ScreenRef! {
-        let rv = ScreenRef(gconstpointer: gconstpointer(gdk_display_get_screen(display_ptr, gint(screen_num))))
+    @available(*, deprecated) @inlinable func getScreen(screenNum: Int) -> ScreenRef! {
+        let rv = ScreenRef(gconstpointer: gconstpointer(gdk_display_get_screen(display_ptr, gint(screenNum))))
         return rv
     }
 
@@ -2818,8 +2847,8 @@ public extension DisplayProtocol {
     ///
     /// **get_window_at_pointer is deprecated:**
     /// Use gdk_device_get_window_at_position() instead.
-    @available(*, deprecated) @inlinable func getWindowAtPointer(winX win_x: UnsafeMutablePointer<gint>! = nil, winY win_y: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
-        let rv = WindowRef(gconstpointer: gconstpointer(gdk_display_get_window_at_pointer(display_ptr, win_x, win_y)))
+    @available(*, deprecated) @inlinable func getWindowAtPointer(winX: UnsafeMutablePointer<gint>! = nil, winY: UnsafeMutablePointer<gint>! = nil) -> WindowRef! {
+        let rv = WindowRef(gconstpointer: gconstpointer(gdk_display_get_window_at_pointer(display_ptr, winX, winY)))
         return rv
     }
 
@@ -2846,13 +2875,13 @@ public extension DisplayProtocol {
     /// **list_devices is deprecated:**
     /// Use gdk_device_manager_list_devices() instead.
     @available(*, deprecated) @inlinable func listDevices() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_display_list_devices(display_ptr)))
+        let rv = GLib.ListRef(gdk_display_list_devices(display_ptr))
         return rv
     }
 
     /// Returns the list of seats known to `display`.
     @inlinable func listSeats() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_display_list_seats(display_ptr)))
+        let rv = GLib.ListRef(gdk_display_list_seats(display_ptr))
         return rv
     }
 
@@ -2863,8 +2892,8 @@ public extension DisplayProtocol {
     /// with custom startup-notification identifier unless
     /// `gtk_window_set_auto_startup_notification()` is called to
     /// disable that feature.
-    @inlinable func notifyStartupComplete(startupId startup_id: UnsafePointer<gchar>!) {
-        gdk_display_notify_startup_complete(display_ptr, startup_id)
+    @inlinable func notifyStartupComplete(startupId: UnsafePointer<gchar>!) {
+        gdk_display_notify_startup_complete(display_ptr, startupId)
     
     }
 
@@ -2933,8 +2962,8 @@ public extension DisplayProtocol {
     /// clipboard data. On X11, this is a special program that works
     /// according to the
     /// [FreeDesktop Clipboard Specification](http://www.freedesktop.org/Standards/clipboard-manager-spec).
-    @inlinable func storeClipboard<WindowT: WindowProtocol>(clipboardWindow clipboard_window: WindowT, time_: guint32, targets: UnsafePointer<GdkAtom?>! = nil, nTargets n_targets: Int) {
-        gdk_display_store_clipboard(display_ptr, clipboard_window.window_ptr, time_, targets, gint(n_targets))
+    @inlinable func storeClipboard<WindowT: WindowProtocol>(clipboardWindow: WindowT, time_: guint32, targets: UnsafePointer<GdkAtom?>! = nil, nTargets: Int) {
+        gdk_display_store_clipboard(display_ptr, clipboardWindow.window_ptr, time_, targets, gint(nTargets))
     
     }
 
@@ -3045,7 +3074,7 @@ public extension DisplayProtocol {
     /// is more convenient if you want to keep a context around and track
     /// changes to the font rendering settings.
     @inlinable func pangoContextGetForDisplay() -> Pango.ContextRef! {
-        let rv = Pango.ContextRef(gconstpointer: gconstpointer(gdk_pango_context_get_for_display(display_ptr)))
+        let rv = Pango.ContextRef(gdk_pango_context_get_for_display(display_ptr))
         return rv
     }
 
@@ -3060,8 +3089,13 @@ public extension DisplayProtocol {
     }
 
     /// Sets the `GdkWindow` `owner` as the current owner of the selection `selection`.
-    @inlinable func selectionOwnerSetForDisplay<WindowT: WindowProtocol>(owner: WindowT? = nil, selection: GdkAtom!, time_: guint32, sendEvent send_event: Bool) -> Bool {
-        let rv = ((gdk_selection_owner_set_for_display(display_ptr, owner?.window_ptr, selection, time_, gboolean((send_event) ? 1 : 0))) != 0)
+    @inlinable func selectionOwnerSetForDisplay(owner: WindowRef? = nil, selection: GdkAtom!, time_: guint32, sendEvent: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set_for_display(display_ptr, owner?.window_ptr, selection, time_, gboolean((sendEvent) ? 1 : 0))) != 0)
+        return rv
+    }
+    /// Sets the `GdkWindow` `owner` as the current owner of the selection `selection`.
+    @inlinable func selectionOwnerSetForDisplay<WindowT: WindowProtocol>(owner: WindowT?, selection: GdkAtom!, time_: guint32, sendEvent: Bool) -> Bool {
+        let rv = ((gdk_selection_owner_set_for_display(display_ptr, owner?.window_ptr, selection, time_, gboolean((sendEvent) ? 1 : 0))) != 0)
         return rv
     }
 
@@ -3274,7 +3308,7 @@ public extension DisplayProtocol {
 ///   g_error ("Unsupported GDK backend");
 /// ```
 /// 
-public protocol DisplayManagerProtocol: ObjectProtocol {
+public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDisplayManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3388,7 +3422,7 @@ public extension DisplayManagerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayManagerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3462,7 +3496,7 @@ public extension DisplayManagerRef {
 ///   g_error ("Unsupported GDK backend");
 /// ```
 /// 
-open class DisplayManager: Object, DisplayManagerProtocol {
+open class DisplayManager: GLibObject.Object, DisplayManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DisplayManager` instance.
@@ -3615,7 +3649,7 @@ public extension DisplayManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DisplayManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DisplayManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -3730,8 +3764,8 @@ public extension DisplayManagerProtocol {
     }
 
     /// List all currently open displays.
-    @inlinable func listDisplays() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(gdk_display_manager_list_displays(display_manager_ptr)))
+    @inlinable func listDisplays() -> GLib.SListRef! {
+        let rv = GLib.SListRef(gdk_display_manager_list_displays(display_manager_ptr))
         return rv
     }
 
@@ -3772,7 +3806,7 @@ public extension DisplayManagerProtocol {
 /// Alternatively, use `DragContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 
-public protocol DragContextProtocol: ObjectProtocol {
+public protocol DragContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDragContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -3846,7 +3880,7 @@ public extension DragContextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragContextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3869,7 +3903,7 @@ public extension DragContextRef {
 /// Use `DragContext` as a strong reference or owner of a `GdkDragContext` instance.
 ///
 
-open class DragContext: Object, DragContextProtocol {
+open class DragContext: GLibObject.Object, DragContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DragContext` instance.
@@ -4144,7 +4178,7 @@ public extension DragContextProtocol {
 
     /// Retrieves the list of targets of the context.
     @inlinable func listTargets() -> GLib.ListRef! {
-        let rv = ListRef(gconstpointer: gconstpointer(gdk_drag_context_list_targets(drag_context_ptr)))
+        let rv = GLib.ListRef(gdk_drag_context_list_targets(drag_context_ptr))
         return rv
     }
 
@@ -4164,8 +4198,8 @@ public extension DragContextProtocol {
     /// - The `GdkDragContext::cancel` signal if the drag and drop operation is
     ///   finished but doesn't happen over an accepting destination, or is
     ///   cancelled through other means.
-    @inlinable func manageDnd<WindowT: WindowProtocol>(ipcWindow ipc_window: WindowT, actions: DragAction) -> Bool {
-        let rv = ((gdk_drag_context_manage_dnd(drag_context_ptr, ipc_window.window_ptr, actions.value)) != 0)
+    @inlinable func manageDnd<WindowT: WindowProtocol>(ipcWindow: WindowT, actions: DragAction) -> Bool {
+        let rv = ((gdk_drag_context_manage_dnd(drag_context_ptr, ipcWindow.window_ptr, actions.value)) != 0)
         return rv
     }
 
@@ -4179,8 +4213,8 @@ public extension DragContextProtocol {
     /// Sets the position of the drag window that will be kept
     /// under the cursor hotspot. Initially, the hotspot is at the
     /// top left corner of the drag window.
-    @inlinable func setHotspot(hotX hot_x: Int, hotY hot_y: Int) {
-        gdk_drag_context_set_hotspot(drag_context_ptr, gint(hot_x), gint(hot_y))
+    @inlinable func setHotspot(hotX: Int, hotY: Int) {
+        gdk_drag_context_set_hotspot(drag_context_ptr, gint(hotX), gint(hotY))
     
     }
 
@@ -4235,8 +4269,8 @@ public extension DragContextProtocol {
     /// 
     /// This function is called by the drag source to obtain the
     /// `dest_window` and `protocol` parameters for `gdk_drag_motion()`.
-    @inlinable func dragFindWindowForScreen<ScreenT: ScreenProtocol, WindowT: WindowProtocol>(dragWindow drag_window: WindowT, screen: ScreenT, xRoot x_root: Int, yRoot y_root: Int, destWindow dest_window: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
-        gdk_drag_find_window_for_screen(drag_context_ptr, drag_window.window_ptr, screen.screen_ptr, gint(x_root), gint(y_root), dest_window, `protocol`)
+    @inlinable func dragFindWindowForScreen<ScreenT: ScreenProtocol, WindowT: WindowProtocol>(dragWindow: WindowT, screen: ScreenT, xRoot: Int, yRoot: Int, destWindow: UnsafeMutablePointer<UnsafeMutablePointer<GdkWindow>?>!, `protocol`: UnsafeMutablePointer<GdkDragProtocol>!) {
+        gdk_drag_find_window_for_screen(drag_context_ptr, dragWindow.window_ptr, screen.screen_ptr, gint(xRoot), gint(yRoot), destWindow, `protocol`)
     
     }
 
@@ -4253,8 +4287,8 @@ public extension DragContextProtocol {
     /// 
     /// This function does not need to be called in managed drag and drop
     /// operations. See `gdk_drag_context_manage_dnd()` for more information.
-    @inlinable func dragMotion<WindowT: WindowProtocol>(destWindow dest_window: WindowT, `protocol`: GdkDragProtocol, xRoot x_root: Int, yRoot y_root: Int, suggestedAction suggested_action: DragAction, possibleActions possible_actions: DragAction, time_: guint32) -> Bool {
-        let rv = ((gdk_drag_motion(drag_context_ptr, dest_window.window_ptr, `protocol`, gint(x_root), gint(y_root), suggested_action.value, possible_actions.value, time_)) != 0)
+    @inlinable func dragMotion<WindowT: WindowProtocol>(destWindow: WindowT, `protocol`: GdkDragProtocol, xRoot: Int, yRoot: Int, suggestedAction: DragAction, possibleActions: DragAction, time_: guint32) -> Bool {
+        let rv = ((gdk_drag_motion(drag_context_ptr, destWindow.window_ptr, `protocol`, gint(xRoot), gint(yRoot), suggestedAction.value, possibleActions.value, time_)) != 0)
         return rv
     }
 
@@ -4394,7 +4428,7 @@ public extension DragContextProtocol {
 /// and will be valid until a call to `gdk_window_end_draw_frame()`.
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
-public protocol DrawingContextProtocol: ObjectProtocol {
+public protocol DrawingContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDrawingContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4477,7 +4511,7 @@ public extension DrawingContextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingContextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4509,7 +4543,7 @@ public extension DrawingContextRef {
 /// and will be valid until a call to `gdk_window_end_draw_frame()`.
 /// 
 /// `GdkDrawingContext` is available since GDK 3.22
-open class DrawingContext: Object, DrawingContextProtocol {
+open class DrawingContext: GLibObject.Object, DrawingContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DrawingContext` instance.
@@ -4654,7 +4688,7 @@ public extension DrawingContextProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: DrawingContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DrawingContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -4770,13 +4804,13 @@ public extension DrawingContextProtocol {
     /// `GdkDrawingContext` is valid, that is between a call to
     /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
     @inlinable func getCairoContext() -> Cairo.ContextRef! {
-        let rv = Cairo.ContextRef(gconstpointer: gconstpointer(gdk_drawing_context_get_cairo_context(drawing_context_ptr)))
+        let rv = Cairo.ContextRef(gdk_drawing_context_get_cairo_context(drawing_context_ptr))
         return rv
     }
 
     /// Retrieves a copy of the clip region used when creating the `context`.
-    @inlinable func getClip() -> RegionRef! {
-        let rv = RegionRef(gconstpointer: gconstpointer(gdk_drawing_context_get_clip(drawing_context_ptr)))
+    @inlinable func getClip() -> Cairo.RegionRef! {
+        let rv = Cairo.RegionRef(gdk_drawing_context_get_clip(drawing_context_ptr))
         return rv
     }
 
@@ -4799,16 +4833,16 @@ public extension DrawingContextProtocol {
         /// `GdkDrawingContext` is valid, that is between a call to
         /// `gdk_window_begin_draw_frame()` and `gdk_window_end_draw_frame()`.
         get {
-            let rv = Cairo.ContextRef(gconstpointer: gconstpointer(gdk_drawing_context_get_cairo_context(drawing_context_ptr)))
+            let rv = Cairo.ContextRef(gdk_drawing_context_get_cairo_context(drawing_context_ptr))
             return rv
         }
     }
 
     /// The clip region applied to the drawing context.
-    @inlinable var clip: RegionRef! {
+    @inlinable var clip: Cairo.RegionRef! {
         /// Retrieves a copy of the clip region used when creating the `context`.
         get {
-            let rv = RegionRef(gconstpointer: gconstpointer(gdk_drawing_context_get_clip(drawing_context_ptr)))
+            let rv = Cairo.RegionRef(gdk_drawing_context_get_clip(drawing_context_ptr))
             return rv
         }
     }
@@ -4876,7 +4910,7 @@ public extension DrawingContextProtocol {
 /// time between an initial value from `gdk_frame_clock_get_frame_time()`
 /// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
-public protocol FrameClockProtocol: ObjectProtocol {
+public protocol FrameClockProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkFrameClock` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -4982,7 +5016,7 @@ public extension FrameClockRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5037,7 +5071,7 @@ public extension FrameClockRef {
 /// time between an initial value from `gdk_frame_clock_get_frame_time()`
 /// and the value inside the `GdkFrameClock::update` signal of the clock,
 /// they will stay exactly synchronized.
-open class FrameClock: Object, FrameClockProtocol {
+open class FrameClock: GLibObject.Object, FrameClockProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FrameClock` instance.
@@ -5320,16 +5354,16 @@ public extension FrameClockProtocol {
     /// presentation times are separated by the refresh interval,
     /// predicts a presentation time that is a multiple of the refresh
     /// interval after the last presentation time, and later than `base_time`.
-    @inlinable func getRefreshInfo(baseTime base_time: gint64, refreshIntervalReturn refresh_interval_return: UnsafeMutablePointer<gint64>! = nil, presentationTimeReturn presentation_time_return: UnsafeMutablePointer<gint64>!) {
-        gdk_frame_clock_get_refresh_info(frame_clock_ptr, base_time, refresh_interval_return, presentation_time_return)
+    @inlinable func getRefreshInfo(baseTime: gint64, refreshIntervalReturn: UnsafeMutablePointer<gint64>! = nil, presentationTimeReturn: UnsafeMutablePointer<gint64>!) {
+        gdk_frame_clock_get_refresh_info(frame_clock_ptr, baseTime, refreshIntervalReturn, presentationTimeReturn)
     
     }
 
     /// Retrieves a `GdkFrameTimings` object holding timing information
     /// for the current frame or a recent frame. The `GdkFrameTimings`
     /// object may not yet be complete: see `gdk_frame_timings_get_complete()`.
-    @inlinable func getTimings(frameCounter frame_counter: gint64) -> FrameTimingsRef! {
-        let rv = FrameTimingsRef(gconstpointer: gconstpointer(gdk_frame_clock_get_timings(frame_clock_ptr, frame_counter)))
+    @inlinable func getTimings(frameCounter: gint64) -> FrameTimingsRef! {
+        let rv = FrameTimingsRef(gconstpointer: gconstpointer(gdk_frame_clock_get_timings(frame_clock_ptr, frameCounter)))
         return rv
     }
 

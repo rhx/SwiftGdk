@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -94,7 +95,7 @@ public extension RectangleRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RectangleProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -284,7 +285,7 @@ public extension RectangleProtocol {
     /// and y values are undefined. If you are only interested in whether
     /// the rectangles intersect, but not in the intersecting area itself,
     /// pass `nil` for `dest`.
-    @inlinable func intersect<RectangleT: RectangleProtocol>(src2: RectangleT, dest: RectangleT? = nil) -> Bool {
+    @inlinable func intersect<RectangleT: RectangleProtocol>(src2: RectangleT, dest: RectangleT?) -> Bool {
         let rv = ((gdk_rectangle_intersect(rectangle_ptr, src2.rectangle_ptr, dest?.rectangle_ptr)) != 0)
         return rv
     }
@@ -441,7 +442,7 @@ public extension TimeCoordRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeCoordProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

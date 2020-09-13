@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -39,7 +40,7 @@ import GdkPixbuf
 /// g_object_unref (context);
 /// ```
 /// 
-public protocol AppLaunchContextProtocol {
+public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
         /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -134,7 +135,7 @@ public extension AppLaunchContextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -186,17 +187,13 @@ public extension AppLaunchContextRef {
 /// g_object_unref (context);
 /// ```
 /// 
-open class AppLaunchContext: AppLaunchContextProtocol {
-        /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
-    /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
+open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(_ op: UnsafeMutablePointer<GdkAppLaunchContext>) {
-        ptr = UnsafeMutableRawPointer(op)
+        super.init(cPointer: op)
     }
 
     /// Designated initialiser from a constant pointer to the underlying `C` data type.
@@ -204,7 +201,7 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(_ op: UnsafePointer<GdkAppLaunchContext>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
     }
 
     /// Optional initialiser from a non-mutating `gpointer` to
@@ -212,9 +209,9 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
+    @inlinable override public init!(gpointer op: gpointer?) {
         guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
+        super.init(raw: p)
     }
 
     /// Optional initialiser from a non-mutating `gconstpointer` to
@@ -222,9 +219,9 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
         guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
+        super.init(raw: p)
     }
 
     /// Optional initialiser from a constant pointer to the underlying `C` data type.
@@ -233,7 +230,7 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// - Parameter op: pointer to the underlying object
     @inlinable public init!(_ op: UnsafePointer<GdkAppLaunchContext>?) {
         guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
+        super.init(cPointer: p)
     }
 
     /// Optional initialiser from the underlying `C` data type.
@@ -242,7 +239,7 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// - Parameter op: pointer to the underlying object
     @inlinable public init!(_ op: UnsafeMutablePointer<GdkAppLaunchContext>?) {
         guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
@@ -250,89 +247,78 @@ open class AppLaunchContext: AppLaunchContextProtocol {
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(retaining op: UnsafeMutablePointer<GdkAppLaunchContext>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
     /// `GdkAppLaunchContext` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
     @inlinable public init<T: AppLaunchContextProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkAppLaunchContext`.
-    deinit {
-        // no reference counting for GdkAppLaunchContext, cannot unref(app_launch_context_ptr)
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
+    @inlinable override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkAppLaunchContext, cannot ref(app_launch_context_ptr)
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `GdkAppLaunchContext`.
     ///
     /// **new is deprecated:**
     /// Use gdk_display_get_app_launch_context() instead
-    @available(*, deprecated) @inlinable public init() {
+    @available(*, deprecated) @inlinable override public init() {
         let rv = gdk_app_launch_context_new()
-        ptr = UnsafeMutableRawPointer(rv)
+        super.init(gpointer: (rv))
     }
 
 
@@ -351,7 +337,7 @@ public extension AppLaunchContextProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: AppLaunchContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AppLaunchContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -476,8 +462,8 @@ public extension AppLaunchContextProtocol {
     /// If neither `icon` or `icon_name` is set, the icon is taken from either
     /// the file that is passed to launched application or from the `GAppInfo`
     /// for the launched application itself.
-    @inlinable func set(iconName icon_name: UnsafePointer<CChar>? = nil) {
-        gdk_app_launch_context_set_icon_name(app_launch_context_ptr, icon_name)
+    @inlinable func set(iconName: UnsafePointer<CChar>? = nil) {
+        gdk_app_launch_context_set_icon_name(app_launch_context_ptr, iconName)
     
     }
 
@@ -517,7 +503,7 @@ public extension AppLaunchContextProtocol {
 /// Alternatively, use `CursorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A `GdkCursor` represents a cursor. Its contents are private.
-public protocol CursorProtocol: ObjectProtocol {
+public protocol CursorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkCursor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -591,7 +577,7 @@ public extension CursorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -614,14 +600,14 @@ public extension CursorRef {
     ///
     /// **new is deprecated:**
     /// Use gdk_cursor_new_for_display() instead.
-    @available(*, deprecated) @inlinable init( cursor_type: GdkCursorType) {
-        let rv = gdk_cursor_new(cursor_type)
+    @available(*, deprecated) @inlinable init( cursorType: GdkCursorType) {
+        let rv = gdk_cursor_new(cursorType)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new cursor from the set of builtin cursors.
-    @inlinable init<DisplayT: DisplayProtocol>(display: DisplayT, cursorType cursor_type: GdkCursorType) {
-        let rv = gdk_cursor_new_for_display(display.display_ptr, cursor_type)
+    @inlinable init<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) {
+        let rv = gdk_cursor_new_for_display(display.display_ptr, cursorType)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -706,13 +692,13 @@ public extension CursorRef {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    @inlinable init<DisplayT: DisplayProtocol, SurfaceT: SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) {
+    @inlinable init<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) {
         let rv = gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new cursor from the set of builtin cursors.
-    @inlinable static func newFor<DisplayT: DisplayProtocol>(display: DisplayT, cursorType cursor_type: GdkCursorType) -> CursorRef! {
-        guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_new_for_display(display.display_ptr, cursor_type))) else { return nil }
+    @inlinable static func newFor<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) -> CursorRef! {
+        guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_new_for_display(display.display_ptr, cursorType))) else { return nil }
         return rv
     }
 
@@ -797,7 +783,7 @@ public extension CursorRef {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    @inlinable static func newFrom<DisplayT: DisplayProtocol, SurfaceT: SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) -> CursorRef! {
+    @inlinable static func newFrom<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) -> CursorRef! {
         guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y)))) else { return nil }
         return rv
     }
@@ -808,7 +794,7 @@ public extension CursorRef {
 /// Use `Cursor` as a strong reference or owner of a `GdkCursor` instance.
 ///
 /// A `GdkCursor` represents a cursor. Its contents are private.
-open class Cursor: Object, CursorProtocol {
+open class Cursor: GLibObject.Object, CursorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Cursor` instance.
@@ -940,14 +926,14 @@ open class Cursor: Object, CursorProtocol {
     ///
     /// **new is deprecated:**
     /// Use gdk_cursor_new_for_display() instead.
-    @available(*, deprecated) @inlinable public init( cursor_type: GdkCursorType) {
-        let rv = gdk_cursor_new(cursor_type)
+    @available(*, deprecated) @inlinable public init( cursorType: GdkCursorType) {
+        let rv = gdk_cursor_new(cursorType)
         super.init(gpointer: (rv))
     }
 
     /// Creates a new cursor from the set of builtin cursors.
-    @inlinable public init<DisplayT: DisplayProtocol>(display: DisplayT, cursorType cursor_type: GdkCursorType) {
-        let rv = gdk_cursor_new_for_display(display.display_ptr, cursor_type)
+    @inlinable public init<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) {
+        let rv = gdk_cursor_new_for_display(display.display_ptr, cursorType)
         super.init(gpointer: (rv))
     }
 
@@ -1032,14 +1018,14 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    @inlinable public init<DisplayT: DisplayProtocol, SurfaceT: SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) {
+    @inlinable public init<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) {
         let rv = gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y))
         super.init(gpointer: (rv))
     }
 
     /// Creates a new cursor from the set of builtin cursors.
-    @inlinable public static func newFor<DisplayT: DisplayProtocol>(display: DisplayT, cursorType cursor_type: GdkCursorType) -> Cursor! {
-        guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_for_display(display.display_ptr, cursor_type))) else { return nil }
+    @inlinable public static func newFor<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) -> Cursor! {
+        guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_for_display(display.display_ptr, cursorType))) else { return nil }
         return rv
     }
 
@@ -1124,7 +1110,7 @@ open class Cursor: Object, CursorProtocol {
     /// 
     /// On the X backend, support for RGBA cursors requires a
     /// sufficently new version of the X Render extension.
-    @inlinable public static func newFrom<DisplayT: DisplayProtocol, SurfaceT: SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) -> Cursor! {
+    @inlinable public static func newFrom<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y)))) else { return nil }
         return rv
     }
@@ -1145,7 +1131,7 @@ public extension CursorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: CursorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: CursorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -1279,8 +1265,8 @@ public extension CursorProtocol {
     /// Note that depending on the capabilities of the windowing system and
     /// on the cursor, GDK may not be able to obtain the image data. In this
     /// case, `nil` is returned.
-    @inlinable func getSurface(xHot x_hot: UnsafeMutablePointer<gdouble>! = nil, yHot y_hot: UnsafeMutablePointer<gdouble>! = nil) -> SurfaceRef! {
-        let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_cursor_get_surface(cursor_ptr, x_hot, y_hot)))
+    @inlinable func getSurface(xHot: UnsafeMutablePointer<gdouble>! = nil, yHot: UnsafeMutablePointer<gdouble>! = nil) -> Cairo.SurfaceRef! {
+        let rv = Cairo.SurfaceRef(gdk_cursor_get_surface(cursor_ptr, xHot, yHot))
         return rv
     }
 
@@ -1327,8 +1313,8 @@ public extension CursorProtocol {
     ///
     /// **pointer_grab is deprecated:**
     /// Use gdk_device_grab() instead.
-    @available(*, deprecated) @inlinable func pointerGrab<WindowT: WindowProtocol>(window: WindowT, ownerEvents owner_events: Bool, eventMask event_mask: EventMask, confineTo confine_to: WindowT? = nil, time_: guint32) -> GdkGrabStatus {
-        let rv = gdk_pointer_grab(window.window_ptr, gboolean((owner_events) ? 1 : 0), event_mask.value, confine_to?.window_ptr, cursor_ptr, time_)
+    @available(*, deprecated) @inlinable func pointerGrab<WindowT: WindowProtocol>(window: WindowT, ownerEvents: Bool, eventMask: EventMask, confineTo: WindowT?, time_: guint32) -> GdkGrabStatus {
+        let rv = gdk_pointer_grab(window.window_ptr, gboolean((ownerEvents) ? 1 : 0), eventMask.value, confineTo?.window_ptr, cursor_ptr, time_)
         return rv
     }
     /// Returns the cursor type for this cursor.

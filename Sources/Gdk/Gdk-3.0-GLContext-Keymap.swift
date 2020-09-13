@@ -5,6 +5,7 @@ import CGdkPixbuf
 import CGdk
 import GLib
 import GLibObject
+import GIO
 import Pango
 import Cairo
 import PangoCairo
@@ -69,7 +70,7 @@ import GdkPixbuf
 /// You can check which `GdkGLContext` is the current one by using
 /// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
 /// that is currently set by calling `gdk_gl_context_clear_current()`.
-public protocol GLContextProtocol: ObjectProtocol {
+public protocol GLContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkGLContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -194,7 +195,7 @@ public extension GLContextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLContextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -273,7 +274,7 @@ public extension GLContextRef {
 /// You can check which `GdkGLContext` is the current one by using
 /// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
 /// that is currently set by calling `gdk_gl_context_clear_current()`.
-open class GLContext: Object, GLContextProtocol {
+open class GLContext: GLibObject.Object, GLContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `GLContext` instance.
@@ -425,7 +426,7 @@ public extension GLContextProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: ObjectProtocol>(property source_property: GLContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GLContextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
@@ -651,8 +652,8 @@ public extension GLContextProtocol {
     /// You should check the return value of `gdk_gl_context_get_use_es()` after
     /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
     /// OpenGL ES API, extensions, or shaders.
-    @inlinable func set(useEs use_es: Int) {
-        gdk_gl_context_set_use_es(gl_context_ptr, gint(use_es))
+    @inlinable func set(useEs: Int) {
+        gdk_gl_context_set_use_es(gl_context_ptr, gint(useEs))
     
     }
     /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
@@ -802,7 +803,7 @@ public extension GLContextProtocol {
 /// to determine the effective keyboard group and level for the keyboard
 /// state; the second phase is to look up the keycode/group/level triplet
 /// in the keymap and see what keyval it corresponds to.
-public protocol KeymapProtocol: ObjectProtocol {
+public protocol KeymapProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkKeymap` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -881,7 +882,7 @@ public extension KeymapRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -923,7 +924,7 @@ public extension KeymapRef {
 /// to determine the effective keyboard group and level for the keyboard
 /// state; the second phase is to look up the keycode/group/level triplet
 /// in the keymap and see what keyval it corresponds to.
-open class Keymap: Object, KeymapProtocol {
+open class Keymap: GLibObject.Object, KeymapProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Keymap` instance.
@@ -1173,8 +1174,8 @@ public extension KeymapProtocol {
     /// When a keycode is pressed by the user, the keyval from
     /// this list of entries is selected by considering the effective
     /// keyboard group and level. See `gdk_keymap_translate_keyboard_state()`.
-    @inlinable func getEntriesForKeycode(hardwareKeycode hardware_keycode: Int, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>?>! = nil, keyvals: UnsafeMutablePointer<UnsafeMutablePointer<guint>?>! = nil, nEntries n_entries: UnsafeMutablePointer<gint>!) -> Bool {
-        let rv = ((gdk_keymap_get_entries_for_keycode(keymap_ptr, guint(hardware_keycode), keys, keyvals, n_entries)) != 0)
+    @inlinable func getEntriesForKeycode(hardwareKeycode: Int, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>?>! = nil, keyvals: UnsafeMutablePointer<UnsafeMutablePointer<guint>?>! = nil, nEntries: UnsafeMutablePointer<gint>!) -> Bool {
+        let rv = ((gdk_keymap_get_entries_for_keycode(keymap_ptr, guint(hardwareKeycode), keys, keyvals, nEntries)) != 0)
         return rv
     }
 
@@ -1189,8 +1190,8 @@ public extension KeymapProtocol {
     /// keyboard group. The level is computed from the modifier mask.
     /// The returned array should be freed
     /// with `g_free()`.
-    @inlinable func getEntriesFor(keyval: Int, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>?>!, nKeys n_keys: UnsafeMutablePointer<gint>!) -> Bool {
-        let rv = ((gdk_keymap_get_entries_for_keyval(keymap_ptr, guint(keyval), keys, n_keys)) != 0)
+    @inlinable func getEntriesFor(keyval: Int, keys: UnsafeMutablePointer<UnsafeMutablePointer<GdkKeymapKey>?>!, nKeys: UnsafeMutablePointer<gint>!) -> Bool {
+        let rv = ((gdk_keymap_get_entries_for_keyval(keymap_ptr, guint(keyval), keys, nKeys)) != 0)
         return rv
     }
 
@@ -1303,8 +1304,8 @@ public extension KeymapProtocol {
     /// combinations are returned only when actually found in `state`. When
     /// you store accelerators, you should always store them with consumed
     /// modifiers removed. Store `<Control>plus`, not `<Control><Shift>plus`,
-    @inlinable func translateKeyboardState(hardwareKeycode hardware_keycode: Int, state: ModifierType, group: Int, keyval: UnsafeMutablePointer<guint>! = nil, effectiveGroup effective_group: UnsafeMutablePointer<gint>! = nil, level: UnsafeMutablePointer<gint>! = nil, consumedModifiers consumed_modifiers: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
-        let rv = ((gdk_keymap_translate_keyboard_state(keymap_ptr, guint(hardware_keycode), state.value, gint(group), keyval, effective_group, level, consumed_modifiers)) != 0)
+    @inlinable func translateKeyboardState(hardwareKeycode: Int, state: ModifierType, group: Int, keyval: UnsafeMutablePointer<guint>! = nil, effectiveGroup: UnsafeMutablePointer<gint>! = nil, level: UnsafeMutablePointer<gint>! = nil, consumedModifiers: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
+        let rv = ((gdk_keymap_translate_keyboard_state(keymap_ptr, guint(hardwareKeycode), state.value, gint(group), keyval, effectiveGroup, level, consumedModifiers)) != 0)
         return rv
     }
     /// Returns whether the Caps Lock modifer is locked.
