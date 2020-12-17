@@ -48,3 +48,14 @@ s/public func flush/@available(*, deprecated) public func flush/
 s/public func setDoubleClickTime/@available(*, deprecated) public func setDoubleClickTime/
 s/_ptr.pointee.state = newValue.value/_ptr.pointee.state = newValue.rawValue/
 s/targets: GdkAtom/targets: UnsafePointer<GdkAtom?>/
+s/\(gdk_crossing_event.*\)crossing_\(event_ptr\)/\1\2/
+s/\(gdk_button_event.*\)button_\(event_ptr\)/\1\2/
+s/\(gdk_dnd_event.*\)dnd_\(event_ptr\)/\1\2/
+s/\(gdk_focus_event.*\)focus_\(event_ptr\)/\1\2/
+s/\(gdk_grab_broken_event.*\)grab_broken_\(event_ptr\)/\1\2/
+s/\(gdk_key_event.*\)key_\(event_ptr\)/\1\2/
+s/\(gdk_pad_event.*\)pad_\(event_ptr\)/\1\2/
+s/\(gdk_scroll_event.*\)scroll_\(event_ptr\)/\1\2/
+s/\(gdk_touch.*_event.*\)touch.*_\(event_ptr\)/\1\2/
+s/\(init<DisplayT: DisplayProtocol>.\)toplevel \(display: DisplayT\)/\1\2/
+s/\(new<DisplayT: DisplayProtocol>.\)toplevel \(display: DisplayT\)/\1\2/
