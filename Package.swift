@@ -16,7 +16,11 @@ let package = Package(
 		.brew(["gtk+3", "glib", "glib-networking", "gobject-introspection"]),
 		.apt(["libgtk-3-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
 	    ]),
-        .target(name: "Gdk", dependencies: ["CGdk", "GdkPixbuf", "PangoCairo"]),
+        .target(
+            name: "Gdk", 
+            dependencies: ["CGdk", "GdkPixbuf", "PangoCairo"],
+            swiftSettings: [.unsafeFlags(["-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug))]
+        ),
         .testTarget(name: "GdkTests", dependencies: ["Gdk"]),
     ]
 )
