@@ -87,13 +87,13 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
-        .package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk3")),
+        .package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk4")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gdk"])]
 )
 ```
 
-For gtk4 replace `.branch("gtk3")` with `.branch("gtk4")`.
+For gtk3 replace `.branch("gtk4")` with `.branch("gtk3")`.
 
 ## Building
 
