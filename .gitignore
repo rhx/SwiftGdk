@@ -4,6 +4,7 @@
 /docs
 /Packages
 /*.xcodeproj
+/.swiftpm
 *.tgz
 undocumented.json      
 Package.resolved
