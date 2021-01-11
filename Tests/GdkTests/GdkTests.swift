@@ -9,18 +9,18 @@ class GdkTests: XCTestCase {
         XCTAssertEqual(event.type, EventType.keyPress)
     }
 
-	func testEventType() {
+    func testEventType() {
         let doubleButton = EventType.doubleButtonPress
         XCTAssertEqual(doubleButton, EventType._2buttonPress)
-	}
+    }
 
 }
 
 extension GdkTests {
-	static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
-		return [
+    static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
+        return [
             ("testEvent",     testEvent),
-			("testEventType", testEventType),
-		]
-	}
+            ("testEventType", testEventType),
+        ]
+    }
 }
