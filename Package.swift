@@ -13,7 +13,7 @@ let package = Package(
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gtk4",
 	    providers: [
-		.brew(["gtk+4", "glib", "glib-networking", "gobject-introspection"]),
+		.brew(["gtk4", "glib", "glib-networking", "gobject-introspection"]),
 		.apt(["libgtk-4-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
 	    ]),
         .target(
