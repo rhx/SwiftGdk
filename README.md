@@ -173,8 +173,10 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 
 ### Known Issues
 
- * When building, a lot of warnings appear.  This is largely an issue with automatic `RawRepresentable` conformance in the Swift Standard library.  As a workaryound, you can turn this off by passing the `-Xswiftc -suppresswarnings` parameter when building.
+ * When building, a lot of warnings appear.  This is largely an issue with automatic `RawRepresentable` conformance in the Swift Standard library.  As a workaround, you can turn this off by passing the `-Xswiftc -suppresswarnings` parameter when building.
+
  * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
+
  * BUILD_DIR is not supported in the current build system.
  
 As a workaround, you can use the old build scripts, e.g. `./build.sh` (instead of `run-gir2swift.sh` and `swift build`) to build a package.
