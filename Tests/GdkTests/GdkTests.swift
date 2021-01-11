@@ -1,4 +1,5 @@
 import XCTest
+import GLib
 @testable import Gdk
 
 class GdkTests: XCTestCase {
@@ -14,13 +15,27 @@ class GdkTests: XCTestCase {
         XCTAssertEqual(doubleButton, EventType._2buttonPress)
     }
 
+    func testThreadsAddIdle() {
+        let mainLoop = MainLoopRef(context: mainContextDefault(), isRunning: false)
+        var done = false
+        let id = threadsAddIdle(priority: PRIORITY_HIGH_IDLE) {
+            done = true
+            mainLoop.quit()
+            return false
+        }
+        XCTAssertEqual(done, false)
+        XCTAssertNotEqual(id, 0)
+        mainLoop.run()
+        XCTAssertEqual(done, true)
+    }
 }
 
 extension GdkTests {
     static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
         return [
-            ("testEvent",     testEvent),
-            ("testEventType", testEventType),
+            ("testEvent",          testEvent),
+            ("testEventType",      testEventType),
+            ("testThreadsAddIdle", testThreadsAddIdle),
         ]
     }
 }
