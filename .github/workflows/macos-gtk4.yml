@@ -36,7 +36,7 @@ jobs:
 
       - name: Fetch dependencies for general repository
         run: brew install $MACOS_BREW
-        if: succeeded() || failed()
+        if: ${{ success() || failure() }}
 
       - name: Checkout SwiftGdk
         uses: actions/checkout@v2
