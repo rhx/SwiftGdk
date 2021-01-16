@@ -28,11 +28,16 @@ jobs:
       - name: Print Swift version to confirm
         run: swift --version
 
-      - name: Fetch dependencies for general repository
+      - name: Run brew update
+        run: brew update
+
+      - name: Upgrade installed packages to current version
         run: brew upgrade
+        continue-on-error: true
 
       - name: Fetch dependencies for general repository
         run: brew install $MACOS_BREW
+        if: ${{ success() || failure() }}
 
       - name: Checkout SwiftGdk
         uses: actions/checkout@v2
