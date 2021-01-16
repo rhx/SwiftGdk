@@ -399,10 +399,7 @@ open class Event: EventProtocol {
 
 // MARK: no Event properties
 
-// MARK: no Event signals
-
-
-// MARK: Event Union: EventProtocol extension (methods and fields)
+// MARK: Event has no signals// MARK: Event Union: EventProtocol extension (methods and fields)
 public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEvent` instance.
     @inlinable var event_ptr: UnsafeMutablePointer<GdkEvent>! { return ptr?.assumingMemoryBound(to: GdkEvent.self) }

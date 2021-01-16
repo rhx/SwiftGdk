@@ -75,7 +75,7 @@ public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
 /// g_object_unref (context);
 /// ```
 /// 
-public struct AppLaunchContextRef: AppLaunchContextProtocol {
+public struct AppLaunchContextRef: AppLaunchContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -121,6 +121,9 @@ public extension AppLaunchContextRef {
         ptr = other.ptr
     }
 
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AppLaunchContextProtocol>(_ other: T) -> AppLaunchContextRef { AppLaunchContextRef(other) }
+
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
@@ -161,7 +164,7 @@ public extension AppLaunchContextRef {
     }
 }
 
-/// The `AppLaunchContext` type acts as an owner of an underlying `GdkAppLaunchContext` instance.
+/// The `AppLaunchContext` type acts as a reference-counted owner of an underlying `GdkAppLaunchContext` instance.
 /// It provides the methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContext` as a strong reference or owner of a `GdkAppLaunchContext` instance.
 ///
@@ -243,7 +246,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     }
 
     /// Designated initialiser from the underlying `C` data type.
-    /// `GdkAppLaunchContext` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// Will retain `GdkAppLaunchContext`.
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(retaining op: UnsafeMutablePointer<GdkAppLaunchContext>) {
@@ -251,7 +254,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     }
 
     /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
-    /// `GdkAppLaunchContext` does not allow reference counting.
+    /// Will retain `GdkAppLaunchContext`.
     /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
     @inlinable public init<T: AppLaunchContextProtocol>(_ other: T) {
         super.init(retainingRaw: other.ptr)
@@ -319,6 +322,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     @available(*, deprecated) @inlinable override public init() {
         let rv = gdk_app_launch_context_new()
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -381,40 +385,7 @@ public extension AppLaunchContextProtocol {
     }
 }
 
-public enum AppLaunchContextSignalName: String, SignalNameProtocol {
-
-    case notifyDisplay = "notify::display"
-}
-
-public extension AppLaunchContextProtocol {
-    /// Connect a `AppLaunchContextSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
+// MARK: AppLaunchContext has no signals// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
 public extension AppLaunchContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkAppLaunchContext` instance.
     @inlinable var app_launch_context_ptr: UnsafeMutablePointer<GdkAppLaunchContext>! { return ptr?.assumingMemoryBound(to: GdkAppLaunchContext.self) }
@@ -449,8 +420,19 @@ public extension AppLaunchContextProtocol {
     /// notification.
     /// 
     /// See also `gdk_app_launch_context_set_icon_name()`.
-    @inlinable func set(icon: UnsafeMutablePointer<GIcon>? = nil) {
-        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon)
+    @inlinable func set(icon: GIO.IconRef? = nil) {
+        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
+    
+    }
+    /// Sets the icon for applications that are launched with this
+    /// context.
+    /// 
+    /// Window Managers can use this information when displaying startup
+    /// notification.
+    /// 
+    /// See also `gdk_app_launch_context_set_icon_name()`.
+    @inlinable func set<IconT: GIO.IconProtocol>(icon: IconT?) {
+        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
     
     }
 
@@ -517,7 +499,7 @@ public protocol CursorProtocol: GLibObject.ObjectProtocol {
 /// Use `CursorRef` only as an `unowned` reference to an existing `GdkCursor` instance.
 ///
 /// A `GdkCursor` represents a cursor. Its contents are private.
-public struct CursorRef: CursorProtocol {
+public struct CursorRef: CursorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkCursor` instance.
     /// For type-safe access, use the generated, typed pointer `cursor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -562,6 +544,9 @@ public extension CursorRef {
     @inlinable init<T: CursorProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: CursorProtocol>(_ other: T) -> CursorRef { CursorRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
@@ -929,12 +914,14 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     @available(*, deprecated) @inlinable public init( cursorType: GdkCursorType) {
         let rv = gdk_cursor_new(cursorType)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor from the set of builtin cursors.
     @inlinable public init<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) {
         let rv = gdk_cursor_new_for_display(display.display_ptr, cursorType)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor by looking up `name` in the current cursor
@@ -980,6 +967,7 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     @inlinable public init<DisplayT: DisplayProtocol>(name display: DisplayT, name: UnsafePointer<gchar>!) {
         let rv = gdk_cursor_new_from_name(display.display_ptr, name)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor from a pixbuf.
@@ -1003,6 +991,7 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     @inlinable public init<DisplayT: DisplayProtocol, PixbufT: PixbufProtocol>(pixbuf display: DisplayT, pixbuf: PixbufT, x: Int, y: Int) {
         let rv = gdk_cursor_new_from_pixbuf(display.display_ptr, pixbuf.pixbuf_ptr, gint(x), gint(y))
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor from a cairo image surface.
@@ -1021,11 +1010,13 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     @inlinable public init<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) {
         let rv = gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y))
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor from the set of builtin cursors.
     @inlinable public static func newFor<DisplayT: DisplayProtocol>(display: DisplayT, cursorType: GdkCursorType) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_for_display(display.display_ptr, cursorType))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1071,6 +1062,7 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// - ![](zoom_out_cursor.png) "zoom-out"
     @inlinable public static func newFrom<DisplayT: DisplayProtocol>(name display: DisplayT, name: UnsafePointer<gchar>!) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_name(display.display_ptr, name))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1094,6 +1086,7 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// sufficently new version of the X Render extension.
     @inlinable public static func newFrom<DisplayT: DisplayProtocol, PixbufT: PixbufProtocol>(pixbuf display: DisplayT, pixbuf: PixbufT, x: Int, y: Int) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_pixbuf(display.display_ptr, pixbuf.pixbuf_ptr, gint(x), gint(y)))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1112,6 +1105,7 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// sufficently new version of the X Render extension.
     @inlinable public static func newFrom<DisplayT: DisplayProtocol, SurfaceT: Cairo.SurfaceProtocol>(surface display: DisplayT, surface: SurfaceT, x: Double, y: Double) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_surface(display.display_ptr, surface._ptr, gdouble(x), gdouble(y)))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1175,65 +1169,7 @@ public extension CursorProtocol {
     }
 }
 
-public enum CursorSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    case notifyCursorType = "notify::cursor-type"
-    case notifyDisplay = "notify::display"
-}
-
-public extension CursorProtocol {
-    /// Connect a `CursorSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: CursorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: Cursor Class: CursorProtocol extension (methods and fields)
+// MARK: Cursor has no signals// MARK: Cursor Class: CursorProtocol extension (methods and fields)
 public extension CursorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCursor` instance.
     @inlinable var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { return ptr?.assumingMemoryBound(to: GdkCursor.self) }

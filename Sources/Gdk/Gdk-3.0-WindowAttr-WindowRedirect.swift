@@ -262,10 +262,7 @@ open class WindowAttr: WindowAttrProtocol {
 
 // MARK: no WindowAttr properties
 
-// MARK: no WindowAttr signals
-
-
-// MARK: WindowAttr Record: WindowAttrProtocol extension (methods and fields)
+// MARK: WindowAttr has no signals// MARK: WindowAttr Record: WindowAttrProtocol extension (methods and fields)
 public extension WindowAttrProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkWindowAttr` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkWindowAttr>! { return ptr?.assumingMemoryBound(to: GdkWindowAttr.self) }
@@ -460,6 +457,21 @@ public extension WindowAttrProtocol {
 
 
 
+/// Metatype/GType declaration for Window
+public extension WindowClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_window_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkWindowClass.self) }
+    
+    static var metatype: GdkWindowClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: WindowClassRef? { WindowClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - WindowClass Record
 
 /// The `WindowClassProtocol` protocol exposes the methods and properties of an underlying `GdkWindowClass` instance.
@@ -559,160 +571,6 @@ public extension WindowClassRef {
     }
 
     }
-
-/// The `WindowClass` type acts as an owner of an underlying `GdkWindowClass` instance.
-/// It provides the methods that can operate on this data type through `WindowClassProtocol` conformance.
-/// Use `WindowClass` as a strong reference or owner of a `GdkWindowClass` instance.
-///
-
-open class WindowClass: WindowClassProtocol {
-        /// Untyped pointer to the underlying `GdkWindowClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkWindowClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkWindowClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkWindowClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkWindowClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkWindowClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `WindowClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkWindowClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `WindowClassProtocol`
-    /// `GdkWindowClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `WindowClassProtocol`
-    @inlinable public init<T: WindowClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkWindowClass`.
-    deinit {
-        // no reference counting for GdkWindowClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkWindowClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no WindowClass properties
-
-// MARK: no WindowClass signals
-
 
 // MARK: WindowClass Record: WindowClassProtocol extension (methods and fields)
 public extension WindowClassProtocol {
@@ -1006,10 +864,7 @@ open class WindowRedirect: WindowRedirectProtocol {
 
 // MARK: no WindowRedirect properties
 
-// MARK: no WindowRedirect signals
-
-
-// MARK: WindowRedirect Record: WindowRedirectProtocol extension (methods and fields)
+// MARK: WindowRedirect has no signals// MARK: WindowRedirect Record: WindowRedirectProtocol extension (methods and fields)
 public extension WindowRedirectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkWindowRedirect` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkWindowRedirect>! { return ptr?.assumingMemoryBound(to: GdkWindowRedirect.self) }

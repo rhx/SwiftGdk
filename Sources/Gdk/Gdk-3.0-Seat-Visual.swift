@@ -35,7 +35,7 @@ public protocol SeatProtocol: GLibObject.ObjectProtocol {
 ///
 /// The `GdkSeat` object represents a collection of input devices
 /// that belong to a user.
-public struct SeatRef: SeatProtocol {
+public struct SeatRef: SeatProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkSeat` instance.
     /// For type-safe access, use the generated, typed pointer `seat_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -80,6 +80,9 @@ public extension SeatRef {
     @inlinable init<T: SeatProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: SeatProtocol>(_ other: T) -> SeatRef { SeatRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
@@ -306,13 +309,104 @@ public extension SeatProtocol {
     }
 }
 
-public enum SeatSignalName: String, SignalNameProtocol {
+// MARK: Signals of Seat
+public extension SeatProtocol {
     /// The `device`-added signal is emitted when a new input
     /// device is related to this seat.
-    case deviceAdded = "device-added"
+    /// - Note: Representation of signal named `device-added`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter device: the newly added `GdkDevice`.
+    @discardableResult
+    func onDeviceAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SeatRef, _ device: DeviceRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SeatRef, DeviceRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SeatRef(raw: unownedSelf), DeviceRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "device-added", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The `device`-removed signal is emitted when an
     /// input device is removed (e.g. unplugged).
-    case deviceRemoved = "device-removed"
+    /// - Note: Representation of signal named `device-removed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter device: the just removed `GdkDevice`.
+    @discardableResult
+    func onDeviceRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SeatRef, _ device: DeviceRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SeatRef, DeviceRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SeatRef(raw: unownedSelf), DeviceRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "device-removed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The `tool`-added signal is emitted whenever a new tool
+    /// is made known to the seat. The tool may later be assigned
+    /// to a device (i.e. on proximity with a tablet). The device
+    /// will emit the `GdkDevice::tool`-changed signal accordingly.
+    /// 
+    /// A same tool may be used by several devices.
+    /// - Note: Representation of signal named `tool-added`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter tool: the new `GdkDeviceTool` known to the seat
+    @discardableResult
+    func onToolAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SeatRef, _ tool: DeviceToolRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SeatRef, DeviceToolRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SeatRef(raw: unownedSelf), DeviceToolRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "tool-added", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// This signal is emitted whenever a tool is no longer known
+    /// to this `seat`.
+    /// - Note: Representation of signal named `tool-removed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter tool: the just removed `GdkDeviceTool`
+    @discardableResult
+    func onToolRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SeatRef, _ tool: DeviceToolRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SeatRef, DeviceToolRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SeatRef(raw: unownedSelf), DeviceToolRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "tool-removed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -337,47 +431,27 @@ public enum SeatSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `tool`-added signal is emitted whenever a new tool
-    /// is made known to the seat. The tool may later be assigned
-    /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice::tool`-changed signal accordingly.
-    /// 
-    /// A same tool may be used by several devices.
-    case toolAdded = "tool-added"
-    /// This signal is emitted whenever a tool is no longer known
-    /// to this `seat`.
-    case toolRemoved = "tool-removed"
-    /// `GdkDisplay` of this seat.
-    case notifyDisplay = "notify::display"
-}
-
-public extension SeatProtocol {
-    /// Connect a `SeatSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: SeatSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::display`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SeatRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SeatRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SeatRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::display", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
 }
 
 // MARK: Seat Class: SeatProtocol extension (methods and fields)
@@ -548,7 +622,7 @@ public protocol VisualProtocol: GLibObject.ObjectProtocol {
 ///
 /// A `GdkVisual` contains information about
 /// a particular visual.
-public struct VisualRef: VisualProtocol {
+public struct VisualRef: VisualProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkVisual` instance.
     /// For type-safe access, use the generated, typed pointer `visual_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -593,6 +667,9 @@ public extension VisualRef {
     @inlinable init<T: VisualProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: VisualProtocol>(_ other: T) -> VisualRef { VisualRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
@@ -824,6 +901,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) @inlinable public static func getBest() -> Visual! {
         guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best())) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -835,6 +913,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) @inlinable public static func getBestWith(both depth: Int, visualType: GdkVisualType) -> Visual! {
         guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_both(gint(depth), visualType))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -848,6 +927,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) @inlinable public static func getBestWith(depth: Int) -> Visual! {
         guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_depth(gint(depth)))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -861,6 +941,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
     ///     gdk_screen_get_system_visual() and gdk_screen_get_rgba_visual()
     @available(*, deprecated) @inlinable public static func getBestWith(type visualType: GdkVisualType) -> Visual! {
         guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_best_with_type(visualType))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -872,6 +953,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
     /// Use gdk_screen_get_system_visual (gdk_screen_get_default ()).
     @available(*, deprecated) @inlinable public static func getSystem() -> Visual! {
         guard let rv = Visual(gconstpointer: gconstpointer(gdk_visual_get_system())) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -879,64 +961,7 @@ open class Visual: GLibObject.Object, VisualProtocol {
 
 // MARK: no Visual properties
 
-public enum VisualSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension VisualProtocol {
-    /// Connect a `VisualSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: VisualSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: Visual Class: VisualProtocol extension (methods and fields)
+// MARK: Visual has no signals// MARK: Visual Class: VisualProtocol extension (methods and fields)
 public extension VisualProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkVisual` instance.
     @inlinable var visual_ptr: UnsafeMutablePointer<GdkVisual>! { return ptr?.assumingMemoryBound(to: GdkVisual.self) }
