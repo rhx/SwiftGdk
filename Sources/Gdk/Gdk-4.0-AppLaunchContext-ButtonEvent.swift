@@ -75,7 +75,7 @@ public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
 /// g_object_unref (context);
 /// ```
 /// 
-public struct AppLaunchContextRef: AppLaunchContextProtocol {
+public struct AppLaunchContextRef: AppLaunchContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -121,6 +121,9 @@ public extension AppLaunchContextRef {
         ptr = other.ptr
     }
 
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: AppLaunchContextProtocol>(_ other: T) -> AppLaunchContextRef { AppLaunchContextRef(other) }
+
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
@@ -153,7 +156,7 @@ public extension AppLaunchContextRef {
 
     }
 
-/// The `AppLaunchContext` type acts as an owner of an underlying `GdkAppLaunchContext` instance.
+/// The `AppLaunchContext` type acts as a reference-counted owner of an underlying `GdkAppLaunchContext` instance.
 /// It provides the methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContext` as a strong reference or owner of a `GdkAppLaunchContext` instance.
 ///
@@ -235,7 +238,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     }
 
     /// Designated initialiser from the underlying `C` data type.
-    /// `GdkAppLaunchContext` does not allow reference counting, so despite the name no actual retaining will occur.
+    /// Will retain `GdkAppLaunchContext`.
     /// i.e., ownership is transferred to the `AppLaunchContext` instance.
     /// - Parameter op: pointer to the underlying object
     @inlinable public init(retaining op: UnsafeMutablePointer<GdkAppLaunchContext>) {
@@ -243,7 +246,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     }
 
     /// Reference intialiser for a related type that implements `AppLaunchContextProtocol`
-    /// `GdkAppLaunchContext` does not allow reference counting.
+    /// Will retain `GdkAppLaunchContext`.
     /// - Parameter other: an instance of a related type that implements `AppLaunchContextProtocol`
     @inlinable public init<T: AppLaunchContextProtocol>(_ other: T) {
         super.init(retainingRaw: other.ptr)
@@ -365,40 +368,7 @@ public extension AppLaunchContextProtocol {
     }
 }
 
-public enum AppLaunchContextSignalName: String, SignalNameProtocol {
-
-    case notifyDisplay = "notify::display"
-}
-
-public extension AppLaunchContextProtocol {
-    /// Connect a `AppLaunchContextSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: AppLaunchContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
+// MARK: AppLaunchContext has no signals// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
 public extension AppLaunchContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkAppLaunchContext` instance.
     @inlinable var app_launch_context_ptr: UnsafeMutablePointer<GdkAppLaunchContext>! { return ptr?.assumingMemoryBound(to: GdkAppLaunchContext.self) }
@@ -429,8 +399,19 @@ public extension AppLaunchContextProtocol {
     /// notification.
     /// 
     /// See also `gdk_app_launch_context_set_icon_name()`.
-    @inlinable func set(icon: UnsafeMutablePointer<GIcon>? = nil) {
-        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon)
+    @inlinable func set(icon: GIO.IconRef? = nil) {
+        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
+    
+    }
+    /// Sets the icon for applications that are launched with this
+    /// context.
+    /// 
+    /// Window Managers can use this information when displaying startup
+    /// notification.
+    /// 
+    /// See also `gdk_app_launch_context_set_icon_name()`.
+    @inlinable func set<IconT: GIO.IconProtocol>(icon: IconT?) {
+        gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
     
     }
 
@@ -707,10 +688,7 @@ open class ButtonEvent: Event, ButtonEventProtocol {
 
 // MARK: no ButtonEvent properties
 
-// MARK: no ButtonEvent signals
-
-
-// MARK: ButtonEvent Class: ButtonEventProtocol extension (methods and fields)
+// MARK: ButtonEvent has no signals// MARK: ButtonEvent Class: ButtonEventProtocol extension (methods and fields)
 public extension ButtonEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkButtonEvent` instance.
     @inlinable var button_event_ptr: UnsafeMutablePointer<GdkButtonEvent>! { return ptr?.assumingMemoryBound(to: GdkButtonEvent.self) }

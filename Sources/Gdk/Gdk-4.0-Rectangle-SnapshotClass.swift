@@ -265,10 +265,7 @@ open class Rectangle: RectangleProtocol {
 
 // MARK: no Rectangle properties
 
-// MARK: no Rectangle signals
-
-
-// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
+// MARK: Rectangle has no signals// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
 public extension RectangleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRectangle` instance.
     @inlinable var rectangle_ptr: UnsafeMutablePointer<GdkRectangle>! { return ptr?.assumingMemoryBound(to: GdkRectangle.self) }
@@ -370,6 +367,21 @@ public extension RectangleProtocol {
 
 
 
+/// Metatype/GType declaration for Snapshot
+public extension SnapshotClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_snapshot_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkSnapshotClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkSnapshotClass.self) }
+    
+    static var metatype: GdkSnapshotClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: SnapshotClassRef? { SnapshotClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - SnapshotClass Record
 
 /// The `SnapshotClassProtocol` protocol exposes the methods and properties of an underlying `GdkSnapshotClass` instance.
@@ -469,160 +481,6 @@ public extension SnapshotClassRef {
     }
 
     }
-
-/// The `SnapshotClass` type acts as an owner of an underlying `GdkSnapshotClass` instance.
-/// It provides the methods that can operate on this data type through `SnapshotClassProtocol` conformance.
-/// Use `SnapshotClass` as a strong reference or owner of a `GdkSnapshotClass` instance.
-///
-
-open class SnapshotClass: SnapshotClassProtocol {
-        /// Untyped pointer to the underlying `GdkSnapshotClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkSnapshotClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkSnapshotClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkSnapshotClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkSnapshotClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkSnapshotClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `SnapshotClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkSnapshotClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `SnapshotClassProtocol`
-    /// `GdkSnapshotClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `SnapshotClassProtocol`
-    @inlinable public init<T: SnapshotClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkSnapshotClass`.
-    deinit {
-        // no reference counting for GdkSnapshotClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapshotClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkSnapshotClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no SnapshotClass properties
-
-// MARK: no SnapshotClass signals
-
 
 // MARK: SnapshotClass Record: SnapshotClassProtocol extension (methods and fields)
 public extension SnapshotClassProtocol {

@@ -11,6 +11,21 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
+/// Metatype/GType declaration for DragSurface
+public extension DragSurfaceInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_drag_surface_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkDragSurfaceInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDragSurfaceInterface.self) }
+    
+    static var metatype: GdkDragSurfaceInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: DragSurfaceInterfaceRef? { DragSurfaceInterfaceRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - DragSurfaceInterface Record
 
 /// The `DragSurfaceInterfaceProtocol` protocol exposes the methods and properties of an underlying `GdkDragSurfaceInterface` instance.
@@ -110,160 +125,6 @@ public extension DragSurfaceInterfaceRef {
     }
 
     }
-
-/// The `DragSurfaceInterface` type acts as an owner of an underlying `GdkDragSurfaceInterface` instance.
-/// It provides the methods that can operate on this data type through `DragSurfaceInterfaceProtocol` conformance.
-/// Use `DragSurfaceInterface` as a strong reference or owner of a `GdkDragSurfaceInterface` instance.
-///
-/// The `GdkDragSurfaceInterface` implementation is private to GDK.
-open class DragSurfaceInterface: DragSurfaceInterfaceProtocol {
-        /// Untyped pointer to the underlying `GdkDragSurfaceInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkDragSurfaceInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkDragSurfaceInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkDragSurfaceInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkDragSurfaceInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkDragSurfaceInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `DragSurfaceInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkDragSurfaceInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `DragSurfaceInterfaceProtocol`
-    /// `GdkDragSurfaceInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `DragSurfaceInterfaceProtocol`
-    @inlinable public init<T: DragSurfaceInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkDragSurfaceInterface`.
-    deinit {
-        // no reference counting for GdkDragSurfaceInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkDragSurfaceInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no DragSurfaceInterface properties
-
-// MARK: no DragSurfaceInterface signals
-
 
 // MARK: DragSurfaceInterface Record: DragSurfaceInterfaceProtocol extension (methods and fields)
 public extension DragSurfaceInterfaceProtocol {
@@ -527,10 +388,7 @@ open class DrawingContext: DrawingContextProtocol {
 
 // MARK: no DrawingContext properties
 
-// MARK: no DrawingContext signals
-
-
-// MARK: DrawingContext Record: DrawingContextProtocol extension (methods and fields)
+// MARK: DrawingContext has no signals// MARK: DrawingContext Record: DrawingContextProtocol extension (methods and fields)
 public extension DrawingContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrawingContext` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkDrawingContext>! { return ptr?.assumingMemoryBound(to: GdkDrawingContext.self) }
@@ -795,10 +653,7 @@ open class EventSequence: EventSequenceProtocol {
 
 // MARK: no EventSequence properties
 
-// MARK: no EventSequence signals
-
-
-// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
+// MARK: EventSequence has no signals// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
 public extension EventSequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventSequence` instance.
     @inlinable var event_sequence_ptr: UnsafeMutablePointer<GdkEventSequence>! { return ptr?.assumingMemoryBound(to: GdkEventSequence.self) }

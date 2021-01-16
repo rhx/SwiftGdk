@@ -380,10 +380,7 @@ open class ContentFormats: ContentFormatsProtocol {
 
 // MARK: no ContentFormats properties
 
-// MARK: no ContentFormats signals
-
-
-// MARK: ContentFormats Record: ContentFormatsProtocol extension (methods and fields)
+// MARK: ContentFormats has no signals// MARK: ContentFormats Record: ContentFormatsProtocol extension (methods and fields)
 public extension ContentFormatsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentFormats` instance.
     @inlinable var content_formats_ptr: UnsafeMutablePointer<GdkContentFormats>! { return ptr?.assumingMemoryBound(to: GdkContentFormats.self) }
@@ -780,10 +777,7 @@ open class ContentFormatsBuilder: ContentFormatsBuilderProtocol {
 
 // MARK: no ContentFormatsBuilder properties
 
-// MARK: no ContentFormatsBuilder signals
-
-
-// MARK: ContentFormatsBuilder Record: ContentFormatsBuilderProtocol extension (methods and fields)
+// MARK: ContentFormatsBuilder has no signals// MARK: ContentFormatsBuilder Record: ContentFormatsBuilderProtocol extension (methods and fields)
 public extension ContentFormatsBuilderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentFormatsBuilder` instance.
     @inlinable var content_formats_builder_ptr: UnsafeMutablePointer<GdkContentFormatsBuilder>! { return ptr?.assumingMemoryBound(to: GdkContentFormatsBuilder.self) }
@@ -845,6 +839,21 @@ public extension ContentFormatsBuilderProtocol {
 }
 
 
+
+/// Metatype/GType declaration for ContentProvider
+public extension ContentProviderClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_content_provider_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkContentProviderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkContentProviderClass.self) }
+    
+    static var metatype: GdkContentProviderClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: ContentProviderClassRef? { ContentProviderClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ContentProviderClass Record
 
@@ -946,160 +955,6 @@ public extension ContentProviderClassRef {
 
     }
 
-/// The `ContentProviderClass` type acts as an owner of an underlying `GdkContentProviderClass` instance.
-/// It provides the methods that can operate on this data type through `ContentProviderClassProtocol` conformance.
-/// Use `ContentProviderClass` as a strong reference or owner of a `GdkContentProviderClass` instance.
-///
-/// Class structure for `GdkContentProvider`.
-open class ContentProviderClass: ContentProviderClassProtocol {
-        /// Untyped pointer to the underlying `GdkContentProviderClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkContentProviderClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkContentProviderClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkContentProviderClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkContentProviderClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkContentProviderClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ContentProviderClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkContentProviderClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ContentProviderClassProtocol`
-    /// `GdkContentProviderClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ContentProviderClassProtocol`
-    @inlinable public init<T: ContentProviderClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkContentProviderClass`.
-    deinit {
-        // no reference counting for GdkContentProviderClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkContentProviderClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ContentProviderClass properties
-
-// MARK: no ContentProviderClass signals
-
-
 // MARK: ContentProviderClass Record: ContentProviderClassProtocol extension (methods and fields)
 public extension ContentProviderClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentProviderClass` instance.
@@ -1134,6 +989,21 @@ public extension ContentProviderClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for DevicePad
+public extension DevicePadInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_device_pad_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkDevicePadInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDevicePadInterface.self) }
+    
+    static var metatype: GdkDevicePadInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: DevicePadInterfaceRef? { DevicePadInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - DevicePadInterface Record
 
@@ -1234,160 +1104,6 @@ public extension DevicePadInterfaceRef {
     }
 
     }
-
-/// The `DevicePadInterface` type acts as an owner of an underlying `GdkDevicePadInterface` instance.
-/// It provides the methods that can operate on this data type through `DevicePadInterfaceProtocol` conformance.
-/// Use `DevicePadInterface` as a strong reference or owner of a `GdkDevicePadInterface` instance.
-///
-
-open class DevicePadInterface: DevicePadInterfaceProtocol {
-        /// Untyped pointer to the underlying `GdkDevicePadInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkDevicePadInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkDevicePadInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkDevicePadInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkDevicePadInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkDevicePadInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `DevicePadInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkDevicePadInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `DevicePadInterfaceProtocol`
-    /// `GdkDevicePadInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `DevicePadInterfaceProtocol`
-    @inlinable public init<T: DevicePadInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkDevicePadInterface`.
-    deinit {
-        // no reference counting for GdkDevicePadInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkDevicePadInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no DevicePadInterface properties
-
-// MARK: no DevicePadInterface signals
-
 
 // MARK: DevicePadInterface Record: DevicePadInterfaceProtocol extension (methods and fields)
 public extension DevicePadInterfaceProtocol {

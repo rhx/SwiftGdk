@@ -247,10 +247,7 @@ open class ProximityEvent: Event, ProximityEventProtocol {
 
 // MARK: no ProximityEvent properties
 
-// MARK: no ProximityEvent signals
-
-
-// MARK: ProximityEvent Class: ProximityEventProtocol extension (methods and fields)
+// MARK: ProximityEvent has no signals// MARK: ProximityEvent Class: ProximityEventProtocol extension (methods and fields)
 public extension ProximityEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkProximityEvent` instance.
     @inlinable var proximity_event_ptr: UnsafeMutablePointer<GdkProximityEvent>! { return ptr?.assumingMemoryBound(to: GdkProximityEvent.self) }
@@ -497,10 +494,7 @@ open class ScrollEvent: Event, ScrollEventProtocol {
 
 // MARK: no ScrollEvent properties
 
-// MARK: no ScrollEvent signals
-
-
-// MARK: ScrollEvent Class: ScrollEventProtocol extension (methods and fields)
+// MARK: ScrollEvent has no signals// MARK: ScrollEvent Class: ScrollEventProtocol extension (methods and fields)
 public extension ScrollEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkScrollEvent` instance.
     @inlinable var scroll_event_ptr: UnsafeMutablePointer<GdkScrollEvent>! { return ptr?.assumingMemoryBound(to: GdkScrollEvent.self) }

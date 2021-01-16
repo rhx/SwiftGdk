@@ -262,10 +262,7 @@ open class TimeCoord: TimeCoordProtocol {
 
 // MARK: no TimeCoord properties
 
-// MARK: no TimeCoord signals
-
-
-// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
+// MARK: TimeCoord has no signals// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
 public extension TimeCoordProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTimeCoord` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkTimeCoord>! { return ptr?.assumingMemoryBound(to: GdkTimeCoord.self) }
@@ -313,6 +310,21 @@ public extension TimeCoordProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Toplevel
+public extension ToplevelInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_toplevel_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkToplevelInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkToplevelInterface.self) }
+    
+    static var metatype: GdkToplevelInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: ToplevelInterfaceRef? { ToplevelInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - ToplevelInterface Record
 
@@ -413,160 +425,6 @@ public extension ToplevelInterfaceRef {
     }
 
     }
-
-/// The `ToplevelInterface` type acts as an owner of an underlying `GdkToplevelInterface` instance.
-/// It provides the methods that can operate on this data type through `ToplevelInterfaceProtocol` conformance.
-/// Use `ToplevelInterface` as a strong reference or owner of a `GdkToplevelInterface` instance.
-///
-
-open class ToplevelInterface: ToplevelInterfaceProtocol {
-        /// Untyped pointer to the underlying `GdkToplevelInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkToplevelInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkToplevelInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkToplevelInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkToplevelInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkToplevelInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `ToplevelInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkToplevelInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `ToplevelInterfaceProtocol`
-    /// `GdkToplevelInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `ToplevelInterfaceProtocol`
-    @inlinable public init<T: ToplevelInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkToplevelInterface`.
-    deinit {
-        // no reference counting for GdkToplevelInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkToplevelInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no ToplevelInterface properties
-
-// MARK: no ToplevelInterface signals
-
 
 // MARK: ToplevelInterface Record: ToplevelInterfaceProtocol extension (methods and fields)
 public extension ToplevelInterfaceProtocol {
@@ -867,10 +725,7 @@ open class ToplevelLayout: ToplevelLayoutProtocol {
 
 // MARK: no ToplevelLayout properties
 
-// MARK: no ToplevelLayout signals
-
-
-// MARK: ToplevelLayout Record: ToplevelLayoutProtocol extension (methods and fields)
+// MARK: ToplevelLayout has no signals// MARK: ToplevelLayout Record: ToplevelLayoutProtocol extension (methods and fields)
 public extension ToplevelLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkToplevelLayout` instance.
     @inlinable var toplevel_layout_ptr: UnsafeMutablePointer<GdkToplevelLayout>! { return ptr?.assumingMemoryBound(to: GdkToplevelLayout.self) }
@@ -905,8 +760,8 @@ public extension ToplevelLayoutProtocol {
     /// If the layout specifies whether to the toplevel should go maximized,
     /// the value pointed to by `maximized` is set to `true` if it should go
     /// fullscreen, or `false`, if it should go unmaximized.
-    @inlinable func getMaximized(maximize: UnsafeMutablePointer<gboolean>!) -> Bool {
-        let rv = ((gdk_toplevel_layout_get_maximized(toplevel_layout_ptr, maximize)) != 0)
+    @inlinable func get(maximized: UnsafeMutablePointer<gboolean>!) -> Bool {
+        let rv = ((gdk_toplevel_layout_get_maximized(toplevel_layout_ptr, maximized)) != 0)
         return rv
     }
 
@@ -1244,10 +1099,7 @@ open class ToplevelSize: ToplevelSizeProtocol {
 
 // MARK: no ToplevelSize properties
 
-// MARK: no ToplevelSize signals
-
-
-// MARK: ToplevelSize Record: ToplevelSizeProtocol extension (methods and fields)
+// MARK: ToplevelSize has no signals// MARK: ToplevelSize Record: ToplevelSizeProtocol extension (methods and fields)
 public extension ToplevelSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkToplevelSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkToplevelSize>! { return ptr?.assumingMemoryBound(to: GdkToplevelSize.self) }

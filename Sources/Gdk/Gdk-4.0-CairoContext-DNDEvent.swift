@@ -43,7 +43,7 @@ public protocol CairoContextProtocol: DrawContextProtocol {
 /// `GdkCairoContexts` are created for a `GdkDisplay` using
 /// `gdk_surface_create_cairo_context()`, and the context can then be used
 /// to draw on that `GdkSurface`.
-public struct CairoContextRef: CairoContextProtocol {
+public struct CairoContextRef: CairoContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkCairoContext` instance.
     /// For type-safe access, use the generated, typed pointer `cairo_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -88,6 +88,9 @@ public extension CairoContextRef {
     @inlinable init<T: CairoContextProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: CairoContextProtocol>(_ other: T) -> CairoContextRef { CairoContextRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CairoContextProtocol`.**
@@ -320,67 +323,7 @@ public extension CairoContextProtocol {
     }
 }
 
-public enum CairoContextSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `GdkDisplay` used to create the `GdkDrawContext`.
-    case notifyDisplay = "notify::display"
-    /// The `GdkSurface` the context is bound to.
-    case notifySurface = "notify::surface"
-}
-
-public extension CairoContextProtocol {
-    /// Connect a `CairoContextSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: CairoContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: CairoContext Class: CairoContextProtocol extension (methods and fields)
+// MARK: CairoContext has no signals// MARK: CairoContext Class: CairoContextProtocol extension (methods and fields)
 public extension CairoContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCairoContext` instance.
     @inlinable var cairo_context_ptr: UnsafeMutablePointer<GdkCairoContext>! { return ptr?.assumingMemoryBound(to: GdkCairoContext.self) }
@@ -451,7 +394,7 @@ public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
 /// To read textual or image data from a clipboard, use `gdk_clipboard_read_text_async()` or
 /// `gdk_clipboard_read_texture_async()`. For other data, use `gdk_clipboard_read_async()`,
 /// which provides a `GInputStream` object.
-public struct ClipboardRef: ClipboardProtocol {
+public struct ClipboardRef: ClipboardProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkClipboard` instance.
     /// For type-safe access, use the generated, typed pointer `clipboard_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -496,6 +439,9 @@ public extension ClipboardRef {
     @inlinable init<T: ClipboardProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ClipboardProtocol>(_ other: T) -> ClipboardRef { ClipboardRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClipboardProtocol`.**
@@ -742,9 +688,29 @@ public extension ClipboardProtocol {
     }
 }
 
-public enum ClipboardSignalName: String, SignalNameProtocol {
+// MARK: Signals of Clipboard
+public extension ClipboardProtocol {
     /// The `changed` signal is emitted when the clipboard changes ownership.
-    case changed = "changed"
+    /// - Note: Representation of signal named `changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ClipboardRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ClipboardRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -769,44 +735,162 @@ public enum ClipboardSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `GdkContentProvider` or `nil` if the clipboard is empty or contents are
-    /// provided otherwise.
-    case notifyContent = "notify::content"
-    /// The `GdkDisplay` that the clipboard belongs to.
-    case notifyDisplay = "notify::display"
-    /// The possible formats that the clipboard can provide its data in.
-    case notifyFormats = "notify::formats"
-    /// `true` if the contents of the clipboard are owned by this process.
-    case notifyLocal = "notify::local"
-}
-
-public extension ClipboardProtocol {
-    /// Connect a `ClipboardSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ClipboardSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::content`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyContent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::content", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::display`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::display", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::formats`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::formats", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::local`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyLocal(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::local", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: Clipboard Class: ClipboardProtocol extension (methods and fields)
@@ -841,15 +925,26 @@ public extension ClipboardProtocol {
     /// 
     /// The clipboard will choose the most suitable mime type from the given list
     /// to fulfill the request, preferring the ones listed first.
-    @inlinable func readAsync(mimeTypes: UnsafeMutablePointer<UnsafePointer<CChar>?>!, ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_clipboard_read_async(clipboard_ptr, mimeTypes, gint(ioPriority), cancellable, callback, userData)
+    @inlinable func readAsync(mimeTypes: UnsafeMutablePointer<UnsafePointer<CChar>?>!, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_async(clipboard_ptr, mimeTypes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously requests an input stream to read the `clipboard`'s
+    /// contents from. When the operation is finished `callback` will be called.
+    /// You can then call `gdk_clipboard_read_finish()` to get the result of the
+    /// operation.
+    /// 
+    /// The clipboard will choose the most suitable mime type from the given list
+    /// to fulfill the request, preferring the ones listed first.
+    @inlinable func readAsync<CancellableT: GIO.CancellableProtocol>(mimeTypes: UnsafeMutablePointer<UnsafePointer<CChar>?>!, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_async(clipboard_ptr, mimeTypes, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous clipboard read started with `gdk_clipboard_read_async()`.
-    @inlinable func readFinish(result: UnsafeMutablePointer<GAsyncResult>!, outMimeType: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil) throws -> UnsafeMutablePointer<GInputStream>? {
+    @inlinable func readFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT, outMimeType: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil) throws -> GIO.InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = gdk_clipboard_read_finish(clipboard_ptr, result, outMimeType, &error)
+        let rv = GIO.InputStreamRef(gdk_clipboard_read_finish(clipboard_ptr, result.async_result_ptr, outMimeType, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -861,16 +956,27 @@ public extension ClipboardProtocol {
     /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
     /// that function or `gdk_clipboard_read_async()` directly if you need more
     /// control over the operation.
-    @inlinable func readTextAsync(cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_clipboard_read_text_async(clipboard_ptr, cancellable, callback, userData)
+    @inlinable func readTextAsync(cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_text_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously request the `clipboard` contents converted to a string.
+    /// When the operation is finished `callback` will be called. You can then
+    /// call `gdk_clipboard_read_text_finish()` to get the result.
+    /// 
+    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
+    /// that function or `gdk_clipboard_read_async()` directly if you need more
+    /// control over the operation.
+    @inlinable func readTextAsync<CancellableT: GIO.CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_text_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous clipboard read started with
     /// `gdk_clipboard_read_text_async()`.
-    @inlinable func readTextFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> String! {
+    @inlinable func readTextFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = gdk_clipboard_read_text_finish(clipboard_ptr, result, &error).map({ String(cString: $0) })
+        let rv = gdk_clipboard_read_text_finish(clipboard_ptr, result.async_result_ptr, &error).map({ String(cString: $0) })
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -882,16 +988,27 @@ public extension ClipboardProtocol {
     /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
     /// that function or `gdk_clipboard_read_async()` directly if you need more
     /// control over the operation.
-    @inlinable func readTextureAsync(cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_clipboard_read_texture_async(clipboard_ptr, cancellable, callback, userData)
+    @inlinable func readTextureAsync(cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_texture_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously request the `clipboard` contents converted to a `GdkPixbuf`.
+    /// When the operation is finished `callback` will be called. You can then
+    /// call `gdk_clipboard_read_texture_finish()` to get the result.
+    /// 
+    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
+    /// that function or `gdk_clipboard_read_async()` directly if you need more
+    /// control over the operation.
+    @inlinable func readTextureAsync<CancellableT: GIO.CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_texture_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous clipboard read started with
     /// `gdk_clipboard_read_texture_async()`.
-    @inlinable func readTextureFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> TextureRef! {
+    @inlinable func readTextureFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> TextureRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = TextureRef(gconstpointer: gconstpointer(gdk_clipboard_read_texture_finish(clipboard_ptr, result, &error)))
+        let rv = TextureRef(gconstpointer: gconstpointer(gdk_clipboard_read_texture_finish(clipboard_ptr, result.async_result_ptr, &error)))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -904,16 +1021,28 @@ public extension ClipboardProtocol {
     /// For local clipboard contents that are available in the given `GType`, the
     /// value will be copied directly. Otherwise, GDK will try to use
     /// `gdk_content_deserialize_async()` to convert the clipboard's data.
-    @inlinable func readValueAsync(type: GType, ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_clipboard_read_value_async(clipboard_ptr, type, gint(ioPriority), cancellable, callback, userData)
+    @inlinable func readValueAsync(type: GType, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_value_async(clipboard_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously request the `clipboard` contents converted to the given
+    /// `type`. When the operation is finished `callback` will be called.
+    /// You can then call `gdk_clipboard_read_value_finish()` to get the resulting
+    /// `GValue`.
+    /// 
+    /// For local clipboard contents that are available in the given `GType`, the
+    /// value will be copied directly. Otherwise, GDK will try to use
+    /// `gdk_content_deserialize_async()` to convert the clipboard's data.
+    @inlinable func readValueAsync<CancellableT: GIO.CancellableProtocol>(type: GType, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_read_value_async(clipboard_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous clipboard read started with
     /// `gdk_clipboard_read_value_async()`.
-    @inlinable func readValueFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> GLibObject.ValueRef! {
+    @inlinable func readValueFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> GLibObject.ValueRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv = GLibObject.ValueRef(gdk_clipboard_read_value_finish(clipboard_ptr, result, &error))
+        let rv = GLibObject.ValueRef(gdk_clipboard_read_value_finish(clipboard_ptr, result.async_result_ptr, &error))
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -984,15 +1113,25 @@ public extension ClipboardProtocol {
     /// 
     /// This function is called automatically when `gtk_main()` or `GtkApplication`
     /// exit, so you likely don't need to call it.
-    @inlinable func storeAsync(ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_clipboard_store_async(clipboard_ptr, gint(ioPriority), cancellable, callback, userData)
+    @inlinable func storeAsync(ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_store_async(clipboard_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously instructs the `clipboard` to store its contents remotely to
+    /// preserve them for later usage. If the clipboard is not local, this function
+    /// does nothing but report success.
+    /// 
+    /// This function is called automatically when `gtk_main()` or `GtkApplication`
+    /// exit, so you likely don't need to call it.
+    @inlinable func storeAsync<CancellableT: GIO.CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_clipboard_store_async(clipboard_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous clipboard store started with `gdk_clipboard_store_async()`.
-    @inlinable func storeFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> Bool {
+    @inlinable func storeFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((gdk_clipboard_store_finish(clipboard_ptr, result, &error)) != 0)
+        let rv = ((gdk_clipboard_store_finish(clipboard_ptr, result.async_result_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -1086,7 +1225,7 @@ public protocol ContentDeserializerProtocol: GLibObject.ObjectProtocol, GIO.Asyn
 ///
 /// A GdkContentDeserializer is used to deserialize content received via
 /// inter-application data transfers.
-public struct ContentDeserializerRef: ContentDeserializerProtocol {
+public struct ContentDeserializerRef: ContentDeserializerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentDeserializer` instance.
     /// For type-safe access, use the generated, typed pointer `content_deserializer_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -1131,6 +1270,9 @@ public extension ContentDeserializerRef {
     @inlinable init<T: ContentDeserializerProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ContentDeserializerProtocol>(_ other: T) -> ContentDeserializerRef { ContentDeserializerRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentDeserializerProtocol`.**
@@ -1301,71 +1443,14 @@ open class ContentDeserializer: GLibObject.Object, ContentDeserializerProtocol {
 
 // MARK: no ContentDeserializer properties
 
-public enum ContentDeserializerSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension ContentDeserializerProtocol {
-    /// Connect a `ContentDeserializerSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ContentDeserializerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: ContentDeserializer Class: ContentDeserializerProtocol extension (methods and fields)
+// MARK: ContentDeserializer has no signals// MARK: ContentDeserializer Class: ContentDeserializerProtocol extension (methods and fields)
 public extension ContentDeserializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentDeserializer` instance.
     @inlinable var content_deserializer_ptr: UnsafeMutablePointer<GdkContentDeserializer>! { return ptr?.assumingMemoryBound(to: GdkContentDeserializer.self) }
 
     /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
-    @inlinable func getCancellable() -> UnsafeMutablePointer<GCancellable>! {
-        let rv = gdk_content_deserializer_get_cancellable(content_deserializer_ptr)
+    @inlinable func getCancellable() -> GIO.CancellableRef! {
+        let rv = GIO.CancellableRef(gdk_content_deserializer_get_cancellable(content_deserializer_ptr))
         return rv
     }
 
@@ -1376,8 +1461,8 @@ public extension ContentDeserializerProtocol {
     }
 
     /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
-    @inlinable func getInputStream() -> UnsafeMutablePointer<GInputStream>! {
-        let rv = gdk_content_deserializer_get_input_stream(content_deserializer_ptr)
+    @inlinable func getInputStream() -> GIO.InputStreamRef! {
+        let rv = GIO.InputStreamRef(gdk_content_deserializer_get_input_stream(content_deserializer_ptr))
         return rv
     }
 
@@ -1430,10 +1515,10 @@ public extension ContentDeserializerProtocol {
     
     }
     /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
-    @inlinable var cancellable: UnsafeMutablePointer<GCancellable>! {
+    @inlinable var cancellable: GIO.CancellableRef! {
         /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
         get {
-            let rv = gdk_content_deserializer_get_cancellable(content_deserializer_ptr)
+            let rv = GIO.CancellableRef(gdk_content_deserializer_get_cancellable(content_deserializer_ptr))
             return rv
         }
     }
@@ -1448,10 +1533,10 @@ public extension ContentDeserializerProtocol {
     }
 
     /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
-    @inlinable var inputStream: UnsafeMutablePointer<GInputStream>! {
+    @inlinable var inputStream: GIO.InputStreamRef! {
         /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
         get {
-            let rv = gdk_content_deserializer_get_input_stream(content_deserializer_ptr)
+            let rv = GIO.InputStreamRef(gdk_content_deserializer_get_input_stream(content_deserializer_ptr))
             return rv
         }
     }
@@ -1544,7 +1629,7 @@ public protocol ContentProviderProtocol: GLibObject.ObjectProtocol {
 /// GDK knows how to handle common text and image formats out-of-the-box. See
 /// `GdkContentSerializer` and `GdkContentDeserializer` if you want to add support
 /// for application-specific data formats.
-public struct ContentProviderRef: ContentProviderProtocol {
+public struct ContentProviderRef: ContentProviderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentProvider` instance.
     /// For type-safe access, use the generated, typed pointer `content_provider_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -1589,6 +1674,9 @@ public extension ContentProviderRef {
     @inlinable init<T: ContentProviderProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ContentProviderProtocol>(_ other: T) -> ContentProviderRef { ContentProviderRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderProtocol`.**
@@ -1841,12 +1929,14 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     @inlinable public init<BytesT: GLib.BytesProtocol>(bytes mimeType: UnsafePointer<CChar>!, bytes: BytesT) {
         let rv = gdk_content_provider_new_for_bytes(mimeType, bytes.bytes_ptr)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Create a content provider that provides the given `value`.
     @inlinable public init<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
         let rv = gdk_content_provider_new_for_value(value.value_ptr)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -1873,18 +1963,21 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     @inlinable public init(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) {
         let rv = gdk_content_provider_new_union(providers, gsize(nProviders))
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Create a content provider that provides the given `bytes` as data for
     /// the given `mime_type`.
     @inlinable public static func newFor<BytesT: GLib.BytesProtocol>(bytes mimeType: UnsafePointer<CChar>!, bytes: BytesT) -> ContentProvider! {
         guard let rv = ContentProvider(gconstpointer: gconstpointer(gdk_content_provider_new_for_bytes(mimeType, bytes.bytes_ptr))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
     /// Create a content provider that provides the given `value`.
     @inlinable public static func newFor<ValueT: GLibObject.ValueProtocol>(value: ValueT) -> ContentProvider! {
         guard let rv = ContentProvider(gconstpointer: gconstpointer(gdk_content_provider_new_for_value(value.value_ptr))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1911,6 +2004,7 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     /// 
     @inlinable public static func new(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) -> ContentProvider! {
         guard let rv = ContentProvider(gconstpointer: gconstpointer(gdk_content_provider_new_union(providers, gsize(nProviders)))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1976,9 +2070,29 @@ public extension ContentProviderProtocol {
     }
 }
 
-public enum ContentProviderSignalName: String, SignalNameProtocol {
+// MARK: Signals of ContentProvider
+public extension ContentProviderProtocol {
     /// Emitted whenever the content provided by this provider has changed.
-    case contentChanged = "content-changed"
+    /// - Note: Representation of signal named `content-changed`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onContentChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ContentProviderRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContentProviderRef(raw: unownedSelf))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "content-changed", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -2003,39 +2117,72 @@ public enum ContentProviderSignalName: String, SignalNameProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The possible formats that the provider can provide its data in.
-    case notifyFormats = "notify::formats"
-    /// The subset of formats that clipboard managers should store this provider's data in.
-    case notifyStorableFormats = "notify::storable-formats"
-}
-
-public extension ContentProviderProtocol {
-    /// Connect a `ContentProviderSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ContentProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `notify::formats`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ContentProviderRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContentProviderRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "notify::formats", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: Representation of signal named `notify::storable-formats`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    @discardableResult
+    func onNotifyStorableFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ContentProviderRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContentProviderRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return signalConnectData(
+            detailedSignal: "notify::storable-formats", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
+    }
+    
 }
 
 // MARK: ContentProvider Class: ContentProviderProtocol extension (methods and fields)
@@ -2089,16 +2236,30 @@ public extension ContentProviderProtocol {
     /// supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
     /// 
     /// The given `stream` will not be closed.
-    @inlinable func writeMimeTypeAsync(mimeType: UnsafePointer<CChar>!, stream: UnsafeMutablePointer<GOutputStream>!, ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-        gdk_content_provider_write_mime_type_async(content_provider_ptr, mimeType, stream, gint(ioPriority), cancellable, callback, userData)
+    @inlinable func writeMimeTypeAsync<OutputStreamT: GIO.OutputStreamProtocol>(mimeType: UnsafePointer<CChar>!, stream: OutputStreamT, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_content_provider_write_mime_type_async(content_provider_ptr, mimeType, stream.output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+    
+    }
+    /// Asynchronously writes the contents of `provider` to `stream` in the given
+    /// `mime_type`. When the operation is finished `callback` will be called. You
+    /// can then call `gdk_content_provider_write_mime_type_finish()` to get the
+    /// result of the operation.
+    /// 
+    /// The given mime type does not need to be listed in the formats returned by
+    /// `gdk_content_provider_ref_formats()`. However, if the given `GType` is not
+    /// supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
+    /// 
+    /// The given `stream` will not be closed.
+    @inlinable func writeMimeTypeAsync<CancellableT: GIO.CancellableProtocol, OutputStreamT: GIO.OutputStreamProtocol>(mimeType: UnsafePointer<CChar>!, stream: OutputStreamT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+        gdk_content_provider_write_mime_type_async(content_provider_ptr, mimeType, stream.output_stream_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
     /// Finishes an asynchronous write operation started with
     /// `gdk_content_provider_write_mime_type_async()`.
-    @inlinable func writeMimeTypeFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> Bool {
+    @inlinable func writeMimeTypeFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((gdk_content_provider_write_mime_type_finish(content_provider_ptr, result, &error)) != 0)
+        let rv = ((gdk_content_provider_write_mime_type_finish(content_provider_ptr, result.async_result_ptr, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2138,7 +2299,7 @@ public protocol ContentSerializerProtocol: GLibObject.ObjectProtocol, GIO.AsyncR
 ///
 /// A GdkContentSerializer is used to serialize content for inter-application
 /// data transfers.
-public struct ContentSerializerRef: ContentSerializerProtocol {
+public struct ContentSerializerRef: ContentSerializerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentSerializer` instance.
     /// For type-safe access, use the generated, typed pointer `content_serializer_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -2183,6 +2344,9 @@ public extension ContentSerializerRef {
     @inlinable init<T: ContentSerializerProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ContentSerializerProtocol>(_ other: T) -> ContentSerializerRef { ContentSerializerRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentSerializerProtocol`.**
@@ -2353,71 +2517,14 @@ open class ContentSerializer: GLibObject.Object, ContentSerializerProtocol {
 
 // MARK: no ContentSerializer properties
 
-public enum ContentSerializerSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-
-}
-
-public extension ContentSerializerProtocol {
-    /// Connect a `ContentSerializerSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ContentSerializerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: ContentSerializer Class: ContentSerializerProtocol extension (methods and fields)
+// MARK: ContentSerializer has no signals// MARK: ContentSerializer Class: ContentSerializerProtocol extension (methods and fields)
 public extension ContentSerializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentSerializer` instance.
     @inlinable var content_serializer_ptr: UnsafeMutablePointer<GdkContentSerializer>! { return ptr?.assumingMemoryBound(to: GdkContentSerializer.self) }
 
     /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
-    @inlinable func getCancellable() -> UnsafeMutablePointer<GCancellable>! {
-        let rv = gdk_content_serializer_get_cancellable(content_serializer_ptr)
+    @inlinable func getCancellable() -> GIO.CancellableRef! {
+        let rv = GIO.CancellableRef(gdk_content_serializer_get_cancellable(content_serializer_ptr))
         return rv
     }
 
@@ -2434,8 +2541,8 @@ public extension ContentSerializerProtocol {
     }
 
     /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
-    @inlinable func getOutputStream() -> UnsafeMutablePointer<GOutputStream>! {
-        let rv = gdk_content_serializer_get_output_stream(content_serializer_ptr)
+    @inlinable func getOutputStream() -> GIO.OutputStreamRef! {
+        let rv = GIO.OutputStreamRef(gdk_content_serializer_get_output_stream(content_serializer_ptr))
         return rv
     }
 
@@ -2482,10 +2589,10 @@ public extension ContentSerializerProtocol {
     
     }
     /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
-    @inlinable var cancellable: UnsafeMutablePointer<GCancellable>! {
+    @inlinable var cancellable: GIO.CancellableRef! {
         /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
         get {
-            let rv = gdk_content_serializer_get_cancellable(content_serializer_ptr)
+            let rv = GIO.CancellableRef(gdk_content_serializer_get_cancellable(content_serializer_ptr))
             return rv
         }
     }
@@ -2509,10 +2616,10 @@ public extension ContentSerializerProtocol {
     }
 
     /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
-    @inlinable var outputStream: UnsafeMutablePointer<GOutputStream>! {
+    @inlinable var outputStream: GIO.OutputStreamRef! {
         /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
         get {
-            let rv = gdk_content_serializer_get_output_stream(content_serializer_ptr)
+            let rv = GIO.OutputStreamRef(gdk_content_serializer_get_output_stream(content_serializer_ptr))
             return rv
         }
     }
@@ -2794,10 +2901,7 @@ open class CrossingEvent: Event, CrossingEventProtocol {
 
 // MARK: no CrossingEvent properties
 
-// MARK: no CrossingEvent signals
-
-
-// MARK: CrossingEvent Class: CrossingEventProtocol extension (methods and fields)
+// MARK: CrossingEvent has no signals// MARK: CrossingEvent Class: CrossingEventProtocol extension (methods and fields)
 public extension CrossingEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCrossingEvent` instance.
     @inlinable var crossing_event_ptr: UnsafeMutablePointer<GdkCrossingEvent>! { return ptr?.assumingMemoryBound(to: GdkCrossingEvent.self) }
@@ -2879,7 +2983,7 @@ public protocol CursorProtocol: GLibObject.ObjectProtocol {
 /// 
 /// Cursors are immutable objects, so they can not change after
 /// they have been constructed.
-public struct CursorRef: CursorProtocol {
+public struct CursorRef: CursorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkCursor` instance.
     /// For type-safe access, use the generated, typed pointer `cursor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -2924,6 +3028,9 @@ public extension CursorRef {
     @inlinable init<T: CursorProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: CursorProtocol>(_ other: T) -> CursorRef { CursorRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
@@ -3233,12 +3340,14 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     @inlinable public init<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) {
         let rv = gdk_cursor_new_from_name(name, fallback?.cursor_ptr)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor from a `GdkTexture`.
     @inlinable public init<CursorT: CursorProtocol, TextureT: TextureProtocol>(texture: TextureT, hotspotX: Int, hotspotY: Int, fallback: CursorT?) {
         let rv = gdk_cursor_new_from_texture(texture.texture_ptr, gint(hotspotX), gint(hotspotY), fallback?.cursor_ptr)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Creates a new cursor by looking up `name` in the current cursor
@@ -3283,12 +3392,14 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// - ![](zoom_out_cursor.png) "zoom-out"
     @inlinable public static func newFrom<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_name(name, fallback?.cursor_ptr))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
     /// Creates a new cursor from a `GdkTexture`.
     @inlinable public static func newFrom<CursorT: CursorProtocol, TextureT: TextureProtocol>(texture: TextureT, hotspotX: Int, hotspotY: Int, fallback: CursorT?) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_texture(texture.texture_ptr, gint(hotspotX), gint(hotspotY), fallback?.cursor_ptr))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -3355,68 +3466,7 @@ public extension CursorProtocol {
     }
 }
 
-public enum CursorSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    case notifyFallback = "notify::fallback"
-    case notifyHotspotX = "notify::hotspot-x"
-    case notifyHotspotY = "notify::hotspot-y"
-    case notifyName = "notify::name"
-    case notifyTexture = "notify::texture"
-}
-
-public extension CursorProtocol {
-    /// Connect a `CursorSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: CursorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: Cursor Class: CursorProtocol extension (methods and fields)
+// MARK: Cursor has no signals// MARK: Cursor Class: CursorProtocol extension (methods and fields)
 public extension CursorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCursor` instance.
     @inlinable var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { return ptr?.assumingMemoryBound(to: GdkCursor.self) }
@@ -3779,10 +3829,7 @@ open class DNDEvent: Event, DNDEventProtocol {
 
 // MARK: no DNDEvent properties
 
-// MARK: no DNDEvent signals
-
-
-// MARK: DNDEvent Class: DNDEventProtocol extension (methods and fields)
+// MARK: DNDEvent has no signals// MARK: DNDEvent Class: DNDEventProtocol extension (methods and fields)
 public extension DNDEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDNDEvent` instance.
     @inlinable var dnd_event_ptr: UnsafeMutablePointer<GdkDNDEvent>! { return ptr?.assumingMemoryBound(to: GdkDNDEvent.self) }

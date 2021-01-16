@@ -33,7 +33,7 @@ public protocol GLTextureProtocol: TextureProtocol {
 /// Use `GLTextureRef` only as an `unowned` reference to an existing `GdkGLTexture` instance.
 ///
 /// A `GdkTexture` representing a GL texture object.
-public struct GLTextureRef: GLTextureProtocol {
+public struct GLTextureRef: GLTextureProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkGLTexture` instance.
     /// For type-safe access, use the generated, typed pointer `gl_texture_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -78,6 +78,9 @@ public extension GLTextureRef {
     @inlinable init<T: GLTextureProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: GLTextureProtocol>(_ other: T) -> GLTextureRef { GLTextureRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLTextureProtocol`.**
@@ -258,6 +261,7 @@ open class GLTexture: Texture, GLTextureProtocol {
     @inlinable public init<GLContextT: GLContextProtocol>( context: GLContextT, id: Int, width: Int, height: Int, destroy: GDestroyNotify?, data: gpointer! = nil) {
         let rv = gdk_gl_texture_new(context.gl_context_ptr, guint(id), gint(width), gint(height), destroy, data)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
 
@@ -323,67 +327,7 @@ public extension GLTextureProtocol {
     }
 }
 
-public enum GLTextureSignalName: String, SignalNameProtocol {
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The height of the texture, in pixels.
-    case notifyHeight = "notify::height"
-    /// The width of the texture, in pixels.
-    case notifyWidth = "notify::width"
-}
-
-public extension GLTextureProtocol {
-    /// Connect a `GLTextureSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: GLTextureSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
-// MARK: GLTexture Class: GLTextureProtocol extension (methods and fields)
+// MARK: GLTexture has no signals// MARK: GLTexture Class: GLTextureProtocol extension (methods and fields)
 public extension GLTextureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLTexture` instance.
     @inlinable var gl_texture_ptr: UnsafeMutablePointer<GdkGLTexture>! { return ptr?.assumingMemoryBound(to: GdkGLTexture.self) }
@@ -640,10 +584,7 @@ open class GrabBrokenEvent: Event, GrabBrokenEventProtocol {
 
 // MARK: no GrabBrokenEvent properties
 
-// MARK: no GrabBrokenEvent signals
-
-
-// MARK: GrabBrokenEvent Class: GrabBrokenEventProtocol extension (methods and fields)
+// MARK: GrabBrokenEvent has no signals// MARK: GrabBrokenEvent Class: GrabBrokenEventProtocol extension (methods and fields)
 public extension GrabBrokenEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGrabBrokenEvent` instance.
     @inlinable var grab_broken_event_ptr: UnsafeMutablePointer<GdkGrabBrokenEvent>! { return ptr?.assumingMemoryBound(to: GdkGrabBrokenEvent.self) }
@@ -918,10 +859,7 @@ open class KeyEvent: Event, KeyEventProtocol {
 
 // MARK: no KeyEvent properties
 
-// MARK: no KeyEvent signals
-
-
-// MARK: KeyEvent Class: KeyEventProtocol extension (methods and fields)
+// MARK: KeyEvent has no signals// MARK: KeyEvent Class: KeyEventProtocol extension (methods and fields)
 public extension KeyEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeyEvent` instance.
     @inlinable var key_event_ptr: UnsafeMutablePointer<GdkKeyEvent>! { return ptr?.assumingMemoryBound(to: GdkKeyEvent.self) }

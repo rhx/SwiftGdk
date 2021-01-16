@@ -11,6 +11,21 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
+/// Metatype/GType declaration for Monitor
+public extension MonitorClassRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_monitor_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkMonitorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkMonitorClass.self) }
+    
+    static var metatype: GdkMonitorClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: MonitorClassRef? { MonitorClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - MonitorClass Record
 
 /// The `MonitorClassProtocol` protocol exposes the methods and properties of an underlying `GdkMonitorClass` instance.
@@ -111,160 +126,6 @@ public extension MonitorClassRef {
 
     }
 
-/// The `MonitorClass` type acts as an owner of an underlying `GdkMonitorClass` instance.
-/// It provides the methods that can operate on this data type through `MonitorClassProtocol` conformance.
-/// Use `MonitorClass` as a strong reference or owner of a `GdkMonitorClass` instance.
-///
-
-open class MonitorClass: MonitorClassProtocol {
-        /// Untyped pointer to the underlying `GdkMonitorClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkMonitorClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkMonitorClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkMonitorClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkMonitorClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkMonitorClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `MonitorClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkMonitorClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `MonitorClassProtocol`
-    /// `GdkMonitorClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `MonitorClassProtocol`
-    @inlinable public init<T: MonitorClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkMonitorClass`.
-    deinit {
-        // no reference counting for GdkMonitorClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkMonitorClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no MonitorClass properties
-
-// MARK: no MonitorClass signals
-
-
 // MARK: MonitorClass Record: MonitorClassProtocol extension (methods and fields)
 public extension MonitorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkMonitorClass` instance.
@@ -275,6 +136,21 @@ public extension MonitorClassProtocol {
 }
 
 
+
+/// Metatype/GType declaration for Paintable
+public extension PaintableInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_paintable_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkPaintableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkPaintableInterface.self) }
+    
+    static var metatype: GdkPaintableInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: PaintableInterfaceRef? { PaintableInterfaceRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - PaintableInterface Record
 
@@ -389,167 +265,6 @@ public extension PaintableInterfaceRef {
     }
 
     }
-
-/// The `PaintableInterface` type acts as an owner of an underlying `GdkPaintableInterface` instance.
-/// It provides the methods that can operate on this data type through `PaintableInterfaceProtocol` conformance.
-/// Use `PaintableInterface` as a strong reference or owner of a `GdkPaintableInterface` instance.
-///
-/// The list of functions that can be implemented for the `GdkPaintable` interface.
-/// 
-/// Note that apart from the `GdkPaintableInterface.snapshot``()` function, no virtual
-/// function of this interface is mandatory to implement, though it is a good idea
-/// to implement `GdkPaintableInterface.get_current_image``()` for non-static paintables
-/// and `GdkPaintableInterface.get_flags``()` if the image is not dynamic as the default
-/// implementation returns no flags and that will make the implementation likely
-/// quite slow.
-open class PaintableInterface: PaintableInterfaceProtocol {
-        /// Untyped pointer to the underlying `GdkPaintableInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkPaintableInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkPaintableInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkPaintableInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkPaintableInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkPaintableInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `PaintableInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkPaintableInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `PaintableInterfaceProtocol`
-    /// `GdkPaintableInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `PaintableInterfaceProtocol`
-    @inlinable public init<T: PaintableInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkPaintableInterface`.
-    deinit {
-        // no reference counting for GdkPaintableInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkPaintableInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no PaintableInterface properties
-
-// MARK: no PaintableInterface signals
-
 
 // MARK: PaintableInterface Record: PaintableInterfaceProtocol extension (methods and fields)
 public extension PaintableInterfaceProtocol {

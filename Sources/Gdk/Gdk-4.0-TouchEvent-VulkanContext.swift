@@ -247,10 +247,7 @@ open class TouchEvent: Event, TouchEventProtocol {
 
 // MARK: no TouchEvent properties
 
-// MARK: no TouchEvent signals
-
-
-// MARK: TouchEvent Class: TouchEventProtocol extension (methods and fields)
+// MARK: TouchEvent has no signals// MARK: TouchEvent Class: TouchEventProtocol extension (methods and fields)
 public extension TouchEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTouchEvent` instance.
     @inlinable var touch_event_ptr: UnsafeMutablePointer<GdkTouchEvent>! { return ptr?.assumingMemoryBound(to: GdkTouchEvent.self) }
@@ -510,10 +507,7 @@ open class TouchpadEvent: Event, TouchpadEventProtocol {
 
 // MARK: no TouchpadEvent properties
 
-// MARK: no TouchpadEvent signals
-
-
-// MARK: TouchpadEvent Class: TouchpadEventProtocol extension (methods and fields)
+// MARK: TouchpadEvent has no signals// MARK: TouchpadEvent Class: TouchpadEventProtocol extension (methods and fields)
 public extension TouchpadEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTouchpadEvent` instance.
     @inlinable var touchpad_event_ptr: UnsafeMutablePointer<GdkTouchpadEvent>! { return ptr?.assumingMemoryBound(to: GdkTouchpadEvent.self) }
@@ -626,7 +620,7 @@ public protocol VulkanContextProtocol: DrawContextProtocol, GIO.InitableProtocol
 /// 
 /// Support for `GdkVulkanContext` is platform-specific, context creation
 /// can fail, returning `nil` context.
-public struct VulkanContextRef: VulkanContextProtocol {
+public struct VulkanContextRef: VulkanContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkVulkanContext` instance.
     /// For type-safe access, use the generated, typed pointer `vulkan_context_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -671,6 +665,9 @@ public extension VulkanContextRef {
     @inlinable init<T: VulkanContextProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: VulkanContextProtocol>(_ other: T) -> VulkanContextRef { VulkanContextRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VulkanContextProtocol`.**
@@ -906,68 +903,32 @@ public extension VulkanContextProtocol {
     }
 }
 
-public enum VulkanContextSignalName: String, SignalNameProtocol {
+// MARK: Signals of VulkanContext
+public extension VulkanContextProtocol {
     /// This signal is emitted when the images managed by this context have
     /// changed. Usually this means that the swapchain had to be recreated,
     /// for example in response to a change of the surface size.
-    case imagesUpdated = "images-updated"
-    /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
-    /// 
-    /// Note that getting this signal doesn’t itself guarantee that the value of
-    /// the property has actually changed. When it is emitted is determined by the
-    /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
-    /// in `notify` being emitted, even if the new value is the same as the old.
-    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
-    /// and common practice is to do that only when the value has actually changed.
-    /// 
-    /// This signal is typically used to obtain change notification for a
-    /// single property, by specifying the property name as a detail in the
-    /// `g_signal_connect()` call, like this:
-    /// (C Language Example):
-    /// ```C
-    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
-    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
-    ///                   text_view)
-    /// ```
-    /// It is important to note that you must use
-    /// [canonical parameter names](#canonical-parameter-names) as
-    /// detail strings for the notify signal.
-    case notify = "notify"
-    /// The `GdkDisplay` used to create the `GdkDrawContext`.
-    case notifyDisplay = "notify::display"
-    /// The `GdkSurface` the context is bound to.
-    case notifySurface = "notify::surface"
-}
-
-public extension VulkanContextProtocol {
-    /// Connect a `VulkanContextSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: VulkanContextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
+    /// - Note: Representation of signal named `images-updated`
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    @discardableResult
+    func onImagesUpdated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: VulkanContextRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<VulkanContextRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(VulkanContextRef(raw: unownedSelf))
+            return output
         }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+        return signalConnectData(
+            detailedSignal: "images-updated", 
+            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            connectFlags: flags
+        )
     }
+    
+    
 }
 
 // MARK: VulkanContext Class: VulkanContextProtocol extension (methods and fields)

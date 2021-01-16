@@ -90,8 +90,15 @@ import GdkPixbuf
 /// Read content from the given input stream and deserialize it, asynchronously.
 /// When the operation is finished, `callback` will be called. You can then
 /// call `gdk_content_deserialize_finish()` to get the result of the operation.
-@inlinable public func contentDeserializeAsync(stream: UnsafeMutablePointer<GInputStream>!, mimeType: UnsafePointer<CChar>!, type: GType, ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-    gdk_content_deserialize_async(stream, mimeType, type, gint(ioPriority), cancellable, callback, userData)
+@inlinable public func contentDeserializeAsync<InputStreamT: GIO.InputStreamProtocol>(stream: InputStreamT, mimeType: UnsafePointer<CChar>!, type: GType, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    gdk_content_deserialize_async(stream.input_stream_ptr, mimeType, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Read content from the given input stream and deserialize it, asynchronously.
+/// When the operation is finished, `callback` will be called. You can then
+/// call `gdk_content_deserialize_finish()` to get the result of the operation.
+@inlinable public func contentDeserializeAsync<CancellableT: GIO.CancellableProtocol, InputStreamT: GIO.InputStreamProtocol>(stream: InputStreamT, mimeType: UnsafePointer<CChar>!, type: GType, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    gdk_content_deserialize_async(stream.input_stream_ptr, mimeType, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -99,9 +106,9 @@ import GdkPixbuf
 
 
 /// Finishes a content deserialization operation.
-@inlinable public func contentDeserializeFinish<ValueT: GLibObject.ValueProtocol>(result: UnsafeMutablePointer<GAsyncResult>!, value: ValueT) throws -> Bool {
+@inlinable public func contentDeserializeFinish<AsyncResultT: GIO.AsyncResultProtocol, ValueT: GLibObject.ValueProtocol>(result: AsyncResultT, value: ValueT) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((gdk_content_deserialize_finish(result, value.value_ptr, &error)) != 0)
+    let rv = ((gdk_content_deserialize_finish(result.async_result_ptr, value.value_ptr, &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -132,8 +139,15 @@ import GdkPixbuf
 /// Serialize content and write it to the given output stream, asynchronously.
 /// When the operation is finished, `callback` will be called. You can then
 /// call `gdk_content_serialize_finish()` to get the result of the operation.
-@inlinable public func contentSerializeAsync<ValueT: GLibObject.ValueProtocol>(stream: UnsafeMutablePointer<GOutputStream>!, mimeType: UnsafePointer<CChar>!, value: ValueT, ioPriority: Int, cancellable: UnsafeMutablePointer<GCancellable>? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
-    gdk_content_serialize_async(stream, mimeType, value.value_ptr, gint(ioPriority), cancellable, callback, userData)
+@inlinable public func contentSerializeAsync<OutputStreamT: GIO.OutputStreamProtocol, ValueT: GLibObject.ValueProtocol>(stream: OutputStreamT, mimeType: UnsafePointer<CChar>!, value: ValueT, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    gdk_content_serialize_async(stream.output_stream_ptr, mimeType, value.value_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
+
+}
+/// Serialize content and write it to the given output stream, asynchronously.
+/// When the operation is finished, `callback` will be called. You can then
+/// call `gdk_content_serialize_finish()` to get the result of the operation.
+@inlinable public func contentSerializeAsync<CancellableT: GIO.CancellableProtocol, OutputStreamT: GIO.OutputStreamProtocol, ValueT: GLibObject.ValueProtocol>(stream: OutputStreamT, mimeType: UnsafePointer<CChar>!, value: ValueT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
+    gdk_content_serialize_async(stream.output_stream_ptr, mimeType, value.value_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
 }
 
@@ -141,9 +155,9 @@ import GdkPixbuf
 
 
 /// Finishes a content serialization operation.
-@inlinable public func contentSerializeFinish(result: UnsafeMutablePointer<GAsyncResult>!) throws -> Bool {
+@inlinable public func contentSerializeFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
     var error: UnsafeMutablePointer<GError>?
-    let rv = ((gdk_content_serialize_finish(result, &error)) != 0)
+    let rv = ((gdk_content_serialize_finish(result.async_result_ptr, &error)) != 0)
     if let error = error { throw GLibError(error) }
     return rv
 }

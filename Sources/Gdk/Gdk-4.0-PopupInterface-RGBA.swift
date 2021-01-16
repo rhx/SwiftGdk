@@ -11,6 +11,21 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
+/// Metatype/GType declaration for Popup
+public extension PopupInterfaceRef {
+    
+    /// This getter returns type identifier in the GLib type system registry
+    static var metatypeReference: GType { gdk_popup_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<GdkPopupInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkPopupInterface.self) }
+    
+    static var metatype: GdkPopupInterface? { metatypePointer?.pointee } 
+    
+    static var wrapper: PopupInterfaceRef? { PopupInterfaceRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - PopupInterface Record
 
 /// The `PopupInterfaceProtocol` protocol exposes the methods and properties of an underlying `GdkPopupInterface` instance.
@@ -111,160 +126,6 @@ public extension PopupInterfaceRef {
 
     }
 
-/// The `PopupInterface` type acts as an owner of an underlying `GdkPopupInterface` instance.
-/// It provides the methods that can operate on this data type through `PopupInterfaceProtocol` conformance.
-/// Use `PopupInterface` as a strong reference or owner of a `GdkPopupInterface` instance.
-///
-
-open class PopupInterface: PopupInterfaceProtocol {
-        /// Untyped pointer to the underlying `GdkPopupInterface` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<GdkPopupInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<GdkPopupInterface>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<GdkPopupInterface>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<GdkPopupInterface>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `GdkPopupInterface` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `PopupInterface` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<GdkPopupInterface>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `PopupInterfaceProtocol`
-    /// `GdkPopupInterface` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `PopupInterfaceProtocol`
-    @inlinable public init<T: PopupInterfaceProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `GdkPopupInterface`.
-    deinit {
-        // no reference counting for GdkPopupInterface, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupInterfaceProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for GdkPopupInterface, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no PopupInterface properties
-
-// MARK: no PopupInterface signals
-
-
 // MARK: PopupInterface Record: PopupInterfaceProtocol extension (methods and fields)
 public extension PopupInterfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPopupInterface` instance.
@@ -286,6 +147,37 @@ public extension PopupInterfaceProtocol {
 /// Popups are positioned relative to their parent surface.
 /// The GdkPopupLayout struct contains information that is
 /// necessary to do so.
+/// 
+/// The positioning requires a negotiation with the windowing system,
+/// since it depends on external constraints, such as the position of
+/// the parent surface, and the screen dimensions.
+/// 
+/// The basic ingredients are a rectangle on the parent surface,
+/// and the anchor on both that rectangle and the popup. The anchors
+/// specify a side or corner to place next to each other.
+/// 
+/// ![Popup anchors](popup-anchors.png)
+/// 
+/// For cases where placing the anchors next to each other would make
+/// the popup extend offscreen, the layout includes some hints for how
+/// to resolve this problem. The hints may suggest to flip the anchor
+/// position to the other side, or to 'slide' the popup along a side,
+/// or to resize it.
+/// 
+/// ![Flipping popups](popup-flip.png)
+/// 
+/// ![Sliding popups](popup-slide.png)
+/// 
+/// These hints may be combined.
+/// 
+/// Ultimatively, it is up to the windowing system to determine the position
+/// and size of the popup. You can learn about the result by calling
+/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
+/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
+/// popup has been presented. This can be used to adjust the rendering. For
+/// example, GtkPopover changes its arrow position accordingly. But you have
+/// to be careful avoid changing the size of the popover, or it has to be
+/// presented again.
 public protocol PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -302,6 +194,37 @@ public protocol PopupLayoutProtocol {
 /// Popups are positioned relative to their parent surface.
 /// The GdkPopupLayout struct contains information that is
 /// necessary to do so.
+/// 
+/// The positioning requires a negotiation with the windowing system,
+/// since it depends on external constraints, such as the position of
+/// the parent surface, and the screen dimensions.
+/// 
+/// The basic ingredients are a rectangle on the parent surface,
+/// and the anchor on both that rectangle and the popup. The anchors
+/// specify a side or corner to place next to each other.
+/// 
+/// ![Popup anchors](popup-anchors.png)
+/// 
+/// For cases where placing the anchors next to each other would make
+/// the popup extend offscreen, the layout includes some hints for how
+/// to resolve this problem. The hints may suggest to flip the anchor
+/// position to the other side, or to 'slide' the popup along a side,
+/// or to resize it.
+/// 
+/// ![Flipping popups](popup-flip.png)
+/// 
+/// ![Sliding popups](popup-slide.png)
+/// 
+/// These hints may be combined.
+/// 
+/// Ultimatively, it is up to the windowing system to determine the position
+/// and size of the popup. You can learn about the result by calling
+/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
+/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
+/// popup has been presented. This can be used to adjust the rendering. For
+/// example, GtkPopover changes its arrow position accordingly. But you have
+/// to be careful avoid changing the size of the popover, or it has to be
+/// presented again.
 public struct PopupLayoutRef: PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     /// For type-safe access, use the generated, typed pointer `popup_layout_ptr` property instead.
@@ -401,6 +324,37 @@ public extension PopupLayoutRef {
 /// Popups are positioned relative to their parent surface.
 /// The GdkPopupLayout struct contains information that is
 /// necessary to do so.
+/// 
+/// The positioning requires a negotiation with the windowing system,
+/// since it depends on external constraints, such as the position of
+/// the parent surface, and the screen dimensions.
+/// 
+/// The basic ingredients are a rectangle on the parent surface,
+/// and the anchor on both that rectangle and the popup. The anchors
+/// specify a side or corner to place next to each other.
+/// 
+/// ![Popup anchors](popup-anchors.png)
+/// 
+/// For cases where placing the anchors next to each other would make
+/// the popup extend offscreen, the layout includes some hints for how
+/// to resolve this problem. The hints may suggest to flip the anchor
+/// position to the other side, or to 'slide' the popup along a side,
+/// or to resize it.
+/// 
+/// ![Flipping popups](popup-flip.png)
+/// 
+/// ![Sliding popups](popup-slide.png)
+/// 
+/// These hints may be combined.
+/// 
+/// Ultimatively, it is up to the windowing system to determine the position
+/// and size of the popup. You can learn about the result by calling
+/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
+/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
+/// popup has been presented. This can be used to adjust the rendering. For
+/// example, GtkPopover changes its arrow position accordingly. But you have
+/// to be careful avoid changing the size of the popover, or it has to be
+/// presented again.
 open class PopupLayout: PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     /// For type-safe access, use the generated, typed pointer `popup_layout_ptr` property instead.
@@ -561,10 +515,7 @@ open class PopupLayout: PopupLayoutProtocol {
 
 // MARK: no PopupLayout properties
 
-// MARK: no PopupLayout signals
-
-
-// MARK: PopupLayout Record: PopupLayoutProtocol extension (methods and fields)
+// MARK: PopupLayout has no signals// MARK: PopupLayout Record: PopupLayoutProtocol extension (methods and fields)
 public extension PopupLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPopupLayout` instance.
     @inlinable var popup_layout_ptr: UnsafeMutablePointer<GdkPopupLayout>! { return ptr?.assumingMemoryBound(to: GdkPopupLayout.self) }
@@ -973,10 +924,7 @@ open class RGBA: RGBAProtocol {
 
 // MARK: no RGBA properties
 
-// MARK: no RGBA signals
-
-
-// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
+// MARK: RGBA has no signals// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
 public extension RGBAProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRGBA` instance.
     @inlinable var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { return ptr?.assumingMemoryBound(to: GdkRGBA.self) }
