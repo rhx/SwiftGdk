@@ -323,7 +323,40 @@ public extension CairoContextProtocol {
     }
 }
 
-// MARK: CairoContext has no signals// MARK: CairoContext Class: CairoContextProtocol extension (methods and fields)
+public enum CairoContextSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkDisplay` used to create the `GdkDrawContext`.
+    case notifyDisplay = "notify::display"
+    /// The `GdkSurface` the context is bound to.
+    case notifySurface = "notify::surface"
+}
+
+// MARK: CairoContext has no signals
+// MARK: CairoContext Class: CairoContextProtocol extension (methods and fields)
 public extension CairoContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCairoContext` instance.
     @inlinable var cairo_context_ptr: UnsafeMutablePointer<GdkCairoContext>! { return ptr?.assumingMemoryBound(to: GdkCairoContext.self) }
@@ -688,28 +721,97 @@ public extension ClipboardProtocol {
     }
 }
 
-// MARK: Signals of Clipboard
-public extension ClipboardProtocol {
+public enum ClipboardSignalName: String, SignalNameProtocol {
     /// The `changed` signal is emitted when the clipboard changes ownership.
-    /// - Note: Representation of signal named `changed`
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkContentProvider` or `nil` if the clipboard is empty or contents are
+    /// provided otherwise.
+    case notifyContent = "notify::content"
+    /// The `GdkDisplay` that the clipboard belongs to.
+    case notifyDisplay = "notify::display"
+    /// The possible formats that the clipboard can provide its data in.
+    case notifyFormats = "notify::formats"
+    /// `true` if the contents of the clipboard are owned by this process.
+    case notifyLocal = "notify::local"
+}
+
+// MARK: Clipboard signals
+public extension ClipboardProtocol {
+    /// Connect a Swift signal handler to the given, typed `ClipboardSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ClipboardSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ClipboardSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ClipboardSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `changed` signal is emitted when the clipboard changes ownership.
+    /// - Note: This represents the underlying `changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `changed` signal is emitted
+    @discardableResult @inlinable func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ClipboardRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ClipboardRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .changed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `changed` signal for using the `connect(signal:)` methods
+    static var changedSignal: ClipboardSignalName { .changed }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -735,26 +837,30 @@ public extension ClipboardProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::content`
+    /// - Note: This represents the underlying `notify::content` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyContent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyContent` signal is emitted
+    @discardableResult @inlinable func onNotifyContent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::content", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyContent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::content` signal for using the `connect(signal:)` methods
+    static var notifyContentSignal: ClipboardSignalName { .notifyContent }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -780,26 +886,30 @@ public extension ClipboardProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::display`
+    /// - Note: This represents the underlying `notify::display` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDisplay` signal is emitted
+    @discardableResult @inlinable func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::display", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDisplay,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::display` signal for using the `connect(signal:)` methods
+    static var notifyDisplaySignal: ClipboardSignalName { .notifyDisplay }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -825,26 +935,30 @@ public extension ClipboardProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::formats`
+    /// - Note: This represents the underlying `notify::formats` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFormats` signal is emitted
+    @discardableResult @inlinable func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::formats", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFormats,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::formats` signal for using the `connect(signal:)` methods
+    static var notifyFormatsSignal: ClipboardSignalName { .notifyFormats }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -870,26 +984,30 @@ public extension ClipboardProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::local`
+    /// - Note: This represents the underlying `notify::local` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyLocal(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyLocal` signal is emitted
+    @discardableResult @inlinable func onNotifyLocal(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ClipboardRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ClipboardRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ClipboardRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::local", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyLocal,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::local` signal for using the `connect(signal:)` methods
+    static var notifyLocalSignal: ClipboardSignalName { .notifyLocal }
     
 }
 
@@ -1443,7 +1561,37 @@ open class ContentDeserializer: GLibObject.Object, ContentDeserializerProtocol {
 
 // MARK: no ContentDeserializer properties
 
-// MARK: ContentDeserializer has no signals// MARK: ContentDeserializer Class: ContentDeserializerProtocol extension (methods and fields)
+public enum ContentDeserializerSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: ContentDeserializer has no signals
+// MARK: ContentDeserializer Class: ContentDeserializerProtocol extension (methods and fields)
 public extension ContentDeserializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentDeserializer` instance.
     @inlinable var content_deserializer_ptr: UnsafeMutablePointer<GdkContentDeserializer>! { return ptr?.assumingMemoryBound(to: GdkContentDeserializer.self) }
@@ -2070,28 +2218,92 @@ public extension ContentProviderProtocol {
     }
 }
 
-// MARK: Signals of ContentProvider
-public extension ContentProviderProtocol {
+public enum ContentProviderSignalName: String, SignalNameProtocol {
     /// Emitted whenever the content provided by this provider has changed.
-    /// - Note: Representation of signal named `content-changed`
+    case contentChanged = "content-changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The possible formats that the provider can provide its data in.
+    case notifyFormats = "notify::formats"
+    /// The subset of formats that clipboard managers should store this provider's data in.
+    case notifyStorableFormats = "notify::storable-formats"
+}
+
+// MARK: ContentProvider signals
+public extension ContentProviderProtocol {
+    /// Connect a Swift signal handler to the given, typed `ContentProviderSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ContentProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `ContentProviderSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ContentProviderSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Emitted whenever the content provided by this provider has changed.
+    /// - Note: This represents the underlying `content-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onContentChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `contentChanged` signal is emitted
+    @discardableResult @inlinable func onContentChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<ContentProviderRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ContentProviderRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "content-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .contentChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `content-changed` signal for using the `connect(signal:)` methods
+    static var contentChangedSignal: ContentProviderSignalName { .contentChanged }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2117,26 +2329,30 @@ public extension ContentProviderProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::formats`
+    /// - Note: This represents the underlying `notify::formats` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFormats` signal is emitted
+    @discardableResult @inlinable func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ContentProviderRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ContentProviderRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::formats", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFormats,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::formats` signal for using the `connect(signal:)` methods
+    static var notifyFormatsSignal: ContentProviderSignalName { .notifyFormats }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2162,26 +2378,30 @@ public extension ContentProviderProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::storable-formats`
+    /// - Note: This represents the underlying `notify::storable-formats` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyStorableFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyStorableFormats` signal is emitted
+    @discardableResult @inlinable func onNotifyStorableFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContentProviderRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<ContentProviderRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(ContentProviderRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::storable-formats", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyStorableFormats,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::storable-formats` signal for using the `connect(signal:)` methods
+    static var notifyStorableFormatsSignal: ContentProviderSignalName { .notifyStorableFormats }
     
 }
 
@@ -2517,7 +2737,37 @@ open class ContentSerializer: GLibObject.Object, ContentSerializerProtocol {
 
 // MARK: no ContentSerializer properties
 
-// MARK: ContentSerializer has no signals// MARK: ContentSerializer Class: ContentSerializerProtocol extension (methods and fields)
+public enum ContentSerializerSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+
+}
+
+// MARK: ContentSerializer has no signals
+// MARK: ContentSerializer Class: ContentSerializerProtocol extension (methods and fields)
 public extension ContentSerializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentSerializer` instance.
     @inlinable var content_serializer_ptr: UnsafeMutablePointer<GdkContentSerializer>! { return ptr?.assumingMemoryBound(to: GdkContentSerializer.self) }
@@ -2901,7 +3151,10 @@ open class CrossingEvent: Event, CrossingEventProtocol {
 
 // MARK: no CrossingEvent properties
 
-// MARK: CrossingEvent has no signals// MARK: CrossingEvent Class: CrossingEventProtocol extension (methods and fields)
+// MARK: no CrossingEvent signals
+
+// MARK: CrossingEvent has no signals
+// MARK: CrossingEvent Class: CrossingEventProtocol extension (methods and fields)
 public extension CrossingEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCrossingEvent` instance.
     @inlinable var crossing_event_ptr: UnsafeMutablePointer<GdkCrossingEvent>! { return ptr?.assumingMemoryBound(to: GdkCrossingEvent.self) }
@@ -3466,7 +3719,41 @@ public extension CursorProtocol {
     }
 }
 
-// MARK: Cursor has no signals// MARK: Cursor Class: CursorProtocol extension (methods and fields)
+public enum CursorSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyFallback = "notify::fallback"
+    case notifyHotspotX = "notify::hotspot-x"
+    case notifyHotspotY = "notify::hotspot-y"
+    case notifyName = "notify::name"
+    case notifyTexture = "notify::texture"
+}
+
+// MARK: Cursor has no signals
+// MARK: Cursor Class: CursorProtocol extension (methods and fields)
 public extension CursorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCursor` instance.
     @inlinable var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { return ptr?.assumingMemoryBound(to: GdkCursor.self) }
@@ -3829,7 +4116,10 @@ open class DNDEvent: Event, DNDEventProtocol {
 
 // MARK: no DNDEvent properties
 
-// MARK: DNDEvent has no signals// MARK: DNDEvent Class: DNDEventProtocol extension (methods and fields)
+// MARK: no DNDEvent signals
+
+// MARK: DNDEvent has no signals
+// MARK: DNDEvent Class: DNDEventProtocol extension (methods and fields)
 public extension DNDEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDNDEvent` instance.
     @inlinable var dnd_event_ptr: UnsafeMutablePointer<GdkDNDEvent>! { return ptr?.assumingMemoryBound(to: GdkDNDEvent.self) }

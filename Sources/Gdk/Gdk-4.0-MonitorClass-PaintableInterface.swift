@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for Monitor
 public extension MonitorClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Monitor`
     static var metatypeReference: GType { gdk_monitor_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkMonitorClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkMonitorClass.self) }
@@ -140,7 +140,7 @@ public extension MonitorClassProtocol {
 /// Metatype/GType declaration for Paintable
 public extension PaintableInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Paintable`
     static var metatypeReference: GType { gdk_paintable_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkPaintableInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkPaintableInterface.self) }

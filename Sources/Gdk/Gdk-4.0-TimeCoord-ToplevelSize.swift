@@ -262,7 +262,10 @@ open class TimeCoord: TimeCoordProtocol {
 
 // MARK: no TimeCoord properties
 
-// MARK: TimeCoord has no signals// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
+// MARK: no TimeCoord signals
+
+// MARK: TimeCoord has no signals
+// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
 public extension TimeCoordProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTimeCoord` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkTimeCoord>! { return ptr?.assumingMemoryBound(to: GdkTimeCoord.self) }
@@ -314,7 +317,7 @@ public extension TimeCoordProtocol {
 /// Metatype/GType declaration for Toplevel
 public extension ToplevelInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Toplevel`
     static var metatypeReference: GType { gdk_toplevel_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkToplevelInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkToplevelInterface.self) }
@@ -725,7 +728,10 @@ open class ToplevelLayout: ToplevelLayoutProtocol {
 
 // MARK: no ToplevelLayout properties
 
-// MARK: ToplevelLayout has no signals// MARK: ToplevelLayout Record: ToplevelLayoutProtocol extension (methods and fields)
+// MARK: no ToplevelLayout signals
+
+// MARK: ToplevelLayout has no signals
+// MARK: ToplevelLayout Record: ToplevelLayoutProtocol extension (methods and fields)
 public extension ToplevelLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkToplevelLayout` instance.
     @inlinable var toplevel_layout_ptr: UnsafeMutablePointer<GdkToplevelLayout>! { return ptr?.assumingMemoryBound(to: GdkToplevelLayout.self) }
@@ -1099,7 +1105,10 @@ open class ToplevelSize: ToplevelSizeProtocol {
 
 // MARK: no ToplevelSize properties
 
-// MARK: ToplevelSize has no signals// MARK: ToplevelSize Record: ToplevelSizeProtocol extension (methods and fields)
+// MARK: no ToplevelSize signals
+
+// MARK: ToplevelSize has no signals
+// MARK: ToplevelSize Record: ToplevelSizeProtocol extension (methods and fields)
 public extension ToplevelSizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkToplevelSize` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkToplevelSize>! { return ptr?.assumingMemoryBound(to: GdkToplevelSize.self) }

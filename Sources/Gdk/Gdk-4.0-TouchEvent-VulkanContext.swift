@@ -247,7 +247,10 @@ open class TouchEvent: Event, TouchEventProtocol {
 
 // MARK: no TouchEvent properties
 
-// MARK: TouchEvent has no signals// MARK: TouchEvent Class: TouchEventProtocol extension (methods and fields)
+// MARK: no TouchEvent signals
+
+// MARK: TouchEvent has no signals
+// MARK: TouchEvent Class: TouchEventProtocol extension (methods and fields)
 public extension TouchEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTouchEvent` instance.
     @inlinable var touch_event_ptr: UnsafeMutablePointer<GdkTouchEvent>! { return ptr?.assumingMemoryBound(to: GdkTouchEvent.self) }
@@ -507,7 +510,10 @@ open class TouchpadEvent: Event, TouchpadEventProtocol {
 
 // MARK: no TouchpadEvent properties
 
-// MARK: TouchpadEvent has no signals// MARK: TouchpadEvent Class: TouchpadEventProtocol extension (methods and fields)
+// MARK: no TouchpadEvent signals
+
+// MARK: TouchpadEvent has no signals
+// MARK: TouchpadEvent Class: TouchpadEventProtocol extension (methods and fields)
 public extension TouchpadEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTouchpadEvent` instance.
     @inlinable var touchpad_event_ptr: UnsafeMutablePointer<GdkTouchpadEvent>! { return ptr?.assumingMemoryBound(to: GdkTouchpadEvent.self) }
@@ -903,30 +909,96 @@ public extension VulkanContextProtocol {
     }
 }
 
-// MARK: Signals of VulkanContext
-public extension VulkanContextProtocol {
+public enum VulkanContextSignalName: String, SignalNameProtocol {
     /// This signal is emitted when the images managed by this context have
     /// changed. Usually this means that the swapchain had to be recreated,
     /// for example in response to a change of the surface size.
-    /// - Note: Representation of signal named `images-updated`
+    case imagesUpdated = "images-updated"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkDisplay` used to create the `GdkDrawContext`.
+    case notifyDisplay = "notify::display"
+    /// The `GdkSurface` the context is bound to.
+    case notifySurface = "notify::surface"
+}
+
+// MARK: VulkanContext signals
+public extension VulkanContextProtocol {
+    /// Connect a Swift signal handler to the given, typed `VulkanContextSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: VulkanContextSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `VulkanContextSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: VulkanContextSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal is emitted when the images managed by this context have
+    /// changed. Usually this means that the swapchain had to be recreated,
+    /// for example in response to a change of the surface size.
+    /// - Note: This represents the underlying `images-updated` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onImagesUpdated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: VulkanContextRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `imagesUpdated` signal is emitted
+    @discardableResult @inlinable func onImagesUpdated(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: VulkanContextRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<VulkanContextRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(VulkanContextRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "images-updated", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .imagesUpdated,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `images-updated` signal for using the `connect(signal:)` methods
+    static var imagesUpdatedSignal: VulkanContextSignalName { .imagesUpdated }
     
     
 }

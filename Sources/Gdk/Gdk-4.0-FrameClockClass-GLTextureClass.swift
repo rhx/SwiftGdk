@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for FrameClock
 public extension FrameClockClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FrameClock`
     static var metatypeReference: GType { gdk_frame_clock_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkFrameClockClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkFrameClockClass.self) }
@@ -403,7 +403,10 @@ open class FrameTimings: FrameTimingsProtocol {
 
 // MARK: no FrameTimings properties
 
-// MARK: FrameTimings has no signals// MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
+// MARK: no FrameTimings signals
+
+// MARK: FrameTimings has no signals
+// MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
 public extension FrameTimingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameTimings` instance.
     @inlinable var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { return ptr?.assumingMemoryBound(to: GdkFrameTimings.self) }
@@ -584,7 +587,7 @@ public extension FrameTimingsProtocol {
 /// Metatype/GType declaration for GLTexture
 public extension GLTextureClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `GLTexture`
     static var metatypeReference: GType { gdk_gl_texture_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkGLTextureClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkGLTextureClass.self) }

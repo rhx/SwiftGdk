@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for Popup
 public extension PopupInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Popup`
     static var metatypeReference: GType { gdk_popup_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkPopupInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkPopupInterface.self) }
@@ -515,7 +515,10 @@ open class PopupLayout: PopupLayoutProtocol {
 
 // MARK: no PopupLayout properties
 
-// MARK: PopupLayout has no signals// MARK: PopupLayout Record: PopupLayoutProtocol extension (methods and fields)
+// MARK: no PopupLayout signals
+
+// MARK: PopupLayout has no signals
+// MARK: PopupLayout Record: PopupLayoutProtocol extension (methods and fields)
 public extension PopupLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPopupLayout` instance.
     @inlinable var popup_layout_ptr: UnsafeMutablePointer<GdkPopupLayout>! { return ptr?.assumingMemoryBound(to: GdkPopupLayout.self) }
@@ -924,7 +927,10 @@ open class RGBA: RGBAProtocol {
 
 // MARK: no RGBA properties
 
-// MARK: RGBA has no signals// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
+// MARK: no RGBA signals
+
+// MARK: RGBA has no signals
+// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
 public extension RGBAProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRGBA` instance.
     @inlinable var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { return ptr?.assumingMemoryBound(to: GdkRGBA.self) }

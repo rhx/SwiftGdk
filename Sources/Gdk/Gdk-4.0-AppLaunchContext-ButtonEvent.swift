@@ -368,7 +368,47 @@ public extension AppLaunchContextProtocol {
     }
 }
 
-// MARK: AppLaunchContext has no signals// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
+public enum AppLaunchContextSignalName: String, SignalNameProtocol {
+    /// The `launch`-failed signal is emitted when a `GAppInfo` launch
+    /// fails. The startup notification id is provided, so that the launcher
+    /// can cancel the startup notification.
+    case launchFailed = "launch-failed"
+    /// The `launched` signal is emitted when a `GAppInfo` is successfully
+    /// launched. The `platform_data` is an GVariant dictionary mapping
+    /// strings to variants (ie a{sv}), which contains additional,
+    /// platform-specific data about this launch. On UNIX, at least the
+    /// "pid" and "startup-notification-id" keys will be present.
+    case launched = "launched"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyDisplay = "notify::display"
+}
+
+// MARK: AppLaunchContext has no signals
+// MARK: AppLaunchContext Class: AppLaunchContextProtocol extension (methods and fields)
 public extension AppLaunchContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkAppLaunchContext` instance.
     @inlinable var app_launch_context_ptr: UnsafeMutablePointer<GdkAppLaunchContext>! { return ptr?.assumingMemoryBound(to: GdkAppLaunchContext.self) }
@@ -688,7 +728,10 @@ open class ButtonEvent: Event, ButtonEventProtocol {
 
 // MARK: no ButtonEvent properties
 
-// MARK: ButtonEvent has no signals// MARK: ButtonEvent Class: ButtonEventProtocol extension (methods and fields)
+// MARK: no ButtonEvent signals
+
+// MARK: ButtonEvent has no signals
+// MARK: ButtonEvent Class: ButtonEventProtocol extension (methods and fields)
 public extension ButtonEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkButtonEvent` instance.
     @inlinable var button_event_ptr: UnsafeMutablePointer<GdkButtonEvent>! { return ptr?.assumingMemoryBound(to: GdkButtonEvent.self) }

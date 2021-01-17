@@ -380,7 +380,10 @@ open class ContentFormats: ContentFormatsProtocol {
 
 // MARK: no ContentFormats properties
 
-// MARK: ContentFormats has no signals// MARK: ContentFormats Record: ContentFormatsProtocol extension (methods and fields)
+// MARK: no ContentFormats signals
+
+// MARK: ContentFormats has no signals
+// MARK: ContentFormats Record: ContentFormatsProtocol extension (methods and fields)
 public extension ContentFormatsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentFormats` instance.
     @inlinable var content_formats_ptr: UnsafeMutablePointer<GdkContentFormats>! { return ptr?.assumingMemoryBound(to: GdkContentFormats.self) }
@@ -777,7 +780,10 @@ open class ContentFormatsBuilder: ContentFormatsBuilderProtocol {
 
 // MARK: no ContentFormatsBuilder properties
 
-// MARK: ContentFormatsBuilder has no signals// MARK: ContentFormatsBuilder Record: ContentFormatsBuilderProtocol extension (methods and fields)
+// MARK: no ContentFormatsBuilder signals
+
+// MARK: ContentFormatsBuilder has no signals
+// MARK: ContentFormatsBuilder Record: ContentFormatsBuilderProtocol extension (methods and fields)
 public extension ContentFormatsBuilderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentFormatsBuilder` instance.
     @inlinable var content_formats_builder_ptr: UnsafeMutablePointer<GdkContentFormatsBuilder>! { return ptr?.assumingMemoryBound(to: GdkContentFormatsBuilder.self) }
@@ -843,7 +849,7 @@ public extension ContentFormatsBuilderProtocol {
 /// Metatype/GType declaration for ContentProvider
 public extension ContentProviderClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `ContentProvider`
     static var metatypeReference: GType { gdk_content_provider_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkContentProviderClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkContentProviderClass.self) }
@@ -993,7 +999,7 @@ public extension ContentProviderClassProtocol {
 /// Metatype/GType declaration for DevicePad
 public extension DevicePadInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DevicePad`
     static var metatypeReference: GType { gdk_device_pad_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkDevicePadInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDevicePadInterface.self) }

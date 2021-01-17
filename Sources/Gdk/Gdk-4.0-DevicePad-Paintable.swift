@@ -376,7 +376,74 @@ public extension DevicePadProtocol {
     }
 }
 
-// MARK: DevicePad has no signals// MARK: DevicePad Interface: DevicePadProtocol extension (methods and fields)
+public enum DevicePadSignalName: String, SignalNameProtocol {
+    /// The `changed` signal is emitted either when the `GdkDevice`
+    /// has changed the number of either axes or keys. For example
+    /// on X11 this will normally happen when the physical device
+    /// routing events through the logical device changes (for
+    /// example, user switches from the USB mouse to a tablet); in
+    /// that case the logical device will change to reflect the axes
+    /// and keys on the new physical device.
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `tool`-changed signal is emitted on pen/eraser
+    /// `GdkDevices` whenever tools enter or leave proximity.
+    case toolChanged = "tool-changed"
+    case notifyCapsLockState = "notify::caps-lock-state"
+    case notifyDirection = "notify::direction"
+    /// The `GdkDisplay` the `GdkDevice` pertains to.
+    case notifyDisplay = "notify::display"
+    case notifyHasBidiLayouts = "notify::has-bidi-layouts"
+    /// Whether the device is represented by a cursor on the screen.
+    case notifyHasCursor = "notify::has-cursor"
+    case notifyModifierState = "notify::modifier-state"
+    /// Number of axes in the device.
+    case notifyNAxes = "notify::n-axes"
+    /// The device name.
+    case notifyName = "notify::name"
+    case notifyNumLockState = "notify::num-lock-state"
+    /// The maximal number of concurrent touches on a touch device.
+    /// Will be 0 if the device is not a touch device or if the number
+    /// of touches is unknown.
+    case notifyNumTouches = "notify::num-touches"
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    case notifyProductId = "notify::product-id"
+    case notifyScrollLockState = "notify::scroll-lock-state"
+    /// `GdkSeat` of this device.
+    case notifySeat = "notify::seat"
+    /// Source type for the device.
+    case notifySource = "notify::source"
+    case notifyTool = "notify::tool"
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    case notifyVendorId = "notify::vendor-id"
+}
+
+// MARK: DevicePad has no signals
+// MARK: DevicePad Interface: DevicePadProtocol extension (methods and fields)
 public extension DevicePadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevicePad` instance.
     @inlinable var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad>! { return ptr?.assumingMemoryBound(to: GdkDevicePad.self) }
@@ -734,7 +801,60 @@ public extension DragSurfaceProtocol {
     }
 }
 
-// MARK: DragSurface has no signals// MARK: DragSurface Interface: DragSurfaceProtocol extension (methods and fields)
+public enum DragSurfaceSignalName: String, SignalNameProtocol {
+    /// Emitted when `surface` starts being present on the monitor.
+    case enterMonitor = "enter-monitor"
+    /// Emitted when GDK receives an input event for `surface`.
+    case event = "event"
+    /// Emitted when the size of `surface` is changed, or when relayout should
+    /// be performed.
+    /// 
+    /// Surface size is reported in ”application pixels”, not
+    /// ”device pixels” (see `gdk_surface_get_scale_factor()`).
+    case layout = "layout"
+    /// Emitted when `surface` stops being present on the monitor.
+    case leaveMonitor = "leave-monitor"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// Emitted when part of the surface needs to be redrawn.
+    case render = "render"
+    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
+    /// `gdk_surface_get_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
+    /// for details.
+    case notifyDisplay = "notify::display"
+    case notifyFrameClock = "notify::frame-clock"
+    case notifyHeight = "notify::height"
+    case notifyMapped = "notify::mapped"
+    case notifyWidth = "notify::width"
+}
+
+// MARK: DragSurface has no signals
+// MARK: DragSurface Interface: DragSurfaceProtocol extension (methods and fields)
 public extension DragSurfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDragSurface` instance.
     @inlinable var drag_surface_ptr: UnsafeMutablePointer<GdkDragSurface>! { return ptr?.assumingMemoryBound(to: GdkDragSurface.self) }
@@ -1137,31 +1257,78 @@ open class Paintable: PaintableProtocol {
 
 // MARK: no Paintable properties
 
-// MARK: Signals of Paintable
-public extension PaintableProtocol {
+public enum PaintableSignalName: String, SignalNameProtocol {
     /// Emitted when the contents of the `paintable` change.
     /// 
     /// Examples for such an event would be videos changing to the next frame or
     /// the icon theme for an icon changing.
-    /// - Note: Representation of signal named `invalidate-contents`
+    case invalidateContents = "invalidate-contents"
+    /// Emitted when the intrinsic size of the `paintable` changes. This means the values
+    /// reported by at least one of `gdk_paintable_get_intrinsic_width()`,
+    /// `gdk_paintable_get_intrinsic_height()` or `gdk_paintable_get_intrinsic_aspect_ratio()`
+    /// has changed.
+    /// 
+    /// Examples for such an event would be a paintable displaying the contents of a toplevel
+    /// surface being resized.
+    case invalidateSize = "invalidate-size"
+
+}
+
+// MARK: Paintable signals
+public extension PaintableProtocol {
+    /// Connect a Swift signal handler to the given, typed `PaintableSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PaintableSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `PaintableSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: PaintableSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// Emitted when the contents of the `paintable` change.
+    /// 
+    /// Examples for such an event would be videos changing to the next frame or
+    /// the icon theme for an icon changing.
+    /// - Note: This represents the underlying `invalidate-contents` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onInvalidateContents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PaintableRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `invalidateContents` signal is emitted
+    @discardableResult @inlinable func onInvalidateContents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PaintableRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<PaintableRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PaintableRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "invalidate-contents", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .invalidateContents,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `invalidate-contents` signal for using the `connect(signal:)` methods
+    static var invalidateContentsSignal: PaintableSignalName { .invalidateContents }
     
     /// Emitted when the intrinsic size of the `paintable` changes. This means the values
     /// reported by at least one of `gdk_paintable_get_intrinsic_width()`,
@@ -1170,25 +1337,29 @@ public extension PaintableProtocol {
     /// 
     /// Examples for such an event would be a paintable displaying the contents of a toplevel
     /// surface being resized.
-    /// - Note: Representation of signal named `invalidate-size`
+    /// - Note: This represents the underlying `invalidate-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onInvalidateSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PaintableRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `invalidateSize` signal is emitted
+    @discardableResult @inlinable func onInvalidateSize(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: PaintableRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<PaintableRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(PaintableRef(raw: unownedSelf))
             return output
         }
-        return GLibObject.ObjectRef(raw: ptr).signalConnectData(
-            detailedSignal: "invalidate-size", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .invalidateSize,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `invalidate-size` signal for using the `connect(signal:)` methods
+    static var invalidateSizeSignal: PaintableSignalName { .invalidateSize }
     
     
 }

@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for Surface
 public extension SurfaceClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Surface`
     static var metatypeReference: GType { gdk_surface_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkSurfaceClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkSurfaceClass.self) }
@@ -140,7 +140,7 @@ public extension SurfaceClassProtocol {
 /// Metatype/GType declaration for Texture
 public extension TextureClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Texture`
     static var metatypeReference: GType { gdk_texture_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkTextureClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkTextureClass.self) }

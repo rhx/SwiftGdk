@@ -247,7 +247,10 @@ open class DeleteEvent: Event, DeleteEventProtocol {
 
 // MARK: no DeleteEvent properties
 
-// MARK: DeleteEvent has no signals// MARK: DeleteEvent Class: DeleteEventProtocol extension (methods and fields)
+// MARK: no DeleteEvent signals
+
+// MARK: DeleteEvent has no signals
+// MARK: DeleteEvent Class: DeleteEventProtocol extension (methods and fields)
 public extension DeleteEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDeleteEvent` instance.
     @inlinable var delete_event_ptr: UnsafeMutablePointer<GdkDeleteEvent>! { return ptr?.assumingMemoryBound(to: GdkDeleteEvent.self) }
@@ -590,8 +593,7 @@ public extension DeviceProtocol {
     }
 }
 
-// MARK: Signals of Device
-public extension DeviceProtocol {
+public enum DeviceSignalName: String, SignalNameProtocol {
     /// The `changed` signal is emitted either when the `GdkDevice`
     /// has changed the number of either axes or keys. For example
     /// on X11 this will normally happen when the physical device
@@ -599,48 +601,149 @@ public extension DeviceProtocol {
     /// example, user switches from the USB mouse to a tablet); in
     /// that case the logical device will change to reflect the axes
     /// and keys on the new physical device.
-    /// - Note: Representation of signal named `changed`
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `tool`-changed signal is emitted on pen/eraser
+    /// `GdkDevices` whenever tools enter or leave proximity.
+    case toolChanged = "tool-changed"
+    case notifyCapsLockState = "notify::caps-lock-state"
+    case notifyDirection = "notify::direction"
+    /// The `GdkDisplay` the `GdkDevice` pertains to.
+    case notifyDisplay = "notify::display"
+    case notifyHasBidiLayouts = "notify::has-bidi-layouts"
+    /// Whether the device is represented by a cursor on the screen.
+    case notifyHasCursor = "notify::has-cursor"
+    case notifyModifierState = "notify::modifier-state"
+    /// Number of axes in the device.
+    case notifyNAxes = "notify::n-axes"
+    /// The device name.
+    case notifyName = "notify::name"
+    case notifyNumLockState = "notify::num-lock-state"
+    /// The maximal number of concurrent touches on a touch device.
+    /// Will be 0 if the device is not a touch device or if the number
+    /// of touches is unknown.
+    case notifyNumTouches = "notify::num-touches"
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    case notifyProductId = "notify::product-id"
+    case notifyScrollLockState = "notify::scroll-lock-state"
+    /// `GdkSeat` of this device.
+    case notifySeat = "notify::seat"
+    /// Source type for the device.
+    case notifySource = "notify::source"
+    case notifyTool = "notify::tool"
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    case notifyVendorId = "notify::vendor-id"
+}
+
+// MARK: Device signals
+public extension DeviceProtocol {
+    /// Connect a Swift signal handler to the given, typed `DeviceSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `DeviceSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `changed` signal is emitted either when the `GdkDevice`
+    /// has changed the number of either axes or keys. For example
+    /// on X11 this will normally happen when the physical device
+    /// routing events through the logical device changes (for
+    /// example, user switches from the USB mouse to a tablet); in
+    /// that case the logical device will change to reflect the axes
+    /// and keys on the new physical device.
+    /// - Note: This represents the underlying `changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `changed` signal is emitted
+    @discardableResult @inlinable func onChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<DeviceRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .changed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `changed` signal for using the `connect(signal:)` methods
+    static var changedSignal: DeviceSignalName { .changed }
+    
     /// The `tool`-changed signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
-    /// - Note: Representation of signal named `tool-changed`
+    /// - Note: This represents the underlying `tool-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter tool: The new current tool
-    @discardableResult
-    func onToolChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ tool: DeviceToolRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `toolChanged` signal is emitted
+    @discardableResult @inlinable func onToolChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ tool: DeviceToolRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, DeviceToolRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), DeviceToolRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "tool-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .toolChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `tool-changed` signal for using the `connect(signal:)` methods
+    static var toolChangedSignal: DeviceSignalName { .toolChanged }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -666,26 +769,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::caps-lock-state`
+    /// - Note: This represents the underlying `notify::caps-lock-state` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCapsLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCapsLockState` signal is emitted
+    @discardableResult @inlinable func onNotifyCapsLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::caps-lock-state", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCapsLockState,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::caps-lock-state` signal for using the `connect(signal:)` methods
+    static var notifyCapsLockStateSignal: DeviceSignalName { .notifyCapsLockState }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -711,26 +818,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::direction`
+    /// - Note: This represents the underlying `notify::direction` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDirection(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDirection` signal is emitted
+    @discardableResult @inlinable func onNotifyDirection(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::direction", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDirection,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::direction` signal for using the `connect(signal:)` methods
+    static var notifyDirectionSignal: DeviceSignalName { .notifyDirection }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -756,26 +867,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::display`
+    /// - Note: This represents the underlying `notify::display` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDisplay` signal is emitted
+    @discardableResult @inlinable func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::display", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDisplay,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::display` signal for using the `connect(signal:)` methods
+    static var notifyDisplaySignal: DeviceSignalName { .notifyDisplay }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -801,26 +916,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-bidi-layouts`
+    /// - Note: This represents the underlying `notify::has-bidi-layouts` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasBidiLayouts(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasBidiLayouts` signal is emitted
+    @discardableResult @inlinable func onNotifyHasBidiLayouts(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-bidi-layouts", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasBidiLayouts,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-bidi-layouts` signal for using the `connect(signal:)` methods
+    static var notifyHasBidiLayoutsSignal: DeviceSignalName { .notifyHasBidiLayouts }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -846,26 +965,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::has-cursor`
+    /// - Note: This represents the underlying `notify::has-cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyHasCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyHasCursor` signal is emitted
+    @discardableResult @inlinable func onNotifyHasCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::has-cursor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyHasCursor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::has-cursor` signal for using the `connect(signal:)` methods
+    static var notifyHasCursorSignal: DeviceSignalName { .notifyHasCursor }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -891,26 +1014,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::modifier-state`
+    /// - Note: This represents the underlying `notify::modifier-state` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyModifierState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyModifierState` signal is emitted
+    @discardableResult @inlinable func onNotifyModifierState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::modifier-state", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyModifierState,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::modifier-state` signal for using the `connect(signal:)` methods
+    static var notifyModifierStateSignal: DeviceSignalName { .notifyModifierState }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -936,26 +1063,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::n-axes`
+    /// - Note: This represents the underlying `notify::n-axes` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyNAxes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyNAxes` signal is emitted
+    @discardableResult @inlinable func onNotifyNAxes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::n-axes", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyNAxes,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::n-axes` signal for using the `connect(signal:)` methods
+    static var notifyNAxesSignal: DeviceSignalName { .notifyNAxes }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -981,26 +1112,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::name`
+    /// - Note: This represents the underlying `notify::name` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyName` signal is emitted
+    @discardableResult @inlinable func onNotifyName(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::name", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyName,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::name` signal for using the `connect(signal:)` methods
+    static var notifyNameSignal: DeviceSignalName { .notifyName }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1026,26 +1161,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::num-lock-state`
+    /// - Note: This represents the underlying `notify::num-lock-state` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyNumLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyNumLockState` signal is emitted
+    @discardableResult @inlinable func onNotifyNumLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::num-lock-state", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyNumLockState,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::num-lock-state` signal for using the `connect(signal:)` methods
+    static var notifyNumLockStateSignal: DeviceSignalName { .notifyNumLockState }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1071,26 +1210,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::num-touches`
+    /// - Note: This represents the underlying `notify::num-touches` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyNumTouches(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyNumTouches` signal is emitted
+    @discardableResult @inlinable func onNotifyNumTouches(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::num-touches", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyNumTouches,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::num-touches` signal for using the `connect(signal:)` methods
+    static var notifyNumTouchesSignal: DeviceSignalName { .notifyNumTouches }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1116,26 +1259,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::product-id`
+    /// - Note: This represents the underlying `notify::product-id` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyProductId(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyProductId` signal is emitted
+    @discardableResult @inlinable func onNotifyProductId(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::product-id", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyProductId,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::product-id` signal for using the `connect(signal:)` methods
+    static var notifyProductIdSignal: DeviceSignalName { .notifyProductId }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1161,26 +1308,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::scroll-lock-state`
+    /// - Note: This represents the underlying `notify::scroll-lock-state` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyScrollLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyScrollLockState` signal is emitted
+    @discardableResult @inlinable func onNotifyScrollLockState(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::scroll-lock-state", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyScrollLockState,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::scroll-lock-state` signal for using the `connect(signal:)` methods
+    static var notifyScrollLockStateSignal: DeviceSignalName { .notifyScrollLockState }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1206,26 +1357,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::seat`
+    /// - Note: This represents the underlying `notify::seat` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySeat(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySeat` signal is emitted
+    @discardableResult @inlinable func onNotifySeat(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::seat", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySeat,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::seat` signal for using the `connect(signal:)` methods
+    static var notifySeatSignal: DeviceSignalName { .notifySeat }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1251,26 +1406,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::source`
+    /// - Note: This represents the underlying `notify::source` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySource(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySource` signal is emitted
+    @discardableResult @inlinable func onNotifySource(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::source", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySource,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::source` signal for using the `connect(signal:)` methods
+    static var notifySourceSignal: DeviceSignalName { .notifySource }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1296,26 +1455,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::tool`
+    /// - Note: This represents the underlying `notify::tool` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyTool(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyTool` signal is emitted
+    @discardableResult @inlinable func onNotifyTool(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::tool", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyTool,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::tool` signal for using the `connect(signal:)` methods
+    static var notifyToolSignal: DeviceSignalName { .notifyTool }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1341,26 +1504,30 @@ public extension DeviceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::vendor-id`
+    /// - Note: This represents the underlying `notify::vendor-id` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyVendorId(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyVendorId` signal is emitted
+    @discardableResult @inlinable func onNotifyVendorId(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DeviceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DeviceRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DeviceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::vendor-id", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyVendorId,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::vendor-id` signal for using the `connect(signal:)` methods
+    static var notifyVendorIdSignal: DeviceSignalName { .notifyVendorId }
     
 }
 
@@ -2010,7 +2177,40 @@ public extension DeviceToolProtocol {
     }
 }
 
-// MARK: DeviceTool has no signals// MARK: DeviceTool Class: DeviceToolProtocol extension (methods and fields)
+public enum DeviceToolSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyAxes = "notify::axes"
+    case notifyHardwareId = "notify::hardware-id"
+    case notifySerial = "notify::serial"
+    case notifyToolType = "notify::tool-type"
+}
+
+// MARK: DeviceTool has no signals
+// MARK: DeviceTool Class: DeviceToolProtocol extension (methods and fields)
 public extension DeviceToolProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDeviceTool` instance.
     @inlinable var device_tool_ptr: UnsafeMutablePointer<GdkDeviceTool>! { return ptr?.assumingMemoryBound(to: GdkDeviceTool.self) }
@@ -2466,121 +2666,219 @@ public extension DisplayProtocol {
     }
 }
 
-// MARK: Signals of Display
-public extension DisplayProtocol {
+public enum DisplaySignalName: String, SignalNameProtocol {
     /// The `closed` signal is emitted when the connection to the windowing
     /// system for `display` is closed.
-    /// - Note: Representation of signal named `closed`
+    case closed = "closed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `opened` signal is emitted when the connection to the windowing
+    /// system for `display` is opened.
+    case opened = "opened"
+    /// The `seat`-added signal is emitted whenever a new seat is made
+    /// known to the windowing system.
+    case seatAdded = "seat-added"
+    /// The `seat`-removed signal is emitted whenever a seat is removed
+    /// by the windowing system.
+    case seatRemoved = "seat-removed"
+    /// The `setting`-changed signal is emitted whenever a setting
+    /// changes its value.
+    case settingChanged = "setting-changed"
+    /// `true` if the display properly composites the alpha channel.
+    /// See `gdk_display_is_composited()` for details.
+    case notifyComposited = "notify::composited"
+    /// `true` if the display supports input shapes. See
+    /// `gdk_display_supports_input_shapes()` for details.
+    case notifyInputShapes = "notify::input-shapes"
+    /// `true` if the display supports an alpha channel. See `gdk_display_is_rgba()`
+    /// for details.
+    case notifyRgba = "notify::rgba"
+}
+
+// MARK: Display signals
+public extension DisplayProtocol {
+    /// Connect a Swift signal handler to the given, typed `DisplaySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DisplaySignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `DisplaySignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DisplaySignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `closed` signal is emitted when the connection to the windowing
+    /// system for `display` is closed.
+    /// - Note: This represents the underlying `closed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter isError: `true` if the display was closed due to an error
-    @discardableResult
-    func onClosed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ isError: Bool) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `closed` signal is emitted
+    @discardableResult @inlinable func onClosed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ isError: Bool) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, Bool, Void>
         let cCallback: @convention(c) (gpointer, gboolean, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), ((arg1) != 0))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "closed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .closed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `closed` signal for using the `connect(signal:)` methods
+    static var closedSignal: DisplaySignalName { .closed }
+    
     /// The `opened` signal is emitted when the connection to the windowing
     /// system for `display` is opened.
-    /// - Note: Representation of signal named `opened`
+    /// - Note: This represents the underlying `opened` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onOpened(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `opened` signal is emitted
+    @discardableResult @inlinable func onOpened(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<DisplayRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "opened", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .opened,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `opened` signal for using the `connect(signal:)` methods
+    static var openedSignal: DisplaySignalName { .opened }
     
     /// The `seat`-added signal is emitted whenever a new seat is made
     /// known to the windowing system.
-    /// - Note: Representation of signal named `seat-added`
+    /// - Note: This represents the underlying `seat-added` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter seat: the seat that was just added
-    @discardableResult
-    func onSeatAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ seat: SeatRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `seatAdded` signal is emitted
+    @discardableResult @inlinable func onSeatAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ seat: SeatRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, SeatRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), SeatRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "seat-added", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .seatAdded,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `seat-added` signal for using the `connect(signal:)` methods
+    static var seatAddedSignal: DisplaySignalName { .seatAdded }
     
     /// The `seat`-removed signal is emitted whenever a seat is removed
     /// by the windowing system.
-    /// - Note: Representation of signal named `seat-removed`
+    /// - Note: This represents the underlying `seat-removed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter seat: the seat that was just removed
-    @discardableResult
-    func onSeatRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ seat: SeatRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `seatRemoved` signal is emitted
+    @discardableResult @inlinable func onSeatRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ seat: SeatRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, SeatRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), SeatRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "seat-removed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .seatRemoved,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `seat-removed` signal for using the `connect(signal:)` methods
+    static var seatRemovedSignal: DisplaySignalName { .seatRemoved }
+    
     /// The `setting`-changed signal is emitted whenever a setting
     /// changes its value.
-    /// - Note: Representation of signal named `setting-changed`
+    /// - Note: This represents the underlying `setting-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter setting: the name of the setting that changed
-    @discardableResult
-    func onSettingChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ setting: String) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `settingChanged` signal is emitted
+    @discardableResult @inlinable func onSettingChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ setting: String) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, String, Void>
         let cCallback: @convention(c) (gpointer, UnsafeMutablePointer<gchar>?, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), arg1.map({ String(cString: $0) })!)
             return output
         }
-        return signalConnectData(
-            detailedSignal: "setting-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .settingChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `setting-changed` signal for using the `connect(signal:)` methods
+    static var settingChangedSignal: DisplaySignalName { .settingChanged }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2606,26 +2904,30 @@ public extension DisplayProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::composited`
+    /// - Note: This represents the underlying `notify::composited` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyComposited(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyComposited` signal is emitted
+    @discardableResult @inlinable func onNotifyComposited(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::composited", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyComposited,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::composited` signal for using the `connect(signal:)` methods
+    static var notifyCompositedSignal: DisplaySignalName { .notifyComposited }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2651,26 +2953,30 @@ public extension DisplayProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::input-shapes`
+    /// - Note: This represents the underlying `notify::input-shapes` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyInputShapes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyInputShapes` signal is emitted
+    @discardableResult @inlinable func onNotifyInputShapes(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::input-shapes", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyInputShapes,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::input-shapes` signal for using the `connect(signal:)` methods
+    static var notifyInputShapesSignal: DisplaySignalName { .notifyInputShapes }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2696,26 +3002,30 @@ public extension DisplayProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::rgba`
+    /// - Note: This represents the underlying `notify::rgba` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyRgba(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyRgba` signal is emitted
+    @discardableResult @inlinable func onNotifyRgba(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::rgba", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyRgba,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::rgba` signal for using the `connect(signal:)` methods
+    static var notifyRgbaSignal: DisplaySignalName { .notifyRgba }
     
 }
 
@@ -3525,29 +3835,90 @@ public extension DisplayManagerProtocol {
     }
 }
 
-// MARK: Signals of DisplayManager
-public extension DisplayManagerProtocol {
+public enum DisplayManagerSignalName: String, SignalNameProtocol {
     /// The `display`-opened signal is emitted when a display is opened.
-    /// - Note: Representation of signal named `display-opened`
+    case displayOpened = "display-opened"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyDefaultDisplay = "notify::default-display"
+}
+
+// MARK: DisplayManager signals
+public extension DisplayManagerProtocol {
+    /// Connect a Swift signal handler to the given, typed `DisplayManagerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DisplayManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `DisplayManagerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DisplayManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `display`-opened signal is emitted when a display is opened.
+    /// - Note: This represents the underlying `display-opened` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter display: the opened display
-    @discardableResult
-    func onDisplayOpened(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayManagerRef, _ display: DisplayRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `displayOpened` signal is emitted
+    @discardableResult @inlinable func onDisplayOpened(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayManagerRef, _ display: DisplayRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayManagerRef, DisplayRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayManagerRef(raw: unownedSelf), DisplayRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "display-opened", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .displayOpened,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `display-opened` signal for using the `connect(signal:)` methods
+    static var displayOpenedSignal: DisplayManagerSignalName { .displayOpened }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3573,26 +3944,30 @@ public extension DisplayManagerProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::default-display`
+    /// - Note: This represents the underlying `notify::default-display` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDefaultDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayManagerRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDefaultDisplay` signal is emitted
+    @discardableResult @inlinable func onNotifyDefaultDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DisplayManagerRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DisplayManagerRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DisplayManagerRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::default-display", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDefaultDisplay,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::default-display` signal for using the `connect(signal:)` methods
+    static var notifyDefaultDisplaySignal: DisplayManagerSignalName { .notifyDefaultDisplay }
     
 }
 
@@ -3984,73 +4359,158 @@ public extension DragProtocol {
     }
 }
 
-// MARK: Signals of Drag
-public extension DragProtocol {
+public enum DragSignalName: String, SignalNameProtocol {
     /// The drag operation was cancelled.
-    /// - Note: Representation of signal named `cancel`
+    case cancel = "cancel"
+    /// The drag operation was finished, the destination
+    /// finished reading all data. The drag object can now
+    /// free all miscellaneous data.
+    case dndFinished = "dnd-finished"
+    /// The drag operation was performed on an accepting client.
+    case dropPerformed = "drop-performed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    case notifyActions = "notify::actions"
+    /// The `GdkContentProvider`.
+    case notifyContent = "notify::content"
+    /// The `GdkDevice` that is performing the drag.
+    case notifyDevice = "notify::device"
+    /// The `GdkDisplay` that the drag belongs to.
+    case notifyDisplay = "notify::display"
+    /// The possible formats that the drag can provide its data in.
+    case notifyFormats = "notify::formats"
+    case notifySelectedAction = "notify::selected-action"
+    case notifySurface = "notify::surface"
+}
+
+// MARK: Drag signals
+public extension DragProtocol {
+    /// Connect a Swift signal handler to the given, typed `DragSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DragSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `DragSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: DragSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The drag operation was cancelled.
+    /// - Note: This represents the underlying `cancel` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter reason: The reason the drag was cancelled
-    @discardableResult
-    func onCancel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ reason: DragCancelReason) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `cancel` signal is emitted
+    @discardableResult @inlinable func onCancel(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ reason: DragCancelReason) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, DragCancelReason, Void>
         let cCallback: @convention(c) (gpointer, UInt32, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), DragCancelReason(arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "cancel", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .cancel,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `cancel` signal for using the `connect(signal:)` methods
+    static var cancelSignal: DragSignalName { .cancel }
     
     /// The drag operation was finished, the destination
     /// finished reading all data. The drag object can now
     /// free all miscellaneous data.
-    /// - Note: Representation of signal named `dnd-finished`
+    /// - Note: This represents the underlying `dnd-finished` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onDndFinished(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dndFinished` signal is emitted
+    @discardableResult @inlinable func onDndFinished(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<DragRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "dnd-finished", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dndFinished,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `dnd-finished` signal for using the `connect(signal:)` methods
+    static var dndFinishedSignal: DragSignalName { .dndFinished }
     
     /// The drag operation was performed on an accepting client.
-    /// - Note: Representation of signal named `drop-performed`
+    /// - Note: This represents the underlying `drop-performed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onDropPerformed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `dropPerformed` signal is emitted
+    @discardableResult @inlinable func onDropPerformed(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<DragRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "drop-performed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .dropPerformed,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `drop-performed` signal for using the `connect(signal:)` methods
+    static var dropPerformedSignal: DragSignalName { .dropPerformed }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4076,26 +4536,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::actions`
+    /// - Note: This represents the underlying `notify::actions` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyActions(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyActions` signal is emitted
+    @discardableResult @inlinable func onNotifyActions(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::actions", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyActions,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::actions` signal for using the `connect(signal:)` methods
+    static var notifyActionsSignal: DragSignalName { .notifyActions }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4121,26 +4585,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::content`
+    /// - Note: This represents the underlying `notify::content` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyContent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyContent` signal is emitted
+    @discardableResult @inlinable func onNotifyContent(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::content", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyContent,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::content` signal for using the `connect(signal:)` methods
+    static var notifyContentSignal: DragSignalName { .notifyContent }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4166,26 +4634,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::device`
+    /// - Note: This represents the underlying `notify::device` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDevice(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDevice` signal is emitted
+    @discardableResult @inlinable func onNotifyDevice(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::device", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDevice,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::device` signal for using the `connect(signal:)` methods
+    static var notifyDeviceSignal: DragSignalName { .notifyDevice }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4211,26 +4683,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::display`
+    /// - Note: This represents the underlying `notify::display` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyDisplay` signal is emitted
+    @discardableResult @inlinable func onNotifyDisplay(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::display", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyDisplay,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::display` signal for using the `connect(signal:)` methods
+    static var notifyDisplaySignal: DragSignalName { .notifyDisplay }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4256,26 +4732,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::formats`
+    /// - Note: This represents the underlying `notify::formats` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFormats` signal is emitted
+    @discardableResult @inlinable func onNotifyFormats(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::formats", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyFormats,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::formats` signal for using the `connect(signal:)` methods
+    static var notifyFormatsSignal: DragSignalName { .notifyFormats }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4301,26 +4781,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::selected-action`
+    /// - Note: This represents the underlying `notify::selected-action` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySelectedAction(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySelectedAction` signal is emitted
+    @discardableResult @inlinable func onNotifySelectedAction(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::selected-action", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySelectedAction,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::selected-action` signal for using the `connect(signal:)` methods
+    static var notifySelectedActionSignal: DragSignalName { .notifySelectedAction }
     
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4346,26 +4830,30 @@ public extension DragProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::surface`
+    /// - Note: This represents the underlying `notify::surface` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifySurface(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifySurface` signal is emitted
+    @discardableResult @inlinable func onNotifySurface(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: DragRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<DragRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(DragRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::surface", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifySurface,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::surface` signal for using the `connect(signal:)` methods
+    static var notifySurfaceSignal: DragSignalName { .notifySurface }
     
 }
 
@@ -4849,7 +5337,40 @@ public extension DrawContextProtocol {
     }
 }
 
-// MARK: DrawContext has no signals// MARK: DrawContext Class: DrawContextProtocol extension (methods and fields)
+public enum DrawContextSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkDisplay` used to create the `GdkDrawContext`.
+    case notifyDisplay = "notify::display"
+    /// The `GdkSurface` the context is bound to.
+    case notifySurface = "notify::surface"
+}
+
+// MARK: DrawContext has no signals
+// MARK: DrawContext Class: DrawContextProtocol extension (methods and fields)
 public extension DrawContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrawContext` instance.
     @inlinable var draw_context_ptr: UnsafeMutablePointer<GdkDrawContext>! { return ptr?.assumingMemoryBound(to: GdkDrawContext.self) }
@@ -5289,7 +5810,48 @@ public extension DropProtocol {
     }
 }
 
-// MARK: Drop has no signals// MARK: Drop Class: DropProtocol extension (methods and fields)
+public enum DropSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The possible actions for this drop
+    case notifyActions = "notify::actions"
+    /// The `GdkDevice` performing the drop
+    case notifyDevice = "notify::device"
+    /// The `GdkDisplay` that the drop belongs to.
+    case notifyDisplay = "notify::display"
+    /// The `GdkDrag` that initiated this drop
+    case notifyDrag = "notify::drag"
+    /// The possible formats that the drop can provide its data in.
+    case notifyFormats = "notify::formats"
+    /// The `GdkSurface` the drop happens on
+    case notifySurface = "notify::surface"
+}
+
+// MARK: Drop has no signals
+// MARK: Drop Class: DropProtocol extension (methods and fields)
 public extension DropProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrop` instance.
     @inlinable var drop_ptr: UnsafeMutablePointer<GdkDrop>! { return ptr?.assumingMemoryBound(to: GdkDrop.self) }
@@ -5754,7 +6316,10 @@ open class Event: EventProtocol {
 
 // MARK: no Event properties
 
-// MARK: Event has no signals// MARK: Event Class: EventProtocol extension (methods and fields)
+// MARK: no Event signals
+
+// MARK: Event has no signals
+// MARK: Event Class: EventProtocol extension (methods and fields)
 public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEvent` instance.
     @inlinable var event_ptr: UnsafeMutablePointer<GdkEvent>! { return ptr?.assumingMemoryBound(to: GdkEvent.self) }

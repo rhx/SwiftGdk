@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for DragSurface
 public extension DragSurfaceInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DragSurface`
     static var metatypeReference: GType { gdk_drag_surface_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkDragSurfaceInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDragSurfaceInterface.self) }
@@ -388,7 +388,10 @@ open class DrawingContext: DrawingContextProtocol {
 
 // MARK: no DrawingContext properties
 
-// MARK: DrawingContext has no signals// MARK: DrawingContext Record: DrawingContextProtocol extension (methods and fields)
+// MARK: no DrawingContext signals
+
+// MARK: DrawingContext has no signals
+// MARK: DrawingContext Record: DrawingContextProtocol extension (methods and fields)
 public extension DrawingContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrawingContext` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkDrawingContext>! { return ptr?.assumingMemoryBound(to: GdkDrawingContext.self) }
@@ -653,7 +656,10 @@ open class EventSequence: EventSequenceProtocol {
 
 // MARK: no EventSequence properties
 
-// MARK: EventSequence has no signals// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
+// MARK: no EventSequence signals
+
+// MARK: EventSequence has no signals
+// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
 public extension EventSequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventSequence` instance.
     @inlinable var event_sequence_ptr: UnsafeMutablePointer<GdkEventSequence>! { return ptr?.assumingMemoryBound(to: GdkEventSequence.self) }

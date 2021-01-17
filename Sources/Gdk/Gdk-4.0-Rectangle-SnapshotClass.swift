@@ -265,7 +265,10 @@ open class Rectangle: RectangleProtocol {
 
 // MARK: no Rectangle properties
 
-// MARK: Rectangle has no signals// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
+// MARK: no Rectangle signals
+
+// MARK: Rectangle has no signals
+// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
 public extension RectangleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRectangle` instance.
     @inlinable var rectangle_ptr: UnsafeMutablePointer<GdkRectangle>! { return ptr?.assumingMemoryBound(to: GdkRectangle.self) }
@@ -370,7 +373,7 @@ public extension RectangleProtocol {
 /// Metatype/GType declaration for Snapshot
 public extension SnapshotClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Snapshot`
     static var metatypeReference: GType { gdk_snapshot_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkSnapshotClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkSnapshotClass.self) }

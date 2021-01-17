@@ -327,7 +327,40 @@ public extension GLTextureProtocol {
     }
 }
 
-// MARK: GLTexture has no signals// MARK: GLTexture Class: GLTextureProtocol extension (methods and fields)
+public enum GLTextureSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The height of the texture, in pixels.
+    case notifyHeight = "notify::height"
+    /// The width of the texture, in pixels.
+    case notifyWidth = "notify::width"
+}
+
+// MARK: GLTexture has no signals
+// MARK: GLTexture Class: GLTextureProtocol extension (methods and fields)
 public extension GLTextureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLTexture` instance.
     @inlinable var gl_texture_ptr: UnsafeMutablePointer<GdkGLTexture>! { return ptr?.assumingMemoryBound(to: GdkGLTexture.self) }
@@ -584,7 +617,10 @@ open class GrabBrokenEvent: Event, GrabBrokenEventProtocol {
 
 // MARK: no GrabBrokenEvent properties
 
-// MARK: GrabBrokenEvent has no signals// MARK: GrabBrokenEvent Class: GrabBrokenEventProtocol extension (methods and fields)
+// MARK: no GrabBrokenEvent signals
+
+// MARK: GrabBrokenEvent has no signals
+// MARK: GrabBrokenEvent Class: GrabBrokenEventProtocol extension (methods and fields)
 public extension GrabBrokenEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGrabBrokenEvent` instance.
     @inlinable var grab_broken_event_ptr: UnsafeMutablePointer<GdkGrabBrokenEvent>! { return ptr?.assumingMemoryBound(to: GdkGrabBrokenEvent.self) }
@@ -859,7 +895,10 @@ open class KeyEvent: Event, KeyEventProtocol {
 
 // MARK: no KeyEvent properties
 
-// MARK: KeyEvent has no signals// MARK: KeyEvent Class: KeyEventProtocol extension (methods and fields)
+// MARK: no KeyEvent signals
+
+// MARK: KeyEvent has no signals
+// MARK: KeyEvent Class: KeyEventProtocol extension (methods and fields)
 public extension KeyEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeyEvent` instance.
     @inlinable var key_event_ptr: UnsafeMutablePointer<GdkKeyEvent>! { return ptr?.assumingMemoryBound(to: GdkKeyEvent.self) }

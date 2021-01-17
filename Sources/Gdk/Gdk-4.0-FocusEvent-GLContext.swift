@@ -247,7 +247,10 @@ open class FocusEvent: Event, FocusEventProtocol {
 
 // MARK: no FocusEvent properties
 
-// MARK: FocusEvent has no signals// MARK: FocusEvent Class: FocusEventProtocol extension (methods and fields)
+// MARK: no FocusEvent signals
+
+// MARK: FocusEvent has no signals
+// MARK: FocusEvent Class: FocusEventProtocol extension (methods and fields)
 public extension FocusEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFocusEvent` instance.
     @inlinable var focus_event_ptr: UnsafeMutablePointer<GdkFocusEvent>! { return ptr?.assumingMemoryBound(to: GdkFocusEvent.self) }
@@ -609,146 +612,257 @@ open class FrameClock: GLibObject.Object, FrameClockProtocol {
 
 // MARK: no FrameClock properties
 
-// MARK: Signals of FrameClock
-public extension FrameClockProtocol {
+public enum FrameClockSignalName: String, SignalNameProtocol {
     /// This signal ends processing of the frame. Applications
     /// should generally not handle this signal.
-    /// - Note: Representation of signal named `after-paint`
+    case afterPaint = "after-paint"
+    /// This signal begins processing of the frame. Applications
+    /// should generally not handle this signal.
+    case beforePaint = "before-paint"
+    /// This signal is used to flush pending motion events that
+    /// are being batched up and compressed together. Applications
+    /// should not handle this signal.
+    case flushEvents = "flush-events"
+    /// This signal is emitted as the second step of toolkit and
+    /// application processing of the frame. Any work to update
+    /// sizes and positions of application elements should be
+    /// performed. GTK normally handles this internally.
+    case layout = "layout"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// This signal is emitted as the third step of toolkit and
+    /// application processing of the frame. The frame is
+    /// repainted. GDK normally handles this internally and
+    /// emits `GdkSurface::render` which are turned into
+    /// `GtkWidget::snapshot` signals by GTK.
+    case paint = "paint"
+    /// This signal is emitted after processing of the frame is
+    /// finished, and is handled internally by GTK to resume normal
+    /// event processing. Applications should not handle this signal.
+    case resumeEvents = "resume-events"
+    /// This signal is emitted as the first step of toolkit and
+    /// application processing of the frame. Animations should
+    /// be updated using `gdk_frame_clock_get_frame_time()`.
+    /// Applications can connect directly to this signal, or
+    /// use `gtk_widget_add_tick_callback()` as a more convenient
+    /// interface.
+    case update = "update"
+
+}
+
+// MARK: FrameClock signals
+public extension FrameClockProtocol {
+    /// Connect a Swift signal handler to the given, typed `FrameClockSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FrameClockSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `FrameClockSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: FrameClockSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// This signal ends processing of the frame. Applications
+    /// should generally not handle this signal.
+    /// - Note: This represents the underlying `after-paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onAfterPaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `afterPaint` signal is emitted
+    @discardableResult @inlinable func onAfterPaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "after-paint", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .afterPaint,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `after-paint` signal for using the `connect(signal:)` methods
+    static var afterPaintSignal: FrameClockSignalName { .afterPaint }
+    
     /// This signal begins processing of the frame. Applications
     /// should generally not handle this signal.
-    /// - Note: Representation of signal named `before-paint`
+    /// - Note: This represents the underlying `before-paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onBeforePaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `beforePaint` signal is emitted
+    @discardableResult @inlinable func onBeforePaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "before-paint", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .beforePaint,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `before-paint` signal for using the `connect(signal:)` methods
+    static var beforePaintSignal: FrameClockSignalName { .beforePaint }
     
     /// This signal is used to flush pending motion events that
     /// are being batched up and compressed together. Applications
     /// should not handle this signal.
-    /// - Note: Representation of signal named `flush-events`
+    /// - Note: This represents the underlying `flush-events` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onFlushEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `flushEvents` signal is emitted
+    @discardableResult @inlinable func onFlushEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "flush-events", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .flushEvents,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `flush-events` signal for using the `connect(signal:)` methods
+    static var flushEventsSignal: FrameClockSignalName { .flushEvents }
     
     /// This signal is emitted as the second step of toolkit and
     /// application processing of the frame. Any work to update
     /// sizes and positions of application elements should be
     /// performed. GTK normally handles this internally.
-    /// - Note: Representation of signal named `layout`
+    /// - Note: This represents the underlying `layout` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onLayout(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `layout` signal is emitted
+    @discardableResult @inlinable func onLayout(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "layout", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .layout,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `layout` signal for using the `connect(signal:)` methods
+    static var layoutSignal: FrameClockSignalName { .layout }
     
     /// This signal is emitted as the third step of toolkit and
     /// application processing of the frame. The frame is
     /// repainted. GDK normally handles this internally and
     /// emits `GdkSurface::render` which are turned into
     /// `GtkWidget::snapshot` signals by GTK.
-    /// - Note: Representation of signal named `paint`
+    /// - Note: This represents the underlying `paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onPaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `paint` signal is emitted
+    @discardableResult @inlinable func onPaint(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "paint", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .paint,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `paint` signal for using the `connect(signal:)` methods
+    static var paintSignal: FrameClockSignalName { .paint }
     
     /// This signal is emitted after processing of the frame is
     /// finished, and is handled internally by GTK to resume normal
     /// event processing. Applications should not handle this signal.
-    /// - Note: Representation of signal named `resume-events`
+    /// - Note: This represents the underlying `resume-events` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onResumeEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `resumeEvents` signal is emitted
+    @discardableResult @inlinable func onResumeEvents(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "resume-events", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .resumeEvents,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `resume-events` signal for using the `connect(signal:)` methods
+    static var resumeEventsSignal: FrameClockSignalName { .resumeEvents }
     
     /// This signal is emitted as the first step of toolkit and
     /// application processing of the frame. Animations should
@@ -756,25 +870,29 @@ public extension FrameClockProtocol {
     /// Applications can connect directly to this signal, or
     /// use `gtk_widget_add_tick_callback()` as a more convenient
     /// interface.
-    /// - Note: Representation of signal named `update`
+    /// - Note: This represents the underlying `update` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onUpdate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `update` signal is emitted
+    @discardableResult @inlinable func onUpdate(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: FrameClockRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<FrameClockRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(FrameClockRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "update", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .update,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `update` signal for using the `connect(signal:)` methods
+    static var updateSignal: FrameClockSignalName { .update }
     
     
 }
@@ -1413,7 +1531,42 @@ public extension GLContextProtocol {
     }
 }
 
-// MARK: GLContext has no signals// MARK: GLContext Class: GLContextProtocol extension (methods and fields)
+public enum GLContextSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkDisplay` used to create the `GdkDrawContext`.
+    case notifyDisplay = "notify::display"
+    /// The `GdkGLContext` that this context is sharing data with, or `nil`
+    case notifySharedContext = "notify::shared-context"
+    /// The `GdkSurface` the context is bound to.
+    case notifySurface = "notify::surface"
+}
+
+// MARK: GLContext has no signals
+// MARK: GLContext Class: GLContextProtocol extension (methods and fields)
 public extension GLContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLContext` instance.
     @inlinable var gl_context_ptr: UnsafeMutablePointer<GdkGLContext>! { return ptr?.assumingMemoryBound(to: GdkGLContext.self) }

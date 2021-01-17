@@ -262,7 +262,10 @@ open class KeymapKey: KeymapKeyProtocol {
 
 // MARK: no KeymapKey properties
 
-// MARK: KeymapKey has no signals// MARK: KeymapKey Record: KeymapKeyProtocol extension (methods and fields)
+// MARK: no KeymapKey signals
+
+// MARK: KeymapKey has no signals
+// MARK: KeymapKey Record: KeymapKeyProtocol extension (methods and fields)
 public extension KeymapKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkKeymapKey` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkKeymapKey>! { return ptr?.assumingMemoryBound(to: GdkKeymapKey.self) }
@@ -341,7 +344,7 @@ public extension KeymapKeyProtocol {
 /// Metatype/GType declaration for MemoryTexture
 public extension MemoryTextureClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `MemoryTexture`
     static var metatypeReference: GType { gdk_memory_texture_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkMemoryTextureClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkMemoryTextureClass.self) }
