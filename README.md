@@ -95,7 +95,7 @@ On Fedora 29, you can use the gtk that comes with the distribution.  Just instal
 On macOS, you can install gdk and gtk using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of gtk:
 
 	brew update
-	brew install gtk+3 glib glib-networking gobject-introspection pkg-config
+	brew install gtk4 glib glib-networking gobject-introspection pkg-config
 
 ## Usage
 
@@ -108,6 +108,7 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
+        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
         .package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk4")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gdk"])]
