@@ -108,6 +108,7 @@ import PackageDescription
 
 let package = Package(name: "MyPackage",
     dependencies: [
+        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
         .package(name: "Gdk", url: "https://github.com/rhx/SwiftGdk.git", .branch("gtk3")),
     ],
     targets: [.target(name: "MyPackage", dependencies: ["Gdk"])]
