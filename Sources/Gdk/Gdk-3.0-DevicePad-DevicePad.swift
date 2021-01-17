@@ -384,7 +384,79 @@ public extension DevicePadProtocol {
     }
 }
 
-// MARK: DevicePad has no signals// MARK: DevicePad Interface: DevicePadProtocol extension (methods and fields)
+public enum DevicePadSignalName: String, SignalNameProtocol {
+    /// The `changed` signal is emitted either when the `GdkDevice`
+    /// has changed the number of either axes or keys. For example
+    /// In X this will normally happen when the slave device routing
+    /// events through the master device changes (for example, user
+    /// switches from the USB mouse to a tablet), in that case the
+    /// master device will change to reflect the new slave device
+    /// axes and keys.
+    case changed = "changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `tool`-changed signal is emitted on pen/eraser
+    /// `GdkDevices` whenever tools enter or leave proximity.
+    case toolChanged = "tool-changed"
+    /// Associated pointer or keyboard with this device, if any. Devices of type `GDK_DEVICE_TYPE_MASTER`
+    /// always come in keyboard/pointer pairs. Other device types will have a `nil` associated device.
+    case notifyAssociatedDevice = "notify::associated-device"
+    /// The axes currently available for this device.
+    case notifyAxes = "notify::axes"
+    /// The `GdkDeviceManager` the `GdkDevice` pertains to.
+    case notifyDeviceManager = "notify::device-manager"
+    /// The `GdkDisplay` the `GdkDevice` pertains to.
+    case notifyDisplay = "notify::display"
+    /// Whether the device is represented by a cursor on the screen. Devices of type
+    /// `GDK_DEVICE_TYPE_MASTER` will have `true` here.
+    case notifyHasCursor = "notify::has-cursor"
+    case notifyInputMode = "notify::input-mode"
+    /// Source type for the device.
+    case notifyInputSource = "notify::input-source"
+    /// Number of axes in the device.
+    case notifyNAxes = "notify::n-axes"
+    /// The device name.
+    case notifyName = "notify::name"
+    /// The maximal number of concurrent touches on a touch device.
+    /// Will be 0 if the device is not a touch device or if the number
+    /// of touches is unknown.
+    case notifyNumTouches = "notify::num-touches"
+    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    case notifyProductId = "notify::product-id"
+    /// `GdkSeat` of this device.
+    case notifySeat = "notify::seat"
+    case notifyTool = "notify::tool"
+    /// Device role in the device manager.
+    case notifyType = "notify::type"
+    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    case notifyVendorId = "notify::vendor-id"
+}
+
+// MARK: DevicePad has no signals
+// MARK: DevicePad Interface: DevicePadProtocol extension (methods and fields)
 public extension DevicePadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevicePad` instance.
     @inlinable var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad>! { return ptr?.assumingMemoryBound(to: GdkDevicePad.self) }

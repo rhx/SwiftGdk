@@ -262,7 +262,10 @@ open class WindowAttr: WindowAttrProtocol {
 
 // MARK: no WindowAttr properties
 
-// MARK: WindowAttr has no signals// MARK: WindowAttr Record: WindowAttrProtocol extension (methods and fields)
+// MARK: no WindowAttr signals
+
+// MARK: WindowAttr has no signals
+// MARK: WindowAttr Record: WindowAttrProtocol extension (methods and fields)
 public extension WindowAttrProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkWindowAttr` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkWindowAttr>! { return ptr?.assumingMemoryBound(to: GdkWindowAttr.self) }
@@ -460,7 +463,7 @@ public extension WindowAttrProtocol {
 /// Metatype/GType declaration for Window
 public extension WindowClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `Window`
     static var metatypeReference: GType { gdk_window_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkWindowClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkWindowClass.self) }
@@ -864,7 +867,10 @@ open class WindowRedirect: WindowRedirectProtocol {
 
 // MARK: no WindowRedirect properties
 
-// MARK: WindowRedirect has no signals// MARK: WindowRedirect Record: WindowRedirectProtocol extension (methods and fields)
+// MARK: no WindowRedirect signals
+
+// MARK: WindowRedirect has no signals
+// MARK: WindowRedirect Record: WindowRedirectProtocol extension (methods and fields)
 public extension WindowRedirectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkWindowRedirect` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkWindowRedirect>! { return ptr?.assumingMemoryBound(to: GdkWindowRedirect.self) }

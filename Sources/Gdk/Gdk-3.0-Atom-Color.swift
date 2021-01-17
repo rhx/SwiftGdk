@@ -265,7 +265,10 @@ open class Atom: AtomProtocol {
 
 // MARK: no Atom properties
 
-// MARK: Atom has no signals// MARK: Atom Record: AtomProtocol extension (methods and fields)
+// MARK: no Atom signals
+
+// MARK: Atom has no signals
+// MARK: Atom Record: AtomProtocol extension (methods and fields)
 public extension AtomProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkAtom` instance.
     @inlinable var _ptr: GdkAtom! { return ptr?.assumingMemoryBound(to: _GdkAtom.self) }
@@ -548,7 +551,10 @@ open class Color: ColorProtocol {
 
 // MARK: no Color properties
 
-// MARK: Color has no signals// MARK: Color Record: ColorProtocol extension (methods and fields)
+// MARK: no Color signals
+
+// MARK: Color has no signals
+// MARK: Color Record: ColorProtocol extension (methods and fields)
 public extension ColorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkColor` instance.
     @inlinable var color_ptr: UnsafeMutablePointer<GdkColor>! { return ptr?.assumingMemoryBound(to: GdkColor.self) }

@@ -474,7 +474,42 @@ public extension GLContextProtocol {
     }
 }
 
-// MARK: GLContext has no signals// MARK: GLContext Class: GLContextProtocol extension (methods and fields)
+public enum GLContextSignalName: String, SignalNameProtocol {
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `GdkDisplay` used to create the `GdkGLContext`.
+    case notifyDisplay = "notify::display"
+    /// The `GdkGLContext` that this context is sharing data with, or `nil`
+    case notifySharedContext = "notify::shared-context"
+    /// The `GdkWindow` the gl context is bound to.
+    case notifyWindow = "notify::window"
+}
+
+// MARK: GLContext has no signals
+// MARK: GLContext Class: GLContextProtocol extension (methods and fields)
 public extension GLContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLContext` instance.
     @inlinable var gl_context_ptr: UnsafeMutablePointer<GdkGLContext>! { return ptr?.assumingMemoryBound(to: GdkGLContext.self) }
@@ -1016,74 +1051,151 @@ open class Keymap: GLibObject.Object, KeymapProtocol {
 
 // MARK: no Keymap properties
 
-// MARK: Signals of Keymap
-public extension KeymapProtocol {
+public enum KeymapSignalName: String, SignalNameProtocol {
     /// The `direction`-changed signal gets emitted when the direction of
     /// the keymap changes.
-    /// - Note: Representation of signal named `direction-changed`
+    case directionChanged = "direction-changed"
+    /// The `keys`-changed signal is emitted when the mapping represented by
+    /// `keymap` changes.
+    case keysChanged = "keys-changed"
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    case notify = "notify"
+    /// The `state`-changed signal is emitted when the state of the
+    /// keyboard changes, e.g when Caps Lock is turned on or off.
+    /// See `gdk_keymap_get_caps_lock_state()`.
+    case stateChanged = "state-changed"
+
+}
+
+// MARK: Keymap signals
+public extension KeymapProtocol {
+    /// Connect a Swift signal handler to the given, typed `KeymapSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: KeymapSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `KeymapSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: KeymapSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `direction`-changed signal gets emitted when the direction of
+    /// the keymap changes.
+    /// - Note: This represents the underlying `direction-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onDirectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `directionChanged` signal is emitted
+    @discardableResult @inlinable func onDirectionChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<KeymapRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(KeymapRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "direction-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .directionChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
     
+    /// Typed `direction-changed` signal for using the `connect(signal:)` methods
+    static var directionChangedSignal: KeymapSignalName { .directionChanged }
+    
     /// The `keys`-changed signal is emitted when the mapping represented by
     /// `keymap` changes.
-    /// - Note: Representation of signal named `keys-changed`
+    /// - Note: This represents the underlying `keys-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onKeysChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `keysChanged` signal is emitted
+    @discardableResult @inlinable func onKeysChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<KeymapRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(KeymapRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "keys-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .keysChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `keys-changed` signal for using the `connect(signal:)` methods
+    static var keysChangedSignal: KeymapSignalName { .keysChanged }
     
     /// The `state`-changed signal is emitted when the state of the
     /// keyboard changes, e.g when Caps Lock is turned on or off.
     /// See `gdk_keymap_get_caps_lock_state()`.
-    /// - Note: Representation of signal named `state-changed`
+    /// - Note: This represents the underlying `state-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
-    @discardableResult
-    func onStateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `stateChanged` signal is emitted
+    @discardableResult @inlinable func onStateChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: KeymapRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder<KeymapRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(KeymapRef(raw: unownedSelf))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "state-changed", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .stateChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `state-changed` signal for using the `connect(signal:)` methods
+    static var stateChangedSignal: KeymapSignalName { .stateChanged }
     
     
 }

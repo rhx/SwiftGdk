@@ -265,7 +265,10 @@ open class Rectangle: RectangleProtocol {
 
 // MARK: no Rectangle properties
 
-// MARK: Rectangle has no signals// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
+// MARK: no Rectangle signals
+
+// MARK: Rectangle has no signals
+// MARK: Rectangle Record: RectangleProtocol extension (methods and fields)
 public extension RectangleProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRectangle` instance.
     @inlinable var rectangle_ptr: UnsafeMutablePointer<GdkRectangle>! { return ptr?.assumingMemoryBound(to: GdkRectangle.self) }
@@ -608,7 +611,10 @@ open class TimeCoord: TimeCoordProtocol {
 
 // MARK: no TimeCoord properties
 
-// MARK: TimeCoord has no signals// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
+// MARK: no TimeCoord signals
+
+// MARK: TimeCoord has no signals
+// MARK: TimeCoord Record: TimeCoordProtocol extension (methods and fields)
 public extension TimeCoordProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTimeCoord` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkTimeCoord>! { return ptr?.assumingMemoryBound(to: GdkTimeCoord.self) }

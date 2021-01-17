@@ -262,7 +262,10 @@ open class Point: PointProtocol {
 
 // MARK: no Point properties
 
-// MARK: Point has no signals// MARK: Point Record: PointProtocol extension (methods and fields)
+// MARK: no Point signals
+
+// MARK: Point has no signals
+// MARK: Point Record: PointProtocol extension (methods and fields)
 public extension PointProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPoint` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkPoint>! { return ptr?.assumingMemoryBound(to: GdkPoint.self) }
@@ -552,7 +555,10 @@ open class RGBA: RGBAProtocol {
 
 // MARK: no RGBA properties
 
-// MARK: RGBA has no signals// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
+// MARK: no RGBA signals
+
+// MARK: RGBA has no signals
+// MARK: RGBA Record: RGBAProtocol extension (methods and fields)
 public extension RGBAProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkRGBA` instance.
     @inlinable var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { return ptr?.assumingMemoryBound(to: GdkRGBA.self) }

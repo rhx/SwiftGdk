@@ -277,7 +277,10 @@ open class FrameTimings: FrameTimingsProtocol {
 
 // MARK: no FrameTimings properties
 
-// MARK: FrameTimings has no signals// MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
+// MARK: no FrameTimings signals
+
+// MARK: FrameTimings has no signals
+// MARK: FrameTimings Record: FrameTimingsProtocol extension (methods and fields)
 public extension FrameTimingsProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameTimings` instance.
     @inlinable var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { return ptr?.assumingMemoryBound(to: GdkFrameTimings.self) }
@@ -871,7 +874,10 @@ open class Geometry: GeometryProtocol {
 
 // MARK: no Geometry properties
 
-// MARK: Geometry has no signals// MARK: Geometry Record: GeometryProtocol extension (methods and fields)
+// MARK: no Geometry signals
+
+// MARK: Geometry has no signals
+// MARK: Geometry Record: GeometryProtocol extension (methods and fields)
 public extension GeometryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGeometry` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkGeometry>! { return ptr?.assumingMemoryBound(to: GdkGeometry.self) }

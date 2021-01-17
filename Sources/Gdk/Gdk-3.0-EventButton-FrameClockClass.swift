@@ -358,7 +358,10 @@ open class EventButton: EventButtonProtocol {
 
 // MARK: no EventButton properties
 
-// MARK: EventButton has no signals// MARK: EventButton Record: EventButtonProtocol extension (methods and fields)
+// MARK: no EventButton signals
+
+// MARK: EventButton has no signals
+// MARK: EventButton Record: EventButtonProtocol extension (methods and fields)
 public extension EventButtonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventButton` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventButton>! { return ptr?.assumingMemoryBound(to: GdkEventButton.self) }
@@ -805,7 +808,10 @@ open class EventConfigure: EventConfigureProtocol {
 
 // MARK: no EventConfigure properties
 
-// MARK: EventConfigure has no signals// MARK: EventConfigure Record: EventConfigureProtocol extension (methods and fields)
+// MARK: no EventConfigure signals
+
+// MARK: EventConfigure has no signals
+// MARK: EventConfigure Record: EventConfigureProtocol extension (methods and fields)
 public extension EventConfigureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventConfigure` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventConfigure>! { return ptr?.assumingMemoryBound(to: GdkEventConfigure.self) }
@@ -1157,7 +1163,10 @@ open class EventCrossing: EventCrossingProtocol {
 
 // MARK: no EventCrossing properties
 
-// MARK: EventCrossing has no signals// MARK: EventCrossing Record: EventCrossingProtocol extension (methods and fields)
+// MARK: no EventCrossing signals
+
+// MARK: EventCrossing has no signals
+// MARK: EventCrossing Record: EventCrossingProtocol extension (methods and fields)
 public extension EventCrossingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventCrossing` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventCrossing>! { return ptr?.assumingMemoryBound(to: GdkEventCrossing.self) }
@@ -1611,7 +1620,10 @@ open class EventDND: EventDNDProtocol {
 
 // MARK: no EventDND properties
 
-// MARK: EventDND has no signals// MARK: EventDND Record: EventDNDProtocol extension (methods and fields)
+// MARK: no EventDND signals
+
+// MARK: EventDND has no signals
+// MARK: EventDND Record: EventDNDProtocol extension (methods and fields)
 public extension EventDNDProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventDND` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventDND>! { return ptr?.assumingMemoryBound(to: GdkEventDND.self) }
@@ -1978,7 +1990,10 @@ open class EventExpose: EventExposeProtocol {
 
 // MARK: no EventExpose properties
 
-// MARK: EventExpose has no signals// MARK: EventExpose Record: EventExposeProtocol extension (methods and fields)
+// MARK: no EventExpose signals
+
+// MARK: EventExpose has no signals
+// MARK: EventExpose Record: EventExposeProtocol extension (methods and fields)
 public extension EventExposeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventExpose` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventExpose>! { return ptr?.assumingMemoryBound(to: GdkEventExpose.self) }
@@ -2326,7 +2341,10 @@ open class EventFocus: EventFocusProtocol {
 
 // MARK: no EventFocus properties
 
-// MARK: EventFocus has no signals// MARK: EventFocus Record: EventFocusProtocol extension (methods and fields)
+// MARK: no EventFocus signals
+
+// MARK: EventFocus has no signals
+// MARK: EventFocus Record: EventFocusProtocol extension (methods and fields)
 public extension EventFocusProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventFocus` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventFocus>! { return ptr?.assumingMemoryBound(to: GdkEventFocus.self) }
@@ -2654,7 +2672,10 @@ open class EventGrabBroken: EventGrabBrokenProtocol {
 
 // MARK: no EventGrabBroken properties
 
-// MARK: EventGrabBroken has no signals// MARK: EventGrabBroken Record: EventGrabBrokenProtocol extension (methods and fields)
+// MARK: no EventGrabBroken signals
+
+// MARK: EventGrabBroken has no signals
+// MARK: EventGrabBroken Record: EventGrabBrokenProtocol extension (methods and fields)
 public extension EventGrabBrokenProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventGrabBroken` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventGrabBroken>! { return ptr?.assumingMemoryBound(to: GdkEventGrabBroken.self) }
@@ -3005,7 +3026,10 @@ open class EventKey: EventKeyProtocol {
 
 // MARK: no EventKey properties
 
-// MARK: EventKey has no signals// MARK: EventKey Record: EventKeyProtocol extension (methods and fields)
+// MARK: no EventKey signals
+
+// MARK: EventKey has no signals
+// MARK: EventKey Record: EventKeyProtocol extension (methods and fields)
 public extension EventKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventKey` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventKey>! { return ptr?.assumingMemoryBound(to: GdkEventKey.self) }
@@ -3454,7 +3478,10 @@ open class EventMotion: EventMotionProtocol {
 
 // MARK: no EventMotion properties
 
-// MARK: EventMotion has no signals// MARK: EventMotion Record: EventMotionProtocol extension (methods and fields)
+// MARK: no EventMotion signals
+
+// MARK: EventMotion has no signals
+// MARK: EventMotion Record: EventMotionProtocol extension (methods and fields)
 public extension EventMotionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventMotion` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventMotion>! { return ptr?.assumingMemoryBound(to: GdkEventMotion.self) }
@@ -3945,7 +3972,10 @@ open class EventOwnerChange: EventOwnerChangeProtocol {
 
 // MARK: no EventOwnerChange properties
 
-// MARK: EventOwnerChange has no signals// MARK: EventOwnerChange Record: EventOwnerChangeProtocol extension (methods and fields)
+// MARK: no EventOwnerChange signals
+
+// MARK: EventOwnerChange has no signals
+// MARK: EventOwnerChange Record: EventOwnerChangeProtocol extension (methods and fields)
 public extension EventOwnerChangeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventOwnerChange` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventOwnerChange>! { return ptr?.assumingMemoryBound(to: GdkEventOwnerChange.self) }
@@ -4313,7 +4343,10 @@ open class EventPadAxis: EventPadAxisProtocol {
 
 // MARK: no EventPadAxis properties
 
-// MARK: EventPadAxis has no signals// MARK: EventPadAxis Record: EventPadAxisProtocol extension (methods and fields)
+// MARK: no EventPadAxis signals
+
+// MARK: EventPadAxis has no signals
+// MARK: EventPadAxis Record: EventPadAxisProtocol extension (methods and fields)
 public extension EventPadAxisProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventPadAxis` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventPadAxis>! { return ptr?.assumingMemoryBound(to: GdkEventPadAxis.self) }
@@ -4687,7 +4720,10 @@ open class EventPadButton: EventPadButtonProtocol {
 
 // MARK: no EventPadButton properties
 
-// MARK: EventPadButton has no signals// MARK: EventPadButton Record: EventPadButtonProtocol extension (methods and fields)
+// MARK: no EventPadButton signals
+
+// MARK: EventPadButton has no signals
+// MARK: EventPadButton Record: EventPadButtonProtocol extension (methods and fields)
 public extension EventPadButtonProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventPadButton` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventPadButton>! { return ptr?.assumingMemoryBound(to: GdkEventPadButton.self) }
@@ -5045,7 +5081,10 @@ open class EventPadGroupMode: EventPadGroupModeProtocol {
 
 // MARK: no EventPadGroupMode properties
 
-// MARK: EventPadGroupMode has no signals// MARK: EventPadGroupMode Record: EventPadGroupModeProtocol extension (methods and fields)
+// MARK: no EventPadGroupMode signals
+
+// MARK: EventPadGroupMode has no signals
+// MARK: EventPadGroupMode Record: EventPadGroupModeProtocol extension (methods and fields)
 public extension EventPadGroupModeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventPadGroupMode` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventPadGroupMode>! { return ptr?.assumingMemoryBound(to: GdkEventPadGroupMode.self) }
@@ -5393,7 +5432,10 @@ open class EventProperty: EventPropertyProtocol {
 
 // MARK: no EventProperty properties
 
-// MARK: EventProperty has no signals// MARK: EventProperty Record: EventPropertyProtocol extension (methods and fields)
+// MARK: no EventProperty signals
+
+// MARK: EventProperty has no signals
+// MARK: EventProperty Record: EventPropertyProtocol extension (methods and fields)
 public extension EventPropertyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventProperty` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventProperty>! { return ptr?.assumingMemoryBound(to: GdkEventProperty.self) }
@@ -5759,7 +5801,10 @@ open class EventProximity: EventProximityProtocol {
 
 // MARK: no EventProximity properties
 
-// MARK: EventProximity has no signals// MARK: EventProximity Record: EventProximityProtocol extension (methods and fields)
+// MARK: no EventProximity signals
+
+// MARK: EventProximity has no signals
+// MARK: EventProximity Record: EventProximityProtocol extension (methods and fields)
 public extension EventProximityProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventProximity` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventProximity>! { return ptr?.assumingMemoryBound(to: GdkEventProximity.self) }
@@ -6109,7 +6154,10 @@ open class EventScroll: EventScrollProtocol {
 
 // MARK: no EventScroll properties
 
-// MARK: EventScroll has no signals// MARK: EventScroll Record: EventScrollProtocol extension (methods and fields)
+// MARK: no EventScroll signals
+
+// MARK: EventScroll has no signals
+// MARK: EventScroll Record: EventScrollProtocol extension (methods and fields)
 public extension EventScrollProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventScroll` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventScroll>! { return ptr?.assumingMemoryBound(to: GdkEventScroll.self) }
@@ -6573,7 +6621,10 @@ open class EventSelection: EventSelectionProtocol {
 
 // MARK: no EventSelection properties
 
-// MARK: EventSelection has no signals// MARK: EventSelection Record: EventSelectionProtocol extension (methods and fields)
+// MARK: no EventSelection signals
+
+// MARK: EventSelection has no signals
+// MARK: EventSelection Record: EventSelectionProtocol extension (methods and fields)
 public extension EventSelectionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventSelection` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventSelection>! { return ptr?.assumingMemoryBound(to: GdkEventSelection.self) }
@@ -6941,7 +6992,10 @@ open class EventSequence: EventSequenceProtocol {
 
 // MARK: no EventSequence properties
 
-// MARK: EventSequence has no signals// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
+// MARK: no EventSequence signals
+
+// MARK: EventSequence has no signals
+// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
 public extension EventSequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventSequence` instance.
     @inlinable var event_sequence_ptr: UnsafeMutablePointer<GdkEventSequence>! { return ptr?.assumingMemoryBound(to: GdkEventSequence.self) }
@@ -7203,7 +7257,10 @@ open class EventSetting: EventSettingProtocol {
 
 // MARK: no EventSetting properties
 
-// MARK: EventSetting has no signals// MARK: EventSetting Record: EventSettingProtocol extension (methods and fields)
+// MARK: no EventSetting signals
+
+// MARK: EventSetting has no signals
+// MARK: EventSetting Record: EventSettingProtocol extension (methods and fields)
 public extension EventSettingProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventSetting` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventSetting>! { return ptr?.assumingMemoryBound(to: GdkEventSetting.self) }
@@ -7559,7 +7616,10 @@ open class EventTouch: EventTouchProtocol {
 
 // MARK: no EventTouch properties
 
-// MARK: EventTouch has no signals// MARK: EventTouch Record: EventTouchProtocol extension (methods and fields)
+// MARK: no EventTouch signals
+
+// MARK: EventTouch has no signals
+// MARK: EventTouch Record: EventTouchProtocol extension (methods and fields)
 public extension EventTouchProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventTouch` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventTouch>! { return ptr?.assumingMemoryBound(to: GdkEventTouch.self) }
@@ -8013,7 +8073,10 @@ open class EventTouchpadPinch: EventTouchpadPinchProtocol {
 
 // MARK: no EventTouchpadPinch properties
 
-// MARK: EventTouchpadPinch has no signals// MARK: EventTouchpadPinch Record: EventTouchpadPinchProtocol extension (methods and fields)
+// MARK: no EventTouchpadPinch signals
+
+// MARK: EventTouchpadPinch has no signals
+// MARK: EventTouchpadPinch Record: EventTouchpadPinchProtocol extension (methods and fields)
 public extension EventTouchpadPinchProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventTouchpadPinch` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventTouchpadPinch>! { return ptr?.assumingMemoryBound(to: GdkEventTouchpadPinch.self) }
@@ -8487,7 +8550,10 @@ open class EventTouchpadSwipe: EventTouchpadSwipeProtocol {
 
 // MARK: no EventTouchpadSwipe properties
 
-// MARK: EventTouchpadSwipe has no signals// MARK: EventTouchpadSwipe Record: EventTouchpadSwipeProtocol extension (methods and fields)
+// MARK: no EventTouchpadSwipe signals
+
+// MARK: EventTouchpadSwipe has no signals
+// MARK: EventTouchpadSwipe Record: EventTouchpadSwipeProtocol extension (methods and fields)
 public extension EventTouchpadSwipeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventTouchpadSwipe` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventTouchpadSwipe>! { return ptr?.assumingMemoryBound(to: GdkEventTouchpadSwipe.self) }
@@ -8929,7 +8995,10 @@ open class EventVisibility: EventVisibilityProtocol {
 
 // MARK: no EventVisibility properties
 
-// MARK: EventVisibility has no signals// MARK: EventVisibility Record: EventVisibilityProtocol extension (methods and fields)
+// MARK: no EventVisibility signals
+
+// MARK: EventVisibility has no signals
+// MARK: EventVisibility Record: EventVisibilityProtocol extension (methods and fields)
 public extension EventVisibilityProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventVisibility` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventVisibility>! { return ptr?.assumingMemoryBound(to: GdkEventVisibility.self) }
@@ -9245,7 +9314,10 @@ open class EventWindowState: EventWindowStateProtocol {
 
 // MARK: no EventWindowState properties
 
-// MARK: EventWindowState has no signals// MARK: EventWindowState Record: EventWindowStateProtocol extension (methods and fields)
+// MARK: no EventWindowState signals
+
+// MARK: EventWindowState has no signals
+// MARK: EventWindowState Record: EventWindowStateProtocol extension (methods and fields)
 public extension EventWindowStateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventWindowState` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventWindowState>! { return ptr?.assumingMemoryBound(to: GdkEventWindowState.self) }
@@ -9326,7 +9398,7 @@ public extension EventWindowStateProtocol {
 /// Metatype/GType declaration for FrameClock
 public extension FrameClockClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `FrameClock`
     static var metatypeReference: GType { gdk_frame_clock_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkFrameClockClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkFrameClockClass.self) }

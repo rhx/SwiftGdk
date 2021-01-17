@@ -14,7 +14,7 @@ import GdkPixbuf
 /// Metatype/GType declaration for DevicePad
 public extension DevicePadInterfaceRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DevicePad`
     static var metatypeReference: GType { gdk_device_pad_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkDevicePadInterface>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDevicePadInterface.self) }
@@ -140,7 +140,7 @@ public extension DevicePadInterfaceProtocol {
 /// Metatype/GType declaration for DrawingContext
 public extension DrawingContextClassRef {
     
-    /// This getter returns type identifier in the GLib type system registry
+    /// This getter returns the GLib type identifier registered for `DrawingContext`
     static var metatypeReference: GType { gdk_drawing_context_get_type() }
     
     private static var metatypePointer: UnsafeMutablePointer<GdkDrawingContextClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: GdkDrawingContextClass.self) }
@@ -520,7 +520,10 @@ open class EventAny: EventAnyProtocol {
 
 // MARK: no EventAny properties
 
-// MARK: EventAny has no signals// MARK: EventAny Record: EventAnyProtocol extension (methods and fields)
+// MARK: no EventAny signals
+
+// MARK: EventAny has no signals
+// MARK: EventAny Record: EventAnyProtocol extension (methods and fields)
 public extension EventAnyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEventAny` instance.
     @inlinable var _ptr: UnsafeMutablePointer<GdkEventAny>! { return ptr?.assumingMemoryBound(to: GdkEventAny.self) }

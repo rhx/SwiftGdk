@@ -338,8 +338,7 @@ public extension WindowProtocol {
     }
 }
 
-// MARK: Signals of Window
-public extension WindowProtocol {
+public enum WindowSignalName: String, SignalNameProtocol {
     /// The `create`-surface signal is emitted when an offscreen window
     /// needs its surface (re)created, which happens either when the
     /// window is first drawn to, or when the window is being
@@ -350,29 +349,12 @@ public extension WindowProtocol {
     /// Note that it is not possible to access the window's previous
     /// surface from within any callback of this signal. Calling
     /// `gdk_offscreen_window_get_surface()` will lead to a crash.
-    /// - Note: Representation of signal named `create-surface`
-    /// - Parameter flags: Flags
-    /// - Parameter handler: the newly created `cairo_surface_t` for the offscreen window
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter width: the width of the offscreen surface to create
-    /// - Parameter height: the height of the offscreen surface to create
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (9)  Record return is not yet supported }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onCreateSurface: String { "create-surface" }
+    case createSurface = "create-surface"
     /// The `from`-embedder signal is emitted to translate coordinates
     /// in the embedder of an offscreen window to the offscreen window.
     /// 
     /// See also `GdkWindow::to`-embedder.
-    /// - Note: Representation of signal named `from-embedder`
-    /// - Parameter flags: Flags
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter embedderX: x coordinate in the embedder window
-    /// - Parameter embedderY: y coordinate in the embedder window
-    /// - Parameter offscreenX: return location for the x     coordinate in the offscreen window
-    /// - Parameter offscreenY: return location for the y     coordinate in the offscreen window
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (1) argument with owner transfership is not allowed, (2)  argument out or inout direction is not allowed }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onFromEmbedder: String { "from-embedder" }
+    case fromEmbedder = "from-embedder"
     /// Emitted when the position of `window` is finalized after being moved to a
     /// destination rectangle.
     /// 
@@ -384,41 +366,7 @@ public extension WindowProtocol {
     /// flipping, but before any possible sliding. `final_rect` is `flipped_rect`,
     /// but possibly translated in the case that flipping is still ineffective in
     /// keeping `window` on-screen.
-    /// - Note: Representation of signal named `moved-to-rect`
-    /// - Parameter flags: Flags
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter flippedRect: the position of `window` after any possible                flipping or `nil` if the backend can't obtain it
-    /// - Parameter finalRect: the final position of `window` or `nil` if the              backend can't obtain it
-    /// - Parameter flippedX: `true` if the anchors were flipped horizontally
-    /// - Parameter flippedY: `true` if the anchors were flipped vertically
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onMovedToRect: String { "moved-to-rect" }
-    /// The `pick`-embedded-child signal is emitted to find an embedded
-    /// child at the given position.
-    /// - Note: Representation of signal named `pick-embedded-child`
-    /// - Parameter flags: Flags
-    /// - Parameter handler: the `GdkWindow` of the     embedded child at `x`, `y`, or `nil`
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter x: x coordinate in the window
-    /// - Parameter y: y coordinate in the window
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (8)  argument or return nullability is not allowed, (9)  Record return is not yet supported }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onPickEmbeddedChild: String { "pick-embedded-child" }
-    /// The `to`-embedder signal is emitted to translate coordinates
-    /// in an offscreen window to its embedder.
-    /// 
-    /// See also `GdkWindow::from`-embedder.
-    /// - Note: Representation of signal named `to-embedder`
-    /// - Parameter flags: Flags
-    /// - Parameter unownedSelf: Reference to instance of self
-    /// - Parameter offscreenX: x coordinate in the offscreen window
-    /// - Parameter offscreenY: y coordinate in the offscreen window
-    /// - Parameter embedderX: return location for the x     coordinate in the embedder window
-    /// - Parameter embedderY: return location for the y     coordinate in the embedder window
-    /// - Warning: Wrapper of this signal could not be generated because it contains unimplemented features: { (1) argument with owner transfership is not allowed, (2)  argument out or inout direction is not allowed }
-    /// - Note: Use this string for `signalConnectData` method
-    static var onToEmbedder: String { "to-embedder" }
+    case movedToRect = "moved-to-rect"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
@@ -443,26 +391,178 @@ public extension WindowProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
-    /// - Note: Representation of signal named `notify::cursor`
+    case notify = "notify"
+    /// The `pick`-embedded-child signal is emitted to find an embedded
+    /// child at the given position.
+    case pickEmbeddedChild = "pick-embedded-child"
+    /// The `to`-embedder signal is emitted to translate coordinates
+    /// in an offscreen window to its embedder.
+    /// 
+    /// See also `GdkWindow::from`-embedder.
+    case toEmbedder = "to-embedder"
+    /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
+    /// `gdk_window_get_cursor()` for details.
+    case notifyCursor = "notify::cursor"
+}
+
+// MARK: Window signals
+public extension WindowProtocol {
+    /// Connect a Swift signal handler to the given, typed `WindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: WindowSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
+    }
+    
+    
+    /// Connect a C signal handler to the given, typed `WindowSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: WindowSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `create`-surface signal is emitted when an offscreen window
+    /// needs its surface (re)created, which happens either when the
+    /// window is first drawn to, or when the window is being
+    /// resized. The first signal handler that returns a non-`nil`
+    /// surface will stop any further signal emission, and its surface
+    /// will be used.
+    /// 
+    /// Note that it is not possible to access the window's previous
+    /// surface from within any callback of this signal. Calling
+    /// `gdk_offscreen_window_get_surface()` will lead to a crash.
+    /// - Note: This represents the underlying `create-surface` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter width: the width of the offscreen surface to create
+    /// - Parameter height: the height of the offscreen surface to create
+    /// - Parameter handler: the newly created `cairo_surface_t` for the offscreen window
+    /// - Warning: a `onCreateSurface` wrapper for this signal could not be generated because it contains unimplemented features: { (9)  Record return type is not yet supported }
+    /// - Note: Instead, you can connect `createSurfaceSignal` using the `connect(signal:)` methods
+    static var createSurfaceSignal: WindowSignalName { .createSurface }
+    /// The `from`-embedder signal is emitted to translate coordinates
+    /// in the embedder of an offscreen window to the offscreen window.
+    /// 
+    /// See also `GdkWindow::to`-embedder.
+    /// - Note: This represents the underlying `from-embedder` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter embedderX: x coordinate in the embedder window
+    /// - Parameter embedderY: y coordinate in the embedder window
+    /// - Parameter offscreenX: return location for the x     coordinate in the offscreen window
+    /// - Parameter offscreenY: return location for the y     coordinate in the offscreen window
+    /// - Parameter handler: The signal handler to call
+    /// - Warning: a `onFromEmbedder` wrapper for this signal could not be generated because it contains unimplemented features: { (1) argument with ownership transfer is not allowed, (2)  `out` or `inout` argument direction is not allowed }
+    /// - Note: Instead, you can connect `fromEmbedderSignal` using the `connect(signal:)` methods
+    static var fromEmbedderSignal: WindowSignalName { .fromEmbedder }
+    /// Emitted when the position of `window` is finalized after being moved to a
+    /// destination rectangle.
+    /// 
+    /// `window` might be flipped over the destination rectangle in order to keep
+    /// it on-screen, in which case `flipped_x` and `flipped_y` will be set to `true`
+    /// accordingly.
+    /// 
+    /// `flipped_rect` is the ideal position of `window` after any possible
+    /// flipping, but before any possible sliding. `final_rect` is `flipped_rect`,
+    /// but possibly translated in the case that flipping is still ineffective in
+    /// keeping `window` on-screen.
+    /// - Note: This represents the underlying `moved-to-rect` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter flippedRect: the position of `window` after any possible                flipping or `nil` if the backend can't obtain it
+    /// - Parameter finalRect: the final position of `window` or `nil` if the              backend can't obtain it
+    /// - Parameter flippedX: `true` if the anchors were flipped horizontally
+    /// - Parameter flippedY: `true` if the anchors were flipped vertically
+    /// - Parameter handler: The signal handler to call
+    /// - Warning: a `onMovedToRect` wrapper for this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
+    /// - Note: Instead, you can connect `movedToRectSignal` using the `connect(signal:)` methods
+    static var movedToRectSignal: WindowSignalName { .movedToRect }
+    /// The `pick`-embedded-child signal is emitted to find an embedded
+    /// child at the given position.
+    /// - Note: This represents the underlying `pick-embedded-child` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter x: x coordinate in the window
+    /// - Parameter y: y coordinate in the window
+    /// - Parameter handler: the `GdkWindow` of the     embedded child at `x`, `y`, or `nil`
+    /// - Warning: a `onPickEmbeddedChild` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
+    /// - Note: Instead, you can connect `pickEmbeddedChildSignal` using the `connect(signal:)` methods
+    static var pickEmbeddedChildSignal: WindowSignalName { .pickEmbeddedChild }
+    /// The `to`-embedder signal is emitted to translate coordinates
+    /// in an offscreen window to its embedder.
+    /// 
+    /// See also `GdkWindow::from`-embedder.
+    /// - Note: This represents the underlying `to-embedder` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter offscreenX: x coordinate in the offscreen window
+    /// - Parameter offscreenY: y coordinate in the offscreen window
+    /// - Parameter embedderX: return location for the x     coordinate in the embedder window
+    /// - Parameter embedderY: return location for the y     coordinate in the embedder window
+    /// - Parameter handler: The signal handler to call
+    /// - Warning: a `onToEmbedder` wrapper for this signal could not be generated because it contains unimplemented features: { (1) argument with ownership transfer is not allowed, (2)  `out` or `inout` argument direction is not allowed }
+    /// - Note: Instead, you can connect `toEmbedderSignal` using the `connect(signal:)` methods
+    static var toEmbedderSignal: WindowSignalName { .toEmbedder }
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::cursor` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
     /// - Parameter pspec: the `GParamSpec` of the property which changed.
-    @discardableResult
-    func onNotifyCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyCursor` signal is emitted
+    @discardableResult @inlinable func onNotifyCursor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: WindowRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
         typealias SwiftHandler = GLib.ClosureHolder2<WindowRef, ParamSpecRef, Void>
         let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
             let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
             let output: Void = holder.call(WindowRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
             return output
         }
-        return signalConnectData(
-            detailedSignal: "notify::cursor", 
-            cHandler: unsafeBitCast(cCallback, to: GCallback.self), 
-            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(), 
+        return connect(
+            signal: .notifyCursor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
             destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
-            connectFlags: flags
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
         )
     }
+    
+    /// Typed `notify::cursor` signal for using the `connect(signal:)` methods
+    static var notifyCursorSignal: WindowSignalName { .notifyCursor }
     
 }
 
