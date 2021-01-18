@@ -77,6 +77,8 @@ public protocol GLContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkGLContext` instance.
     var gl_context_ptr: UnsafeMutablePointer<GdkGLContext>! { get }
 
+    /// Required Initialiser for types conforming to `GLContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLContextRef` type acts as a lightweight Swift reference to an underlying `GdkGLContext` instance.
@@ -377,14 +379,14 @@ open class GLContext: GLibObject.Object, GLContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -787,6 +789,8 @@ public protocol KeymapProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkKeymap` instance.
     var keymap_ptr: UnsafeMutablePointer<GdkKeymap>! { get }
 
+    /// Required Initialiser for types conforming to `KeymapProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeymapRef` type acts as a lightweight Swift reference to an underlying `GdkKeymap` instance.
@@ -1004,14 +1008,14 @@ open class Keymap: GLibObject.Object, KeymapProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1052,10 +1056,10 @@ open class Keymap: GLibObject.Object, KeymapProtocol {
 // MARK: no Keymap properties
 
 public enum KeymapSignalName: String, SignalNameProtocol {
-    /// The `direction`-changed signal gets emitted when the direction of
+    /// The `direction-changed` signal gets emitted when the direction of
     /// the keymap changes.
     case directionChanged = "direction-changed"
-    /// The `keys`-changed signal is emitted when the mapping represented by
+    /// The `keys-changed` signal is emitted when the mapping represented by
     /// `keymap` changes.
     case keysChanged = "keys-changed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -1083,7 +1087,7 @@ public enum KeymapSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `state`-changed signal is emitted when the state of the
+    /// The `state-changed` signal is emitted when the state of the
     /// keyboard changes, e.g when Caps Lock is turned on or off.
     /// See `gdk_keymap_get_caps_lock_state()`.
     case stateChanged = "state-changed"
@@ -1118,7 +1122,7 @@ public extension KeymapProtocol {
     }
     
     
-    /// The `direction`-changed signal gets emitted when the direction of
+    /// The `direction-changed` signal gets emitted when the direction of
     /// the keymap changes.
     /// - Note: This represents the underlying `direction-changed` signal
     /// - Parameter flags: Flags
@@ -1144,7 +1148,7 @@ public extension KeymapProtocol {
     /// Typed `direction-changed` signal for using the `connect(signal:)` methods
     static var directionChangedSignal: KeymapSignalName { .directionChanged }
     
-    /// The `keys`-changed signal is emitted when the mapping represented by
+    /// The `keys-changed` signal is emitted when the mapping represented by
     /// `keymap` changes.
     /// - Note: This represents the underlying `keys-changed` signal
     /// - Parameter flags: Flags
@@ -1170,7 +1174,7 @@ public extension KeymapProtocol {
     /// Typed `keys-changed` signal for using the `connect(signal:)` methods
     static var keysChangedSignal: KeymapSignalName { .keysChanged }
     
-    /// The `state`-changed signal is emitted when the state of the
+    /// The `state-changed` signal is emitted when the state of the
     /// keyboard changes, e.g when Caps Lock is turned on or off.
     /// See `gdk_keymap_get_caps_lock_state()`.
     /// - Note: This represents the underlying `state-changed` signal
@@ -1333,7 +1337,7 @@ public extension KeymapProtocol {
     /// `consumed_modifiers` gives modifiers that should be masked outfrom `state`
     /// when comparing this key press to a hot key. For instance, on a US keyboard,
     /// the `plus` symbol is shifted, so when comparing a key press to a
-    /// `<Control>plus` accelerator `<Shift>` should be masked out.
+    /// `&lt;Control&gt;plus` accelerator `&lt;Shift&gt;` should be masked out.
     /// 
     /// (C Language Example):
     /// ```C
@@ -1360,14 +1364,14 @@ public extension KeymapProtocol {
     /// ```
     /// 
     /// However, this did not work if multi-modifier combinations were
-    /// used in the keymap, since, for instance, `<Control>` would be
-    /// masked out even if only `<Control><Alt>` was used in the keymap.
+    /// used in the keymap, since, for instance, `&lt;Control&gt;` would be
+    /// masked out even if only `&lt;Control&gt;&lt;Alt&gt;` was used in the keymap.
     /// To support this usage as well as well as possible, all single
     /// modifier combinations that could affect the key for any combination
     /// of modifiers will be returned in `consumed_modifiers`; multi-modifier
     /// combinations are returned only when actually found in `state`. When
     /// you store accelerators, you should always store them with consumed
-    /// modifiers removed. Store `<Control>plus`, not `<Control><Shift>plus`,
+    /// modifiers removed. Store `&lt;Control&gt;plus`, not `&lt;Control&gt;&lt;Shift&gt;plus`,
     @inlinable func translateKeyboardState(hardwareKeycode: Int, state: ModifierType, group: Int, keyval: UnsafeMutablePointer<guint>! = nil, effectiveGroup: UnsafeMutablePointer<gint>! = nil, level: UnsafeMutablePointer<gint>! = nil, consumedModifiers: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
         let rv = ((gdk_keymap_translate_keyboard_state(keymap_ptr, guint(hardwareKeycode), state.value, gint(group), keyval, effectiveGroup, level, consumedModifiers)) != 0)
         return rv

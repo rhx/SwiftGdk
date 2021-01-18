@@ -47,6 +47,8 @@ public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
     /// Typed pointer to the underlying `GdkAppLaunchContext` instance.
     var app_launch_context_ptr: UnsafeMutablePointer<GdkAppLaunchContext>! { get }
 
+    /// Required Initialiser for types conforming to `AppLaunchContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AppLaunchContextRef` type acts as a lightweight Swift reference to an underlying `GdkAppLaunchContext` instance.
@@ -290,14 +292,14 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AppLaunchContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -386,7 +388,7 @@ public extension AppLaunchContextProtocol {
 }
 
 public enum AppLaunchContextSignalName: String, SignalNameProtocol {
-    /// The `launch`-failed signal is emitted when a `GAppInfo` launch
+    /// The `launch-failed` signal is emitted when a `GAppInfo` launch
     /// fails. The startup notification id is provided, so that the launcher
     /// can cancel the startup notification.
     case launchFailed = "launch-failed"
@@ -532,6 +534,8 @@ public protocol CursorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkCursor` instance.
     var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { get }
 
+    /// Required Initialiser for types conforming to `CursorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CursorRef` type acts as a lightweight Swift reference to an underlying `GdkCursor` instance.
@@ -919,14 +923,14 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

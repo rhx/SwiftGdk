@@ -27,6 +27,8 @@ public protocol RectangleProtocol {
     /// Typed pointer to the underlying `GdkRectangle` instance.
     var rectangle_ptr: UnsafeMutablePointer<GdkRectangle>! { get }
 
+    /// Required Initialiser for types conforming to `RectangleProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RectangleRef` type acts as a lightweight Swift reference to an underlying `GdkRectangle` instance.
@@ -232,7 +234,7 @@ open class Rectangle: RectangleProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RectangleProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -375,6 +377,8 @@ public protocol TimeCoordProtocol {
     /// Typed pointer to the underlying `GdkTimeCoord` instance.
     var _ptr: UnsafeMutablePointer<GdkTimeCoord>! { get }
 
+    /// Required Initialiser for types conforming to `TimeCoordProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimeCoordRef` type acts as a lightweight Swift reference to an underlying `GdkTimeCoord` instance.
@@ -578,7 +582,7 @@ open class TimeCoord: TimeCoordProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeCoordProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -27,6 +27,8 @@ public protocol AtomProtocol {
     /// Typed pointer to the underlying `GdkAtom` instance.
     var _ptr: GdkAtom! { get }
 
+    /// Required Initialiser for types conforming to `AtomProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AtomRef` type acts as a lightweight Swift reference to an underlying `GdkAtom` instance.
@@ -232,7 +234,7 @@ open class Atom: AtomProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AtomProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -313,6 +315,8 @@ public protocol ColorProtocol {
     /// Typed pointer to the underlying `GdkColor` instance.
     var color_ptr: UnsafeMutablePointer<GdkColor>! { get }
 
+    /// Required Initialiser for types conforming to `ColorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorRef` type acts as a lightweight Swift reference to an underlying `GdkColor` instance.
@@ -518,7 +522,7 @@ open class Color: ColorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -31,6 +31,8 @@ public protocol FrameTimingsProtocol {
     /// Typed pointer to the underlying `GdkFrameTimings` instance.
     var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { get }
 
+    /// Required Initialiser for types conforming to `FrameTimingsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameTimingsRef` type acts as a lightweight Swift reference to an underlying `GdkFrameTimings` instance.
@@ -244,7 +246,7 @@ open class FrameTimings: FrameTimingsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -528,6 +530,8 @@ public protocol GeometryProtocol {
     /// Typed pointer to the underlying `GdkGeometry` instance.
     var _ptr: UnsafeMutablePointer<GdkGeometry>! { get }
 
+    /// Required Initialiser for types conforming to `GeometryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GeometryRef` type acts as a lightweight Swift reference to an underlying `GdkGeometry` instance.
@@ -841,7 +845,7 @@ open class Geometry: GeometryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

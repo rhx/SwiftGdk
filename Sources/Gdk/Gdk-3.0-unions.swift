@@ -59,6 +59,8 @@ public protocol EventProtocol {
     /// Typed pointer to the underlying `GdkEvent` instance.
     var event_ptr: UnsafeMutablePointer<GdkEvent>! { get }
 
+    /// Required Initialiser for types conforming to `EventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventRef` type acts as a lightweight Swift reference to an underlying `GdkEvent` instance.
@@ -347,7 +349,7 @@ open class Event: EventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -483,7 +485,7 @@ public extension EventProtocol {
     /// return a `GdkDeviceTool` representing the tool that
     /// caused the event. Otherwise, `nil` will be returned.
     /// 
-    /// Note: the `GdkDeviceTool`<!-- -->s will be constant during
+    /// Note: the `GdkDeviceTool`&lt;!-- --&gt;s will be constant during
     /// the application lifetime, if settings must be stored
     /// persistently across runs, see `gdk_device_tool_get_serial()`
     @inlinable func getDeviceTool() -> DeviceToolRef! {
@@ -544,12 +546,12 @@ public extension EventProtocol {
     }
 
     /// Returns the screen for the event. The screen is
-    /// typically the screen for `event->any.window`, but
+    /// typically the screen for `event-&gt;any.window`, but
     /// for events such as mouse events, it is the screen
     /// where the pointer was when the event occurs -
     /// that is, the screen which has the root window
-    /// to which `event->motion.x_root` and
-    /// `event->motion.y_root` are relative.
+    /// to which `event-&gt;motion.x_root` and
+    /// `event-&gt;motion.y_root` are relative.
     @inlinable func getScreen() -> ScreenRef! {
         let rv = ScreenRef(gconstpointer: gconstpointer(gdk_event_get_screen(event_ptr)))
         return rv
@@ -651,8 +653,8 @@ public extension EventProtocol {
     }
 
     /// Appends a copy of the given event onto the front of the event
-    /// queue for event->any.window’s display, or the default event
-    /// queue if event->any.window is `nil`. See `gdk_display_put_event()`.
+    /// queue for event-&gt;any.window’s display, or the default event
+    /// queue if event-&gt;any.window is `nil`. See `gdk_display_put_event()`.
     @inlinable func put() {
         gdk_event_put(event_ptr)
     
@@ -702,7 +704,7 @@ public extension EventProtocol {
     /// also trigger a context menu if this modifier is pressed.
     /// 
     /// This function should always be used instead of simply checking for
-    /// event->button == `GDK_BUTTON_SECONDARY`.
+    /// event-&gt;button == `GDK_BUTTON_SECONDARY`.
     @inlinable func triggersContextMenu() -> Bool {
         let rv = ((gdk_event_triggers_context_menu(event_ptr)) != 0)
         return rv
@@ -752,7 +754,7 @@ public extension EventProtocol {
     /// return a `GdkDeviceTool` representing the tool that
     /// caused the event. Otherwise, `nil` will be returned.
     /// 
-    /// Note: the `GdkDeviceTool`<!-- -->s will be constant during
+    /// Note: the `GdkDeviceTool`&lt;!-- --&gt;s will be constant during
     /// the application lifetime, if settings must be stored
     /// persistently across runs, see `gdk_device_tool_get_serial()`
     @inlinable var deviceTool: DeviceToolRef! {
@@ -761,7 +763,7 @@ public extension EventProtocol {
         /// return a `GdkDeviceTool` representing the tool that
         /// caused the event. Otherwise, `nil` will be returned.
         /// 
-        /// Note: the `GdkDeviceTool`<!-- -->s will be constant during
+        /// Note: the `GdkDeviceTool`&lt;!-- --&gt;s will be constant during
         /// the application lifetime, if settings must be stored
         /// persistently across runs, see `gdk_device_tool_get_serial()`
         get {
@@ -848,20 +850,20 @@ public extension EventProtocol {
     }
 
     /// Returns the screen for the event. The screen is
-    /// typically the screen for `event->any.window`, but
+    /// typically the screen for `event-&gt;any.window`, but
     /// for events such as mouse events, it is the screen
     /// where the pointer was when the event occurs -
     /// that is, the screen which has the root window
-    /// to which `event->motion.x_root` and
-    /// `event->motion.y_root` are relative.
+    /// to which `event-&gt;motion.x_root` and
+    /// `event-&gt;motion.y_root` are relative.
     @inlinable var screen: ScreenRef! {
         /// Returns the screen for the event. The screen is
-        /// typically the screen for `event->any.window`, but
+        /// typically the screen for `event-&gt;any.window`, but
         /// for events such as mouse events, it is the screen
         /// where the pointer was when the event occurs -
         /// that is, the screen which has the root window
-        /// to which `event->motion.x_root` and
-        /// `event->motion.y_root` are relative.
+        /// to which `event-&gt;motion.x_root` and
+        /// `event-&gt;motion.y_root` are relative.
         get {
             let rv = ScreenRef(gconstpointer: gconstpointer(gdk_event_get_screen(event_ptr)))
             return rv

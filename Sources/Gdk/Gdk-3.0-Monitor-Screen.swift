@@ -33,6 +33,8 @@ public protocol MonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkMonitor` instance.
     var monitor_ptr: UnsafeMutablePointer<GdkMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `MonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MonitorRef` type acts as a lightweight Swift reference to an underlying `GdkMonitor` instance.
@@ -240,14 +242,14 @@ open class Monitor: GLibObject.Object, MonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1145,6 +1147,8 @@ public protocol ScreenProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkScreen` instance.
     var screen_ptr: UnsafeMutablePointer<GdkScreen>! { get }
 
+    /// Required Initialiser for types conforming to `ScreenProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScreenRef` type acts as a lightweight Swift reference to an underlying `GdkScreen` instance.
@@ -1364,14 +1368,14 @@ open class Screen: GLibObject.Object, ScreenProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScreenProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScreenProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1459,10 +1463,10 @@ public extension ScreenProtocol {
 }
 
 public enum ScreenSignalName: String, SignalNameProtocol {
-    /// The `composited`-changed signal is emitted when the composited
+    /// The `composited-changed` signal is emitted when the composited
     /// status of the screen changes
     case compositedChanged = "composited-changed"
-    /// The `monitors`-changed signal is emitted when the number, size
+    /// The `monitors-changed` signal is emitted when the number, size
     /// or position of the monitors attached to the screen change.
     /// 
     /// Only for X11 and OS X for now. A future implementation for Win32
@@ -1493,7 +1497,7 @@ public enum ScreenSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `size`-changed signal is emitted when the pixel width or
+    /// The `size-changed` signal is emitted when the pixel width or
     /// height of a screen changes.
     case sizeChanged = "size-changed"
     case notifyFontOptions = "notify::font-options"
@@ -1528,7 +1532,7 @@ public extension ScreenProtocol {
     }
     
     
-    /// The `composited`-changed signal is emitted when the composited
+    /// The `composited-changed` signal is emitted when the composited
     /// status of the screen changes
     /// - Note: This represents the underlying `composited-changed` signal
     /// - Parameter flags: Flags
@@ -1554,7 +1558,7 @@ public extension ScreenProtocol {
     /// Typed `composited-changed` signal for using the `connect(signal:)` methods
     static var compositedChangedSignal: ScreenSignalName { .compositedChanged }
     
-    /// The `monitors`-changed signal is emitted when the number, size
+    /// The `monitors-changed` signal is emitted when the number, size
     /// or position of the monitors attached to the screen change.
     /// 
     /// Only for X11 and OS X for now. A future implementation for Win32
@@ -1583,7 +1587,7 @@ public extension ScreenProtocol {
     /// Typed `monitors-changed` signal for using the `connect(signal:)` methods
     static var monitorsChangedSignal: ScreenSignalName { .monitorsChanged }
     
-    /// The `size`-changed signal is emitted when the pixel width or
+    /// The `size-changed` signal is emitted when the pixel width or
     /// height of a screen changes.
     /// - Note: This represents the underlying `size-changed` signal
     /// - Parameter flags: Flags

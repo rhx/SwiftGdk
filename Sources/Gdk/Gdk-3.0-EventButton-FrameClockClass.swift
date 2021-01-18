@@ -58,6 +58,8 @@ public protocol EventButtonProtocol {
     /// Typed pointer to the underlying `GdkEventButton` instance.
     var _ptr: UnsafeMutablePointer<GdkEventButton>! { get }
 
+    /// Required Initialiser for types conforming to `EventButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventButtonRef` type acts as a lightweight Swift reference to an underlying `GdkEventButton` instance.
@@ -325,7 +327,7 @@ open class EventButton: EventButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -572,6 +574,8 @@ public protocol EventConfigureProtocol {
     /// Typed pointer to the underlying `GdkEventConfigure` instance.
     var _ptr: UnsafeMutablePointer<GdkEventConfigure>! { get }
 
+    /// Required Initialiser for types conforming to `EventConfigureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventConfigureRef` type acts as a lightweight Swift reference to an underlying `GdkEventConfigure` instance.
@@ -775,7 +779,7 @@ open class EventConfigure: EventConfigureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventConfigureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -927,6 +931,8 @@ public protocol EventCrossingProtocol {
     /// Typed pointer to the underlying `GdkEventCrossing` instance.
     var _ptr: UnsafeMutablePointer<GdkEventCrossing>! { get }
 
+    /// Required Initialiser for types conforming to `EventCrossingProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventCrossingRef` type acts as a lightweight Swift reference to an underlying `GdkEventCrossing` instance.
@@ -1130,7 +1136,7 @@ open class EventCrossing: EventCrossingProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventCrossingProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1384,6 +1390,8 @@ public protocol EventDNDProtocol {
     /// Typed pointer to the underlying `GdkEventDND` instance.
     var _ptr: UnsafeMutablePointer<GdkEventDND>! { get }
 
+    /// Required Initialiser for types conforming to `EventDNDProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventDNDRef` type acts as a lightweight Swift reference to an underlying `GdkEventDND` instance.
@@ -1587,7 +1595,7 @@ open class EventDND: EventDNDProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventDNDProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1752,6 +1760,8 @@ public protocol EventExposeProtocol {
     /// Typed pointer to the underlying `GdkEventExpose` instance.
     var _ptr: UnsafeMutablePointer<GdkEventExpose>! { get }
 
+    /// Required Initialiser for types conforming to `EventExposeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventExposeRef` type acts as a lightweight Swift reference to an underlying `GdkEventExpose` instance.
@@ -1957,7 +1967,7 @@ open class EventExpose: EventExposeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventExposeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2105,6 +2115,8 @@ public protocol EventFocusProtocol {
     /// Typed pointer to the underlying `GdkEventFocus` instance.
     var _ptr: UnsafeMutablePointer<GdkEventFocus>! { get }
 
+    /// Required Initialiser for types conforming to `EventFocusProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventFocusRef` type acts as a lightweight Swift reference to an underlying `GdkEventFocus` instance.
@@ -2308,7 +2320,7 @@ open class EventFocus: EventFocusProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventFocusProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2428,6 +2440,8 @@ public protocol EventGrabBrokenProtocol {
     /// Typed pointer to the underlying `GdkEventGrabBroken` instance.
     var _ptr: UnsafeMutablePointer<GdkEventGrabBroken>! { get }
 
+    /// Required Initialiser for types conforming to `EventGrabBrokenProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventGrabBrokenRef` type acts as a lightweight Swift reference to an underlying `GdkEventGrabBroken` instance.
@@ -2639,7 +2653,7 @@ open class EventGrabBroken: EventGrabBrokenProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventGrabBrokenProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2790,6 +2804,8 @@ public protocol EventKeyProtocol {
     /// Typed pointer to the underlying `GdkEventKey` instance.
     var _ptr: UnsafeMutablePointer<GdkEventKey>! { get }
 
+    /// Required Initialiser for types conforming to `EventKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventKeyRef` type acts as a lightweight Swift reference to an underlying `GdkEventKey` instance.
@@ -2993,7 +3009,7 @@ open class EventKey: EventKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3242,6 +3258,8 @@ public protocol EventMotionProtocol {
     /// Typed pointer to the underlying `GdkEventMotion` instance.
     var _ptr: UnsafeMutablePointer<GdkEventMotion>! { get }
 
+    /// Required Initialiser for types conforming to `EventMotionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventMotionRef` type acts as a lightweight Swift reference to an underlying `GdkEventMotion` instance.
@@ -3445,7 +3463,7 @@ open class EventMotion: EventMotionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventMotionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3732,6 +3750,8 @@ public protocol EventOwnerChangeProtocol {
     /// Typed pointer to the underlying `GdkEventOwnerChange` instance.
     var _ptr: UnsafeMutablePointer<GdkEventOwnerChange>! { get }
 
+    /// Required Initialiser for types conforming to `EventOwnerChangeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventOwnerChangeRef` type acts as a lightweight Swift reference to an underlying `GdkEventOwnerChange` instance.
@@ -3939,7 +3959,7 @@ open class EventOwnerChange: EventOwnerChangeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventOwnerChangeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4107,6 +4127,8 @@ public protocol EventPadAxisProtocol {
     /// Typed pointer to the underlying `GdkEventPadAxis` instance.
     var _ptr: UnsafeMutablePointer<GdkEventPadAxis>! { get }
 
+    /// Required Initialiser for types conforming to `EventPadAxisProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventPadAxisRef` type acts as a lightweight Swift reference to an underlying `GdkEventPadAxis` instance.
@@ -4310,7 +4332,7 @@ open class EventPadAxis: EventPadAxisProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventPadAxisProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4484,6 +4506,8 @@ public protocol EventPadButtonProtocol {
     /// Typed pointer to the underlying `GdkEventPadButton` instance.
     var _ptr: UnsafeMutablePointer<GdkEventPadButton>! { get }
 
+    /// Required Initialiser for types conforming to `EventPadButtonProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventPadButtonRef` type acts as a lightweight Swift reference to an underlying `GdkEventPadButton` instance.
@@ -4687,7 +4711,7 @@ open class EventPadButton: EventPadButtonProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventPadButtonProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4845,6 +4869,8 @@ public protocol EventPadGroupModeProtocol {
     /// Typed pointer to the underlying `GdkEventPadGroupMode` instance.
     var _ptr: UnsafeMutablePointer<GdkEventPadGroupMode>! { get }
 
+    /// Required Initialiser for types conforming to `EventPadGroupModeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventPadGroupModeRef` type acts as a lightweight Swift reference to an underlying `GdkEventPadGroupMode` instance.
@@ -5048,7 +5074,7 @@ open class EventPadGroupMode: EventPadGroupModeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventPadGroupModeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5196,6 +5222,8 @@ public protocol EventPropertyProtocol {
     /// Typed pointer to the underlying `GdkEventProperty` instance.
     var _ptr: UnsafeMutablePointer<GdkEventProperty>! { get }
 
+    /// Required Initialiser for types conforming to `EventPropertyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventPropertyRef` type acts as a lightweight Swift reference to an underlying `GdkEventProperty` instance.
@@ -5399,7 +5427,7 @@ open class EventProperty: EventPropertyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventPropertyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5549,6 +5577,8 @@ public protocol EventProximityProtocol {
     /// Typed pointer to the underlying `GdkEventProximity` instance.
     var _ptr: UnsafeMutablePointer<GdkEventProximity>! { get }
 
+    /// Required Initialiser for types conforming to `EventProximityProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventProximityRef` type acts as a lightweight Swift reference to an underlying `GdkEventProximity` instance.
@@ -5768,7 +5798,7 @@ open class EventProximity: EventProximityProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProximityProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -5904,6 +5934,8 @@ public protocol EventScrollProtocol {
     /// Typed pointer to the underlying `GdkEventScroll` instance.
     var _ptr: UnsafeMutablePointer<GdkEventScroll>! { get }
 
+    /// Required Initialiser for types conforming to `EventScrollProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventScrollRef` type acts as a lightweight Swift reference to an underlying `GdkEventScroll` instance.
@@ -6121,7 +6153,7 @@ open class EventScroll: EventScrollProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventScrollProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -6383,6 +6415,8 @@ public protocol EventSelectionProtocol {
     /// Typed pointer to the underlying `GdkEventSelection` instance.
     var _ptr: UnsafeMutablePointer<GdkEventSelection>! { get }
 
+    /// Required Initialiser for types conforming to `EventSelectionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventSelectionRef` type acts as a lightweight Swift reference to an underlying `GdkEventSelection` instance.
@@ -6588,7 +6622,7 @@ open class EventSelection: EventSelectionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventSelectionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -6756,6 +6790,8 @@ public protocol EventSequenceProtocol {
     /// Typed pointer to the underlying `GdkEventSequence` instance.
     var event_sequence_ptr: UnsafeMutablePointer<GdkEventSequence>! { get }
 
+    /// Required Initialiser for types conforming to `EventSequenceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventSequenceRef` type acts as a lightweight Swift reference to an underlying `GdkEventSequence` instance.
@@ -6959,7 +6995,7 @@ open class EventSequence: EventSequenceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventSequenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -7021,6 +7057,8 @@ public protocol EventSettingProtocol {
     /// Typed pointer to the underlying `GdkEventSetting` instance.
     var _ptr: UnsafeMutablePointer<GdkEventSetting>! { get }
 
+    /// Required Initialiser for types conforming to `EventSettingProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventSettingRef` type acts as a lightweight Swift reference to an underlying `GdkEventSetting` instance.
@@ -7224,7 +7262,7 @@ open class EventSetting: EventSettingProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventSettingProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -7362,6 +7400,8 @@ public protocol EventTouchProtocol {
     /// Typed pointer to the underlying `GdkEventTouch` instance.
     var _ptr: UnsafeMutablePointer<GdkEventTouch>! { get }
 
+    /// Required Initialiser for types conforming to `EventTouchProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventTouchRef` type acts as a lightweight Swift reference to an underlying `GdkEventTouch` instance.
@@ -7583,7 +7623,7 @@ open class EventTouch: EventTouchProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventTouchProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -7837,6 +7877,8 @@ public protocol EventTouchpadPinchProtocol {
     /// Typed pointer to the underlying `GdkEventTouchpadPinch` instance.
     var _ptr: UnsafeMutablePointer<GdkEventTouchpadPinch>! { get }
 
+    /// Required Initialiser for types conforming to `EventTouchpadPinchProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventTouchpadPinchRef` type acts as a lightweight Swift reference to an underlying `GdkEventTouchpadPinch` instance.
@@ -8040,7 +8082,7 @@ open class EventTouchpadPinch: EventTouchpadPinchProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventTouchpadPinchProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -8314,6 +8356,8 @@ public protocol EventTouchpadSwipeProtocol {
     /// Typed pointer to the underlying `GdkEventTouchpadSwipe` instance.
     var _ptr: UnsafeMutablePointer<GdkEventTouchpadSwipe>! { get }
 
+    /// Required Initialiser for types conforming to `EventTouchpadSwipeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventTouchpadSwipeRef` type acts as a lightweight Swift reference to an underlying `GdkEventTouchpadSwipe` instance.
@@ -8517,7 +8561,7 @@ open class EventTouchpadSwipe: EventTouchpadSwipeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventTouchpadSwipeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -8759,6 +8803,8 @@ public protocol EventVisibilityProtocol {
     /// Typed pointer to the underlying `GdkEventVisibility` instance.
     var _ptr: UnsafeMutablePointer<GdkEventVisibility>! { get }
 
+    /// Required Initialiser for types conforming to `EventVisibilityProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventVisibilityRef` type acts as a lightweight Swift reference to an underlying `GdkEventVisibility` instance.
@@ -8962,7 +9008,7 @@ open class EventVisibility: EventVisibilityProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventVisibilityProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -9078,6 +9124,8 @@ public protocol EventWindowStateProtocol {
     /// Typed pointer to the underlying `GdkEventWindowState` instance.
     var _ptr: UnsafeMutablePointer<GdkEventWindowState>! { get }
 
+    /// Required Initialiser for types conforming to `EventWindowStateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventWindowStateRef` type acts as a lightweight Swift reference to an underlying `GdkEventWindowState` instance.
@@ -9281,7 +9329,7 @@ open class EventWindowState: EventWindowStateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventWindowStateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -9425,6 +9473,8 @@ public protocol FrameClockClassProtocol {
     /// Typed pointer to the underlying `GdkFrameClockClass` instance.
     var _ptr: UnsafeMutablePointer<GdkFrameClockClass>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClockClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClockClassRef` type acts as a lightweight Swift reference to an underlying `GdkFrameClockClass` instance.

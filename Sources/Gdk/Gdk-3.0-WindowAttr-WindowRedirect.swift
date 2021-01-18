@@ -26,6 +26,8 @@ public protocol WindowAttrProtocol {
     /// Typed pointer to the underlying `GdkWindowAttr` instance.
     var _ptr: UnsafeMutablePointer<GdkWindowAttr>! { get }
 
+    /// Required Initialiser for types conforming to `WindowAttrProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowAttrRef` type acts as a lightweight Swift reference to an underlying `GdkWindowAttr` instance.
@@ -229,7 +231,7 @@ open class WindowAttr: WindowAttrProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowAttrProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -490,6 +492,8 @@ public protocol WindowClassProtocol {
     /// Typed pointer to the underlying `GdkWindowClass` instance.
     var _ptr: UnsafeMutablePointer<GdkWindowClass>! { get }
 
+    /// Required Initialiser for types conforming to `WindowClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowClassRef` type acts as a lightweight Swift reference to an underlying `GdkWindowClass` instance.
@@ -631,6 +635,8 @@ public protocol WindowRedirectProtocol {
     /// Typed pointer to the underlying `GdkWindowRedirect` instance.
     var _ptr: UnsafeMutablePointer<GdkWindowRedirect>! { get }
 
+    /// Required Initialiser for types conforming to `WindowRedirectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowRedirectRef` type acts as a lightweight Swift reference to an underlying `GdkWindowRedirect` instance.
@@ -834,7 +840,7 @@ open class WindowRedirect: WindowRedirectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowRedirectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

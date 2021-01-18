@@ -26,6 +26,8 @@ public protocol PointProtocol {
     /// Typed pointer to the underlying `GdkPoint` instance.
     var _ptr: UnsafeMutablePointer<GdkPoint>! { get }
 
+    /// Required Initialiser for types conforming to `PointProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PointRef` type acts as a lightweight Swift reference to an underlying `GdkPoint` instance.
@@ -229,7 +231,7 @@ open class Point: PointProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -317,6 +319,8 @@ public protocol RGBAProtocol {
     /// Typed pointer to the underlying `GdkRGBA` instance.
     var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { get }
 
+    /// Required Initialiser for types conforming to `RGBAProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RGBARef` type acts as a lightweight Swift reference to an underlying `GdkRGBA` instance.
@@ -522,7 +526,7 @@ open class RGBA: RGBAProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

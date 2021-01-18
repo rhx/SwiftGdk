@@ -31,6 +31,8 @@ public protocol DeviceProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDevice` instance.
     var device_ptr: UnsafeMutablePointer<GdkDevice>! { get }
 
+    /// Required Initialiser for types conforming to `DeviceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DeviceRef` type acts as a lightweight Swift reference to an underlying `GdkDevice` instance.
@@ -234,14 +236,14 @@ open class Device: GLibObject.Object, DeviceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -385,7 +387,7 @@ public enum DeviceSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool`-changed signal is emitted on pen/eraser
+    /// The `tool-changed` signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
     /// Associated pointer or keyboard with this device, if any. Devices of type `GDK_DEVICE_TYPE_MASTER`
@@ -481,7 +483,7 @@ public extension DeviceProtocol {
     /// Typed `changed` signal for using the `connect(signal:)` methods
     static var changedSignal: DeviceSignalName { .changed }
     
-    /// The `tool`-changed signal is emitted on pen/eraser
+    /// The `tool-changed` signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     /// - Note: This represents the underlying `tool-changed` signal
     /// - Parameter flags: Flags
@@ -1953,7 +1955,7 @@ public extension DeviceProtocol {
 /// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// changes, the `GdkDevice:n-axes` property will be notified, and
 /// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
@@ -1970,6 +1972,8 @@ public protocol DeviceManagerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDeviceManager` instance.
     var device_manager_ptr: UnsafeMutablePointer<GdkDeviceManager>! { get }
 
+    /// Required Initialiser for types conforming to `DeviceManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DeviceManagerRef` type acts as a lightweight Swift reference to an underlying `GdkDeviceManager` instance.
@@ -2080,7 +2084,7 @@ public protocol DeviceManagerProtocol: GLibObject.ObjectProtocol {
 /// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// changes, the `GdkDevice:n-axes` property will be notified, and
 /// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
@@ -2279,7 +2283,7 @@ public extension DeviceManagerRef {
 /// queried through `gdk_device_get_axis()`. In multidevice mode, virtual
 /// devices will change axes in order to always represent the physical
 /// device that is routing events through it. Whenever the physical device
-/// changes, the `GdkDevice:n`-axes property will be notified, and
+/// changes, the `GdkDevice:n-axes` property will be notified, and
 /// `gdk_device_list_axes()` will return the new device axes.
 /// 
 /// Devices may also have associated “keys” or
@@ -2389,14 +2393,14 @@ open class DeviceManager: GLibObject.Object, DeviceManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2476,11 +2480,11 @@ public extension DeviceManagerProtocol {
 }
 
 public enum DeviceManagerSignalName: String, SignalNameProtocol {
-    /// The `device`-added signal is emitted either when a new master
+    /// The `device-added` signal is emitted either when a new master
     /// pointer is created, or when a slave (Hardware) input device
     /// is plugged in.
     case deviceAdded = "device-added"
-    /// The `device`-changed signal is emitted whenever a device
+    /// The `device-changed` signal is emitted whenever a device
     /// has changed in the hierarchy, either slave devices being
     /// disconnected from their master device or connected to
     /// another one, or master devices being added or removed
@@ -2491,7 +2495,7 @@ public enum DeviceManagerSignalName: String, SignalNameProtocol {
     /// `GdkDeviceType` will change to `GDK_DEVICE_TYPE_FLOATING`,
     /// if it's attached, it will change to `GDK_DEVICE_TYPE_SLAVE`.
     case deviceChanged = "device-changed"
-    /// The `device`-removed signal is emitted either when a master
+    /// The `device-removed` signal is emitted either when a master
     /// pointer is removed, or when a slave (Hardware) input device
     /// is unplugged.
     case deviceRemoved = "device-removed"
@@ -2551,7 +2555,7 @@ public extension DeviceManagerProtocol {
     }
     
     
-    /// The `device`-added signal is emitted either when a new master
+    /// The `device-added` signal is emitted either when a new master
     /// pointer is created, or when a slave (Hardware) input device
     /// is plugged in.
     /// - Note: This represents the underlying `device-added` signal
@@ -2579,7 +2583,7 @@ public extension DeviceManagerProtocol {
     /// Typed `device-added` signal for using the `connect(signal:)` methods
     static var deviceAddedSignal: DeviceManagerSignalName { .deviceAdded }
     
-    /// The `device`-changed signal is emitted whenever a device
+    /// The `device-changed` signal is emitted whenever a device
     /// has changed in the hierarchy, either slave devices being
     /// disconnected from their master device or connected to
     /// another one, or master devices being added or removed
@@ -2614,7 +2618,7 @@ public extension DeviceManagerProtocol {
     /// Typed `device-changed` signal for using the `connect(signal:)` methods
     static var deviceChangedSignal: DeviceManagerSignalName { .deviceChanged }
     
-    /// The `device`-removed signal is emitted either when a master
+    /// The `device-removed` signal is emitted either when a master
     /// pointer is removed, or when a slave (Hardware) input device
     /// is unplugged.
     /// - Note: This represents the underlying `device-removed` signal
@@ -2781,6 +2785,8 @@ public protocol DeviceToolProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDeviceTool` instance.
     var device_tool_ptr: UnsafeMutablePointer<GdkDeviceTool>! { get }
 
+    /// Required Initialiser for types conforming to `DeviceToolProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DeviceToolRef` type acts as a lightweight Swift reference to an underlying `GdkDeviceTool` instance.
@@ -2974,14 +2980,14 @@ open class DeviceTool: GLibObject.Object, DeviceToolProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceToolProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceToolProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3207,6 +3213,8 @@ public protocol DisplayProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDisplay` instance.
     var display_ptr: UnsafeMutablePointer<GdkDisplay>! { get }
 
+    /// Required Initialiser for types conforming to `DisplayProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DisplayRef` type acts as a lightweight Swift reference to an underlying `GdkDisplay` instance.
@@ -3461,14 +3469,14 @@ open class Display: GLibObject.Object, DisplayProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3526,10 +3534,10 @@ public enum DisplaySignalName: String, SignalNameProtocol {
     /// The `closed` signal is emitted when the connection to the windowing
     /// system for `display` is closed.
     case closed = "closed"
-    /// The `monitor`-added signal is emitted whenever a monitor is
+    /// The `monitor-added` signal is emitted whenever a monitor is
     /// added.
     case monitorAdded = "monitor-added"
-    /// The `monitor`-removed signal is emitted whenever a monitor is
+    /// The `monitor-removed` signal is emitted whenever a monitor is
     /// removed.
     case monitorRemoved = "monitor-removed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -3560,10 +3568,10 @@ public enum DisplaySignalName: String, SignalNameProtocol {
     /// The `opened` signal is emitted when the connection to the windowing
     /// system for `display` is opened.
     case opened = "opened"
-    /// The `seat`-added signal is emitted whenever a new seat is made
+    /// The `seat-added` signal is emitted whenever a new seat is made
     /// known to the windowing system.
     case seatAdded = "seat-added"
-    /// The `seat`-removed signal is emitted whenever a seat is removed
+    /// The `seat-removed` signal is emitted whenever a seat is removed
     /// by the windowing system.
     case seatRemoved = "seat-removed"
 
@@ -3624,7 +3632,7 @@ public extension DisplayProtocol {
     /// Typed `closed` signal for using the `connect(signal:)` methods
     static var closedSignal: DisplaySignalName { .closed }
     
-    /// The `monitor`-added signal is emitted whenever a monitor is
+    /// The `monitor-added` signal is emitted whenever a monitor is
     /// added.
     /// - Note: This represents the underlying `monitor-added` signal
     /// - Parameter flags: Flags
@@ -3651,7 +3659,7 @@ public extension DisplayProtocol {
     /// Typed `monitor-added` signal for using the `connect(signal:)` methods
     static var monitorAddedSignal: DisplaySignalName { .monitorAdded }
     
-    /// The `monitor`-removed signal is emitted whenever a monitor is
+    /// The `monitor-removed` signal is emitted whenever a monitor is
     /// removed.
     /// - Note: This represents the underlying `monitor-removed` signal
     /// - Parameter flags: Flags
@@ -3704,7 +3712,7 @@ public extension DisplayProtocol {
     /// Typed `opened` signal for using the `connect(signal:)` methods
     static var openedSignal: DisplaySignalName { .opened }
     
-    /// The `seat`-added signal is emitted whenever a new seat is made
+    /// The `seat-added` signal is emitted whenever a new seat is made
     /// known to the windowing system.
     /// - Note: This represents the underlying `seat-added` signal
     /// - Parameter flags: Flags
@@ -3731,7 +3739,7 @@ public extension DisplayProtocol {
     /// Typed `seat-added` signal for using the `connect(signal:)` methods
     static var seatAddedSignal: DisplaySignalName { .seatAdded }
     
-    /// The `seat`-removed signal is emitted whenever a seat is removed
+    /// The `seat-removed` signal is emitted whenever a seat is removed
     /// by the windowing system.
     /// - Note: This represents the underlying `seat-removed` signal
     /// - Parameter flags: Flags
@@ -3878,7 +3886,7 @@ public extension DisplayProtocol {
     /// Gets the number of monitors that belong to `display`.
     /// 
     /// The returned number is valid until the next emission of the
-    /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
+    /// `GdkDisplay::monitor-added` or `GdkDisplay::monitor-removed` signal.
     @inlinable func getNMonitors() -> Int {
         let rv = Int(gdk_display_get_n_monitors(display_ptr))
         return rv
@@ -4289,12 +4297,12 @@ public extension DisplayProtocol {
     /// Gets the number of monitors that belong to `display`.
     /// 
     /// The returned number is valid until the next emission of the
-    /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
+    /// `GdkDisplay::monitor-added` or `GdkDisplay::monitor-removed` signal.
     @inlinable var nMonitors: Int {
         /// Gets the number of monitors that belong to `display`.
         /// 
         /// The returned number is valid until the next emission of the
-        /// `GdkDisplay::monitor`-added or `GdkDisplay::monitor`-removed signal.
+        /// `GdkDisplay::monitor-added` or `GdkDisplay::monitor-removed` signal.
         get {
             let rv = Int(gdk_display_get_n_monitors(display_ptr))
             return rv
@@ -4404,6 +4412,8 @@ public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDisplayManager` instance.
     var display_manager_ptr: UnsafeMutablePointer<GdkDisplayManager>! { get }
 
+    /// Required Initialiser for types conforming to `DisplayManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DisplayManagerRef` type acts as a lightweight Swift reference to an underlying `GdkDisplayManager` instance.
@@ -4688,14 +4698,14 @@ open class DisplayManager: GLibObject.Object, DisplayManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DisplayManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4787,7 +4797,7 @@ public extension DisplayManagerProtocol {
 }
 
 public enum DisplayManagerSignalName: String, SignalNameProtocol {
-    /// The `display`-opened signal is emitted when a display is opened.
+    /// The `display-opened` signal is emitted when a display is opened.
     case displayOpened = "display-opened"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4845,7 +4855,7 @@ public extension DisplayManagerProtocol {
     }
     
     
-    /// The `display`-opened signal is emitted when a display is opened.
+    /// The `display-opened` signal is emitted when a display is opened.
     /// - Note: This represents the underlying `display-opened` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4983,6 +4993,8 @@ public protocol DragContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDragContext` instance.
     var drag_context_ptr: UnsafeMutablePointer<GdkDragContext>! { get }
 
+    /// Required Initialiser for types conforming to `DragContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragContextRef` type acts as a lightweight Swift reference to an underlying `GdkDragContext` instance.
@@ -5176,14 +5188,14 @@ open class DragContext: GLibObject.Object, DragContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5486,11 +5498,11 @@ public extension DragContextProtocol {
     /// 
     /// Once the drag and drop operation is managed, the drag context will
     /// emit the following signals:
-    /// - The `GdkDragContext::action`-changed signal whenever the final action
+    /// - The `GdkDragContext::action-changed` signal whenever the final action
     ///   to be performed by the drag and drop operation changes.
-    /// - The `GdkDragContext::drop`-performed signal after the user performs
+    /// - The `GdkDragContext::drop-performed` signal after the user performs
     ///   the drag and drop gesture (typically by releasing the mouse button).
-    /// - The `GdkDragContext::dnd`-finished signal after the drag and drop
+    /// - The `GdkDragContext::dnd-finished` signal after the drag and drop
     ///   operation concludes (after all `GdkSelection` transfers happen).
     /// - The `GdkDragContext::cancel` signal if the drag and drop operation is
     ///   finished but doesn't happen over an accepting destination, or is
@@ -5732,6 +5744,8 @@ public protocol DrawingContextProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkDrawingContext` instance.
     var drawing_context_ptr: UnsafeMutablePointer<GdkDrawingContext>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingContextRef` type acts as a lightweight Swift reference to an underlying `GdkDrawingContext` instance.
@@ -5943,14 +5957,14 @@ open class DrawingContext: GLibObject.Object, DrawingContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -6190,6 +6204,8 @@ public protocol FrameClockProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkFrameClock` instance.
     var frame_clock_ptr: UnsafeMutablePointer<GdkFrameClock>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClockProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClockRef` type acts as a lightweight Swift reference to an underlying `GdkFrameClock` instance.
@@ -6447,14 +6463,14 @@ open class FrameClock: GLibObject.Object, FrameClockProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

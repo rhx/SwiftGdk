@@ -41,6 +41,8 @@ public protocol DevicePadInterfaceProtocol {
     /// Typed pointer to the underlying `GdkDevicePadInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkDevicePadInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DevicePadInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DevicePadInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkDevicePadInterface` instance.
@@ -167,6 +169,8 @@ public protocol DrawingContextClassProtocol {
     /// Typed pointer to the underlying `GdkDrawingContextClass` instance.
     var _ptr: UnsafeMutablePointer<GdkDrawingContextClass>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingContextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingContextClassRef` type acts as a lightweight Swift reference to an underlying `GdkDrawingContextClass` instance.
@@ -280,6 +284,8 @@ public protocol EventAnyProtocol {
     /// Typed pointer to the underlying `GdkEventAny` instance.
     var _ptr: UnsafeMutablePointer<GdkEventAny>! { get }
 
+    /// Required Initialiser for types conforming to `EventAnyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventAnyRef` type acts as a lightweight Swift reference to an underlying `GdkEventAny` instance.
@@ -487,7 +493,7 @@ open class EventAny: EventAnyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventAnyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

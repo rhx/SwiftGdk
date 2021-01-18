@@ -295,9 +295,9 @@ public struct FrameClockPhase: OptionSet {
 
     /// no phase
     public static let `none` = FrameClockPhase(0) // GDK_FRAME_CLOCK_PHASE_NONE
-    /// corresponds to GdkFrameClock`flush`-events. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`flush-events`. Should not be handled by applications.
     public static let flushEvents = FrameClockPhase(1) // GDK_FRAME_CLOCK_PHASE_FLUSH_EVENTS
-    /// corresponds to GdkFrameClock`before`-paint. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`before-paint`. Should not be handled by applications.
     public static let beforePaint = FrameClockPhase(2) // GDK_FRAME_CLOCK_PHASE_BEFORE_PAINT
     /// corresponds to GdkFrameClock`update`.
     public static let update = FrameClockPhase(4) // GDK_FRAME_CLOCK_PHASE_UPDATE
@@ -305,9 +305,9 @@ public struct FrameClockPhase: OptionSet {
     public static let layout = FrameClockPhase(8) // GDK_FRAME_CLOCK_PHASE_LAYOUT
     /// corresponds to GdkFrameClock`paint`.
     public static let paint = FrameClockPhase(16) // GDK_FRAME_CLOCK_PHASE_PAINT
-    /// corresponds to GdkFrameClock`resume`-events. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`resume-events`. Should not be handled by applications.
     public static let resumeEvents = FrameClockPhase(32) // GDK_FRAME_CLOCK_PHASE_RESUME_EVENTS
-    /// corresponds to GdkFrameClock`after`-paint. Should not be handled by applications.
+    /// corresponds to GdkFrameClock`after-paint`. Should not be handled by applications.
     public static let afterPaint = FrameClockPhase(64) // GDK_FRAME_CLOCK_PHASE_AFTER_PAINT
 }
 

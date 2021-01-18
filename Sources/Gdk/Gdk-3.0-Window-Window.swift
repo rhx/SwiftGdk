@@ -26,6 +26,8 @@ public protocol WindowProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkWindow` instance.
     var window_ptr: UnsafeMutablePointer<GdkWindow>! { get }
 
+    /// Required Initialiser for types conforming to `WindowProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `WindowRef` type acts as a lightweight Swift reference to an underlying `GdkWindow` instance.
@@ -234,14 +236,14 @@ open class Window: GLibObject.Object, WindowProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `WindowProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -339,7 +341,7 @@ public extension WindowProtocol {
 }
 
 public enum WindowSignalName: String, SignalNameProtocol {
-    /// The `create`-surface signal is emitted when an offscreen window
+    /// The `create-surface` signal is emitted when an offscreen window
     /// needs its surface (re)created, which happens either when the
     /// window is first drawn to, or when the window is being
     /// resized. The first signal handler that returns a non-`nil`
@@ -350,10 +352,10 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// surface from within any callback of this signal. Calling
     /// `gdk_offscreen_window_get_surface()` will lead to a crash.
     case createSurface = "create-surface"
-    /// The `from`-embedder signal is emitted to translate coordinates
+    /// The `from-embedder` signal is emitted to translate coordinates
     /// in the embedder of an offscreen window to the offscreen window.
     /// 
-    /// See also `GdkWindow::to`-embedder.
+    /// See also `GdkWindow::to-embedder`.
     case fromEmbedder = "from-embedder"
     /// Emitted when the position of `window` is finalized after being moved to a
     /// destination rectangle.
@@ -392,13 +394,13 @@ public enum WindowSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `pick`-embedded-child signal is emitted to find an embedded
+    /// The `pick-embedded-child` signal is emitted to find an embedded
     /// child at the given position.
     case pickEmbeddedChild = "pick-embedded-child"
-    /// The `to`-embedder signal is emitted to translate coordinates
+    /// The `to-embedder` signal is emitted to translate coordinates
     /// in an offscreen window to its embedder.
     /// 
-    /// See also `GdkWindow::from`-embedder.
+    /// See also `GdkWindow::from-embedder`.
     case toEmbedder = "to-embedder"
     /// The mouse pointer for a `GdkWindow`. See `gdk_window_set_cursor()` and
     /// `gdk_window_get_cursor()` for details.
@@ -433,7 +435,7 @@ public extension WindowProtocol {
     }
     
     
-    /// The `create`-surface signal is emitted when an offscreen window
+    /// The `create-surface` signal is emitted when an offscreen window
     /// needs its surface (re)created, which happens either when the
     /// window is first drawn to, or when the window is being
     /// resized. The first signal handler that returns a non-`nil`
@@ -452,10 +454,10 @@ public extension WindowProtocol {
     /// - Warning: a `onCreateSurface` wrapper for this signal could not be generated because it contains unimplemented features: { (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `createSurfaceSignal` using the `connect(signal:)` methods
     static var createSurfaceSignal: WindowSignalName { .createSurface }
-    /// The `from`-embedder signal is emitted to translate coordinates
+    /// The `from-embedder` signal is emitted to translate coordinates
     /// in the embedder of an offscreen window to the offscreen window.
     /// 
-    /// See also `GdkWindow::to`-embedder.
+    /// See also `GdkWindow::to-embedder`.
     /// - Note: This represents the underlying `from-embedder` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -489,7 +491,7 @@ public extension WindowProtocol {
     /// - Warning: a `onMovedToRect` wrapper for this signal could not be generated because it contains unimplemented features: { (4)  gpointer argument is not yet supported }
     /// - Note: Instead, you can connect `movedToRectSignal` using the `connect(signal:)` methods
     static var movedToRectSignal: WindowSignalName { .movedToRect }
-    /// The `pick`-embedded-child signal is emitted to find an embedded
+    /// The `pick-embedded-child` signal is emitted to find an embedded
     /// child at the given position.
     /// - Note: This represents the underlying `pick-embedded-child` signal
     /// - Parameter flags: Flags
@@ -500,10 +502,10 @@ public extension WindowProtocol {
     /// - Warning: a `onPickEmbeddedChild` wrapper for this signal could not be generated because it contains unimplemented features: { (8)  nullable argument or return type is not allowed, (9)  Record return type is not yet supported }
     /// - Note: Instead, you can connect `pickEmbeddedChildSignal` using the `connect(signal:)` methods
     static var pickEmbeddedChildSignal: WindowSignalName { .pickEmbeddedChild }
-    /// The `to`-embedder signal is emitted to translate coordinates
+    /// The `to-embedder` signal is emitted to translate coordinates
     /// in an offscreen window to its embedder.
     /// 
-    /// See also `GdkWindow::from`-embedder.
+    /// See also `GdkWindow::from-embedder`.
     /// - Note: This represents the underlying `to-embedder` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -741,7 +743,7 @@ public extension WindowProtocol {
     /// For normal windows, calling this function is equivalent to subtracting
     /// the return values of `gdk_window_get_position()` from the parent coordinates.
     /// For offscreen windows however (which can be arbitrarily transformed),
-    /// this function calls the GdkWindow`from`-embedder: signal to translate
+    /// this function calls the GdkWindow`from-embedder:` signal to translate
     /// the coordinates.
     /// 
     /// You should always use this function when writing generic code that
@@ -762,7 +764,7 @@ public extension WindowProtocol {
     /// For normal windows, calling this function is equivalent to adding
     /// the return values of `gdk_window_get_position()` to the child coordinates.
     /// For offscreen windows however (which can be arbitrarily transformed),
-    /// this function calls the GdkWindow`to`-embedder: signal to translate
+    /// this function calls the GdkWindow`to-embedder:` signal to translate
     /// the coordinates.
     /// 
     /// You should always use this function when writing generic code that
@@ -1630,7 +1632,7 @@ public extension WindowProtocol {
     /// `GDK_GRAVITY_NORTH_WEST` with `GDK_GRAVITY_NORTH_EAST` and vice versa if
     /// `window` extends beyond the left or right edges of the monitor.
     /// 
-    /// Connect to the `GdkWindow::moved`-to-rect signal to find out how it was
+    /// Connect to the `GdkWindow::moved-to-rect` signal to find out how it was
     /// actually positioned.
     @inlinable func moveTo<RectangleT: RectangleProtocol>(rect: RectangleT, rectAnchor: GdkGravity, windowAnchor: GdkGravity, anchorHints: AnchorHints, rectAnchorDx: Int, rectAnchorDy: Int) {
         gdk_window_move_to_rect(window_ptr, rect.rectangle_ptr, rectAnchor, windowAnchor, anchorHints.value, gint(rectAnchorDx), gint(rectAnchorDy))
@@ -2187,7 +2189,7 @@ public extension WindowProtocol {
     /// GTK+ will update this property automatically if
     /// the `window` background is opaque, as we know where the opaque regions
     /// are. If your window background is not opaque, please update this
-    /// property in your `GtkWidget::style`-updated handler.
+    /// property in your `GtkWidget::style-updated` handler.
     @inlinable func setOpaque(region: Cairo.RegionRef? = nil) {
         gdk_window_set_opaque_region(window_ptr, region?._ptr)
     
@@ -2204,7 +2206,7 @@ public extension WindowProtocol {
     /// GTK+ will update this property automatically if
     /// the `window` background is opaque, as we know where the opaque regions
     /// are. If your window background is not opaque, please update this
-    /// property in your `GtkWidget::style`-updated handler.
+    /// property in your `GtkWidget::style-updated` handler.
     @inlinable func setOpaque<RegionT: Cairo.RegionProtocol>(region: RegionT?) {
         gdk_window_set_opaque_region(window_ptr, region?._ptr)
     
@@ -2697,9 +2699,9 @@ public extension WindowProtocol {
     /// Sets `window` to be embedded in `embedder`.
     /// 
     /// To fully embed an offscreen window, in addition to calling this
-    /// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
-    /// signal on the `embedder` and the `GdkWindow::to`-embedder and
-    /// `GdkWindow::from`-embedder signals on `window`.
+    /// function, it is also necessary to handle the `GdkWindow::pick-embedded-child`
+    /// signal on the `embedder` and the `GdkWindow::to-embedder` and
+    /// `GdkWindow::from-embedder` signals on `window`.
     @inlinable func offscreenWindowSet<WindowT: WindowProtocol>(embedder: WindowT) {
         gdk_offscreen_window_set_embedder(window_ptr, embedder.window_ptr)
     
@@ -2882,7 +2884,7 @@ public extension WindowProtocol {
     }
 
     /// This function is intended to be used in GTK+ test programs.
-    /// If (`x`,`y`) are > (-1,-1), it will warp the mouse pointer to
+    /// If (`x`,`y`) are &gt; (-1,-1), it will warp the mouse pointer to
     /// the given (`x`,`y`) coordinates within `window` and simulate a
     /// key press or release event.
     /// 

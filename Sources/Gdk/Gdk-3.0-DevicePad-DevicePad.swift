@@ -42,6 +42,8 @@ public protocol DevicePadProtocol: DeviceProtocol {
     /// Typed pointer to the underlying `GdkDevicePad` instance.
     var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad>! { get }
 
+    /// Required Initialiser for types conforming to `DevicePadProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DevicePadRef` type acts as a lightweight Swift reference to an underlying `GdkDevicePad` instance.
@@ -267,14 +269,14 @@ open class DevicePad: Device, DevicePadProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -418,7 +420,7 @@ public enum DevicePadSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool`-changed signal is emitted on pen/eraser
+    /// The `tool-changed` signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
     /// Associated pointer or keyboard with this device, if any. Devices of type `GDK_DEVICE_TYPE_MASTER`

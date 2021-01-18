@@ -963,9 +963,9 @@ import GdkPixbuf
 /// Sets `window` to be embedded in `embedder`.
 /// 
 /// To fully embed an offscreen window, in addition to calling this
-/// function, it is also necessary to handle the `GdkWindow::pick`-embedded-child
-/// signal on the `embedder` and the `GdkWindow::to`-embedder and
-/// `GdkWindow::from`-embedder signals on `window`.
+/// function, it is also necessary to handle the `GdkWindow::pick-embedded-child`
+/// signal on the `embedder` and the `GdkWindow::to-embedder` and
+/// `GdkWindow::from-embedder` signals on `window`.
 @inlinable public func offscreenWindowSetEmbedder<WindowT: WindowProtocol>(window: WindowT, embedder: WindowT) {
     gdk_offscreen_window_set_embedder(window.window_ptr, embedder.window_ptr)
 
@@ -1523,7 +1523,7 @@ import GdkPixbuf
 
 
 /// This function is intended to be used in GTK+ test programs.
-/// If (`x`,`y`) are > (-1,-1), it will warp the mouse pointer to
+/// If (`x`,`y`) are &gt; (-1,-1), it will warp the mouse pointer to
 /// the given (`x`,`y`) coordinates within `window` and simulate a
 /// key press or release event.
 /// 

@@ -27,6 +27,8 @@ public protocol SeatProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkSeat` instance.
     var seat_ptr: UnsafeMutablePointer<GdkSeat>! { get }
 
+    /// Required Initialiser for types conforming to `SeatProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SeatRef` type acts as a lightweight Swift reference to an underlying `GdkSeat` instance.
@@ -222,14 +224,14 @@ open class Seat: GLibObject.Object, SeatProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SeatProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -310,10 +312,10 @@ public extension SeatProtocol {
 }
 
 public enum SeatSignalName: String, SignalNameProtocol {
-    /// The `device`-added signal is emitted when a new input
+    /// The `device-added` signal is emitted when a new input
     /// device is related to this seat.
     case deviceAdded = "device-added"
-    /// The `device`-removed signal is emitted when an
+    /// The `device-removed` signal is emitted when an
     /// input device is removed (e.g. unplugged).
     case deviceRemoved = "device-removed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -341,10 +343,10 @@ public enum SeatSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool`-added signal is emitted whenever a new tool
+    /// The `tool-added` signal is emitted whenever a new tool
     /// is made known to the seat. The tool may later be assigned
     /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice::tool`-changed signal accordingly.
+    /// will emit the `GdkDevice::tool-changed` signal accordingly.
     /// 
     /// A same tool may be used by several devices.
     case toolAdded = "tool-added"
@@ -383,7 +385,7 @@ public extension SeatProtocol {
     }
     
     
-    /// The `device`-added signal is emitted when a new input
+    /// The `device-added` signal is emitted when a new input
     /// device is related to this seat.
     /// - Note: This represents the underlying `device-added` signal
     /// - Parameter flags: Flags
@@ -410,7 +412,7 @@ public extension SeatProtocol {
     /// Typed `device-added` signal for using the `connect(signal:)` methods
     static var deviceAddedSignal: SeatSignalName { .deviceAdded }
     
-    /// The `device`-removed signal is emitted when an
+    /// The `device-removed` signal is emitted when an
     /// input device is removed (e.g. unplugged).
     /// - Note: This represents the underlying `device-removed` signal
     /// - Parameter flags: Flags
@@ -437,10 +439,10 @@ public extension SeatProtocol {
     /// Typed `device-removed` signal for using the `connect(signal:)` methods
     static var deviceRemovedSignal: SeatSignalName { .deviceRemoved }
     
-    /// The `tool`-added signal is emitted whenever a new tool
+    /// The `tool-added` signal is emitted whenever a new tool
     /// is made known to the seat. The tool may later be assigned
     /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice::tool`-changed signal accordingly.
+    /// will emit the `GdkDevice::tool-changed` signal accordingly.
     /// 
     /// A same tool may be used by several devices.
     /// - Note: This represents the underlying `tool-added` signal
@@ -706,6 +708,8 @@ public protocol VisualProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkVisual` instance.
     var visual_ptr: UnsafeMutablePointer<GdkVisual>! { get }
 
+    /// Required Initialiser for types conforming to `VisualProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VisualRef` type acts as a lightweight Swift reference to an underlying `GdkVisual` instance.
@@ -959,14 +963,14 @@ open class Visual: GLibObject.Object, VisualProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VisualProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
