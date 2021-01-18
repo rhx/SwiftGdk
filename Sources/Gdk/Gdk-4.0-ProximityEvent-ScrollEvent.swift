@@ -26,6 +26,8 @@ public protocol ProximityEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkProximityEvent` instance.
     var proximity_event_ptr: UnsafeMutablePointer<GdkProximityEvent>! { get }
 
+    /// Required Initialiser for types conforming to `ProximityEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ProximityEventRef` type acts as a lightweight Swift reference to an underlying `GdkProximityEvent` instance.
@@ -216,7 +218,7 @@ open class ProximityEvent: Event, ProximityEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ProximityEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -276,6 +278,8 @@ public protocol ScrollEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkScrollEvent` instance.
     var scroll_event_ptr: UnsafeMutablePointer<GdkScrollEvent>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollEventRef` type acts as a lightweight Swift reference to an underlying `GdkScrollEvent` instance.
@@ -466,7 +470,7 @@ open class ScrollEvent: Event, ScrollEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

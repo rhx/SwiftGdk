@@ -41,6 +41,8 @@ public protocol DragSurfaceInterfaceProtocol {
     /// Typed pointer to the underlying `GdkDragSurfaceInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkDragSurfaceInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DragSurfaceInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragSurfaceInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkDragSurfaceInterface` instance.
@@ -152,6 +154,8 @@ public protocol DrawingContextProtocol {
     /// Typed pointer to the underlying `GdkDrawingContext` instance.
     var _ptr: UnsafeMutablePointer<GdkDrawingContext>! { get }
 
+    /// Required Initialiser for types conforming to `DrawingContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DrawingContextRef` type acts as a lightweight Swift reference to an underlying `GdkDrawingContext` instance.
@@ -355,7 +359,7 @@ open class DrawingContext: DrawingContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DrawingContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -418,6 +422,8 @@ public protocol EventSequenceProtocol {
     /// Typed pointer to the underlying `GdkEventSequence` instance.
     var event_sequence_ptr: UnsafeMutablePointer<GdkEventSequence>! { get }
 
+    /// Required Initialiser for types conforming to `EventSequenceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventSequenceRef` type acts as a lightweight Swift reference to an underlying `GdkEventSequence` instance.
@@ -623,7 +629,7 @@ open class EventSequence: EventSequenceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventSequenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

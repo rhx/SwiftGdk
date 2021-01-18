@@ -41,6 +41,8 @@ public protocol SurfaceClassProtocol {
     /// Typed pointer to the underlying `GdkSurfaceClass` instance.
     var _ptr: UnsafeMutablePointer<GdkSurfaceClass>! { get }
 
+    /// Required Initialiser for types conforming to `SurfaceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SurfaceClassRef` type acts as a lightweight Swift reference to an underlying `GdkSurfaceClass` instance.
@@ -167,6 +169,8 @@ public protocol TextureClassProtocol {
     /// Typed pointer to the underlying `GdkTextureClass` instance.
     var _ptr: UnsafeMutablePointer<GdkTextureClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextureClassRef` type acts as a lightweight Swift reference to an underlying `GdkTextureClass` instance.

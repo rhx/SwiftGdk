@@ -26,6 +26,8 @@ public protocol TouchEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkTouchEvent` instance.
     var touch_event_ptr: UnsafeMutablePointer<GdkTouchEvent>! { get }
 
+    /// Required Initialiser for types conforming to `TouchEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TouchEventRef` type acts as a lightweight Swift reference to an underlying `GdkTouchEvent` instance.
@@ -216,7 +218,7 @@ open class TouchEvent: Event, TouchEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TouchEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -289,6 +291,8 @@ public protocol TouchpadEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkTouchpadEvent` instance.
     var touchpad_event_ptr: UnsafeMutablePointer<GdkTouchpadEvent>! { get }
 
+    /// Required Initialiser for types conforming to `TouchpadEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TouchpadEventRef` type acts as a lightweight Swift reference to an underlying `GdkTouchpadEvent` instance.
@@ -479,7 +483,7 @@ open class TouchpadEvent: Event, TouchpadEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TouchpadEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -611,6 +615,8 @@ public protocol VulkanContextProtocol: DrawContextProtocol, GIO.InitableProtocol
     /// Typed pointer to the underlying `GdkVulkanContext` instance.
     var vulkan_context_ptr: UnsafeMutablePointer<GdkVulkanContext>! { get }
 
+    /// Required Initialiser for types conforming to `VulkanContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VulkanContextRef` type acts as a lightweight Swift reference to an underlying `GdkVulkanContext` instance.
@@ -820,14 +826,14 @@ open class VulkanContext: DrawContext, VulkanContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VulkanContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VulkanContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

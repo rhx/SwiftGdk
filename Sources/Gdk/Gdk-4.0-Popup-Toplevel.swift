@@ -30,6 +30,8 @@ public protocol PopupProtocol: SurfaceProtocol {
     /// Typed pointer to the underlying `GdkPopup` instance.
     var popup_ptr: UnsafeMutablePointer<GdkPopup>! { get }
 
+    /// Required Initialiser for types conforming to `PopupProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopupRef` type acts as a lightweight Swift reference to an underlying `GdkPopup` instance.
@@ -231,14 +233,14 @@ open class Popup: Surface, PopupProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -537,6 +539,8 @@ public protocol ToplevelProtocol: SurfaceProtocol {
     /// Typed pointer to the underlying `GdkToplevel` instance.
     var toplevel_ptr: UnsafeMutablePointer<GdkToplevel>! { get }
 
+    /// Required Initialiser for types conforming to `ToplevelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToplevelRef` type acts as a lightweight Swift reference to an underlying `GdkToplevel` instance.
@@ -740,14 +744,14 @@ open class Toplevel: Surface, ToplevelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1516,7 +1520,7 @@ public extension ToplevelProtocol {
     /// or deny the request or even choose to ignore the request entirely.
     /// 
     /// The caller can be notified whenever the request is granted or revoked
-    /// by listening to the GdkToplevel`shortcuts`-inhibited property.
+    /// by listening to the GdkToplevel`shortcuts-inhibited` property.
     @inlinable func inhibitSystemShortcuts(event: EventRef? = nil) {
         gdk_toplevel_inhibit_system_shortcuts(toplevel_ptr, event?.event_ptr)
     
@@ -1540,7 +1544,7 @@ public extension ToplevelProtocol {
     /// or deny the request or even choose to ignore the request entirely.
     /// 
     /// The caller can be notified whenever the request is granted or revoked
-    /// by listening to the GdkToplevel`shortcuts`-inhibited property.
+    /// by listening to the GdkToplevel`shortcuts-inhibited` property.
     @inlinable func inhibitSystemShortcuts<EventT: EventProtocol>(event: EventT?) {
         gdk_toplevel_inhibit_system_shortcuts(toplevel_ptr, event?.event_ptr)
     
@@ -1568,7 +1572,7 @@ public extension ToplevelProtocol {
     /// 
     /// GDK may emit the 'compute-size' signal to let the user of this toplevel
     /// compute the preferred size of the toplevel surface. See
-    /// `GdkToplevel::compute`-size for details.
+    /// `GdkToplevel::compute-size` for details.
     /// 
     /// Presenting is asynchronous and the specified layout parameters are not
     /// guaranteed to be respected.

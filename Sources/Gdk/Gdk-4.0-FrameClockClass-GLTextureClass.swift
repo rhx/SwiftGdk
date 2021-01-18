@@ -41,6 +41,8 @@ public protocol FrameClockClassProtocol {
     /// Typed pointer to the underlying `GdkFrameClockClass` instance.
     var _ptr: UnsafeMutablePointer<GdkFrameClockClass>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClockClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClockClassRef` type acts as a lightweight Swift reference to an underlying `GdkFrameClockClass` instance.
@@ -157,6 +159,8 @@ public protocol FrameTimingsProtocol {
     /// Typed pointer to the underlying `GdkFrameTimings` instance.
     var frame_timings_ptr: UnsafeMutablePointer<GdkFrameTimings>! { get }
 
+    /// Required Initialiser for types conforming to `FrameTimingsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameTimingsRef` type acts as a lightweight Swift reference to an underlying `GdkFrameTimings` instance.
@@ -370,7 +374,7 @@ open class FrameTimings: FrameTimingsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameTimingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -614,6 +618,8 @@ public protocol GLTextureClassProtocol {
     /// Typed pointer to the underlying `GdkGLTextureClass` instance.
     var _ptr: UnsafeMutablePointer<GdkGLTextureClass>! { get }
 
+    /// Required Initialiser for types conforming to `GLTextureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLTextureClassRef` type acts as a lightweight Swift reference to an underlying `GdkGLTextureClass` instance.

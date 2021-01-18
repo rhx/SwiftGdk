@@ -26,6 +26,8 @@ public protocol GLTextureProtocol: TextureProtocol {
     /// Typed pointer to the underlying `GdkGLTexture` instance.
     var gl_texture_ptr: UnsafeMutablePointer<GdkGLTexture>! { get }
 
+    /// Required Initialiser for types conforming to `GLTextureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLTextureRef` type acts as a lightweight Swift reference to an underlying `GdkGLTexture` instance.
@@ -228,14 +230,14 @@ open class GLTexture: Texture, GLTextureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLTextureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLTextureProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -396,6 +398,8 @@ public protocol GrabBrokenEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkGrabBrokenEvent` instance.
     var grab_broken_event_ptr: UnsafeMutablePointer<GdkGrabBrokenEvent>! { get }
 
+    /// Required Initialiser for types conforming to `GrabBrokenEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GrabBrokenEventRef` type acts as a lightweight Swift reference to an underlying `GdkGrabBrokenEvent` instance.
@@ -586,7 +590,7 @@ open class GrabBrokenEvent: Event, GrabBrokenEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GrabBrokenEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -674,6 +678,8 @@ public protocol KeyEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkKeyEvent` instance.
     var key_event_ptr: UnsafeMutablePointer<GdkKeyEvent>! { get }
 
+    /// Required Initialiser for types conforming to `KeyEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyEventRef` type acts as a lightweight Swift reference to an underlying `GdkKeyEvent` instance.
@@ -864,7 +870,7 @@ open class KeyEvent: Event, KeyEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

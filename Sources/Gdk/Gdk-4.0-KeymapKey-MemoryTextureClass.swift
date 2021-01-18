@@ -26,6 +26,8 @@ public protocol KeymapKeyProtocol {
     /// Typed pointer to the underlying `GdkKeymapKey` instance.
     var _ptr: UnsafeMutablePointer<GdkKeymapKey>! { get }
 
+    /// Required Initialiser for types conforming to `KeymapKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeymapKeyRef` type acts as a lightweight Swift reference to an underlying `GdkKeymapKey` instance.
@@ -229,7 +231,7 @@ open class KeymapKey: KeymapKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeymapKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -371,6 +373,8 @@ public protocol MemoryTextureClassProtocol {
     /// Typed pointer to the underlying `GdkMemoryTextureClass` instance.
     var _ptr: UnsafeMutablePointer<GdkMemoryTextureClass>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryTextureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryTextureClassRef` type acts as a lightweight Swift reference to an underlying `GdkMemoryTextureClass` instance.

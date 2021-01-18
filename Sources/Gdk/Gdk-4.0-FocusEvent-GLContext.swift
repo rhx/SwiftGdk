@@ -26,6 +26,8 @@ public protocol FocusEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkFocusEvent` instance.
     var focus_event_ptr: UnsafeMutablePointer<GdkFocusEvent>! { get }
 
+    /// Required Initialiser for types conforming to `FocusEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FocusEventRef` type acts as a lightweight Swift reference to an underlying `GdkFocusEvent` instance.
@@ -216,7 +218,7 @@ open class FocusEvent: Event, FocusEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FocusEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -324,6 +326,8 @@ public protocol FrameClockProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkFrameClock` instance.
     var frame_clock_ptr: UnsafeMutablePointer<GdkFrameClock>! { get }
 
+    /// Required Initialiser for types conforming to `FrameClockProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FrameClockRef` type acts as a lightweight Swift reference to an underlying `GdkFrameClock` instance.
@@ -581,14 +585,14 @@ open class FrameClock: GLibObject.Object, FrameClockProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FrameClockProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1134,6 +1138,8 @@ public protocol GLContextProtocol: DrawContextProtocol {
     /// Typed pointer to the underlying `GdkGLContext` instance.
     var gl_context_ptr: UnsafeMutablePointer<GdkGLContext>! { get }
 
+    /// Required Initialiser for types conforming to `GLContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GLContextRef` type acts as a lightweight Swift reference to an underlying `GdkGLContext` instance.
@@ -1434,14 +1440,14 @@ open class GLContext: DrawContext, GLContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GLContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

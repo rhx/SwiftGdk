@@ -26,6 +26,8 @@ public protocol TimeCoordProtocol {
     /// Typed pointer to the underlying `GdkTimeCoord` instance.
     var _ptr: UnsafeMutablePointer<GdkTimeCoord>! { get }
 
+    /// Required Initialiser for types conforming to `TimeCoordProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimeCoordRef` type acts as a lightweight Swift reference to an underlying `GdkTimeCoord` instance.
@@ -229,7 +231,7 @@ open class TimeCoord: TimeCoordProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeCoordProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -344,6 +346,8 @@ public protocol ToplevelInterfaceProtocol {
     /// Typed pointer to the underlying `GdkToplevelInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkToplevelInterface>! { get }
 
+    /// Required Initialiser for types conforming to `ToplevelInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToplevelInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkToplevelInterface` instance.
@@ -460,6 +464,8 @@ public protocol ToplevelLayoutProtocol {
     /// Typed pointer to the underlying `GdkToplevelLayout` instance.
     var toplevel_layout_ptr: UnsafeMutablePointer<GdkToplevelLayout>! { get }
 
+    /// Required Initialiser for types conforming to `ToplevelLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToplevelLayoutRef` type acts as a lightweight Swift reference to an underlying `GdkToplevelLayout` instance.
@@ -684,7 +690,7 @@ open class ToplevelLayout: ToplevelLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -865,6 +871,8 @@ public protocol ToplevelSizeProtocol {
     /// Typed pointer to the underlying `GdkToplevelSize` instance.
     var _ptr: UnsafeMutablePointer<GdkToplevelSize>! { get }
 
+    /// Required Initialiser for types conforming to `ToplevelSizeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ToplevelSizeRef` type acts as a lightweight Swift reference to an underlying `GdkToplevelSize` instance.
@@ -1072,7 +1080,7 @@ open class ToplevelSize: ToplevelSizeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ToplevelSizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

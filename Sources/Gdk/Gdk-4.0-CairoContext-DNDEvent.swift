@@ -31,6 +31,8 @@ public protocol CairoContextProtocol: DrawContextProtocol {
     /// Typed pointer to the underlying `GdkCairoContext` instance.
     var cairo_context_ptr: UnsafeMutablePointer<GdkCairoContext>! { get }
 
+    /// Required Initialiser for types conforming to `CairoContextProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CairoContextRef` type acts as a lightweight Swift reference to an underlying `GdkCairoContext` instance.
@@ -234,14 +236,14 @@ open class CairoContext: DrawContext, CairoContextProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CairoContextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CairoContextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -406,6 +408,8 @@ public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkClipboard` instance.
     var clipboard_ptr: UnsafeMutablePointer<GdkClipboard>! { get }
 
+    /// Required Initialiser for types conforming to `ClipboardProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ClipboardRef` type acts as a lightweight Swift reference to an underlying `GdkClipboard` instance.
@@ -627,14 +631,14 @@ open class Clipboard: GLibObject.Object, ClipboardProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClipboardProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClipboardProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1335,6 +1339,8 @@ public protocol ContentDeserializerProtocol: GLibObject.ObjectProtocol, GIO.Asyn
     /// Typed pointer to the underlying `GdkContentDeserializer` instance.
     var content_deserializer_ptr: UnsafeMutablePointer<GdkContentDeserializer>! { get }
 
+    /// Required Initialiser for types conforming to `ContentDeserializerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentDeserializerRef` type acts as a lightweight Swift reference to an underlying `GdkContentDeserializer` instance.
@@ -1530,14 +1536,14 @@ open class ContentDeserializer: GLibObject.Object, ContentDeserializerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentDeserializerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentDeserializerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1762,6 +1768,8 @@ public protocol ContentProviderProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkContentProvider` instance.
     var content_provider_ptr: UnsafeMutablePointer<GdkContentProvider>! { get }
 
+    /// Required Initialiser for types conforming to `ContentProviderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentProviderRef` type acts as a lightweight Swift reference to an underlying `GdkContentProvider` instance.
@@ -2047,14 +2055,14 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProviderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2410,7 +2418,7 @@ public extension ContentProviderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentProvider` instance.
     @inlinable var content_provider_ptr: UnsafeMutablePointer<GdkContentProvider>! { return ptr?.assumingMemoryBound(to: GdkContentProvider.self) }
 
-    /// Emits the `GdkContentProvider::content`-changed signal.
+    /// Emits the `GdkContentProvider::content-changed` signal.
     @inlinable func contentChanged() {
         gdk_content_provider_content_changed(content_provider_ptr)
     
@@ -2511,6 +2519,8 @@ public protocol ContentSerializerProtocol: GLibObject.ObjectProtocol, GIO.AsyncR
     /// Typed pointer to the underlying `GdkContentSerializer` instance.
     var content_serializer_ptr: UnsafeMutablePointer<GdkContentSerializer>! { get }
 
+    /// Required Initialiser for types conforming to `ContentSerializerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentSerializerRef` type acts as a lightweight Swift reference to an underlying `GdkContentSerializer` instance.
@@ -2706,14 +2716,14 @@ open class ContentSerializer: GLibObject.Object, ContentSerializerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentSerializerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentSerializerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2930,6 +2940,8 @@ public protocol CrossingEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkCrossingEvent` instance.
     var crossing_event_ptr: UnsafeMutablePointer<GdkCrossingEvent>! { get }
 
+    /// Required Initialiser for types conforming to `CrossingEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CrossingEventRef` type acts as a lightweight Swift reference to an underlying `GdkCrossingEvent` instance.
@@ -3120,7 +3132,7 @@ open class CrossingEvent: Event, CrossingEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CrossingEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -3226,6 +3238,8 @@ public protocol CursorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkCursor` instance.
     var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { get }
 
+    /// Required Initialiser for types conforming to `CursorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CursorRef` type acts as a lightweight Swift reference to an underlying `GdkCursor` instance.
@@ -3525,14 +3539,14 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CursorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3895,6 +3909,8 @@ public protocol DNDEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkDNDEvent` instance.
     var dnd_event_ptr: UnsafeMutablePointer<GdkDNDEvent>! { get }
 
+    /// Required Initialiser for types conforming to `DNDEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DNDEventRef` type acts as a lightweight Swift reference to an underlying `GdkDNDEvent` instance.
@@ -4085,7 +4101,7 @@ open class DNDEvent: Event, DNDEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DNDEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

@@ -41,6 +41,8 @@ public protocol PopupInterfaceProtocol {
     /// Typed pointer to the underlying `GdkPopupInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkPopupInterface>! { get }
 
+    /// Required Initialiser for types conforming to `PopupInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopupInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkPopupInterface` instance.
@@ -185,6 +187,8 @@ public protocol PopupLayoutProtocol {
     /// Typed pointer to the underlying `GdkPopupLayout` instance.
     var popup_layout_ptr: UnsafeMutablePointer<GdkPopupLayout>! { get }
 
+    /// Required Initialiser for types conforming to `PopupLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PopupLayoutRef` type acts as a lightweight Swift reference to an underlying `GdkPopupLayout` instance.
@@ -468,7 +472,7 @@ open class PopupLayout: PopupLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PopupLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -689,6 +693,8 @@ public protocol RGBAProtocol {
     /// Typed pointer to the underlying `GdkRGBA` instance.
     var rgba_ptr: UnsafeMutablePointer<GdkRGBA>! { get }
 
+    /// Required Initialiser for types conforming to `RGBAProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RGBARef` type acts as a lightweight Swift reference to an underlying `GdkRGBA` instance.
@@ -894,7 +900,7 @@ open class RGBA: RGBAProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RGBAProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

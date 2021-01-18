@@ -26,6 +26,8 @@ public protocol MemoryTextureProtocol: TextureProtocol {
     /// Typed pointer to the underlying `GdkMemoryTexture` instance.
     var memory_texture_ptr: UnsafeMutablePointer<GdkMemoryTexture>! { get }
 
+    /// Required Initialiser for types conforming to `MemoryTextureProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MemoryTextureRef` type acts as a lightweight Swift reference to an underlying `GdkMemoryTexture` instance.
@@ -226,14 +228,14 @@ open class MemoryTexture: Texture, MemoryTextureProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryTextureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MemoryTextureProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -385,6 +387,8 @@ public protocol MonitorProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `GdkMonitor` instance.
     var monitor_ptr: UnsafeMutablePointer<GdkMonitor>! { get }
 
+    /// Required Initialiser for types conforming to `MonitorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MonitorRef` type acts as a lightweight Swift reference to an underlying `GdkMonitor` instance.
@@ -584,14 +588,14 @@ open class Monitor: GLibObject.Object, MonitorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MonitorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1533,6 +1537,8 @@ public protocol MotionEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkMotionEvent` instance.
     var motion_event_ptr: UnsafeMutablePointer<GdkMotionEvent>! { get }
 
+    /// Required Initialiser for types conforming to `MotionEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MotionEventRef` type acts as a lightweight Swift reference to an underlying `GdkMotionEvent` instance.
@@ -1723,7 +1729,7 @@ open class MotionEvent: Event, MotionEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MotionEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
@@ -1783,6 +1789,8 @@ public protocol PadEventProtocol: EventProtocol {
     /// Typed pointer to the underlying `GdkPadEvent` instance.
     var pad_event_ptr: UnsafeMutablePointer<GdkPadEvent>! { get }
 
+    /// Required Initialiser for types conforming to `PadEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PadEventRef` type acts as a lightweight Swift reference to an underlying `GdkPadEvent` instance.
@@ -1973,7 +1981,7 @@ open class PadEvent: Event, PadEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PadEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 

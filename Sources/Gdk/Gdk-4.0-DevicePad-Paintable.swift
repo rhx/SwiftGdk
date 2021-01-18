@@ -41,6 +41,8 @@ public protocol DevicePadProtocol: DeviceProtocol {
     /// Typed pointer to the underlying `GdkDevicePad` instance.
     var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad>! { get }
 
+    /// Required Initialiser for types conforming to `DevicePadProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DevicePadRef` type acts as a lightweight Swift reference to an underlying `GdkDevicePad` instance.
@@ -264,14 +266,14 @@ open class DevicePad: Device, DevicePadProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DevicePadProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -410,7 +412,7 @@ public enum DevicePadSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool`-changed signal is emitted on pen/eraser
+    /// The `tool-changed` signal is emitted on pen/eraser
     /// `GdkDevices` whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
     case notifyCapsLockState = "notify::caps-lock-state"
@@ -511,6 +513,8 @@ public protocol DragSurfaceProtocol: SurfaceProtocol {
     /// Typed pointer to the underlying `GdkDragSurface` instance.
     var drag_surface_ptr: UnsafeMutablePointer<GdkDragSurface>! { get }
 
+    /// Required Initialiser for types conforming to `DragSurfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragSurfaceRef` type acts as a lightweight Swift reference to an underlying `GdkDragSurface` instance.
@@ -706,14 +710,14 @@ open class DragSurface: Surface, DragSurfaceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragSurfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -881,7 +885,7 @@ public extension DragSurfaceProtocol {
 /// objects that can be painted anywhere at any size without requiring any
 /// sort of layout. The interface is inspired by similar concepts elsewhere,
 /// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
-/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint`-source),
+/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
@@ -898,7 +902,7 @@ public extension DragSurfaceProtocol {
 /// A `GdkPaintable` may change its contents, meaning that it will now produce a
 /// different output with the same snapshot. Once that happens, it will call
 /// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate`-contents signal. If a paintable is known to never
+/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
 /// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
 /// If a consumer cannot deal with changing contents, it may call
 /// `gdk_paintable_get_current_image()` which will return a static paintable and
@@ -909,7 +913,7 @@ public extension DragSurfaceProtocol {
 /// can use this information to layout thepaintable appropriately.
 /// Just like the contents, the size of a paintable can change. A paintable will
 /// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate`-size signal.
+/// `GdkPaintable::invalidate-size` signal.
 /// And just like for contents, if a paintable is known to never change its size,
 /// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
@@ -925,6 +929,8 @@ public protocol PaintableProtocol {
     /// Typed pointer to the underlying `GdkPaintable` instance.
     var paintable_ptr: UnsafeMutablePointer<GdkPaintable>! { get }
 
+    /// Required Initialiser for types conforming to `PaintableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PaintableRef` type acts as a lightweight Swift reference to an underlying `GdkPaintable` instance.
@@ -935,7 +941,7 @@ public protocol PaintableProtocol {
 /// objects that can be painted anywhere at any size without requiring any
 /// sort of layout. The interface is inspired by similar concepts elsewhere,
 /// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
-/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint`-source),
+/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
@@ -952,7 +958,7 @@ public protocol PaintableProtocol {
 /// A `GdkPaintable` may change its contents, meaning that it will now produce a
 /// different output with the same snapshot. Once that happens, it will call
 /// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate`-contents signal. If a paintable is known to never
+/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
 /// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
 /// If a consumer cannot deal with changing contents, it may call
 /// `gdk_paintable_get_current_image()` which will return a static paintable and
@@ -963,7 +969,7 @@ public protocol PaintableProtocol {
 /// can use this information to layout thepaintable appropriately.
 /// Just like the contents, the size of a paintable can change. A paintable will
 /// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate`-size signal.
+/// `GdkPaintable::invalidate-size` signal.
 /// And just like for contents, if a paintable is known to never change its size,
 /// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
@@ -1066,7 +1072,7 @@ public extension PaintableRef {
 /// objects that can be painted anywhere at any size without requiring any
 /// sort of layout. The interface is inspired by similar concepts elsewhere,
 /// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
-/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint`-source),
+/// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
@@ -1083,7 +1089,7 @@ public extension PaintableRef {
 /// A `GdkPaintable` may change its contents, meaning that it will now produce a
 /// different output with the same snapshot. Once that happens, it will call
 /// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate`-contents signal. If a paintable is known to never
+/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
 /// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
 /// If a consumer cannot deal with changing contents, it may call
 /// `gdk_paintable_get_current_image()` which will return a static paintable and
@@ -1094,7 +1100,7 @@ public extension PaintableRef {
 /// can use this information to layout thepaintable appropriately.
 /// Just like the contents, the size of a paintable can change. A paintable will
 /// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate`-size signal.
+/// `GdkPaintable::invalidate-size` signal.
 /// And just like for contents, if a paintable is known to never change its size,
 /// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
@@ -1216,7 +1222,7 @@ open class Paintable: PaintableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1370,7 +1376,7 @@ public extension PaintableProtocol {
     @inlinable var paintable_ptr: UnsafeMutablePointer<GdkPaintable>! { return ptr?.assumingMemoryBound(to: GdkPaintable.self) }
 
     /// Applies the sizing algorithm outlined in
-    /// https://drafts.csswg.org/css-images-3/`default`-sizing
+    /// https://drafts.csswg.org/css-images-3/`default-sizing`
     /// to the given `paintable`. See that link for more details.
     /// 
     /// It is not necessary to call this function when both `specified_width`
@@ -1453,7 +1459,7 @@ public extension PaintableProtocol {
     /// Unless the contents are invalidated, implementations must guarantee that
     /// multiple calls of `gdk_paintable_snapshot()` produce the same output.
     /// 
-    /// This function will emit the `GdkPaintable::invalidate`-contents signal.
+    /// This function will emit the `GdkPaintable::invalidate-contents` signal.
     /// 
     /// If a `paintable` reports the `GDK_PAINTABLE_STATIC_CONTENTS` flag,
     /// it must not call this function.
@@ -1466,7 +1472,7 @@ public extension PaintableProtocol {
     /// As long as the size is not invalidated, `paintable` must return the same
     /// values for its intrinsic width, height and aspect ratio.
     /// 
-    /// This function will emit the `GdkPaintable::invalidate`-size signal.
+    /// This function will emit the `GdkPaintable::invalidate-size` signal.
     /// 
     /// If a `paintable` reports the `GDK_PAINTABLE_STATIC_SIZE` flag,
     /// it must not call this function.

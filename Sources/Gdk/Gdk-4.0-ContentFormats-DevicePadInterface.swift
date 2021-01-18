@@ -52,6 +52,8 @@ public protocol ContentFormatsProtocol {
     /// Typed pointer to the underlying `GdkContentFormats` instance.
     var content_formats_ptr: UnsafeMutablePointer<GdkContentFormats>! { get }
 
+    /// Required Initialiser for types conforming to `ContentFormatsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentFormatsRef` type acts as a lightweight Swift reference to an underlying `GdkContentFormats` instance.
@@ -327,7 +329,7 @@ open class ContentFormats: ContentFormatsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentFormatsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -526,6 +528,8 @@ public protocol ContentFormatsBuilderProtocol {
     /// Typed pointer to the underlying `GdkContentFormatsBuilder` instance.
     var content_formats_builder_ptr: UnsafeMutablePointer<GdkContentFormatsBuilder>! { get }
 
+    /// Required Initialiser for types conforming to `ContentFormatsBuilderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentFormatsBuilderRef` type acts as a lightweight Swift reference to an underlying `GdkContentFormatsBuilder` instance.
@@ -740,7 +744,7 @@ open class ContentFormatsBuilder: ContentFormatsBuilderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentFormatsBuilderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -876,6 +880,8 @@ public protocol ContentProviderClassProtocol {
     /// Typed pointer to the underlying `GdkContentProviderClass` instance.
     var _ptr: UnsafeMutablePointer<GdkContentProviderClass>! { get }
 
+    /// Required Initialiser for types conforming to `ContentProviderClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentProviderClassRef` type acts as a lightweight Swift reference to an underlying `GdkContentProviderClass` instance.
@@ -1026,6 +1032,8 @@ public protocol DevicePadInterfaceProtocol {
     /// Typed pointer to the underlying `GdkDevicePadInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkDevicePadInterface>! { get }
 
+    /// Required Initialiser for types conforming to `DevicePadInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DevicePadInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkDevicePadInterface` instance.

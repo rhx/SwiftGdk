@@ -41,6 +41,8 @@ public protocol MonitorClassProtocol {
     /// Typed pointer to the underlying `GdkMonitorClass` instance.
     var _ptr: UnsafeMutablePointer<GdkMonitorClass>! { get }
 
+    /// Required Initialiser for types conforming to `MonitorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MonitorClassRef` type acts as a lightweight Swift reference to an underlying `GdkMonitorClass` instance.
@@ -174,6 +176,8 @@ public protocol PaintableInterfaceProtocol {
     /// Typed pointer to the underlying `GdkPaintableInterface` instance.
     var _ptr: UnsafeMutablePointer<GdkPaintableInterface>! { get }
 
+    /// Required Initialiser for types conforming to `PaintableInterfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PaintableInterfaceRef` type acts as a lightweight Swift reference to an underlying `GdkPaintableInterface` instance.
