@@ -8337,7 +8337,7 @@ information. This information is device-dependent, and may be
 queried through <code>gdk_device_get_axis()</code>. In multidevice mode, virtual
 devices will change axes in order to always represent the physical
 device that is routing events through it. Whenever the physical device
-changes, the <code>GdkDevice:n</code>-axes property will be notified, and
+changes, the <code>GdkDevice:n-axes</code> property will be notified, and
 <code>gdk_device_list_axes()</code> will return the new device axes.</p>
 
 <p>Devices may also have associated “keys” or
@@ -8349,7 +8349,7 @@ supersedes <code>GdkDeviceManager</code> and should be preferred in newly
 written code.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1966-L1973">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1968-L1977">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8383,7 +8383,7 @@ written code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1968">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8421,7 +8421,37 @@ written code.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1971">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1973">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk21DeviceManagerProtocolP3rawxSv_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(raw:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk21DeviceManagerProtocolP3rawxSv_tcfc">init(raw:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Required Initialiser for types conforming to <code>DeviceManagerProtocol</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L1976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8552,7 +8582,7 @@ written code.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2434-L2458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2438-L2462">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8609,7 +8639,7 @@ written code.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2463-L2467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2467-L2471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8667,7 +8697,7 @@ written code.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2473-L2475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2477-L2479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8786,7 +8816,7 @@ written code.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2536-L2538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2540-L2542">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8892,7 +8922,7 @@ written code.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2549-L2551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2553-L2555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8913,7 +8943,7 @@ written code.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>device</code>-added signal is emitted either when a new master
+                        <p>The <code>device-added</code> signal is emitted either when a new master
 pointer is created, or when a slave (Hardware) input device
 is plugged in.</p>
 <div class="aside aside-note">
@@ -8990,7 +9020,7 @@ Run the given callback whenever the <code>deviceAdded</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2563-L2577">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2567-L2581">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9023,7 +9053,7 @@ Run the given callback whenever the <code>deviceAdded</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9044,7 +9074,7 @@ Run the given callback whenever the <code>deviceAdded</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>device</code>-changed signal is emitted whenever a device
+                        <p>The <code>device-changed</code> signal is emitted whenever a device
 has changed in the hierarchy, either slave devices being
 disconnected from their master device or connected to
 another one, or master devices being added or removed
@@ -9128,7 +9158,7 @@ Run the given callback whenever the <code>deviceChanged</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2598-L2612">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2602-L2616">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9161,7 +9191,7 @@ Run the given callback whenever the <code>deviceChanged</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9182,7 +9212,7 @@ Run the given callback whenever the <code>deviceChanged</code> signal is emitted
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>device</code>-removed signal is emitted either when a master
+                        <p>The <code>device-removed</code> signal is emitted either when a master
 pointer is removed, or when a slave (Hardware) input device
 is unplugged.</p>
 <div class="aside aside-note">
@@ -9259,7 +9289,7 @@ Run the given callback whenever the <code>deviceRemoved</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2626-L2640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2630-L2644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9292,7 +9322,7 @@ Run the given callback whenever the <code>deviceRemoved</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9411,7 +9441,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2675-L2689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2679-L2693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9444,7 +9474,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9500,7 +9530,7 @@ Use gdk_seat_get_pointer() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2710-L2713">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2714-L2717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9534,7 +9564,7 @@ Use gdk_seat_get_pointer() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2716-L2719">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2720-L2723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9574,7 +9604,7 @@ Use gdk_seat_get_pointer() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2727-L2730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2731-L2734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9616,7 +9646,7 @@ Use gdk_seat_get_pointer() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2740-L2754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2744-L2758">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9650,7 +9680,7 @@ Use gdk_seat_get_pointer() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2756-L2762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/generated/Sources/Gdk/Gdk-3.0-Device-FrameClock.swift#L2760-L2766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9663,7 +9693,7 @@ Use gdk_seat_get_pointer() instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-17)</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
