@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DropRef.html">DropRef</a>
@@ -7970,13 +7961,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is the main way to draw GL content in GTK. It takes a render buffer ID
-(<code>source_type</code> == <code>GL_RENDERBUFFER</code>) or a texture id (<code>source_type</code> == <code>GL_TEXTURE</code>)
-and draws it onto <code>cr</code> with an OVER operation, respecting the current clip.
-The top left corner of the rectangle specified by <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code>
-will be drawn at the current (0,0) position of the cairo_t.</p>
+                        <p>The main way to draw GL content in GTK.</p>
 
-<p>This will work for <em>all</em> cairo_t, as long as <code>surface</code> is realized, but the
+<p>It takes a render buffer ID (<code>source_type</code> == <code>GL_RENDERBUFFER</code>) or a texture
+id (<code>source_type</code> == <code>GL_TEXTURE</code>) and draws it onto <code>cr</code> with an OVER operation,
+respecting the current clip. The top left corner of the rectangle specified
+by <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code> will be drawn at the current (0,0) position of
+the <code>cairo_t</code>.</p>
+
+<p>This will work for <em>all</em> <code>cairo_t</code>, as long as <code>surface</code> is realized, but the
 fallback implementation that reads back the pixels from the buffer may be
 used in the general case. In the case of direct drawing to a surface with
 no special effects applied to <code>cr</code> it will however use a more efficient
@@ -7998,7 +7991,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L30-L33">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L32-L35">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8029,7 +8022,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L39-L42">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L41-L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8060,7 +8053,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L48-L51">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L50-L53">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8078,7 +8071,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates region that describes covers the area where the given
+                        <p>Creates region that covers the area where the given
 <code>surface</code> is more than 50% opaque.</p>
 
 <p>This function takes into account device offsets that might be
@@ -8095,7 +8088,7 @@ set with <code>cairo_surface_set_device_offset()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L61-L64">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L63-L66">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8129,7 +8122,7 @@ so that the origin of <code>pixbuf</code> is <code>pixbuf_x</code>, <code>pixbuf
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L73-L76">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L75-L78">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8160,7 +8153,7 @@ so that the origin of <code>pixbuf</code> is <code>pixbuf_x</code>, <code>pixbuf
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L82-L85">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L84-L87">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8178,9 +8171,13 @@ so that the origin of <code>pixbuf</code> is <code>pixbuf_x</code>, <code>pixbuf
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Read content from the given input stream and deserialize it, asynchronously.
-When the operation is finished, <code>callback</code> will be called. You can then
-call <code>gdk_content_deserialize_finish()</code> to get the result of the operation.</p>
+                        <p>Read content from the given input stream and deserialize it, asynchronously.</p>
+
+<p>The default I/O priority is <code>G_PRIORITY_DEFAULT</code> (i.e. 0), and lower numbers
+indicate a higher priority.</p>
+
+<p>When the operation is finished, <code>callback</code> will be called. You must then
+call [func<code>content_deserialize_finish</code>] to get the result of the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -8193,7 +8190,7 @@ call <code>gdk_content_deserialize_finish()</code> to get the result of the oper
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L93-L96">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L99-L102">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8211,9 +8208,13 @@ call <code>gdk_content_deserialize_finish()</code> to get the result of the oper
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Read content from the given input stream and deserialize it, asynchronously.
-When the operation is finished, <code>callback</code> will be called. You can then
-call <code>gdk_content_deserialize_finish()</code> to get the result of the operation.</p>
+                        <p>Read content from the given input stream and deserialize it, asynchronously.</p>
+
+<p>The default I/O priority is <code>G_PRIORITY_DEFAULT</code> (i.e. 0), and lower numbers
+indicate a higher priority.</p>
+
+<p>When the operation is finished, <code>callback</code> will be called. You must then
+call [func<code>content_deserialize_finish</code>] to get the result of the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -8226,7 +8227,7 @@ call <code>gdk_content_deserialize_finish()</code> to get the result of the oper
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L100-L103">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L110-L113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8257,7 +8258,7 @@ call <code>gdk_content_deserialize_finish()</code> to get the result of the oper
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L109-L114">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L119-L124">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8275,8 +8276,7 @@ call <code>gdk_content_deserialize_finish()</code> to get the result of the oper
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Registers a function to create objects of a given <code>type</code> from
-a serialized representation with the given mime type.</p>
+                        <p>Registers a function to deserialize object of a given type.</p>
 
                       </div>
                       <div class="declaration">
@@ -8289,7 +8289,7 @@ a serialized representation with the given mime type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L121-L124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L130-L133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8307,8 +8307,7 @@ a serialized representation with the given mime type.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Registers a function to convert objects of the given <code>type</code> to
-a serialized representation with the given mime type.</p>
+                        <p>Registers a function to serialize objects of a given type.</p>
 
                       </div>
                       <div class="declaration">
@@ -8321,7 +8320,7 @@ a serialized representation with the given mime type.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L131-L134">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L139-L142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8339,9 +8338,13 @@ a serialized representation with the given mime type.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Serialize content and write it to the given output stream, asynchronously.
-When the operation is finished, <code>callback</code> will be called. You can then
-call <code>gdk_content_serialize_finish()</code> to get the result of the operation.</p>
+                        <p>Serialize content and write it to the given output stream, asynchronously.</p>
+
+<p>The default I/O priority is <code>G_PRIORITY_DEFAULT</code> (i.e. 0), and lower numbers
+indicate a higher priority.</p>
+
+<p>When the operation is finished, <code>callback</code> will be called. You must then
+call [func<code>content_serialize_finish</code>] to get the result of the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -8354,7 +8357,7 @@ call <code>gdk_content_serialize_finish()</code> to get the result of the operat
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L142-L145">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L154-L157">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8372,9 +8375,13 @@ call <code>gdk_content_serialize_finish()</code> to get the result of the operat
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Serialize content and write it to the given output stream, asynchronously.
-When the operation is finished, <code>callback</code> will be called. You can then
-call <code>gdk_content_serialize_finish()</code> to get the result of the operation.</p>
+                        <p>Serialize content and write it to the given output stream, asynchronously.</p>
+
+<p>The default I/O priority is <code>G_PRIORITY_DEFAULT</code> (i.e. 0), and lower numbers
+indicate a higher priority.</p>
+
+<p>When the operation is finished, <code>callback</code> will be called. You must then
+call [func<code>content_serialize_finish</code>] to get the result of the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -8387,7 +8394,7 @@ call <code>gdk_content_serialize_finish()</code> to get the result of the operat
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L149-L152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L165-L168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8418,7 +8425,7 @@ call <code>gdk_content_serialize_finish()</code> to get the result of the operat
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L158-L163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L174-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8436,8 +8443,8 @@ call <code>gdk_content_serialize_finish()</code> to get the result of the operat
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks if <code>action</code> represents a single action or if it
-includes multiple flags that can be selected from.</p>
+                        <p>Checks if <code>action</code> represents a single action or includes
+multiple actions.</p>
 
 <p>When <code>action</code> is 0 - ie no action was given, <code>true</code>
 is returned.</p>
@@ -8453,7 +8460,7 @@ is returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L173-L176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L189-L192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8471,10 +8478,14 @@ is returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, this function will return <code>true</code>
-and return in <code>angle</code> the relative angle from <code>event1</code> to <code>event2</code>. The rotation
-direction for positive angles is from the positive X axis towards the positive
-Y axis.</p>
+                        <p>Returns the relative angle from <code>event1</code> to <code>event2</code>.</p>
+
+<p>The relative angle is the angle between the X axis and the line
+through both events&rsquo; positions. The rotation direction for positive
+angles is from the positive X axis towards the positive Y axis.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8487,7 +8498,7 @@ Y axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L185-L188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L205-L208">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8505,8 +8516,10 @@ Y axis.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, the center of both coordinates
-will be returned in <code>x</code> and <code>y</code>.</p>
+                        <p>Returns the point halfway between the events&rsquo; positions.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8519,7 +8532,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L195-L198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L217-L220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8537,8 +8550,10 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events have X/Y information, the distance between both coordinates
-(as in a straight line going from <code>event1</code> to <code>event2</code>) will be returned.</p>
+                        <p>Returns the distance between the event locations.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8551,7 +8566,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L205-L208">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L229-L232">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8582,7 +8597,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L213-L216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L237-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8616,7 +8631,7 @@ See RFC 2048 for the syntax if mime types.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L225-L228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L249-L252">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8634,8 +8649,9 @@ See RFC 2048 for the syntax if mime types.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Obtains the upper- and lower-case versions of the keyval <code>symbol</code>.
-Examples of keyvals are <code>GDK_KEY_a</code>, <code>GDK_KEY_Enter</code>, <code>GDK_KEY_F1</code>, etc.</p>
+                        <p>Obtains the upper- and lower-case versions of the keyval <code>symbol</code>.</p>
+
+<p>Examples of keyvals are <code>GDK_KEY_a</code>, <code>GDK_KEY_Enter</code>, <code>GDK_KEY_F1</code>, etc.</p>
 
                       </div>
                       <div class="declaration">
@@ -8648,7 +8664,7 @@ Examples of keyvals are <code>GDK_KEY_a</code>, <code>GDK_KEY_Enter</code>, <cod
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L235-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L260-L263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8683,7 +8699,7 @@ but without the leading “GDK_KEY_”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L248-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L273-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8714,7 +8730,7 @@ but without the leading “GDK_KEY_”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L257-L260">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L282-L285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8745,7 +8761,7 @@ but without the leading “GDK_KEY_”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L266-L269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L291-L294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8780,7 +8796,7 @@ but without the leading “GDK_KEY_”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L279-L282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L304-L307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8811,7 +8827,7 @@ but without the leading “GDK_KEY_”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L288-L291">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L313-L316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8829,7 +8845,7 @@ but without the leading “GDK_KEY_”.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convert from a GDK key symbol to the corresponding ISO10646 (Unicode)
+                        <p>Convert from a GDK key symbol to the corresponding Unicode
 character.</p>
 
 <p>Note that the conversion does not take the current locale
@@ -8847,7 +8863,7 @@ keyvals, such as <code>GDK_KEY_KP_Decimal</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L327-L330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8878,7 +8894,7 @@ keyvals, such as <code>GDK_KEY_KP_Decimal</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L311-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8896,10 +8912,12 @@ keyvals, such as <code>GDK_KEY_KP_Decimal</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a paintable that has the given intrinsic size and draws nothing.
-This is often useful for implementing the <code>GdkPaintableInterface.get_current_image</code><code>()</code>
-virtual function when the paintable is in an incomplete state (like a
-<code>GtkMediaStream</code> before receiving the first frame).</p>
+                        <p>Returns a paintable that has the given intrinsic size and draws nothing.</p>
+
+<p>This is often useful for implementing the
+<code>GdkPaintableInterface.get_current_image</code><code>()</code> virtual function
+when the paintable is in an incomplete state (like a
+[class<code>Gtk.MediaStream</code>] before receiving the first frame).</p>
 
                       </div>
                       <div class="declaration">
@@ -8912,7 +8930,7 @@ virtual function when the paintable is in an incomplete state (like a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L323-L326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L350-L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8931,9 +8949,10 @@ virtual function when the paintable is in an incomplete state (like a
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains a clip region which contains the areas where the given ranges
-of text would be drawn. <code>x_origin</code> and <code>y_origin</code> are the top left point
-to center the layout. <code>index_ranges</code> should contain
-ranges of bytes in the layout’s text.</p>
+of text would be drawn.</p>
+
+<p><code>x_origin</code> and <code>y_origin</code> are the top left point to center the layout.
+<code>index_ranges</code> should contain ranges of bytes in the layout’s text.</p>
 
 <p>Note that the regions returned correspond to logical extents of the text
 ranges, not ink extents. So the drawn layout may in fact touch areas out of
@@ -8951,7 +8970,7 @@ of text, such as when text is selected.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L340-L343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L368-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8970,14 +8989,15 @@ of text, such as when text is selected.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains a clip region which contains the areas where the given
-ranges of text would be drawn. <code>x_origin</code> and <code>y_origin</code> are the top left
-position of the layout. <code>index_ranges</code>
-should contain ranges of bytes in the layout’s text. The clip
-region will include space to the left or right of the line (to the
-layout bounding box) if you have indexes above or below the indexes
-contained inside the line. This is to draw the selection all the way
-to the side of the layout. However, the clip region is in line coordinates,
-not layout coordinates.</p>
+ranges of text would be drawn.</p>
+
+<p><code>x_origin</code> and <code>y_origin</code> are the top left position of the layout.
+<code>index_ranges</code> should contain ranges of bytes in the layout’s text.
+The clip region will include space to the left or right of the line
+(to the layout bounding box) if you have indexes above or below the
+indexes contained inside the line. This is to draw the selection all
+the way to the side of the layout. However, the clip region is in line
+coordinates, not layout coordinates.</p>
 
 <p>Note that the regions returned correspond to logical extents of the text
 ranges, not ink extents. So the drawn line may in fact touch areas out of
@@ -8995,7 +9015,7 @@ of text, such as when text is selected.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L362-L365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L391-L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9013,9 +9033,10 @@ of text, such as when text is selected.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Transfers image data from a <code>cairo_surface_t</code> and converts it to an <code>RGB(A)</code>
-representation inside a <code>GdkPixbuf</code>. This allows you to efficiently read
-individual pixels from cairo surfaces.</p>
+                        <p>Transfers image data from a <code>cairo_surface_t</code> and converts it
+to a <code>GdkPixbuf</code>.</p>
+
+<p>This allows you to efficiently read individual pixels from cairo surfaces.</p>
 
 <p>This function will create an RGB pixbuf with 8 bits per channel.
 The pixbuf will contain an alpha channel if the <code>surface</code> contains one.</p>
@@ -9031,7 +9052,7 @@ The pixbuf will contain an alpha channel if the <code>surface</code> contains on
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L376-L379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L406-L409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9049,9 +9070,11 @@ The pixbuf will contain an alpha channel if the <code>surface</code> contains on
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new pixbuf from <code>texture</code>. This should generally not be used
-in newly written code as later stages will almost certainly convert
-the pixbuf back into a texture to draw it on screen.</p>
+                        <p>Creates a new pixbuf from <code>texture</code>.</p>
+
+<p>This should generally not be used in newly written code as later
+stages will almost certainly convert the pixbuf back into a texture
+to draw it on screen.</p>
 
                       </div>
                       <div class="declaration">
@@ -9064,7 +9087,7 @@ the pixbuf back into a texture to draw it on screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L387-L390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L419-L422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9089,26 +9112,31 @@ work with certain GDK backends.</p>
 
 <p>By default, GDK tries all included backends.</p>
 
-<p>For example,
-(C Language Example):</p>
-<pre class="highlight plaintext"><code>gdk_set_allowed_backends ("wayland,quartz,*");
+<p>For example:</p>
+<pre class="highlight c"><code><span class="n">gdk_set_allowed_backends</span> <span class="p">(</span><span class="s">"wayland,macos,*"</span><span class="p">);</span>
 </code></pre>
 
-<p>instructs GDK to try the Wayland backend first,
-followed by the Quartz backend, and then all
-others.</p>
+<p>instructs GDK to try the Wayland backend first, followed by the
+MacOs backend, and then all others.</p>
 
-<p>If the <code>GDK_BACKEND</code> environment variable
-is set, it determines what backends are tried in what
-order, while still respecting the set of allowed backends
-that are specified by this function.</p>
+<p>If the <code>GDK_BACKEND</code> environment variable is set, it determines
+what backends are tried in what order, while still respecting the
+set of allowed backends that are specified by this function.</p>
 
-<p>The possible backend names are x11, win32, quartz,
-broadway, wayland. You can also include a * in the
-list to try all remaining backends.</p>
+<p>The possible backend names are:</p>
 
-<p>This call must happen prior to <code>gdk_display_open()</code>,
-<code>gtk_init()</code>, or <code>gtk_init_check()</code>
+<ul>
+<li><code>broadway</code></li>
+<li><code>macos</code></li>
+<li><code>wayland</code>.</li>
+<li><code>win32</code></li>
+<li><code>x11</code></li>
+</ul>
+
+<p>You can also include a <code>*</code> in the list to try all remaining backends.</p>
+
+<p>This call must happen prior to functions that open a display, such
+as [func<code>Gdk.Display.open</code>], <code>gtk_init()</code>, or <code>gtk_init_check()</code>
 in order to take effect.</p>
 
                       </div>
@@ -9122,7 +9150,7 @@ in order to take effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L423-L426">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L460-L463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9153,7 +9181,7 @@ in order to take effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L431-L434">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L468-L471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9171,7 +9199,7 @@ in order to take effect.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Convert from a ISO10646 character to a key symbol.</p>
+                        <p>Convert from a Unicode character to a key symbol.</p>
 
                       </div>
                       <div class="declaration">
@@ -9184,7 +9212,7 @@ in order to take effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L440-L443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L477-L480">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9215,7 +9243,7 @@ in order to take effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L448-L451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-functions.swift#L485-L488">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9228,8 +9256,8 @@ in order to take effect.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

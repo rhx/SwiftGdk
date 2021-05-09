@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,50 +7950,54 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/PaintableProtocol.html">PaintableProtocol</a></code> conformance.
 Use <code>PaintableRef</code> only as an <code>unowned</code> reference to an existing <code>GdkPaintable</code> instance.</p>
 
-<p><code>GdkPaintable</code> is a simple interface used by GDK and GTK to represent
-objects that can be painted anywhere at any size without requiring any
-sort of layout. The interface is inspired by similar concepts elsewhere,
-such as <a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
+<p><code>GdkPaintable</code> is a simple interface used by GTK to represent content that
+can be painted.</p>
+
+<p>The content of a <code>GdkPaintable</code> can be painted anywhere at any size
+without requiring any sort of layout. The interface is inspired by
+similar concepts elsewhere, such as
+<a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
 <a href="https://www.w3.org/TR/css-images-4/%60paint-source%60">HTML/CSS Paint Sources</a>,
 or <a href="https://www.w3.org/TR/SVG2/pservers.html">SVG Paint Servers</a>.</p>
 
 <p>A <code>GdkPaintable</code> can be snapshot at any time and size using
-<code>gdk_paintable_snapshot()</code>. How the paintable interprets that size and if it
-scales or centers itself into the given rectangle is implementation defined,
-though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what to do, it
-is suggested that you scale your paintable ignoring any potential aspect ratio.</p>
+[method<code>Gdk.Paintable.snapshot</code>]. How the paintable interprets that size and
+if it scales or centers itself into the given rectangle is implementation
+defined, though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what
+to do, it is suggested that you scale your paintable ignoring any potential
+aspect ratio.</p>
 
-<p>The contents that a <code>GdkPaintable</code> produces may depend on the <code>GdkSnapshot</code> passed
-to it. For example, paintables may decide to use more detailed images on higher
-resolution screens or when OpenGL is available. A <code>GdkPaintable</code> will however
-always produce the same output for the same snapshot.</p>
+<p>The contents that a <code>GdkPaintable</code> produces may depend on the [class<code>GdkSnapshot</code>]
+passed to it. For example, paintables may decide to use more detailed images
+on higher resolution screens or when OpenGL is available. A <code>GdkPaintable</code>
+will however always produce the same output for the same snapshot.</p>
 
-<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce a
-different output with the same snapshot. Once that happens, it will call
-<code>gdk_paintable_invalidate_contents()</code> which will emit the
-<code>GdkPaintable::invalidate-contents</code> signal. If a paintable is known to never
-change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code> flag.
-If a consumer cannot deal with changing contents, it may call
-<code>gdk_paintable_get_current_image()</code> which will return a static paintable and
-use that.</p>
+<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce
+a different output with the same snapshot. Once that happens, it will call
+[method<code>Gdk.Paintable.invalidate_contents</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-contents</code>] signal. If a paintable is known
+to never change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code>
+flag. If a consumer cannot deal with changing contents, it may call
+[method<code>Gdk.Paintable.get_current_image</code>] which will return a static
+paintable and use that.</p>
 
 <p>A paintable can report an intrinsic (or preferred) size or aspect ratio it
 wishes to be rendered at, though it doesn&rsquo;t have to. Consumers of the interface
-can use this information to layout thepaintable appropriately.
-Just like the contents, the size of a paintable can change. A paintable will
-indicate this by calling <code>gdk_paintable_invalidate_size()</code> which will emit the
-<code>GdkPaintable::invalidate-size</code> signal.
-And just like for contents, if a paintable is known to never change its size,
-it will set the <code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
+can use this information to layout thepaintable appropriately. Just like the
+contents, the size of a paintable can change. A paintable will indicate this
+by calling [method<code>Gdk.Paintable.invalidate_size</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-size</code>] signal. And just like for contents,
+if a paintable is known to never change its size, it will set the
+<code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
 
 <p>Besides API for applications, there are some functions that are only
 useful for implementing subclasses and should not be used by applications:
-<code>gdk_paintable_invalidate_contents()</code>,
-<code>gdk_paintable_invalidate_size()</code>,
-<code>gdk_paintable_new_empty()</code>.</p>
+[method<code>Gdk.Paintable.invalidate_contents</code>],
+[method<code>Gdk.Paintable.invalidate_size</code>],
+[func<code>Gdk.Paintable.new_empty</code>].</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L981-L985">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1048-L1052">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8039,7 +8034,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L984">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1051">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8083,7 +8078,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L989-L991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1056-L1058">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8114,7 +8109,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L994-L996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1061-L1063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8145,7 +8140,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L999-L1002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1066-L1069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8176,7 +8171,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1005-L1008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1072-L1075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8207,7 +8202,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1011-L1014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1078-L1081">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8238,7 +8233,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1017-L1020">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1084-L1087">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8269,7 +8264,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1023-L1025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1090-L1092">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8301,7 +8296,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1029-L1031">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1096-L1098">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8333,7 +8328,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1035-L1037">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1102-L1104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8365,7 +8360,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1041-L1043">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1108-L1110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8397,7 +8392,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1047-L1049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1114-L1116">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8429,7 +8424,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1053-L1055">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1120-L1122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8450,9 +8445,10 @@ useful for implementing subclasses and should not be used by applications:
                         <pre class="highlight swift"><code><span class="kt">Returns</span> <span class="n">a</span> <span class="n">paintable</span> <span class="n">that</span> <span class="n">has</span> <span class="n">the</span> <span class="n">given</span> <span class="n">intrinsic</span> <span class="n">size</span> <span class="n">and</span> <span class="n">draws</span> <span class="n">nothing</span><span class="o">.</span>
 </code></pre>
 
-<p>This is often useful for implementing the <code>GdkPaintableInterface.get_current_image</code><code>()</code>
-virtual function when the paintable is in an incomplete state (like a
-<code>GtkMediaStream</code> before receiving the first frame).</p>
+<p>This is often useful for implementing the
+<code>GdkPaintableInterface.get_current_image</code><code>()</code> virtual function
+when the paintable is in an incomplete state (like a
+[class<code>Gtk.MediaStream</code>] before receiving the first frame).</p>
 
                       </div>
                       <div class="declaration">
@@ -8465,7 +8461,7 @@ virtual function when the paintable is in an incomplete state (like a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1061-L1064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1130-L1133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8478,8 +8474,8 @@ virtual function when the paintable is in an incomplete state (like a
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,50 +7951,54 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Paintable.html">Paintable</a></code>.
 Alternatively, use <code><a href="../Structs/PaintableRef.html">PaintableRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p><code>GdkPaintable</code> is a simple interface used by GDK and GTK to represent
-objects that can be painted anywhere at any size without requiring any
-sort of layout. The interface is inspired by similar concepts elsewhere,
-such as <a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
+<p><code>GdkPaintable</code> is a simple interface used by GTK to represent content that
+can be painted.</p>
+
+<p>The content of a <code>GdkPaintable</code> can be painted anywhere at any size
+without requiring any sort of layout. The interface is inspired by
+similar concepts elsewhere, such as
+<a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
 <a href="https://www.w3.org/TR/css-images-4/%60paint-source%60">HTML/CSS Paint Sources</a>,
 or <a href="https://www.w3.org/TR/SVG2/pservers.html">SVG Paint Servers</a>.</p>
 
 <p>A <code>GdkPaintable</code> can be snapshot at any time and size using
-<code>gdk_paintable_snapshot()</code>. How the paintable interprets that size and if it
-scales or centers itself into the given rectangle is implementation defined,
-though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what to do, it
-is suggested that you scale your paintable ignoring any potential aspect ratio.</p>
+[method<code>Gdk.Paintable.snapshot</code>]. How the paintable interprets that size and
+if it scales or centers itself into the given rectangle is implementation
+defined, though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what
+to do, it is suggested that you scale your paintable ignoring any potential
+aspect ratio.</p>
 
-<p>The contents that a <code>GdkPaintable</code> produces may depend on the <code>GdkSnapshot</code> passed
-to it. For example, paintables may decide to use more detailed images on higher
-resolution screens or when OpenGL is available. A <code>GdkPaintable</code> will however
-always produce the same output for the same snapshot.</p>
+<p>The contents that a <code>GdkPaintable</code> produces may depend on the [class<code>GdkSnapshot</code>]
+passed to it. For example, paintables may decide to use more detailed images
+on higher resolution screens or when OpenGL is available. A <code>GdkPaintable</code>
+will however always produce the same output for the same snapshot.</p>
 
-<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce a
-different output with the same snapshot. Once that happens, it will call
-<code>gdk_paintable_invalidate_contents()</code> which will emit the
-<code>GdkPaintable::invalidate-contents</code> signal. If a paintable is known to never
-change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code> flag.
-If a consumer cannot deal with changing contents, it may call
-<code>gdk_paintable_get_current_image()</code> which will return a static paintable and
-use that.</p>
+<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce
+a different output with the same snapshot. Once that happens, it will call
+[method<code>Gdk.Paintable.invalidate_contents</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-contents</code>] signal. If a paintable is known
+to never change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code>
+flag. If a consumer cannot deal with changing contents, it may call
+[method<code>Gdk.Paintable.get_current_image</code>] which will return a static
+paintable and use that.</p>
 
 <p>A paintable can report an intrinsic (or preferred) size or aspect ratio it
 wishes to be rendered at, though it doesn&rsquo;t have to. Consumers of the interface
-can use this information to layout thepaintable appropriately.
-Just like the contents, the size of a paintable can change. A paintable will
-indicate this by calling <code>gdk_paintable_invalidate_size()</code> which will emit the
-<code>GdkPaintable::invalidate-size</code> signal.
-And just like for contents, if a paintable is known to never change its size,
-it will set the <code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
+can use this information to layout thepaintable appropriately. Just like the
+contents, the size of a paintable can change. A paintable will indicate this
+by calling [method<code>Gdk.Paintable.invalidate_size</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-size</code>] signal. And just like for contents,
+if a paintable is known to never change its size, it will set the
+<code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
 
 <p>Besides API for applications, there are some functions that are only
 useful for implementing subclasses and should not be used by applications:
-<code>gdk_paintable_invalidate_contents()</code>,
-<code>gdk_paintable_invalidate_size()</code>,
-<code>gdk_paintable_new_empty()</code>.</p>
+[method<code>Gdk.Paintable.invalidate_contents</code>],
+[method<code>Gdk.Paintable.invalidate_size</code>],
+[func<code>Gdk.Paintable.new_empty</code>].</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L925-L934">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L988-L997">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8037,7 +8032,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L927">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L990">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8075,7 +8070,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L930">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L993">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8105,7 +8100,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L933">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L996">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8224,7 +8219,7 @@ useful for implementing subclasses and should not be used by applications:
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1293-L1295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1371-L1373">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8330,7 +8325,7 @@ useful for implementing subclasses and should not be used by applications:
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1306-L1308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1384-L1386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8417,7 +8412,7 @@ Run the given callback whenever the <code>invalidateContents</code> signal is em
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1320-L1334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1398-L1412">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8450,7 +8445,7 @@ Run the given callback whenever the <code>invalidateContents</code> signal is em
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1337">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8471,13 +8466,16 @@ Run the given callback whenever the <code>invalidateContents</code> signal is em
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emitted when the intrinsic size of the <code>paintable</code> changes. This means the values
-reported by at least one of <code>gdk_paintable_get_intrinsic_width()</code>,
-<code>gdk_paintable_get_intrinsic_height()</code> or <code>gdk_paintable_get_intrinsic_aspect_ratio()</code>
+                        <p>Emitted when the intrinsic size of the <code>paintable</code> changes.</p>
+
+<p>This means the values reported by at least one of
+[method<code>Gdk.Paintable.get_intrinsic_width</code>],
+[method<code>Gdk.Paintable.get_intrinsic_height</code>] or
+[method<code>Gdk.Paintable.get_intrinsic_aspect_ratio</code>]
 has changed.</p>
 
-<p>Examples for such an event would be a paintable displaying the contents of a toplevel
-surface being resized.</p>
+<p>Examples for such an event would be a paintable displaying
+the contents of a toplevel surface being resized.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>invalidate-size</code> signal
@@ -8540,7 +8538,7 @@ Run the given callback whenever the <code>invalidateSize</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1351-L1365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1432-L1446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8573,7 +8571,7 @@ Run the given callback whenever the <code>invalidateSize</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1368">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8607,8 +8605,10 @@ Run the given callback whenever the <code>invalidateSize</code> signal is emitte
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Applies the sizing algorithm outlined in
-<a href="https://drafts.csswg.org/css-images-3/%60default-sizing%60">https://drafts.csswg.org/css-images-3/`default-sizing`</a>
+                        <p>Compute a concrete size for the <code>GdkPaintable</code>.</p>
+
+<p>Applies the sizing algorithm outlined in the
+<a href="https://drafts.csswg.org/css-images-3/%60default-sizing%60">CSS Image spec</a>
 to the given <code>paintable</code>. See that link for more details.</p>
 
 <p>It is not necessary to call this function when both <code>specified_width</code>
@@ -8627,7 +8627,7 @@ other dimension when only one dimension is given.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1386-L1389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1469-L1472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8650,8 +8650,8 @@ other dimension when only one dimension is given.</p>
                       <div class="abstract">
                         <p>Gets an immutable paintable for the current contents displayed by <code>paintable</code>.</p>
 
-<p>This is useful when you want to retain the current state of an animation, for
-example to take a screenshot of a running animation.</p>
+<p>This is useful when you want to retain the current state of an animation,
+for example to take a screenshot of a running animation.</p>
 
 <p>If the <code>paintable</code> is already immutable, it will return itself.</p>
 
@@ -8666,7 +8666,7 @@ example to take a screenshot of a running animation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1397-L1400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1480-L1483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8687,9 +8687,11 @@ example to take a screenshot of a running animation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get flags for the paintable. This is oftentimes useful for optimizations.</p>
+                        <p>Get flags for the paintable.</p>
 
-<p>See <code>GdkPaintableFlags</code> for the flags and what they mean.</p>
+<p>This is oftentimes useful for optimizations.</p>
+
+<p>See [flags<code>Gdk.PaintableFlags</code>] for the flags and what they mean.</p>
 
                       </div>
                       <div class="declaration">
@@ -8702,7 +8704,7 @@ example to take a screenshot of a running animation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1405-L1408">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1490-L1493">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8723,21 +8725,23 @@ example to take a screenshot of a running animation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred aspect ratio the <code>paintable</code> would like to be displayed at.
-The aspect ratio is the width divided by the height, so a value of 0.5 means
-that the <code>paintable</code> prefers to be displayed twice as high as it is wide.
-Consumers of this interface can use this to preserve aspect ratio when displaying
-the paintable.</p>
+                        <p>Gets the preferred aspect ratio the <code>paintable</code> would like to be displayed at.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>The aspect ratio is the width divided by the height, so a value of 0.5
+means that the <code>paintable</code> prefers to be displayed twice as high as it
+is wide. Consumers of this interface can use this to preserve aspect
+ratio when displaying the paintable.</p>
+
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
 <p>Usually when a <code>paintable</code> returns nonzero values from
-<code>gdk_paintable_get_intrinsic_width()</code> and <code>gdk_paintable_get_intrinsic_height()</code>
-the aspect ratio should conform to those values, though that is not required.</p>
+[method<code>Gdk.Paintable.get_intrinsic_width</code>] and
+[method<code>Gdk.Paintable.get_intrinsic_height</code>] the aspect ratio
+should conform to those values, though that is not required.</p>
 
-<p>If the <code>paintable</code> does not have a preferred aspect ratio, it returns 0.
-Negative values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred aspect ratio,
+it returns 0. Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8750,7 +8754,7 @@ Negative values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1425-L1428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1512-L1515">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8771,15 +8775,16 @@ Negative values are never returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred height the <code>paintable</code> would like to be displayed at.
-Consumers of this interface can use this to reserve enough space to draw
+                        <p>Gets the preferred height the <code>paintable</code> would like to be displayed at.</p>
+
+<p>Consumers of this interface can use this to reserve enough space to draw
 the paintable.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
-<p>If the <code>paintable</code> does not have a preferred height, it returns 0. Negative
-values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred height, it returns 0.
+Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8792,7 +8797,7 @@ values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1439-L1442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1527-L1530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8813,15 +8818,16 @@ values are never returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred width the <code>paintable</code> would like to be displayed at.
-Consumers of this interface can use this to reserve enough space to draw
+                        <p>Gets the preferred width the <code>paintable</code> would like to be displayed at.</p>
+
+<p>Consumers of this interface can use this to reserve enough space to draw
 the paintable.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
-<p>If the <code>paintable</code> does not have a preferred width, it returns 0. Negative
-values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred width, it returns 0.
+Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8834,7 +8840,7 @@ values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1453-L1456">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1542-L1545">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8855,11 +8861,13 @@ values are never returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called by implementations of <code>GdkPaintable</code> to invalidate their contents.
-Unless the contents are invalidated, implementations must guarantee that
-multiple calls of <code>gdk_paintable_snapshot()</code> produce the same output.</p>
+                        <p>Called by implementations of <code>GdkPaintable</code> to invalidate their contents.</p>
 
-<p>This function will emit the <code>GdkPaintable::invalidate-contents</code> signal.</p>
+<p>Unless the contents are invalidated, implementations must guarantee that
+multiple calls of [method<code>Gdk.Paintable.snapshot</code>] produce the same output.</p>
+
+<p>This function will emit the [signal<code>Gdk.Paintable::invalidate-contents</code>]
+signal.</p>
 
 <p>If a <code>paintable</code> reports the <code>GDK_PAINTABLE_STATIC_CONTENTS</code> flag,
 it must not call this function.</p>
@@ -8875,7 +8883,7 @@ it must not call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1466-L1469">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1557-L1560">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8896,11 +8904,13 @@ it must not call this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Called by implementations of <code>GdkPaintable</code> to invalidate their size.
-As long as the size is not invalidated, <code>paintable</code> must return the same
+                        <p>Called by implementations of <code>GdkPaintable</code> to invalidate their size.</p>
+
+<p>As long as the size is not invalidated, <code>paintable</code> must return the same
 values for its intrinsic width, height and aspect ratio.</p>
 
-<p>This function will emit the <code>GdkPaintable::invalidate-size</code> signal.</p>
+<p>This function will emit the [signal<code>Gdk.Paintable::invalidate-size</code>]
+signal.</p>
 
 <p>If a <code>paintable</code> reports the <code>GDK_PAINTABLE_STATIC_SIZE</code> flag,
 it must not call this function.</p>
@@ -8916,7 +8926,7 @@ it must not call this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1479-L1482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1572-L1575">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8937,9 +8947,11 @@ it must not call this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Snapshots the given paintable with the given <code>width</code> and <code>height</code> at the
-current (0,0) offset of the <code>snapshot</code>. If <code>width</code> and <code>height</code> are not larger
-than zero, this function will do nothing.</p>
+                        <p>Snapshots the given paintable with the given <code>width</code> and <code>height</code>.</p>
+
+<p>The paintable is drawn at the current (0,0) offset of the <code>snapshot</code>.
+If <code>width</code> and <code>height</code> are not larger than zero, this function will
+do nothing.</p>
 
                       </div>
                       <div class="declaration">
@@ -8952,7 +8964,7 @@ than zero, this function will do nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1487-L1490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1582-L1585">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8975,8 +8987,8 @@ than zero, this function will do nothing.</p>
                       <div class="abstract">
                         <p>Gets an immutable paintable for the current contents displayed by <code>paintable</code>.</p>
 
-<p>This is useful when you want to retain the current state of an animation, for
-example to take a screenshot of a running animation.</p>
+<p>This is useful when you want to retain the current state of an animation,
+for example to take a screenshot of a running animation.</p>
 
 <p>If the <code>paintable</code> is already immutable, it will return itself.</p>
 
@@ -8991,7 +9003,7 @@ example to take a screenshot of a running animation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1497-L1508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1592-L1603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9012,9 +9024,11 @@ example to take a screenshot of a running animation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Get flags for the paintable. This is oftentimes useful for optimizations.</p>
+                        <p>Get flags for the paintable.</p>
 
-<p>See <code>GdkPaintableFlags</code> for the flags and what they mean.</p>
+<p>This is oftentimes useful for optimizations.</p>
+
+<p>See [flags<code>Gdk.PaintableFlags</code>] for the flags and what they mean.</p>
 
                       </div>
                       <div class="declaration">
@@ -9027,7 +9041,7 @@ example to take a screenshot of a running animation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1513-L1521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1610-L1620">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9048,21 +9062,23 @@ example to take a screenshot of a running animation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred aspect ratio the <code>paintable</code> would like to be displayed at.
-The aspect ratio is the width divided by the height, so a value of 0.5 means
-that the <code>paintable</code> prefers to be displayed twice as high as it is wide.
-Consumers of this interface can use this to preserve aspect ratio when displaying
-the paintable.</p>
+                        <p>Gets the preferred aspect ratio the <code>paintable</code> would like to be displayed at.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>The aspect ratio is the width divided by the height, so a value of 0.5
+means that the <code>paintable</code> prefers to be displayed twice as high as it
+is wide. Consumers of this interface can use this to preserve aspect
+ratio when displaying the paintable.</p>
+
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
 <p>Usually when a <code>paintable</code> returns nonzero values from
-<code>gdk_paintable_get_intrinsic_width()</code> and <code>gdk_paintable_get_intrinsic_height()</code>
-the aspect ratio should conform to those values, though that is not required.</p>
+[method<code>Gdk.Paintable.get_intrinsic_width</code>] and
+[method<code>Gdk.Paintable.get_intrinsic_height</code>] the aspect ratio
+should conform to those values, though that is not required.</p>
 
-<p>If the <code>paintable</code> does not have a preferred aspect ratio, it returns 0.
-Negative values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred aspect ratio,
+it returns 0. Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -9075,7 +9091,7 @@ Negative values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1538-L1558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1639-L1661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9096,15 +9112,16 @@ Negative values are never returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred height the <code>paintable</code> would like to be displayed at.
-Consumers of this interface can use this to reserve enough space to draw
+                        <p>Gets the preferred height the <code>paintable</code> would like to be displayed at.</p>
+
+<p>Consumers of this interface can use this to reserve enough space to draw
 the paintable.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
-<p>If the <code>paintable</code> does not have a preferred height, it returns 0. Negative
-values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred height, it returns 0.
+Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -9117,7 +9134,7 @@ values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1569-L1583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1673-L1688">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9138,15 +9155,16 @@ values are never returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the preferred width the <code>paintable</code> would like to be displayed at.
-Consumers of this interface can use this to reserve enough space to draw
+                        <p>Gets the preferred width the <code>paintable</code> would like to be displayed at.</p>
+
+<p>Consumers of this interface can use this to reserve enough space to draw
 the paintable.</p>
 
-<p>This is a purely informational value and does not in any way limit the values
-that may be passed to <code>gdk_paintable_snapshot()</code>.</p>
+<p>This is a purely informational value and does not in any way limit the
+values that may be passed to [method<code>Gdk.Paintable.snapshot</code>].</p>
 
-<p>If the <code>paintable</code> does not have a preferred width, it returns 0. Negative
-values are never returned.</p>
+<p>If the <code>paintable</code> does not have a preferred width, it returns 0.
+Negative values are never returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -9159,7 +9177,7 @@ values are never returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1594-L1608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1700-L1715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9172,8 +9190,8 @@ values are never returned.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

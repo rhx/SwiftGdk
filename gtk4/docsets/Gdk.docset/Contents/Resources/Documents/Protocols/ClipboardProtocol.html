@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,24 +7951,26 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Clipboard.html">Clipboard</a></code>.
 Alternatively, use <code><a href="../Structs/ClipboardRef.html">ClipboardRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The <code>GdkClipboard</code> object represents a clipboard of data shared
-between different applications or between different parts of
-the same application.</p>
+<p>The <code>GdkClipboard</code> object represents data shared between applications or
+inside an application.</p>
 
-<p>To get a GdkClipboard object, use <code>gdk_display_get_clipboard()</code> or
-<code>gdk_display_get_primary_clipboard()</code>. You can find out about the data that
-is currently available in a clipboard using <code>gdk_clipboard_get_formats()</code>.</p>
+<p>To get a <code>GdkClipboard</code> object, use [method<code>Gdk.Display.get_clipboard</code>] or
+[method<code>Gdk.Display.get_primary_clipboard</code>]. You can find out about the data
+that is currently available in a clipboard using
+[method<code>Gdk.Clipboard.get_formats</code>].</p>
 
-<p>To make text or image data available in a clipboard, use <code>gdk_clipboard_set_text()</code> or
-<code>gdk_clipboard_set_texture()</code>. For other data, you can use <code>gdk_clipboard_set_content()</code>,
-which takes a <code>GdkContentProvider</code> object.</p>
+<p>To make text or image data available in a clipboard, use
+[method<code>Gdk.Clipboard.set_text</code>] or [method<code>Gdk.Clipboard.set_texture</code>].
+For other data, you can use [method<code>Gdk.Clipboard.set_content</code>], which
+takes a [class<code>Gdk.ContentProvider</code>] object.</p>
 
-<p>To read textual or image data from a clipboard, use <code>gdk_clipboard_read_text_async()</code> or
-<code>gdk_clipboard_read_texture_async()</code>. For other data, use <code>gdk_clipboard_read_async()</code>,
-which provides a <code>GInputStream</code> object.</p>
+<p>To read textual or image data from a clipboard, use
+[method<code>Gdk.Clipboard.read_text_async</code>] or
+[method<code>Gdk.Clipboard.read_texture_async</code>]. For other data, use
+[method<code>Gdk.Clipboard.read_async</code>], which provides a <code>GInputStream</code> object.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L404-L413">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L408-L417">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8011,7 +8004,7 @@ which provides a <code>GInputStream</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8049,7 +8042,7 @@ which provides a <code>GInputStream</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L413">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8079,7 +8072,7 @@ which provides a <code>GInputStream</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8210,7 +8203,7 @@ which provides a <code>GInputStream</code> object.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L684-L708">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L692-L716">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8267,7 +8260,7 @@ which provides a <code>GInputStream</code> object.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L713-L717">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L721-L725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8325,7 +8318,7 @@ which provides a <code>GInputStream</code> object.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L723-L725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L731-L733">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8444,7 +8437,7 @@ which provides a <code>GInputStream</code> object.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L777-L779">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L785-L787">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8550,7 +8543,7 @@ which provides a <code>GInputStream</code> object.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L790-L792">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L798-L800">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8571,7 +8564,7 @@ which provides a <code>GInputStream</code> object.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>changed</code> signal is emitted when the clipboard changes ownership.</p>
+                        <p>Emitted when the clipboard changes ownership.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>changed</code> signal
@@ -8634,7 +8627,7 @@ Run the given callback whenever the <code>changed</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L801-L815">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L809-L823">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8667,7 +8660,7 @@ Run the given callback whenever the <code>changed</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L818">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L826">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8786,7 +8779,7 @@ Run the given callback whenever the <code>notifyContent</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L850-L864">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L858-L872">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8819,7 +8812,7 @@ Run the given callback whenever the <code>notifyContent</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L875">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8938,7 +8931,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L899-L913">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L907-L921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8971,7 +8964,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L916">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L924">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9090,7 +9083,7 @@ Run the given callback whenever the <code>notifyFormats</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L948-L962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L956-L970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9123,7 +9116,7 @@ Run the given callback whenever the <code>notifyFormats</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L965">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L973">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9242,7 +9235,7 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L997-L1011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1005-L1019">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9275,7 +9268,7 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1014">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1022">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9309,9 +9302,10 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the <code>GdkContentProvider</code> currently set on <code>clipboard</code>. If the
-<code>clipboard</code> is empty or its contents are not owned by the current process,
-<code>nil</code> will be returned.</p>
+                        <p>Returns the <code>GdkContentProvider</code> currently set on <code>clipboard</code>.</p>
+
+<p>If the <code>clipboard</code> is empty or its contents are not owned by the
+current process, <code>nil</code> will be returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -9324,7 +9318,7 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1026-L1029">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1035-L1038">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9358,7 +9352,7 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1032-L1035">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1041-L1044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9392,7 +9386,7 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1038-L1041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1047-L1050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9414,9 +9408,10 @@ Run the given callback whenever the <code>notifyLocal</code> signal is emitted</
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously requests an input stream to read the <code>clipboard</code>&lsquo;s
-contents from. When the operation is finished <code>callback</code> will be called.
-You can then call <code>gdk_clipboard_read_finish()</code> to get the result of the
-operation.</p>
+contents from.</p>
+
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_finish</code>] to get the result of the operation.</p>
 
 <p>The clipboard will choose the most suitable mime type from the given list
 to fulfill the request, preferring the ones listed first.</p>
@@ -9432,7 +9427,7 @@ to fulfill the request, preferring the ones listed first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1050-L1053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1060-L1063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9454,9 +9449,10 @@ to fulfill the request, preferring the ones listed first.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously requests an input stream to read the <code>clipboard</code>&lsquo;s
-contents from. When the operation is finished <code>callback</code> will be called.
-You can then call <code>gdk_clipboard_read_finish()</code> to get the result of the
-operation.</p>
+contents from.</p>
+
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_finish</code>] to get the result of the operation.</p>
 
 <p>The clipboard will choose the most suitable mime type from the given list
 to fulfill the request, preferring the ones listed first.</p>
@@ -9472,7 +9468,7 @@ to fulfill the request, preferring the ones listed first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1061-L1064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1072-L1075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9493,7 +9489,9 @@ to fulfill the request, preferring the ones listed first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous clipboard read started with <code>gdk_clipboard_read_async()</code>.</p>
+                        <p>Finishes an asynchronous clipboard read.</p>
+
+<p>See [method<code>Gdk.Clipboard.read_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9506,7 +9504,7 @@ to fulfill the request, preferring the ones listed first.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1067-L1072">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1080-L1085">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9527,13 +9525,14 @@ to fulfill the request, preferring the ones listed first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously request the <code>clipboard</code> contents converted to a string.
-When the operation is finished <code>callback</code> will be called. You can then
-call <code>gdk_clipboard_read_text_finish()</code> to get the result.</p>
+                        <p>Asynchronously request the <code>clipboard</code> contents converted to a string.</p>
 
-<p>This is a simple wrapper around <code>gdk_clipboard_read_value_async()</code>. Use
-that function or <code>gdk_clipboard_read_async()</code> directly if you need more
-control over the operation.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_text_finish</code>] to get the result.</p>
+
+<p>This is a simple wrapper around [method<code>Gdk.Clipboard.read_value_async</code>].
+Use that function or [method<code>Gdk.Clipboard.read_async</code>] directly if you
+need more control over the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -9546,7 +9545,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1081-L1084">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1095-L1098">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9567,13 +9566,14 @@ control over the operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously request the <code>clipboard</code> contents converted to a string.
-When the operation is finished <code>callback</code> will be called. You can then
-call <code>gdk_clipboard_read_text_finish()</code> to get the result.</p>
+                        <p>Asynchronously request the <code>clipboard</code> contents converted to a string.</p>
 
-<p>This is a simple wrapper around <code>gdk_clipboard_read_value_async()</code>. Use
-that function or <code>gdk_clipboard_read_async()</code> directly if you need more
-control over the operation.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_text_finish</code>] to get the result.</p>
+
+<p>This is a simple wrapper around [method<code>Gdk.Clipboard.read_value_async</code>].
+Use that function or [method<code>Gdk.Clipboard.read_async</code>] directly if you
+need more control over the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -9586,7 +9586,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1092-L1095">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1107-L1110">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9607,8 +9607,9 @@ control over the operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous clipboard read started with
-<code>gdk_clipboard_read_text_async()</code>.</p>
+                        <p>Finishes an asynchronous clipboard read.</p>
+
+<p>See [method<code>Gdk.Clipboard.read_text_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9621,7 +9622,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1099-L1104">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1115-L1120">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9642,13 +9643,14 @@ control over the operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously request the <code>clipboard</code> contents converted to a <code>GdkPixbuf</code>.
-When the operation is finished <code>callback</code> will be called. You can then
-call <code>gdk_clipboard_read_texture_finish()</code> to get the result.</p>
+                        <p>Asynchronously request the <code>clipboard</code> contents converted to a <code>GdkPixbuf</code>.</p>
 
-<p>This is a simple wrapper around <code>gdk_clipboard_read_value_async()</code>. Use
-that function or <code>gdk_clipboard_read_async()</code> directly if you need more
-control over the operation.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_texture_finish</code>] to get the result.</p>
+
+<p>This is a simple wrapper around [method<code>Gdk.Clipboard.read_value_async</code>].
+Use that function or [methos<code>Gdk.Clipboard.read_async</code>] directly if you
+need more control over the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -9661,7 +9663,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1113-L1116">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1130-L1133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9682,13 +9684,14 @@ control over the operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously request the <code>clipboard</code> contents converted to a <code>GdkPixbuf</code>.
-When the operation is finished <code>callback</code> will be called. You can then
-call <code>gdk_clipboard_read_texture_finish()</code> to get the result.</p>
+                        <p>Asynchronously request the <code>clipboard</code> contents converted to a <code>GdkPixbuf</code>.</p>
 
-<p>This is a simple wrapper around <code>gdk_clipboard_read_value_async()</code>. Use
-that function or <code>gdk_clipboard_read_async()</code> directly if you need more
-control over the operation.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then
+call [method<code>Gdk.Clipboard.read_texture_finish</code>] to get the result.</p>
+
+<p>This is a simple wrapper around [method<code>Gdk.Clipboard.read_value_async</code>].
+Use that function or [methos<code>Gdk.Clipboard.read_async</code>] directly if you
+need more control over the operation.</p>
 
                       </div>
                       <div class="declaration">
@@ -9701,7 +9704,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1124-L1127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1142-L1145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9722,8 +9725,9 @@ control over the operation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous clipboard read started with
-<code>gdk_clipboard_read_texture_async()</code>.</p>
+                        <p>Finishes an asynchronous clipboard read.</p>
+
+<p>See [method<code>Gdk.Clipboard.read_texture_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9736,7 +9740,7 @@ control over the operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1131-L1136">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1150-L1155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9758,13 +9762,14 @@ control over the operation.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously request the <code>clipboard</code> contents converted to the given
-<code>type</code>. When the operation is finished <code>callback</code> will be called.
-You can then call <code>gdk_clipboard_read_value_finish()</code> to get the resulting
-<code>GValue</code>.</p>
+<code>type</code>.</p>
 
-<p>For local clipboard contents that are available in the given <code>GType</code>, the
-value will be copied directly. Otherwise, GDK will try to use
-<code>gdk_content_deserialize_async()</code> to convert the clipboard&rsquo;s data.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then call
+[method<code>Gdk.Clipboard.read_value_finish</code>] to get the resulting <code>GValue</code>.</p>
+
+<p>For local clipboard contents that are available in the given <code>GType</code>,
+the value will be copied directly. Otherwise, GDK will try to use
+[func<code>content_deserialize_async</code>] to convert the clipboard&rsquo;s data.</p>
 
                       </div>
                       <div class="declaration">
@@ -9777,7 +9782,7 @@ value will be copied directly. Otherwise, GDK will try to use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1146-L1149">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1166-L1169">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9799,13 +9804,14 @@ value will be copied directly. Otherwise, GDK will try to use
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously request the <code>clipboard</code> contents converted to the given
-<code>type</code>. When the operation is finished <code>callback</code> will be called.
-You can then call <code>gdk_clipboard_read_value_finish()</code> to get the resulting
-<code>GValue</code>.</p>
+<code>type</code>.</p>
 
-<p>For local clipboard contents that are available in the given <code>GType</code>, the
-value will be copied directly. Otherwise, GDK will try to use
-<code>gdk_content_deserialize_async()</code> to convert the clipboard&rsquo;s data.</p>
+<p>When the operation is finished <code>callback</code> will be called. You must then call
+[method<code>Gdk.Clipboard.read_value_finish</code>] to get the resulting <code>GValue</code>.</p>
+
+<p>For local clipboard contents that are available in the given <code>GType</code>,
+the value will be copied directly. Otherwise, GDK will try to use
+[func<code>content_deserialize_async</code>] to convert the clipboard&rsquo;s data.</p>
 
                       </div>
                       <div class="declaration">
@@ -9818,7 +9824,7 @@ value will be copied directly. Otherwise, GDK will try to use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1158-L1161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1179-L1182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9839,8 +9845,9 @@ value will be copied directly. Otherwise, GDK will try to use
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous clipboard read started with
-<code>gdk_clipboard_read_value_async()</code>.</p>
+                        <p>Finishes an asynchronous clipboard read.</p>
+
+<p>See [method<code>Gdk.Clipboard.read_value_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9853,7 +9860,7 @@ value will be copied directly. Otherwise, GDK will try to use
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1165-L1170">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1187-L1192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9874,9 +9881,10 @@ value will be copied directly. Otherwise, GDK will try to use
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets a new content provider on <code>clipboard</code>. The clipboard will claim the
-<code>GdkDisplay</code>&lsquo;s resources and advertise these new contents to other
-applications.</p>
+                        <p>Sets a new content provider on <code>clipboard</code>.</p>
+
+<p>The clipboard will claim the <code>GdkDisplay</code>&lsquo;s resources and advertise
+these new contents to other applications.</p>
 
 <p>In the rare case of a failure, this function will return <code>false</code>. The
 clipboard will then continue reporting its old contents and ignore
@@ -9897,7 +9905,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1187-L1190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1210-L1213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9918,9 +9926,10 @@ transfer the contents and then request that format from <code>provider</code>.</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets a new content provider on <code>clipboard</code>. The clipboard will claim the
-<code>GdkDisplay</code>&lsquo;s resources and advertise these new contents to other
-applications.</p>
+                        <p>Sets a new content provider on <code>clipboard</code>.</p>
+
+<p>The clipboard will claim the <code>GdkDisplay</code>&lsquo;s resources and advertise
+these new contents to other applications.</p>
 
 <p>In the rare case of a failure, this function will return <code>false</code>. The
 clipboard will then continue reporting its old contents and ignore
@@ -9941,7 +9950,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1202-L1205">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1226-L1229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9975,7 +9984,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1208-L1211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1232-L1235">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10009,7 +10018,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1214-L1217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1238-L1241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10030,8 +10039,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the clipboard to contain the value collected from the given
-<code>args</code>.</p>
+                        <p>Sets the clipboard to contain the value collected from the given <code>args</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10044,7 +10052,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1221-L1224">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1244-L1247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10078,7 +10086,7 @@ transfer the contents and then request that format from <code>provider</code>.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1227-L1230">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1250-L1253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10099,12 +10107,19 @@ transfer the contents and then request that format from <code>provider</code>.</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously instructs the <code>clipboard</code> to store its contents remotely to
-preserve them for later usage. If the clipboard is not local, this function
-does nothing but report success.</p>
+                        <p>Asynchronously instructs the <code>clipboard</code> to store its contents remotely.</p>
 
-<p>This function is called automatically when <code>gtk_main()</code> or <code>GtkApplication</code>
-exit, so you likely don&rsquo;t need to call it.</p>
+<p>If the clipboard is not local, this function does nothing but report success.</p>
+
+<p>The <code>callback</code> must call [method<code>Gdk.Clipboard.store_finish</code>].</p>
+
+<p>The purpose of this call is to preserve clipboard contents beyond the
+lifetime of an application, so this function is typically called on
+exit. Depending on the platform, the functionality may not be available
+unless a &ldquo;clipboard manager&rdquo; is running.</p>
+
+<p>This function is called automatically when a [class<code>Gtk.Application</code>] is
+shut down, so you likely don&rsquo;t need to call it.</p>
 
                       </div>
                       <div class="declaration">
@@ -10117,7 +10132,7 @@ exit, so you likely don&rsquo;t need to call it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1238-L1241">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1268-L1271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10138,12 +10153,19 @@ exit, so you likely don&rsquo;t need to call it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asynchronously instructs the <code>clipboard</code> to store its contents remotely to
-preserve them for later usage. If the clipboard is not local, this function
-does nothing but report success.</p>
+                        <p>Asynchronously instructs the <code>clipboard</code> to store its contents remotely.</p>
 
-<p>This function is called automatically when <code>gtk_main()</code> or <code>GtkApplication</code>
-exit, so you likely don&rsquo;t need to call it.</p>
+<p>If the clipboard is not local, this function does nothing but report success.</p>
+
+<p>The <code>callback</code> must call [method<code>Gdk.Clipboard.store_finish</code>].</p>
+
+<p>The purpose of this call is to preserve clipboard contents beyond the
+lifetime of an application, so this function is typically called on
+exit. Depending on the platform, the functionality may not be available
+unless a &ldquo;clipboard manager&rdquo; is running.</p>
+
+<p>This function is called automatically when a [class<code>Gtk.Application</code>] is
+shut down, so you likely don&rsquo;t need to call it.</p>
 
                       </div>
                       <div class="declaration">
@@ -10156,7 +10178,7 @@ exit, so you likely don&rsquo;t need to call it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1248-L1251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1285-L1288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10177,7 +10199,9 @@ exit, so you likely don&rsquo;t need to call it.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous clipboard store started with <code>gdk_clipboard_store_async()</code>.</p>
+                        <p>Finishes an asynchronous clipboard store.</p>
+
+<p>See [method<code>Gdk.Clipboard.store_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10190,7 +10214,7 @@ exit, so you likely don&rsquo;t need to call it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1254-L1259">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1293-L1298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10225,7 +10249,7 @@ provided otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1262-L1284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1301-L1325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10259,7 +10283,7 @@ provided otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1287-L1293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1328-L1334">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10293,7 +10317,7 @@ provided otherwise.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1296-L1302">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1337-L1343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10314,11 +10338,13 @@ provided otherwise.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns if the clipboard is local. A clipboard is considered local if it was
-last claimed by the running application.</p>
+                        <p>Returns if the clipboard is local.</p>
 
-<p>Note that <code>gdk_clipboard_get_content()</code> may return <code>nil</code> even on a local
-clipboard. In this case the clipboard is empty.</p>
+<p>A clipboard is considered local if it was last claimed
+by the running application.</p>
+
+<p>Note that [method<code>Gdk.Clipboard.get_content</code>] may return <code>nil</code>
+even on a local clipboard. In this case the clipboard is empty.</p>
 
                       </div>
                       <div class="declaration">
@@ -10331,7 +10357,7 @@ clipboard. In this case the clipboard is empty.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1309-L1319">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1352-L1364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10344,8 +10370,8 @@ clipboard. In this case the clipboard is empty.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

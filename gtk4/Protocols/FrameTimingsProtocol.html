@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7961,14 +7952,16 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/FrameTimingsRef.html">FrameTimingsRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>A <code>GdkFrameTimings</code> object holds timing information for a single frame
-of the application’s displays. To retrieve <code>GdkFrameTimings</code> objects,
-use <code>gdk_frame_clock_get_timings()</code> or <code>gdk_frame_clock_get_current_timings()</code>.
-The information in <code>GdkFrameTimings</code> is useful for precise synchronization
-of video with the event or audio streams, and for measuring
-quality metrics for the application’s display, such as latency and jitter.</p>
+of the application’s displays.</p>
+
+<p>To retrieve <code>GdkFrameTimings</code> objects, use [method<code>Gdk.FrameClock.get_timings</code>]
+or [method<code>Gdk.FrameClock.get_current_timings</code>]. The information in
+<code>GdkFrameTimings</code> is useful for precise synchronization of video with
+the event or audio streams, and for measuring quality metrics for the
+application’s display, such as latency and jitter.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L155-L164">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L157-L166">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8002,7 +7995,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L157">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8040,7 +8033,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8070,7 +8063,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8104,15 +8097,19 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The timing information in a <code>GdkFrameTimings</code> is filled in
+                        <p>Returns whether <code>timings</code> are complete.</p>
+
+<p>The timing information in a <code>GdkFrameTimings</code> is filled in
 incrementally as the frame as drawn and passed off to the
 window system for processing and display to the user. The
 accessor functions for <code>GdkFrameTimings</code> can return 0 to
 indicate an unavailable value for two reasons: either because
 the information is not yet available, or because it isn&rsquo;t
-available at all. Once <code>gdk_frame_timings_get_complete()</code> returns
-<code>true</code> for a frame, you can be certain that no further values
-will become available and be stored in the <code>GdkFrameTimings</code>.</p>
+available at all.</p>
+
+<p>Once this function returns <code>true</code> for a frame, you can be
+certain that no further values will become available and be
+stored in the <code>GdkFrameTimings</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8125,7 +8122,7 @@ will become available and be stored in the <code>GdkFrameTimings</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L427-L430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L437-L440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8146,7 +8143,7 @@ will become available and be stored in the <code>GdkFrameTimings</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the frame counter value of the <code>GdkFrameClock</code> when this
+                        <p>Gets the frame counter value of the <code>GdkFrameClock</code> when
 this frame was drawn.</p>
 
                       </div>
@@ -8160,7 +8157,7 @@ this frame was drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L434-L437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L444-L447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8181,9 +8178,10 @@ this frame was drawn.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the frame time for the frame. This is the time value
-that is typically used to time animations for the frame. See
-<code>gdk_frame_clock_get_frame_time()</code>.</p>
+                        <p>Returns the frame time for the frame.</p>
+
+<p>This is the time value that is typically used to time
+animations for the frame. See [method<code>Gdk.FrameClock.get_frame_time</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8196,7 +8194,7 @@ that is typically used to time animations for the frame. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L442-L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L453-L456">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8217,15 +8215,18 @@ that is typically used to time animations for the frame. See
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the predicted time at which this frame will be displayed. Although
-no predicted time may be available, if one is available, it will
-be available while the frame is being generated, in contrast to
-<code>gdk_frame_timings_get_presentation_time()</code>, which is only available
-after the frame has been presented. In general, if you are simply
-animating, you should use <code>gdk_frame_clock_get_frame_time()</code> rather
-than this function, but this function is useful for applications
-that want exact control over latency. For example, a movie player
-may want this information for Audio/Video synchronization.</p>
+                        <p>Gets the predicted time at which this frame will be displayed.</p>
+
+<p>Although no predicted time may be available, if one is available,
+it will be available while the frame is being generated, in contrast
+to [method<code>Gdk.FrameTimings.get_presentation_time</code>], which is only
+available after the frame has been presented.</p>
+
+<p>In general, if you are simply animating, you should use
+[method<code>Gdk.FrameClock.get_frame_time</code>] rather than this function,
+but this function is useful for applications that want exact control
+over latency. For example, a movie player may want this information
+for Audio/Video synchronization.</p>
 
                       </div>
                       <div class="declaration">
@@ -8238,7 +8239,7 @@ may want this information for Audio/Video synchronization.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L456-L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L470-L473">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8259,8 +8260,9 @@ may want this information for Audio/Video synchronization.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reurns the presentation time. This is the time at which the frame
-became visible to the user.</p>
+                        <p>Reurns the presentation time.</p>
+
+<p>This is the time at which the frame became visible to the user.</p>
 
                       </div>
                       <div class="declaration">
@@ -8273,7 +8275,7 @@ became visible to the user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L463-L466">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L478-L481">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8295,8 +8297,10 @@ became visible to the user.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the natural interval between presentation times for
-the display that this frame was displayed on. Frame presentation
-usually happens during the “vertical blanking interval”.</p>
+the display that this frame was displayed on.</p>
+
+<p>Frame presentation usually happens during the “vertical
+blanking interval”.</p>
 
                       </div>
                       <div class="declaration">
@@ -8309,7 +8313,7 @@ usually happens during the “vertical blanking interval”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L471-L474">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L488-L491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8344,7 +8348,7 @@ usually happens during the “vertical blanking interval”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L477-L480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L494-L497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8365,8 +8369,9 @@ usually happens during the “vertical blanking interval”.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decreases the reference count of <code>timings</code>. If <code>timings</code>
-is no longer referenced, it will be freed.</p>
+                        <p>Decreases the reference count of <code>timings</code>.</p>
+
+<p>If <code>timings</code> is no longer referenced, it will be freed.</p>
 
                       </div>
                       <div class="declaration">
@@ -8379,7 +8384,7 @@ is no longer referenced, it will be freed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L484-L487">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L502-L505">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8400,15 +8405,19 @@ is no longer referenced, it will be freed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The timing information in a <code>GdkFrameTimings</code> is filled in
+                        <p>Returns whether <code>timings</code> are complete.</p>
+
+<p>The timing information in a <code>GdkFrameTimings</code> is filled in
 incrementally as the frame as drawn and passed off to the
 window system for processing and display to the user. The
 accessor functions for <code>GdkFrameTimings</code> can return 0 to
 indicate an unavailable value for two reasons: either because
 the information is not yet available, or because it isn&rsquo;t
-available at all. Once <code>gdk_frame_timings_get_complete()</code> returns
-<code>true</code> for a frame, you can be certain that no further values
-will become available and be stored in the <code>GdkFrameTimings</code>.</p>
+available at all.</p>
+
+<p>Once this function returns <code>true</code> for a frame, you can be
+certain that no further values will become available and be
+stored in the <code>GdkFrameTimings</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8421,7 +8430,7 @@ will become available and be stored in the <code>GdkFrameTimings</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L497-L511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L519-L537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8442,7 +8451,7 @@ will become available and be stored in the <code>GdkFrameTimings</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the frame counter value of the <code>GdkFrameClock</code> when this
+                        <p>Gets the frame counter value of the <code>GdkFrameClock</code> when
 this frame was drawn.</p>
 
                       </div>
@@ -8456,7 +8465,7 @@ this frame was drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L515-L522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L541-L548">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8477,9 +8486,10 @@ this frame was drawn.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the frame time for the frame. This is the time value
-that is typically used to time animations for the frame. See
-<code>gdk_frame_clock_get_frame_time()</code>.</p>
+                        <p>Returns the frame time for the frame.</p>
+
+<p>This is the time value that is typically used to time
+animations for the frame. See [method<code>Gdk.FrameClock.get_frame_time</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8492,7 +8502,7 @@ that is typically used to time animations for the frame. See
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L527-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L554-L563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,15 +8523,18 @@ that is typically used to time animations for the frame. See
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the predicted time at which this frame will be displayed. Although
-no predicted time may be available, if one is available, it will
-be available while the frame is being generated, in contrast to
-<code>gdk_frame_timings_get_presentation_time()</code>, which is only available
-after the frame has been presented. In general, if you are simply
-animating, you should use <code>gdk_frame_clock_get_frame_time()</code> rather
-than this function, but this function is useful for applications
-that want exact control over latency. For example, a movie player
-may want this information for Audio/Video synchronization.</p>
+                        <p>Gets the predicted time at which this frame will be displayed.</p>
+
+<p>Although no predicted time may be available, if one is available,
+it will be available while the frame is being generated, in contrast
+to [method<code>Gdk.FrameTimings.get_presentation_time</code>], which is only
+available after the frame has been presented.</p>
+
+<p>In general, if you are simply animating, you should use
+[method<code>Gdk.FrameClock.get_frame_time</code>] rather than this function,
+but this function is useful for applications that want exact control
+over latency. For example, a movie player may want this information
+for Audio/Video synchronization.</p>
 
                       </div>
                       <div class="declaration">
@@ -8534,7 +8547,7 @@ may want this information for Audio/Video synchronization.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L546-L560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L577-L594">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8555,8 +8568,9 @@ may want this information for Audio/Video synchronization.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Reurns the presentation time. This is the time at which the frame
-became visible to the user.</p>
+                        <p>Reurns the presentation time.</p>
+
+<p>This is the time at which the frame became visible to the user.</p>
 
                       </div>
                       <div class="declaration">
@@ -8569,7 +8583,7 @@ became visible to the user.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L564-L571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L599-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8591,8 +8605,10 @@ became visible to the user.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the natural interval between presentation times for
-the display that this frame was displayed on. Frame presentation
-usually happens during the “vertical blanking interval”.</p>
+the display that this frame was displayed on.</p>
+
+<p>Frame presentation usually happens during the “vertical
+blanking interval”.</p>
 
                       </div>
                       <div class="declaration">
@@ -8605,7 +8621,7 @@ usually happens during the “vertical blanking interval”.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L576-L584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L614-L624">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8618,8 +8634,8 @@ usually happens during the “vertical blanking interval”.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

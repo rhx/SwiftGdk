@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,11 +7950,21 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/ContentSerializerProtocol.html">ContentSerializerProtocol</a></code> conformance.
 Use <code>ContentSerializerRef</code> only as an <code>unowned</code> reference to an existing <code>GdkContentSerializer</code> instance.</p>
 
-<p>A GdkContentSerializer is used to serialize content for inter-application
-data transfers.</p>
+<p>A <code>GdkContentSerializer</code> is used to serialize content for
+inter-application data transfers.</p>
+
+<p>The <code>GdkContentSerializer</code> transforms an object that is identified
+by a GType into a serialized form (i.e. a byte stream) that is
+identified by a mime type.</p>
+
+<p>GTK provides serializers and deserializers for common data types
+such as text, colors, images or file lists. To register your own
+serialization functions, use [func<code>content_register_serializer</code>].</p>
+
+<p>Also see [class<code>Gdk.ContentDeserializer</code>].</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2532-L2536">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2647-L2651">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8000,7 +8001,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8044,7 +8045,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2540-L2542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2655-L2657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8075,7 +8076,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2545-L2547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2660-L2662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8106,7 +8107,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2550-L2553">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2665-L2668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8137,7 +8138,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2556-L2559">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2671-L2674">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8168,7 +8169,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2562-L2565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2677-L2680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8199,7 +8200,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2568-L2571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2683-L2686">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8230,7 +8231,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2574-L2576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2689-L2691">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8261,7 +8262,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2579">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8293,7 +8294,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2583-L2585">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2698-L2700">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8325,7 +8326,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2589-L2591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2704-L2706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8357,7 +8358,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2595-L2597">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2710-L2712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8389,7 +8390,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2601-L2603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2716-L2718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8421,7 +8422,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2607-L2609">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2722-L2724">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8434,8 +8435,8 @@ data transfers.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

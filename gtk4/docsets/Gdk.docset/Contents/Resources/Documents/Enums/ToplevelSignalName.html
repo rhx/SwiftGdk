@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7958,7 +7949,7 @@
             <p>Undocumented</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L852-L923">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L887-L977">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7980,16 +7971,18 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Compute the desired size of the toplevel, given the information passed via
-the <code>GdkToplevelSize</code> object.</p>
+                        <p>Emitted when the size for the surface needs to be computed, when
+it is present.</p>
 
-<p>It will normally be emitted during or after <code>gdk_toplevel_present()</code>,
-depending on the configuration received by the windowing system. It may
-also be emitted at any other point in time, in response to the windowing
-system spontaneously changing the configuration.</p>
+<p>It will normally be emitted during or after [method<code>Gdk.Toplevel.present</code>],
+depending on the configuration received by the windowing system.
+It may also be emitted at any other point in time, in response
+to the windowing system spontaneously changing the configuration.</p>
 
-<p>It is the responsibility of the GdkToplevel user to handle this signal;
-failing to do so will result in an arbitrary size being used as a result.</p>
+<p>It is the responsibility of the toplevel user to handle this signal
+and compute the desired size of the toplevel, given the information
+passed via the [struct<code>Gdk.ToplevelSize</code>] object. Failing to do so
+will result in an arbitrary size being used as a result.</p>
 
                       </div>
                       <div class="declaration">
@@ -8001,7 +7994,7 @@ failing to do so will result in an arbitrary size being used as a result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L863">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L900">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8031,7 +8024,7 @@ failing to do so will result in an arbitrary size being used as a result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8061,7 +8054,7 @@ failing to do so will result in an arbitrary size being used as a result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L867">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L904">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8095,7 +8088,7 @@ be performed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L873">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L910">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8125,7 +8118,7 @@ be performed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L875">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L912">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8178,7 +8171,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L900">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L937">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8208,7 +8201,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L902">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8226,8 +8219,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The mouse pointer for a <code>GdkSurface</code>. See <code>gdk_surface_set_cursor()</code> and
-<code>gdk_surface_get_cursor()</code> for details.</p>
+                        <p>The mouse pointer for the <code>GdkSurface</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8239,7 +8231,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L905">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L941">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8257,7 +8249,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the window manager should add decorations.</p>
 
                       </div>
                       <div class="declaration">
@@ -8269,7 +8261,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L943">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8287,7 +8279,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the window manager should allow to close the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8299,7 +8291,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8317,8 +8309,7 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>GdkDisplay</code> connection of the surface. See <code>gdk_surface_get_display()</code>
-for details.</p>
+                        <p>The <code>GdkDisplay</code> connection of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8330,7 +8321,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L910">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L947">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8348,7 +8339,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The <code>GdkFrameClock</code> of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8360,7 +8351,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8378,7 +8369,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The fullscreen mode of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8390,7 +8381,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L951">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8408,7 +8399,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The height of the surface, in pixels.</p>
 
                       </div>
                       <div class="declaration">
@@ -8420,7 +8411,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L953">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8438,7 +8429,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A list of textures to use as icon.</p>
 
                       </div>
                       <div class="declaration">
@@ -8450,7 +8441,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8468,7 +8459,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the surface is mapped.</p>
 
                       </div>
                       <div class="declaration">
@@ -8480,7 +8471,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L957">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8498,7 +8489,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the surface is modal.</p>
 
                       </div>
                       <div class="declaration">
@@ -8510,7 +8501,37 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L959">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk18ToplevelSignalNameO17notifyScaleFactoryA2CmF"></a>
+                    <a name="//apple_ref/swift/Element/notifyScaleFactor" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk18ToplevelSignalNameO17notifyScaleFactoryA2CmF">notifyScaleFactor</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The scale factor of the surface.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notifyScaleFactor</span> <span class="o">=</span> <span class="s">"notify::scale-factor"</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8528,7 +8549,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the surface should inhibit keyboard shortcuts.</p>
 
                       </div>
                       <div class="declaration">
@@ -8540,7 +8561,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8558,7 +8579,10 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The startup ID of the surface.</p>
+
+<p>See [class<code>Gdk.AppLaunchContext</code>] for more information about
+startup feedback.</p>
 
                       </div>
                       <div class="declaration">
@@ -8570,7 +8594,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L968">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8588,7 +8612,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The state of the toplevel.</p>
 
                       </div>
                       <div class="declaration">
@@ -8600,7 +8624,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L970">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8618,7 +8642,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The title of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8630,7 +8654,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8648,7 +8672,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The transient parent of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8660,7 +8684,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L974">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8678,7 +8702,7 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The width of the surface in pixels.</p>
 
                       </div>
                       <div class="declaration">
@@ -8690,7 +8714,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8703,8 +8727,8 @@ for details.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

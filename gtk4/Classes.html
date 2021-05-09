@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Structs/DropRef.html">DropRef</a>
@@ -7983,24 +7974,23 @@
 It provides the methods that can operate on this data type through <code><a href="Protocols/AppLaunchContextProtocol.html">AppLaunchContextProtocol</a></code> conformance.
 Use <code>AppLaunchContext</code> as a strong reference or owner of a <code>GdkAppLaunchContext</code> instance.</p>
 
-<p>GdkAppLaunchContext is an implementation of <code>GAppLaunchContext</code> that
-handles launching an application in a graphical context. It provides
-startup notification and allows to launch applications on a specific
-screen or workspace.</p>
+<p><code>GdkAppLaunchContext</code> handles launching an application in a graphical context.</p>
+
+<p>It is an implementation of <code>GAppLaunchContext</code> that provides startup
+notification and allows to launch applications on a specific screen
+or workspace.</p>
 <h2 id='launching-an-application' class='heading'>Launching an application</h2>
+<pre class="highlight c"><code><span class="n">GdkAppLaunchContext</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
 
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>GdkAppLaunchContext *context;
+<span class="n">context</span> <span class="o">=</span> <span class="n">gdk_display_get_app_launch_context</span> <span class="p">(</span><span class="n">display</span><span class="p">);</span>
 
-context = gdk_display_get_app_launch_context (display);
+<span class="n">gdk_app_launch_context_set_display</span> <span class="p">(</span><span class="n">display</span><span class="p">);</span>
+<span class="n">gdk_app_launch_context_set_timestamp</span> <span class="p">(</span><span class="n">gdk_event_get_time</span> <span class="p">(</span><span class="n">event</span><span class="p">));</span>
 
-gdk_app_launch_context_set_display (display);
-gdk_app_launch_context_set_timestamp (gdk_event_get_time (event));
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">g_app_info_launch_default_for_uri</span> <span class="p">(</span><span class="s">"http://www.gtk.org"</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">))</span>
+  <span class="n">g_warning</span> <span class="p">(</span><span class="s">"Launching failed: `s`</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">error</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">message</span><span class="p">);</span>
 
-if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &amp;error))
-  g_warning ("Launching failed: %s\n", error-&gt;message);
-
-g_object_unref (context);
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 </code></pre>
 
                         <a href="Classes/AppLaunchContext.html" class="slightly-smaller">See more</a>
@@ -8014,7 +8004,7 @@ g_object_unref (context);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L187-L314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L184-L311">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8049,7 +8039,7 @@ g_object_unref (context);
 It provides the methods that can operate on this data type through <code><a href="Protocols/ButtonEventProtocol.html">ButtonEventProtocol</a></code> conformance.
 Use <code>ButtonEvent</code> as a strong reference or owner of a <code>GdkButtonEvent</code> instance.</p>
 
-<p>An event related to a button on a pointer device/</p>
+<p>An event related to a button on a pointer device.</p>
 
                         <a href="Classes/ButtonEvent.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8062,7 +8052,7 @@ Use <code>ButtonEvent</code> as a strong reference or owner of a <code>GdkButton
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L604-L731">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L608-L735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8100,9 +8090,9 @@ Use <code>CairoContext</code> as a strong reference or owner of a <code>GdkCairo
 <p><code>GdkCairoContext</code> is an object representing the platform-specific
 draw context.</p>
 
-<p><code>GdkCairoContexts</code> are created for a <code>GdkDisplay</code> using
-<code>gdk_surface_create_cairo_context()</code>, and the context can then be used
-to draw on that <code>GdkSurface</code>.</p>
+<p><code>GdkCairoContext</code>s are created for a surface using
+[method<code>Gdk.Surface.create_cairo_context</code>], and the context can then be used
+to draw on that surface.</p>
 
                         <a href="Classes/CairoContext.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8150,21 +8140,23 @@ to draw on that <code>GdkSurface</code>.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/ClipboardProtocol.html">ClipboardProtocol</a></code> conformance.
 Use <code>Clipboard</code> as a strong reference or owner of a <code>GdkClipboard</code> instance.</p>
 
-<p>The <code>GdkClipboard</code> object represents a clipboard of data shared
-between different applications or between different parts of
-the same application.</p>
+<p>The <code>GdkClipboard</code> object represents data shared between applications or
+inside an application.</p>
 
-<p>To get a GdkClipboard object, use <code>gdk_display_get_clipboard()</code> or
-<code>gdk_display_get_primary_clipboard()</code>. You can find out about the data that
-is currently available in a clipboard using <code>gdk_clipboard_get_formats()</code>.</p>
+<p>To get a <code>GdkClipboard</code> object, use [method<code>Gdk.Display.get_clipboard</code>] or
+[method<code>Gdk.Display.get_primary_clipboard</code>]. You can find out about the data
+that is currently available in a clipboard using
+[method<code>Gdk.Clipboard.get_formats</code>].</p>
 
-<p>To make text or image data available in a clipboard, use <code>gdk_clipboard_set_text()</code> or
-<code>gdk_clipboard_set_texture()</code>. For other data, you can use <code>gdk_clipboard_set_content()</code>,
-which takes a <code>GdkContentProvider</code> object.</p>
+<p>To make text or image data available in a clipboard, use
+[method<code>Gdk.Clipboard.set_text</code>] or [method<code>Gdk.Clipboard.set_texture</code>].
+For other data, you can use [method<code>Gdk.Clipboard.set_content</code>], which
+takes a [class<code>Gdk.ContentProvider</code>] object.</p>
 
-<p>To read textual or image data from a clipboard, use <code>gdk_clipboard_read_text_async()</code> or
-<code>gdk_clipboard_read_texture_async()</code>. For other data, use <code>gdk_clipboard_read_async()</code>,
-which provides a <code>GInputStream</code> object.</p>
+<p>To read textual or image data from a clipboard, use
+[method<code>Gdk.Clipboard.read_text_async</code>] or
+[method<code>Gdk.Clipboard.read_texture_async</code>]. For other data, use
+[method<code>Gdk.Clipboard.read_async</code>], which provides a <code>GInputStream</code> object.</p>
 
                         <a href="Classes/Clipboard.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8177,7 +8169,7 @@ which provides a <code>GInputStream</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L534-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L542-L669">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8212,8 +8204,17 @@ which provides a <code>GInputStream</code> object.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/ContentDeserializerProtocol.html">ContentDeserializerProtocol</a></code> conformance.
 Use <code>ContentDeserializer</code> as a strong reference or owner of a <code>GdkContentDeserializer</code> instance.</p>
 
-<p>A GdkContentDeserializer is used to deserialize content received via
+<p>A <code>GdkContentDeserializer</code> is used to deserialize content received via
 inter-application data transfers.</p>
+
+<p>The <code>GdkContentDeserializer</code> transforms serialized content that is
+identified by a mime type into an object identified by a GType.</p>
+
+<p>GTK provides serializers and deserializers for common data types
+such as text, colors, images or file lists. To register your own
+deserialization functions, use [func<code>content_register_deserializer</code>].</p>
+
+<p>Also see [class<code>Gdk.ContentSerializer</code>].</p>
 
                         <a href="Classes/ContentDeserializer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8226,7 +8227,7 @@ inter-application data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1439-L1566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1511-L1638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8261,15 +8262,15 @@ inter-application data transfers.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/ContentProviderProtocol.html">ContentProviderProtocol</a></code> conformance.
 Use <code>ContentProvider</code> as a strong reference or owner of a <code>GdkContentProvider</code> instance.</p>
 
-<p>A GdkContentProvider is used to provide content for the clipboard in
-a number of formats.</p>
+<p>A <code>GdkContentProvider</code> is used to provide content for the clipboard or
+for drag-and-drop operations in a number of formats.</p>
 
-<p>To create a GdkContentProvider, use <code>gdk_content_provider_new_for_value()</code> or
-<code>gdk_content_provider_new_for_bytes()</code>.</p>
+<p>To create a <code>GdkContentProvider</code>, use [ctor<code>Gdk.ContentProvider.new_for_value</code>]
+or [ctor<code>Gdk.ContentProvider.new_for_bytes</code>].</p>
 
 <p>GDK knows how to handle common text and image formats out-of-the-box. See
-<code>GdkContentSerializer</code> and <code>GdkContentDeserializer</code> if you want to add support
-for application-specific data formats.</p>
+[class<code>Gdk.ContentSerializer</code>] and [class<code>Gdk.ContentDeserializer</code>] if you want
+to add support for application-specific data formats.</p>
 
                         <a href="Classes/ContentProvider.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8282,7 +8283,7 @@ for application-specific data formats.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1958-L2167">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2051-L2256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8317,8 +8318,18 @@ for application-specific data formats.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/ContentSerializerProtocol.html">ContentSerializerProtocol</a></code> conformance.
 Use <code>ContentSerializer</code> as a strong reference or owner of a <code>GdkContentSerializer</code> instance.</p>
 
-<p>A GdkContentSerializer is used to serialize content for inter-application
-data transfers.</p>
+<p>A <code>GdkContentSerializer</code> is used to serialize content for
+inter-application data transfers.</p>
+
+<p>The <code>GdkContentSerializer</code> transforms an object that is identified
+by a GType into a serialized form (i.e. a byte stream) that is
+identified by a mime type.</p>
+
+<p>GTK provides serializers and deserializers for common data types
+such as text, colors, images or file lists. To register your own
+serialization functions, use [func<code>content_register_serializer</code>].</p>
+
+<p>Also see [class<code>Gdk.ContentDeserializer</code>].</p>
 
                         <a href="Classes/ContentSerializer.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8331,7 +8342,7 @@ data transfers.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2619-L2746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2744-L2871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8379,7 +8390,7 @@ Use <code>CrossingEvent</code> as a strong reference or owner of a <code>GdkCros
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3035-L3162">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3185-L3312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8414,10 +8425,39 @@ Use <code>CrossingEvent</code> as a strong reference or owner of a <code>GdkCros
 It provides the methods that can operate on this data type through <code><a href="Protocols/CursorProtocol.html">CursorProtocol</a></code> conformance.
 Use <code>Cursor</code> as a strong reference or owner of a <code>GdkCursor</code> instance.</p>
 
-<p>A <code>GdkCursor</code> represents a cursor. Its contents are private.</p>
+<p><code>GdkCursor</code> is used to create and destroy cursors.</p>
 
-<p>Cursors are immutable objects, so they can not change after
-they have been constructed.</p>
+<p>Cursors are immutable objects, so once you created them, there is no way
+to modify them later. You should create a new cursor when you want to change
+something about it.</p>
+
+<p>Cursors by themselves are not very interesting: they must be bound to a
+window for users to see them. This is done with [method<code>Gdk.Surface.set_cursor</code>]
+or [method<code>Gdk.Surface.set_device_cursor</code>]. Applications will typically
+use higher-level GTK functions such as [method<code>Gtk.Widget.set_cursor</code>]`
+instead.</p>
+
+<p>Cursors are not bound to a given [class<code>Gdk.Display</code>], so they can be shared.
+However, the appearance of cursors may vary when used on different
+platforms.</p>
+<h2 id='named-and-texture-cursors' class='heading'>Named and texture cursors</h2>
+
+<p>There are multiple ways to create cursors. The platform&rsquo;s own cursors
+can be created with [ctor<code>Gdk.Cursor.new_from_name</code>]. That function lists
+the commonly available names that are shared with the CSS specification.
+Other names may be available, depending on the platform in use. On some
+platforms, what images are used for named cursors may be influenced by
+the cursor theme.</p>
+
+<p>Another option to create a cursor is to use [ctor<code>Gdk.Cursor.new_from_texture</code>]
+and provide an image to use for the cursor.</p>
+
+<p>To ease work with unsupported cursors, a fallback cursor can be provided.
+If a [class<code>Gdk.Surface</code>] cannot use a cursor because of the reasons mentioned
+above, it will try the fallback cursor. Fallback cursors can themselves have
+fallback cursors again, so it is possible to provide a chain of progressively
+easier to support cursors. If none of the provided cursors can be supported,
+the default cursor will be the ultimate fallback.</p>
 
                         <a href="Classes/Cursor.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8430,7 +8470,7 @@ they have been constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3442-L3673">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3636-L3821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8478,7 +8518,7 @@ Use <code>DNDEvent</code> as a strong reference or owner of a <code>GdkDNDEvent<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4004-L4131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4187-L4314">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,33 +8553,38 @@ Use <code>DNDEvent</code> as a strong reference or owner of a <code>GdkDNDEvent<
 It provides the methods that can operate on this data type through <code><a href="Protocols/ContentFormatsProtocol.html">ContentFormatsProtocol</a></code> conformance.
 Use <code>ContentFormats</code> as a strong reference or owner of a <code>GdkContentFormats</code> instance.</p>
 
-<p>This section describes the <code>GdkContentFormats</code> structure that is used to
-advertise and negotiate the format of content passed between different
-widgets, windows or applications using for example the clipboard or
-drag&#39;n&#39;drop.</p>
+<p>The <code>GdkContentFormats</code> structure is used to advertise and negotiate the
+format of content.</p>
+
+<p>You will encounter <code>GdkContentFormats</code> when interacting with objects
+controlling operations that pass data between different widgets, window
+or application, like [class<code>Gdk.Drag</code>], [class<code>Gdk.Drop</code>],
+[class<code>Gdk.Clipboard</code>] or [class<code>Gdk.ContentProvider</code>].</p>
 
 <p>GDK supports content in 2 forms: <code>GType</code> and mime type.
 Using <code>GTypes</code> is meant only for in-process content transfers. Mime types
 are meant to be used for data passing both in-process and out-of-process.
 The details of how data is passed is described in the documentation of
-the actual implementations.</p>
+the actual implementations. To transform between the two forms,
+[class<code>Gdk.ContentSerializer</code>] and [class<code>Gdk.ContentDeserializer</code>] are used.</p>
 
 <p>A <code>GdkContentFormats</code> describes a set of possible formats content can be
 exchanged in. It is assumed that this set is ordered. <code>GTypes</code> are more
 important than mime types. Order between different <code>GTypes</code> or mime types
 is the order they were added in, most important first. Functions that
-care about order, such as <code>gdk_content_formats_union()</code> will describe in
-their documentation how they interpret that order, though in general the
+care about order, such as [method<code>Gdk.ContentFormats.union</code>], will describe
+in their documentation how they interpret that order, though in general the
 order of the first argument is considered the primary order of the result,
 followed by the order of further arguments.</p>
 
-<p>For debugging purposes, the function <code>gdk_content_formats_to_string()</code> exists.
-It will print a comma-seperated formats of formats from most important to least
-important.</p>
+<p>For debugging purposes, the function [method<code>Gdk.ContentFormats.to_string</code>]
+exists. It will print a comma-separated list of formats from most important
+to least important.</p>
 
 <p><code>GdkContentFormats</code> is an immutable struct. After creation, you cannot change
 the types it represents. Instead, new <code>GdkContentFormats</code> have to be created.
-The <code>GdkContentFormatsBuilder</code> structure is meant to help in this endeavor.</p>
+The [struct<code>Gdk.ContentFormatsBuilder</code>]` structure is meant to help in this
+endeavor.</p>
 
                         <a href="Classes/ContentFormats.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8552,7 +8597,7 @@ The <code>GdkContentFormatsBuilder</code> structure is meant to help in this end
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L219-L381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L234-L396">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8587,9 +8632,8 @@ The <code>GdkContentFormatsBuilder</code> structure is meant to help in this end
 It provides the methods that can operate on this data type through <code><a href="Protocols/ContentFormatsBuilderProtocol.html">ContentFormatsBuilderProtocol</a></code> conformance.
 Use <code>ContentFormatsBuilder</code> as a strong reference or owner of a <code>GdkContentFormatsBuilder</code> instance.</p>
 
-<p>A <code>GdkContentFormatsBuilder</code> struct is an opaque struct. It is meant to
-not be kept around and only be used to create new <code>GdkContentFormats</code>
-objects.</p>
+<p>A <code>GdkContentFormatsBuilder</code> is an auxiliary struct used to create
+new <code>GdkContentFormats</code>, and should not be kept around.</p>
 
                         <a href="Classes/ContentFormatsBuilder.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8602,7 +8646,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L634-L783">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L654-L804">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8685,11 +8729,11 @@ Use <code>DeleteEvent</code> as a strong reference or owner of a <code>GdkDelete
 It provides the methods that can operate on this data type through <code><a href="Protocols/DeviceProtocol.html">DeviceProtocol</a></code> conformance.
 Use <code>Device</code> as a strong reference or owner of a <code>GdkDevice</code> instance.</p>
 
-<p>The <code>GdkDevice</code> object represents a single input device, such
-as a keyboard, a mouse, a touchpad, etc.</p>
+<p>The <code>GdkDevice</code> object represents an input device, such
+as a keyboard, a mouse, or a touchpad.</p>
 
-<p>See the <code>GdkSeat</code> documentation for more information about the
-various kinds of devices, and their relationships.</p>
+<p>See the [class<code>Gdk.Seat</code>] documentation for more information
+about the various kinds of devices, and their relationships.</p>
 
                         <a href="Classes/Device.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8750,7 +8794,7 @@ Use <code>DeviceTool</code> as a strong reference or owner of a <code>GdkDeviceT
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L1997-L2124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2094-L2221">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8785,7 +8829,7 @@ Use <code>DeviceTool</code> as a strong reference or owner of a <code>GdkDeviceT
 It provides the methods that can operate on this data type through <code><a href="Protocols/DisplayProtocol.html">DisplayProtocol</a></code> conformance.
 Use <code>Display</code> as a strong reference or owner of a <code>GdkDisplay</code> instance.</p>
 
-<p>GdkDisplay objects are the GDK representation of a workstation.</p>
+<p><code>GdkDisplay</code> objects are the GDK representation of a workstation.</p>
 
 <p>Their purpose are two-fold:</p>
 
@@ -8794,12 +8838,13 @@ Use <code>Display</code> as a strong reference or owner of a <code>GdkDisplay</c
 <li>To manage and provide information about output devices (monitors, projectors, etc)</li>
 </ul>
 
-<p>Most of the input device handling has been factored out into separate <code>GdkSeat</code>
-objects. Every display has a one or more seats, which can be accessed with
-<code>gdk_display_get_default_seat()</code> and <code>gdk_display_list_seats()</code>.</p>
+<p>Most of the input device handling has been factored out into separate
+[class<code>Gdk.Seat</code>] objects. Every display has a one or more seats, which
+can be accessed with [method<code>Gdk.Display.get_default_seat</code>] and
+[method<code>Gdk.Display.list_seats</code>].</p>
 
-<p>Output devices are represented by <code>GdkMonitor</code> objects, which can be accessed
-with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
+<p>Output devices are represented by [class<code>Gdk.Monitor</code>] objects, which can
+be accessed with [method<code>Gdk.Display.get_monitor_at_surface</code>] and similar APIs.</p>
 
                         <a href="Classes/Display.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8812,7 +8857,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2468-L2610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2592-L2735">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8847,11 +8892,10 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/DisplayManagerProtocol.html">DisplayManagerProtocol</a></code> conformance.
 Use <code>DisplayManager</code> as a strong reference or owner of a <code>GdkDisplayManager</code> instance.</p>
 
-<p>The purpose of the <code>GdkDisplayManager</code> singleton object is to offer
-notification when displays appear or disappear or the default display
-changes.</p>
+<p>A singleton object that offers notification when displays appear or
+disappear.</p>
 
-<p>You can use <code>gdk_display_manager_get()</code> to obtain the <code>GdkDisplayManager</code>
+<p>You can use [func<code>Gdk.DisplayManager.get</code>] to obtain the <code>GdkDisplayManager</code>
 singleton, but that should be rarely necessary. Typically, initializing
 GTK opens a display that you can work with without ever accessing the
 <code>GdkDisplayManager</code>.</p>
@@ -8860,30 +8904,32 @@ GTK opens a display that you can work with without ever accessing the
 The <code>GdkDisplayManager</code> object determines which backend is used
 at runtime.</p>
 
+<p>In the rare case that you need to influence which of the backends
+is being used, you can use [func<code>Gdk.set_allowed_backends</code>]. Note
+that you need to call this function before initializing GTK.</p>
+<h2 id='backend-specific-code' class='heading'>Backend-specific code</h2>
+
 <p>When writing backend-specific code that is supposed to work with
 multiple GDK backends, you have to consider both compile time and
 runtime. At compile time, use the <code>GDK_WINDOWING_X11</code>, <code>GDK_WINDOWING_WIN32</code>
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
 macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in use:</p>
-<h2 id='backend-specific-code-a-name-backend-specific-a' class='heading'>Backend-specific code ## <a name="backend-specific"></a></h2>
-
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>#ifdef GDK_WINDOWING_X11
-  if (GDK_IS_X11_DISPLAY (display))
-    {
-      // make X11-specific calls here
-    }
-  else
-#endif
-#ifdef GDK_WINDOWING_MACOS
-  if (GDK_IS_MACOS_DISPLAY (display))
-    {
-      // make Quartz-specific calls here
-    }
-  else
-#endif
-  g_error ("Unsupported GDK backend");
+<pre class="highlight c"><code><span class="err">`</span><span class="n">ifdef</span><span class="err">`</span> <span class="n">GDK_WINDOWING_X11</span>
+  <span class="nf">if</span> <span class="p">(</span><span class="n">GDK_IS_X11_DISPLAY</span> <span class="p">(</span><span class="n">display</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// make X11-specific calls here</span>
+    <span class="p">}</span>
+  <span class="k">else</span>
+<span class="err">`</span><span class="n">endif</span><span class="err">`</span>
+<span class="err">`</span><span class="n">ifdef</span><span class="err">`</span> <span class="n">GDK_WINDOWING_MACOS</span>
+  <span class="nf">if</span> <span class="p">(</span><span class="n">GDK_IS_MACOS_DISPLAY</span> <span class="p">(</span><span class="n">display</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// make Quartz-specific calls here</span>
+    <span class="p">}</span>
+  <span class="k">else</span>
+<span class="err">`</span><span class="n">endif</span><span class="err">`</span>
+  <span class="n">g_error</span> <span class="p">(</span><span class="s">"Unsupported GDK backend"</span><span class="p">);</span>
 </code></pre>
 
                         <a href="Classes/DisplayManager.html" class="slightly-smaller">See more</a>
@@ -8897,7 +8943,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3650-L3789">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3780-L3921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8932,8 +8978,16 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
 It provides the methods that can operate on this data type through <code><a href="Protocols/DragProtocol.html">DragProtocol</a></code> conformance.
 Use <code>Drag</code> as a strong reference or owner of a <code>GdkDrag</code> instance.</p>
 
-<p>The GdkDrag struct contains only private fields and
-should not be accessed directly.</p>
+<p>The <code>GdkDrag</code> object represents the source of an ongoing DND operation.</p>
+
+<p>A <code>GdkDrag</code> is created when a drag is started, and stays alive for duration of
+the DND operation. After a drag has been started with [func<code>Gdk.Drag.begin</code>],
+the caller gets informed about the status of the ongoing drag operation
+with signals on the <code>GdkDrag</code> object.</p>
+
+<p>GTK provides a higher level abstraction based on top of these functions,
+and so they are not normally needed in GTK applications. See the
+&ldquo;Drag and Drop&rdquo; section of the GTK documentation for more information.</p>
 
                         <a href="Classes/Drag.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8946,7 +9000,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L4160-L4305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L4319-L4465">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8981,13 +9035,15 @@ should not be accessed directly.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/DrawContextProtocol.html">DrawContextProtocol</a></code> conformance.
 Use <code>DrawContext</code> as a strong reference or owner of a <code>GdkDrawContext</code> instance.</p>
 
+<p>Base class for objects implementing different rendering methods.</p>
+
 <p><code>GdkDrawContext</code> is the base object used by contexts implementing different
-rendering methods, such as <code>GdkGLContext</code> or <code>GdkVulkanContext</code>. It provides
-shared functionality between those contexts.</p>
+rendering methods, such as [class<code>Gdk.CairoContext</code>] or [class<code>Gdk.GLContext</code>].
+It provides shared functionality between those contexts.</p>
 
 <p>You will always interact with one of those subclasses.</p>
 
-<p>A GdkDrawContext is always associated with a single toplevel surface.</p>
+<p>A <code>GdkDrawContext</code> is always associated with a single toplevel surface.</p>
 
                         <a href="Classes/DrawContext.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9000,7 +9056,7 @@ shared functionality between those contexts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5165-L5292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5344-L5471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9035,8 +9091,20 @@ shared functionality between those contexts.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/DropProtocol.html">DropProtocol</a></code> conformance.
 Use <code>Drop</code> as a strong reference or owner of a <code>GdkDrop</code> instance.</p>
 
-<p>The GdkDrop struct contains only private fields and
-should not be accessed directly.</p>
+<p>The <code>GdkDrop</code> object represents the target of an ongoing DND operation.</p>
+
+<p>Possible drop sites get informed about the status of the ongoing drag
+operation with events of type <code>GDK_DRAG_ENTER</code>, <code>GDK_DRAG_LEAVE</code>,
+<code>GDK_DRAG_MOTION</code> and <code>GDK_DROP_START</code>. The <code>GdkDrop</code> object can be obtained
+from these [class<code>Gdk.Event</code>] types using [method<code>Gdk.DNDEvent.get_drop</code>].</p>
+
+<p>The actual data transfer is initiated from the target side via an async
+read, using one of the <code>GdkDrop</code> methods for this purpose:
+[method<code>Gdk.Drop.read_async</code>] or [method<code>Gdk.Drop.read_value_async</code>].</p>
+
+<p>GTK provides a higher level abstraction based on top of these functions,
+and so they are not normally needed in GTK applications. See the
+&ldquo;Drag and Drop&rdquo; section of the GTK documentation for more information.</p>
 
                         <a href="Classes/Drop.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9049,7 +9117,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5632-L5759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5849-L5976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9084,8 +9152,12 @@ should not be accessed directly.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/EventProtocol.html">EventProtocol</a></code> conformance.
 Use <code>Event</code> as a strong reference or owner of a <code>GdkEvent</code> instance.</p>
 
-<p>The GdkEvent struct contains only private fields and
-should not be accessed directly.</p>
+<p><code>GdkEvent</code>s are immutable data structures, created by GDK to
+represent windowing system events.</p>
+
+<p>In GTK applications the events are handled automatically by toplevel
+widgets and passed on to the event controllers of appropriate widgets,
+so using <code>GdkEvent</code> and its related API is rarely needed.</p>
 
                         <a href="Classes/Event.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9098,7 +9170,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6191-L6333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6436-L6578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9134,21 +9206,22 @@ It provides the methods that can operate on this data type through <code><a href
 Use <code>DevicePad</code> as a strong reference or owner of a <code>GdkDevicePad</code> instance.</p>
 
 <p><code>GdkDevicePad</code> is an interface implemented by devices of type
-<code>GDK_SOURCE_TABLET_PAD</code>, it allows querying the features provided
-by the pad device.</p>
+<code>GDK_SOURCE_TABLET_PAD</code></p>
+
+<p>It allows querying the features provided by the pad device.</p>
 
 <p>Tablet pads may contain one or more groups, each containing a subset
-of the buttons/rings/strips available. <code>gdk_device_pad_get_n_groups()</code>
-can be used to obtain the number of groups, <code>gdk_device_pad_get_n_features()</code>
-and <code>gdk_device_pad_get_feature_group()</code> can be combined to find out the
-number of buttons/rings/strips the device has, and how are they grouped.</p>
+of the buttons/rings/strips available. [method<code>Gdk.DevicePad.get_n_groups</code>]
+can be used to obtain the number of groups, [method<code>Gdk.DevicePad.get_n_features</code>]
+and [method<code>Gdk.DevicePad.get_feature_group</code>] can be combined to find out
+the number of buttons/rings/strips the device has, and how are they grouped.</p>
 
 <p>Each of those groups have different modes, which may be used to map each
 individual pad feature to multiple actions. Only one mode is effective
 (current) for each given group, different groups may have different
 current modes. The number of available modes in a group can be found
-out through <code>gdk_device_pad_get_group_n_modes()</code>, and the current mode for
-a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</code>.</p>
+out through [method<code>Gdk.DevicePad.get_group_n_modes</code>], and the current mode
+for a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</code>.</p>
 
                         <a href="Classes/DevicePad.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9161,7 +9234,7 @@ a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L169-L296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L172-L299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9196,8 +9269,7 @@ a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</
 It provides the methods that can operate on this data type through <code><a href="Protocols/DragSurfaceProtocol.html">DragSurfaceProtocol</a></code> conformance.
 Use <code>DragSurface</code> as a strong reference or owner of a <code>GdkDragSurface</code> instance.</p>
 
-<p>A <code>GdkDragSurface</code> is an interface implemented by <code>GdkSurfaces</code> used
-during a DND operation.</p>
+<p>A <code>GdkDragSurface</code> is an interface for surfaces used during DND.</p>
 
                         <a href="Classes/DragSurface.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9210,7 +9282,7 @@ during a DND operation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L613-L740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L664-L791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9245,47 +9317,51 @@ during a DND operation.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/PaintableProtocol.html">PaintableProtocol</a></code> conformance.
 Use <code>Paintable</code> as a strong reference or owner of a <code>GdkPaintable</code> instance.</p>
 
-<p><code>GdkPaintable</code> is a simple interface used by GDK and GTK to represent
-objects that can be painted anywhere at any size without requiring any
-sort of layout. The interface is inspired by similar concepts elsewhere,
-such as <a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
+<p><code>GdkPaintable</code> is a simple interface used by GTK to represent content that
+can be painted.</p>
+
+<p>The content of a <code>GdkPaintable</code> can be painted anywhere at any size
+without requiring any sort of layout. The interface is inspired by
+similar concepts elsewhere, such as
+<a href="https://developer.gnome.org/clutter/stable/ClutterContent.html">ClutterContent</a>,
 <a href="https://www.w3.org/TR/css-images-4/%60paint-source%60">HTML/CSS Paint Sources</a>,
 or <a href="https://www.w3.org/TR/SVG2/pservers.html">SVG Paint Servers</a>.</p>
 
 <p>A <code>GdkPaintable</code> can be snapshot at any time and size using
-<code>gdk_paintable_snapshot()</code>. How the paintable interprets that size and if it
-scales or centers itself into the given rectangle is implementation defined,
-though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what to do, it
-is suggested that you scale your paintable ignoring any potential aspect ratio.</p>
+[method<code>Gdk.Paintable.snapshot</code>]. How the paintable interprets that size and
+if it scales or centers itself into the given rectangle is implementation
+defined, though if you are implementing a <code>GdkPaintable</code> and don&rsquo;t know what
+to do, it is suggested that you scale your paintable ignoring any potential
+aspect ratio.</p>
 
-<p>The contents that a <code>GdkPaintable</code> produces may depend on the <code>GdkSnapshot</code> passed
-to it. For example, paintables may decide to use more detailed images on higher
-resolution screens or when OpenGL is available. A <code>GdkPaintable</code> will however
-always produce the same output for the same snapshot.</p>
+<p>The contents that a <code>GdkPaintable</code> produces may depend on the [class<code>GdkSnapshot</code>]
+passed to it. For example, paintables may decide to use more detailed images
+on higher resolution screens or when OpenGL is available. A <code>GdkPaintable</code>
+will however always produce the same output for the same snapshot.</p>
 
-<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce a
-different output with the same snapshot. Once that happens, it will call
-<code>gdk_paintable_invalidate_contents()</code> which will emit the
-<code>GdkPaintable::invalidate-contents</code> signal. If a paintable is known to never
-change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code> flag.
-If a consumer cannot deal with changing contents, it may call
-<code>gdk_paintable_get_current_image()</code> which will return a static paintable and
-use that.</p>
+<p>A <code>GdkPaintable</code> may change its contents, meaning that it will now produce
+a different output with the same snapshot. Once that happens, it will call
+[method<code>Gdk.Paintable.invalidate_contents</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-contents</code>] signal. If a paintable is known
+to never change its contents, it will set the <code>GDK_PAINTABLE_STATIC_CONTENTS</code>
+flag. If a consumer cannot deal with changing contents, it may call
+[method<code>Gdk.Paintable.get_current_image</code>] which will return a static
+paintable and use that.</p>
 
 <p>A paintable can report an intrinsic (or preferred) size or aspect ratio it
 wishes to be rendered at, though it doesn&rsquo;t have to. Consumers of the interface
-can use this information to layout thepaintable appropriately.
-Just like the contents, the size of a paintable can change. A paintable will
-indicate this by calling <code>gdk_paintable_invalidate_size()</code> which will emit the
-<code>GdkPaintable::invalidate-size</code> signal.
-And just like for contents, if a paintable is known to never change its size,
-it will set the <code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
+can use this information to layout thepaintable appropriately. Just like the
+contents, the size of a paintable can change. A paintable will indicate this
+by calling [method<code>Gdk.Paintable.invalidate_size</code>] which will emit the
+[signal<code>GdkPaintable::invalidate-size</code>] signal. And just like for contents,
+if a paintable is known to never change its size, it will set the
+<code>GDK_PAINTABLE_STATIC_SIZE</code> flag.</p>
 
 <p>Besides API for applications, there are some functions that are only
 useful for implementing subclasses and should not be used by applications:
-<code>gdk_paintable_invalidate_contents()</code>,
-<code>gdk_paintable_invalidate_size()</code>,
-<code>gdk_paintable_new_empty()</code>.</p>
+[method<code>Gdk.Paintable.invalidate_contents</code>],
+[method<code>Gdk.Paintable.invalidate_size</code>],
+[func<code>Gdk.Paintable.new_empty</code>].</p>
 
                         <a href="Classes/Paintable.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9298,53 +9374,7 @@ useful for implementing subclasses and should not be used by applications:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1112-L1262">Show on GitHub</a>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/DrawingContext%20Record"></a>
-                <a name="//apple_ref/swift/Section/DrawingContext Record" class="dashAnchor"></a>
-                <div class="section-name-container">
-                  <a class="section-name-link" href="#/DrawingContext%20Record"></a>
-                  <h3 class="section-name"><p>DrawingContext Record</p>
-</h3>
-                </div>
-              </div>
-              <ul class="item-container">
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:3Gdk14DrawingContextC"></a>
-                    <a name="//apple_ref/swift/Class/DrawingContext" class="dashAnchor"></a>
-                    <a class="token" href="#/s:3Gdk14DrawingContextC">DrawingContext</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The <code>DrawingContext</code> type acts as an owner of an underlying <code>GdkDrawingContext</code> instance.
-It provides the methods that can operate on this data type through <code><a href="Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a></code> conformance.
-Use <code>DrawingContext</code> as a strong reference or owner of a <code>GdkDrawingContext</code> instance.</p>
-
-                        <a href="Classes/DrawingContext.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">DrawingContext</span> <span class="p">:</span> <span class="kt"><a href="Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DragSurfaceInterface-EventSequence.swift#L249-L391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L1185-L1337">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9379,7 +9409,7 @@ Use <code>DrawingContext</code> as a strong reference or owner of a <code>GdkDra
 It provides the methods that can operate on this data type through <code><a href="Protocols/EventSequenceProtocol.html">EventSequenceProtocol</a></code> conformance.
 Use <code>EventSequence</code> as a strong reference or owner of a <code>GdkEventSequence</code> instance.</p>
 
-<p>GdkEventSequence is an opaque type representing a sequence
+<p><code>GdkEventSequence</code> is an opaque type representing a sequence
 of related touch events.</p>
 
                         <a href="Classes/EventSequence.html" class="slightly-smaller">See more</a>
@@ -9393,7 +9423,7 @@ of related touch events.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DragSurfaceInterface-EventSequence.swift#L519-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DragSurfaceInterface-EventSequence.swift#L252-L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9428,7 +9458,7 @@ of related touch events.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/FocusEventProtocol.html">FocusEventProtocol</a></code> conformance.
 Use <code>FocusEvent</code> as a strong reference or owner of a <code>GdkFocusEvent</code> instance.</p>
 
-<p>An event related to a focus change.</p>
+<p>An event related to a keyboard focus change.</p>
 
                         <a href="Classes/FocusEvent.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9477,37 +9507,37 @@ It provides the methods that can operate on this data type through <code><a href
 Use <code>FrameClock</code> as a strong reference or owner of a <code>GdkFrameClock</code> instance.</p>
 
 <p>A <code>GdkFrameClock</code> tells the application when to update and repaint
-a surface. This may be synced to the vertical refresh rate of the
-monitor, for example. Even when the frame clock uses a simple timer
-rather than a hardware-based vertical sync, the frame clock helps
-because it ensures everything paints at the same time (reducing the
-total number of frames). The frame clock can also automatically
-stop painting when it knows the frames will not be visible, or
-scale back animation framerates.</p>
+a surface.</p>
 
-<p><code>GdkFrameClock</code> is designed to be compatible with an OpenGL-based
-implementation or with mozRequestAnimationFrame in Firefox,
-for example.</p>
+<p>This may be synced to the vertical refresh rate of the monitor, for example.
+Even when the frame clock uses a simple timer rather than a hardware-based
+vertical sync, the frame clock helps because it ensures everything paints at
+the same time (reducing the total number of frames).</p>
+
+<p>The frame clock can also automatically stop painting when it knows the frames
+will not be visible, or scale back animation framerates.</p>
+
+<p><code>GdkFrameClock</code> is designed to be compatible with an OpenGL-based implementation
+or with mozRequestAnimationFrame in Firefox, for example.</p>
 
 <p>A frame clock is idle until someone requests a frame with
-<code>gdk_frame_clock_request_phase()</code>. At some later point that makes
-sense for the synchronization being implemented, the clock will
-process a frame and emit signals for each phase that has been
-requested. (See the signals of the <code>GdkFrameClock</code> class for
-documentation of the phases. <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the
-<code>GdkFrameClock::update</code> signal are most interesting for application
-writers, and are used to update the animations, using the frame time
-given by <code>gdk_frame_clock_get_frame_time()</code>.</p>
+[method<code>Gdk.FrameClock.request_phase</code>]. At some later point that makes sense
+for the synchronization being implemented, the clock will process a frame and
+emit signals for each phase that has been requested. (See the signals of the
+<code>GdkFrameClock</code> class for documentation of the phases.
+<code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the [signal<code>GdkFrameClock::update</code>] signal
+are most interesting for application writers, and are used to update the
+animations, using the frame time given by [metohd<code>Gdk.FrameClock.get_frame_time</code>].</p>
 
 <p>The frame time is reported in microseconds and generally in the same
 timescale as <code>g_get_monotonic_time()</code>, however, it is not the same
 as <code>g_get_monotonic_time()</code>. The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to <code>gdk_frame_clock_get_frame_time()</code> that
+is made so that all calls to [method<code>Gdk.FrameClock.get_frame_time</code>] that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from <code>gdk_frame_clock_get_frame_time()</code>
-and the value inside the <code>GdkFrameClock::update</code> signal of the clock,
+time between an initial value from [method<code>Gdk.FrameClock.get_frame_time</code>]
+and the value inside the [signal<code>GdkFrameClock::update</code>] signal of the clock,
 they will stay exactly synchronized.</p>
 
                         <a href="Classes/FrameClock.html" class="slightly-smaller">See more</a>
@@ -9556,55 +9586,51 @@ they will stay exactly synchronized.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/GLContextProtocol.html">GLContextProtocol</a></code> conformance.
 Use <code>GLContext</code> as a strong reference or owner of a <code>GdkGLContext</code> instance.</p>
 
-<p><code>GdkGLContext</code> is an object representing the platform-specific
+<p><code>GdkGLContext</code> is an object representing a platform-specific
 OpenGL draw context.</p>
 
-<p><code>GdkGLContexts</code> are created for a <code>GdkSurface</code> using
-<code>gdk_surface_create_gl_context()</code>, and the context will match the
-the characteristics of the surface.</p>
+<p><code>GdkGLContext</code>s are created for a surface using
+[method<code>Gdk.Surface.create_gl_context</code>], and the context will match
+the the characteristics of the surface.</p>
 
 <p>A <code>GdkGLContext</code> is not tied to any particular normal framebuffer.
-For instance, it cannot draw to the <code>GdkSurface</code> back buffer. The GDK
+For instance, it cannot draw to the surface back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use <code>gdk_cairo_draw_from_gl()</code>
+you can create render buffers or textures and use [func<code>cairo_draw_from_gl</code>]
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 
-<p>Support for <code>GdkGLContext</code> is platform-specific, context creation
+<p>Support for <code>GdkGLContext</code> is platform-specific and context creation
 can fail, returning <code>nil</code> context.</p>
 
 <p>A <code>GdkGLContext</code> has to be made &ldquo;current&rdquo; in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
 <h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
-<p>In order to create a new <code>GdkGLContext</code> instance you need a
-<code>GdkSurface</code>, which you typically get during the realize call
-of a widget.</p>
+<p>In order to create a new <code>GdkGLContext</code> instance you need a <code>GdkSurface</code>,
+which you typically get during the realize call of a widget.</p>
 
-<p>A <code>GdkGLContext</code> is not realized until either <code>gdk_gl_context_make_current()</code>,
-or until it is realized using <code>gdk_gl_context_realize()</code>. It is possible to
-specify details of the GL context like the OpenGL version to be used, or
-whether the GL context should have extra state validation enabled after
-calling <code>gdk_surface_create_gl_context()</code> by calling <code>gdk_gl_context_realize()</code>.
-If the realization fails you have the option to change the settings of the
-<code>GdkGLContext</code> and try again.</p>
+<p>A <code>GdkGLContext</code> is not realized until either [method<code>Gdk.GLContext.make_current</code>]
+or [method<code>Gdk.GLContext.realize</code>] is called. It is possible to specify
+details of the GL context like the OpenGL version to be used, or whether
+the GL context should have extra state validation enabled after calling
+[method<code>Gdk.Surface.create_gl_context</code>] by calling [method<code>Gdk.GLContext.realize</code>].
+If the realization fails you have the option to change the settings of
+the <code>GdkGLContext</code> and try again.</p>
 <h2 id='using-a-gdkglcontext' class='heading'>Using a GdkGLContext</h2>
 
-<p>You will need to make the <code>GdkGLContext</code> the current context
-before issuing OpenGL calls; the system sends OpenGL commands to
-whichever context is current. It is possible to have multiple
-contexts, so you always need to ensure that the one which you
-want to draw with is the current one before issuing commands:</p>
-
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>  gdk_gl_context_make_current (context);
+<p>You will need to make the <code>GdkGLContext</code> the current context before issuing
+OpenGL calls; the system sends OpenGL commands to whichever context is current.
+It is possible to have multiple contexts, so you always need to ensure that
+the one which you want to draw with is the current one before issuing commands:</p>
+<pre class="highlight c"><code><span class="n">gdk_gl_context_make_current</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 </code></pre>
 
 <p>You can now perform your drawing using OpenGL commands.</p>
 
 <p>You can check which <code>GdkGLContext</code> is the current one by using
-<code>gdk_gl_context_get_current()</code>; you can also unset any <code>GdkGLContext</code>
-that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p>
+[func<code>Gdk.GLContext.get_current</code>]; you can also unset any <code>GdkGLContext</code>
+that is currently set by calling [func<code>Gdk.GLContext.clear_current</code>].</p>
 
                         <a href="Classes/GLContext.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9617,7 +9643,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1343-L1476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1362-L1495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9653,11 +9679,13 @@ It provides the methods that can operate on this data type through <code><a href
 Use <code>FrameTimings</code> as a strong reference or owner of a <code>GdkFrameTimings</code> instance.</p>
 
 <p>A <code>GdkFrameTimings</code> object holds timing information for a single frame
-of the application’s displays. To retrieve <code>GdkFrameTimings</code> objects,
-use <code>gdk_frame_clock_get_timings()</code> or <code>gdk_frame_clock_get_current_timings()</code>.
-The information in <code>GdkFrameTimings</code> is useful for precise synchronization
-of video with the event or audio streams, and for measuring
-quality metrics for the application’s display, such as latency and jitter.</p>
+of the application’s displays.</p>
+
+<p>To retrieve <code>GdkFrameTimings</code> objects, use [method<code>Gdk.FrameClock.get_timings</code>]
+or [method<code>Gdk.FrameClock.get_current_timings</code>]. The information in
+<code>GdkFrameTimings</code> is useful for precise synchronization of video with
+the event or audio streams, and for measuring quality metrics for the
+application’s display, such as latency and jitter.</p>
 
                         <a href="Classes/FrameTimings.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9670,7 +9698,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L264-L406">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L270-L412">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9705,7 +9733,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/GLTextureProtocol.html">GLTextureProtocol</a></code> conformance.
 Use <code>GLTexture</code> as a strong reference or owner of a <code>GdkGLTexture</code> instance.</p>
 
-<p>A <code>GdkTexture</code> representing a GL texture object.</p>
+<p>A GdkTexture representing a GL texture object.</p>
 
                         <a href="Classes/GLTexture.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9766,7 +9794,7 @@ Use <code>GrabBrokenEvent</code> as a strong reference or owner of a <code>GdkGr
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-GLTexture-KeyEvent.swift#L493-L620">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-GLTexture-KeyEvent.swift#L492-L619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9814,7 +9842,7 @@ Use <code>KeyEvent</code> as a strong reference or owner of a <code>GdkKeyEvent<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-GLTexture-KeyEvent.swift#L773-L900">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-GLTexture-KeyEvent.swift#L772-L899">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9910,7 +9938,7 @@ Use <code>MemoryTexture</code> as a strong reference or owner of a <code>GdkMemo
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L131-L266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L132-L268">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9945,10 +9973,13 @@ Use <code>MemoryTexture</code> as a strong reference or owner of a <code>GdkMemo
 It provides the methods that can operate on this data type through <code><a href="Protocols/MonitorProtocol.html">MonitorProtocol</a></code> conformance.
 Use <code>Monitor</code> as a strong reference or owner of a <code>GdkMonitor</code> instance.</p>
 
-<p>GdkMonitor objects represent the individual outputs that are
-associated with a <code>GdkDisplay</code>. GdkDisplay keeps a <code>GListModel</code> to enumerate
-and monitor monitors with <code>gdk_display_get_monitors()</code>.
-You can use <code>gdk_display_get_monitor_at_surface()</code> to find a particular monitor.</p>
+<p><code>GdkMonitor</code> objects represent the individual outputs that are
+associated with a <code>GdkDisplay</code>.</p>
+
+<p><code>GdkDisplay</code> keeps a <code>GListModel</code> to enumerate and monitor
+monitors with [method<code>Gdk.Display.get_monitors</code>]. You can use
+[method<code>Gdk.Display.get_monitor_at_surface</code>] to find a particular
+monitor.</p>
 
                         <a href="Classes/Monitor.html" class="slightly-smaller">See more</a>
                       </div>
@@ -9961,7 +9992,7 @@ You can use <code>gdk_display_get_monitor_at_surface()</code> to find a particul
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L491-L618">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L502-L629">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10009,7 +10040,7 @@ Use <code>MotionEvent</code> as a strong reference or owner of a <code>GdkMotion
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L1632-L1759">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L1681-L1808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10057,7 +10088,7 @@ Use <code>PadEvent</code> as a strong reference or owner of a <code>GdkPadEvent<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L1884-L2011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L1933-L2060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10092,11 +10123,13 @@ Use <code>PadEvent</code> as a strong reference or owner of a <code>GdkPadEvent<
 It provides the methods that can operate on this data type through <code><a href="Protocols/PopupProtocol.html">PopupProtocol</a></code> conformance.
 Use <code>Popup</code> as a strong reference or owner of a <code>GdkPopup</code> instance.</p>
 
-<p>A <code>GdkPopup</code> is a surface that is attached to another surface,
-called its <code>GdkPopup:parent</code>, and is positioned relative to it.</p>
+<p>A <code>GdkPopup</code> is a surface that is attached to another surface.</p>
 
-<p><code>GdkPopups</code> are typically used to implement menus and similar popups.
-They can be modal, which is indicated by the <code>GdkPopup:autohide</code> property.</p>
+<p>The <code>GdkPopup</code> is positioned relative to its parent surface.</p>
+
+<p><code>GdkPopup</code>s are typically used to implement menus and similar popups.
+They can be modal, which is indicated by the [property<code>GdkPopup:autohide</code>]
+property.</p>
 
                         <a href="Classes/Popup.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10109,7 +10142,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L136-L263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L142-L269">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10146,10 +10179,9 @@ Use <code>Toplevel</code> as a strong reference or owner of a <code>GdkToplevel<
 
 <p>A <code>GdkToplevel</code> is a freestanding toplevel surface.</p>
 
-<p>The <code>GdkToplevel</code> interface provides useful APIs for
-interacting with the windowing system, such as controlling
-maximization and size of the surface, setting icons and
-transient parents for dialogs.</p>
+<p>The <code>GdkToplevel</code> interface provides useful APIs for interacting with
+the windowing system, such as controlling maximization and size of the
+surface, setting icons and transient parents for dialogs.</p>
 
                         <a href="Classes/Toplevel.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10162,7 +10194,7 @@ transient parents for dialogs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L647-L774">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L665-L792">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10197,9 +10229,8 @@ transient parents for dialogs.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/PopupLayoutProtocol.html">PopupLayoutProtocol</a></code> conformance.
 Use <code>PopupLayout</code> as a strong reference or owner of a <code>GdkPopupLayout</code> instance.</p>
 
-<p>Popups are positioned relative to their parent surface.
-The GdkPopupLayout struct contains information that is
-necessary to do so.</p>
+<p>The <code>GdkPopupLayout</code> struct contains information that is
+necessary position a [interface<code>Gdk.Popup</code>] relative to its parent.</p>
 
 <p>The positioning requires a negotiation with the windowing system,
 since it depends on external constraints, such as the position of
@@ -10225,12 +10256,12 @@ or to resize it.</p>
 
 <p>Ultimatively, it is up to the windowing system to determine the position
 and size of the popup. You can learn about the result by calling
-<code>gdk_popup_get_position_x()</code>, <code>gdk_popup_get_position_y()</code>,
-<code>gdk_popup_get_rect_anchor()</code> and <code>gdk_popup_get_surface_anchor()</code> after the
-popup has been presented. This can be used to adjust the rendering. For
-example, GtkPopover changes its arrow position accordingly. But you have
-to be careful avoid changing the size of the popover, or it has to be
-presented again.</p>
+[method<code>Gdk.Popup.get_position_x</code>], [method<code>Gdk.Popup.get_position_y</code>],
+[method<code>Gdk.Popup.get_rect_anchor</code>] and [method<code>Gdk.Popup.get_surface_anchor</code>]
+after the popup has been presented. This can be used to adjust the rendering.
+For example, [class<code>Gtk.Popover</code>] changes its arrow position accordingly.
+But you have to be careful avoid changing the size of the popover, or it
+has to be presented again.</p>
 
                         <a href="Classes/PopupLayout.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10243,7 +10274,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L362-L518">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L361-L519">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10278,8 +10309,15 @@ presented again.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/RGBAProtocol.html">RGBAProtocol</a></code> conformance.
 Use <code>RGBA</code> as a strong reference or owner of a <code>GdkRGBA</code> instance.</p>
 
-<p>A <code>GdkRGBA</code> is used to represent a (possibly translucent)
-color, in a way that is compatible with cairo’s notion of color.</p>
+<p>A <code>GdkRGBA</code> is used to represent a color, in a way that is compatible
+with cairo’s notion of color.</p>
+
+<p><code>GdkRGBA</code> is a convenient way to pass colors around. It’s based on
+cairo’s way to deal with colors and mirrors its behavior. All values
+are in the range from 0.0 to 1.0 inclusive. So the color
+(0.0, 0.0, 0.0, 0.0) represents transparent black and
+(1.0, 1.0, 1.0, 1.0) is opaque white. Other values will
+be clamped to this range when drawing.</p>
 
                         <a href="Classes/RGBA.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10292,7 +10330,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L790-L932">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L830-L972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10423,8 +10461,21 @@ Use <code>ScrollEvent</code> as a strong reference or owner of a <code>GdkScroll
 It provides the methods that can operate on this data type through <code><a href="Protocols/RectangleProtocol.html">RectangleProtocol</a></code> conformance.
 Use <code>Rectangle</code> as a strong reference or owner of a <code>GdkRectangle</code> instance.</p>
 
-<p>Defines the position and size of a rectangle. It is identical to
-<code>cairo_rectangle_int_t</code>.</p>
+<p>A <code>GdkRectangle</code> data type for representing rectangles.</p>
+
+<p><code>GdkRectangle</code> is identical to <code>cairo_rectangle_t</code>. Together with Cairo’s
+<code>cairo_region_t</code> data type, these are the central types for representing
+sets of pixels.</p>
+
+<p>The intersection of two rectangles can be computed with
+[method<code>Gdk.Rectangle.intersect</code>]; to find the union of two rectangles use
+[method<code>Gdk.Rectangle.union</code>].</p>
+
+<p>The <code>cairo_region_t</code> type provided by Cairo is usually used for managing
+non-rectangular clipping of graphical operations.</p>
+
+<p>The Graphene library has a number of other data types for regions and
+volumes in 2D and 3D.</p>
 
                         <a href="Classes/Rectangle.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10437,7 +10488,7 @@ Use <code>Rectangle</code> as a strong reference or owner of a <code>GdkRectangl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L124-L266">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L163-L305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10523,6 +10574,8 @@ Use <code>Snapshot</code> as a strong reference or owner of a <code>GdkSnapshot<
 
 <p>Base type for snapshot operations.</p>
 
+<p>The subclass of <code>GdkSnapshot</code> used by GTK is [class<code>Gtk.Snapshot</code>].</p>
+
                         <a href="Classes/Snapshot.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
@@ -10534,7 +10587,7 @@ Use <code>Snapshot</code> as a strong reference or owner of a <code>GdkSnapshot<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L760-L887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L759-L886">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10569,15 +10622,15 @@ Use <code>Snapshot</code> as a strong reference or owner of a <code>GdkSnapshot<
 It provides the methods that can operate on this data type through <code><a href="Protocols/SurfaceProtocol.html">SurfaceProtocol</a></code> conformance.
 Use <code>Surface</code> as a strong reference or owner of a <code>GdkSurface</code> instance.</p>
 
-<p>A <code>GdkSurface</code> is a (usually) rectangular region on the screen.
-It’s a low-level object, used to implement high-level objects
-such as <code>GtkWindow</code> or <code>GtkDialog</code> in GTK.</p>
+<p>A <code>GdkSurface</code> is a rectangular region on the screen.</p>
 
-<p>The surfaces you see in practice are either <code>GdkToplevel</code> or
-<code>GdkPopup</code>, and those interfaces provide much of the required
-API to interact with these surfaces. Other, more specialized
-surface types exist, but you will rarely interact with them
-directly.</p>
+<p>It’s a low-level object, used to implement high-level objects
+such as [class<code>Gtk.Window</code>] or [class<code>Gtk.Dialog</code>] in GTK.</p>
+
+<p>The surfaces you see in practice are either [class<code>Gdk.Toplevel</code>] or
+[class<code>Gdk.Popup</code>], and those interfaces provide much of the required
+API to interact with these surfaces. Other, more specialized surface
+types exist, but you will rarely interact with them directly.</p>
 
                         <a href="Classes/Surface.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10590,7 +10643,7 @@ directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1076-L1215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1075-L1214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10625,7 +10678,21 @@ directly.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/TextureProtocol.html">TextureProtocol</a></code> conformance.
 Use <code>Texture</code> as a strong reference or owner of a <code>GdkTexture</code> instance.</p>
 
-<p>The <code>GdkTexture</code> structure contains only private data.</p>
+<p><code>GdkTexture</code> is the basic element used to refer to pixel data.</p>
+
+<p>It is primarily meant for pixel data that will not change over
+multiple frames, and will be used for a long time.</p>
+
+<p>There are various ways to create <code>GdkTexture</code> objects from a
+<code>GdkPixbuf</code>, or a Cairo surface, or other pixel data.</p>
+
+<p>The ownership of the pixel data is transferred to the <code>GdkTexture</code>
+instance; you can only make a copy of it, via
+[method<code>Gdk.Texture.download</code>].</p>
+
+<p><code>GdkTexture</code> is an immutable object: That means you cannot change
+anything about it other than increasing the reference count via
+<code>g_object_ref()</code>.</p>
 
                         <a href="Classes/Texture.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10638,7 +10705,7 @@ Use <code>Texture</code> as a strong reference or owner of a <code>GdkTexture</c
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2393-L2591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2513-L2711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10721,12 +10788,15 @@ Use <code>TimeCoord</code> as a strong reference or owner of a <code>GdkTimeCoor
 It provides the methods that can operate on this data type through <code><a href="Protocols/ToplevelLayoutProtocol.html">ToplevelLayoutProtocol</a></code> conformance.
 Use <code>ToplevelLayout</code> as a strong reference or owner of a <code>GdkToplevelLayout</code> instance.</p>
 
+<p>The <code>GdkToplevelLayout</code> struct contains information that
+is necessary to present a sovereign window on screen.</p>
+
+<p>The <code>GdkToplevelLayout</code> struct is necessary for using
+[method<code>Gdk.Toplevel.present</code>].</p>
+
 <p>Toplevel surfaces are sovereign windows that can be presented
 to the user in various states (maximized, on all workspaces,
 etc).</p>
-
-<p>The GdkToplevelLayout struct contains information that
-is necessary to do so, and is passed to <code>gdk_toplevel_present()</code>.</p>
 
                         <a href="Classes/ToplevelLayout.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10739,7 +10809,7 @@ is necessary to do so, and is passed to <code>gdk_toplevel_present()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L580-L733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L589-L742">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10774,9 +10844,8 @@ is necessary to do so, and is passed to <code>gdk_toplevel_present()</code>.</p>
 It provides the methods that can operate on this data type through <code><a href="Protocols/ToplevelSizeProtocol.html">ToplevelSizeProtocol</a></code> conformance.
 Use <code>ToplevelSize</code> as a strong reference or owner of a <code>GdkToplevelSize</code> instance.</p>
 
-<p>The GdkToplevelSIze struct contains information that may be useful
-for users of GdkToplevel to compute a surface size. It also carries
-information back with the computational result.</p>
+<p>The <code>GdkToplevelSize</code> struct contains information that is useful
+to compute the size of a toplevel.</p>
 
                         <a href="Classes/ToplevelSize.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10789,7 +10858,7 @@ information back with the computational result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L970-L1112">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L976-L1118">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10872,7 +10941,12 @@ Use <code>TouchEvent</code> as a strong reference or owner of a <code>GdkTouchEv
 It provides the methods that can operate on this data type through <code><a href="Protocols/TouchpadEventProtocol.html">TouchpadEventProtocol</a></code> conformance.
 Use <code>TouchpadEvent</code> as a strong reference or owner of a <code>GdkTouchpadEvent</code> instance.</p>
 
-<p>An event related to a touchpad device.</p>
+<p>An event related to a gesture on a touchpad device.</p>
+
+<p>Unlike touchscreens, where the windowing system sends basic
+sequences of begin, update, end events, and leaves gesture
+recognition to the clients, touchpad gestures are typically
+processed by the system, resulting in these events.</p>
 
                         <a href="Classes/TouchpadEvent.html" class="slightly-smaller">See more</a>
                       </div>
@@ -10885,7 +10959,7 @@ Use <code>TouchpadEvent</code> as a strong reference or owner of a <code>GdkTouc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L386-L513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L401-L528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10923,11 +10997,11 @@ Use <code>VulkanContext</code> as a strong reference or owner of a <code>GdkVulk
 <p><code>GdkVulkanContext</code> is an object representing the platform-specific
 Vulkan draw context.</p>
 
-<p><code>GdkVulkanContexts</code> are created for a <code>GdkSurface</code> using
-<code>gdk_surface_create_vulkan_context()</code>, and the context will match the
-the characteristics of the surface.</p>
+<p><code>GdkVulkanContext</code>s are created for a surface using
+[method<code>Gdk.Surface.create_vulkan_context</code>], and the context will match
+the the characteristics of the surface.</p>
 
-<p>Support for <code>GdkVulkanContext</code> is platform-specific, context creation
+<p>Support for <code>GdkVulkanContext</code> is platform-specific and context creation
 can fail, returning <code>nil</code> context.</p>
 
                         <a href="Classes/VulkanContext.html" class="slightly-smaller">See more</a>
@@ -10941,7 +11015,7 @@ can fail, returning <code>nil</code> context.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L729-L856">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L744-L871">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10954,8 +11028,8 @@ can fail, returning <code>nil</code> context.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

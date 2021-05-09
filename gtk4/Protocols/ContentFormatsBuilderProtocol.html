@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,12 +7951,11 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/ContentFormatsBuilder.html">ContentFormatsBuilder</a></code>.
 Alternatively, use <code><a href="../Structs/ContentFormatsBuilderRef.html">ContentFormatsBuilderRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A <code>GdkContentFormatsBuilder</code> struct is an opaque struct. It is meant to
-not be kept around and only be used to create new <code>GdkContentFormats</code>
-objects.</p>
+<p>A <code>GdkContentFormatsBuilder</code> is an auxiliary struct used to create
+new <code>GdkContentFormats</code>, and should not be kept around.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L524-L533">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L545-L554">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7999,7 +7989,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8037,7 +8027,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8067,7 +8057,7 @@ objects.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L532">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8115,7 +8105,7 @@ already exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L797-L800">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L818-L821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8136,7 +8126,7 @@ already exist.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Appends <code>gtype</code> to <code>builder</code> if it has not already been added.</p>
+                        <p>Appends <code>type</code> to <code>builder</code> if it has not already been added.</p>
 
                       </div>
                       <div class="declaration">
@@ -8149,7 +8139,7 @@ already exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L803-L806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L824-L827">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8183,7 +8173,7 @@ already exist.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L809-L812">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L830-L833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8218,7 +8208,7 @@ given <code>builder</code>, and frees the <code>builder</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L816-L819">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L837-L840">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8241,8 +8231,8 @@ given <code>builder</code>, and frees the <code>builder</code> instance.</p>
                       <div class="abstract">
                         <p>Acquires a reference on the given <code>builder</code>.</p>
 
-<p>This function is intended primarily for bindings. <code>GdkContentFormatsBuilder</code> objects
-should not be kept around.</p>
+<p>This function is intended primarily for bindings.
+<code>GdkContentFormatsBuilder</code> objects should not be kept around.</p>
 
                       </div>
                       <div class="declaration">
@@ -8256,7 +8246,7 @@ should not be kept around.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L825-L828">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L846-L849">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8283,7 +8273,7 @@ should not be kept around.</p>
 you cannot call this function multiple times on the same <code>builder</code> instance.</p>
 
 <p>This function is intended primarily for bindings. C code should use
-<code>gdk_content_formats_builder_free_to_formats()</code>.</p>
+[method<code>Gdk.ContentFormatsBuilder.free_to_formats</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8296,7 +8286,7 @@ you cannot call this function multiple times on the same <code>builder</code> in
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L837-L840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L858-L861">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8330,7 +8320,7 @@ you cannot call this function multiple times on the same <code>builder</code> in
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L843-L846">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L864-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8343,8 +8333,8 @@ you cannot call this function multiple times on the same <code>builder</code> in
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

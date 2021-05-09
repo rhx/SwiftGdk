@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,7 +7950,7 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/DisplayProtocol.html">DisplayProtocol</a></code> conformance.
 Use <code>Display</code> as a strong reference or owner of a <code>GdkDisplay</code> instance.</p>
 
-<p>GdkDisplay objects are the GDK representation of a workstation.</p>
+<p><code>GdkDisplay</code> objects are the GDK representation of a workstation.</p>
 
 <p>Their purpose are two-fold:</p>
 
@@ -7968,15 +7959,16 @@ Use <code>Display</code> as a strong reference or owner of a <code>GdkDisplay</c
 <li>To manage and provide information about output devices (monitors, projectors, etc)</li>
 </ul>
 
-<p>Most of the input device handling has been factored out into separate <code>GdkSeat</code>
-objects. Every display has a one or more seats, which can be accessed with
-<code>gdk_display_get_default_seat()</code> and <code>gdk_display_list_seats()</code>.</p>
+<p>Most of the input device handling has been factored out into separate
+[class<code>Gdk.Seat</code>] objects. Every display has a one or more seats, which
+can be accessed with [method<code>Gdk.Display.get_default_seat</code>] and
+[method<code>Gdk.Display.list_seats</code>].</p>
 
-<p>Output devices are represented by <code>GdkMonitor</code> objects, which can be accessed
-with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
+<p>Output devices are represented by [class<code>Gdk.Monitor</code>] objects, which can
+be accessed with [method<code>Gdk.Display.get_monitor_at_surface</code>] and similar APIs.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2468-L2610">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2592-L2735">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8034,7 +8026,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2473-L2475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2597-L2599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8086,7 +8078,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2481-L2483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2605-L2607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8139,7 +8131,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2490-L2493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2614-L2617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8192,7 +8184,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2500-L2503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2624-L2627">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8244,7 +8236,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2509-L2512">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2633-L2636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8296,7 +8288,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2518-L2521">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2642-L2645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8348,7 +8340,7 @@ i.e., ownership is transferred to the <code>Display</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2527-L2529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2651-L2653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8399,7 +8391,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2534-L2536">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2658-L2660">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8450,7 +8442,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2541-L2543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2665-L2667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8501,7 +8493,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2548-L2550">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2672-L2674">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8552,7 +8544,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2555-L2557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2679-L2681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8584,7 +8576,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2561-L2563">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2685-L2687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8635,7 +8627,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2568-L2570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2692-L2694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8686,7 +8678,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2575-L2577">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2699-L2701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8737,7 +8729,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2582-L2584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2706-L2708">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8788,7 +8780,7 @@ Will retain <code>GdkDisplay</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2589-L2591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2713-L2715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8806,8 +8798,9 @@ Will retain <code>GdkDisplay</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the default <code>GdkDisplay</code>. This is a convenience
-function for:
+                        <p>Gets the default <code>GdkDisplay</code>.</p>
+
+<p>This is a convenience function for:
 <code>gdk_display_manager_get_default_display (gdk_display_manager_get ())</code>.</p>
 
                       </div>
@@ -8821,7 +8814,7 @@ function for:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2597-L2601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2722-L2726">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8852,7 +8845,7 @@ function for:
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2604-L2608">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2729-L2733">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8865,8 +8858,8 @@ function for:
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

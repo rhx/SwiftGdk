@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,11 +7951,24 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Rectangle.html">Rectangle</a></code>.
 Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>Defines the position and size of a rectangle. It is identical to
-<code>cairo_rectangle_int_t</code>.</p>
+<p>A <code>GdkRectangle</code> data type for representing rectangles.</p>
+
+<p><code>GdkRectangle</code> is identical to <code>cairo_rectangle_t</code>. Together with Cairo’s
+<code>cairo_region_t</code> data type, these are the central types for representing
+sets of pixels.</p>
+
+<p>The intersection of two rectangles can be computed with
+[method<code>Gdk.Rectangle.intersect</code>]; to find the union of two rectangles use
+[method<code>Gdk.Rectangle.union</code>].</p>
+
+<p>The <code>cairo_region_t</code> type provided by Cairo is usually used for managing
+non-rectangular clipping of graphical operations.</p>
+
+<p>The Graphene library has a number of other data types for regions and
+volumes in 2D and 3D.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L23-L32">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L36-L45">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7998,7 +8002,7 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L25">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L38">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8036,7 +8040,7 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L28">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L41">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8066,7 +8070,7 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L31">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8113,7 +8117,7 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L279-L282">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L318-L321">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8147,7 +8151,7 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L324-L327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8168,12 +8172,13 @@ Alternatively, use <code><a href="../Structs/RectangleRef.html">RectangleRef</a>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calculates the intersection of two rectangles. It is allowed for
-<code>dest</code> to be the same as either <code>src1</code> or <code>src2</code>. If the rectangles
-do not intersect, <code>dest</code>’s width and height is set to 0 and its x
-and y values are undefined. If you are only interested in whether
-the rectangles intersect, but not in the intersecting area itself,
-pass <code>nil</code> for <code>dest</code>.</p>
+                        <p>Calculates the intersection of two rectangles.</p>
+
+<p>It is allowed for <code>dest</code> to be the same as either <code>src1</code> or <code>src2</code>.
+If the rectangles do not intersect, <code>dest</code>’s width and height is set
+to 0 and its x and y values are undefined. If you are only interested
+in whether the rectangles intersect, but not in the intersecting area
+itself, pass <code>nil</code> for <code>dest</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8186,7 +8191,7 @@ pass <code>nil</code> for <code>dest</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L296-L299">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8207,10 +8212,11 @@ pass <code>nil</code> for <code>dest</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calculates the union of two rectangles.
-The union of rectangles <code>src1</code> and <code>src2</code> is the smallest rectangle which
-includes both <code>src1</code> and <code>src2</code> within it.
-It is allowed for <code>dest</code> to be the same as either <code>src1</code> or <code>src2</code>.</p>
+                        <p>Calculates the union of two rectangles.</p>
+
+<p>The union of rectangles <code>src1</code> and <code>src2</code> is the smallest rectangle which
+includes both <code>src1</code> and <code>src2</code> within it. It is allowed for <code>dest</code> to be
+the same as either <code>src1</code> or <code>src2</code>.</p>
 
 <p>Note that this function does not ignore &lsquo;empty&rsquo; rectangles (ie. with
 zero width or height).</p>
@@ -8226,7 +8232,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L308-L311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L349-L352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8260,7 +8266,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L314-L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L355-L358">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8294,7 +8300,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L320-L330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L361-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8328,7 +8334,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L333-L343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L374-L384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8362,7 +8368,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L346-L356">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L387-L397">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8396,7 +8402,7 @@ zero width or height).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L359-L369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L400-L410">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8409,8 +8415,8 @@ zero width or height).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

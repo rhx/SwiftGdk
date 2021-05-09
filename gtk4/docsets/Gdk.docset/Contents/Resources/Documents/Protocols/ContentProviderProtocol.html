@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,18 +7951,18 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/ContentProvider.html">ContentProvider</a></code>.
 Alternatively, use <code><a href="../Structs/ContentProviderRef.html">ContentProviderRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A GdkContentProvider is used to provide content for the clipboard in
-a number of formats.</p>
+<p>A <code>GdkContentProvider</code> is used to provide content for the clipboard or
+for drag-and-drop operations in a number of formats.</p>
 
-<p>To create a GdkContentProvider, use <code>gdk_content_provider_new_for_value()</code> or
-<code>gdk_content_provider_new_for_bytes()</code>.</p>
+<p>To create a <code>GdkContentProvider</code>, use [ctor<code>Gdk.ContentProvider.new_for_value</code>]
+or [ctor<code>Gdk.ContentProvider.new_for_bytes</code>].</p>
 
 <p>GDK knows how to handle common text and image formats out-of-the-box. See
-<code>GdkContentSerializer</code> and <code>GdkContentDeserializer</code> if you want to add support
-for application-specific data formats.</p>
+[class<code>Gdk.ContentSerializer</code>] and [class<code>Gdk.ContentDeserializer</code>] if you want
+to add support for application-specific data formats.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1764-L1773">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1861-L1870">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8005,7 +7996,7 @@ for application-specific data formats.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1766">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1863">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8043,7 +8034,7 @@ for application-specific data formats.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1769">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8073,7 +8064,7 @@ for application-specific data formats.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1772">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1869">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8204,7 +8195,7 @@ for application-specific data formats.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2185-L2209">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2274-L2298">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8261,7 +8252,7 @@ for application-specific data formats.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2214-L2218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2303-L2307">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8319,7 +8310,7 @@ for application-specific data formats.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2224-L2226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2313-L2315">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8438,7 +8429,7 @@ for application-specific data formats.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2273-L2275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2362-L2364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8544,7 +8535,7 @@ for application-specific data formats.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2286-L2288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2375-L2377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8628,7 +8619,7 @@ Run the given callback whenever the <code>contentChanged</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2297-L2311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2386-L2400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8661,7 +8652,7 @@ Run the given callback whenever the <code>contentChanged</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8780,7 +8771,7 @@ Run the given callback whenever the <code>notifyFormats</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2346-L2360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2435-L2449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8813,7 +8804,7 @@ Run the given callback whenever the <code>notifyFormats</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2363">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8932,7 +8923,7 @@ Run the given callback whenever the <code>notifyStorableFormats</code> signal is
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2395-L2409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2484-L2498">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8965,7 +8956,7 @@ Run the given callback whenever the <code>notifyStorableFormats</code> signal is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8999,7 +8990,7 @@ Run the given callback whenever the <code>notifyStorableFormats</code> signal is
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>GdkContentProvider::content-changed</code> signal.</p>
+                        <p>Emits the <code>content-changed</code> signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -9012,7 +9003,7 @@ Run the given callback whenever the <code>notifyStorableFormats</code> signal is
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2422-L2425">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2511-L2514">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9037,8 +9028,8 @@ Run the given callback whenever the <code>notifyStorableFormats</code> signal is
 
 <p>The <code>value</code> will have been initialized to the <code>GType</code> the value should be
 provided in. This given <code>GType</code> does not need to be listed in the formats
-returned by <code>gdk_content_provider_ref_formats()</code>. However, if the given
-<code>GType</code> is not supported, this operation can fail and
+returned by [method<code>Gdk.ContentProvider.ref_formats</code>]. However, if the
+given <code>GType</code> is not supported, this operation can fail and
 <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
 
                       </div>
@@ -9052,7 +9043,7 @@ returned by <code>gdk_content_provider_ref_formats()</code>. However, if the giv
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2434-L2439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2523-L2528">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9086,7 +9077,7 @@ returned by <code>gdk_content_provider_ref_formats()</code>. However, if the giv
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2442-L2445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2531-L2534">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9108,10 +9099,11 @@ returned by <code>gdk_content_provider_ref_formats()</code>. However, if the giv
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the formats that the provider suggests other applications to store
-the data in.
-An example of such an application would be a clipboard manager.</p>
+the data in.</p>
 
-<p>This can be assumed to be a subset of <code>gdk_content_provider_ref_formats()</code>.</p>
+<p>An example of such an application would be a clipboard manager.</p>
+
+<p>This can be assumed to be a subset of [method<code>Gdk.ContentProvider.ref_formats</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9124,7 +9116,7 @@ An example of such an application would be a clipboard manager.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2452-L2455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2542-L2545">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9146,13 +9138,15 @@ An example of such an application would be a clipboard manager.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously writes the contents of <code>provider</code> to <code>stream</code> in the given
-<code>mime_type</code>. When the operation is finished <code>callback</code> will be called. You
-can then call <code>gdk_content_provider_write_mime_type_finish()</code> to get the
-result of the operation.</p>
+<code>mime_type</code>.</p>
+
+<p>When the operation is finished <code>callback</code> will be called. You must then call
+[method<code>Gdk.ContentProvider.write_mime_type_finish</code>] to get the result
+of the operation.</p>
 
 <p>The given mime type does not need to be listed in the formats returned by
-<code>gdk_content_provider_ref_formats()</code>. However, if the given <code>GType</code> is not
-supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
+[method<code>Gdk.ContentProvider.ref_formats</code>]. However, if the given <code>GType</code> is
+not supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
 
 <p>The given <code>stream</code> will not be closed.</p>
 
@@ -9167,7 +9161,7 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2467-L2470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2559-L2562">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9189,13 +9183,15 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Asynchronously writes the contents of <code>provider</code> to <code>stream</code> in the given
-<code>mime_type</code>. When the operation is finished <code>callback</code> will be called. You
-can then call <code>gdk_content_provider_write_mime_type_finish()</code> to get the
-result of the operation.</p>
+<code>mime_type</code>.</p>
+
+<p>When the operation is finished <code>callback</code> will be called. You must then call
+[method<code>Gdk.ContentProvider.write_mime_type_finish</code>] to get the result
+of the operation.</p>
 
 <p>The given mime type does not need to be listed in the formats returned by
-<code>gdk_content_provider_ref_formats()</code>. However, if the given <code>GType</code> is not
-supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
+[method<code>Gdk.ContentProvider.ref_formats</code>]. However, if the given <code>GType</code> is
+not supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
 
 <p>The given <code>stream</code> will not be closed.</p>
 
@@ -9210,7 +9206,7 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2481-L2484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2575-L2578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9231,8 +9227,9 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Finishes an asynchronous write operation started with
-<code>gdk_content_provider_write_mime_type_async()</code>.</p>
+                        <p>Finishes an asynchronous write operation.</p>
+
+<p>See [method<code>Gdk.ContentProvider.write_mime_type_async</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9245,7 +9242,7 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2488-L2493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2583-L2588">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9279,7 +9276,7 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2495-L2500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2590-L2595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9292,8 +9289,8 @@ supported, <code>G_IO_ERROR_NOT_SUPPORTED</code> will be reported.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

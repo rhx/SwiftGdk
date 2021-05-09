@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,16 +7951,18 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/DrawContext.html">DrawContext</a></code>.
 Alternatively, use <code><a href="../Structs/DrawContextRef.html">DrawContextRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
+<p>Base class for objects implementing different rendering methods.</p>
+
 <p><code>GdkDrawContext</code> is the base object used by contexts implementing different
-rendering methods, such as <code>GdkGLContext</code> or <code>GdkVulkanContext</code>. It provides
-shared functionality between those contexts.</p>
+rendering methods, such as [class<code>Gdk.CairoContext</code>] or [class<code>Gdk.GLContext</code>].
+It provides shared functionality between those contexts.</p>
 
 <p>You will always interact with one of those subclasses.</p>
 
-<p>A GdkDrawContext is always associated with a single toplevel surface.</p>
+<p>A <code>GdkDrawContext</code> is always associated with a single toplevel surface.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5051-L5060">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5226-L5235">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8003,7 +7996,7 @@ shared functionality between those contexts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5228">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8041,7 +8034,7 @@ shared functionality between those contexts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8071,7 +8064,7 @@ shared functionality between those contexts.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5059">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5234">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8202,7 +8195,7 @@ shared functionality between those contexts.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5310-L5334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5489-L5513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8259,7 +8252,7 @@ shared functionality between those contexts.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5339-L5343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5518-L5522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8317,7 +8310,7 @@ shared functionality between those contexts.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5349-L5351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5528-L5530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8357,23 +8350,24 @@ on the <code>context</code>&lsquo;s surface.</p>
 <p>Calling this function begins a drawing operation using <code>context</code> on the
 surface that <code>context</code> was created from. The actual requirements and
 guarantees for the drawing operation vary for different implementations
-of drawing, so a <code>GdkCairoContext</code> and a <code>GdkGLContext</code> need to be treated
-differently.</p>
+of drawing, so a [class<code>Gdk.CairoContext</code>] and a [class<code>Gdk.GLContext</code>]
+need to be treated differently.</p>
 
-<p>A call to this function is a requirement for drawing and must be followed
-by a call to <code>gdk_draw_context_end_frame()</code>, which will complete the
-drawing operation and ensure the contents become visible on screen.</p>
+<p>A call to this function is a requirement for drawing and must be
+followed by a call to [method<code>Gdk.DrawContext.end_frame</code>], which will
+complete the drawing operation and ensure the contents become visible
+on screen.</p>
 
 <p>Note that the <code>region</code> passed to this function is the minimum region that
 needs to be drawn and depending on implementation, windowing system and
 hardware in use, it might be necessary to draw a larger region. Drawing
-implementation must use <code>gdk_draw_context_get_frame_region()</code> to query the
-region that must be drawn.</p>
+implementation must use [method<code>Gdk.DrawContext.get_frame_region</code><code>()</code> to
+query the region that must be drawn.</p>
 
 <p>When using GTK, the widget system automatically places calls to
 <code>gdk_draw_context_begin_frame()</code> and <code>gdk_draw_context_end_frame()</code> via the
-use of <code>GskRenderers</code>, so application code does not need to call these
-functions explicitly.</p>
+use of [class<code>Gsk.Renderer</code>]s, so application code does not need to call
+these functions explicitly.</p>
 
                       </div>
                       <div class="declaration">
@@ -8386,7 +8380,7 @@ functions explicitly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5415-L5418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5595-L5598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8407,11 +8401,12 @@ functions explicitly.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Ends a drawing operation started with <code>gdk_draw_context_begin_frame()</code>
-and makes the drawing available on screen. See that function for more
-details about drawing.</p>
+                        <p>Ends a drawing operation started with <code>gdk_draw_context_begin_frame()</code>.</p>
 
-<p>When using a <code>GdkGLContext</code>, this function may call <code>glFlush()</code>
+<p>This makes the drawing available on screen.
+See [method<code>Gdk.DrawContext.begin_frame</code>] for more details about drawing.</p>
+
+<p>When using a [class<code>Gdk.GLContext</code>], this function may call <code>glFlush()</code>
 implicitly before returning; it is not recommended to call <code>glFlush()</code>
 explicitly before calling this function.</p>
 
@@ -8426,7 +8421,7 @@ explicitly before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5427-L5430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5608-L5611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8460,7 +8455,7 @@ explicitly before calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5433-L5436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5614-L5617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8481,14 +8476,14 @@ explicitly before calling this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the region that is currently in the process of being repainted.</p>
+                        <p>Retrieves the region that is currently being repainted.</p>
 
-<p>After a call to <code>gdk_draw_context_begin_frame()</code> this function will return
-a union of the region passed to that function and the area of the surface
-that the <code>context</code> determined needs to be repainted.</p>
+<p>After a call to [method<code>Gdk.DrawContext.begin_frame</code>] this function will
+return a union of the region passed to that function and the area of the
+surface that the <code>context</code> determined needs to be repainted.</p>
 
-<p>If <code>context</code> is not in between calls to <code>gdk_draw_context_begin_frame()</code> and
-<code>gdk_draw_context_end_frame()</code>, <code>nil</code> will be returned.</p>
+<p>If <code>context</code> is not in between calls to [method<code>Gdk.DrawContext.begin_frame</code>]
+and [method<code>Gdk.DrawContext.end_frame</code>], <code>nil</code> will be returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8501,7 +8496,7 @@ that the <code>context</code> determined needs to be repainted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5446-L5449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5627-L5630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8522,7 +8517,7 @@ that the <code>context</code> determined needs to be repainted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkSurface</code> used by the <code>context</code>.</p>
+                        <p>Retrieves the surface that <code>context</code> is bound to.</p>
 
                       </div>
                       <div class="declaration">
@@ -8535,7 +8530,7 @@ that the <code>context</code> determined needs to be repainted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5452-L5455">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5633-L5636">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8569,7 +8564,7 @@ that the <code>context</code> determined needs to be repainted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5457-L5463">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5638-L5644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8590,14 +8585,14 @@ that the <code>context</code> determined needs to be repainted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the region that is currently in the process of being repainted.</p>
+                        <p>Retrieves the region that is currently being repainted.</p>
 
-<p>After a call to <code>gdk_draw_context_begin_frame()</code> this function will return
-a union of the region passed to that function and the area of the surface
-that the <code>context</code> determined needs to be repainted.</p>
+<p>After a call to [method<code>Gdk.DrawContext.begin_frame</code>] this function will
+return a union of the region passed to that function and the area of the
+surface that the <code>context</code> determined needs to be repainted.</p>
 
-<p>If <code>context</code> is not in between calls to <code>gdk_draw_context_begin_frame()</code> and
-<code>gdk_draw_context_end_frame()</code>, <code>nil</code> will be returned.</p>
+<p>If <code>context</code> is not in between calls to [method<code>Gdk.DrawContext.begin_frame</code>]
+and [method<code>Gdk.DrawContext.end_frame</code>], <code>nil</code> will be returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8610,7 +8605,7 @@ that the <code>context</code> determined needs to be repainted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5473-L5486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5654-L5667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8631,11 +8626,11 @@ that the <code>context</code> determined needs to be repainted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns <code>true</code> if <code>context</code> is in the process of drawing to its surface
-after a call to <code>gdk_draw_context_begin_frame()</code> and not yet having called
-<code>gdk_draw_context_end_frame()</code>.
-In this situation, drawing commands may be effecting the contents of a
-<code>context</code>&lsquo;s surface.</p>
+                        <p>Returns <code>true</code> if <code>context</code> is in the process of drawing to its surface.</p>
+
+<p>This is the case between calls to [method<code>Gdk.DrawContext.begin_frame</code>]
+and [method<code>Gdk.DrawContext.end_frame</code>]. In this situation, drawing commands
+may be effecting the contents of the <code>context</code>&lsquo;s surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8648,7 +8643,7 @@ In this situation, drawing commands may be effecting the contents of a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5493-L5503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5674-L5684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8682,7 +8677,7 @@ In this situation, drawing commands may be effecting the contents of a
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5506-L5512">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L5687-L5693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8695,8 +8690,8 @@ In this situation, drawing commands may be effecting the contents of a
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

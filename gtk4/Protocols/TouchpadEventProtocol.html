@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,10 +7951,15 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/TouchpadEvent.html">TouchpadEvent</a></code>.
 Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEventRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>An event related to a touchpad device.</p>
+<p>An event related to a gesture on a touchpad device.</p>
+
+<p>Unlike touchscreens, where the windowing system sends basic
+sequences of begin, update, end events, and leaves gesture
+recognition to the clients, touchpad gestures are typically
+processed by the system, resulting in these events.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L287-L296">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L292-L301">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7997,7 +7993,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8035,7 +8031,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8065,7 +8061,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8112,7 +8108,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L526-L529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L541-L544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8146,7 +8142,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L532-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L547-L550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8180,7 +8176,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L538-L541">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L553-L556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8214,7 +8210,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L544-L547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L559-L562">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8248,7 +8244,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L550-L553">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L565-L568">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8282,7 +8278,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L555-L561">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L570-L576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8316,7 +8312,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L564-L570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L579-L585">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8350,7 +8346,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L573-L579">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L588-L594">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8384,7 +8380,7 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L582-L588">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L597-L603">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8397,8 +8393,8 @@ Alternatively, use <code><a href="../Structs/TouchpadEventRef.html">TouchpadEven
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

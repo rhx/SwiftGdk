@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,11 +7950,18 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/RGBAProtocol.html">RGBAProtocol</a></code> conformance.
 Use <code>RGBARef</code> only as an <code>unowned</code> reference to an existing <code>GdkRGBA</code> instance.</p>
 
-<p>A <code>GdkRGBA</code> is used to represent a (possibly translucent)
-color, in a way that is compatible with cairo’s notion of color.</p>
+<p>A <code>GdkRGBA</code> is used to represent a color, in a way that is compatible
+with cairo’s notion of color.</p>
+
+<p><code>GdkRGBA</code> is a convenient way to pass colors around. It’s based on
+cairo’s way to deal with colors and mirrors its behavior. All values
+are in the range from 0.0 to 1.0 inclusive. So the color
+(0.0, 0.0, 0.0, 0.0) represents transparent black and
+(1.0, 1.0, 1.0, 1.0) is opaque white. Other values will
+be clamped to this range when drawing.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L706-L710">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L739-L743">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8000,7 +7998,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L709">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L742">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8044,7 +8042,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L714-L716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L747-L749">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8075,7 +8073,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L719-L721">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L752-L754">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8106,7 +8104,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L724-L727">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L757-L760">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8137,7 +8135,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L730-L733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L763-L766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8168,7 +8166,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L736-L739">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L769-L772">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8199,7 +8197,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L742-L745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L775-L778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8230,7 +8228,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L748-L750">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L781-L783">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8262,7 +8260,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L754-L756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L787-L789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8294,7 +8292,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L760-L762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L793-L795">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8326,7 +8324,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L766-L768">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L799-L801">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8358,7 +8356,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L772-L774">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L805-L807">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8390,7 +8388,7 @@ color, in a way that is compatible with cairo’s notion of color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L778-L780">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L811-L813">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8403,8 +8401,8 @@ color, in a way that is compatible with cairo’s notion of color.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

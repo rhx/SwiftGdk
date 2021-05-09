@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,10 +7951,24 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Texture.html">Texture</a></code>.
 Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The <code>GdkTexture</code> structure contains only private data.</p>
+<p><code>GdkTexture</code> is the basic element used to refer to pixel data.</p>
+
+<p>It is primarily meant for pixel data that will not change over
+multiple frames, and will be used for a long time.</p>
+
+<p>There are various ways to create <code>GdkTexture</code> objects from a
+<code>GdkPixbuf</code>, or a Cairo surface, or other pixel data.</p>
+
+<p>The ownership of the pixel data is transferred to the <code>GdkTexture</code>
+instance; you can only make a copy of it, via
+[method<code>Gdk.Texture.download</code>].</p>
+
+<p><code>GdkTexture</code> is an immutable object: That means you cannot change
+anything about it other than increasing the reference count via
+<code>g_object_ref()</code>.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2226-L2235">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2318-L2327">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7997,7 +8002,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8035,7 +8040,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2323">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8065,7 +8070,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8196,7 +8201,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2609-L2633">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2729-L2753">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8253,7 +8258,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2638-L2642">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2758-L2762">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8311,7 +8316,7 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2648-L2650">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2768-L2770">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8345,23 +8350,23 @@ Alternatively, use <code><a href="../Structs/TextureRef.html">TextureRef</a></co
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Downloads the <code>texture</code> into local memory. This may be
-an expensive operation, as the actual texture data may
-reside on a GPU or on a remote display server.</p>
+                        <p>Downloads the <code>texture</code> into local memory.</p>
+
+<p>This may be an expensive operation, as the actual texture data
+may reside on a GPU or on a remote display server.</p>
 
 <p>The data format of the downloaded data is equivalent to
 <code>CAIRO_FORMAT_ARGB32</code>, so every downloaded pixel requires
 4 bytes of memory.</p>
 
-<p>Downloading a texture into a Cairo image surface:
-(C Language Example):</p>
-<pre class="highlight plaintext"><code>surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
-                                      gdk_texture_get_width (texture),
-                                      gdk_texture_get_height (texture));
-gdk_texture_download (texture,
-                      cairo_image_surface_get_data (surface),
-                      cairo_image_surface_get_stride (surface));
-cairo_surface_mark_dirty (surface);
+<p>Downloading a texture into a Cairo image surface:</p>
+<pre class="highlight c"><code><span class="n">surface</span> <span class="o">=</span> <span class="n">cairo_image_surface_create</span> <span class="p">(</span><span class="n">CAIRO_FORMAT_ARGB32</span><span class="p">,</span>
+                                      <span class="n">gdk_texture_get_width</span> <span class="p">(</span><span class="n">texture</span><span class="p">),</span>
+                                      <span class="n">gdk_texture_get_height</span> <span class="p">(</span><span class="n">texture</span><span class="p">));</span>
+<span class="n">gdk_texture_download</span> <span class="p">(</span><span class="n">texture</span><span class="p">,</span>
+                      <span class="n">cairo_image_surface_get_data</span> <span class="p">(</span><span class="n">surface</span><span class="p">),</span>
+                      <span class="n">cairo_image_surface_get_stride</span> <span class="p">(</span><span class="n">surface</span><span class="p">));</span>
+<span class="n">cairo_surface_mark_dirty</span> <span class="p">(</span><span class="n">surface</span><span class="p">);</span>
 </code></pre>
 
                       </div>
@@ -8375,7 +8380,7 @@ cairo_surface_mark_dirty (surface);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2711-L2714">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2830-L2833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8409,7 +8414,7 @@ cairo_surface_mark_dirty (surface);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2717-L2720">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2836-L2839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8443,7 +8448,7 @@ cairo_surface_mark_dirty (surface);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2723-L2726">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2842-L2845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8482,7 +8487,7 @@ look into using the gdk-pixbuf library.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2734-L2737">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2853-L2856">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8503,9 +8508,11 @@ look into using the gdk-pixbuf library.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new pixbuf from <code>texture</code>. This should generally not be used
-in newly written code as later stages will almost certainly convert
-the pixbuf back into a texture to draw it on screen.</p>
+                        <p>Creates a new pixbuf from <code>texture</code>.</p>
+
+<p>This should generally not be used in newly written code as later
+stages will almost certainly convert the pixbuf back into a texture
+to draw it on screen.</p>
 
                       </div>
                       <div class="declaration">
@@ -8518,7 +8525,7 @@ the pixbuf back into a texture to draw it on screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2742-L2745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2863-L2866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8552,7 +8559,7 @@ the pixbuf back into a texture to draw it on screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2747-L2753">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2868-L2874">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8586,7 +8593,7 @@ the pixbuf back into a texture to draw it on screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2756-L2762">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2877-L2883">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8599,8 +8606,8 @@ the pixbuf back into a texture to draw it on screen.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

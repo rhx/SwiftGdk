@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,13 +7951,42 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Cursor.html">Cursor</a></code>.
 Alternatively, use <code><a href="../Structs/CursorRef.html">CursorRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A <code>GdkCursor</code> represents a cursor. Its contents are private.</p>
+<p><code>GdkCursor</code> is used to create and destroy cursors.</p>
 
-<p>Cursors are immutable objects, so they can not change after
-they have been constructed.</p>
+<p>Cursors are immutable objects, so once you created them, there is no way
+to modify them later. You should create a new cursor when you want to change
+something about it.</p>
+
+<p>Cursors by themselves are not very interesting: they must be bound to a
+window for users to see them. This is done with [method<code>Gdk.Surface.set_cursor</code>]
+or [method<code>Gdk.Surface.set_device_cursor</code>]. Applications will typically
+use higher-level GTK functions such as [method<code>Gtk.Widget.set_cursor</code>]`
+instead.</p>
+
+<p>Cursors are not bound to a given [class<code>Gdk.Display</code>], so they can be shared.
+However, the appearance of cursors may vary when used on different
+platforms.</p>
+<h2 id='named-and-texture-cursors' class='heading'>Named and texture cursors</h2>
+
+<p>There are multiple ways to create cursors. The platform&rsquo;s own cursors
+can be created with [ctor<code>Gdk.Cursor.new_from_name</code>]. That function lists
+the commonly available names that are shared with the CSS specification.
+Other names may be available, depending on the platform in use. On some
+platforms, what images are used for named cursors may be influenced by
+the cursor theme.</p>
+
+<p>Another option to create a cursor is to use [ctor<code>Gdk.Cursor.new_from_texture</code>]
+and provide an image to use for the cursor.</p>
+
+<p>To ease work with unsupported cursors, a fallback cursor can be provided.
+If a [class<code>Gdk.Surface</code>] cannot use a cursor because of the reasons mentioned
+above, it will try the fallback cursor. Fallback cursors can themselves have
+fallback cursors again, so it is possible to provide a chain of progressively
+easier to support cursors. If none of the provided cursors can be supported,
+the default cursor will be the ultimate fallback.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3234-L3243">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3414-L3423">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8000,7 +8020,7 @@ they have been constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3236">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8038,7 +8058,7 @@ they have been constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3419">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8068,7 +8088,7 @@ they have been constructed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3242">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3422">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8199,7 +8219,7 @@ they have been constructed.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3692-L3716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3849-L3873">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8256,7 +8276,7 @@ they have been constructed.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3721-L3725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3878-L3882">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8314,7 +8334,7 @@ they have been constructed.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3731-L3733">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3888-L3890">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8348,13 +8368,13 @@ they have been constructed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the fallback for this <code>cursor</code>. The fallback will be used if this
-cursor is not available on a given <code>GdkDisplay</code>.</p>
+                        <p>Returns the fallback for this <code>cursor</code>.</p>
 
-<p>For named cursors, this can happen when using nonstandard names or when
-using an incomplete cursor theme.
-For textured cursors, this can happen when the texture is too large or
-when the <code>GdkDisplay</code> it is used on does not support textured cursors.</p>
+<p>The fallback will be used if this cursor is not available on a given
+<code>GdkDisplay</code>. For named cursors, this can happen when using nonstandard
+names or when using an incomplete cursor theme. For textured cursors,
+this can happen when the texture is too large or when the <code>GdkDisplay</code>
+it is used on does not support textured cursors.</p>
 
                       </div>
                       <div class="declaration">
@@ -8367,7 +8387,7 @@ when the <code>GdkDisplay</code> it is used on does not support textured cursors
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3782-L3785">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3948-L3951">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8388,12 +8408,13 @@ when the <code>GdkDisplay</code> it is used on does not support textured cursors
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the horizontal offset of the hotspot. The hotspot indicates the
-pixel that will be directly above the cursor.</p>
+                        <p>Returns the horizontal offset of the hotspot.</p>
+
+<p>The hotspot indicates the pixel that will be directly above the cursor.</p>
 
 <p>Note that named cursors may have a nonzero hotspot, but this function
 will only return the hotspot position for cursors created with
-<code>gdk_cursor_new_from_texture()</code>.</p>
+[ctor<code>Gdk.Cursor.new_from_texture</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8406,7 +8427,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3793-L3796">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3960-L3963">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8427,12 +8448,13 @@ will only return the hotspot position for cursors created with
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the vertical offset of the hotspot. The hotspot indicates the
-pixel that will be directly above the cursor.</p>
+                        <p>Returns the vertical offset of the hotspot.</p>
+
+<p>The hotspot indicates the pixel that will be directly above the cursor.</p>
 
 <p>Note that named cursors may have a nonzero hotspot, but this function
 will only return the hotspot position for cursors created with
-<code>gdk_cursor_new_from_texture()</code>.</p>
+[ctor<code>Gdk.Cursor.new_from_texture</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8445,7 +8467,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3804-L3807">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3972-L3975">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8466,8 +8488,9 @@ will only return the hotspot position for cursors created with
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the name of the cursor. If the cursor is not a named cursor, <code>nil</code>
-will be returned.</p>
+                        <p>Returns the name of the cursor.</p>
+
+<p>If the cursor is not a named cursor, <code>nil</code> will be returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8480,7 +8503,7 @@ will be returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3811-L3814">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3980-L3983">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8501,8 +8524,9 @@ will be returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the texture for the cursor. If the cursor is a named cursor, <code>nil</code>
-will be returned.</p>
+                        <p>Returns the texture for the cursor.</p>
+
+<p>If the cursor is a named cursor, <code>nil</code> will be returned.</p>
 
                       </div>
                       <div class="declaration">
@@ -8515,7 +8539,7 @@ will be returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3818-L3821">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3988-L3991">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8536,7 +8560,7 @@ will be returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Cursor to fall back to if this cursor cannot be displayed.</p>
 
                       </div>
                       <div class="declaration">
@@ -8549,7 +8573,7 @@ will be returned.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3822-L3834">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3993-L4005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8570,12 +8594,13 @@ will be returned.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the horizontal offset of the hotspot. The hotspot indicates the
-pixel that will be directly above the cursor.</p>
+                        <p>Returns the horizontal offset of the hotspot.</p>
+
+<p>The hotspot indicates the pixel that will be directly above the cursor.</p>
 
 <p>Note that named cursors may have a nonzero hotspot, but this function
 will only return the hotspot position for cursors created with
-<code>gdk_cursor_new_from_texture()</code>.</p>
+[ctor<code>Gdk.Cursor.new_from_texture</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8588,7 +8613,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3842-L3853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4014-L4026">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8609,12 +8634,13 @@ will only return the hotspot position for cursors created with
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the vertical offset of the hotspot. The hotspot indicates the
-pixel that will be directly above the cursor.</p>
+                        <p>Returns the vertical offset of the hotspot.</p>
+
+<p>The hotspot indicates the pixel that will be directly above the cursor.</p>
 
 <p>Note that named cursors may have a nonzero hotspot, but this function
 will only return the hotspot position for cursors created with
-<code>gdk_cursor_new_from_texture()</code>.</p>
+[ctor<code>Gdk.Cursor.new_from_texture</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8627,7 +8653,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3861-L3872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4035-L4047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8648,7 +8674,9 @@ will only return the hotspot position for cursors created with
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Name of this this cursor.</p>
+
+<p>The name will be <code>nil</code> if the cursor was created from a texture.</p>
 
                       </div>
                       <div class="declaration">
@@ -8661,7 +8689,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3874-L3881">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4052-L4060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8682,7 +8710,9 @@ will only return the hotspot position for cursors created with
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The texture displayed by this cursor.</p>
+
+<p>The texture will be <code>nil</code> if the cursor was created from a name.</p>
 
                       </div>
                       <div class="declaration">
@@ -8695,7 +8725,7 @@ will only return the hotspot position for cursors created with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3883-L3890">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L4065-L4073">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8708,8 +8738,8 @@ will only return the hotspot position for cursors created with
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

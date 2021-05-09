@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,13 +7950,16 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/MonitorProtocol.html">MonitorProtocol</a></code> conformance.
 Use <code>Monitor</code> as a strong reference or owner of a <code>GdkMonitor</code> instance.</p>
 
-<p>GdkMonitor objects represent the individual outputs that are
-associated with a <code>GdkDisplay</code>. GdkDisplay keeps a <code>GListModel</code> to enumerate
-and monitor monitors with <code>gdk_display_get_monitors()</code>.
-You can use <code>gdk_display_get_monitor_at_surface()</code> to find a particular monitor.</p>
+<p><code>GdkMonitor</code> objects represent the individual outputs that are
+associated with a <code>GdkDisplay</code>.</p>
+
+<p><code>GdkDisplay</code> keeps a <code>GListModel</code> to enumerate and monitor
+monitors with [method<code>Gdk.Display.get_monitors</code>]. You can use
+[method<code>Gdk.Display.get_monitor_at_surface</code>] to find a particular
+monitor.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L491-L618">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L502-L629">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8023,7 +8017,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L496-L498">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L507-L509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8075,7 +8069,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L504-L506">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L515-L517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8128,7 +8122,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L513-L516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L524-L527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8181,7 +8175,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L523-L526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L534-L537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8233,7 +8227,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L532-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L543-L546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8285,7 +8279,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L541-L544">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L552-L555">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8337,7 +8331,7 @@ i.e., ownership is transferred to the <code>Monitor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L550-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L561-L563">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8388,7 +8382,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L557-L559">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L568-L570">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8439,7 +8433,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L564-L566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L575-L577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8490,7 +8484,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L571-L573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L582-L584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8541,7 +8535,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L578-L580">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L589-L591">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8573,7 +8567,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L584-L586">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L595-L597">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8624,7 +8618,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L591-L593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L602-L604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8675,7 +8669,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L598-L600">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L609-L611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8726,7 +8720,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L605-L607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L616-L618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8777,7 +8771,7 @@ Will retain <code>GdkMonitor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L612-L614">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MemoryTexture-PadEvent.swift#L623-L625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8790,8 +8784,8 @@ Will retain <code>GdkMonitor</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

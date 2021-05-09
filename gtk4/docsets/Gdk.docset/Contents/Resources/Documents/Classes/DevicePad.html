@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,24 +7951,25 @@ It provides the methods that can operate on this data type through <code><a href
 Use <code>DevicePad</code> as a strong reference or owner of a <code>GdkDevicePad</code> instance.</p>
 
 <p><code>GdkDevicePad</code> is an interface implemented by devices of type
-<code>GDK_SOURCE_TABLET_PAD</code>, it allows querying the features provided
-by the pad device.</p>
+<code>GDK_SOURCE_TABLET_PAD</code></p>
+
+<p>It allows querying the features provided by the pad device.</p>
 
 <p>Tablet pads may contain one or more groups, each containing a subset
-of the buttons/rings/strips available. <code>gdk_device_pad_get_n_groups()</code>
-can be used to obtain the number of groups, <code>gdk_device_pad_get_n_features()</code>
-and <code>gdk_device_pad_get_feature_group()</code> can be combined to find out the
-number of buttons/rings/strips the device has, and how are they grouped.</p>
+of the buttons/rings/strips available. [method<code>Gdk.DevicePad.get_n_groups</code>]
+can be used to obtain the number of groups, [method<code>Gdk.DevicePad.get_n_features</code>]
+and [method<code>Gdk.DevicePad.get_feature_group</code>] can be combined to find out
+the number of buttons/rings/strips the device has, and how are they grouped.</p>
 
 <p>Each of those groups have different modes, which may be used to map each
 individual pad feature to multiple actions. Only one mode is effective
 (current) for each given group, different groups may have different
 current modes. The number of available modes in a group can be found
-out through <code>gdk_device_pad_get_group_n_modes()</code>, and the current mode for
-a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</code>.</p>
+out through [method<code>Gdk.DevicePad.get_group_n_modes</code>], and the current mode
+for a given group will be notified through events of type <code>GDK_PAD_GROUP_MODE</code>.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L169-L296">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L172-L299">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8035,7 +8027,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L174-L176">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L177-L179">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8087,7 +8079,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L182-L184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L185-L187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8140,7 +8132,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L191-L194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L194-L197">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8193,7 +8185,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L201-L204">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L204-L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8245,7 +8237,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L210-L213">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L213-L216">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8297,7 +8289,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L219-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L222-L225">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8349,7 +8341,7 @@ i.e., ownership is transferred to the <code>DevicePad</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L228-L230">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L231-L233">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8400,7 +8392,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L235-L237">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L238-L240">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8451,7 +8443,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L242-L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L245-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8502,7 +8494,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L249-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L252-L254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8553,7 +8545,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L256-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L259-L261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8585,7 +8577,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L262-L264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L265-L267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8636,7 +8628,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L269-L271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L272-L274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8687,7 +8679,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L276-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L279-L281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8738,7 +8730,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L283-L285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L286-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8789,7 +8781,7 @@ Will retain <code>GdkDevicePad</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L290-L292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DevicePad-Paintable.swift#L293-L295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8802,8 +8794,8 @@ Will retain <code>GdkDevicePad</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

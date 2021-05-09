@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,9 +7950,8 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/PopupLayoutProtocol.html">PopupLayoutProtocol</a></code> conformance.
 Use <code>PopupLayout</code> as a strong reference or owner of a <code>GdkPopupLayout</code> instance.</p>
 
-<p>Popups are positioned relative to their parent surface.
-The GdkPopupLayout struct contains information that is
-necessary to do so.</p>
+<p>The <code>GdkPopupLayout</code> struct contains information that is
+necessary position a [interface<code>Gdk.Popup</code>] relative to its parent.</p>
 
 <p>The positioning requires a negotiation with the windowing system,
 since it depends on external constraints, such as the position of
@@ -7987,15 +7977,15 @@ or to resize it.</p>
 
 <p>Ultimatively, it is up to the windowing system to determine the position
 and size of the popup. You can learn about the result by calling
-<code>gdk_popup_get_position_x()</code>, <code>gdk_popup_get_position_y()</code>,
-<code>gdk_popup_get_rect_anchor()</code> and <code>gdk_popup_get_surface_anchor()</code> after the
-popup has been presented. This can be used to adjust the rendering. For
-example, GtkPopover changes its arrow position accordingly. But you have
-to be careful avoid changing the size of the popover, or it has to be
-presented again.</p>
+[method<code>Gdk.Popup.get_position_x</code>], [method<code>Gdk.Popup.get_position_y</code>],
+[method<code>Gdk.Popup.get_rect_anchor</code>] and [method<code>Gdk.Popup.get_surface_anchor</code>]
+after the popup has been presented. This can be used to adjust the rendering.
+For example, [class<code>Gtk.Popover</code>] changes its arrow position accordingly.
+But you have to be careful avoid changing the size of the popover, or it
+has to be presented again.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L362-L518">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L361-L519">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8032,7 +8022,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8084,7 +8074,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L371-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L370-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8136,7 +8126,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L379-L381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L378-L380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8189,7 +8179,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L388-L391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L387-L390">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8242,7 +8232,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L398-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L397-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8294,7 +8284,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L407-L410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L406-L409">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8346,7 +8336,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L416-L419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L415-L418">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8398,7 +8388,7 @@ i.e., ownership is transferred to the <code>PopupLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L425-L428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8449,7 +8439,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L433-L436">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L432-L435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8500,7 +8490,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L446-L448">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L445-L447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8551,7 +8541,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L453-L456">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L452-L455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8602,7 +8592,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L461-L463">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L460-L462">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8634,7 +8624,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L467-L470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L466-L469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8685,7 +8675,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L475-L477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L474-L476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8736,7 +8726,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L482-L485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L481-L484">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8787,7 +8777,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L490-L492">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L489-L491">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8838,7 +8828,7 @@ Will retain <code>GdkPopupLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L497-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L496-L499">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8856,15 +8846,17 @@ Will retain <code>GdkPopupLayout</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a popup layout description. Used together with <code>gdk_popup_present()</code>
-to describe how a popup surface should be placed and behave on-screen.</p>
+                        <p>Create a popup layout description.</p>
+
+<p>Used together with [method<code>Gdk.Popup.present</code>] to describe how a popup
+surface should be placed and behave on-screen.</p>
 
 <p><code>anchor_rect</code> is relative to the top-left corner of the surface&rsquo;s parent.
 <code>rect_anchor</code> and <code>surface_anchor</code> determine anchor points on <code>anchor_rect</code>
 and surface to pin together.</p>
 
 <p>The position of <code>anchor_rect</code>&lsquo;s anchor point can optionally be offset using
-<code>gdk_popup_layout_set_offset()</code>, which is equivalent to offsetting the
+[method<code>Gdk.PopupLayout.set_offset</code>], which is equivalent to offsetting the
 position of surface.</p>
 
                       </div>
@@ -8878,7 +8870,7 @@ position of surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L512-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L513-L516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8891,8 +8883,8 @@ position of surface.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

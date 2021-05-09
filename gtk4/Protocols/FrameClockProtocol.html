@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7961,37 +7952,37 @@ For a concrete class that implements these methods and properties, see <code><a 
 Alternatively, use <code><a href="../Structs/FrameClockRef.html">FrameClockRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
 <p>A <code>GdkFrameClock</code> tells the application when to update and repaint
-a surface. This may be synced to the vertical refresh rate of the
-monitor, for example. Even when the frame clock uses a simple timer
-rather than a hardware-based vertical sync, the frame clock helps
-because it ensures everything paints at the same time (reducing the
-total number of frames). The frame clock can also automatically
-stop painting when it knows the frames will not be visible, or
-scale back animation framerates.</p>
+a surface.</p>
 
-<p><code>GdkFrameClock</code> is designed to be compatible with an OpenGL-based
-implementation or with mozRequestAnimationFrame in Firefox,
-for example.</p>
+<p>This may be synced to the vertical refresh rate of the monitor, for example.
+Even when the frame clock uses a simple timer rather than a hardware-based
+vertical sync, the frame clock helps because it ensures everything paints at
+the same time (reducing the total number of frames).</p>
+
+<p>The frame clock can also automatically stop painting when it knows the frames
+will not be visible, or scale back animation framerates.</p>
+
+<p><code>GdkFrameClock</code> is designed to be compatible with an OpenGL-based implementation
+or with mozRequestAnimationFrame in Firefox, for example.</p>
 
 <p>A frame clock is idle until someone requests a frame with
-<code>gdk_frame_clock_request_phase()</code>. At some later point that makes
-sense for the synchronization being implemented, the clock will
-process a frame and emit signals for each phase that has been
-requested. (See the signals of the <code>GdkFrameClock</code> class for
-documentation of the phases. <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the
-<code>GdkFrameClock::update</code> signal are most interesting for application
-writers, and are used to update the animations, using the frame time
-given by <code>gdk_frame_clock_get_frame_time()</code>.</p>
+[method<code>Gdk.FrameClock.request_phase</code>]. At some later point that makes sense
+for the synchronization being implemented, the clock will process a frame and
+emit signals for each phase that has been requested. (See the signals of the
+<code>GdkFrameClock</code> class for documentation of the phases.
+<code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> and the [signal<code>GdkFrameClock::update</code>] signal
+are most interesting for application writers, and are used to update the
+animations, using the frame time given by [metohd<code>Gdk.FrameClock.get_frame_time</code>].</p>
 
 <p>The frame time is reported in microseconds and generally in the same
 timescale as <code>g_get_monotonic_time()</code>, however, it is not the same
 as <code>g_get_monotonic_time()</code>. The frame time does not advance during
 the time a frame is being painted, and outside of a frame, an attempt
-is made so that all calls to <code>gdk_frame_clock_get_frame_time()</code> that
+is made so that all calls to [method<code>Gdk.FrameClock.get_frame_time</code>] that
 are called at a “similar” time get the same value. This means that
 if different animations are timed by looking at the difference in
-time between an initial value from <code>gdk_frame_clock_get_frame_time()</code>
-and the value inside the <code>GdkFrameClock::update</code> signal of the clock,
+time between an initial value from [method<code>Gdk.FrameClock.get_frame_time</code>]
+and the value inside the [signal<code>GdkFrameClock::update</code>] signal of the clock,
 they will stay exactly synchronized.</p>
 
               <div class="slightly-smaller">
@@ -8216,7 +8207,7 @@ they will stay exactly synchronized.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L690-L692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L696-L698">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8322,7 +8313,7 @@ they will stay exactly synchronized.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L703-L705">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L709-L711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8343,8 +8334,9 @@ they will stay exactly synchronized.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal ends processing of the frame. Applications
-should generally not handle this signal.</p>
+                        <p>This signal ends processing of the frame.</p>
+
+<p>Applications should generally not handle this signal.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>after-paint</code> signal
@@ -8407,7 +8399,7 @@ Run the given callback whenever the <code>afterPaint</code> signal is emitted</p
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L715-L729">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L722-L736">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8440,7 +8432,7 @@ Run the given callback whenever the <code>afterPaint</code> signal is emitted</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L732">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8461,8 +8453,9 @@ Run the given callback whenever the <code>afterPaint</code> signal is emitted</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal begins processing of the frame. Applications
-should generally not handle this signal.</p>
+                        <p>Begins processing of the frame.</p>
+
+<p>Applications should generally not handle this signal.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>before-paint</code> signal
@@ -8525,7 +8518,7 @@ Run the given callback whenever the <code>beforePaint</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L741-L755">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L749-L763">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8558,7 +8551,7 @@ Run the given callback whenever the <code>beforePaint</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8579,9 +8572,10 @@ Run the given callback whenever the <code>beforePaint</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is used to flush pending motion events that
-are being batched up and compressed together. Applications
-should not handle this signal.</p>
+                        <p>Used to flush pending motion events that are being batched up and
+compressed together.</p>
+
+<p>Applications should not handle this signal.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>flush-events</code> signal
@@ -8644,7 +8638,7 @@ Run the given callback whenever the <code>flushEvents</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L768-L782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L777-L791">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8677,7 +8671,7 @@ Run the given callback whenever the <code>flushEvents</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L785">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8698,10 +8692,11 @@ Run the given callback whenever the <code>flushEvents</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is emitted as the second step of toolkit and
-application processing of the frame. Any work to update
-sizes and positions of application elements should be
-performed. GTK normally handles this internally.</p>
+                        <p>Emitted as the second step of toolkit and application processing
+of the frame.</p>
+
+<p>Any work to update sizes and positions of application elements
+should be performed. GTK normally handles this internally.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>layout</code> signal
@@ -8764,7 +8759,7 @@ Run the given callback whenever the <code>layout</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L796-L810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L806-L820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8797,7 +8792,7 @@ Run the given callback whenever the <code>layout</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L813">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L823">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8818,11 +8813,12 @@ Run the given callback whenever the <code>layout</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is emitted as the third step of toolkit and
-application processing of the frame. The frame is
-repainted. GDK normally handles this internally and
-emits <code>GdkSurface::render</code> which are turned into
-<code>GtkWidget::snapshot</code> signals by GTK.</p>
+                        <p>Emitted as the third step of toolkit and application processing
+of the frame.</p>
+
+<p>The frame is repainted. GDK normally handles this internally and
+emits [signal<code>Gdk.Surface::render</code>] signals which are turned into
+[signal<code>Gtk.Widget::snapshot</code>] signals by GTK.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>paint</code> signal
@@ -8885,7 +8881,7 @@ Run the given callback whenever the <code>paint</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L825-L839">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L836-L850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8918,7 +8914,7 @@ Run the given callback whenever the <code>paint</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L842">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L853">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8939,8 +8935,9 @@ Run the given callback whenever the <code>paint</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is emitted after processing of the frame is
-finished, and is handled internally by GTK to resume normal
+                        <p>Emitted after processing of the frame is finished.</p>
+
+<p>This signal is handled internally by GTK to resume normal
 event processing. Applications should not handle this signal.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
@@ -9004,7 +9001,7 @@ Run the given callback whenever the <code>resumeEvents</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L852-L866">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L864-L878">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9037,7 +9034,7 @@ Run the given callback whenever the <code>resumeEvents</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9058,12 +9055,12 @@ Run the given callback whenever the <code>resumeEvents</code> signal is emitted<
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is emitted as the first step of toolkit and
-application processing of the frame. Animations should
-be updated using <code>gdk_frame_clock_get_frame_time()</code>.
-Applications can connect directly to this signal, or
-use <code>gtk_widget_add_tick_callback()</code> as a more convenient
-interface.</p>
+                        <p>Emitted as the first step of toolkit and application processing
+of the frame.</p>
+
+<p>Animations should be updated using [method<code>Gdk.FrameClock.get_frame_time</code>].
+Applications can connect directly to this signal, or use
+[method<code>Gtk.Widget.add_tick_callback</code>] as a more convenient interface.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>update</code> signal
@@ -9126,7 +9123,7 @@ Run the given callback whenever the <code>update</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L882-L896">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L894-L908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9159,7 +9156,7 @@ Run the given callback whenever the <code>update</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L899">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L911">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9193,12 +9190,13 @@ Run the given callback whenever the <code>update</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Starts updates for an animation. Until a matching call to
-<code>gdk_frame_clock_end_updating()</code> is made, the frame clock will continually
-request a new frame with the <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> phase.
-This function may be called multiple times and frames will be
-requested until <code>gdk_frame_clock_end_updating()</code> is called the same
-number of times.</p>
+                        <p>Starts updates for an animation.</p>
+
+<p>Until a matching call to [method<code>Gdk.FrameClock.end_updating</code>] is made,
+the frame clock will continually request a new frame with the
+<code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> phase. This function may be called multiple
+times and frames will be requested until <code>gdk_frame_clock_end_updating()</code>
+is called the same number of times.</p>
 
                       </div>
                       <div class="declaration">
@@ -9211,7 +9209,7 @@ number of times.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L915-L918">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L928-L931">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9232,8 +9230,9 @@ number of times.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Stops updates for an animation. See the documentation for
-<code>gdk_frame_clock_begin_updating()</code>.</p>
+                        <p>Stops updates for an animation.</p>
+
+<p>See the documentation for [method<code>Gdk.FrameClock.begin_updating</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9246,7 +9245,7 @@ number of times.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L922-L925">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L936-L939">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9280,7 +9279,7 @@ number of times.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L928-L931">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L942-L945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9315,7 +9314,7 @@ frame timings of <code>frame_clock</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L935-L938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L949-L952">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9336,7 +9335,7 @@ frame timings of <code>frame_clock</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>GdkFrameClock</code> maintains a 64-bit counter that increments for
+                        <p><code>GdkFrameClock</code> maintains a 64-bit counter that increments for
 each frame drawn.</p>
 
                       </div>
@@ -9350,7 +9349,7 @@ each frame drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L942-L945">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L956-L959">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9371,8 +9370,9 @@ each frame drawn.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the time that should currently be used for animations.  Inside
-the processing of a frame, it’s the time used to compute the
+                        <p>Gets the time that should currently be used for animations.</p>
+
+<p>Inside the processing of a frame, it’s the time used to compute the
 animation position of everything in a frame. Outside of a frame, it&rsquo;s
 the time of the conceptual “previous frame,” which may be either
 the actual previous frame time, or if that’s too old, an updated
@@ -9389,7 +9389,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L953-L956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L968-L971">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9410,12 +9410,14 @@ time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
+                        <p>Returns the frame counter for the oldest frame available in history.</p>
+
+<p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
 objects for recent frames that can be retrieved with
-<code>gdk_frame_clock_get_timings()</code>. The set of stored frames
+[method<code>Gdk.FrameClock.get_timings</code>]. The set of stored frames
 is the set from the counter values given by
-<code>gdk_frame_clock_get_history_start()</code> and
-<code>gdk_frame_clock_get_frame_counter()</code>, inclusive.</p>
+[method<code>Gdk.FrameClock.get_history_start</code>] and
+[method<code>Gdk.FrameClock.get_frame_counter</code>], inclusive.</p>
 
                       </div>
                       <div class="declaration">
@@ -9428,7 +9430,7 @@ is the set from the counter values given by
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L964-L967">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L981-L984">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9449,7 +9451,9 @@ is the set from the counter values given by
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Using the frame history stored in the frame clock, finds the last
+                        <p>Predicts a presentation time, based on history.</p>
+
+<p>Using the frame history stored in the frame clock, finds the last
 known presentation time and refresh interval, and assuming that
 presentation times are separated by the refresh interval,
 predicts a presentation time that is a multiple of the refresh
@@ -9466,7 +9470,7 @@ interval after the last presentation time, and later than <code>base_time</code>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L974-L977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L993-L996">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9488,8 +9492,10 @@ interval after the last presentation time, and later than <code>base_time</code>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves a <code>GdkFrameTimings</code> object holding timing information
-for the current frame or a recent frame. The <code>GdkFrameTimings</code>
-object may not yet be complete: see <code>gdk_frame_timings_get_complete()</code>.</p>
+for the current frame or a recent frame.</p>
+
+<p>The <code>GdkFrameTimings</code> object may not yet be complete: see
+[method<code>Gdk.FrameTimings.get_complete</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -9502,7 +9508,7 @@ object may not yet be complete: see <code>gdk_frame_timings_get_complete()</code
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L982-L985">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1003-L1006">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9523,15 +9529,16 @@ object may not yet be complete: see <code>gdk_frame_timings_get_complete()</code
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Asks the frame clock to run a particular phase. The signal
-corresponding the requested phase will be emitted the next
+                        <p>Asks the frame clock to run a particular phase.</p>
+
+<p>The signal corresponding the requested phase will be emitted the next
 time the frame clock processes. Multiple calls to
 <code>gdk_frame_clock_request_phase()</code> will be combined together
 and only one frame processed. If you are displaying animated
 content and want to continually request the
 <code>GDK_FRAME_CLOCK_PHASE_UPDATE</code> phase for a period of time,
-you should use <code>gdk_frame_clock_begin_updating()</code> instead, since
-this allows GTK to adjust system parameters to get maximally
+you should use [method<code>Gdk.FrameClock.begin_updating</code>] instead,
+since this allows GTK to adjust system parameters to get maximally
 smooth animations.</p>
 
                       </div>
@@ -9545,7 +9552,7 @@ smooth animations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L997-L1000">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1019-L1022">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9579,7 +9586,7 @@ smooth animations.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1002-L1008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1024-L1030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9614,7 +9621,7 @@ frame timings of <code>frame_clock</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1012-L1019">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1034-L1041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9635,7 +9642,7 @@ frame timings of <code>frame_clock</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A <code>GdkFrameClock</code> maintains a 64-bit counter that increments for
+                        <p><code>GdkFrameClock</code> maintains a 64-bit counter that increments for
 each frame drawn.</p>
 
                       </div>
@@ -9649,7 +9656,7 @@ each frame drawn.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1023-L1030">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1045-L1052">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9670,8 +9677,9 @@ each frame drawn.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the time that should currently be used for animations.  Inside
-the processing of a frame, it’s the time used to compute the
+                        <p>Gets the time that should currently be used for animations.</p>
+
+<p>Inside the processing of a frame, it’s the time used to compute the
 animation position of everything in a frame. Outside of a frame, it&rsquo;s
 the time of the conceptual “previous frame,” which may be either
 the actual previous frame time, or if that’s too old, an updated
@@ -9688,7 +9696,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1038-L1049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1061-L1073">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9709,12 +9717,14 @@ time.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
+                        <p>Returns the frame counter for the oldest frame available in history.</p>
+
+<p><code>GdkFrameClock</code> internally keeps a history of <code>GdkFrameTimings</code>
 objects for recent frames that can be retrieved with
-<code>gdk_frame_clock_get_timings()</code>. The set of stored frames
+[method<code>Gdk.FrameClock.get_timings</code>]. The set of stored frames
 is the set from the counter values given by
-<code>gdk_frame_clock_get_history_start()</code> and
-<code>gdk_frame_clock_get_frame_counter()</code>, inclusive.</p>
+[method<code>Gdk.FrameClock.get_history_start</code>] and
+[method<code>Gdk.FrameClock.get_frame_counter</code>], inclusive.</p>
 
                       </div>
                       <div class="declaration">
@@ -9727,7 +9737,7 @@ is the set from the counter values given by
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1057-L1068">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1083-L1096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9740,8 +9750,8 @@ is the set from the counter values given by
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

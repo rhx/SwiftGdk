@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,11 +7951,15 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Event.html">Event</a></code>.
 Alternatively, use <code><a href="../Structs/EventRef.html">EventRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The GdkEvent struct contains only private fields and
-should not be accessed directly.</p>
+<p><code>GdkEvent</code>s are immutable data structures, created by GDK to
+represent windowing system events.</p>
+
+<p>In GTK applications the events are handled automatically by toplevel
+widgets and passed on to the event controllers of appropriate widgets,
+so using <code>GdkEvent</code> and its related API is rarely needed.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6090-L6099">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6327-L6336">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7998,7 +7993,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6092">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8036,7 +8031,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6095">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6332">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8066,7 +8061,7 @@ should not be accessed directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8100,10 +8095,14 @@ should not be accessed directly.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, this function will return <code>true</code>
-and return in <code>angle</code> the relative angle from <code>event1</code> to <code>event2</code>. The rotation
-direction for positive angles is from the positive X axis towards the positive
-Y axis.</p>
+                        <p>Returns the relative angle from <code>event1</code> to <code>event2</code>.</p>
+
+<p>The relative angle is the angle between the X axis and the line
+through both events&rsquo; positions. The rotation direction for positive
+angles is from the positive X axis towards the positive Y axis.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8116,7 +8115,7 @@ Y axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6349-L6352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6598-L6601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8137,8 +8136,10 @@ Y axis.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, the center of both coordinates
-will be returned in <code>x</code> and <code>y</code>.</p>
+                        <p>Returns the point halfway between the events&rsquo; positions.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8151,7 +8152,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6356-L6359">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6607-L6610">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8172,8 +8173,10 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events have X/Y information, the distance between both coordinates
-(as in a straight line going from <code>event1</code> to <code>event2</code>) will be returned.</p>
+                        <p>Returns the distance between the event locations.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8186,7 +8189,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6363-L6366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6616-L6619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8220,7 +8223,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6369-L6372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6622-L6625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8255,7 +8258,7 @@ an event structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6376-L6379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6629-L6632">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8289,7 +8292,7 @@ an event structure.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6382-L6385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6635-L6638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8310,14 +8313,16 @@ an event structure.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the event was generated by a device that supports
-different tools (eg. a tablet), this function will
-return a <code>GdkDeviceTool</code> representing the tool that
-caused the event. Otherwise, <code>nil</code> will be returned.</p>
+                        <p>Returns a <code>GdkDeviceTool</code> representing the tool that
+caused the event.</p>
 
-<p>Note: the <code>GdkDeviceTools</code> will be constant during
+<p>If the was not generated by a device that supports
+different tools (such as a tablet), this function will
+return <code>nil</code>.</p>
+
+<p>Note: the <code>GdkDeviceTool</code> will be constant during
 the application lifetime, if settings must be stored
-persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
+persistently across runs, see [method<code>Gdk.DeviceTool.get_serial</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8330,7 +8335,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6395-L6398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6650-L6653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8351,7 +8356,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkDisplay</code> associated to the <code>event</code>.</p>
+                        <p>Retrieves the display associated to the <code>event</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8364,7 +8369,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6401-L6404">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6656-L6659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8385,8 +8390,10 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>event</code> is a touch event, returns the <code>GdkEventSequence</code>
-to which the event belongs. Otherwise, return <code>nil</code>.</p>
+                        <p>Retuns the event sequence to which the event belongs.</p>
+
+<p>Related touch events are connected in a sequence. Other
+events typically don&rsquo;t have event sequence information.</p>
 
                       </div>
                       <div class="declaration">
@@ -8399,7 +8406,7 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6408-L6411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6665-L6668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8433,7 +8440,7 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6414-L6417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6671-L6674">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8454,13 +8461,14 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the history of the <code>event</code>, as a list of time and coordinates.</p>
+                        <p>Retrieves the history of the device that <code>event</code> is for, as a list of
+time and coordinates.</p>
 
-<p>The history includes events that are not delivered to the application
-because they occurred in the same frame as <code>event</code>.</p>
+<p>The history includes positions that are not delivered as separate events
+to the application because they occurred in the same frame as <code>event</code>.</p>
 
 <p>Note that only motion and scroll events record history, and motion
-events only if one of the mouse buttons is down.</p>
+events do it only if one of the mouse buttons is down.</p>
 
                       </div>
                       <div class="declaration">
@@ -8473,7 +8481,7 @@ events only if one of the mouse buttons is down.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6426-L6429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6684-L6687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8507,7 +8515,7 @@ events only if one of the mouse buttons is down.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6432-L6435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6690-L6693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8528,8 +8536,9 @@ events only if one of the mouse buttons is down.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether this event is an &lsquo;emulated&rsquo; pointer event (typically
-from a touch event), as opposed to a real one.</p>
+                        <p>Returns whether this event is an &lsquo;emulated&rsquo; pointer event.</p>
+
+<p>Emulated pointer events typically originate from a touch events.</p>
 
                       </div>
                       <div class="declaration">
@@ -8542,7 +8551,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6439-L6442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6698-L6701">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8576,7 +8585,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6445-L6448">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6704-L6707">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8610,7 +8619,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6451-L6454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6710-L6713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8631,7 +8640,7 @@ from a touch event), as opposed to a real one.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Extracts the <code>GdkSurface</code> associated with an event.</p>
+                        <p>Extracts the surface associated with an event.</p>
 
                       </div>
                       <div class="declaration">
@@ -8644,7 +8653,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6457-L6460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6716-L6719">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8665,7 +8674,9 @@ from a touch event), as opposed to a real one.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the time stamp from <code>event</code>, if there is one; otherwise
+                        <p>Returns the timestamp of <code>event</code>.</p>
+
+<p>Not all events have timestamps. In that case, this function
 returns <code>GDK_CURRENT_TIME</code>.</p>
 
                       </div>
@@ -8679,7 +8690,7 @@ returns <code>GDK_CURRENT_TIME</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6464-L6467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6725-L6728">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8714,7 +8725,7 @@ returns <code>GDK_CURRENT_TIME</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6470-L6473">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6731-L6734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8735,9 +8746,10 @@ returns <code>GDK_CURRENT_TIME</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function returns whether a <code>GdkEvent</code> should trigger a
-context menu, according to platform conventions. The right
-mouse button always triggers context menus.</p>
+                        <p>Returns whether a <code>GdkEvent</code> should trigger a context menu,
+according to platform conventions.</p>
+
+<p>The right mouse button typically triggers context menus.</p>
 
 <p>This function should always be used instead of simply checking for
 event-&gt;button == <code>GDK_BUTTON_SECONDARY</code>.</p>
@@ -8753,7 +8765,7 @@ event-&gt;button == <code>GDK_BUTTON_SECONDARY</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6481-L6484">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6743-L6746">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8774,8 +8786,9 @@ event-&gt;button == <code>GDK_BUTTON_SECONDARY</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Decrease the ref count of <code>event</code>, and free it
-if the last reference is dropped.</p>
+                        <p>Decrease the ref count of <code>event</code>.</p>
+
+<p>If the last reference is dropped, the structure is freed.</p>
 
                       </div>
                       <div class="declaration">
@@ -8788,7 +8801,7 @@ if the last reference is dropped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6488-L6491">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6751-L6754">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8809,10 +8822,14 @@ if the last reference is dropped.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, this function will return <code>true</code>
-and return in <code>angle</code> the relative angle from <code>event1</code> to <code>event2</code>. The rotation
-direction for positive angles is from the positive X axis towards the positive
-Y axis.</p>
+                        <p>Returns the relative angle from <code>event1</code> to <code>event2</code>.</p>
+
+<p>The relative angle is the angle between the X axis and the line
+through both events&rsquo; positions. The rotation direction for positive
+angles is from the positive X axis towards the positive Y axis.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8825,7 +8842,7 @@ Y axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6497-L6500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6764-L6767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8846,8 +8863,10 @@ Y axis.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events contain X/Y information, the center of both coordinates
-will be returned in <code>x</code> and <code>y</code>.</p>
+                        <p>Returns the point halfway between the events&rsquo; positions.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8860,7 +8879,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6504-L6507">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6773-L6776">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8881,8 +8900,10 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If both events have X/Y information, the distance between both coordinates
-(as in a straight line going from <code>event1</code> to <code>event2</code>) will be returned.</p>
+                        <p>Returns the distance between the event locations.</p>
+
+<p>This assumes that both events have X/Y information.
+If not, this function returns <code>false</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8895,7 +8916,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6511-L6514">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6782-L6785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8929,7 +8950,7 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6516-L6522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6787-L6793">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8950,14 +8971,16 @@ will be returned in <code>x</code> and <code>y</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the event was generated by a device that supports
-different tools (eg. a tablet), this function will
-return a <code>GdkDeviceTool</code> representing the tool that
-caused the event. Otherwise, <code>nil</code> will be returned.</p>
+                        <p>Returns a <code>GdkDeviceTool</code> representing the tool that
+caused the event.</p>
 
-<p>Note: the <code>GdkDeviceTools</code> will be constant during
+<p>If the was not generated by a device that supports
+different tools (such as a tablet), this function will
+return <code>nil</code>.</p>
+
+<p>Note: the <code>GdkDeviceTool</code> will be constant during
 the application lifetime, if settings must be stored
-persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
+persistently across runs, see [method<code>Gdk.DeviceTool.get_serial</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8970,7 +8993,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6532-L6545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6805-L6820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8991,7 +9014,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkDisplay</code> associated to the <code>event</code>.</p>
+                        <p>Retrieves the display associated to the <code>event</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9004,7 +9027,7 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6548-L6554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6823-L6829">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9025,8 +9048,10 @@ persistently across runs, see <code>gdk_device_tool_get_serial()</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If <code>event</code> is a touch event, returns the <code>GdkEventSequence</code>
-to which the event belongs. Otherwise, return <code>nil</code>.</p>
+                        <p>Retuns the event sequence to which the event belongs.</p>
+
+<p>Related touch events are connected in a sequence. Other
+events typically don&rsquo;t have event sequence information.</p>
 
                       </div>
                       <div class="declaration">
@@ -9039,7 +9064,7 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6558-L6565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6835-L6844">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9073,7 +9098,7 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6568-L6574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6847-L6853">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9107,7 +9132,7 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6577-L6583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6856-L6862">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9128,8 +9153,9 @@ to which the event belongs. Otherwise, return <code>nil</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns whether this event is an &lsquo;emulated&rsquo; pointer event (typically
-from a touch event), as opposed to a real one.</p>
+                        <p>Returns whether this event is an &lsquo;emulated&rsquo; pointer event.</p>
+
+<p>Emulated pointer events typically originate from a touch events.</p>
 
                       </div>
                       <div class="declaration">
@@ -9142,7 +9168,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6587-L6594">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6867-L6875">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9176,7 +9202,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6597-L6603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6878-L6884">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9197,7 +9223,7 @@ from a touch event), as opposed to a real one.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Extracts the <code>GdkSurface</code> associated with an event.</p>
+                        <p>Extracts the surface associated with an event.</p>
 
                       </div>
                       <div class="declaration">
@@ -9210,7 +9236,7 @@ from a touch event), as opposed to a real one.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6606-L6612">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6887-L6893">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9231,7 +9257,9 @@ from a touch event), as opposed to a real one.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the time stamp from <code>event</code>, if there is one; otherwise
+                        <p>Returns the timestamp of <code>event</code>.</p>
+
+<p>Not all events have timestamps. In that case, this function
 returns <code>GDK_CURRENT_TIME</code>.</p>
 
                       </div>
@@ -9245,7 +9273,7 @@ returns <code>GDK_CURRENT_TIME</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6616-L6623">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L6899-L6908">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9258,8 +9286,8 @@ returns <code>GDK_CURRENT_TIME</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

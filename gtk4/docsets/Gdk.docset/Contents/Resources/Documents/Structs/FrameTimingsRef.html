@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,14 +7951,16 @@ It exposes methods that can operate on this data type through <code><a href="../
 Use <code>FrameTimingsRef</code> only as an <code>unowned</code> reference to an existing <code>GdkFrameTimings</code> instance.</p>
 
 <p>A <code>GdkFrameTimings</code> object holds timing information for a single frame
-of the application’s displays. To retrieve <code>GdkFrameTimings</code> objects,
-use <code>gdk_frame_clock_get_timings()</code> or <code>gdk_frame_clock_get_current_timings()</code>.
-The information in <code>GdkFrameTimings</code> is useful for precise synchronization
-of video with the event or audio streams, and for measuring
-quality metrics for the application’s display, such as latency and jitter.</p>
+of the application’s displays.</p>
+
+<p>To retrieve <code>GdkFrameTimings</code> objects, use [method<code>Gdk.FrameClock.get_timings</code>]
+or [method<code>Gdk.FrameClock.get_current_timings</code>]. The information in
+<code>GdkFrameTimings</code> is useful for precise synchronization of video with
+the event or audio streams, and for measuring quality metrics for the
+application’s display, such as latency and jitter.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L176-L180">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L180-L184">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8004,7 +7997,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L179">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L183">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8048,7 +8041,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L184-L186">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L188-L190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8079,7 +8072,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L189-L191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L193-L195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8110,7 +8103,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L194-L197">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L198-L201">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8141,7 +8134,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L200-L203">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L204-L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8172,7 +8165,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L206-L209">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L210-L213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8203,7 +8196,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L212-L215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L216-L219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8234,7 +8227,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L218-L220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L222-L224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8266,7 +8259,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L224-L226">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L228-L230">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8298,7 +8291,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L230-L232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L234-L236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8330,7 +8323,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L236-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L240-L242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8362,7 +8355,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L242-L244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L246-L248">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8394,7 +8387,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L248-L250">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L252-L254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8407,8 +8400,8 @@ quality metrics for the application’s display, such as latency and jitter.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,12 +7951,11 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/ToplevelSize.html">ToplevelSize</a></code>.
 Alternatively, use <code><a href="../Structs/ToplevelSizeRef.html">ToplevelSizeRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>The GdkToplevelSIze struct contains information that may be useful
-for users of GdkToplevel to compute a surface size. It also carries
-information back with the computational result.</p>
+<p>The <code>GdkToplevelSize</code> struct contains information that is useful
+to compute the size of a toplevel.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L867-L876">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L875-L884">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7999,7 +7989,7 @@ information back with the computational result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L869">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8037,7 +8027,7 @@ information back with the computational result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L872">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L880">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8067,7 +8057,7 @@ information back with the computational result.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L875">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L883">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8120,7 +8110,7 @@ toplevel can be presented.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1131-L1134">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1137-L1140">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8141,13 +8131,15 @@ toplevel can be presented.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum size corresponds to the limitations the toplevel can be shrunk
+                        <p>Sets the minimum size of the toplevel.</p>
+
+<p>The minimum size corresponds to the limitations the toplevel can be shrunk
 to, without resulting in incorrect painting. A user of a <code>GdkToplevel</code> should
 calculate these given both the existing size, and the bounds retrieved from
 the <code>GdkToplevelSize</code> object.</p>
 
 <p>The minimum size should be within the bounds (see
-<code>gdk_toplevel_size_get_bounds()</code>).</p>
+[method<code>Gdk.ToplevelSize.get_bounds</code>]).</p>
 
                       </div>
                       <div class="declaration">
@@ -8160,7 +8152,7 @@ the <code>GdkToplevelSize</code> object.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1143-L1146">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1151-L1154">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8181,7 +8173,9 @@ the <code>GdkToplevelSize</code> object.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The shadow width corresponds to the part of the computed surface size
+                        <p>Sets the shadows size of the toplevel.</p>
+
+<p>The shadow width corresponds to the part of the computed surface size
 that would consist of the shadow margin surrounding the window, would
 there be any.</p>
 
@@ -8196,7 +8190,7 @@ there be any.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1151-L1154">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1161-L1164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8217,10 +8211,12 @@ there be any.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the size the toplevel prefers to be resized to. The size should be
-within the bounds (see <code>gdk_toplevel_size_get_bounds()</code>). The set size should
-be considered as a hint, and should not be assumed to be respected by the
-windowing system, or backend.</p>
+                        <p>Sets the size the toplevel prefers to be resized to.</p>
+
+<p>The size should be within the bounds (see
+[method<code>Gdk.ToplevelSize.get_bounds</code>]). The set size should
+be considered as a hint, and should not be assumed to be
+respected by the windowing system, or backend.</p>
 
                       </div>
                       <div class="declaration">
@@ -8233,7 +8229,7 @@ windowing system, or backend.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1160-L1163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L1172-L1175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8246,8 +8242,8 @@ windowing system, or backend.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

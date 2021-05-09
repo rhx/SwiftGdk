@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,7 +7950,7 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/DisplayProtocol.html">DisplayProtocol</a></code> conformance.
 Use <code>DisplayRef</code> only as an <code>unowned</code> reference to an existing <code>GdkDisplay</code> instance.</p>
 
-<p>GdkDisplay objects are the GDK representation of a workstation.</p>
+<p><code>GdkDisplay</code> objects are the GDK representation of a workstation.</p>
 
 <p>Their purpose are two-fold:</p>
 
@@ -7968,15 +7959,16 @@ Use <code>DisplayRef</code> only as an <code>unowned</code> reference to an exis
 <li>To manage and provide information about output devices (monitors, projectors, etc)</li>
 </ul>
 
-<p>Most of the input device handling has been factored out into separate <code>GdkSeat</code>
-objects. Every display has a one or more seats, which can be accessed with
-<code>gdk_display_get_default_seat()</code> and <code>gdk_display_list_seats()</code>.</p>
+<p>Most of the input device handling has been factored out into separate
+[class<code>Gdk.Seat</code>] objects. Every display has a one or more seats, which
+can be accessed with [method<code>Gdk.Display.get_default_seat</code>] and
+[method<code>Gdk.Display.list_seats</code>].</p>
 
-<p>Output devices are represented by <code>GdkMonitor</code> objects, which can be accessed
-with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
+<p>Output devices are represented by [class<code>Gdk.Monitor</code>] objects, which can
+be accessed with [method<code>Gdk.Display.get_monitor_at_surface</code>] and similar APIs.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2358-L2362">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2479-L2483">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8013,7 +8005,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8057,7 +8049,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2366-L2368">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2487-L2489">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8088,7 +8080,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2371-L2373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2492-L2494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8119,7 +8111,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2376-L2379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2497-L2500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8150,7 +8142,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2382-L2385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2503-L2506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8181,7 +8173,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2388-L2391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2509-L2512">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8212,7 +8204,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2394-L2397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2515-L2518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8243,7 +8235,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2400-L2402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2521-L2523">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8274,7 +8266,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2526">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8306,7 +8298,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2409-L2411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2530-L2532">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8338,7 +8330,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2415-L2417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2536-L2538">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8370,7 +8362,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2421-L2423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2542-L2544">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8402,7 +8394,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2427-L2429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2548-L2550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8434,7 +8426,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2433-L2435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2554-L2556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8452,10 +8444,10 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="k">default</span> <span class="p">`</span><span class="nv">GdkDisplay</span><span class="p">`</span><span class="o">.</span> <span class="kt">This</span> <span class="k">is</span> <span class="n">a</span> <span class="kd">convenience</span>
+                        <pre class="highlight swift"><code><span class="kt">Gets</span> <span class="n">the</span> <span class="k">default</span> <span class="p">`</span><span class="nv">GdkDisplay</span><span class="p">`</span><span class="o">.</span>
 </code></pre>
 
-<p>function for:
+<p>This is a convenience function for:
 <code>gdk_display_manager_get_default_display (gdk_display_manager_get ())</code>.</p>
 
                       </div>
@@ -8469,7 +8461,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2440-L2443">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2562-L2565">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8500,7 +8492,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2446-L2449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2568-L2571">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8513,8 +8505,8 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

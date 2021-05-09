@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,11 +7950,10 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/DisplayManagerProtocol.html">DisplayManagerProtocol</a></code> conformance.
 Use <code>DisplayManagerRef</code> only as an <code>unowned</code> reference to an existing <code>GdkDisplayManager</code> instance.</p>
 
-<p>The purpose of the <code>GdkDisplayManager</code> singleton object is to offer
-notification when displays appear or disappear or the default display
-changes.</p>
+<p>A singleton object that offers notification when displays appear or
+disappear.</p>
 
-<p>You can use <code>gdk_display_manager_get()</code> to obtain the <code>GdkDisplayManager</code>
+<p>You can use [func<code>Gdk.DisplayManager.get</code>] to obtain the <code>GdkDisplayManager</code>
 singleton, but that should be rarely necessary. Typically, initializing
 GTK opens a display that you can work with without ever accessing the
 <code>GdkDisplayManager</code>.</p>
@@ -7972,34 +7962,36 @@ GTK opens a display that you can work with without ever accessing the
 The <code>GdkDisplayManager</code> object determines which backend is used
 at runtime.</p>
 
+<p>In the rare case that you need to influence which of the backends
+is being used, you can use [func<code>Gdk.set_allowed_backends</code>]. Note
+that you need to call this function before initializing GTK.</p>
+<h2 id='backend-specific-code' class='heading'>Backend-specific code</h2>
+
 <p>When writing backend-specific code that is supposed to work with
 multiple GDK backends, you have to consider both compile time and
 runtime. At compile time, use the <code>GDK_WINDOWING_X11</code>, <code>GDK_WINDOWING_WIN32</code>
 macros, etc. to find out which backends are present in the GDK library
 you are building your application against. At runtime, use type-check
 macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in use:</p>
-<h2 id='backend-specific-code-a-name-backend-specific-a' class='heading'>Backend-specific code ## <a name="backend-specific"></a></h2>
-
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>#ifdef GDK_WINDOWING_X11
-  if (GDK_IS_X11_DISPLAY (display))
-    {
-      // make X11-specific calls here
-    }
-  else
-#endif
-#ifdef GDK_WINDOWING_MACOS
-  if (GDK_IS_MACOS_DISPLAY (display))
-    {
-      // make Quartz-specific calls here
-    }
-  else
-#endif
-  g_error ("Unsupported GDK backend");
+<pre class="highlight c"><code><span class="err">`</span><span class="n">ifdef</span><span class="err">`</span> <span class="n">GDK_WINDOWING_X11</span>
+  <span class="nf">if</span> <span class="p">(</span><span class="n">GDK_IS_X11_DISPLAY</span> <span class="p">(</span><span class="n">display</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// make X11-specific calls here</span>
+    <span class="p">}</span>
+  <span class="k">else</span>
+<span class="err">`</span><span class="n">endif</span><span class="err">`</span>
+<span class="err">`</span><span class="n">ifdef</span><span class="err">`</span> <span class="n">GDK_WINDOWING_MACOS</span>
+  <span class="nf">if</span> <span class="p">(</span><span class="n">GDK_IS_MACOS_DISPLAY</span> <span class="p">(</span><span class="n">display</span><span class="p">))</span>
+    <span class="p">{</span>
+      <span class="c1">// make Quartz-specific calls here</span>
+    <span class="p">}</span>
+  <span class="k">else</span>
+<span class="err">`</span><span class="n">endif</span><span class="err">`</span>
+  <span class="n">g_error</span> <span class="p">(</span><span class="s">"Unsupported GDK backend"</span><span class="p">);</span>
 </code></pre>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3513-L3517">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3640-L3644">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8036,7 +8028,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3643">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8080,7 +8072,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3521-L3523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3648-L3650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8111,7 +8103,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3526-L3528">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3653-L3655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8142,7 +8134,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3531-L3534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3658-L3661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8173,7 +8165,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3537-L3540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3664-L3667">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8204,7 +8196,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3543-L3546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3670-L3673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8235,7 +8227,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3549-L3552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3676-L3679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8266,7 +8258,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3555-L3557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3682-L3684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8297,7 +8289,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3560">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8329,7 +8321,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3564-L3566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3691-L3693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8361,7 +8353,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3570-L3572">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3697-L3699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8393,7 +8385,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3576-L3578">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3703-L3705">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8425,7 +8417,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3582-L3584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3709-L3711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8457,7 +8449,7 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3588-L3590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3715-L3717">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8479,10 +8471,12 @@ macros like <code>GDK_IS_X11_DISPLAY()</code> to find out which backend is in us
 </code></pre>
 
 <p>When called for the first time, this function consults the
-<code>GDK_BACKEND</code> environment variable to find out which
-of the supported GDK backends to use (in case GDK has been compiled
-with multiple backends). Applications can use <code>gdk_set_allowed_backends()</code>
-to limit what backends can be used.</p>
+<code>GDK_BACKEND</code> environment variable to find out which of the
+supported GDK backends to use (in case GDK has been compiled
+with multiple backends).</p>
+
+<p>Applications can use [func<code>set_allowed_backends</code>] to limit what
+backends wil be used.</p>
 
                       </div>
                       <div class="declaration">
@@ -8495,7 +8489,7 @@ to limit what backends can be used.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3599-L3602">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3728-L3731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8508,8 +8502,8 @@ to limit what backends can be used.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

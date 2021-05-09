@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,17 +7950,18 @@
 It exposes methods that can operate on this data type through <code><a href="../Protocols/PaintableInterfaceProtocol.html">PaintableInterfaceProtocol</a></code> conformance.
 Use <code>PaintableInterfaceRef</code> only as an <code>unowned</code> reference to an existing <code>GdkPaintableInterface</code> instance.</p>
 
-<p>The list of functions that can be implemented for the <code>GdkPaintable</code> interface.</p>
+<p>The list of functions that can be implemented for the <code>GdkPaintable</code>
+interface.</p>
 
-<p>Note that apart from the <code>GdkPaintableInterface.snapshot</code><code>()</code> function, no virtual
-function of this interface is mandatory to implement, though it is a good idea
-to implement <code>GdkPaintableInterface.get_current_image</code><code>()</code> for non-static paintables
-and <code>GdkPaintableInterface.get_flags</code><code>()</code> if the image is not dynamic as the default
-implementation returns no flags and that will make the implementation likely
-quite slow.</p>
+<p>Note that apart from the <code>GdkPaintableInterface.snapshot</code><code>()</code> function, no
+virtual function of this interface is mandatory to implement, though it
+is a good idea to implement <code>GdkPaintableInterface.get_current_image</code><code>()</code>
+for non-static paintables and <code>GdkPaintableInterface.get_flags</code><code>()</code> if the
+image is not dynamic as the default implementation returns no flags and
+that will make the implementation likely quite slow.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L195-L199">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L197-L201">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8006,7 +7998,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8153,7 +8145,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L203-L205">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L205-L207">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8184,7 +8176,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L208-L210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L210-L212">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8215,7 +8207,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L213-L216">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L215-L218">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8246,7 +8238,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L219-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L221-L224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8277,7 +8269,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L225-L228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L227-L230">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8308,7 +8300,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L231-L234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L233-L236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8339,7 +8331,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L237-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L239-L241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8371,7 +8363,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L243-L245">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L245-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8403,7 +8395,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L249-L251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L251-L253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8435,7 +8427,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L255-L257">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L257-L259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8467,7 +8459,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L261-L263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L263-L265">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8499,7 +8491,7 @@ quite slow.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L267-L269">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-MonitorClass-PaintableInterface.swift#L269-L271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8512,8 +8504,8 @@ quite slow.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

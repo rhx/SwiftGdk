@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,58 +7951,54 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/GLContext.html">GLContext</a></code>.
 Alternatively, use <code><a href="../Structs/GLContextRef.html">GLContextRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p><code>GdkGLContext</code> is an object representing the platform-specific
+<p><code>GdkGLContext</code> is an object representing a platform-specific
 OpenGL draw context.</p>
 
-<p><code>GdkGLContexts</code> are created for a <code>GdkSurface</code> using
-<code>gdk_surface_create_gl_context()</code>, and the context will match the
-the characteristics of the surface.</p>
+<p><code>GdkGLContext</code>s are created for a surface using
+[method<code>Gdk.Surface.create_gl_context</code>], and the context will match
+the the characteristics of the surface.</p>
 
 <p>A <code>GdkGLContext</code> is not tied to any particular normal framebuffer.
-For instance, it cannot draw to the <code>GdkSurface</code> back buffer. The GDK
+For instance, it cannot draw to the surface back buffer. The GDK
 repaint system is in full control of the painting to that. Instead,
-you can create render buffers or textures and use <code>gdk_cairo_draw_from_gl()</code>
+you can create render buffers or textures and use [func<code>cairo_draw_from_gl</code>]
 in the draw function of your widget to draw them. Then GDK will handle
 the integration of your rendering with that of other widgets.</p>
 
-<p>Support for <code>GdkGLContext</code> is platform-specific, context creation
+<p>Support for <code>GdkGLContext</code> is platform-specific and context creation
 can fail, returning <code>nil</code> context.</p>
 
 <p>A <code>GdkGLContext</code> has to be made &ldquo;current&rdquo; in order to start using
 it, otherwise any OpenGL call will be ignored.</p>
 <h2 id='creating-a-new-opengl-context' class='heading'>Creating a new OpenGL context</h2>
 
-<p>In order to create a new <code>GdkGLContext</code> instance you need a
-<code>GdkSurface</code>, which you typically get during the realize call
-of a widget.</p>
+<p>In order to create a new <code>GdkGLContext</code> instance you need a <code>GdkSurface</code>,
+which you typically get during the realize call of a widget.</p>
 
-<p>A <code>GdkGLContext</code> is not realized until either <code>gdk_gl_context_make_current()</code>,
-or until it is realized using <code>gdk_gl_context_realize()</code>. It is possible to
-specify details of the GL context like the OpenGL version to be used, or
-whether the GL context should have extra state validation enabled after
-calling <code>gdk_surface_create_gl_context()</code> by calling <code>gdk_gl_context_realize()</code>.
-If the realization fails you have the option to change the settings of the
-<code>GdkGLContext</code> and try again.</p>
+<p>A <code>GdkGLContext</code> is not realized until either [method<code>Gdk.GLContext.make_current</code>]
+or [method<code>Gdk.GLContext.realize</code>] is called. It is possible to specify
+details of the GL context like the OpenGL version to be used, or whether
+the GL context should have extra state validation enabled after calling
+[method<code>Gdk.Surface.create_gl_context</code>] by calling [method<code>Gdk.GLContext.realize</code>].
+If the realization fails you have the option to change the settings of
+the <code>GdkGLContext</code> and try again.</p>
 <h2 id='using-a-gdkglcontext' class='heading'>Using a GdkGLContext</h2>
 
-<p>You will need to make the <code>GdkGLContext</code> the current context
-before issuing OpenGL calls; the system sends OpenGL commands to
-whichever context is current. It is possible to have multiple
-contexts, so you always need to ensure that the one which you
-want to draw with is the current one before issuing commands:</p>
-
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>  gdk_gl_context_make_current (context);
+<p>You will need to make the <code>GdkGLContext</code> the current context before issuing
+OpenGL calls; the system sends OpenGL commands to whichever context is current.
+It is possible to have multiple contexts, so you always need to ensure that
+the one which you want to draw with is the current one before issuing commands:</p>
+<pre class="highlight c"><code><span class="n">gdk_gl_context_make_current</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 </code></pre>
 
 <p>You can now perform your drawing using OpenGL commands.</p>
 
 <p>You can check which <code>GdkGLContext</code> is the current one by using
-<code>gdk_gl_context_get_current()</code>; you can also unset any <code>GdkGLContext</code>
-that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p>
+[func<code>Gdk.GLContext.get_current</code>]; you can also unset any <code>GdkGLContext</code>
+that is currently set by calling [func<code>Gdk.GLContext.clear_current</code>].</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1134-L1143">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1159-L1168">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8045,7 +8032,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1136">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1161">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8083,7 +8070,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1164">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8113,7 +8100,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8244,7 +8231,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1496-L1520">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1515-L1539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8301,7 +8288,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1525-L1529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1544-L1548">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8359,7 +8346,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1535-L1537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1554-L1556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8393,7 +8380,9 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set using <code>gdk_gl_context_set_debug_enabled()</code>.</p>
+                        <p>Retrieves whether the context is doing extra validations and runtime checking.</p>
+
+<p>See [method<code>Gdk.GLContext.set_debug_enabled</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8406,7 +8395,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1581-L1584">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1602-L1605">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8427,7 +8416,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkDisplay</code> the <code>context</code> is created for</p>
+                        <p>Retrieves the display the <code>context</code> is created for</p>
 
                       </div>
                       <div class="declaration">
@@ -8440,7 +8429,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1587-L1590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1608-L1611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8461,7 +8450,9 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set using <code>gdk_gl_context_set_forward_compatible()</code>.</p>
+                        <p>Retrieves whether the context is forward-compatible.</p>
+
+<p>See [method<code>Gdk.GLContext.set_forward_compatible</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8474,7 +8465,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1593-L1596">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1616-L1619">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8495,8 +8486,9 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the major and minor version requested by calling
-<code>gdk_gl_context_set_required_version()</code>.</p>
+                        <p>Retrieves required OpenGL version.</p>
+
+<p>See [method<code>Gdk.GLContext.set_required_version</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8509,7 +8501,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1600-L1603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1624-L1627">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8543,7 +8535,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1606-L1609">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1630-L1633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8564,7 +8556,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkSurface</code> used by the <code>context</code>.</p>
+                        <p>Retrieves the surface used by the <code>context</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8577,7 +8569,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1612-L1615">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1636-L1639">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8611,7 +8603,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1618-L1621">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1642-L1645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8647,7 +8639,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1626-L1629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1650-L1653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8681,7 +8673,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1632-L1635">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1656-L1659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8717,7 +8709,7 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1640-L1645">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1664-L1669">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8739,8 +8731,9 @@ that is currently set by calling <code>gdk_gl_context_clear_current()</code>.</p
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Sets whether the <code>GdkGLContext</code> should perform extra validations and
-run time checking. This is useful during development, but has
-additional overhead.</p>
+runtime checking.</p>
+
+<p>This is useful during development, but has additional overhead.</p>
 
 <p>The <code>GdkGLContext</code> must not be realized or made current prior to
 calling this function.</p>
@@ -8756,7 +8749,7 @@ calling this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1653-L1656">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1678-L1681">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8777,9 +8770,9 @@ calling this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets whether the <code>GdkGLContext</code> should be forward compatible.</p>
+                        <p>Sets whether the <code>GdkGLContext</code> should be forward-compatible.</p>
 
-<p>Forward compatible contexts must not support OpenGL functionality that
+<p>Forward-compatible contexts must not support OpenGL functionality that
 has been marked as deprecated in the requested version; non-forward
 compatible contexts, on the other hand, must support both deprecated and
 non deprecated functionality.</p>
@@ -8798,7 +8791,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1667-L1670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1692-L1695">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8837,7 +8830,7 @@ this function.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1678-L1681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1703-L1706">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8858,8 +8851,9 @@ this function.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Requests that GDK create an OpenGL ES context instead of an OpenGL one,
-if the platform and windowing system allows it.</p>
+                        <p>Requests that GDK create an OpenGL ES context instead of an OpenGL one.</p>
+
+<p>Not all platforms support OpenGL ES.</p>
 
 <p>The <code>context</code> must not have been realized.</p>
 
@@ -8867,9 +8861,9 @@ if the platform and windowing system allows it.</p>
 underlying GL implementation is OpenGL or OpenGL ES once the <code>context</code>
 is realized.</p>
 
-<p>You should check the return value of <code>gdk_gl_context_get_use_es()</code> after
-calling <code>gdk_gl_context_realize()</code> to decide whether to use the OpenGL or
-OpenGL ES API, extensions, or shaders.</p>
+<p>You should check the return value of [method<code>Gdk.GLContext.get_use_es</code>]
+after calling [method<code>Gdk.GLContext.realize</code>] to decide whether to use
+the OpenGL or OpenGL ES API, extensions, or shaders.</p>
 
                       </div>
                       <div class="declaration">
@@ -8882,7 +8876,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1695-L1698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1721-L1724">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8903,7 +8897,9 @@ OpenGL ES API, extensions, or shaders.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set using <code>gdk_gl_context_set_debug_enabled()</code>.</p>
+                        <p>Retrieves whether the context is doing extra validations and runtime checking.</p>
+
+<p>See [method<code>Gdk.GLContext.set_debug_enabled</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8916,7 +8912,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1700-L1715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1728-L1746">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8937,7 +8933,7 @@ OpenGL ES API, extensions, or shaders.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkDisplay</code> the <code>context</code> is created for</p>
+                        <p>Retrieves the display the <code>context</code> is created for</p>
 
                       </div>
                       <div class="declaration">
@@ -8950,7 +8946,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1718-L1724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1749-L1755">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8971,7 +8967,9 @@ OpenGL ES API, extensions, or shaders.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the value set using <code>gdk_gl_context_set_forward_compatible()</code>.</p>
+                        <p>Retrieves whether the context is forward-compatible.</p>
+
+<p>See [method<code>Gdk.GLContext.set_forward_compatible</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8984,7 +8982,7 @@ OpenGL ES API, extensions, or shaders.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1727-L1745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1760-L1780">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9033,7 +9031,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1763-L1784">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1798-L1819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9067,7 +9065,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1787-L1793">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1822-L1828">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9088,7 +9086,7 @@ kind of shader programs to load.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Retrieves the <code>GdkSurface</code> used by the <code>context</code>.</p>
+                        <p>Retrieves the surface used by the <code>context</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -9101,7 +9099,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1796-L1802">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1831-L1837">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9135,7 +9133,7 @@ kind of shader programs to load.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1805-L1826">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FocusEvent-GLContext.swift#L1840-L1862">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9148,8 +9146,8 @@ kind of shader programs to load.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

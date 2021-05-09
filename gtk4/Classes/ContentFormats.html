@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,36 +7950,41 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/ContentFormatsProtocol.html">ContentFormatsProtocol</a></code> conformance.
 Use <code>ContentFormats</code> as a strong reference or owner of a <code>GdkContentFormats</code> instance.</p>
 
-<p>This section describes the <code>GdkContentFormats</code> structure that is used to
-advertise and negotiate the format of content passed between different
-widgets, windows or applications using for example the clipboard or
-drag&#39;n&#39;drop.</p>
+<p>The <code>GdkContentFormats</code> structure is used to advertise and negotiate the
+format of content.</p>
+
+<p>You will encounter <code>GdkContentFormats</code> when interacting with objects
+controlling operations that pass data between different widgets, window
+or application, like [class<code>Gdk.Drag</code>], [class<code>Gdk.Drop</code>],
+[class<code>Gdk.Clipboard</code>] or [class<code>Gdk.ContentProvider</code>].</p>
 
 <p>GDK supports content in 2 forms: <code>GType</code> and mime type.
 Using <code>GTypes</code> is meant only for in-process content transfers. Mime types
 are meant to be used for data passing both in-process and out-of-process.
 The details of how data is passed is described in the documentation of
-the actual implementations.</p>
+the actual implementations. To transform between the two forms,
+[class<code>Gdk.ContentSerializer</code>] and [class<code>Gdk.ContentDeserializer</code>] are used.</p>
 
 <p>A <code>GdkContentFormats</code> describes a set of possible formats content can be
 exchanged in. It is assumed that this set is ordered. <code>GTypes</code> are more
 important than mime types. Order between different <code>GTypes</code> or mime types
 is the order they were added in, most important first. Functions that
-care about order, such as <code>gdk_content_formats_union()</code> will describe in
-their documentation how they interpret that order, though in general the
+care about order, such as [method<code>Gdk.ContentFormats.union</code>], will describe
+in their documentation how they interpret that order, though in general the
 order of the first argument is considered the primary order of the result,
 followed by the order of further arguments.</p>
 
-<p>For debugging purposes, the function <code>gdk_content_formats_to_string()</code> exists.
-It will print a comma-seperated formats of formats from most important to least
-important.</p>
+<p>For debugging purposes, the function [method<code>Gdk.ContentFormats.to_string</code>]
+exists. It will print a comma-separated list of formats from most important
+to least important.</p>
 
 <p><code>GdkContentFormats</code> is an immutable struct. After creation, you cannot change
 the types it represents. Instead, new <code>GdkContentFormats</code> have to be created.
-The <code>GdkContentFormatsBuilder</code> structure is meant to help in this endeavor.</p>
+The [struct<code>Gdk.ContentFormatsBuilder</code>]` structure is meant to help in this
+endeavor.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L219-L381">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L234-L396">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8025,7 +8021,7 @@ The <code>GdkContentFormatsBuilder</code> structure is meant to help in this end
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8077,7 +8073,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L228-L230">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L243-L245">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8129,7 +8125,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L236-L238">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L251-L253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8182,7 +8178,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L245-L248">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L260-L263">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8235,7 +8231,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L255-L258">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L270-L273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8287,7 +8283,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L264-L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L279-L282">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8339,7 +8335,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L273-L276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L288-L291">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8391,7 +8387,7 @@ i.e., ownership is transferred to the <code>ContentFormats</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L282-L285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L297-L300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8442,7 +8438,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L290-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L305-L308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8493,7 +8489,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L303-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L318-L320">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8544,7 +8540,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L310-L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L325-L328">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8595,7 +8591,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L318-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L333-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8627,7 +8623,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L324-L327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L339-L342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8678,7 +8674,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L332-L334">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L347-L349">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8729,7 +8725,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L339-L342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L354-L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8780,7 +8776,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L347-L349">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L362-L364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8831,7 +8827,7 @@ Will retain <code>GdkContentFormats</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L354-L357">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L369-L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8866,7 +8862,7 @@ this, use <code>GdkContentFormatsBuilder</code> instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L364-L367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L379-L382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8897,7 +8893,7 @@ this, use <code>GdkContentFormatsBuilder</code> instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L385-L388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8928,7 +8924,7 @@ this, use <code>GdkContentFormatsBuilder</code> instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L376-L379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-ContentFormats-DevicePadInterface.swift#L391-L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8941,8 +8937,8 @@ this, use <code>GdkContentFormatsBuilder</code> instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

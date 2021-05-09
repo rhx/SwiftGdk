@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,15 +7950,18 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/ToplevelLayoutProtocol.html">ToplevelLayoutProtocol</a></code> conformance.
 Use <code>ToplevelLayout</code> as a strong reference or owner of a <code>GdkToplevelLayout</code> instance.</p>
 
+<p>The <code>GdkToplevelLayout</code> struct contains information that
+is necessary to present a sovereign window on screen.</p>
+
+<p>The <code>GdkToplevelLayout</code> struct is necessary for using
+[method<code>Gdk.Toplevel.present</code>].</p>
+
 <p>Toplevel surfaces are sovereign windows that can be presented
 to the user in various states (maximized, on all workspaces,
 etc).</p>
 
-<p>The GdkToplevelLayout struct contains information that
-is necessary to do so, and is passed to <code>gdk_toplevel_present()</code>.</p>
-
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L580-L733">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L589-L742">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8004,7 +7998,7 @@ is necessary to do so, and is passed to <code>gdk_toplevel_present()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L592">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8056,7 +8050,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L589-L591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L598-L600">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8108,7 +8102,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L597-L599">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L606-L608">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8161,7 +8155,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L606-L609">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L615-L618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8214,7 +8208,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L616-L619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L625-L628">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8266,7 +8260,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L625-L628">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L634-L637">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8318,7 +8312,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L634-L637">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L643-L646">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8370,7 +8364,7 @@ i.e., ownership is transferred to the <code>ToplevelLayout</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L643-L646">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L652-L655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8421,7 +8415,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L651-L654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L660-L663">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8472,7 +8466,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L664-L666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L673-L675">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8523,7 +8517,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L671-L674">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L680-L683">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8574,7 +8568,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L679-L681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L688-L690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8606,7 +8600,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L685-L688">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L694-L697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8657,7 +8651,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L693-L695">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L702-L704">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8708,7 +8702,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L700-L703">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L709-L712">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8759,7 +8753,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L708-L710">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L717-L719">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8810,7 +8804,7 @@ Will retain <code>GdkToplevelLayout</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L715-L718">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L724-L727">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8847,7 +8841,7 @@ how a toplevel surface should be placed and behave on-screen.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L727-L730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TimeCoord-ToplevelSize.swift#L736-L739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8860,8 +8854,8 @@ how a toplevel surface should be placed and behave on-screen.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7958,7 +7949,7 @@
             <p>Undocumented</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L314-L358">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L314-L356">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -7980,8 +7971,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>device-added</code> signal is emitted when a new input
-device is related to this seat.</p>
+                        <p>Emitted when a new input device is related to this seat.</p>
 
                       </div>
                       <div class="declaration">
@@ -7993,7 +7983,7 @@ device is related to this seat.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L316">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8011,8 +8001,7 @@ device is related to this seat.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>device-removed</code> signal is emitted when an
-input device is removed (e.g. unplugged).</p>
+                        <p>Emitted when an input device is removed (e.g. unplugged).</p>
 
                       </div>
                       <div class="declaration">
@@ -8024,7 +8013,7 @@ input device is removed (e.g. unplugged).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8077,7 +8066,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L345">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L343">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8095,10 +8084,11 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>tool-added</code> signal is emitted whenever a new tool
-is made known to the seat. The tool may later be assigned
-to a device (i.e. on proximity with a tablet). The device
-will emit the <code>GdkDevice::tool-changed</code> signal accordingly.</p>
+                        <p>Emitted whenever a new tool is made known to the seat.</p>
+
+<p>The tool may later be assigned to a device (i.e. on
+proximity with a tablet). The device will emit the
+[signalGdkDevice<code>tool-changed</code>] signal accordingly.</p>
 
 <p>A same tool may be used by several devices.</p>
 
@@ -8112,7 +8102,7 @@ will emit the <code>GdkDevice::tool-changed</code> signal accordingly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L352">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8130,8 +8120,7 @@ will emit the <code>GdkDevice::tool-changed</code> signal accordingly.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This signal is emitted whenever a tool is no longer known
-to this <code>seat</code>.</p>
+                        <p>Emitted whenever a tool is no longer known to this <code>seat</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8143,7 +8132,7 @@ to this <code>seat</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L353">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8173,7 +8162,7 @@ to this <code>seat</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L357">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L355">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8186,8 +8175,8 @@ to this <code>seat</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

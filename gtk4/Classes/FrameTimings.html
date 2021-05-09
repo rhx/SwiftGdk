@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,14 +7951,16 @@ It provides the methods that can operate on this data type through <code><a href
 Use <code>FrameTimings</code> as a strong reference or owner of a <code>GdkFrameTimings</code> instance.</p>
 
 <p>A <code>GdkFrameTimings</code> object holds timing information for a single frame
-of the application’s displays. To retrieve <code>GdkFrameTimings</code> objects,
-use <code>gdk_frame_clock_get_timings()</code> or <code>gdk_frame_clock_get_current_timings()</code>.
-The information in <code>GdkFrameTimings</code> is useful for precise synchronization
-of video with the event or audio streams, and for measuring
-quality metrics for the application’s display, such as latency and jitter.</p>
+of the application’s displays.</p>
+
+<p>To retrieve <code>GdkFrameTimings</code> objects, use [method<code>Gdk.FrameClock.get_timings</code>]
+or [method<code>Gdk.FrameClock.get_current_timings</code>]. The information in
+<code>GdkFrameTimings</code> is useful for precise synchronization of video with
+the event or audio streams, and for measuring quality metrics for the
+application’s display, such as latency and jitter.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L264-L406">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L270-L412">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8004,7 +7997,7 @@ quality metrics for the application’s display, such as latency and jitter.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L273">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8056,7 +8049,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L273-L275">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L279-L281">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8108,7 +8101,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L281-L283">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L287-L289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8161,7 +8154,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L290-L293">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L296-L299">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8214,7 +8207,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L300-L303">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L306-L309">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8266,7 +8259,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L309-L312">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L315-L318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8318,7 +8311,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L318-L321">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L324-L327">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8370,7 +8363,7 @@ i.e., ownership is transferred to the <code>FrameTimings</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L327-L330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L333-L336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8421,7 +8414,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L335-L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L341-L344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8472,7 +8465,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L348-L350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L354-L356">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8523,7 +8516,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L355-L358">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L361-L364">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8574,7 +8567,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L363-L365">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L369-L371">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8606,7 +8599,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L369-L372">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L375-L378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8657,7 +8650,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L377-L379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L383-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8708,7 +8701,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L384-L387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L390-L393">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8759,7 +8752,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L392-L394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L398-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8810,7 +8803,7 @@ Will retain <code>GdkFrameTimings</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L399-L402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-FrameClockClass-GLTextureClass.swift#L405-L408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8823,8 +8816,8 @@ Will retain <code>GdkFrameTimings</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

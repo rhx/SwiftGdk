@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,18 +7950,18 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/ContentProviderProtocol.html">ContentProviderProtocol</a></code> conformance.
 Use <code>ContentProvider</code> as a strong reference or owner of a <code>GdkContentProvider</code> instance.</p>
 
-<p>A GdkContentProvider is used to provide content for the clipboard in
-a number of formats.</p>
+<p>A <code>GdkContentProvider</code> is used to provide content for the clipboard or
+for drag-and-drop operations in a number of formats.</p>
 
-<p>To create a GdkContentProvider, use <code>gdk_content_provider_new_for_value()</code> or
-<code>gdk_content_provider_new_for_bytes()</code>.</p>
+<p>To create a <code>GdkContentProvider</code>, use [ctor<code>Gdk.ContentProvider.new_for_value</code>]
+or [ctor<code>Gdk.ContentProvider.new_for_bytes</code>].</p>
 
 <p>GDK knows how to handle common text and image formats out-of-the-box. See
-<code>GdkContentSerializer</code> and <code>GdkContentDeserializer</code> if you want to add support
-for application-specific data formats.</p>
+[class<code>Gdk.ContentSerializer</code>] and [class<code>Gdk.ContentDeserializer</code>] if you want
+to add support for application-specific data formats.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1958-L2167">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2051-L2256">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8028,7 +8019,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1963-L1965">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2056-L2058">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8080,7 +8071,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1971-L1973">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2064-L2066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8133,7 +8124,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1980-L1983">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2073-L2076">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8186,7 +8177,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1990-L1993">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2083-L2086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8238,7 +8229,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L1999-L2002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2092-L2095">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8290,7 +8281,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2008-L2011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2101-L2104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8342,7 +8333,7 @@ i.e., ownership is transferred to the <code>ContentProvider</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2017-L2019">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2110-L2112">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8393,7 +8384,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2024-L2026">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2117-L2119">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8444,7 +8435,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2031-L2033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2124-L2126">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8495,7 +8486,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2038-L2040">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2131-L2133">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8546,7 +8537,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2045-L2047">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2138-L2140">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8578,7 +8569,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2051-L2053">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2144-L2146">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8629,7 +8620,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2058-L2060">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2151-L2153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8680,7 +8671,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2065-L2067">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2158-L2160">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8731,7 +8722,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2072-L2074">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2165-L2167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8782,7 +8773,7 @@ Will retain <code>GdkContentProvider</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2079-L2081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2172-L2174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8814,7 +8805,7 @@ the given <code>mime_type</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2085-L2089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2178-L2182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8845,7 +8836,7 @@ the given <code>mime_type</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2092-L2096">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2185-L2189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8871,12 +8862,11 @@ be chosen to provide it.</p>
 
 <p>This allows an easy way to support providing data in different formats.
 For example, an image may be provided by its file and by the image
-contents with a call such as
-(C Language Example):</p>
-<pre class="highlight plaintext"><code>gdk_content_provider_new_union ((GdkContentProvider *[2]) {
-                                  gdk_content_provider_new_typed (G_TYPE_FILE, file),
-                                  gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
-                                }, 2);
+contents with a call such as</p>
+<pre class="highlight c"><code><span class="n">gdk_content_provider_new_union</span> <span class="p">((</span><span class="n">GdkContentProvider</span> <span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                                  <span class="n">gdk_content_provider_new_typed</span> <span class="p">(</span><span class="n">G_TYPE_FILE</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span>
+                                  <span class="n">gdk_content_provider_new_typed</span> <span class="p">(</span><span class="n">G_TYPE_TEXTURE</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+                                <span class="p">},</span> <span class="mi">2</span><span class="p">);</span>
 </code></pre>
 
                       </div>
@@ -8890,7 +8880,7 @@ contents with a call such as
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2119-L2123">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2210-L2214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8922,7 +8912,7 @@ the given <code>mime_type</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2127-L2131">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2218-L2222">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8953,7 +8943,7 @@ the given <code>mime_type</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2134-L2138">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2225-L2229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8979,12 +8969,11 @@ be chosen to provide it.</p>
 
 <p>This allows an easy way to support providing data in different formats.
 For example, an image may be provided by its file and by the image
-contents with a call such as
-(C Language Example):</p>
-<pre class="highlight plaintext"><code>gdk_content_provider_new_union ((GdkContentProvider *[2]) {
-                                  gdk_content_provider_new_typed (G_TYPE_FILE, file),
-                                  gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
-                                }, 2);
+contents with a call such as</p>
+<pre class="highlight c"><code><span class="n">gdk_content_provider_new_union</span> <span class="p">((</span><span class="n">GdkContentProvider</span> <span class="o">*</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="p">{</span>
+                                  <span class="n">gdk_content_provider_new_typed</span> <span class="p">(</span><span class="n">G_TYPE_FILE</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span>
+                                  <span class="n">gdk_content_provider_new_typed</span> <span class="p">(</span><span class="n">G_TYPE_TEXTURE</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+                                <span class="p">},</span> <span class="mi">2</span><span class="p">);</span>
 </code></pre>
 
                       </div>
@@ -8998,7 +8987,7 @@ contents with a call such as
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2161-L2165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L2250-L2254">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9011,8 +9000,8 @@ contents with a call such as
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

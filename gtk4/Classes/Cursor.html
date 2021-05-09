@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,13 +7950,42 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/CursorProtocol.html">CursorProtocol</a></code> conformance.
 Use <code>Cursor</code> as a strong reference or owner of a <code>GdkCursor</code> instance.</p>
 
-<p>A <code>GdkCursor</code> represents a cursor. Its contents are private.</p>
+<p><code>GdkCursor</code> is used to create and destroy cursors.</p>
 
-<p>Cursors are immutable objects, so they can not change after
-they have been constructed.</p>
+<p>Cursors are immutable objects, so once you created them, there is no way
+to modify them later. You should create a new cursor when you want to change
+something about it.</p>
+
+<p>Cursors by themselves are not very interesting: they must be bound to a
+window for users to see them. This is done with [method<code>Gdk.Surface.set_cursor</code>]
+or [method<code>Gdk.Surface.set_device_cursor</code>]. Applications will typically
+use higher-level GTK functions such as [method<code>Gtk.Widget.set_cursor</code>]`
+instead.</p>
+
+<p>Cursors are not bound to a given [class<code>Gdk.Display</code>], so they can be shared.
+However, the appearance of cursors may vary when used on different
+platforms.</p>
+<h2 id='named-and-texture-cursors' class='heading'>Named and texture cursors</h2>
+
+<p>There are multiple ways to create cursors. The platform&rsquo;s own cursors
+can be created with [ctor<code>Gdk.Cursor.new_from_name</code>]. That function lists
+the commonly available names that are shared with the CSS specification.
+Other names may be available, depending on the platform in use. On some
+platforms, what images are used for named cursors may be influenced by
+the cursor theme.</p>
+
+<p>Another option to create a cursor is to use [ctor<code>Gdk.Cursor.new_from_texture</code>]
+and provide an image to use for the cursor.</p>
+
+<p>To ease work with unsupported cursors, a fallback cursor can be provided.
+If a [class<code>Gdk.Surface</code>] cannot use a cursor because of the reasons mentioned
+above, it will try the fallback cursor. Fallback cursors can themselves have
+fallback cursors again, so it is possible to provide a chain of progressively
+easier to support cursors. If none of the provided cursors can be supported,
+the default cursor will be the ultimate fallback.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3442-L3673">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3636-L3821">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8023,7 +8043,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3447-L3449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3641-L3643">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8075,7 +8095,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3455-L3457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3649-L3651">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8128,7 +8148,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3464-L3467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3658-L3661">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8181,7 +8201,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3474-L3477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3668-L3671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8233,7 +8253,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3483-L3486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3677-L3680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8285,7 +8305,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3492-L3495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3686-L3689">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8337,7 +8357,7 @@ i.e., ownership is transferred to the <code>Cursor</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3501-L3503">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3695-L3697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8388,7 +8408,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3508-L3510">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3702-L3704">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8439,7 +8459,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3515-L3517">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3709-L3711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8490,7 +8510,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3522-L3524">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3716-L3718">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8541,7 +8561,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3529-L3531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3723-L3725">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8573,7 +8593,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3535-L3537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3729-L3731">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8624,7 +8644,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3542-L3544">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3736-L3738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8675,7 +8695,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3549-L3551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3743-L3745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8726,7 +8746,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3556-L3558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3750-L3752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8777,7 +8797,7 @@ Will retain <code>GdkCursor</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3563-L3565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3757-L3759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8801,43 +8821,69 @@ theme.</p>
 <p>A recommended set of cursor names that will work across different
 platforms can be found in the CSS specification:</p>
 
-<ul>
-<li>&ldquo;none&rdquo;</li>
-<li><img src="default_cursor.png" alt=""> &ldquo;default&rdquo;</li>
-<li><img src="help_cursor.png" alt=""> &ldquo;help&rdquo;</li>
-<li><img src="pointer_cursor.png" alt=""> &ldquo;pointer&rdquo;</li>
-<li><img src="context_menu_cursor.png" alt=""> &ldquo;context-menu&rdquo;</li>
-<li><img src="progress_cursor.png" alt=""> &ldquo;progress&rdquo;</li>
-<li><img src="wait_cursor.png" alt=""> &ldquo;wait&rdquo;</li>
-<li><img src="cell_cursor.png" alt=""> &ldquo;cell&rdquo;</li>
-<li><img src="crosshair_cursor.png" alt=""> &ldquo;crosshair&rdquo;</li>
-<li><img src="text_cursor.png" alt=""> &ldquo;text&rdquo;</li>
-<li><img src="vertical_text_cursor.png" alt=""> &ldquo;vertical-text&rdquo;</li>
-<li><img src="alias_cursor.png" alt=""> &ldquo;alias&rdquo;</li>
-<li><img src="copy_cursor.png" alt=""> &ldquo;copy&rdquo;</li>
-<li><img src="no_drop_cursor.png" alt=""> &ldquo;no-drop&rdquo;</li>
-<li><img src="move_cursor.png" alt=""> &ldquo;move&rdquo;</li>
-<li><img src="not_allowed_cursor.png" alt=""> &ldquo;not-allowed&rdquo;</li>
-<li><img src="grab_cursor.png" alt=""> &ldquo;grab&rdquo;</li>
-<li><img src="grabbing_cursor.png" alt=""> &ldquo;grabbing&rdquo;</li>
-<li><img src="all_scroll_cursor.png" alt=""> &ldquo;all-scroll&rdquo;</li>
-<li><img src="col_resize_cursor.png" alt=""> &ldquo;col-resize&rdquo;</li>
-<li><img src="row_resize_cursor.png" alt=""> &ldquo;row-resize&rdquo;</li>
-<li><img src="n_resize_cursor.png" alt=""> &ldquo;n-resize&rdquo;</li>
-<li><img src="e_resize_cursor.png" alt=""> &ldquo;e-resize&rdquo;</li>
-<li><img src="s_resize_cursor.png" alt=""> &ldquo;s-resize&rdquo;</li>
-<li><img src="w_resize_cursor.png" alt=""> &ldquo;w-resize&rdquo;</li>
-<li><img src="ne_resize_cursor.png" alt=""> &ldquo;ne-resize&rdquo;</li>
-<li><img src="nw_resize_cursor.png" alt=""> &ldquo;nw-resize&rdquo;</li>
-<li><img src="sw_resize_cursor.png" alt=""> &ldquo;sw-resize&rdquo;</li>
-<li><img src="se_resize_cursor.png" alt=""> &ldquo;se-resize&rdquo;</li>
-<li><img src="ew_resize_cursor.png" alt=""> &ldquo;ew-resize&rdquo;</li>
-<li><img src="ns_resize_cursor.png" alt=""> &ldquo;ns-resize&rdquo;</li>
-<li><img src="nesw_resize_cursor.png" alt=""> &ldquo;nesw-resize&rdquo;</li>
-<li><img src="nwse_resize_cursor.png" alt=""> &ldquo;nwse-resize&rdquo;</li>
-<li><img src="zoom_in_cursor.png" alt=""> &ldquo;zoom-in&rdquo;</li>
-<li><img src="zoom_out_cursor.png" alt=""> &ldquo;zoom-out&rdquo;</li>
-</ul>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&ldquo;none&rdquo;</td>
+<td><img src="default_cursor.png" alt=""> &ldquo;default&rdquo;</td>
+<td><img src="help_cursor.png" alt=""> &ldquo;help&rdquo;</td>
+<td><img src="pointer_cursor.png" alt=""> &ldquo;pointer&rdquo;</td>
+</tr>
+<tr>
+<td><img src="context_menu_cursor.png" alt=""> &ldquo;context-menu&rdquo;</td>
+<td><img src="progress_cursor.png" alt=""> &ldquo;progress&rdquo;</td>
+<td><img src="wait_cursor.png" alt=""> &ldquo;wait&rdquo;</td>
+<td><img src="cell_cursor.png" alt=""> &ldquo;cell&rdquo;</td>
+</tr>
+<tr>
+<td><img src="crosshair_cursor.png" alt=""> &ldquo;crosshair&rdquo;</td>
+<td><img src="text_cursor.png" alt=""> &ldquo;text&rdquo;</td>
+<td><img src="vertical_text_cursor.png" alt=""> &ldquo;vertical-text&rdquo;</td>
+<td><img src="alias_cursor.png" alt=""> &ldquo;alias&rdquo;</td>
+</tr>
+<tr>
+<td><img src="copy_cursor.png" alt=""> &ldquo;copy&rdquo;</td>
+<td><img src="no_drop_cursor.png" alt=""> &ldquo;no-drop&rdquo;</td>
+<td><img src="move_cursor.png" alt=""> &ldquo;move&rdquo;</td>
+<td><img src="not_allowed_cursor.png" alt=""> &ldquo;not-allowed&rdquo;</td>
+</tr>
+<tr>
+<td><img src="grab_cursor.png" alt=""> &ldquo;grab&rdquo;</td>
+<td><img src="grabbing_cursor.png" alt=""> &ldquo;grabbing&rdquo;</td>
+<td><img src="all_scroll_cursor.png" alt=""> &ldquo;all-scroll&rdquo;</td>
+<td><img src="col_resize_cursor.png" alt=""> &ldquo;col-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="row_resize_cursor.png" alt=""> &ldquo;row-resize&rdquo;</td>
+<td><img src="n_resize_cursor.png" alt=""> &ldquo;n-resize&rdquo;</td>
+<td><img src="e_resize_cursor.png" alt=""> &ldquo;e-resize&rdquo;</td>
+<td><img src="s_resize_cursor.png" alt=""> &ldquo;s-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="w_resize_cursor.png" alt=""> &ldquo;w-resize&rdquo;</td>
+<td><img src="ne_resize_cursor.png" alt=""> &ldquo;ne-resize&rdquo;</td>
+<td><img src="nw_resize_cursor.png" alt=""> &ldquo;nw-resize&rdquo;</td>
+<td><img src="sw_resize_cursor.png" alt=""> &ldquo;sw-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="se_resize_cursor.png" alt=""> &ldquo;se-resize&rdquo;</td>
+<td><img src="ew_resize_cursor.png" alt=""> &ldquo;ew-resize&rdquo;</td>
+<td><img src="ns_resize_cursor.png" alt=""> &ldquo;ns-resize&rdquo;</td>
+<td><img src="nesw_resize_cursor.png" alt=""> &ldquo;nesw-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="nwse_resize_cursor.png" alt=""> &ldquo;nwse-resize&rdquo;</td>
+<td><img src="zoom_in_cursor.png" alt=""> &ldquo;zoom-in&rdquo;</td>
+<td><img src="zoom_out_cursor.png" alt=""> &ldquo;zoom-out&rdquo;</td>
+<td></td>
+</tr>
+</tbody></table>
 
                       </div>
                       <div class="declaration">
@@ -8850,7 +8896,7 @@ platforms can be found in the CSS specification:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3607-L3611">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3778-L3782">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8881,7 +8927,7 @@ platforms can be found in the CSS specification:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3614-L3618">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3785-L3789">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8905,43 +8951,69 @@ theme.</p>
 <p>A recommended set of cursor names that will work across different
 platforms can be found in the CSS specification:</p>
 
-<ul>
-<li>&ldquo;none&rdquo;</li>
-<li><img src="default_cursor.png" alt=""> &ldquo;default&rdquo;</li>
-<li><img src="help_cursor.png" alt=""> &ldquo;help&rdquo;</li>
-<li><img src="pointer_cursor.png" alt=""> &ldquo;pointer&rdquo;</li>
-<li><img src="context_menu_cursor.png" alt=""> &ldquo;context-menu&rdquo;</li>
-<li><img src="progress_cursor.png" alt=""> &ldquo;progress&rdquo;</li>
-<li><img src="wait_cursor.png" alt=""> &ldquo;wait&rdquo;</li>
-<li><img src="cell_cursor.png" alt=""> &ldquo;cell&rdquo;</li>
-<li><img src="crosshair_cursor.png" alt=""> &ldquo;crosshair&rdquo;</li>
-<li><img src="text_cursor.png" alt=""> &ldquo;text&rdquo;</li>
-<li><img src="vertical_text_cursor.png" alt=""> &ldquo;vertical-text&rdquo;</li>
-<li><img src="alias_cursor.png" alt=""> &ldquo;alias&rdquo;</li>
-<li><img src="copy_cursor.png" alt=""> &ldquo;copy&rdquo;</li>
-<li><img src="no_drop_cursor.png" alt=""> &ldquo;no-drop&rdquo;</li>
-<li><img src="move_cursor.png" alt=""> &ldquo;move&rdquo;</li>
-<li><img src="not_allowed_cursor.png" alt=""> &ldquo;not-allowed&rdquo;</li>
-<li><img src="grab_cursor.png" alt=""> &ldquo;grab&rdquo;</li>
-<li><img src="grabbing_cursor.png" alt=""> &ldquo;grabbing&rdquo;</li>
-<li><img src="all_scroll_cursor.png" alt=""> &ldquo;all-scroll&rdquo;</li>
-<li><img src="col_resize_cursor.png" alt=""> &ldquo;col-resize&rdquo;</li>
-<li><img src="row_resize_cursor.png" alt=""> &ldquo;row-resize&rdquo;</li>
-<li><img src="n_resize_cursor.png" alt=""> &ldquo;n-resize&rdquo;</li>
-<li><img src="e_resize_cursor.png" alt=""> &ldquo;e-resize&rdquo;</li>
-<li><img src="s_resize_cursor.png" alt=""> &ldquo;s-resize&rdquo;</li>
-<li><img src="w_resize_cursor.png" alt=""> &ldquo;w-resize&rdquo;</li>
-<li><img src="ne_resize_cursor.png" alt=""> &ldquo;ne-resize&rdquo;</li>
-<li><img src="nw_resize_cursor.png" alt=""> &ldquo;nw-resize&rdquo;</li>
-<li><img src="sw_resize_cursor.png" alt=""> &ldquo;sw-resize&rdquo;</li>
-<li><img src="se_resize_cursor.png" alt=""> &ldquo;se-resize&rdquo;</li>
-<li><img src="ew_resize_cursor.png" alt=""> &ldquo;ew-resize&rdquo;</li>
-<li><img src="ns_resize_cursor.png" alt=""> &ldquo;ns-resize&rdquo;</li>
-<li><img src="nesw_resize_cursor.png" alt=""> &ldquo;nesw-resize&rdquo;</li>
-<li><img src="nwse_resize_cursor.png" alt=""> &ldquo;nwse-resize&rdquo;</li>
-<li><img src="zoom_in_cursor.png" alt=""> &ldquo;zoom-in&rdquo;</li>
-<li><img src="zoom_out_cursor.png" alt=""> &ldquo;zoom-out&rdquo;</li>
-</ul>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&ldquo;none&rdquo;</td>
+<td><img src="default_cursor.png" alt=""> &ldquo;default&rdquo;</td>
+<td><img src="help_cursor.png" alt=""> &ldquo;help&rdquo;</td>
+<td><img src="pointer_cursor.png" alt=""> &ldquo;pointer&rdquo;</td>
+</tr>
+<tr>
+<td><img src="context_menu_cursor.png" alt=""> &ldquo;context-menu&rdquo;</td>
+<td><img src="progress_cursor.png" alt=""> &ldquo;progress&rdquo;</td>
+<td><img src="wait_cursor.png" alt=""> &ldquo;wait&rdquo;</td>
+<td><img src="cell_cursor.png" alt=""> &ldquo;cell&rdquo;</td>
+</tr>
+<tr>
+<td><img src="crosshair_cursor.png" alt=""> &ldquo;crosshair&rdquo;</td>
+<td><img src="text_cursor.png" alt=""> &ldquo;text&rdquo;</td>
+<td><img src="vertical_text_cursor.png" alt=""> &ldquo;vertical-text&rdquo;</td>
+<td><img src="alias_cursor.png" alt=""> &ldquo;alias&rdquo;</td>
+</tr>
+<tr>
+<td><img src="copy_cursor.png" alt=""> &ldquo;copy&rdquo;</td>
+<td><img src="no_drop_cursor.png" alt=""> &ldquo;no-drop&rdquo;</td>
+<td><img src="move_cursor.png" alt=""> &ldquo;move&rdquo;</td>
+<td><img src="not_allowed_cursor.png" alt=""> &ldquo;not-allowed&rdquo;</td>
+</tr>
+<tr>
+<td><img src="grab_cursor.png" alt=""> &ldquo;grab&rdquo;</td>
+<td><img src="grabbing_cursor.png" alt=""> &ldquo;grabbing&rdquo;</td>
+<td><img src="all_scroll_cursor.png" alt=""> &ldquo;all-scroll&rdquo;</td>
+<td><img src="col_resize_cursor.png" alt=""> &ldquo;col-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="row_resize_cursor.png" alt=""> &ldquo;row-resize&rdquo;</td>
+<td><img src="n_resize_cursor.png" alt=""> &ldquo;n-resize&rdquo;</td>
+<td><img src="e_resize_cursor.png" alt=""> &ldquo;e-resize&rdquo;</td>
+<td><img src="s_resize_cursor.png" alt=""> &ldquo;s-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="w_resize_cursor.png" alt=""> &ldquo;w-resize&rdquo;</td>
+<td><img src="ne_resize_cursor.png" alt=""> &ldquo;ne-resize&rdquo;</td>
+<td><img src="nw_resize_cursor.png" alt=""> &ldquo;nw-resize&rdquo;</td>
+<td><img src="sw_resize_cursor.png" alt=""> &ldquo;sw-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="se_resize_cursor.png" alt=""> &ldquo;se-resize&rdquo;</td>
+<td><img src="ew_resize_cursor.png" alt=""> &ldquo;ew-resize&rdquo;</td>
+<td><img src="ns_resize_cursor.png" alt=""> &ldquo;ns-resize&rdquo;</td>
+<td><img src="nesw_resize_cursor.png" alt=""> &ldquo;nesw-resize&rdquo;</td>
+</tr>
+<tr>
+<td><img src="nwse_resize_cursor.png" alt=""> &ldquo;nwse-resize&rdquo;</td>
+<td><img src="zoom_in_cursor.png" alt=""> &ldquo;zoom-in&rdquo;</td>
+<td><img src="zoom_out_cursor.png" alt=""> &ldquo;zoom-out&rdquo;</td>
+<td></td>
+</tr>
+</tbody></table>
 
                       </div>
                       <div class="declaration">
@@ -8954,7 +9026,7 @@ platforms can be found in the CSS specification:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3660-L3664">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3808-L3812">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8985,7 +9057,7 @@ platforms can be found in the CSS specification:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3667-L3671">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-CairoContext-DNDEvent.swift#L3815-L3819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8998,8 +9070,8 @@ platforms can be found in the CSS specification:</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

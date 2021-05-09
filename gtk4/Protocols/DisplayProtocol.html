@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,7 +7951,7 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Display.html">Display</a></code>.
 Alternatively, use <code><a href="../Structs/DisplayRef.html">DisplayRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>GdkDisplay objects are the GDK representation of a workstation.</p>
+<p><code>GdkDisplay</code> objects are the GDK representation of a workstation.</p>
 
 <p>Their purpose are two-fold:</p>
 
@@ -7969,15 +7960,16 @@ Alternatively, use <code><a href="../Structs/DisplayRef.html">DisplayRef</a></co
 <li>To manage and provide information about output devices (monitors, projectors, etc)</li>
 </ul>
 
-<p>Most of the input device handling has been factored out into separate <code>GdkSeat</code>
-objects. Every display has a one or more seats, which can be accessed with
-<code>gdk_display_get_default_seat()</code> and <code>gdk_display_list_seats()</code>.</p>
+<p>Most of the input device handling has been factored out into separate
+[class<code>Gdk.Seat</code>] objects. Every display has a one or more seats, which
+can be accessed with [method<code>Gdk.Display.get_default_seat</code>] and
+[method<code>Gdk.Display.list_seats</code>].</p>
 
-<p>Output devices are represented by <code>GdkMonitor</code> objects, which can be accessed
-with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
+<p>Output devices are represented by [class<code>Gdk.Monitor</code>] objects, which can
+be accessed with [method<code>Gdk.Display.get_monitor_at_surface</code>] and similar APIs.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2331-L2340">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2450-L2459">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8011,7 +8003,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8049,7 +8041,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8079,7 +8071,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2339">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8210,7 +8202,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2633-L2657">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2755-L2779">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8267,7 +8259,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2662-L2666">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2784-L2788">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8325,7 +8317,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2672-L2674">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2794-L2796">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8444,7 +8436,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2739-L2741">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2853-L2855">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8550,7 +8542,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2752-L2754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2866-L2868">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8571,8 +8563,7 @@ with <code>gdk_display_get_monitor_at_surface()</code> and similar APIs.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>closed</code> signal is emitted when the connection to the windowing
-system for <code>display</code> is closed.</p>
+                        <p>Emitted when the connection to the windowing system for <code>display</code> is closed.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>closed</code> signal
@@ -8647,7 +8638,7 @@ Run the given callback whenever the <code>closed</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2765-L2779">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2878-L2892">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8680,7 +8671,7 @@ Run the given callback whenever the <code>closed</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2895">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8701,8 +8692,7 @@ Run the given callback whenever the <code>closed</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>opened</code> signal is emitted when the connection to the windowing
-system for <code>display</code> is opened.</p>
+                        <p>Emitted when the connection to the windowing system for <code>display</code> is opened.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>opened</code> signal
@@ -8765,7 +8755,7 @@ Run the given callback whenever the <code>opened</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2791-L2805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2903-L2917">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8798,7 +8788,7 @@ Run the given callback whenever the <code>opened</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2808">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2920">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8819,8 +8809,7 @@ Run the given callback whenever the <code>opened</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>seat-added</code> signal is emitted whenever a new seat is made
-known to the windowing system.</p>
+                        <p>Emitted whenever a new seat is made known to the windowing system.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>seat-added</code> signal
@@ -8895,7 +8884,7 @@ Run the given callback whenever the <code>seatAdded</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2818-L2832">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2929-L2943">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8928,7 +8917,7 @@ Run the given callback whenever the <code>seatAdded</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2835">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8949,8 +8938,7 @@ Run the given callback whenever the <code>seatAdded</code> signal is emitted</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>seat-removed</code> signal is emitted whenever a seat is removed
-by the windowing system.</p>
+                        <p>Emitted whenever a seat is removed by the windowing system.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>seat-removed</code> signal
@@ -9025,7 +9013,7 @@ Run the given callback whenever the <code>seatRemoved</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2845-L2859">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2955-L2969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9058,7 +9046,7 @@ Run the given callback whenever the <code>seatRemoved</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2862">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2972">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9079,8 +9067,7 @@ Run the given callback whenever the <code>seatRemoved</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>setting-changed</code> signal is emitted whenever a setting
-changes its value.</p>
+                        <p>Emitted whenever a setting changes its value.</p>
 <div class="aside aside-note">
     <p class="aside-title">Note</p>
     This represents the underlying <code>setting-changed</code> signal
@@ -9155,7 +9142,7 @@ Run the given callback whenever the <code>settingChanged</code> signal is emitte
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2872-L2886">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2981-L2995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9188,7 +9175,7 @@ Run the given callback whenever the <code>settingChanged</code> signal is emitte
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2889">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2998">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9307,7 +9294,7 @@ Run the given callback whenever the <code>notifyComposited</code> signal is emit
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2921-L2935">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3030-L3044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9340,7 +9327,7 @@ Run the given callback whenever the <code>notifyComposited</code> signal is emit
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2938">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9459,7 +9446,7 @@ Run the given callback whenever the <code>notifyInputShapes</code> signal is emi
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2970-L2984">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3079-L3093">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9492,7 +9479,7 @@ Run the given callback whenever the <code>notifyInputShapes</code> signal is emi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L2987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3096">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9611,7 +9598,7 @@ Run the given callback whenever the <code>notifyRgba</code> signal is emitted</p
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3019-L3033">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3128-L3142">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9644,7 +9631,7 @@ Run the given callback whenever the <code>notifyRgba</code> signal is emitted</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3036">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9691,7 +9678,7 @@ Run the given callback whenever the <code>notifyRgba</code> signal is emitted</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3046-L3049">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3155-L3158">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9712,8 +9699,9 @@ Run the given callback whenever the <code>notifyRgba</code> signal is emitted</p
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Closes the connection to the windowing system for the given display,
-and cleans up associated resources.</p>
+                        <p>Closes the connection to the windowing system for the given display.</p>
+
+<p>This cleans up associated resources.</p>
 
                       </div>
                       <div class="declaration">
@@ -9726,7 +9714,7 @@ and cleans up associated resources.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3053-L3056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3163-L3166">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9760,7 +9748,7 @@ and cleans up associated resources.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3059-L3062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3169-L3172">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9781,10 +9769,11 @@ and cleans up associated resources.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flushes any requests queued for the windowing system; this happens automatically
-when the main loop blocks waiting for new events, but if your application
-is drawing without returning control to the main loop, you may need
-to call this function explicitly. A common case where this function
+                        <p>Flushes any requests queued for the windowing system.</p>
+
+<p>This happens automatically when the main loop blocks waiting for new events,
+but if your application is drawing without returning control to the main loop,
+you may need to call this function explicitly. A common case where this function
 needs to be called is when an application is executing drawing commands
 from a thread other than the thread where the main loop is running.</p>
 
@@ -9802,7 +9791,7 @@ handled synchronously, this function will do nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3073-L3076">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3184-L3187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9837,7 +9826,7 @@ applications on the given display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3080-L3083">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3191-L3194">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9871,7 +9860,7 @@ applications on the given display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3086-L3089">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3197-L3200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9908,7 +9897,7 @@ this function will return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3095-L3098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3206-L3209">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9930,7 +9919,9 @@ this function will return <code>nil</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Gets the monitor in which the largest area of <code>surface</code>
-resides, or a monitor close to <code>surface</code> if it is outside
+resides.</p>
+
+<p>Returns a monitor close to <code>surface</code> if it is outside
 of all monitors.</p>
 
                       </div>
@@ -9944,7 +9935,7 @@ of all monitors.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3103-L3106">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3216-L3219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9967,11 +9958,11 @@ of all monitors.</p>
                       <div class="abstract">
                         <p>Gets the list of monitors associated with this display.</p>
 
-<p>Subsequent calls to this function will always return the same list for the
-same display.</p>
+<p>Subsequent calls to this function will always return the
+same list for the same display.</p>
 
-<p>You can listen to the GListModel<code>items-changed</code> signal on this list
-to monitor changes to the monitor of this display.</p>
+<p>You can listen to the GListModel<code>items-changed</code> signal on
+this list to monitor changes to the monitor of this display.</p>
 
                       </div>
                       <div class="declaration">
@@ -9984,7 +9975,7 @@ to monitor changes to the monitor of this display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3115-L3118">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3228-L3231">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10018,7 +10009,7 @@ to monitor changes to the monitor of this display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3121-L3124">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3234-L3237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10039,9 +10030,10 @@ to monitor changes to the monitor of this display.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the clipboard used for the primary selection. On backends where the
-primary clipboard is not supported natively, GDK emulates this clipboard
-locally.</p>
+                        <p>Gets the clipboard used for the primary selection.</p>
+
+<p>On backends where the primary clipboard is not supported natively,
+GDK emulates this clipboard locally.</p>
 
                       </div>
                       <div class="declaration">
@@ -10054,7 +10046,7 @@ locally.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3129-L3132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3243-L3246">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10089,7 +10081,7 @@ for the <code>display</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3136-L3139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3250-L3253">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10124,7 +10116,7 @@ if no ID has been defined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3143-L3146">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3257-L3260">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10158,7 +10150,7 @@ if no ID has been defined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3149-L3152">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3263-L3266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10179,8 +10171,9 @@ if no ID has been defined.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the keyvals bound to <code>keycode</code>. The Nth <code>GdkKeymapKey</code>
-in <code>keys</code> is bound to the Nth keyval in <code>keyvals</code>.</p>
+                        <p>Returns the keyvals bound to <code>keycode</code>.</p>
+
+<p>The Nth <code>GdkKeymapKey</code> in <code>keys</code> is bound to the Nth keyval in <code>keyvals</code>.</p>
 
 <p>When a keycode is pressed by the user, the keyval from
 this list of entries is selected by considering the effective
@@ -10199,7 +10192,7 @@ keyboard group and level.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3162-L3165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3277-L3280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10221,10 +10214,11 @@ keyboard group and level.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Obtains a list of keycode/group/level combinations that will
-generate <code>keyval</code>. Groups and levels are two kinds of keyboard mode;
-in general, the level determines whether the top or bottom symbol
-on a key is used, and the group determines whether the left or
-right symbol is used.</p>
+generate <code>keyval</code>.</p>
+
+<p>Groups and levels are two kinds of keyboard mode; in general, the level
+determines whether the top or bottom symbol on a key is used, and the
+group determines whether the left or right symbol is used.</p>
 
 <p>On US keyboards, the shift key changes the keyboard level, and there
 are no groups. A group switch key might convert a keyboard between
@@ -10246,7 +10240,7 @@ keyboard group. The level is computed from the modifier mask.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3181-L3184">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3297-L3300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10270,10 +10264,10 @@ keyboard group. The level is computed from the modifier mask.</p>
                         <p>Indicates to the GUI environment that the application has
 finished loading, using a given identifier.</p>
 
-<p>GTK will call this function automatically for <code>GtkWindow</code>
+<p>GTK will call this function automatically for [class<code>Gtk.Window</code>]
 with custom startup-notification identifier unless
-<code>gtk_window_set_auto_startup_notification()</code> is called to
-disable that feature.</p>
+[method<code>Gtk.Window.set_auto_startup_notification</code>]
+is called to disable that feature.</p>
 
                       </div>
                       <div class="declaration">
@@ -10286,7 +10280,7 @@ disable that feature.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3193-L3196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3309-L3312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10324,7 +10318,7 @@ and should not be used by applications.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3203-L3206">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3319-L3322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10345,7 +10339,9 @@ and should not be used by applications.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns <code>true</code> if <code>gdk_surface_set_input_region()</code> can
+                        <p>Returns <code>true</code> if the display supports input shapes.</p>
+
+<p>This means that [method<code>Gdk.Surface.set_input_region</code>] can
 be used to modify the input shape of surfaces on <code>display</code>.</p>
 
 <p>On modern displays, this value is always <code>true</code>.</p>
@@ -10361,7 +10357,7 @@ be used to modify the input shape of surfaces on <code>display</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3212-L3215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3330-L3333">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10383,11 +10379,12 @@ be used to modify the input shape of surfaces on <code>display</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Flushes any requests queued for the windowing system and waits until all
-requests have been handled. This is often used for making sure that the
-display is synchronized with the current state of the program. Calling
-<code>gdk_display_sync()</code> before <code>gdk_x11_display_error_trap_pop()</code> makes sure
-that any errors generated from earlier requests are handled before the
-error trap is removed.</p>
+requests have been handled.</p>
+
+<p>This is often used for making sure that the display is synchronized
+with the current state of the program. Calling [method<code>Gdk.Display.sync</code>]
+before [method<code>GdkX11.Display.error_trap_pop</code>] makes sure that any errors
+generated from earlier requests are handled before the error trap is removed.</p>
 
 <p>This is most useful for X11. On windowing systems where requests are
 handled synchronously, this function will do nothing.</p>
@@ -10403,7 +10400,7 @@ handled synchronously, this function will do nothing.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3226-L3229">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3345-L3348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10424,23 +10421,25 @@ handled synchronously, this function will do nothing.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Translates the contents of a <code>GdkEventKey</code> (ie <code>keycode</code>, <code>state</code>, and <code>group</code>)
-into a keyval, effective group, and level. Modifiers that affected the
-translation and are thus unavailable for application use are returned in
-<code>consumed_modifiers</code>.</p>
+                        <p>Translates the contents of a <code>GdkEventKey</code> into a keyval, effective group,
+and level.</p>
 
-<p>The <code>effective_group</code> is the group that was actually used for the translation;
-some keys such as Enter are not affected by the active keyboard group.
-The <code>level</code> is derived from <code>state</code>.</p>
+<p>Modifiers that affected the translation and are thus unavailable for
+application use are returned in <code>consumed_modifiers</code>.</p>
 
-<p><code>consumed_modifiers</code> gives modifiers that should be masked outfrom <code>state</code>
-when comparing this key press to a keyboard shortcut. For instance, on a US
-keyboard, the <code>plus</code> symbol is shifted, so when comparing a key press to a
-<code>&amp;lt;Control&amp;gt;plus</code> accelerator <code>&amp;lt;Shift&amp;gt;</code> should be masked out.</p>
+<p>The <code>effective_group</code> is the group that was actually used for the
+translation; some keys such as Enter are not affected by the active
+keyboard group. The <code>level</code> is derived from <code>state</code>.</p>
 
-<p>This function should rarely be needed, since <code>GdkEventKey</code> already contains
-the translated keyval. It is exported for the benefit of virtualized test
-environments.</p>
+<p><code>consumed_modifiers</code> gives modifiers that should be masked out
+from <code>state</code> when comparing this key press to a keyboard shortcut.
+For instance, on a US keyboard, the <code>plus</code> symbol is shifted, so
+when comparing a key press to a <code>&amp;lt;Control&amp;gt;plus</code> accelerator <code>&amp;lt;Shift&amp;gt;</code>
+should be masked out.</p>
+
+<p>This function should rarely be needed, since <code>GdkEventKey</code> already
+contains the translated keyval. It is exported for the benefit of
+virtualized test environments.</p>
 
                       </div>
                       <div class="declaration">
@@ -10453,7 +10452,7 @@ environments.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3248-L3251">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3369-L3372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10488,7 +10487,7 @@ applications on the given display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3254-L3261">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3375-L3382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10522,7 +10521,7 @@ applications on the given display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3264-L3270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3385-L3391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10559,7 +10558,7 @@ this function will return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3276-L3285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3397-L3406">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10593,7 +10592,7 @@ this function will return <code>nil</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3288-L3294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3409-L3415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10615,9 +10614,10 @@ this function will return <code>nil</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns whether surfaces can reasonably be expected to have
-their alpha channel drawn correctly on the screen. Check
-<code>gdk_display_is_rgba()</code> for whether the display supports an
-alpha channel.</p>
+their alpha channel drawn correctly on the screen.</p>
+
+<p>Check [method<code>Gdk.Display.is_rgba</code>] for whether the display
+supports an alpha channel.</p>
 
 <p>On X11 this function returns whether a compositing manager is
 compositing on <code>display</code>.</p>
@@ -10635,7 +10635,7 @@ compositing on <code>display</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3305-L3319">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3427-L3442">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10663,7 +10663,7 @@ alpha channel.</p>
 surface’s alpha channel won’t be honored when displaying the
 surface on the screen: in particular, for X an appropriate
 windowing manager and compositing manager must be running to
-provide appropriate display. Use <code>gdk_display_is_composited()</code>
+provide appropriate display. Use [method<code>Gdk.Display.is_composited</code>]
 to check if that is the case.</p>
 
 <p>On modern displays, this value is always <code>true</code>.</p>
@@ -10679,7 +10679,7 @@ to check if that is the case.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3332-L3348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3455-L3471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10702,11 +10702,11 @@ to check if that is the case.</p>
                       <div class="abstract">
                         <p>Gets the list of monitors associated with this display.</p>
 
-<p>Subsequent calls to this function will always return the same list for the
-same display.</p>
+<p>Subsequent calls to this function will always return the
+same list for the same display.</p>
 
-<p>You can listen to the GListModel<code>items-changed</code> signal on this list
-to monitor changes to the monitor of this display.</p>
+<p>You can listen to the GListModel<code>items-changed</code> signal on
+this list to monitor changes to the monitor of this display.</p>
 
                       </div>
                       <div class="declaration">
@@ -10719,7 +10719,7 @@ to monitor changes to the monitor of this display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3357-L3369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3480-L3492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10753,7 +10753,7 @@ to monitor changes to the monitor of this display.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3372-L3378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3495-L3501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10774,9 +10774,10 @@ to monitor changes to the monitor of this display.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the clipboard used for the primary selection. On backends where the
-primary clipboard is not supported natively, GDK emulates this clipboard
-locally.</p>
+                        <p>Gets the clipboard used for the primary selection.</p>
+
+<p>On backends where the primary clipboard is not supported natively,
+GDK emulates this clipboard locally.</p>
 
                       </div>
                       <div class="declaration">
@@ -10789,7 +10790,7 @@ locally.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3383-L3391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3507-L3516">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10824,7 +10825,7 @@ if no ID has been defined.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3395-L3402">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-DeleteEvent-Event.swift#L3520-L3527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10837,8 +10838,8 @@ if no ID has been defined.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

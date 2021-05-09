@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,28 +7951,27 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/AppLaunchContext.html">AppLaunchContext</a></code>.
 Alternatively, use <code><a href="../Structs/AppLaunchContextRef.html">AppLaunchContextRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>GdkAppLaunchContext is an implementation of <code>GAppLaunchContext</code> that
-handles launching an application in a graphical context. It provides
-startup notification and allows to launch applications on a specific
-screen or workspace.</p>
+<p><code>GdkAppLaunchContext</code> handles launching an application in a graphical context.</p>
+
+<p>It is an implementation of <code>GAppLaunchContext</code> that provides startup
+notification and allows to launch applications on a specific screen
+or workspace.</p>
 <h2 id='launching-an-application' class='heading'>Launching an application</h2>
+<pre class="highlight c"><code><span class="n">GdkAppLaunchContext</span> <span class="o">*</span><span class="n">context</span><span class="p">;</span>
 
-<p>(C Language Example):</p>
-<pre class="highlight plaintext"><code>GdkAppLaunchContext *context;
+<span class="n">context</span> <span class="o">=</span> <span class="n">gdk_display_get_app_launch_context</span> <span class="p">(</span><span class="n">display</span><span class="p">);</span>
 
-context = gdk_display_get_app_launch_context (display);
+<span class="n">gdk_app_launch_context_set_display</span> <span class="p">(</span><span class="n">display</span><span class="p">);</span>
+<span class="n">gdk_app_launch_context_set_timestamp</span> <span class="p">(</span><span class="n">gdk_event_get_time</span> <span class="p">(</span><span class="n">event</span><span class="p">));</span>
 
-gdk_app_launch_context_set_display (display);
-gdk_app_launch_context_set_timestamp (gdk_event_get_time (event));
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">g_app_info_launch_default_for_uri</span> <span class="p">(</span><span class="s">"http://www.gtk.org"</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">error</span><span class="p">))</span>
+  <span class="n">g_warning</span> <span class="p">(</span><span class="s">"Launching failed: `s`</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">error</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">message</span><span class="p">);</span>
 
-if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &amp;error))
-  g_warning ("Launching failed: %s\n", error-&gt;message);
-
-g_object_unref (context);
+<span class="n">g_object_unref</span> <span class="p">(</span><span class="n">context</span><span class="p">);</span>
 </code></pre>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L43-L52">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L42-L51">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8015,7 +8005,7 @@ g_object_unref (context);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L45">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L44">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8053,7 +8043,7 @@ g_object_unref (context);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L48">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L47">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8083,7 +8073,7 @@ g_object_unref (context);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L51">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L50">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8214,7 +8204,7 @@ g_object_unref (context);
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L329-L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L327-L351">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8271,7 +8261,7 @@ g_object_unref (context);
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L358-L362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L356-L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8329,7 +8319,7 @@ g_object_unref (context);
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L368-L370">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L366-L368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8376,7 +8366,7 @@ g_object_unref (context);
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L419-L422">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L418-L421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8397,8 +8387,9 @@ g_object_unref (context);
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the workspace on which applications will be launched when
-using this context when running under a window manager that
+                        <p>Sets the workspace on which applications will be launched.</p>
+
+<p>This only works when running under a window manager that
 supports multiple workspaces, as described in the
 <a href="http://www.freedesktop.org/Standards/wm-spec">Extended Window Manager Hints</a>.</p>
 
@@ -8444,7 +8435,7 @@ context.</p>
 <p>Window Managers can use this information when displaying startup
 notification.</p>
 
-<p>See also <code>gdk_app_launch_context_set_icon_name()</code>.</p>
+<p>See also [method<code>Gdk.AppLaunchContext.set_icon_name</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8484,7 +8475,7 @@ context.</p>
 <p>Window Managers can use this information when displaying startup
 notification.</p>
 
-<p>See also <code>gdk_app_launch_context_set_icon_name()</code>.</p>
+<p>See also [method<code>Gdk.AppLaunchContext.set_icon_name</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -8518,9 +8509,10 @@ notification.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the icon for applications that are launched with this context.
-The <code>icon_name</code> will be interpreted in the same way as the Icon field
-in desktop files. See also <code>gdk_app_launch_context_set_icon()</code>.</p>
+                        <p>Sets the icon for applications that are launched with this context.</p>
+
+<p>The <code>icon_name</code> will be interpreted in the same way as the Icon field
+in desktop files. See also [method<code>Gdk.AppLaunchContext.set_icon</code><code>()</code>].</p>
 
 <p>If both <code>icon</code> and <code>icon_name</code> are set, the <code>icon_name</code> takes priority.
 If neither <code>icon</code> or <code>icon_name</code> is set, the icon is taken from either
@@ -8538,7 +8530,7 @@ for the launched application itself.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L468-L471">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L469-L472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8559,8 +8551,10 @@ for the launched application itself.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets the timestamp of <code>context</code>. The timestamp should ideally
-be taken from the event that triggered the launch.</p>
+                        <p>Sets the timestamp of <code>context</code>.</p>
+
+<p>The timestamp should ideally be taken from the event that
+triggered the launch.</p>
 
 <p>Window managers can use this information to avoid moving the
 focus to the newly launched application when the user is busy
@@ -8578,7 +8572,7 @@ prevention&rsquo;.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L480-L483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L483-L486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8599,7 +8593,7 @@ prevention&rsquo;.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The display that the <code>GdkAppLaunchContext</code> is on.</p>
 
                       </div>
                       <div class="declaration">
@@ -8612,7 +8606,7 @@ prevention&rsquo;.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L484-L490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-AppLaunchContext-ButtonEvent.swift#L488-L494">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8625,8 +8619,8 @@ prevention&rsquo;.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

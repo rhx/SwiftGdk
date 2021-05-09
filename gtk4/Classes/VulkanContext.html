@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7962,15 +7953,15 @@ Use <code>VulkanContext</code> as a strong reference or owner of a <code>GdkVulk
 <p><code>GdkVulkanContext</code> is an object representing the platform-specific
 Vulkan draw context.</p>
 
-<p><code>GdkVulkanContexts</code> are created for a <code>GdkSurface</code> using
-<code>gdk_surface_create_vulkan_context()</code>, and the context will match the
-the characteristics of the surface.</p>
+<p><code>GdkVulkanContext</code>s are created for a surface using
+[method<code>Gdk.Surface.create_vulkan_context</code>], and the context will match
+the the characteristics of the surface.</p>
 
-<p>Support for <code>GdkVulkanContext</code> is platform-specific, context creation
+<p>Support for <code>GdkVulkanContext</code> is platform-specific and context creation
 can fail, returning <code>nil</code> context.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L729-L856">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L744-L871">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8028,7 +8019,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L734-L736">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L749-L751">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8080,7 +8071,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L742-L744">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L757-L759">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8133,7 +8124,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L751-L754">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L766-L769">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8186,7 +8177,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L761-L764">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L776-L779">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8238,7 +8229,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L770-L773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L785-L788">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8290,7 +8281,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L779-L782">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L794-L797">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8342,7 +8333,7 @@ i.e., ownership is transferred to the <code>VulkanContext</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L788-L790">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L803-L805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8393,7 +8384,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L795-L797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L810-L812">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8444,7 +8435,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L802-L804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L817-L819">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8495,7 +8486,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L809-L811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L824-L826">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8546,7 +8537,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L816-L818">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L831-L833">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8578,7 +8569,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L822-L824">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L837-L839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8629,7 +8620,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L829-L831">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L844-L846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8680,7 +8671,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L836-L838">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L851-L853">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8731,7 +8722,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L843-L845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L858-L860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8782,7 +8773,7 @@ Will retain <code>GdkVulkanContext</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L850-L852">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L865-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8795,8 +8786,8 @@ Will retain <code>GdkVulkanContext</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

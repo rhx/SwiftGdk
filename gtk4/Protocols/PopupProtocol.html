@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,14 +7951,16 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Popup.html">Popup</a></code>.
 Alternatively, use <code><a href="../Structs/PopupRef.html">PopupRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A <code>GdkPopup</code> is a surface that is attached to another surface,
-called its <code>GdkPopup:parent</code>, and is positioned relative to it.</p>
+<p>A <code>GdkPopup</code> is a surface that is attached to another surface.</p>
 
-<p><code>GdkPopups</code> are typically used to implement menus and similar popups.
-They can be modal, which is indicated by the <code>GdkPopup:autohide</code> property.</p>
+<p>The <code>GdkPopup</code> is positioned relative to its parent surface.</p>
+
+<p><code>GdkPopup</code>s are typically used to implement menus and similar popups.
+They can be modal, which is indicated by the [property<code>GdkPopup:autohide</code>]
+property.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L26-L35">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L28-L37">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8001,7 +7994,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L28">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L30">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8039,7 +8032,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L31">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L33">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8069,7 +8062,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L34">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L36">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8200,7 +8193,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L289-L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L301-L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8257,7 +8250,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L318-L322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L330-L334">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8315,7 +8308,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L328-L330">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L340-L342">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8362,7 +8355,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L394-L397">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L412-L415">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8396,7 +8389,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L418-L421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8430,7 +8423,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L406-L409">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8464,7 +8457,7 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L412-L415">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L430-L433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8487,8 +8480,8 @@ They can be modal, which is indicated by the <code>GdkPopup:autohide</code> prop
                       <div class="abstract">
                         <p>Gets the current popup rectangle anchor.</p>
 
-<p>The value returned may change after calling <code>gdk_popup_present()</code>,
-or after the <code>GdkSurface::layout</code> signal is emitted.</p>
+<p>The value returned may change after calling [method<code>Gdk.Popup.present</code>],
+or after the [signal<code>Gdk.Surface::layout</code>] signal is emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -8501,7 +8494,7 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L421-L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L439-L442">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8524,8 +8517,8 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                       <div class="abstract">
                         <p>Gets the current popup surface anchor.</p>
 
-<p>The value returned may change after calling <code>gdk_popup_present()</code>,
-or after the <code>GdkSurface::layout</code> signal is emitted.</p>
+<p>The value returned may change after calling [method<code>Gdk.Popup.present</code>],
+or after the [signal<code>Gdk.Surface::layout</code>] signal is emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -8538,7 +8531,7 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L430-L433">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L448-L451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8559,20 +8552,21 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Present <code>popup</code> after having processed the <code>GdkPopupLayout</code> rules.
-If the popup was previously now showing, it will be showed,
+                        <p>Present <code>popup</code> after having processed the <code>GdkPopupLayout</code> rules.</p>
+
+<p>If the popup was previously now showing, it will be showed,
 otherwise it will change position according to <code>layout</code>.</p>
 
 <p>After calling this function, the result should be handled in response
-to the <code>GdkSurface::layout</code> signal being emitted. The resulting popup
-position can be queried using <code>gdk_popup_get_position_x()</code>,
-<code>gdk_popup_get_position_y()</code>, and the resulting size will be sent as
-parameters in the layout signal. Use <code>gdk_popup_get_rect_anchor()</code> and
-<code>gdk_popup_get_surface_anchor()</code> to get the resulting anchors.</p>
+to the [signal<code>GdkSurface::layout</code>] signal being emitted. The resulting
+popup position can be queried using [method<code>Gdk.Popup.get_position_x</code>],
+[method<code>Gdk.Popup.get_position_y</code>], and the resulting size will be sent as
+parameters in the layout signal. Use [method<code>Gdk.Popup.get_rect_anchor</code>]
+and [method<code>Gdk.Popup.get_surface_anchor</code>] to get the resulting anchors.</p>
 
 <p>Presenting may fail, for example if the <code>popup</code> is set to autohide
 and is immediately hidden upon being presented. If presenting failed,
-the <code>GdkSurface::layout</code> signal will not me emitted.</p>
+the [signal<code>Gdk.Surface::layout</code>] signal will not me emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -8585,7 +8579,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L449-L452">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L468-L471">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8606,7 +8600,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether to hide on outside clicks.</p>
 
                       </div>
                       <div class="declaration">
@@ -8619,7 +8613,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L453-L459">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L473-L479">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8640,7 +8634,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The parent surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -8653,7 +8647,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L461-L467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L482-L488">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8687,7 +8681,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L470-L476">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L491-L497">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8721,7 +8715,7 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L479-L485">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L500-L506">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8744,8 +8738,8 @@ the <code>GdkSurface::layout</code> signal will not me emitted.</p>
                       <div class="abstract">
                         <p>Gets the current popup rectangle anchor.</p>
 
-<p>The value returned may change after calling <code>gdk_popup_present()</code>,
-or after the <code>GdkSurface::layout</code> signal is emitted.</p>
+<p>The value returned may change after calling [method<code>Gdk.Popup.present</code>],
+or after the [signal<code>Gdk.Surface::layout</code>] signal is emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -8758,7 +8752,7 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L491-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L512-L521">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8781,8 +8775,8 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                       <div class="abstract">
                         <p>Gets the current popup surface anchor.</p>
 
-<p>The value returned may change after calling <code>gdk_popup_present()</code>,
-or after the <code>GdkSurface::layout</code> signal is emitted.</p>
+<p>The value returned may change after calling [method<code>Gdk.Popup.present</code>],
+or after the [signal<code>Gdk.Surface::layout</code>] signal is emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -8795,7 +8789,7 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L506-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Popup-Toplevel.swift#L527-L536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8808,8 +8802,8 @@ or after the <code>GdkSurface::layout</code> signal is emitted.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

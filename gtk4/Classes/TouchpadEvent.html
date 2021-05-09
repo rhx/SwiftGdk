@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,10 +7950,15 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/TouchpadEventProtocol.html">TouchpadEventProtocol</a></code> conformance.
 Use <code>TouchpadEvent</code> as a strong reference or owner of a <code>GdkTouchpadEvent</code> instance.</p>
 
-<p>An event related to a touchpad device.</p>
+<p>An event related to a gesture on a touchpad device.</p>
+
+<p>Unlike touchscreens, where the windowing system sends basic
+sequences of begin, update, end events, and leaves gesture
+recognition to the clients, touchpad gestures are typically
+processed by the system, resulting in these events.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L386-L513">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L401-L528">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8020,7 +8016,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L391-L393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L406-L408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8072,7 +8068,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L399-L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L414-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8125,7 +8121,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L408-L411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L423-L426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8178,7 +8174,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L418-L421">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L433-L436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8230,7 +8226,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L427-L430">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L442-L445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8282,7 +8278,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L436-L439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L451-L454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8334,7 +8330,7 @@ i.e., ownership is transferred to the <code>TouchpadEvent</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L445-L447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L460-L462">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8385,7 +8381,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L452-L454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L467-L469">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8436,7 +8432,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L459-L461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L474-L476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8487,7 +8483,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L466-L468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L481-L483">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8538,7 +8534,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L473-L475">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L488-L490">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8570,7 +8566,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L479-L481">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L494-L496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8621,7 +8617,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L486-L488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L501-L503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8672,7 +8668,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L493-L495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L508-L510">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8723,7 +8719,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L500-L502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L515-L517">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8774,7 +8770,7 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L507-L509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-TouchEvent-VulkanContext.swift#L522-L524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8787,8 +8783,8 @@ Will retain <code>GdkTouchpadEvent</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

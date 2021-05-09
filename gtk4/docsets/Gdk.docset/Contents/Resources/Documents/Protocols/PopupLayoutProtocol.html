@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,9 +7951,8 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/PopupLayout.html">PopupLayout</a></code>.
 Alternatively, use <code><a href="../Structs/PopupLayoutRef.html">PopupLayoutRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>Popups are positioned relative to their parent surface.
-The GdkPopupLayout struct contains information that is
-necessary to do so.</p>
+<p>The <code>GdkPopupLayout</code> struct contains information that is
+necessary position a [interface<code>Gdk.Popup</code>] relative to its parent.</p>
 
 <p>The positioning requires a negotiation with the windowing system,
 since it depends on external constraints, such as the position of
@@ -7988,15 +7978,15 @@ or to resize it.</p>
 
 <p>Ultimatively, it is up to the windowing system to determine the position
 and size of the popup. You can learn about the result by calling
-<code>gdk_popup_get_position_x()</code>, <code>gdk_popup_get_position_y()</code>,
-<code>gdk_popup_get_rect_anchor()</code> and <code>gdk_popup_get_surface_anchor()</code> after the
-popup has been presented. This can be used to adjust the rendering. For
-example, GtkPopover changes its arrow position accordingly. But you have
-to be careful avoid changing the size of the popover, or it has to be
-presented again.</p>
+[method<code>Gdk.Popup.get_position_x</code>], [method<code>Gdk.Popup.get_position_y</code>],
+[method<code>Gdk.Popup.get_rect_anchor</code>] and [method<code>Gdk.Popup.get_surface_anchor</code>]
+after the popup has been presented. This can be used to adjust the rendering.
+For example, [class<code>Gtk.Popover</code>] changes its arrow position accordingly.
+But you have to be careful avoid changing the size of the popover, or it
+has to be presented again.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L183-L192">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L182-L191">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8030,7 +8020,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L185">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L184">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8068,7 +8058,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L188">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L187">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8098,7 +8088,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L191">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L190">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8132,7 +8122,7 @@ presented again.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a new <code>GdkPopupLayout</code> and copy the contents of <code>layout</code> into it.</p>
+                        <p>Makes a copy of <code>layout</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -8145,7 +8135,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L531-L534">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L532-L535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8179,7 +8169,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L537-L540">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L538-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8213,7 +8203,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L543-L546">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L544-L547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8247,7 +8237,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L549-L552">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L550-L553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8281,7 +8271,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L555-L558">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L556-L559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8315,7 +8305,41 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L561-L564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L562-L565">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk19PopupLayoutProtocolPAAE14getShadowWidth4left5right3top6bottomySpys5Int32VGSg_A3LtF"></a>
+                    <a name="//apple_ref/swift/Method/getShadowWidth(left:right:top:bottom:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk19PopupLayoutProtocolPAAE14getShadowWidth4left5right3top6bottomySpys5Int32VGSg_A3LtF">getShadowWidth(left:<wbr>right:<wbr>top:<wbr>bottom:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Obtains the shadow widths of this layout.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">getShadowWidth</span><span class="p">(</span><span class="nv">left</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">top</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L568-L571">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8349,7 +8373,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L567-L570">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L574-L577">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8384,7 +8408,7 @@ presented again.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L573-L576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L580-L583">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8407,10 +8431,11 @@ presented again.</p>
                       <div class="abstract">
                         <p>Set new anchor hints.</p>
 
-<p>The set <code>anchor_hints</code> determines how <code>surface</code> will be moved if the anchor
-points cause it to move off-screen. For example, <code>GDK_ANCHOR_FLIP_X</code> will
-replace <code>GDK_GRAVITY_NORTH_WEST</code> with <code>GDK_GRAVITY_NORTH_EAST</code> and vice versa
-if <code>surface</code> extends beyond the left or right edges of the monitor.</p>
+<p>The set <code>anchor_hints</code> determines how <code>surface</code> will be moved
+if the anchor points cause it to move off-screen. For example,
+<code>GDK_ANCHOR_FLIP_X</code> will replace <code>GDK_GRAVITY_NORTH_WEST</code> with
+<code>GDK_GRAVITY_NORTH_EAST</code> and vice versa if <code>surface</code> extends
+beyond the left or right edges of the monitor.</p>
 
                       </div>
                       <div class="declaration">
@@ -8423,7 +8448,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L584-L587">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L592-L595">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8457,7 +8482,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L590-L593">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L598-L601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8491,7 +8516,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L596-L599">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L604-L607">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8525,7 +8550,45 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L602-L605">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L610-L613">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk19PopupLayoutProtocolPAAE14setShadowWidth4left5right3top6bottomySi_S3itF"></a>
+                    <a name="//apple_ref/swift/Method/setShadowWidth(left:right:top:bottom:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk19PopupLayoutProtocolPAAE14setShadowWidth4left5right3top6bottomySi_S3itF">setShadowWidth(left:<wbr>right:<wbr>top:<wbr>bottom:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the shadow width of the popup.</p>
+
+<p>The shadow width corresponds to the part of the computed
+surface size that would consist of the shadow margin
+surrounding the window, would there be any.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">setShadowWidth</span><span class="p">(</span><span class="nv">left</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">top</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L620-L623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8559,7 +8622,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L608-L611">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L626-L629">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8593,7 +8656,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L614-L617">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L632-L635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8627,7 +8690,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L619-L634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L637-L653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8661,7 +8724,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L637-L647">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L656-L666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8695,7 +8758,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L650-L660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L669-L679">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8729,7 +8792,7 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L663-L673">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-PopupInterface-RGBA.swift#L682-L692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8742,8 +8805,8 @@ if <code>surface</code> extends beyond the left or right edges of the monitor.</
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

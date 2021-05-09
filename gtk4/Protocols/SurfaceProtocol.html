@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7960,18 +7951,18 @@ The default implementation of these can be found in the protocol extension below
 For a concrete class that implements these methods and properties, see <code><a href="../Classes/Surface.html">Surface</a></code>.
 Alternatively, use <code><a href="../Structs/SurfaceRef.html">SurfaceRef</a></code> as a lighweight, <code>unowned</code> reference if you already have an instance you just want to use.</p>
 
-<p>A <code>GdkSurface</code> is a (usually) rectangular region on the screen.
-It’s a low-level object, used to implement high-level objects
-such as <code>GtkWindow</code> or <code>GtkDialog</code> in GTK.</p>
+<p>A <code>GdkSurface</code> is a rectangular region on the screen.</p>
 
-<p>The surfaces you see in practice are either <code>GdkToplevel</code> or
-<code>GdkPopup</code>, and those interfaces provide much of the required
-API to interact with these surfaces. Other, more specialized
-surface types exist, but you will rarely interact with them
-directly.</p>
+<p>It’s a low-level object, used to implement high-level objects
+such as [class<code>Gtk.Window</code>] or [class<code>Gtk.Dialog</code>] in GTK.</p>
+
+<p>The surfaces you see in practice are either [class<code>Gdk.Toplevel</code>] or
+[class<code>Gdk.Popup</code>], and those interfaces provide much of the required
+API to interact with these surfaces. Other, more specialized surface
+types exist, but you will rarely interact with them directly.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L948-L957">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L947-L956">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8005,7 +7996,7 @@ directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L950">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L949">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8043,7 +8034,7 @@ directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L953">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L952">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8073,7 +8064,7 @@ directly.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L956">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L955">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8204,7 +8195,7 @@ directly.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1239-L1263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1242-L1266">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8261,7 +8252,7 @@ directly.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1268-L1272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1271-L1275">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8319,7 +8310,7 @@ directly.</p>
                         <p>the value of the named property</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1278-L1280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1281-L1283">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8438,7 +8429,7 @@ directly.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1345-L1347">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1352-L1354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8544,7 +8535,7 @@ directly.</p>
                         <p>The signal handler ID (always greater than 0 for successful connections)</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1358-L1360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1365-L1367">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8640,7 +8631,7 @@ Run the given callback whenever the <code>enterMonitor</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1370-L1384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1377-L1391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8673,7 +8664,7 @@ Run the given callback whenever the <code>enterMonitor</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8769,7 +8760,7 @@ Run the given callback whenever the <code>event</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1396-L1410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1403-L1417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8802,7 +8793,7 @@ Run the given callback whenever the <code>event</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8914,7 +8905,7 @@ Run the given callback whenever the <code>layout</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1427-L1441">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1434-L1448">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8947,7 +8938,7 @@ Run the given callback whenever the <code>layout</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1444">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1451">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9043,7 +9034,7 @@ Run the given callback whenever the <code>leaveMonitor</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1453-L1467">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1460-L1474">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9076,7 +9067,7 @@ Run the given callback whenever the <code>leaveMonitor</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1477">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9172,7 +9163,7 @@ Run the given callback whenever the <code>render</code> signal is emitted</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1479-L1493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1486-L1500">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9205,7 +9196,7 @@ Run the given callback whenever the <code>render</code> signal is emitted</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1496">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1503">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9324,7 +9315,7 @@ Run the given callback whenever the <code>notifyCursor</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1528-L1542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1535-L1549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9357,7 +9348,7 @@ Run the given callback whenever the <code>notifyCursor</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1552">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9476,7 +9467,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1577-L1591">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1584-L1598">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9509,7 +9500,7 @@ Run the given callback whenever the <code>notifyDisplay</code> signal is emitted
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1594">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9628,7 +9619,7 @@ Run the given callback whenever the <code>notifyFrameClock</code> signal is emit
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1626-L1640">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1633-L1647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9661,7 +9652,7 @@ Run the given callback whenever the <code>notifyFrameClock</code> signal is emit
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1643">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9780,7 +9771,7 @@ Run the given callback whenever the <code>notifyHeight</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1675-L1689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1682-L1696">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9813,7 +9804,7 @@ Run the given callback whenever the <code>notifyHeight</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1692">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9932,7 +9923,7 @@ Run the given callback whenever the <code>notifyMapped</code> signal is emitted<
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1724-L1738">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1731-L1745">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -9965,7 +9956,159 @@ Run the given callback whenever the <code>notifyMapped</code> signal is emitted<
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1741">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1748">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk15SurfaceProtocolPAAE19onNotifyScaleFactor5flags7handlerSi10GLibObject12ConnectFlagsV_yAA0B3RefV_AG09ParamSpecN0VtctF"></a>
+                    <a name="//apple_ref/swift/Method/onNotifyScaleFactor(flags:handler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk15SurfaceProtocolPAAE19onNotifyScaleFactor5flags7handlerSi10GLibObject12ConnectFlagsV_yAA0B3RefV_AG09ParamSpecN0VtctF">onNotifyScaleFactor(flags:<wbr>handler:<wbr>)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The notify signal is emitted on an object when one of its properties has
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
+
+<p>Note that getting this signal doesn’t itself guarantee that the value of
+the property has actually changed. When it is emitted is determined by the
+derived GObject class. If the implementor did not create the property with
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
+If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
+and common practice is to do that only when the value has actually changed.</p>
+
+<p>This signal is typically used to obtain change notification for a
+single property, by specifying the property name as a detail in the
+<code>g_signal_connect()</code> call, like this:
+(C Language Example):</p>
+<pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
+                  G_CALLBACK (gtk_text_view_target_list_notify),
+                  text_view)
+</code></pre>
+
+<p>It is important to note that you must use
+<a href="#canonical-parameter-names">canonical parameter names</a> as
+detail strings for the notify signal.</p>
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    This represents the underlying <code>notify::scale-factor</code> signal
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">@inlinable</span>
+<span class="kd">func</span> <span class="nf">onNotifyScaleFactor</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="kt">ConnectFlags</span> <span class="o">=</span> <span class="kt">ConnectFlags</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="nv">handler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="n">_</span> <span class="nv">unownedSelf</span><span class="p">:</span> <span class="kt"><a href="../Structs/SurfaceRef.html">SurfaceRef</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">pspec</span><span class="p">:</span> <span class="kt">ParamSpecRef</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>flags</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Flags</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>unownedSelf</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Reference to instance of self</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>pspec</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the <code>GParamSpec</code> of the property which changed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>handler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The signal handler to call
+Run the given callback whenever the <code>notifyScaleFactor</code> signal is emitted</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1780-L1794">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:3Gdk15SurfaceProtocolPAAE23notifyScaleFactorSignalAA0bG4NameOvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/notifyScaleFactorSignal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:3Gdk15SurfaceProtocolPAAE23notifyScaleFactorSignalAA0bG4NameOvpZ">notifyScaleFactorSignal</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Typed <code>notify::scale-factor</code> signal for using the <code>connect(signal:)</code> methods</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="k">var</span> <span class="nv">notifyScaleFactorSignal</span><span class="p">:</span> <span class="kt"><a href="../Enums/SurfaceSignalName.html">SurfaceSignalName</a></span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1797">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10084,7 +10227,7 @@ Run the given callback whenever the <code>notifyWidth</code> signal is emitted</
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1773-L1787">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1829-L1843">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10117,7 +10260,7 @@ Run the given callback whenever the <code>notifyWidth</code> signal is emitted</
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1790">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1846">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10151,9 +10294,10 @@ Run the given callback whenever the <code>notifyWidth</code> signal is emitted</
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits a short beep associated to <code>surface</code> in the appropriate
-display, if supported. Otherwise, emits a short beep on
-the display just as <code>gdk_display_beep()</code>.</p>
+                        <p>Emits a short beep associated to <code>surface</code>.</p>
+
+<p>If the display of <code>surface</code> does not support per-surface beeps,
+emits a short beep on the display just as [method<code>Gdk.Display.beep</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10166,7 +10310,7 @@ the display just as <code>gdk_display_beep()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1802-L1805">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1859-L1862">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10200,7 +10344,7 @@ the display just as <code>gdk_display_beep()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1808-L1811">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1865-L1868">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10221,14 +10365,12 @@ the display just as <code>gdk_display_beep()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new <code>GdkGLContext</code> matching the
-framebuffer format to the visual of the <code>GdkSurface</code>. The context
-is disconnected from any particular surface or surface.</p>
+                        <p>Creates a new <code>GdkGLContext</code> for the <code>GdkSurface</code>.</p>
 
-<p>If the creation of the <code>GdkGLContext</code> failed, <code>error</code> will be set.</p>
-
-<p>Before using the returned <code>GdkGLContext</code>, you will need to
-call <code>gdk_gl_context_make_current()</code> or <code>gdk_gl_context_realize()</code>.</p>
+<p>The context is disconnected from any particular surface or surface.
+If the creation of the <code>GdkGLContext</code> failed, <code>error</code> will be set.
+Before using the returned <code>GdkGLContext</code>, you will need to
+call [method<code>Gdk.GLContext.make_current</code>] or [method<code>Gdk.GLContext.realize</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10241,7 +10383,7 @@ call <code>gdk_gl_context_make_current()</code> or <code>gdk_gl_context_realize(
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1821-L1826">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1876-L1881">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10262,15 +10404,21 @@ call <code>gdk_gl_context_make_current()</code> or <code>gdk_gl_context_realize(
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Create a new surface that is as compatible as possible with the
-given <code>surface</code>. For example the new surface will have the same
-fallback resolution and font options as <code>surface</code>. Generally, the new
-surface will also use the same backend as <code>surface</code>, unless that is
-not possible for some reason. The type of the returned surface may
-be examined with <code>cairo_surface_get_type()</code>.</p>
+                        <p>Create a new Cairo surface that is as compatible as possible with the
+given <code>surface</code>.</p>
+
+<p>For example the new surface will have the same fallback resolution
+and font options as <code>surface</code>. Generally, the new surface will also
+use the same backend as <code>surface</code>, unless that is not possible for
+some reason. The type of the returned surface may be examined with
+<code>cairo_surface_get_type()</code>.</p>
 
 <p>Initially the surface contents are all 0 (transparent if contents
 have transparency, black otherwise.)</p>
+
+<p>This function always returns a valid pointer, but it will return a
+pointer to a “nil” surface if <code>other</code> is already in an error state
+or any other error occurs.</p>
 
                       </div>
                       <div class="declaration">
@@ -10283,7 +10431,7 @@ have transparency, black otherwise.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1837-L1840">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1898-L1901">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10319,7 +10467,7 @@ have transparency, black otherwise.)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1845-L1850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1906-L1911">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10340,12 +10488,15 @@ have transparency, black otherwise.)</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Destroys the window system resources associated with <code>surface</code> and decrements <code>surface</code>&lsquo;s
-reference count. The window system resources for all children of <code>surface</code> are also
+                        <p>Destroys the window system resources associated with <code>surface</code> and
+decrements <code>surface</code>&lsquo;s reference count.</p>
+
+<p>The window system resources for all children of <code>surface</code> are also
 destroyed, but the children’s reference counts are not decremented.</p>
 
-<p>Note that a surface will not be destroyed automatically when its reference count
-reaches zero. You must call this function yourself before that happens.</p>
+<p>Note that a surface will not be destroyed automatically when its
+reference count reaches zero. You must call this function yourself
+before that happens.</p>
 
                       </div>
                       <div class="declaration">
@@ -10358,7 +10509,7 @@ reaches zero. You must call this function yourself before that happens.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1858-L1861">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1922-L1925">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10380,9 +10531,10 @@ reaches zero. You must call this function yourself before that happens.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves a <code>GdkCursor</code> pointer for the cursor currently set on the
-specified <code>GdkSurface</code>, or <code>nil</code>.  If the return value is <code>nil</code> then
-there is no custom cursor set on the specified surface, and it is
-using the cursor for its parent surface.</p>
+<code>GdkSurface</code>.</p>
+
+<p>If the return value is <code>nil</code> then there is no custom cursor set on
+the surface, and it is using the cursor for its parent surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -10395,7 +10547,7 @@ using the cursor for its parent surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1867-L1870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1932-L1935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10417,9 +10569,10 @@ using the cursor for its parent surface.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves a <code>GdkCursor</code> pointer for the <code>device</code> currently set on the
-specified <code>GdkSurface</code>, or <code>nil</code>.  If the return value is <code>nil</code> then
-there is no custom cursor set on the specified surface, and it is
-using the cursor for its parent surface.</p>
+specified <code>GdkSurface</code>.</p>
+
+<p>If the return value is <code>nil</code> then there is no custom cursor set on the
+specified surface, and it is using the cursor for its parent surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -10432,7 +10585,7 @@ using the cursor for its parent surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1876-L1879">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1942-L1945">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10453,9 +10606,10 @@ using the cursor for its parent surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Obtains the current device position in doubles and modifier state.
-The position is given in coordinates relative to the upper left
-corner of <code>surface</code>.</p>
+                        <p>Obtains the current device position and modifier state.</p>
+
+<p>The position is given in coordinates relative to the upper
+left corner of <code>surface</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10468,7 +10622,7 @@ corner of <code>surface</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1884-L1887">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1951-L1954">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10502,7 +10656,7 @@ corner of <code>surface</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1890-L1893">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1957-L1960">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10523,9 +10677,10 @@ corner of <code>surface</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the frame clock for the surface. The frame clock for a surface
-never changes unless the surface is reparented to a new toplevel
-surface.</p>
+                        <p>Gets the frame clock for the surface.</p>
+
+<p>The frame clock for a surface never changes unless the surface is
+reparented to a new toplevel surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -10538,7 +10693,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1898-L1901">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1966-L1969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10562,7 +10717,7 @@ surface.</p>
                         <p>Returns the height of the given <code>surface</code>.</p>
 
 <p>Surface size is reported in ”application pixels”, not
-”device pixels” (see <code>gdk_surface_get_scale_factor()</code>).</p>
+”device pixels” (see [method<code>Gdk.Surface.get_scale_factor</code>]).</p>
 
                       </div>
                       <div class="declaration">
@@ -10575,7 +10730,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1907-L1910">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1975-L1978">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10596,8 +10751,10 @@ surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Checks whether the surface has been mapped (with <code>gdk_toplevel_present()</code>
-or <code>gdk_popup_present()</code>).</p>
+                        <p>Checks whether the surface has been mapped.</p>
+
+<p>A surface is mapped with [method<code>Gdk.Toplevel.present</code>]
+or [method<code>Gdk.Popup.present</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10610,7 +10767,7 @@ or <code>gdk_popup_present()</code>).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1914-L1917">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1984-L1987">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10632,17 +10789,16 @@ or <code>gdk_popup_present()</code>).</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the internal scale factor that maps from surface coordinates
-to the actual device pixels. On traditional systems this is 1, but
-on very high density outputs this can be a higher value (often 2).</p>
+to the actual device pixels.</p>
 
-<p>A higher value means that drawing is automatically scaled up to
-a higher resolution, so any code doing drawing will automatically look
-nicer. However, if you are supplying pixel-based data the scale
-value can be used to determine whether to use a pixel resource
-with higher resolution data.</p>
+<p>On traditional systems this is 1, but on very high density outputs
+this can be a higher value (often 2). A higher value means that drawing
+is automatically scaled up to a higher resolution, so any code doing
+drawing will automatically look nicer. However, if you are supplying
+pixel-based data the scale value can be used to determine whether to
+use a pixel resource with higher resolution data.</p>
 
-<p>The scale of a surface may change during runtime, if this happens
-a configure event will be sent to the toplevel surface.</p>
+<p>The scale of a surface may change during runtime.</p>
 
                       </div>
                       <div class="declaration">
@@ -10655,7 +10811,7 @@ a configure event will be sent to the toplevel surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1931-L1934">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2000-L2003">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10679,7 +10835,7 @@ a configure event will be sent to the toplevel surface.</p>
                         <p>Returns the width of the given <code>surface</code>.</p>
 
 <p>Surface size is reported in ”application pixels”, not
-”device pixels” (see <code>gdk_surface_get_scale_factor()</code>).</p>
+”device pixels” (see [method<code>Gdk.Surface.get_scale_factor</code>]).</p>
 
                       </div>
                       <div class="declaration">
@@ -10692,7 +10848,7 @@ a configure event will be sent to the toplevel surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1940-L1943">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2009-L2012">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10713,10 +10869,12 @@ a configure event will be sent to the toplevel surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For toplevel surfaces, withdraws them, so they will no longer be
+                        <p>Hide the surface.</p>
+
+<p>For toplevel surfaces, withdraws them, so they will no longer be
 known to the window manager; for all surfaces, unmaps them, so
 they won’t be displayed. Normally done automatically as
-part of <code>gtk_widget_hide()</code>.</p>
+part of [method<code>Gtk.Widget.hide</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10729,7 +10887,7 @@ part of <code>gtk_widget_hide()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1949-L1952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2020-L2023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10750,7 +10908,7 @@ part of <code>gtk_widget_hide()</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Forces a <code>GdkSurface::render</code> signal emission for <code>surface</code>
+                        <p>Forces a [signal<code>Gdk.Surface::render</code>] signal emission for <code>surface</code>
 to be scheduled.</p>
 
 <p>This function is useful for implementations that track invalid
@@ -10767,7 +10925,7 @@ regions on their own.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1959-L1962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2030-L2033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10788,8 +10946,9 @@ regions on their own.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Request a <code>GDK_FRAME_CLOCK_PHASE_LAYOUT</code> from the surface&rsquo;s
-frame clock. See <code>gdk_frame_clock_request_phase()</code>.</p>
+                        <p>Request a layout phase from the surface&rsquo;s frame clock.</p>
+
+<p>See [method<code>Gdk.FrameClock.request_phase</code>].</p>
 
                       </div>
                       <div class="declaration">
@@ -10802,7 +10961,7 @@ frame clock. See <code>gdk_frame_clock_request_phase()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1966-L1969">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2038-L2041">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10825,13 +10984,12 @@ frame clock. See <code>gdk_frame_clock_request_phase()</code>.</p>
                       <div class="abstract">
                         <p>Sets the default mouse pointer for a <code>GdkSurface</code>.</p>
 
-<p>Note that <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> must be for the same display as <code>surface</code>.</p>
+<p>Passing <code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument means that <code>surface</code> will use
+the cursor of its parent surface. Most surfaces should use this default.
+Note that <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> must be for the same display as <code>surface</code>.</p>
 
-<p>Use <code>gdk_cursor_new_from_name()</code> or <code>gdk_cursor_new_from_texture()</code> to
-create the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.
-Passing <code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument to <code>gdk_surface_set_cursor()</code> means
-that <code>surface</code> will use the cursor of its parent surface. Most surfaces
-should use this default.</p>
+<p>Use [ctor<code>Gdk.Cursor.new_from_name</code>] or [ctor<code>Gdk.Cursor.new_from_texture</code>]
+to create the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10844,7 +11002,7 @@ should use this default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1980-L1983">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2051-L2054">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10867,13 +11025,12 @@ should use this default.</p>
                       <div class="abstract">
                         <p>Sets the default mouse pointer for a <code>GdkSurface</code>.</p>
 
-<p>Note that <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> must be for the same display as <code>surface</code>.</p>
+<p>Passing <code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument means that <code>surface</code> will use
+the cursor of its parent surface. Most surfaces should use this default.
+Note that <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> must be for the same display as <code>surface</code>.</p>
 
-<p>Use <code>gdk_cursor_new_from_name()</code> or <code>gdk_cursor_new_from_texture()</code> to
-create the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.
-Passing <code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument to <code>gdk_surface_set_cursor()</code> means
-that <code>surface</code> will use the cursor of its parent surface. Most surfaces
-should use this default.</p>
+<p>Use [ctor<code>Gdk.Cursor.new_from_name</code>] or [ctor<code>Gdk.Cursor.new_from_texture</code>]
+to create the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10886,7 +11043,7 @@ should use this default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L1993-L1996">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2063-L2066">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10907,12 +11064,13 @@ should use this default.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Sets a specific <code>GdkCursor</code> for a given device when it gets inside <code>surface</code>.
-Use <code>gdk_cursor_new_from_name()</code> or <code>gdk_cursor_new_from_texture()</code> to create
-the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>. Passing
-<code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument to <code>gdk_surface_set_cursor()</code> means that
-<code>surface</code> will use the cursor of its parent surface. Most surfaces should
-use this default.</p>
+                        <p>Sets a specific <code>GdkCursor</code> for a given device when it gets inside <code>surface</code>.</p>
+
+<p>Passing <code>nil</code> for the <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6cursorAA9CursorRefVSgvp">cursor</a></code> argument means that <code>surface</code> will use the
+cursor of its parent surface. Most surfaces should use this default.</p>
+
+<p>Use [ctor<code>Gdk.Cursor.new_from_name</code>] or [ctor<code>Gdk.Cursor.new_from_texture</code>]
+to create the cursor. To make the cursor invisible, use <code>GDK_BLANK_CURSOR</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -10925,7 +11083,7 @@ use this default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2004-L2007">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2075-L2078">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10947,17 +11105,18 @@ use this default.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Apply the region to the surface for the purpose of event
-handling. Mouse events which happen while the pointer position
-corresponds to an unset bit in the mask will be passed on the
-surface below <code>surface</code>.</p>
+handling.</p>
 
-<p>An input region is typically used with RGBA surfaces.
-The alpha channel of the surface defines which pixels are
-invisible and allows for nicely antialiased borders,
-and the input region controls where the surface is
-“clickable”.</p>
+<p>Mouse events which happen while the pointer position corresponds
+to an unset bit in the mask will be passed on the surface below
+<code>surface</code>.</p>
 
-<p>Use <code>gdk_display_supports_input_shapes()</code> to find out if
+<p>An input region is typically used with RGBA surfaces. The alpha
+channel of the surface defines which pixels are invisible and
+allows for nicely antialiased borders, and the input region
+controls where the surface is “clickable”.</p>
+
+<p>Use [method<code>Gdk.Display.supports_input_shapes</code>] to find out if
 a particular backend supports input regions.</p>
 
                       </div>
@@ -10971,7 +11130,7 @@ a particular backend supports input regions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2022-L2025">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2094-L2097">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -10992,7 +11151,9 @@ a particular backend supports input regions.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For optimisation purposes, compositing window managers may
+                        <p>Marks a region of the <code>GdkSurface</code> as opaque.</p>
+
+<p>For optimisation purposes, compositing window managers may
 like to not draw obscured regions of surfaces, or turn off blending
 during for these regions. With RGB windows with no transparency,
 this is just the shape of the window, but with ARGB32 windows, the
@@ -11001,10 +11162,10 @@ or not.</p>
 
 <p>This function only works for toplevel surfaces.</p>
 
-<p>GTK will update this property automatically if
-the <code>surface</code> background is opaque, as we know where the opaque regions
-are. If your surface background is not opaque, please update this
-property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.</p>
+<p>GTK will update this property automatically if the <code>surface</code> background
+is opaque, as we know where the opaque regions are. If your surface
+background is not opaque, please update this property in your
+<code>GtkWidgetClass.css_changed</code><code>()</code> handler.</p>
 
                       </div>
                       <div class="declaration">
@@ -11017,7 +11178,7 @@ property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2040-L2043">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2114-L2117">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11038,7 +11199,9 @@ property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For optimisation purposes, compositing window managers may
+                        <p>Marks a region of the <code>GdkSurface</code> as opaque.</p>
+
+<p>For optimisation purposes, compositing window managers may
 like to not draw obscured regions of surfaces, or turn off blending
 during for these regions. With RGB windows with no transparency,
 this is just the shape of the window, but with ARGB32 windows, the
@@ -11047,10 +11210,10 @@ or not.</p>
 
 <p>This function only works for toplevel surfaces.</p>
 
-<p>GTK will update this property automatically if
-the <code>surface</code> background is opaque, as we know where the opaque regions
-are. If your surface background is not opaque, please update this
-property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.</p>
+<p>GTK will update this property automatically if the <code>surface</code> background
+is opaque, as we know where the opaque regions are. If your surface
+background is not opaque, please update this property in your
+<code>GtkWidgetClass.css_changed</code><code>()</code> handler.</p>
 
                       </div>
                       <div class="declaration">
@@ -11063,7 +11226,7 @@ property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2057-L2060">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2133-L2136">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11084,13 +11247,10 @@ property in your <code>GtkWidgetClass.css_changed</code><code>()</code> handler.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Translates the given coordinates from being
-relative to the <code>from</code> surface to being relative
-to the <code>to</code> surface.</p>
+                        <p>Translates coordinates between two surfaces.</p>
 
-<p>Note that this only works if <code>to</code> and <code>from</code> are
-popups or transient-for to the same toplevel
-(directly or indirectly).</p>
+<p>Note that this only works if <code>to</code> and <code>from</code> are popups or
+transient-for to the same toplevel (directly or indirectly).</p>
 
                       </div>
                       <div class="declaration">
@@ -11103,7 +11263,7 @@ popups or transient-for to the same toplevel
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2069-L2072">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2142-L2145">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11124,13 +11284,15 @@ popups or transient-for to the same toplevel
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This is the main way to draw GL content in GTK. It takes a render buffer ID
-(<code>source_type</code> == <code>GL_RENDERBUFFER</code>) or a texture id (<code>source_type</code> == <code>GL_TEXTURE</code>)
-and draws it onto <code>cr</code> with an OVER operation, respecting the current clip.
-The top left corner of the rectangle specified by <code>x</code>, <code>y</code>, <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE5widthSivp">width</a></code> and <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6heightSivp">height</a></code>
-will be drawn at the current (0,0) position of the cairo_t.</p>
+                        <p>The main way to draw GL content in GTK.</p>
 
-<p>This will work for <em>all</em> cairo_t, as long as <code>surface</code> is realized, but the
+<p>It takes a render buffer ID (<code>source_type</code> == <code>GL_RENDERBUFFER</code>) or a texture
+id (<code>source_type</code> == <code>GL_TEXTURE</code>) and draws it onto <code>cr</code> with an OVER operation,
+respecting the current clip. The top left corner of the rectangle specified
+by <code>x</code>, <code>y</code>, <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE5widthSivp">width</a></code> and <code><a href="../Protocols/SurfaceProtocol.html#/s:3Gdk15SurfaceProtocolPAAE6heightSivp">height</a></code> will be drawn at the current (0,0) position of
+the <code>cairo_t</code>.</p>
+
+<p>This will work for <em>all</em> <code>cairo_t</code>, as long as <code>surface</code> is realized, but the
 fallback implementation that reads back the pixels from the buffer may be
 used in the general case. In the case of direct drawing to a surface with
 no special effects applied to <code>cr</code> it will however use a more efficient
@@ -11152,7 +11314,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2090-L2093">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2165-L2168">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11173,8 +11335,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The mouse pointer for a <code>GdkSurface</code>. See <code>gdk_surface_set_cursor()</code> and
-<code>gdk_surface_get_cursor()</code> for details.</p>
+                        <p>The mouse pointer for the <code>GdkSurface</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -11187,7 +11348,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2096-L2117">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2170-L2191">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11208,8 +11369,7 @@ with alpha components, so make sure you use <code>GL_TEXTURE</code> if using alp
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The <code>GdkDisplay</code> connection of the surface. See <code>gdk_surface_get_display()</code>
-for details.</p>
+                        <p>The <code>GdkDisplay</code> connection of the surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -11222,7 +11382,7 @@ for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2121-L2127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2194-L2200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11243,9 +11403,10 @@ for details.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the frame clock for the surface. The frame clock for a surface
-never changes unless the surface is reparented to a new toplevel
-surface.</p>
+                        <p>Gets the frame clock for the surface.</p>
+
+<p>The frame clock for a surface never changes unless the surface is
+reparented to a new toplevel surface.</p>
 
                       </div>
                       <div class="declaration">
@@ -11258,7 +11419,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2132-L2140">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2206-L2215">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11279,7 +11440,7 @@ surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The height of the surface, in pixels.</p>
 
                       </div>
                       <div class="declaration">
@@ -11292,7 +11453,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2142-L2151">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2218-L2227">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11313,7 +11474,7 @@ surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Check to see if a surface is destroyed..</p>
+                        <p>Check to see if a surface is destroyed.</p>
 
                       </div>
                       <div class="declaration">
@@ -11326,7 +11487,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2154-L2160">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2230-L2236">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11347,7 +11508,7 @@ surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Whether the surface is mapped.</p>
 
                       </div>
                       <div class="declaration">
@@ -11360,7 +11521,7 @@ surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2162-L2169">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2239-L2248">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11382,17 +11543,16 @@ surface.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Returns the internal scale factor that maps from surface coordinates
-to the actual device pixels. On traditional systems this is 1, but
-on very high density outputs this can be a higher value (often 2).</p>
+to the actual device pixels.</p>
 
-<p>A higher value means that drawing is automatically scaled up to
-a higher resolution, so any code doing drawing will automatically look
-nicer. However, if you are supplying pixel-based data the scale
-value can be used to determine whether to use a pixel resource
-with higher resolution data.</p>
+<p>On traditional systems this is 1, but on very high density outputs
+this can be a higher value (often 2). A higher value means that drawing
+is automatically scaled up to a higher resolution, so any code doing
+drawing will automatically look nicer. However, if you are supplying
+pixel-based data the scale value can be used to determine whether to
+use a pixel resource with higher resolution data.</p>
 
-<p>The scale of a surface may change during runtime, if this happens
-a configure event will be sent to the toplevel surface.</p>
+<p>The scale of a surface may change during runtime.</p>
 
                       </div>
                       <div class="declaration">
@@ -11405,7 +11565,7 @@ a configure event will be sent to the toplevel surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2183-L2200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2261-L2277">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11426,7 +11586,7 @@ a configure event will be sent to the toplevel surface.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The width of the surface in pixels.</p>
 
                       </div>
                       <div class="declaration">
@@ -11439,7 +11599,7 @@ a configure event will be sent to the toplevel surface.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2202-L2211">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Seat-Texture.swift#L2280-L2289">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -11452,8 +11612,8 @@ a configure event will be sent to the toplevel surface.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

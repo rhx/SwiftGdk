@@ -21,9 +21,9 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Gdk 4.0.0 Docs
+          Gdk 4.2.1 Docs
         </a>
-         (60% documented)
+         (63% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -121,9 +121,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/DrawContext.html">DrawContext</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Classes/DrawingContext.html">DrawingContext</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Classes/Drop.html">Drop</a>
@@ -7507,9 +7504,6 @@
                 <a class="nav-group-task-link" href="../Protocols/DrawContextProtocol.html">DrawContextProtocol</a>
               </li>
               <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Protocols/DrawingContextProtocol.html">DrawingContextProtocol</a>
-              </li>
-              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Protocols/DropProtocol.html">DropProtocol</a>
               </li>
               <li class="nav-group-task">
@@ -7723,9 +7717,6 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DrawContextRef.html">DrawContextRef</a>
-              </li>
-              <li class="nav-group-task">
-                <a class="nav-group-task-link" href="../Structs/DrawingContextRef.html">DrawingContextRef</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="../Structs/DropRef.html">DropRef</a>
@@ -7959,11 +7950,24 @@
 It provides the methods that can operate on this data type through <code><a href="../Protocols/RectangleProtocol.html">RectangleProtocol</a></code> conformance.
 Use <code>Rectangle</code> as a strong reference or owner of a <code>GdkRectangle</code> instance.</p>
 
-<p>Defines the position and size of a rectangle. It is identical to
-<code>cairo_rectangle_int_t</code>.</p>
+<p>A <code>GdkRectangle</code> data type for representing rectangles.</p>
+
+<p><code>GdkRectangle</code> is identical to <code>cairo_rectangle_t</code>. Together with Cairo’s
+<code>cairo_region_t</code> data type, these are the central types for representing
+sets of pixels.</p>
+
+<p>The intersection of two rectangles can be computed with
+[method<code>Gdk.Rectangle.intersect</code>]; to find the union of two rectangles use
+[method<code>Gdk.Rectangle.union</code>].</p>
+
+<p>The <code>cairo_region_t</code> type provided by Cairo is usually used for managing
+non-rectangular clipping of graphical operations.</p>
+
+<p>The Graphene library has a number of other data types for regions and
+volumes in 2D and 3D.</p>
 
               <div class="slightly-smaller">
-                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L124-L266">Show on GitHub</a>
+                <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L163-L305">Show on GitHub</a>
               </div>
           </div>
         </section>
@@ -8000,7 +8004,7 @@ Use <code>Rectangle</code> as a strong reference or owner of a <code>GdkRectangl
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L127">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L166">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8052,7 +8056,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L133-L135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L172-L174">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8104,7 +8108,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L141-L143">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L180-L182">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8157,7 +8161,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L150-L153">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L189-L192">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8210,7 +8214,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L160-L163">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L199-L202">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8262,7 +8266,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L169-L172">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L208-L211">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8314,7 +8318,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L178-L181">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L217-L220">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8366,7 +8370,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L187-L190">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L226-L229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8417,7 +8421,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L195-L198">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L234-L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8468,7 +8472,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L208-L210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L247-L249">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8519,7 +8523,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L215-L218">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L254-L257">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8570,7 +8574,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L223-L225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L262-L264">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8602,7 +8606,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L229-L232">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L268-L271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8653,7 +8657,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L237-L239">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L276-L278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8704,7 +8708,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L244-L247">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L283-L286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8755,7 +8759,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L252-L254">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L291-L293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8806,7 +8810,7 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
                         </table>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L259-L262">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftGdk/tree/gtk4-generated/Sources/Gdk/Gdk-4.0-Rectangle-SnapshotClass.swift#L298-L301">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -8819,8 +8823,8 @@ i.e., ownership is transferred to the <code>Rectangle</code> instance.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-19)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-05-09)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
