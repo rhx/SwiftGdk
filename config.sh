@@ -4,9 +4,9 @@
 # the compiler and linker flags to use.
 #
 major=4
-VER=$major.0
+VER=$major.2
 GLIB_VER=2.0
-JAZZY_VER=$major.0.0
+JAZZY_VER=$major.2.1
 Mod=Gdk
 Module=${Mod}-$VER
 module=`echo "${Module}" | tr '[:upper:]' '[:lower:]'`
