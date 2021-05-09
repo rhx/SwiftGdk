@@ -55,18 +55,18 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
-    Target: x86_64-apple-darwin20.3.0
+	Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+    Target: x86_64-apple-darwin20.5.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.3.2 (swift-5.3.2-RELEASE)
+	Swift version 5.4 (swift-5.4-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64 and 2.66, and gdk/gtk 3.22, 3.24 and 4.0.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66 and 2.68, and gdk/gtk 3.22, 3.24 and 4.0.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -127,8 +127,9 @@ Normally, you don't build this package directly, but you embed it into your own 
     swift build
     swift test
 
-Please note that on macOS, due to a bug currently in the Swift Package Manager,
-you need to pass in the build flags manually, i.e. instead of `swift build` and `swift test` you can run
+Please note that on macOS, due to a bug in the Swift Package Manager prior to Swift 5.4,
+if you have Xcode-12.4 or older, you need to pass in the build flags manually,
+i.e. instead of `swift build` and `swift test` you can run
 
     swift build `./run-gir2swift.sh flags -noUpdate`
     swift test  `./run-gir2swift.sh flags -noUpdate`
@@ -147,11 +148,16 @@ After that, use the (usual) Build and Test buttons to build/test this package.
 
 ## Documentation
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGdk/) folder.
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
 This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
 If you want to generate your own documentation, matching your local installation,
 you can use the `generate-documentation.sh` script in the repository.
-Unfortunately, at this stage [jazzy](https://github.com/realm/jazzy) only works on macOS (and crashes under Linux), so this will currently only work on a Mac.
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+
+	brew install sourcekitten
+	sudo gem install jazzy
+	./run-gir2swift.sh
+	./generate-documentation.sh
 
 
 ## Troubleshooting
