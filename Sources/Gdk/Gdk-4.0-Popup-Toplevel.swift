@@ -18,11 +18,13 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `Popup`.
 /// Alternatively, use `PopupRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkPopup` is a surface that is attached to another surface,
-/// called its `GdkPopup:parent`, and is positioned relative to it.
+/// A `GdkPopup` is a surface that is attached to another surface.
 /// 
-/// `GdkPopups` are typically used to implement menus and similar popups.
-/// They can be modal, which is indicated by the `GdkPopup:autohide` property.
+/// The `GdkPopup` is positioned relative to its parent surface.
+/// 
+/// `GdkPopup`s are typically used to implement menus and similar popups.
+/// They can be modal, which is indicated by the [property`GdkPopup:autohide`]
+/// property.
 public protocol PopupProtocol: SurfaceProtocol {
         /// Untyped pointer to the underlying `GdkPopup` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -38,11 +40,13 @@ public protocol PopupProtocol: SurfaceProtocol {
 /// It exposes methods that can operate on this data type through `PopupProtocol` conformance.
 /// Use `PopupRef` only as an `unowned` reference to an existing `GdkPopup` instance.
 ///
-/// A `GdkPopup` is a surface that is attached to another surface,
-/// called its `GdkPopup:parent`, and is positioned relative to it.
+/// A `GdkPopup` is a surface that is attached to another surface.
 /// 
-/// `GdkPopups` are typically used to implement menus and similar popups.
-/// They can be modal, which is indicated by the `GdkPopup:autohide` property.
+/// The `GdkPopup` is positioned relative to its parent surface.
+/// 
+/// `GdkPopup`s are typically used to implement menus and similar popups.
+/// They can be modal, which is indicated by the [property`GdkPopup:autohide`]
+/// property.
 public struct PopupRef: PopupProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkPopup` instance.
     /// For type-safe access, use the generated, typed pointer `popup_ptr` property instead.
@@ -128,11 +132,13 @@ public extension PopupRef {
 /// It provides the methods that can operate on this data type through `PopupProtocol` conformance.
 /// Use `Popup` as a strong reference or owner of a `GdkPopup` instance.
 ///
-/// A `GdkPopup` is a surface that is attached to another surface,
-/// called its `GdkPopup:parent`, and is positioned relative to it.
+/// A `GdkPopup` is a surface that is attached to another surface.
 /// 
-/// `GdkPopups` are typically used to implement menus and similar popups.
-/// They can be modal, which is indicated by the `GdkPopup:autohide` property.
+/// The `GdkPopup` is positioned relative to its parent surface.
+/// 
+/// `GdkPopup`s are typically used to implement menus and similar popups.
+/// They can be modal, which is indicated by the [property`GdkPopup:autohide`]
+/// property.
 open class Popup: Surface, PopupProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -263,17 +269,23 @@ open class Popup: Surface, PopupProtocol {
 }
 
 public enum PopupPropertyName: String, PropertyNameProtocol {
+    /// Whether to hide on outside clicks.
     case autohide = "autohide"
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case cursor = "cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case display = "display"
+    /// The `GdkFrameClock` of the surface.
     case frameClock = "frame-clock"
+    /// The height of the surface, in pixels.
     case height = "height"
+    /// Whether the surface is mapped.
     case mapped = "mapped"
+    /// The parent surface.
     case parent = "parent"
+    /// The scale factor of the surface.
+    case scaleFactor = "scale-factor"
+    /// The width of the surface in pixels.
     case width = "width"
 }
 
@@ -370,17 +382,23 @@ public enum PopupSignalName: String, SignalNameProtocol {
     case notify = "notify"
     /// Emitted when part of the surface needs to be redrawn.
     case render = "render"
+    /// Whether to hide on outside clicks.
     case notifyAutohide = "notify::autohide"
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case notifyCursor = "notify::cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case notifyDisplay = "notify::display"
+    /// The `GdkFrameClock` of the surface.
     case notifyFrameClock = "notify::frame-clock"
+    /// The height of the surface, in pixels.
     case notifyHeight = "notify::height"
+    /// Whether the surface is mapped.
     case notifyMapped = "notify::mapped"
+    /// The parent surface.
     case notifyParent = "notify::parent"
+    /// The scale factor of the surface.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// The width of the surface in pixels.
     case notifyWidth = "notify::width"
 }
 
@@ -416,8 +434,8 @@ public extension PopupProtocol {
 
     /// Gets the current popup rectangle anchor.
     /// 
-    /// The value returned may change after calling `gdk_popup_present()`,
-    /// or after the `GdkSurface::layout` signal is emitted.
+    /// The value returned may change after calling [method`Gdk.Popup.present`],
+    /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
     @inlinable func getRectAnchor() -> GdkGravity {
         let rv = gdk_popup_get_rect_anchor(popup_ptr)
         return rv
@@ -425,31 +443,33 @@ public extension PopupProtocol {
 
     /// Gets the current popup surface anchor.
     /// 
-    /// The value returned may change after calling `gdk_popup_present()`,
-    /// or after the `GdkSurface::layout` signal is emitted.
+    /// The value returned may change after calling [method`Gdk.Popup.present`],
+    /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
     @inlinable func getSurfaceAnchor() -> GdkGravity {
         let rv = gdk_popup_get_surface_anchor(popup_ptr)
         return rv
     }
 
     /// Present `popup` after having processed the `GdkPopupLayout` rules.
+    /// 
     /// If the popup was previously now showing, it will be showed,
     /// otherwise it will change position according to `layout`.
     /// 
     /// After calling this function, the result should be handled in response
-    /// to the `GdkSurface::layout` signal being emitted. The resulting popup
-    /// position can be queried using `gdk_popup_get_position_x()`,
-    /// `gdk_popup_get_position_y()`, and the resulting size will be sent as
-    /// parameters in the layout signal. Use `gdk_popup_get_rect_anchor()` and
-    /// `gdk_popup_get_surface_anchor()` to get the resulting anchors.
+    /// to the [signal`GdkSurface::layout`] signal being emitted. The resulting
+    /// popup position can be queried using [method`Gdk.Popup.get_position_x`],
+    /// [method`Gdk.Popup.get_position_y`], and the resulting size will be sent as
+    /// parameters in the layout signal. Use [method`Gdk.Popup.get_rect_anchor`]
+    /// and [method`Gdk.Popup.get_surface_anchor`] to get the resulting anchors.
     /// 
     /// Presenting may fail, for example if the `popup` is set to autohide
     /// and is immediately hidden upon being presented. If presenting failed,
-    /// the `GdkSurface::layout` signal will not me emitted.
+    /// the [signal`Gdk.Surface::layout`] signal will not me emitted.
     @inlinable func present<PopupLayoutT: PopupLayoutProtocol>(width: Int, height: Int, layout: PopupLayoutT) -> Bool {
         let rv = ((gdk_popup_present(popup_ptr, gint(width), gint(height), layout.popup_layout_ptr)) != 0)
         return rv
     }
+    /// Whether to hide on outside clicks.
     @inlinable var autohide: Bool {
         /// Returns whether this popup is set to hide on outside clicks.
         get {
@@ -458,6 +478,7 @@ public extension PopupProtocol {
         }
     }
 
+    /// The parent surface.
     @inlinable var parent: SurfaceRef! {
         /// Returns the parent surface of a popup.
         get {
@@ -486,13 +507,13 @@ public extension PopupProtocol {
 
     /// Gets the current popup rectangle anchor.
     /// 
-    /// The value returned may change after calling `gdk_popup_present()`,
-    /// or after the `GdkSurface::layout` signal is emitted.
+    /// The value returned may change after calling [method`Gdk.Popup.present`],
+    /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
     @inlinable var rectAnchor: GdkGravity {
         /// Gets the current popup rectangle anchor.
         /// 
-        /// The value returned may change after calling `gdk_popup_present()`,
-        /// or after the `GdkSurface::layout` signal is emitted.
+        /// The value returned may change after calling [method`Gdk.Popup.present`],
+        /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
         get {
             let rv = gdk_popup_get_rect_anchor(popup_ptr)
             return rv
@@ -501,13 +522,13 @@ public extension PopupProtocol {
 
     /// Gets the current popup surface anchor.
     /// 
-    /// The value returned may change after calling `gdk_popup_present()`,
-    /// or after the `GdkSurface::layout` signal is emitted.
+    /// The value returned may change after calling [method`Gdk.Popup.present`],
+    /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
     @inlinable var surfaceAnchor: GdkGravity {
         /// Gets the current popup surface anchor.
         /// 
-        /// The value returned may change after calling `gdk_popup_present()`,
-        /// or after the `GdkSurface::layout` signal is emitted.
+        /// The value returned may change after calling [method`Gdk.Popup.present`],
+        /// or after the [signal`Gdk.Surface::layout`] signal is emitted.
         get {
             let rv = gdk_popup_get_surface_anchor(popup_ptr)
             return rv
@@ -528,10 +549,9 @@ public extension PopupProtocol {
 ///
 /// A `GdkToplevel` is a freestanding toplevel surface.
 /// 
-/// The `GdkToplevel` interface provides useful APIs for
-/// interacting with the windowing system, such as controlling
-/// maximization and size of the surface, setting icons and
-/// transient parents for dialogs.
+/// The `GdkToplevel` interface provides useful APIs for interacting with
+/// the windowing system, such as controlling maximization and size of the
+/// surface, setting icons and transient parents for dialogs.
 public protocol ToplevelProtocol: SurfaceProtocol {
         /// Untyped pointer to the underlying `GdkToplevel` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -549,10 +569,9 @@ public protocol ToplevelProtocol: SurfaceProtocol {
 ///
 /// A `GdkToplevel` is a freestanding toplevel surface.
 /// 
-/// The `GdkToplevel` interface provides useful APIs for
-/// interacting with the windowing system, such as controlling
-/// maximization and size of the surface, setting icons and
-/// transient parents for dialogs.
+/// The `GdkToplevel` interface provides useful APIs for interacting with
+/// the windowing system, such as controlling maximization and size of the
+/// surface, setting icons and transient parents for dialogs.
 public struct ToplevelRef: ToplevelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkToplevel` instance.
     /// For type-safe access, use the generated, typed pointer `toplevel_ptr` property instead.
@@ -640,10 +659,9 @@ public extension ToplevelRef {
 ///
 /// A `GdkToplevel` is a freestanding toplevel surface.
 /// 
-/// The `GdkToplevel` interface provides useful APIs for
-/// interacting with the windowing system, such as controlling
-/// maximization and size of the surface, setting icons and
-/// transient parents for dialogs.
+/// The `GdkToplevel` interface provides useful APIs for interacting with
+/// the windowing system, such as controlling maximization and size of the
+/// surface, setting icons and transient parents for dialogs.
 open class Toplevel: Surface, ToplevelProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -774,25 +792,42 @@ open class Toplevel: Surface, ToplevelProtocol {
 }
 
 public enum ToplevelPropertyName: String, PropertyNameProtocol {
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case cursor = "cursor"
+    /// Whether the window manager should add decorations.
     case decorated = "decorated"
+    /// Whether the window manager should allow to close the surface.
     case deletable = "deletable"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case display = "display"
+    /// The `GdkFrameClock` of the surface.
     case frameClock = "frame-clock"
+    /// The fullscreen mode of the surface.
     case fullscreenMode = "fullscreen-mode"
+    /// The height of the surface, in pixels.
     case height = "height"
+    /// A list of textures to use as icon.
     case iconList = "icon-list"
+    /// Whether the surface is mapped.
     case mapped = "mapped"
+    /// Whether the surface is modal.
     case modal = "modal"
+    /// The scale factor of the surface.
+    case scaleFactor = "scale-factor"
+    /// Whether the surface should inhibit keyboard shortcuts.
     case shortcutsInhibited = "shortcuts-inhibited"
+    /// The startup ID of the surface.
+    /// 
+    /// See [class`Gdk.AppLaunchContext`] for more information about
+    /// startup feedback.
     case startupId = "startup-id"
+    /// The state of the toplevel.
     case state = "state"
+    /// The title of the surface.
     case title = "title"
+    /// The transient parent of the surface.
     case transientFor = "transient-for"
+    /// The width of the surface in pixels.
     case width = "width"
 }
 
@@ -850,16 +885,18 @@ public extension ToplevelProtocol {
 }
 
 public enum ToplevelSignalName: String, SignalNameProtocol {
-    /// Compute the desired size of the toplevel, given the information passed via
-    /// the `GdkToplevelSize` object.
+    /// Emitted when the size for the surface needs to be computed, when
+    /// it is present.
     /// 
-    /// It will normally be emitted during or after `gdk_toplevel_present()`,
-    /// depending on the configuration received by the windowing system. It may
-    /// also be emitted at any other point in time, in response to the windowing
-    /// system spontaneously changing the configuration.
+    /// It will normally be emitted during or after [method`Gdk.Toplevel.present`],
+    /// depending on the configuration received by the windowing system.
+    /// It may also be emitted at any other point in time, in response
+    /// to the windowing system spontaneously changing the configuration.
     /// 
-    /// It is the responsibility of the GdkToplevel user to handle this signal;
-    /// failing to do so will result in an arbitrary size being used as a result.
+    /// It is the responsibility of the toplevel user to handle this signal
+    /// and compute the desired size of the toplevel, given the information
+    /// passed via the [struct`Gdk.ToplevelSize`] object. Failing to do so
+    /// will result in an arbitrary size being used as a result.
     case computeSize = "compute-size"
     /// Emitted when `surface` starts being present on the monitor.
     case enterMonitor = "enter-monitor"
@@ -900,25 +937,42 @@ public enum ToplevelSignalName: String, SignalNameProtocol {
     case notify = "notify"
     /// Emitted when part of the surface needs to be redrawn.
     case render = "render"
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case notifyCursor = "notify::cursor"
+    /// Whether the window manager should add decorations.
     case notifyDecorated = "notify::decorated"
+    /// Whether the window manager should allow to close the surface.
     case notifyDeletable = "notify::deletable"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case notifyDisplay = "notify::display"
+    /// The `GdkFrameClock` of the surface.
     case notifyFrameClock = "notify::frame-clock"
+    /// The fullscreen mode of the surface.
     case notifyFullscreenMode = "notify::fullscreen-mode"
+    /// The height of the surface, in pixels.
     case notifyHeight = "notify::height"
+    /// A list of textures to use as icon.
     case notifyIconList = "notify::icon-list"
+    /// Whether the surface is mapped.
     case notifyMapped = "notify::mapped"
+    /// Whether the surface is modal.
     case notifyModal = "notify::modal"
+    /// The scale factor of the surface.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// Whether the surface should inhibit keyboard shortcuts.
     case notifyShortcutsInhibited = "notify::shortcuts-inhibited"
+    /// The startup ID of the surface.
+    /// 
+    /// See [class`Gdk.AppLaunchContext`] for more information about
+    /// startup feedback.
     case notifyStartupId = "notify::startup-id"
+    /// The state of the toplevel.
     case notifyState = "notify::state"
+    /// The title of the surface.
     case notifyTitle = "notify::title"
+    /// The transient parent of the surface.
     case notifyTransientFor = "notify::transient-for"
+    /// The width of the surface in pixels.
     case notifyWidth = "notify::width"
 }
 
@@ -950,16 +1004,18 @@ public extension ToplevelProtocol {
     }
     
     
-    /// Compute the desired size of the toplevel, given the information passed via
-    /// the `GdkToplevelSize` object.
+    /// Emitted when the size for the surface needs to be computed, when
+    /// it is present.
     /// 
-    /// It will normally be emitted during or after `gdk_toplevel_present()`,
-    /// depending on the configuration received by the windowing system. It may
-    /// also be emitted at any other point in time, in response to the windowing
-    /// system spontaneously changing the configuration.
+    /// It will normally be emitted during or after [method`Gdk.Toplevel.present`],
+    /// depending on the configuration received by the windowing system.
+    /// It may also be emitted at any other point in time, in response
+    /// to the windowing system spontaneously changing the configuration.
     /// 
-    /// It is the responsibility of the GdkToplevel user to handle this signal;
-    /// failing to do so will result in an arbitrary size being used as a result.
+    /// It is the responsibility of the toplevel user to handle this signal
+    /// and compute the desired size of the toplevel, given the information
+    /// passed via the [struct`Gdk.ToplevelSize`] object. Failing to do so
+    /// will result in an arbitrary size being used as a result.
     /// - Note: This represents the underlying `compute-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1465,20 +1521,23 @@ public extension ToplevelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkToplevel` instance.
     @inlinable var toplevel_ptr: UnsafeMutablePointer<GdkToplevel>! { return ptr?.assumingMemoryBound(to: GdkToplevel.self) }
 
-    /// Begins an interactive move operation (for a toplevel surface).
+    /// Begins an interactive move operation.
+    /// 
     /// You might use this function to implement draggable titlebars.
     @inlinable func beginMove<DeviceT: DeviceProtocol>(device: DeviceT, button: Int, x: CDouble, y: CDouble, timestamp: guint32) {
         gdk_toplevel_begin_move(toplevel_ptr, device.device_ptr, gint(button), x, y, timestamp)
     
     }
 
-    /// Begins an interactive resize operation (for a toplevel surface).
+    /// Begins an interactive resize operation.
+    /// 
     /// You might use this function to implement a “window resize grip.”
     @inlinable func beginResize(edge: GdkSurfaceEdge, device: DeviceRef? = nil, button: Int, x: CDouble, y: CDouble, timestamp: guint32) {
         gdk_toplevel_begin_resize(toplevel_ptr, edge, device?.device_ptr, gint(button), x, y, timestamp)
     
     }
-    /// Begins an interactive resize operation (for a toplevel surface).
+    /// Begins an interactive resize operation.
+    /// 
     /// You might use this function to implement a “window resize grip.”
     @inlinable func beginResize<DeviceT: DeviceProtocol>(edge: GdkSurfaceEdge, device: DeviceT?, button: Int, x: CDouble, y: CDouble, timestamp: guint32) {
         gdk_toplevel_begin_resize(toplevel_ptr, edge, device?.device_ptr, gint(button), x, y, timestamp)
@@ -1487,27 +1546,28 @@ public extension ToplevelProtocol {
 
     /// Sets keyboard focus to `surface`.
     /// 
-    /// In most cases, `gtk_window_present_with_time()` should be used
-    /// on a `GtkWindow`, rather than calling this function.
+    /// In most cases, [method`Gtk.Window.present_with_time`] should be
+    /// used on a [class`Gtk.Window`], rather than calling this function.
     @inlinable func focus(timestamp: guint32) {
         gdk_toplevel_focus(toplevel_ptr, timestamp)
     
     }
 
-    /// Gets the bitwise OR of the currently active surface state flags,
+    /// Gets the bitwise or of the currently active surface state flags,
     /// from the `GdkToplevelState` enumeration.
     @inlinable func getState() -> ToplevelState {
         let rv = ToplevelState(gdk_toplevel_get_state(toplevel_ptr))
         return rv
     }
 
-    /// Requests that the `toplevel` inhibit the system shortcuts, asking the
-    /// desktop environment/windowing system to let all keyboard events reach
-    /// the surface, as long as it is focused, instead of triggering system
-    /// actions.
+    /// Requests that the `toplevel` inhibit the system shortcuts.
+    /// 
+    /// This is asking the desktop environment/windowing system to let all
+    /// keyboard events reach the surface, as long as it is focused, instead
+    /// of triggering system actions.
     /// 
     /// If granted, the rerouting remains active until the default shortcuts
-    /// processing is restored with `gdk_toplevel_restore_system_shortcuts()`,
+    /// processing is restored with [method`Gdk.Toplevel.restore_system_shortcuts`],
     /// or the request is revoked by the desktop environment, windowing system
     /// or the user.
     /// 
@@ -1520,18 +1580,19 @@ public extension ToplevelProtocol {
     /// or deny the request or even choose to ignore the request entirely.
     /// 
     /// The caller can be notified whenever the request is granted or revoked
-    /// by listening to the GdkToplevel`shortcuts-inhibited` property.
+    /// by listening to the [property`Gdk.Toplevel:shortcuts-inhibited`] property.
     @inlinable func inhibitSystemShortcuts(event: EventRef? = nil) {
         gdk_toplevel_inhibit_system_shortcuts(toplevel_ptr, event?.event_ptr)
     
     }
-    /// Requests that the `toplevel` inhibit the system shortcuts, asking the
-    /// desktop environment/windowing system to let all keyboard events reach
-    /// the surface, as long as it is focused, instead of triggering system
-    /// actions.
+    /// Requests that the `toplevel` inhibit the system shortcuts.
+    /// 
+    /// This is asking the desktop environment/windowing system to let all
+    /// keyboard events reach the surface, as long as it is focused, instead
+    /// of triggering system actions.
     /// 
     /// If granted, the rerouting remains active until the default shortcuts
-    /// processing is restored with `gdk_toplevel_restore_system_shortcuts()`,
+    /// processing is restored with [method`Gdk.Toplevel.restore_system_shortcuts`],
     /// or the request is revoked by the desktop environment, windowing system
     /// or the user.
     /// 
@@ -1544,7 +1605,7 @@ public extension ToplevelProtocol {
     /// or deny the request or even choose to ignore the request entirely.
     /// 
     /// The caller can be notified whenever the request is granted or revoked
-    /// by listening to the GdkToplevel`shortcuts-inhibited` property.
+    /// by listening to the [property`Gdk.Toplevel:shortcuts-inhibited`] property.
     @inlinable func inhibitSystemShortcuts<EventT: EventProtocol>(event: EventT?) {
         gdk_toplevel_inhibit_system_shortcuts(toplevel_ptr, event?.event_ptr)
     
@@ -1567,12 +1628,13 @@ public extension ToplevelProtocol {
     }
 
     /// Present `toplevel` after having processed the `GdkToplevelLayout` rules.
+    /// 
     /// If the toplevel was previously not showing, it will be showed,
     /// otherwise it will change layout according to `layout`.
     /// 
-    /// GDK may emit the 'compute-size' signal to let the user of this toplevel
-    /// compute the preferred size of the toplevel surface. See
-    /// `GdkToplevel::compute-size` for details.
+    /// GDK may emit the [signal`Gdk.Toplevel::compute-size`] signal to let
+    /// the user of this toplevel compute the preferred size of the toplevel
+    /// surface.
     /// 
     /// Presenting is asynchronous and the specified layout parameters are not
     /// guaranteed to be respected.
@@ -1582,12 +1644,16 @@ public extension ToplevelProtocol {
     }
 
     /// Restore default system keyboard shortcuts which were previously
-    /// requested to be inhibited by `gdk_toplevel_inhibit_system_shortcuts()`.
+    /// inhibited.
+    /// 
+    /// This undoes the effect of [method`Gdk.Toplevel.inhibit_system_shortcuts`].
     @inlinable func restoreSystemShortcuts() {
         gdk_toplevel_restore_system_shortcuts(toplevel_ptr)
     
     }
 
+    /// Sets the toplevel to be decorated.
+    /// 
     /// Setting `decorated` to `false` hints the desktop environment
     /// that the surface has its own, client-side decorations and
     /// does not need to have window decorations added.
@@ -1596,6 +1662,8 @@ public extension ToplevelProtocol {
     
     }
 
+    /// Sets the toplevel to be deletable.
+    /// 
     /// Setting `deletable` to `true` hints the desktop environment
     /// that it should offer the user a way to close the surface.
     @inlinable func set(deletable: Bool) {
@@ -1617,39 +1685,48 @@ public extension ToplevelProtocol {
     
     }
 
+    /// Sets the toplevel to be modal.
+    /// 
     /// The application can use this hint to tell the
     /// window manager that a certain surface has modal
     /// behaviour. The window manager can use this information
     /// to handle modal surfaces in a special way.
     /// 
     /// You should only use this on surfaces for which you have
-    /// previously called `gdk_toplevel_set_transient_for()`.
+    /// previously called [method`Gdk.Toplevel.set_transient_for`].
     @inlinable func set(modal: Bool) {
         gdk_toplevel_set_modal(toplevel_ptr, gboolean((modal) ? 1 : 0))
     
     }
 
-    /// When using GTK, typically you should use `gtk_window_set_startup_id()`
-    /// instead of this low-level function.
+    /// Sets the startup notification ID.
+    /// 
+    /// When using GTK, typically you should use
+    /// [method`Gtk.Window.set_startup_id`] instead of this
+    /// low-level function.
     @inlinable func set(startupId: UnsafePointer<CChar>!) {
         gdk_toplevel_set_startup_id(toplevel_ptr, startupId)
     
     }
 
-    /// Sets the title of a toplevel surface, to be displayed in the titlebar,
+    /// Sets the title of a toplevel surface.
+    /// 
+    /// The title maybe be displayed in the titlebar,
     /// in lists of windows, etc.
     @inlinable func set(title: UnsafePointer<CChar>!) {
         gdk_toplevel_set_title(toplevel_ptr, title)
     
     }
 
-    /// Indicates to the window manager that `surface` is a transient dialog
-    /// associated with the application surface `parent`. This allows the
-    /// window manager to do things like center `surface` on `parent` and
-    /// keep `surface` above `parent`.
+    /// Sets a transient-for parent.
     /// 
-    /// See `gtk_window_set_transient_for()` if you’re using `GtkWindow` or
-    /// `GtkDialog`.
+    /// Indicates to the window manager that `surface` is a transient
+    /// dialog associated with the application surface `parent`. This
+    /// allows the window manager to do things like center `surface`
+    /// on `parent` and keep `surface` above `parent`.
+    /// 
+    /// See [method`Gtk.Window.set_transient_for`] if you’re using
+    /// [class`Gtk.Window`] or [class`Gtk.Dialog`].
     @inlinable func setTransientFor<SurfaceT: SurfaceProtocol>(parent: SurfaceT) {
         gdk_toplevel_set_transient_for(toplevel_ptr, parent.surface_ptr)
     
@@ -1672,8 +1749,9 @@ public extension ToplevelProtocol {
         let rv = ((gdk_toplevel_supports_edge_constraints(toplevel_ptr)) != 0)
         return rv
     }
+    /// The state of the toplevel.
     @inlinable var state: ToplevelState {
-        /// Gets the bitwise OR of the currently active surface state flags,
+        /// Gets the bitwise or of the currently active surface state flags,
         /// from the `GdkToplevelState` enumeration.
         get {
             let rv = ToplevelState(gdk_toplevel_get_state(toplevel_ptr))

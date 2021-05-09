@@ -146,9 +146,8 @@ public extension PopupInterfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `PopupLayout`.
 /// Alternatively, use `PopupLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Popups are positioned relative to their parent surface.
-/// The GdkPopupLayout struct contains information that is
-/// necessary to do so.
+/// The `GdkPopupLayout` struct contains information that is
+/// necessary position a [interface`Gdk.Popup`] relative to its parent.
 /// 
 /// The positioning requires a negotiation with the windowing system,
 /// since it depends on external constraints, such as the position of
@@ -174,12 +173,12 @@ public extension PopupInterfaceProtocol {
 /// 
 /// Ultimatively, it is up to the windowing system to determine the position
 /// and size of the popup. You can learn about the result by calling
-/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
-/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
-/// popup has been presented. This can be used to adjust the rendering. For
-/// example, GtkPopover changes its arrow position accordingly. But you have
-/// to be careful avoid changing the size of the popover, or it has to be
-/// presented again.
+/// [method`Gdk.Popup.get_position_x`], [method`Gdk.Popup.get_position_y`],
+/// [method`Gdk.Popup.get_rect_anchor`] and [method`Gdk.Popup.get_surface_anchor`]
+/// after the popup has been presented. This can be used to adjust the rendering.
+/// For example, [class`Gtk.Popover`] changes its arrow position accordingly.
+/// But you have to be careful avoid changing the size of the popover, or it
+/// has to be presented again.
 public protocol PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -195,9 +194,8 @@ public protocol PopupLayoutProtocol {
 /// It exposes methods that can operate on this data type through `PopupLayoutProtocol` conformance.
 /// Use `PopupLayoutRef` only as an `unowned` reference to an existing `GdkPopupLayout` instance.
 ///
-/// Popups are positioned relative to their parent surface.
-/// The GdkPopupLayout struct contains information that is
-/// necessary to do so.
+/// The `GdkPopupLayout` struct contains information that is
+/// necessary position a [interface`Gdk.Popup`] relative to its parent.
 /// 
 /// The positioning requires a negotiation with the windowing system,
 /// since it depends on external constraints, such as the position of
@@ -223,12 +221,12 @@ public protocol PopupLayoutProtocol {
 /// 
 /// Ultimatively, it is up to the windowing system to determine the position
 /// and size of the popup. You can learn about the result by calling
-/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
-/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
-/// popup has been presented. This can be used to adjust the rendering. For
-/// example, GtkPopover changes its arrow position accordingly. But you have
-/// to be careful avoid changing the size of the popover, or it has to be
-/// presented again.
+/// [method`Gdk.Popup.get_position_x`], [method`Gdk.Popup.get_position_y`],
+/// [method`Gdk.Popup.get_rect_anchor`] and [method`Gdk.Popup.get_surface_anchor`]
+/// after the popup has been presented. This can be used to adjust the rendering.
+/// For example, [class`Gtk.Popover`] changes its arrow position accordingly.
+/// But you have to be careful avoid changing the size of the popover, or it
+/// has to be presented again.
 public struct PopupLayoutRef: PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     /// For type-safe access, use the generated, typed pointer `popup_layout_ptr` property instead.
@@ -305,15 +303,17 @@ public extension PopupLayoutRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Create a popup layout description. Used together with `gdk_popup_present()`
-    /// to describe how a popup surface should be placed and behave on-screen.
+        /// Create a popup layout description.
+    /// 
+    /// Used together with [method`Gdk.Popup.present`] to describe how a popup
+    /// surface should be placed and behave on-screen.
     /// 
     /// `anchor_rect` is relative to the top-left corner of the surface's parent.
     /// `rect_anchor` and `surface_anchor` determine anchor points on `anchor_rect`
     /// and surface to pin together.
     /// 
     /// The position of `anchor_rect`'s anchor point can optionally be offset using
-    /// `gdk_popup_layout_set_offset()`, which is equivalent to offsetting the
+    /// [method`Gdk.PopupLayout.set_offset`], which is equivalent to offsetting the
     /// position of surface.
     @inlinable init<RectangleT: RectangleProtocol>( anchorRect: RectangleT, rectAnchor: GdkGravity, surfaceAnchor: GdkGravity) {
         let rv = gdk_popup_layout_new(anchorRect.rectangle_ptr, rectAnchor, surfaceAnchor)
@@ -325,9 +325,8 @@ public extension PopupLayoutRef {
 /// It provides the methods that can operate on this data type through `PopupLayoutProtocol` conformance.
 /// Use `PopupLayout` as a strong reference or owner of a `GdkPopupLayout` instance.
 ///
-/// Popups are positioned relative to their parent surface.
-/// The GdkPopupLayout struct contains information that is
-/// necessary to do so.
+/// The `GdkPopupLayout` struct contains information that is
+/// necessary position a [interface`Gdk.Popup`] relative to its parent.
 /// 
 /// The positioning requires a negotiation with the windowing system,
 /// since it depends on external constraints, such as the position of
@@ -353,12 +352,12 @@ public extension PopupLayoutRef {
 /// 
 /// Ultimatively, it is up to the windowing system to determine the position
 /// and size of the popup. You can learn about the result by calling
-/// `gdk_popup_get_position_x()`, `gdk_popup_get_position_y()`,
-/// `gdk_popup_get_rect_anchor()` and `gdk_popup_get_surface_anchor()` after the
-/// popup has been presented. This can be used to adjust the rendering. For
-/// example, GtkPopover changes its arrow position accordingly. But you have
-/// to be careful avoid changing the size of the popover, or it has to be
-/// presented again.
+/// [method`Gdk.Popup.get_position_x`], [method`Gdk.Popup.get_position_y`],
+/// [method`Gdk.Popup.get_rect_anchor`] and [method`Gdk.Popup.get_surface_anchor`]
+/// after the popup has been presented. This can be used to adjust the rendering.
+/// For example, [class`Gtk.Popover`] changes its arrow position accordingly.
+/// But you have to be careful avoid changing the size of the popover, or it
+/// has to be presented again.
 open class PopupLayout: PopupLayoutProtocol {
         /// Untyped pointer to the underlying `GdkPopupLayout` instance.
     /// For type-safe access, use the generated, typed pointer `popup_layout_ptr` property instead.
@@ -499,15 +498,17 @@ open class PopupLayout: PopupLayoutProtocol {
         gdk_popup_layout_ref(ptr.assumingMemoryBound(to: GdkPopupLayout.self))
     }
 
-    /// Create a popup layout description. Used together with `gdk_popup_present()`
-    /// to describe how a popup surface should be placed and behave on-screen.
+    /// Create a popup layout description.
+    /// 
+    /// Used together with [method`Gdk.Popup.present`] to describe how a popup
+    /// surface should be placed and behave on-screen.
     /// 
     /// `anchor_rect` is relative to the top-left corner of the surface's parent.
     /// `rect_anchor` and `surface_anchor` determine anchor points on `anchor_rect`
     /// and surface to pin together.
     /// 
     /// The position of `anchor_rect`'s anchor point can optionally be offset using
-    /// `gdk_popup_layout_set_offset()`, which is equivalent to offsetting the
+    /// [method`Gdk.PopupLayout.set_offset`], which is equivalent to offsetting the
     /// position of surface.
     @inlinable public init<RectangleT: RectangleProtocol>( anchorRect: RectangleT, rectAnchor: GdkGravity, surfaceAnchor: GdkGravity) {
         let rv = gdk_popup_layout_new(anchorRect.rectangle_ptr, rectAnchor, surfaceAnchor)
@@ -527,7 +528,7 @@ public extension PopupLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPopupLayout` instance.
     @inlinable var popup_layout_ptr: UnsafeMutablePointer<GdkPopupLayout>! { return ptr?.assumingMemoryBound(to: GdkPopupLayout.self) }
 
-    /// Create a new `GdkPopupLayout` and copy the contents of `layout` into it.
+    /// Makes a copy of `layout`.
     @inlinable func copy() -> PopupLayoutRef! {
         guard let rv = PopupLayoutRef(gconstpointer: gconstpointer(gdk_popup_layout_copy(popup_layout_ptr))) else { return nil }
         return rv
@@ -563,6 +564,12 @@ public extension PopupLayoutProtocol {
         return rv
     }
 
+    /// Obtains the shadow widths of this layout.
+    @inlinable func getShadowWidth(`left`: UnsafeMutablePointer<gint>!, `right`: UnsafeMutablePointer<gint>!, top: UnsafeMutablePointer<gint>!, bottom: UnsafeMutablePointer<gint>!) {
+        gdk_popup_layout_get_shadow_width(popup_layout_ptr, `left`, `right`, top, bottom)
+    
+    }
+
     /// Returns the anchor position on the popup surface.
     @inlinable func getSurfaceAnchor() -> GdkGravity {
         let rv = gdk_popup_layout_get_surface_anchor(popup_layout_ptr)
@@ -577,10 +584,11 @@ public extension PopupLayoutProtocol {
 
     /// Set new anchor hints.
     /// 
-    /// The set `anchor_hints` determines how `surface` will be moved if the anchor
-    /// points cause it to move off-screen. For example, `GDK_ANCHOR_FLIP_X` will
-    /// replace `GDK_GRAVITY_NORTH_WEST` with `GDK_GRAVITY_NORTH_EAST` and vice versa
-    /// if `surface` extends beyond the left or right edges of the monitor.
+    /// The set `anchor_hints` determines how `surface` will be moved
+    /// if the anchor points cause it to move off-screen. For example,
+    /// `GDK_ANCHOR_FLIP_X` will replace `GDK_GRAVITY_NORTH_WEST` with
+    /// `GDK_GRAVITY_NORTH_EAST` and vice versa if `surface` extends
+    /// beyond the left or right edges of the monitor.
     @inlinable func set(anchorHints: AnchorHints) {
         gdk_popup_layout_set_anchor_hints(popup_layout_ptr, anchorHints.value)
     
@@ -604,6 +612,16 @@ public extension PopupLayoutProtocol {
     
     }
 
+    /// Sets the shadow width of the popup.
+    /// 
+    /// The shadow width corresponds to the part of the computed
+    /// surface size that would consist of the shadow margin
+    /// surrounding the window, would there be any.
+    @inlinable func setShadowWidth(`left`: Int, `right`: Int, top: Int, bottom: Int) {
+        gdk_popup_layout_set_shadow_width(popup_layout_ptr, gint(`left`), gint(`right`), gint(top), gint(bottom))
+    
+    }
+
     /// Set the anchor on the popup surface.
     @inlinable func setSurface(anchor: GdkGravity) {
         gdk_popup_layout_set_surface_anchor(popup_layout_ptr, anchor)
@@ -624,10 +642,11 @@ public extension PopupLayoutProtocol {
         }
         /// Set new anchor hints.
         /// 
-        /// The set `anchor_hints` determines how `surface` will be moved if the anchor
-        /// points cause it to move off-screen. For example, `GDK_ANCHOR_FLIP_X` will
-        /// replace `GDK_GRAVITY_NORTH_WEST` with `GDK_GRAVITY_NORTH_EAST` and vice versa
-        /// if `surface` extends beyond the left or right edges of the monitor.
+        /// The set `anchor_hints` determines how `surface` will be moved
+        /// if the anchor points cause it to move off-screen. For example,
+        /// `GDK_ANCHOR_FLIP_X` will replace `GDK_GRAVITY_NORTH_WEST` with
+        /// `GDK_GRAVITY_NORTH_EAST` and vice versa if `surface` extends
+        /// beyond the left or right edges of the monitor.
         nonmutating set {
             gdk_popup_layout_set_anchor_hints(popup_layout_ptr, newValue.value)
         }
@@ -684,8 +703,15 @@ public extension PopupLayoutProtocol {
 /// For a concrete class that implements these methods and properties, see `RGBA`.
 /// Alternatively, use `RGBARef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkRGBA` is used to represent a (possibly translucent)
-/// color, in a way that is compatible with cairo’s notion of color.
+/// A `GdkRGBA` is used to represent a color, in a way that is compatible
+/// with cairo’s notion of color.
+/// 
+/// `GdkRGBA` is a convenient way to pass colors around. It’s based on
+/// cairo’s way to deal with colors and mirrors its behavior. All values
+/// are in the range from 0.0 to 1.0 inclusive. So the color
+/// (0.0, 0.0, 0.0, 0.0) represents transparent black and
+/// (1.0, 1.0, 1.0, 1.0) is opaque white. Other values will
+/// be clamped to this range when drawing.
 public protocol RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -701,8 +727,15 @@ public protocol RGBAProtocol {
 /// It exposes methods that can operate on this data type through `RGBAProtocol` conformance.
 /// Use `RGBARef` only as an `unowned` reference to an existing `GdkRGBA` instance.
 ///
-/// A `GdkRGBA` is used to represent a (possibly translucent)
-/// color, in a way that is compatible with cairo’s notion of color.
+/// A `GdkRGBA` is used to represent a color, in a way that is compatible
+/// with cairo’s notion of color.
+/// 
+/// `GdkRGBA` is a convenient way to pass colors around. It’s based on
+/// cairo’s way to deal with colors and mirrors its behavior. All values
+/// are in the range from 0.0 to 1.0 inclusive. So the color
+/// (0.0, 0.0, 0.0, 0.0) represents transparent black and
+/// (1.0, 1.0, 1.0, 1.0) is opaque white. Other values will
+/// be clamped to this range when drawing.
 public struct RGBARef: RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
@@ -785,8 +818,15 @@ public extension RGBARef {
 /// It provides the methods that can operate on this data type through `RGBAProtocol` conformance.
 /// Use `RGBA` as a strong reference or owner of a `GdkRGBA` instance.
 ///
-/// A `GdkRGBA` is used to represent a (possibly translucent)
-/// color, in a way that is compatible with cairo’s notion of color.
+/// A `GdkRGBA` is used to represent a color, in a way that is compatible
+/// with cairo’s notion of color.
+/// 
+/// `GdkRGBA` is a convenient way to pass colors around. It’s based on
+/// cairo’s way to deal with colors and mirrors its behavior. All values
+/// are in the range from 0.0 to 1.0 inclusive. So the color
+/// (0.0, 0.0, 0.0, 0.0) represents transparent black and
+/// (1.0, 1.0, 1.0, 1.0) is opaque white. Other values will
+/// be clamped to this range when drawing.
 open class RGBA: RGBAProtocol {
         /// Untyped pointer to the underlying `GdkRGBA` instance.
     /// For type-safe access, use the generated, typed pointer `rgba_ptr` property instead.
@@ -943,68 +983,67 @@ public extension RGBAProtocol {
 
     /// Makes a copy of a `GdkRGBA`.
     /// 
-    /// The result must be freed through `gdk_rgba_free()`.
+    /// The result must be freed through [method`Gdk.RGBA.free`].
     @inlinable func copy() -> RGBARef! {
         guard let rv = RGBARef(gconstpointer: gconstpointer(gdk_rgba_copy(rgba_ptr))) else { return nil }
         return rv
     }
 
-    /// Compares two RGBA colors.
+    /// Compares two `GdkRGBA` colors.
     @inlinable func equal<RGBAT: RGBAProtocol>(p2: RGBAT) -> Bool {
         let rv = ((gdk_rgba_equal(rgba_ptr, p2.rgba_ptr)) != 0)
         return rv
     }
 
-    /// Frees a `GdkRGBA` created with `gdk_rgba_copy()`
+    /// Frees a `GdkRGBA`.
     @inlinable func free() {
         gdk_rgba_free(rgba_ptr)
     
     }
 
     /// A hash function suitable for using for a hash
-    /// table that stores `GdkRGBAs`.
+    /// table that stores `GdkRGBA`s.
     @inlinable func hash() -> Int {
         let rv = Int(gdk_rgba_hash(rgba_ptr))
         return rv
     }
 
-    /// Parses a textual representation of a color, filling in
-    /// the `red`, `green`, `blue` and `alpha` fields of the `rgba` `GdkRGBA`.
+    /// Parses a textual representation of a color.
     /// 
     /// The string can be either one of:
+    /// 
     /// - A standard name (Taken from the X11 rgb.txt file).
     /// - A hexadecimal value in the form “\`rgb`”, “\`rrggbb`”,
     ///   “\`rrrgggbbb`” or ”\`rrrrggggbbbb`”
     /// - A hexadecimal value in the form “\`rgba`”, “\`rrggbbaa`”,
     ///   or ”\`rrrrggggbbbbaaaa`”
-    /// - A RGB color in the form `“rgb(r,g,b)`” (In this case the color will
-    ///   have full opacity)
+    /// - A RGB color in the form `“rgb(r,g,b)`” (In this case the color
+    ///   will have full opacity)
     /// - A RGBA color in the form `“rgba(r,g,b,a)`”
     /// 
-    /// Where “r”, “g”, “b” and “a” are respectively the red, green, blue and
-    /// alpha color values. In the last two cases, “r”, “g”, and “b” are either
-    /// integers in the range 0 to 255 or percentage values in the range 0% to
-    /// 100``, and a is a floating point value in the range 0 to 1.
+    /// Where “r”, “g”, “b” and “a” are respectively the red, green,
+    /// blue and alpha color values. In the last two cases, “r”, “g”,
+    /// and “b” are either integers in the range 0 to 255 or percentage
+    /// values in the range 0% to 100``, and a is a floating point value
+    /// in the range 0 to 1.
     @inlinable func parse(spec: UnsafePointer<CChar>!) -> Bool {
         let rv = ((gdk_rgba_parse(rgba_ptr, spec)) != 0)
         return rv
     }
 
     /// Returns a textual specification of `rgba` in the form
-    /// ``rgb(r,g,b)`` or
-    /// ``rgba(r,g,b,a)``,
-    /// where “r”, “g”, “b” and “a” represent the red, green,
-    /// blue and alpha values respectively. “r”, “g”, and “b” are
-    /// represented as integers in the range 0 to 255, and “a”
-    /// is represented as a floating point value in the range 0 to 1.
+    /// ``rgb(r,g,b)`` or ``rgba(r,g,b,a)``, where “r”, “g”, “b” and
+    /// “a” represent the red, green, blue and alpha values
+    /// respectively. “r”, “g”, and “b” are represented as integers
+    /// in the range 0 to 255, and “a” is represented as a floating
+    /// point value in the range 0 to 1.
     /// 
     /// These string forms are string forms that are supported by
-    /// the CSS3 colors module, and can be parsed by `gdk_rgba_parse()`.
+    /// the CSS3 colors module, and can be parsed by [method`Gdk.RGBA.parse`].
     /// 
-    /// Note that this string representation may lose some
-    /// precision, since “r”, “g” and “b” are represented as 8-bit
-    /// integers. If this is a concern, you should use a
-    /// different representation.
+    /// Note that this string representation may lose some precision,
+    /// since “r”, “g” and “b” are represented as 8-bit integers. If
+    /// this is a concern, you should use a different representation.
     @inlinable func toString() -> String! {
         let rv = gdk_rgba_to_string(rgba_ptr).map({ String(cString: $0) })
         return rv
@@ -1015,22 +1054,28 @@ public extension RGBAProtocol {
         gdk_cairo_set_source_rgba(cr._ptr, rgba_ptr)
     
     }
-    /// Checks if an `rgba` value is transparent. That is, drawing with the value
-    /// would not produce any change.
+    /// Checks if an `rgba` value is transparent.
+    /// 
+    /// That is, drawing with the value would not produce any change.
     @inlinable var isClear: Bool {
-        /// Checks if an `rgba` value is transparent. That is, drawing with the value
-        /// would not produce any change.
+        /// Checks if an `rgba` value is transparent.
+        /// 
+        /// That is, drawing with the value would not produce any change.
         get {
             let rv = ((gdk_rgba_is_clear(rgba_ptr)) != 0)
             return rv
         }
     }
 
-    /// Checks if an `rgba` value is opaque. That is, drawing with the value
-    /// will not retain any results from previous contents.
+    /// Checks if an `rgba` value is opaque.
+    /// 
+    /// That is, drawing with the value will not retain any results
+    /// from previous contents.
     @inlinable var isOpaque: Bool {
-        /// Checks if an `rgba` value is opaque. That is, drawing with the value
-        /// will not retain any results from previous contents.
+        /// Checks if an `rgba` value is opaque.
+        /// 
+        /// That is, drawing with the value will not retain any results
+        /// from previous contents.
         get {
             let rv = ((gdk_rgba_is_opaque(rgba_ptr)) != 0)
             return rv

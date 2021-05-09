@@ -18,7 +18,7 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `FocusEvent`.
 /// Alternatively, use `FocusEventRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An event related to a focus change.
+/// An event related to a keyboard focus change.
 public protocol FocusEventProtocol: EventProtocol {
         /// Untyped pointer to the underlying `GdkFocusEvent` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,7 +34,7 @@ public protocol FocusEventProtocol: EventProtocol {
 /// It exposes methods that can operate on this data type through `FocusEventProtocol` conformance.
 /// Use `FocusEventRef` only as an `unowned` reference to an existing `GdkFocusEvent` instance.
 ///
-/// An event related to a focus change.
+/// An event related to a keyboard focus change.
 public struct FocusEventRef: FocusEventProtocol {
         /// Untyped pointer to the underlying `GdkFocusEvent` instance.
     /// For type-safe access, use the generated, typed pointer `focus_event_ptr` property instead.
@@ -117,7 +117,7 @@ public extension FocusEventRef {
 /// It provides the methods that can operate on this data type through `FocusEventProtocol` conformance.
 /// Use `FocusEvent` as a strong reference or owner of a `GdkFocusEvent` instance.
 ///
-/// An event related to a focus change.
+/// An event related to a keyboard focus change.
 open class FocusEvent: Event, FocusEventProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -287,37 +287,37 @@ public extension FocusEventProtocol {
 /// Alternatively, use `FrameClockRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// A `GdkFrameClock` tells the application when to update and repaint
-/// a surface. This may be synced to the vertical refresh rate of the
-/// monitor, for example. Even when the frame clock uses a simple timer
-/// rather than a hardware-based vertical sync, the frame clock helps
-/// because it ensures everything paints at the same time (reducing the
-/// total number of frames). The frame clock can also automatically
-/// stop painting when it knows the frames will not be visible, or
-/// scale back animation framerates.
+/// a surface.
 /// 
-/// `GdkFrameClock` is designed to be compatible with an OpenGL-based
-/// implementation or with mozRequestAnimationFrame in Firefox,
-/// for example.
+/// This may be synced to the vertical refresh rate of the monitor, for example.
+/// Even when the frame clock uses a simple timer rather than a hardware-based
+/// vertical sync, the frame clock helps because it ensures everything paints at
+/// the same time (reducing the total number of frames).
+/// 
+/// The frame clock can also automatically stop painting when it knows the frames
+/// will not be visible, or scale back animation framerates.
+/// 
+/// `GdkFrameClock` is designed to be compatible with an OpenGL-based implementation
+/// or with mozRequestAnimationFrame in Firefox, for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// `gdk_frame_clock_request_phase()`. At some later point that makes
-/// sense for the synchronization being implemented, the clock will
-/// process a frame and emit signals for each phase that has been
-/// requested. (See the signals of the `GdkFrameClock` class for
-/// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock::update` signal are most interesting for application
-/// writers, and are used to update the animations, using the frame time
-/// given by `gdk_frame_clock_get_frame_time()`.
+/// [method`Gdk.FrameClock.request_phase`]. At some later point that makes sense
+/// for the synchronization being implemented, the clock will process a frame and
+/// emit signals for each phase that has been requested. (See the signals of the
+/// `GdkFrameClock` class for documentation of the phases.
+/// `GDK_FRAME_CLOCK_PHASE_UPDATE` and the [signal`GdkFrameClock::update`] signal
+/// are most interesting for application writers, and are used to update the
+/// animations, using the frame time given by [metohd`Gdk.FrameClock.get_frame_time`].
 /// 
 /// The frame time is reported in microseconds and generally in the same
 /// timescale as `g_get_monotonic_time()`, however, it is not the same
 /// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
+/// is made so that all calls to [method`Gdk.FrameClock.get_frame_time`] that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from `gdk_frame_clock_get_frame_time()`
-/// and the value inside the `GdkFrameClock::update` signal of the clock,
+/// time between an initial value from [method`Gdk.FrameClock.get_frame_time`]
+/// and the value inside the [signal`GdkFrameClock::update`] signal of the clock,
 /// they will stay exactly synchronized.
 public protocol FrameClockProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkFrameClock` instance.
@@ -335,37 +335,37 @@ public protocol FrameClockProtocol: GLibObject.ObjectProtocol {
 /// Use `FrameClockRef` only as an `unowned` reference to an existing `GdkFrameClock` instance.
 ///
 /// A `GdkFrameClock` tells the application when to update and repaint
-/// a surface. This may be synced to the vertical refresh rate of the
-/// monitor, for example. Even when the frame clock uses a simple timer
-/// rather than a hardware-based vertical sync, the frame clock helps
-/// because it ensures everything paints at the same time (reducing the
-/// total number of frames). The frame clock can also automatically
-/// stop painting when it knows the frames will not be visible, or
-/// scale back animation framerates.
+/// a surface.
 /// 
-/// `GdkFrameClock` is designed to be compatible with an OpenGL-based
-/// implementation or with mozRequestAnimationFrame in Firefox,
-/// for example.
+/// This may be synced to the vertical refresh rate of the monitor, for example.
+/// Even when the frame clock uses a simple timer rather than a hardware-based
+/// vertical sync, the frame clock helps because it ensures everything paints at
+/// the same time (reducing the total number of frames).
+/// 
+/// The frame clock can also automatically stop painting when it knows the frames
+/// will not be visible, or scale back animation framerates.
+/// 
+/// `GdkFrameClock` is designed to be compatible with an OpenGL-based implementation
+/// or with mozRequestAnimationFrame in Firefox, for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// `gdk_frame_clock_request_phase()`. At some later point that makes
-/// sense for the synchronization being implemented, the clock will
-/// process a frame and emit signals for each phase that has been
-/// requested. (See the signals of the `GdkFrameClock` class for
-/// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock::update` signal are most interesting for application
-/// writers, and are used to update the animations, using the frame time
-/// given by `gdk_frame_clock_get_frame_time()`.
+/// [method`Gdk.FrameClock.request_phase`]. At some later point that makes sense
+/// for the synchronization being implemented, the clock will process a frame and
+/// emit signals for each phase that has been requested. (See the signals of the
+/// `GdkFrameClock` class for documentation of the phases.
+/// `GDK_FRAME_CLOCK_PHASE_UPDATE` and the [signal`GdkFrameClock::update`] signal
+/// are most interesting for application writers, and are used to update the
+/// animations, using the frame time given by [metohd`Gdk.FrameClock.get_frame_time`].
 /// 
 /// The frame time is reported in microseconds and generally in the same
 /// timescale as `g_get_monotonic_time()`, however, it is not the same
 /// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
+/// is made so that all calls to [method`Gdk.FrameClock.get_frame_time`] that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from `gdk_frame_clock_get_frame_time()`
-/// and the value inside the `GdkFrameClock::update` signal of the clock,
+/// time between an initial value from [method`Gdk.FrameClock.get_frame_time`]
+/// and the value inside the [signal`GdkFrameClock::update`] signal of the clock,
 /// they will stay exactly synchronized.
 public struct FrameClockRef: FrameClockProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkFrameClock` instance.
@@ -453,37 +453,37 @@ public extension FrameClockRef {
 /// Use `FrameClock` as a strong reference or owner of a `GdkFrameClock` instance.
 ///
 /// A `GdkFrameClock` tells the application when to update and repaint
-/// a surface. This may be synced to the vertical refresh rate of the
-/// monitor, for example. Even when the frame clock uses a simple timer
-/// rather than a hardware-based vertical sync, the frame clock helps
-/// because it ensures everything paints at the same time (reducing the
-/// total number of frames). The frame clock can also automatically
-/// stop painting when it knows the frames will not be visible, or
-/// scale back animation framerates.
+/// a surface.
 /// 
-/// `GdkFrameClock` is designed to be compatible with an OpenGL-based
-/// implementation or with mozRequestAnimationFrame in Firefox,
-/// for example.
+/// This may be synced to the vertical refresh rate of the monitor, for example.
+/// Even when the frame clock uses a simple timer rather than a hardware-based
+/// vertical sync, the frame clock helps because it ensures everything paints at
+/// the same time (reducing the total number of frames).
+/// 
+/// The frame clock can also automatically stop painting when it knows the frames
+/// will not be visible, or scale back animation framerates.
+/// 
+/// `GdkFrameClock` is designed to be compatible with an OpenGL-based implementation
+/// or with mozRequestAnimationFrame in Firefox, for example.
 /// 
 /// A frame clock is idle until someone requests a frame with
-/// `gdk_frame_clock_request_phase()`. At some later point that makes
-/// sense for the synchronization being implemented, the clock will
-/// process a frame and emit signals for each phase that has been
-/// requested. (See the signals of the `GdkFrameClock` class for
-/// documentation of the phases. `GDK_FRAME_CLOCK_PHASE_UPDATE` and the
-/// `GdkFrameClock::update` signal are most interesting for application
-/// writers, and are used to update the animations, using the frame time
-/// given by `gdk_frame_clock_get_frame_time()`.
+/// [method`Gdk.FrameClock.request_phase`]. At some later point that makes sense
+/// for the synchronization being implemented, the clock will process a frame and
+/// emit signals for each phase that has been requested. (See the signals of the
+/// `GdkFrameClock` class for documentation of the phases.
+/// `GDK_FRAME_CLOCK_PHASE_UPDATE` and the [signal`GdkFrameClock::update`] signal
+/// are most interesting for application writers, and are used to update the
+/// animations, using the frame time given by [metohd`Gdk.FrameClock.get_frame_time`].
 /// 
 /// The frame time is reported in microseconds and generally in the same
 /// timescale as `g_get_monotonic_time()`, however, it is not the same
 /// as `g_get_monotonic_time()`. The frame time does not advance during
 /// the time a frame is being painted, and outside of a frame, an attempt
-/// is made so that all calls to `gdk_frame_clock_get_frame_time()` that
+/// is made so that all calls to [method`Gdk.FrameClock.get_frame_time`] that
 /// are called at a “similar” time get the same value. This means that
 /// if different animations are timed by looking at the difference in
-/// time between an initial value from `gdk_frame_clock_get_frame_time()`
-/// and the value inside the `GdkFrameClock::update` signal of the clock,
+/// time between an initial value from [method`Gdk.FrameClock.get_frame_time`]
+/// and the value inside the [signal`GdkFrameClock::update`] signal of the clock,
 /// they will stay exactly synchronized.
 open class FrameClock: GLibObject.Object, FrameClockProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -617,20 +617,24 @@ open class FrameClock: GLibObject.Object, FrameClockProtocol {
 // MARK: no FrameClock properties
 
 public enum FrameClockSignalName: String, SignalNameProtocol {
-    /// This signal ends processing of the frame. Applications
-    /// should generally not handle this signal.
+    /// This signal ends processing of the frame.
+    /// 
+    /// Applications should generally not handle this signal.
     case afterPaint = "after-paint"
-    /// This signal begins processing of the frame. Applications
-    /// should generally not handle this signal.
+    /// Begins processing of the frame.
+    /// 
+    /// Applications should generally not handle this signal.
     case beforePaint = "before-paint"
-    /// This signal is used to flush pending motion events that
-    /// are being batched up and compressed together. Applications
-    /// should not handle this signal.
+    /// Used to flush pending motion events that are being batched up and
+    /// compressed together.
+    /// 
+    /// Applications should not handle this signal.
     case flushEvents = "flush-events"
-    /// This signal is emitted as the second step of toolkit and
-    /// application processing of the frame. Any work to update
-    /// sizes and positions of application elements should be
-    /// performed. GTK normally handles this internally.
+    /// Emitted as the second step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// Any work to update sizes and positions of application elements
+    /// should be performed. GTK normally handles this internally.
     case layout = "layout"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -657,22 +661,24 @@ public enum FrameClockSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// This signal is emitted as the third step of toolkit and
-    /// application processing of the frame. The frame is
-    /// repainted. GDK normally handles this internally and
-    /// emits `GdkSurface::render` which are turned into
-    /// `GtkWidget::snapshot` signals by GTK.
+    /// Emitted as the third step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// The frame is repainted. GDK normally handles this internally and
+    /// emits [signal`Gdk.Surface::render`] signals which are turned into
+    /// [signal`Gtk.Widget::snapshot`] signals by GTK.
     case paint = "paint"
-    /// This signal is emitted after processing of the frame is
-    /// finished, and is handled internally by GTK to resume normal
+    /// Emitted after processing of the frame is finished.
+    /// 
+    /// This signal is handled internally by GTK to resume normal
     /// event processing. Applications should not handle this signal.
     case resumeEvents = "resume-events"
-    /// This signal is emitted as the first step of toolkit and
-    /// application processing of the frame. Animations should
-    /// be updated using `gdk_frame_clock_get_frame_time()`.
-    /// Applications can connect directly to this signal, or
-    /// use `gtk_widget_add_tick_callback()` as a more convenient
-    /// interface.
+    /// Emitted as the first step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// Animations should be updated using [method`Gdk.FrameClock.get_frame_time`].
+    /// Applications can connect directly to this signal, or use
+    /// [method`Gtk.Widget.add_tick_callback`] as a more convenient interface.
     case update = "update"
 
 }
@@ -705,8 +711,9 @@ public extension FrameClockProtocol {
     }
     
     
-    /// This signal ends processing of the frame. Applications
-    /// should generally not handle this signal.
+    /// This signal ends processing of the frame.
+    /// 
+    /// Applications should generally not handle this signal.
     /// - Note: This represents the underlying `after-paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -731,8 +738,9 @@ public extension FrameClockProtocol {
     /// Typed `after-paint` signal for using the `connect(signal:)` methods
     static var afterPaintSignal: FrameClockSignalName { .afterPaint }
     
-    /// This signal begins processing of the frame. Applications
-    /// should generally not handle this signal.
+    /// Begins processing of the frame.
+    /// 
+    /// Applications should generally not handle this signal.
     /// - Note: This represents the underlying `before-paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -757,9 +765,10 @@ public extension FrameClockProtocol {
     /// Typed `before-paint` signal for using the `connect(signal:)` methods
     static var beforePaintSignal: FrameClockSignalName { .beforePaint }
     
-    /// This signal is used to flush pending motion events that
-    /// are being batched up and compressed together. Applications
-    /// should not handle this signal.
+    /// Used to flush pending motion events that are being batched up and
+    /// compressed together.
+    /// 
+    /// Applications should not handle this signal.
     /// - Note: This represents the underlying `flush-events` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -784,10 +793,11 @@ public extension FrameClockProtocol {
     /// Typed `flush-events` signal for using the `connect(signal:)` methods
     static var flushEventsSignal: FrameClockSignalName { .flushEvents }
     
-    /// This signal is emitted as the second step of toolkit and
-    /// application processing of the frame. Any work to update
-    /// sizes and positions of application elements should be
-    /// performed. GTK normally handles this internally.
+    /// Emitted as the second step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// Any work to update sizes and positions of application elements
+    /// should be performed. GTK normally handles this internally.
     /// - Note: This represents the underlying `layout` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -812,11 +822,12 @@ public extension FrameClockProtocol {
     /// Typed `layout` signal for using the `connect(signal:)` methods
     static var layoutSignal: FrameClockSignalName { .layout }
     
-    /// This signal is emitted as the third step of toolkit and
-    /// application processing of the frame. The frame is
-    /// repainted. GDK normally handles this internally and
-    /// emits `GdkSurface::render` which are turned into
-    /// `GtkWidget::snapshot` signals by GTK.
+    /// Emitted as the third step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// The frame is repainted. GDK normally handles this internally and
+    /// emits [signal`Gdk.Surface::render`] signals which are turned into
+    /// [signal`Gtk.Widget::snapshot`] signals by GTK.
     /// - Note: This represents the underlying `paint` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -841,8 +852,9 @@ public extension FrameClockProtocol {
     /// Typed `paint` signal for using the `connect(signal:)` methods
     static var paintSignal: FrameClockSignalName { .paint }
     
-    /// This signal is emitted after processing of the frame is
-    /// finished, and is handled internally by GTK to resume normal
+    /// Emitted after processing of the frame is finished.
+    /// 
+    /// This signal is handled internally by GTK to resume normal
     /// event processing. Applications should not handle this signal.
     /// - Note: This represents the underlying `resume-events` signal
     /// - Parameter flags: Flags
@@ -868,12 +880,12 @@ public extension FrameClockProtocol {
     /// Typed `resume-events` signal for using the `connect(signal:)` methods
     static var resumeEventsSignal: FrameClockSignalName { .resumeEvents }
     
-    /// This signal is emitted as the first step of toolkit and
-    /// application processing of the frame. Animations should
-    /// be updated using `gdk_frame_clock_get_frame_time()`.
-    /// Applications can connect directly to this signal, or
-    /// use `gtk_widget_add_tick_callback()` as a more convenient
-    /// interface.
+    /// Emitted as the first step of toolkit and application processing
+    /// of the frame.
+    /// 
+    /// Animations should be updated using [method`Gdk.FrameClock.get_frame_time`].
+    /// Applications can connect directly to this signal, or use
+    /// [method`Gtk.Widget.add_tick_callback`] as a more convenient interface.
     /// - Note: This represents the underlying `update` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -906,19 +918,21 @@ public extension FrameClockProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkFrameClock` instance.
     @inlinable var frame_clock_ptr: UnsafeMutablePointer<GdkFrameClock>! { return ptr?.assumingMemoryBound(to: GdkFrameClock.self) }
 
-    /// Starts updates for an animation. Until a matching call to
-    /// `gdk_frame_clock_end_updating()` is made, the frame clock will continually
-    /// request a new frame with the `GDK_FRAME_CLOCK_PHASE_UPDATE` phase.
-    /// This function may be called multiple times and frames will be
-    /// requested until `gdk_frame_clock_end_updating()` is called the same
-    /// number of times.
+    /// Starts updates for an animation.
+    /// 
+    /// Until a matching call to [method`Gdk.FrameClock.end_updating`] is made,
+    /// the frame clock will continually request a new frame with the
+    /// `GDK_FRAME_CLOCK_PHASE_UPDATE` phase. This function may be called multiple
+    /// times and frames will be requested until `gdk_frame_clock_end_updating()`
+    /// is called the same number of times.
     @inlinable func beginUpdating() {
         gdk_frame_clock_begin_updating(frame_clock_ptr)
     
     }
 
-    /// Stops updates for an animation. See the documentation for
-    /// `gdk_frame_clock_begin_updating()`.
+    /// Stops updates for an animation.
+    /// 
+    /// See the documentation for [method`Gdk.FrameClock.begin_updating`].
     @inlinable func endUpdating() {
         gdk_frame_clock_end_updating(frame_clock_ptr)
     
@@ -937,15 +951,16 @@ public extension FrameClockProtocol {
         return rv
     }
 
-    /// A `GdkFrameClock` maintains a 64-bit counter that increments for
+    /// `GdkFrameClock` maintains a 64-bit counter that increments for
     /// each frame drawn.
     @inlinable func getFrameCounter() -> gint64 {
         let rv = gdk_frame_clock_get_frame_counter(frame_clock_ptr)
         return rv
     }
 
-    /// Gets the time that should currently be used for animations.  Inside
-    /// the processing of a frame, it’s the time used to compute the
+    /// Gets the time that should currently be used for animations.
+    /// 
+    /// Inside the processing of a frame, it’s the time used to compute the
     /// animation position of everything in a frame. Outside of a frame, it's
     /// the time of the conceptual “previous frame,” which may be either
     /// the actual previous frame time, or if that’s too old, an updated
@@ -955,17 +970,21 @@ public extension FrameClockProtocol {
         return rv
     }
 
+    /// Returns the frame counter for the oldest frame available in history.
+    /// 
     /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
     /// objects for recent frames that can be retrieved with
-    /// `gdk_frame_clock_get_timings()`. The set of stored frames
+    /// [method`Gdk.FrameClock.get_timings`]. The set of stored frames
     /// is the set from the counter values given by
-    /// `gdk_frame_clock_get_history_start()` and
-    /// `gdk_frame_clock_get_frame_counter()`, inclusive.
+    /// [method`Gdk.FrameClock.get_history_start`] and
+    /// [method`Gdk.FrameClock.get_frame_counter`], inclusive.
     @inlinable func getHistoryStart() -> gint64 {
         let rv = gdk_frame_clock_get_history_start(frame_clock_ptr)
         return rv
     }
 
+    /// Predicts a presentation time, based on history.
+    /// 
     /// Using the frame history stored in the frame clock, finds the last
     /// known presentation time and refresh interval, and assuming that
     /// presentation times are separated by the refresh interval,
@@ -977,22 +996,25 @@ public extension FrameClockProtocol {
     }
 
     /// Retrieves a `GdkFrameTimings` object holding timing information
-    /// for the current frame or a recent frame. The `GdkFrameTimings`
-    /// object may not yet be complete: see `gdk_frame_timings_get_complete()`.
+    /// for the current frame or a recent frame.
+    /// 
+    /// The `GdkFrameTimings` object may not yet be complete: see
+    /// [method`Gdk.FrameTimings.get_complete`].
     @inlinable func getTimings(frameCounter: gint64) -> FrameTimingsRef! {
         let rv = FrameTimingsRef(gconstpointer: gconstpointer(gdk_frame_clock_get_timings(frame_clock_ptr, frameCounter)))
         return rv
     }
 
-    /// Asks the frame clock to run a particular phase. The signal
-    /// corresponding the requested phase will be emitted the next
+    /// Asks the frame clock to run a particular phase.
+    /// 
+    /// The signal corresponding the requested phase will be emitted the next
     /// time the frame clock processes. Multiple calls to
     /// `gdk_frame_clock_request_phase()` will be combined together
     /// and only one frame processed. If you are displaying animated
     /// content and want to continually request the
     /// `GDK_FRAME_CLOCK_PHASE_UPDATE` phase for a period of time,
-    /// you should use `gdk_frame_clock_begin_updating()` instead, since
-    /// this allows GTK to adjust system parameters to get maximally
+    /// you should use [method`Gdk.FrameClock.begin_updating`] instead,
+    /// since this allows GTK to adjust system parameters to get maximally
     /// smooth animations.
     @inlinable func request(phase: FrameClockPhase) {
         gdk_frame_clock_request_phase(frame_clock_ptr, phase.value)
@@ -1018,10 +1040,10 @@ public extension FrameClockProtocol {
         }
     }
 
-    /// A `GdkFrameClock` maintains a 64-bit counter that increments for
+    /// `GdkFrameClock` maintains a 64-bit counter that increments for
     /// each frame drawn.
     @inlinable var frameCounter: gint64 {
-        /// A `GdkFrameClock` maintains a 64-bit counter that increments for
+        /// `GdkFrameClock` maintains a 64-bit counter that increments for
         /// each frame drawn.
         get {
             let rv = gdk_frame_clock_get_frame_counter(frame_clock_ptr)
@@ -1029,15 +1051,17 @@ public extension FrameClockProtocol {
         }
     }
 
-    /// Gets the time that should currently be used for animations.  Inside
-    /// the processing of a frame, it’s the time used to compute the
+    /// Gets the time that should currently be used for animations.
+    /// 
+    /// Inside the processing of a frame, it’s the time used to compute the
     /// animation position of everything in a frame. Outside of a frame, it's
     /// the time of the conceptual “previous frame,” which may be either
     /// the actual previous frame time, or if that’s too old, an updated
     /// time.
     @inlinable var frameTime: gint64 {
-        /// Gets the time that should currently be used for animations.  Inside
-        /// the processing of a frame, it’s the time used to compute the
+        /// Gets the time that should currently be used for animations.
+        /// 
+        /// Inside the processing of a frame, it’s the time used to compute the
         /// animation position of everything in a frame. Outside of a frame, it's
         /// the time of the conceptual “previous frame,” which may be either
         /// the actual previous frame time, or if that’s too old, an updated
@@ -1048,19 +1072,23 @@ public extension FrameClockProtocol {
         }
     }
 
+    /// Returns the frame counter for the oldest frame available in history.
+    /// 
     /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
     /// objects for recent frames that can be retrieved with
-    /// `gdk_frame_clock_get_timings()`. The set of stored frames
+    /// [method`Gdk.FrameClock.get_timings`]. The set of stored frames
     /// is the set from the counter values given by
-    /// `gdk_frame_clock_get_history_start()` and
-    /// `gdk_frame_clock_get_frame_counter()`, inclusive.
+    /// [method`Gdk.FrameClock.get_history_start`] and
+    /// [method`Gdk.FrameClock.get_frame_counter`], inclusive.
     @inlinable var historyStart: gint64 {
+        /// Returns the frame counter for the oldest frame available in history.
+        /// 
         /// `GdkFrameClock` internally keeps a history of `GdkFrameTimings`
         /// objects for recent frames that can be retrieved with
-        /// `gdk_frame_clock_get_timings()`. The set of stored frames
+        /// [method`Gdk.FrameClock.get_timings`]. The set of stored frames
         /// is the set from the counter values given by
-        /// `gdk_frame_clock_get_history_start()` and
-        /// `gdk_frame_clock_get_frame_counter()`, inclusive.
+        /// [method`Gdk.FrameClock.get_history_start`] and
+        /// [method`Gdk.FrameClock.get_frame_counter`], inclusive.
         get {
             let rv = gdk_frame_clock_get_history_start(frame_clock_ptr)
             return rv
@@ -1079,58 +1107,55 @@ public extension FrameClockProtocol {
 /// For a concrete class that implements these methods and properties, see `GLContext`.
 /// Alternatively, use `GLContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GdkGLContext` is an object representing the platform-specific
+/// `GdkGLContext` is an object representing a platform-specific
 /// OpenGL draw context.
 /// 
-/// `GdkGLContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_gl_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkGLContext`s are created for a surface using
+/// [method`Gdk.Surface.create_gl_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
-/// For instance, it cannot draw to the `GdkSurface` back buffer. The GDK
+/// For instance, it cannot draw to the surface back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
+/// you can create render buffers or textures and use [func`cairo_draw_from_gl`]
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
-/// Support for `GdkGLContext` is platform-specific, context creation
+/// Support for `GdkGLContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 /// 
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ## Creating a new OpenGL context ##
+/// ## Creating a new OpenGL context
 /// 
-/// In order to create a new `GdkGLContext` instance you need a
-/// `GdkSurface`, which you typically get during the realize call
-/// of a widget.
+/// In order to create a new `GdkGLContext` instance you need a `GdkSurface`,
+/// which you typically get during the realize call of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
-/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
-/// specify details of the GL context like the OpenGL version to be used, or
-/// whether the GL context should have extra state validation enabled after
-/// calling `gdk_surface_create_gl_context()` by calling `gdk_gl_context_realize()`.
-/// If the realization fails you have the option to change the settings of the
-/// `GdkGLContext` and try again.
+/// A `GdkGLContext` is not realized until either [method`Gdk.GLContext.make_current`]
+/// or [method`Gdk.GLContext.realize`] is called. It is possible to specify
+/// details of the GL context like the OpenGL version to be used, or whether
+/// the GL context should have extra state validation enabled after calling
+/// [method`Gdk.Surface.create_gl_context`] by calling [method`Gdk.GLContext.realize`].
+/// If the realization fails you have the option to change the settings of
+/// the `GdkGLContext` and try again.
 /// 
-/// ## Using a GdkGLContext ##
+/// ## Using a GdkGLContext
 /// 
-/// You will need to make the `GdkGLContext` the current context
-/// before issuing OpenGL calls; the system sends OpenGL commands to
-/// whichever context is current. It is possible to have multiple
-/// contexts, so you always need to ensure that the one which you
-/// want to draw with is the current one before issuing commands:
+/// You will need to make the `GdkGLContext` the current context before issuing
+/// OpenGL calls; the system sends OpenGL commands to whichever context is current.
+/// It is possible to have multiple contexts, so you always need to ensure that
+/// the one which you want to draw with is the current one before issuing commands:
 /// 
-/// (C Language Example):
-/// ```C
-///   gdk_gl_context_make_current (context);
+/// ```c
+/// gdk_gl_context_make_current (context);
 /// ```
 /// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
-/// that is currently set by calling `gdk_gl_context_clear_current()`.
+/// [func`Gdk.GLContext.get_current`]; you can also unset any `GdkGLContext`
+/// that is currently set by calling [func`Gdk.GLContext.clear_current`].
 public protocol GLContextProtocol: DrawContextProtocol {
         /// Untyped pointer to the underlying `GdkGLContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1146,58 +1171,55 @@ public protocol GLContextProtocol: DrawContextProtocol {
 /// It exposes methods that can operate on this data type through `GLContextProtocol` conformance.
 /// Use `GLContextRef` only as an `unowned` reference to an existing `GdkGLContext` instance.
 ///
-/// `GdkGLContext` is an object representing the platform-specific
+/// `GdkGLContext` is an object representing a platform-specific
 /// OpenGL draw context.
 /// 
-/// `GdkGLContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_gl_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkGLContext`s are created for a surface using
+/// [method`Gdk.Surface.create_gl_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
-/// For instance, it cannot draw to the `GdkSurface` back buffer. The GDK
+/// For instance, it cannot draw to the surface back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
+/// you can create render buffers or textures and use [func`cairo_draw_from_gl`]
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
-/// Support for `GdkGLContext` is platform-specific, context creation
+/// Support for `GdkGLContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 /// 
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ## Creating a new OpenGL context ##
+/// ## Creating a new OpenGL context
 /// 
-/// In order to create a new `GdkGLContext` instance you need a
-/// `GdkSurface`, which you typically get during the realize call
-/// of a widget.
+/// In order to create a new `GdkGLContext` instance you need a `GdkSurface`,
+/// which you typically get during the realize call of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
-/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
-/// specify details of the GL context like the OpenGL version to be used, or
-/// whether the GL context should have extra state validation enabled after
-/// calling `gdk_surface_create_gl_context()` by calling `gdk_gl_context_realize()`.
-/// If the realization fails you have the option to change the settings of the
-/// `GdkGLContext` and try again.
+/// A `GdkGLContext` is not realized until either [method`Gdk.GLContext.make_current`]
+/// or [method`Gdk.GLContext.realize`] is called. It is possible to specify
+/// details of the GL context like the OpenGL version to be used, or whether
+/// the GL context should have extra state validation enabled after calling
+/// [method`Gdk.Surface.create_gl_context`] by calling [method`Gdk.GLContext.realize`].
+/// If the realization fails you have the option to change the settings of
+/// the `GdkGLContext` and try again.
 /// 
-/// ## Using a GdkGLContext ##
+/// ## Using a GdkGLContext
 /// 
-/// You will need to make the `GdkGLContext` the current context
-/// before issuing OpenGL calls; the system sends OpenGL commands to
-/// whichever context is current. It is possible to have multiple
-/// contexts, so you always need to ensure that the one which you
-/// want to draw with is the current one before issuing commands:
+/// You will need to make the `GdkGLContext` the current context before issuing
+/// OpenGL calls; the system sends OpenGL commands to whichever context is current.
+/// It is possible to have multiple contexts, so you always need to ensure that
+/// the one which you want to draw with is the current one before issuing commands:
 /// 
-/// (C Language Example):
-/// ```C
-///   gdk_gl_context_make_current (context);
+/// ```c
+/// gdk_gl_context_make_current (context);
 /// ```
 /// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
-/// that is currently set by calling `gdk_gl_context_clear_current()`.
+/// [func`Gdk.GLContext.get_current`]; you can also unset any `GdkGLContext`
+/// that is currently set by calling [func`Gdk.GLContext.clear_current`].
 public struct GLContextRef: GLContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkGLContext` instance.
     /// For type-safe access, use the generated, typed pointer `gl_context_ptr` property instead.
@@ -1288,58 +1310,55 @@ public extension GLContextRef {
 /// It provides the methods that can operate on this data type through `GLContextProtocol` conformance.
 /// Use `GLContext` as a strong reference or owner of a `GdkGLContext` instance.
 ///
-/// `GdkGLContext` is an object representing the platform-specific
+/// `GdkGLContext` is an object representing a platform-specific
 /// OpenGL draw context.
 /// 
-/// `GdkGLContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_gl_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkGLContext`s are created for a surface using
+/// [method`Gdk.Surface.create_gl_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
 /// A `GdkGLContext` is not tied to any particular normal framebuffer.
-/// For instance, it cannot draw to the `GdkSurface` back buffer. The GDK
+/// For instance, it cannot draw to the surface back buffer. The GDK
 /// repaint system is in full control of the painting to that. Instead,
-/// you can create render buffers or textures and use `gdk_cairo_draw_from_gl()`
+/// you can create render buffers or textures and use [func`cairo_draw_from_gl`]
 /// in the draw function of your widget to draw them. Then GDK will handle
 /// the integration of your rendering with that of other widgets.
 /// 
-/// Support for `GdkGLContext` is platform-specific, context creation
+/// Support for `GdkGLContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 /// 
 /// A `GdkGLContext` has to be made "current" in order to start using
 /// it, otherwise any OpenGL call will be ignored.
 /// 
-/// ## Creating a new OpenGL context ##
+/// ## Creating a new OpenGL context
 /// 
-/// In order to create a new `GdkGLContext` instance you need a
-/// `GdkSurface`, which you typically get during the realize call
-/// of a widget.
+/// In order to create a new `GdkGLContext` instance you need a `GdkSurface`,
+/// which you typically get during the realize call of a widget.
 /// 
-/// A `GdkGLContext` is not realized until either `gdk_gl_context_make_current()`,
-/// or until it is realized using `gdk_gl_context_realize()`. It is possible to
-/// specify details of the GL context like the OpenGL version to be used, or
-/// whether the GL context should have extra state validation enabled after
-/// calling `gdk_surface_create_gl_context()` by calling `gdk_gl_context_realize()`.
-/// If the realization fails you have the option to change the settings of the
-/// `GdkGLContext` and try again.
+/// A `GdkGLContext` is not realized until either [method`Gdk.GLContext.make_current`]
+/// or [method`Gdk.GLContext.realize`] is called. It is possible to specify
+/// details of the GL context like the OpenGL version to be used, or whether
+/// the GL context should have extra state validation enabled after calling
+/// [method`Gdk.Surface.create_gl_context`] by calling [method`Gdk.GLContext.realize`].
+/// If the realization fails you have the option to change the settings of
+/// the `GdkGLContext` and try again.
 /// 
-/// ## Using a GdkGLContext ##
+/// ## Using a GdkGLContext
 /// 
-/// You will need to make the `GdkGLContext` the current context
-/// before issuing OpenGL calls; the system sends OpenGL commands to
-/// whichever context is current. It is possible to have multiple
-/// contexts, so you always need to ensure that the one which you
-/// want to draw with is the current one before issuing commands:
+/// You will need to make the `GdkGLContext` the current context before issuing
+/// OpenGL calls; the system sends OpenGL commands to whichever context is current.
+/// It is possible to have multiple contexts, so you always need to ensure that
+/// the one which you want to draw with is the current one before issuing commands:
 /// 
-/// (C Language Example):
-/// ```C
-///   gdk_gl_context_make_current (context);
+/// ```c
+/// gdk_gl_context_make_current (context);
 /// ```
 /// 
 /// You can now perform your drawing using OpenGL commands.
 /// 
 /// You can check which `GdkGLContext` is the current one by using
-/// `gdk_gl_context_get_current()`; you can also unset any `GdkGLContext`
-/// that is currently set by calling `gdk_gl_context_clear_current()`.
+/// [func`Gdk.GLContext.get_current`]; you can also unset any `GdkGLContext`
+/// that is currently set by calling [func`Gdk.GLContext.clear_current`].
 open class GLContext: DrawContext, GLContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1577,26 +1596,31 @@ public extension GLContextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLContext` instance.
     @inlinable var gl_context_ptr: UnsafeMutablePointer<GdkGLContext>! { return ptr?.assumingMemoryBound(to: GdkGLContext.self) }
 
-    /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
+    /// Retrieves whether the context is doing extra validations and runtime checking.
+    /// 
+    /// See [method`Gdk.GLContext.set_debug_enabled`].
     @inlinable func getDebugEnabled() -> Bool {
         let rv = ((gdk_gl_context_get_debug_enabled(gl_context_ptr)) != 0)
         return rv
     }
 
-    /// Retrieves the `GdkDisplay` the `context` is created for
+    /// Retrieves the display the `context` is created for
     @inlinable func getDisplay() -> DisplayRef! {
         let rv = DisplayRef(gconstpointer: gconstpointer(gdk_gl_context_get_display(gl_context_ptr)))
         return rv
     }
 
-    /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
+    /// Retrieves whether the context is forward-compatible.
+    /// 
+    /// See [method`Gdk.GLContext.set_forward_compatible`].
     @inlinable func getForwardCompatible() -> Bool {
         let rv = ((gdk_gl_context_get_forward_compatible(gl_context_ptr)) != 0)
         return rv
     }
 
-    /// Retrieves the major and minor version requested by calling
-    /// `gdk_gl_context_set_required_version()`.
+    /// Retrieves required OpenGL version.
+    /// 
+    /// See [method`Gdk.GLContext.set_required_version`].
     @inlinable func getRequiredVersion(major: UnsafeMutablePointer<gint>?, minor: UnsafeMutablePointer<gint>?) {
         gdk_gl_context_get_required_version(gl_context_ptr, major, minor)
     
@@ -1608,7 +1632,7 @@ public extension GLContextProtocol {
         return rv
     }
 
-    /// Retrieves the `GdkSurface` used by the `context`.
+    /// Retrieves the surface used by the `context`.
     @inlinable func getSurface() -> SurfaceRef! {
         let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_gl_context_get_surface(gl_context_ptr)))
         return rv
@@ -1645,8 +1669,9 @@ public extension GLContextProtocol {
     }
 
     /// Sets whether the `GdkGLContext` should perform extra validations and
-    /// run time checking. This is useful during development, but has
-    /// additional overhead.
+    /// runtime checking.
+    /// 
+    /// This is useful during development, but has additional overhead.
     /// 
     /// The `GdkGLContext` must not be realized or made current prior to
     /// calling this function.
@@ -1655,9 +1680,9 @@ public extension GLContextProtocol {
     
     }
 
-    /// Sets whether the `GdkGLContext` should be forward compatible.
+    /// Sets whether the `GdkGLContext` should be forward-compatible.
     /// 
-    /// Forward compatible contexts must not support OpenGL functionality that
+    /// Forward-compatible contexts must not support OpenGL functionality that
     /// has been marked as deprecated in the requested version; non-forward
     /// compatible contexts, on the other hand, must support both deprecated and
     /// non deprecated functionality.
@@ -1680,8 +1705,9 @@ public extension GLContextProtocol {
     
     }
 
-    /// Requests that GDK create an OpenGL ES context instead of an OpenGL one,
-    /// if the platform and windowing system allows it.
+    /// Requests that GDK create an OpenGL ES context instead of an OpenGL one.
+    /// 
+    /// Not all platforms support OpenGL ES.
     /// 
     /// The `context` must not have been realized.
     /// 
@@ -1689,23 +1715,28 @@ public extension GLContextProtocol {
     /// underlying GL implementation is OpenGL or OpenGL ES once the `context`
     /// is realized.
     /// 
-    /// You should check the return value of `gdk_gl_context_get_use_es()` after
-    /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
-    /// OpenGL ES API, extensions, or shaders.
+    /// You should check the return value of [method`Gdk.GLContext.get_use_es`]
+    /// after calling [method`Gdk.GLContext.realize`] to decide whether to use
+    /// the OpenGL or OpenGL ES API, extensions, or shaders.
     @inlinable func set(useEs: Int) {
         gdk_gl_context_set_use_es(gl_context_ptr, gint(useEs))
     
     }
-    /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
+    /// Retrieves whether the context is doing extra validations and runtime checking.
+    /// 
+    /// See [method`Gdk.GLContext.set_debug_enabled`].
     @inlinable var debugEnabled: Bool {
-        /// Retrieves the value set using `gdk_gl_context_set_debug_enabled()`.
+        /// Retrieves whether the context is doing extra validations and runtime checking.
+        /// 
+        /// See [method`Gdk.GLContext.set_debug_enabled`].
         get {
             let rv = ((gdk_gl_context_get_debug_enabled(gl_context_ptr)) != 0)
             return rv
         }
         /// Sets whether the `GdkGLContext` should perform extra validations and
-        /// run time checking. This is useful during development, but has
-        /// additional overhead.
+        /// runtime checking.
+        /// 
+        /// This is useful during development, but has additional overhead.
         /// 
         /// The `GdkGLContext` must not be realized or made current prior to
         /// calling this function.
@@ -1714,25 +1745,29 @@ public extension GLContextProtocol {
         }
     }
 
-    /// Retrieves the `GdkDisplay` the `context` is created for
+    /// Retrieves the display the `context` is created for
     @inlinable var display: DisplayRef! {
-        /// Retrieves the `GdkDisplay` the `context` is created for
+        /// Retrieves the display the `context` is created for
         get {
             let rv = DisplayRef(gconstpointer: gconstpointer(gdk_gl_context_get_display(gl_context_ptr)))
             return rv
         }
     }
 
-    /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
+    /// Retrieves whether the context is forward-compatible.
+    /// 
+    /// See [method`Gdk.GLContext.set_forward_compatible`].
     @inlinable var forwardCompatible: Bool {
-        /// Retrieves the value set using `gdk_gl_context_set_forward_compatible()`.
+        /// Retrieves whether the context is forward-compatible.
+        /// 
+        /// See [method`Gdk.GLContext.set_forward_compatible`].
         get {
             let rv = ((gdk_gl_context_get_forward_compatible(gl_context_ptr)) != 0)
             return rv
         }
-        /// Sets whether the `GdkGLContext` should be forward compatible.
+        /// Sets whether the `GdkGLContext` should be forward-compatible.
         /// 
-        /// Forward compatible contexts must not support OpenGL functionality that
+        /// Forward-compatible contexts must not support OpenGL functionality that
         /// has been marked as deprecated in the requested version; non-forward
         /// compatible contexts, on the other hand, must support both deprecated and
         /// non deprecated functionality.
@@ -1792,9 +1827,9 @@ public extension GLContextProtocol {
         }
     }
 
-    /// Retrieves the `GdkSurface` used by the `context`.
+    /// Retrieves the surface used by the `context`.
     @inlinable var surface: SurfaceRef! {
-        /// Retrieves the `GdkSurface` used by the `context`.
+        /// Retrieves the surface used by the `context`.
         get {
             let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_gl_context_get_surface(gl_context_ptr)))
             return rv
@@ -1808,8 +1843,9 @@ public extension GLContextProtocol {
             let rv = ((gdk_gl_context_get_use_es(gl_context_ptr)) != 0)
             return rv
         }
-        /// Requests that GDK create an OpenGL ES context instead of an OpenGL one,
-        /// if the platform and windowing system allows it.
+        /// Requests that GDK create an OpenGL ES context instead of an OpenGL one.
+        /// 
+        /// Not all platforms support OpenGL ES.
         /// 
         /// The `context` must not have been realized.
         /// 
@@ -1817,9 +1853,9 @@ public extension GLContextProtocol {
         /// underlying GL implementation is OpenGL or OpenGL ES once the `context`
         /// is realized.
         /// 
-        /// You should check the return value of `gdk_gl_context_get_use_es()` after
-        /// calling `gdk_gl_context_realize()` to decide whether to use the OpenGL or
-        /// OpenGL ES API, extensions, or shaders.
+        /// You should check the return value of [method`Gdk.GLContext.get_use_es`]
+        /// after calling [method`Gdk.GLContext.realize`] to decide whether to use
+        /// the OpenGL or OpenGL ES API, extensions, or shaders.
         nonmutating set {
             gdk_gl_context_set_use_es(gl_context_ptr, newValue ? 1 : 0)
         }

@@ -18,8 +18,21 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `Rectangle`.
 /// Alternatively, use `RectangleRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Defines the position and size of a rectangle. It is identical to
-/// `cairo_rectangle_int_t`.
+/// A `GdkRectangle` data type for representing rectangles.
+/// 
+/// `GdkRectangle` is identical to `cairo_rectangle_t`. Together with Cairo’s
+/// `cairo_region_t` data type, these are the central types for representing
+/// sets of pixels.
+/// 
+/// The intersection of two rectangles can be computed with
+/// [method`Gdk.Rectangle.intersect`]; to find the union of two rectangles use
+/// [method`Gdk.Rectangle.union`].
+/// 
+/// The `cairo_region_t` type provided by Cairo is usually used for managing
+/// non-rectangular clipping of graphical operations.
+/// 
+/// The Graphene library has a number of other data types for regions and
+/// volumes in 2D and 3D.
 public protocol RectangleProtocol {
         /// Untyped pointer to the underlying `GdkRectangle` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -35,8 +48,21 @@ public protocol RectangleProtocol {
 /// It exposes methods that can operate on this data type through `RectangleProtocol` conformance.
 /// Use `RectangleRef` only as an `unowned` reference to an existing `GdkRectangle` instance.
 ///
-/// Defines the position and size of a rectangle. It is identical to
-/// `cairo_rectangle_int_t`.
+/// A `GdkRectangle` data type for representing rectangles.
+/// 
+/// `GdkRectangle` is identical to `cairo_rectangle_t`. Together with Cairo’s
+/// `cairo_region_t` data type, these are the central types for representing
+/// sets of pixels.
+/// 
+/// The intersection of two rectangles can be computed with
+/// [method`Gdk.Rectangle.intersect`]; to find the union of two rectangles use
+/// [method`Gdk.Rectangle.union`].
+/// 
+/// The `cairo_region_t` type provided by Cairo is usually used for managing
+/// non-rectangular clipping of graphical operations.
+/// 
+/// The Graphene library has a number of other data types for regions and
+/// volumes in 2D and 3D.
 public struct RectangleRef: RectangleProtocol {
         /// Untyped pointer to the underlying `GdkRectangle` instance.
     /// For type-safe access, use the generated, typed pointer `rectangle_ptr` property instead.
@@ -119,8 +145,21 @@ public extension RectangleRef {
 /// It provides the methods that can operate on this data type through `RectangleProtocol` conformance.
 /// Use `Rectangle` as a strong reference or owner of a `GdkRectangle` instance.
 ///
-/// Defines the position and size of a rectangle. It is identical to
-/// `cairo_rectangle_int_t`.
+/// A `GdkRectangle` data type for representing rectangles.
+/// 
+/// `GdkRectangle` is identical to `cairo_rectangle_t`. Together with Cairo’s
+/// `cairo_region_t` data type, these are the central types for representing
+/// sets of pixels.
+/// 
+/// The intersection of two rectangles can be computed with
+/// [method`Gdk.Rectangle.intersect`]; to find the union of two rectangles use
+/// [method`Gdk.Rectangle.union`].
+/// 
+/// The `cairo_region_t` type provided by Cairo is usually used for managing
+/// non-rectangular clipping of graphical operations.
+/// 
+/// The Graphene library has a number of other data types for regions and
+/// volumes in 2D and 3D.
 open class Rectangle: RectangleProtocol {
         /// Untyped pointer to the underlying `GdkRectangle` instance.
     /// For type-safe access, use the generated, typed pointer `rectangle_ptr` property instead.
@@ -287,21 +326,23 @@ public extension RectangleProtocol {
         return rv
     }
 
-    /// Calculates the intersection of two rectangles. It is allowed for
-    /// `dest` to be the same as either `src1` or `src2`. If the rectangles
-    /// do not intersect, `dest`’s width and height is set to 0 and its x
-    /// and y values are undefined. If you are only interested in whether
-    /// the rectangles intersect, but not in the intersecting area itself,
-    /// pass `nil` for `dest`.
+    /// Calculates the intersection of two rectangles.
+    /// 
+    /// It is allowed for `dest` to be the same as either `src1` or `src2`.
+    /// If the rectangles do not intersect, `dest`’s width and height is set
+    /// to 0 and its x and y values are undefined. If you are only interested
+    /// in whether the rectangles intersect, but not in the intersecting area
+    /// itself, pass `nil` for `dest`.
     @inlinable func intersect<RectangleT: RectangleProtocol>(src2: RectangleT, dest: RectangleT?) -> Bool {
         let rv = ((gdk_rectangle_intersect(rectangle_ptr, src2.rectangle_ptr, dest?.rectangle_ptr)) != 0)
         return rv
     }
 
     /// Calculates the union of two rectangles.
+    /// 
     /// The union of rectangles `src1` and `src2` is the smallest rectangle which
-    /// includes both `src1` and `src2` within it.
-    /// It is allowed for `dest` to be the same as either `src1` or `src2`.
+    /// includes both `src1` and `src2` within it. It is allowed for `dest` to be
+    /// the same as either `src1` or `src2`.
     /// 
     /// Note that this function does not ignore 'empty' rectangles (ie. with
     /// zero width or height).

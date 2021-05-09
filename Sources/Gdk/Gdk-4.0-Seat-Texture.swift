@@ -312,11 +312,9 @@ public extension SeatProtocol {
 }
 
 public enum SeatSignalName: String, SignalNameProtocol {
-    /// The `device-added` signal is emitted when a new input
-    /// device is related to this seat.
+    /// Emitted when a new input device is related to this seat.
     case deviceAdded = "device-added"
-    /// The `device-removed` signal is emitted when an
-    /// input device is removed (e.g. unplugged).
+    /// Emitted when an input device is removed (e.g. unplugged).
     case deviceRemoved = "device-removed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -343,15 +341,15 @@ public enum SeatSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool-added` signal is emitted whenever a new tool
-    /// is made known to the seat. The tool may later be assigned
-    /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice::tool-changed` signal accordingly.
+    /// Emitted whenever a new tool is made known to the seat.
+    /// 
+    /// The tool may later be assigned to a device (i.e. on
+    /// proximity with a tablet). The device will emit the
+    /// [signalGdkDevice`tool-changed`] signal accordingly.
     /// 
     /// A same tool may be used by several devices.
     case toolAdded = "tool-added"
-    /// This signal is emitted whenever a tool is no longer known
-    /// to this `seat`.
+    /// Emitted whenever a tool is no longer known to this `seat`.
     case toolRemoved = "tool-removed"
     /// `GdkDisplay` of this seat.
     case notifyDisplay = "notify::display"
@@ -385,8 +383,7 @@ public extension SeatProtocol {
     }
     
     
-    /// The `device-added` signal is emitted when a new input
-    /// device is related to this seat.
+    /// Emitted when a new input device is related to this seat.
     /// - Note: This represents the underlying `device-added` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -412,8 +409,7 @@ public extension SeatProtocol {
     /// Typed `device-added` signal for using the `connect(signal:)` methods
     static var deviceAddedSignal: SeatSignalName { .deviceAdded }
     
-    /// The `device-removed` signal is emitted when an
-    /// input device is removed (e.g. unplugged).
+    /// Emitted when an input device is removed (e.g. unplugged).
     /// - Note: This represents the underlying `device-removed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -439,10 +435,11 @@ public extension SeatProtocol {
     /// Typed `device-removed` signal for using the `connect(signal:)` methods
     static var deviceRemovedSignal: SeatSignalName { .deviceRemoved }
     
-    /// The `tool-added` signal is emitted whenever a new tool
-    /// is made known to the seat. The tool may later be assigned
-    /// to a device (i.e. on proximity with a tablet). The device
-    /// will emit the `GdkDevice::tool-changed` signal accordingly.
+    /// Emitted whenever a new tool is made known to the seat.
+    /// 
+    /// The tool may later be assigned to a device (i.e. on
+    /// proximity with a tablet). The device will emit the
+    /// [signalGdkDevice`tool-changed`] signal accordingly.
     /// 
     /// A same tool may be used by several devices.
     /// - Note: This represents the underlying `tool-added` signal
@@ -470,8 +467,7 @@ public extension SeatProtocol {
     /// Typed `tool-added` signal for using the `connect(signal:)` methods
     static var toolAddedSignal: SeatSignalName { .toolAdded }
     
-    /// This signal is emitted whenever a tool is no longer known
-    /// to this `seat`.
+    /// Emitted whenever a tool is no longer known to this `seat`.
     /// - Note: This represents the underlying `tool-removed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -583,8 +579,7 @@ public extension SeatProtocol {
         return rv
     }
 
-    /// Returns all `GdkDeviceTools` that are known to the
-    /// application.
+    /// Returns all `GdkDeviceTools` that are known to the application.
     @inlinable func getTools() -> GLib.ListRef! {
         let rv = GLib.ListRef(gdk_seat_get_tools(seat_ptr))
         return rv
@@ -625,11 +620,9 @@ public extension SeatProtocol {
         }
     }
 
-    /// Returns all `GdkDeviceTools` that are known to the
-    /// application.
+    /// Returns all `GdkDeviceTools` that are known to the application.
     @inlinable var tools: GLib.ListRef! {
-        /// Returns all `GdkDeviceTools` that are known to the
-        /// application.
+        /// Returns all `GdkDeviceTools` that are known to the application.
         get {
             let rv = GLib.ListRef(gdk_seat_get_tools(seat_ptr))
             return rv
@@ -655,6 +648,8 @@ public extension SeatProtocol {
 /// Alternatively, use `SnapshotRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Base type for snapshot operations.
+/// 
+/// The subclass of `GdkSnapshot` used by GTK is [class`Gtk.Snapshot`].
 public protocol SnapshotProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkSnapshot` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -671,6 +666,8 @@ public protocol SnapshotProtocol: GLibObject.ObjectProtocol {
 /// Use `SnapshotRef` only as an `unowned` reference to an existing `GdkSnapshot` instance.
 ///
 /// Base type for snapshot operations.
+/// 
+/// The subclass of `GdkSnapshot` used by GTK is [class`Gtk.Snapshot`].
 public struct SnapshotRef: SnapshotProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkSnapshot` instance.
     /// For type-safe access, use the generated, typed pointer `snapshot_ptr` property instead.
@@ -757,6 +754,8 @@ public extension SnapshotRef {
 /// Use `Snapshot` as a strong reference or owner of a `GdkSnapshot` instance.
 ///
 /// Base type for snapshot operations.
+/// 
+/// The subclass of `GdkSnapshot` used by GTK is [class`Gtk.Snapshot`].
 open class Snapshot: GLibObject.Object, SnapshotProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -936,15 +935,15 @@ public extension SnapshotProtocol {
 /// For a concrete class that implements these methods and properties, see `Surface`.
 /// Alternatively, use `SurfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkSurface` is a (usually) rectangular region on the screen.
-/// It’s a low-level object, used to implement high-level objects
-/// such as `GtkWindow` or `GtkDialog` in GTK.
+/// A `GdkSurface` is a rectangular region on the screen.
 /// 
-/// The surfaces you see in practice are either `GdkToplevel` or
-/// `GdkPopup`, and those interfaces provide much of the required
-/// API to interact with these surfaces. Other, more specialized
-/// surface types exist, but you will rarely interact with them
-/// directly.
+/// It’s a low-level object, used to implement high-level objects
+/// such as [class`Gtk.Window`] or [class`Gtk.Dialog`] in GTK.
+/// 
+/// The surfaces you see in practice are either [class`Gdk.Toplevel`] or
+/// [class`Gdk.Popup`], and those interfaces provide much of the required
+/// API to interact with these surfaces. Other, more specialized surface
+/// types exist, but you will rarely interact with them directly.
 public protocol SurfaceProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkSurface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -960,15 +959,15 @@ public protocol SurfaceProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `SurfaceProtocol` conformance.
 /// Use `SurfaceRef` only as an `unowned` reference to an existing `GdkSurface` instance.
 ///
-/// A `GdkSurface` is a (usually) rectangular region on the screen.
-/// It’s a low-level object, used to implement high-level objects
-/// such as `GtkWindow` or `GtkDialog` in GTK.
+/// A `GdkSurface` is a rectangular region on the screen.
 /// 
-/// The surfaces you see in practice are either `GdkToplevel` or
-/// `GdkPopup`, and those interfaces provide much of the required
-/// API to interact with these surfaces. Other, more specialized
-/// surface types exist, but you will rarely interact with them
-/// directly.
+/// It’s a low-level object, used to implement high-level objects
+/// such as [class`Gtk.Window`] or [class`Gtk.Dialog`] in GTK.
+/// 
+/// The surfaces you see in practice are either [class`Gdk.Toplevel`] or
+/// [class`Gdk.Popup`], and those interfaces provide much of the required
+/// API to interact with these surfaces. Other, more specialized surface
+/// types exist, but you will rarely interact with them directly.
 public struct SurfaceRef: SurfaceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkSurface` instance.
     /// For type-safe access, use the generated, typed pointer `surface_ptr` property instead.
@@ -1064,15 +1063,15 @@ public extension SurfaceRef {
 /// It provides the methods that can operate on this data type through `SurfaceProtocol` conformance.
 /// Use `Surface` as a strong reference or owner of a `GdkSurface` instance.
 ///
-/// A `GdkSurface` is a (usually) rectangular region on the screen.
-/// It’s a low-level object, used to implement high-level objects
-/// such as `GtkWindow` or `GtkDialog` in GTK.
+/// A `GdkSurface` is a rectangular region on the screen.
 /// 
-/// The surfaces you see in practice are either `GdkToplevel` or
-/// `GdkPopup`, and those interfaces provide much of the required
-/// API to interact with these surfaces. Other, more specialized
-/// surface types exist, but you will rarely interact with them
-/// directly.
+/// It’s a low-level object, used to implement high-level objects
+/// such as [class`Gtk.Window`] or [class`Gtk.Dialog`] in GTK.
+/// 
+/// The surfaces you see in practice are either [class`Gdk.Toplevel`] or
+/// [class`Gdk.Popup`], and those interfaces provide much of the required
+/// API to interact with these surfaces. Other, more specialized surface
+/// types exist, but you will rarely interact with them directly.
 open class Surface: GLibObject.Object, SurfaceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1215,15 +1214,19 @@ open class Surface: GLibObject.Object, SurfaceProtocol {
 }
 
 public enum SurfacePropertyName: String, PropertyNameProtocol {
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case cursor = "cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case display = "display"
+    /// The `GdkFrameClock` of the surface.
     case frameClock = "frame-clock"
+    /// The height of the surface, in pixels.
     case height = "height"
+    /// Whether the surface is mapped.
     case mapped = "mapped"
+    /// The scale factor of the surface.
+    case scaleFactor = "scale-factor"
+    /// The width of the surface in pixels.
     case width = "width"
 }
 
@@ -1320,15 +1323,19 @@ public enum SurfaceSignalName: String, SignalNameProtocol {
     case notify = "notify"
     /// Emitted when part of the surface needs to be redrawn.
     case render = "render"
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case notifyCursor = "notify::cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case notifyDisplay = "notify::display"
+    /// The `GdkFrameClock` of the surface.
     case notifyFrameClock = "notify::frame-clock"
+    /// The height of the surface, in pixels.
     case notifyHeight = "notify::height"
+    /// Whether the surface is mapped.
     case notifyMapped = "notify::mapped"
+    /// The scale factor of the surface.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// The width of the surface in pixels.
     case notifyWidth = "notify::width"
 }
 
@@ -1764,6 +1771,55 @@ public extension SurfaceProtocol {
     /// It is important to note that you must use
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::scale-factor` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyScaleFactor` signal is emitted
+    @discardableResult @inlinable func onNotifyScaleFactor(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: SurfaceRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<SurfaceRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(SurfaceRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyScaleFactor,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::scale-factor` signal for using the `connect(signal:)` methods
+    static var notifyScaleFactorSignal: SurfaceSignalName { .notifyScaleFactor }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
     /// - Note: This represents the underlying `notify::width` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1796,9 +1852,10 @@ public extension SurfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkSurface` instance.
     @inlinable var surface_ptr: UnsafeMutablePointer<GdkSurface>! { return ptr?.assumingMemoryBound(to: GdkSurface.self) }
 
-    /// Emits a short beep associated to `surface` in the appropriate
-    /// display, if supported. Otherwise, emits a short beep on
-    /// the display just as `gdk_display_beep()`.
+    /// Emits a short beep associated to `surface`.
+    /// 
+    /// If the display of `surface` does not support per-surface beeps,
+    /// emits a short beep on the display just as [method`Gdk.Display.beep`].
     @inlinable func beep() {
         gdk_surface_beep(surface_ptr)
     
@@ -1810,14 +1867,12 @@ public extension SurfaceProtocol {
         return rv
     }
 
-    /// Creates a new `GdkGLContext` matching the
-    /// framebuffer format to the visual of the `GdkSurface`. The context
-    /// is disconnected from any particular surface or surface.
+    /// Creates a new `GdkGLContext` for the `GdkSurface`.
     /// 
+    /// The context is disconnected from any particular surface or surface.
     /// If the creation of the `GdkGLContext` failed, `error` will be set.
-    /// 
     /// Before using the returned `GdkGLContext`, you will need to
-    /// call `gdk_gl_context_make_current()` or `gdk_gl_context_realize()`.
+    /// call [method`Gdk.GLContext.make_current`] or [method`Gdk.GLContext.realize`].
     @inlinable func createGlContext() throws -> GLContextRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GLContextRef(gconstpointer: gconstpointer(gdk_surface_create_gl_context(surface_ptr, &error)))
@@ -1825,15 +1880,21 @@ public extension SurfaceProtocol {
         return rv
     }
 
-    /// Create a new surface that is as compatible as possible with the
-    /// given `surface`. For example the new surface will have the same
-    /// fallback resolution and font options as `surface`. Generally, the new
-    /// surface will also use the same backend as `surface`, unless that is
-    /// not possible for some reason. The type of the returned surface may
-    /// be examined with `cairo_surface_get_type()`.
+    /// Create a new Cairo surface that is as compatible as possible with the
+    /// given `surface`.
+    /// 
+    /// For example the new surface will have the same fallback resolution
+    /// and font options as `surface`. Generally, the new surface will also
+    /// use the same backend as `surface`, unless that is not possible for
+    /// some reason. The type of the returned surface may be examined with
+    /// `cairo_surface_get_type()`.
     /// 
     /// Initially the surface contents are all 0 (transparent if contents
     /// have transparency, black otherwise.)
+    /// 
+    /// This function always returns a valid pointer, but it will return a
+    /// pointer to a “nil” surface if `other` is already in an error state
+    /// or any other error occurs.
     @inlinable func createSimilarSurface(content: cairo_content_t, width: Int, height: Int) -> Cairo.SurfaceRef! {
         let rv = Cairo.SurfaceRef(gdk_surface_create_similar_surface(surface_ptr, content, gint(width), gint(height)))
         return rv
@@ -1849,38 +1910,44 @@ public extension SurfaceProtocol {
         return rv
     }
 
-    /// Destroys the window system resources associated with `surface` and decrements `surface`'s
-    /// reference count. The window system resources for all children of `surface` are also
+    /// Destroys the window system resources associated with `surface` and
+    /// decrements `surface`'s reference count.
+    /// 
+    /// The window system resources for all children of `surface` are also
     /// destroyed, but the children’s reference counts are not decremented.
     /// 
-    /// Note that a surface will not be destroyed automatically when its reference count
-    /// reaches zero. You must call this function yourself before that happens.
+    /// Note that a surface will not be destroyed automatically when its
+    /// reference count reaches zero. You must call this function yourself
+    /// before that happens.
     @inlinable func destroy() {
         gdk_surface_destroy(surface_ptr)
     
     }
 
     /// Retrieves a `GdkCursor` pointer for the cursor currently set on the
-    /// specified `GdkSurface`, or `nil`.  If the return value is `nil` then
-    /// there is no custom cursor set on the specified surface, and it is
-    /// using the cursor for its parent surface.
+    /// `GdkSurface`.
+    /// 
+    /// If the return value is `nil` then there is no custom cursor set on
+    /// the surface, and it is using the cursor for its parent surface.
     @inlinable func getCursor() -> CursorRef! {
         let rv = CursorRef(gconstpointer: gconstpointer(gdk_surface_get_cursor(surface_ptr)))
         return rv
     }
 
     /// Retrieves a `GdkCursor` pointer for the `device` currently set on the
-    /// specified `GdkSurface`, or `nil`.  If the return value is `nil` then
-    /// there is no custom cursor set on the specified surface, and it is
-    /// using the cursor for its parent surface.
+    /// specified `GdkSurface`.
+    /// 
+    /// If the return value is `nil` then there is no custom cursor set on the
+    /// specified surface, and it is using the cursor for its parent surface.
     @inlinable func getDeviceCursor<DeviceT: DeviceProtocol>(device: DeviceT) -> CursorRef! {
         let rv = CursorRef(gconstpointer: gconstpointer(gdk_surface_get_device_cursor(surface_ptr, device.device_ptr)))
         return rv
     }
 
-    /// Obtains the current device position in doubles and modifier state.
-    /// The position is given in coordinates relative to the upper left
-    /// corner of `surface`.
+    /// Obtains the current device position and modifier state.
+    /// 
+    /// The position is given in coordinates relative to the upper
+    /// left corner of `surface`.
     @inlinable func getDevicePosition<DeviceT: DeviceProtocol>(device: DeviceT, x: UnsafeMutablePointer<CDouble>! = nil, y: UnsafeMutablePointer<CDouble>! = nil, mask: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
         let rv = ((gdk_surface_get_device_position(surface_ptr, device.device_ptr, x, y, mask)) != 0)
         return rv
@@ -1892,9 +1959,10 @@ public extension SurfaceProtocol {
         return rv
     }
 
-    /// Gets the frame clock for the surface. The frame clock for a surface
-    /// never changes unless the surface is reparented to a new toplevel
-    /// surface.
+    /// Gets the frame clock for the surface.
+    /// 
+    /// The frame clock for a surface never changes unless the surface is
+    /// reparented to a new toplevel surface.
     @inlinable func getFrameClock() -> FrameClockRef! {
         let rv = FrameClockRef(gconstpointer: gconstpointer(gdk_surface_get_frame_clock(surface_ptr)))
         return rv
@@ -1903,31 +1971,32 @@ public extension SurfaceProtocol {
     /// Returns the height of the given `surface`.
     /// 
     /// Surface size is reported in ”application pixels”, not
-    /// ”device pixels” (see `gdk_surface_get_scale_factor()`).
+    /// ”device pixels” (see [method`Gdk.Surface.get_scale_factor`]).
     @inlinable func getHeight() -> Int {
         let rv = Int(gdk_surface_get_height(surface_ptr))
         return rv
     }
 
-    /// Checks whether the surface has been mapped (with `gdk_toplevel_present()`
-    /// or `gdk_popup_present()`).
+    /// Checks whether the surface has been mapped.
+    /// 
+    /// A surface is mapped with [method`Gdk.Toplevel.present`]
+    /// or [method`Gdk.Popup.present`].
     @inlinable func getMapped() -> Bool {
         let rv = ((gdk_surface_get_mapped(surface_ptr)) != 0)
         return rv
     }
 
     /// Returns the internal scale factor that maps from surface coordinates
-    /// to the actual device pixels. On traditional systems this is 1, but
-    /// on very high density outputs this can be a higher value (often 2).
+    /// to the actual device pixels.
     /// 
-    /// A higher value means that drawing is automatically scaled up to
-    /// a higher resolution, so any code doing drawing will automatically look
-    /// nicer. However, if you are supplying pixel-based data the scale
-    /// value can be used to determine whether to use a pixel resource
-    /// with higher resolution data.
+    /// On traditional systems this is 1, but on very high density outputs
+    /// this can be a higher value (often 2). A higher value means that drawing
+    /// is automatically scaled up to a higher resolution, so any code doing
+    /// drawing will automatically look nicer. However, if you are supplying
+    /// pixel-based data the scale value can be used to determine whether to
+    /// use a pixel resource with higher resolution data.
     /// 
-    /// The scale of a surface may change during runtime, if this happens
-    /// a configure event will be sent to the toplevel surface.
+    /// The scale of a surface may change during runtime.
     @inlinable func getScaleFactor() -> Int {
         let rv = Int(gdk_surface_get_scale_factor(surface_ptr))
         return rv
@@ -1936,22 +2005,24 @@ public extension SurfaceProtocol {
     /// Returns the width of the given `surface`.
     /// 
     /// Surface size is reported in ”application pixels”, not
-    /// ”device pixels” (see `gdk_surface_get_scale_factor()`).
+    /// ”device pixels” (see [method`Gdk.Surface.get_scale_factor`]).
     @inlinable func getWidth() -> Int {
         let rv = Int(gdk_surface_get_width(surface_ptr))
         return rv
     }
 
+    /// Hide the surface.
+    /// 
     /// For toplevel surfaces, withdraws them, so they will no longer be
     /// known to the window manager; for all surfaces, unmaps them, so
     /// they won’t be displayed. Normally done automatically as
-    /// part of `gtk_widget_hide()`.
+    /// part of [method`Gtk.Widget.hide`].
     @inlinable func hide() {
         gdk_surface_hide(surface_ptr)
     
     }
 
-    /// Forces a `GdkSurface::render` signal emission for `surface`
+    /// Forces a [signal`Gdk.Surface::render`] signal emission for `surface`
     /// to be scheduled.
     /// 
     /// This function is useful for implementations that track invalid
@@ -1961,8 +2032,9 @@ public extension SurfaceProtocol {
     
     }
 
-    /// Request a `GDK_FRAME_CLOCK_PHASE_LAYOUT` from the surface's
-    /// frame clock. See `gdk_frame_clock_request_phase()`.
+    /// Request a layout phase from the surface's frame clock.
+    /// 
+    /// See [method`Gdk.FrameClock.request_phase`].
     @inlinable func requestLayout() {
         gdk_surface_request_layout(surface_ptr)
     
@@ -1970,60 +2042,62 @@ public extension SurfaceProtocol {
 
     /// Sets the default mouse pointer for a `GdkSurface`.
     /// 
+    /// Passing `nil` for the `cursor` argument means that `surface` will use
+    /// the cursor of its parent surface. Most surfaces should use this default.
     /// Note that `cursor` must be for the same display as `surface`.
     /// 
-    /// Use `gdk_cursor_new_from_name()` or `gdk_cursor_new_from_texture()` to
-    /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
-    /// Passing `nil` for the `cursor` argument to `gdk_surface_set_cursor()` means
-    /// that `surface` will use the cursor of its parent surface. Most surfaces
-    /// should use this default.
+    /// Use [ctor`Gdk.Cursor.new_from_name`] or [ctor`Gdk.Cursor.new_from_texture`]
+    /// to create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
     @inlinable func set(cursor: CursorRef? = nil) {
         gdk_surface_set_cursor(surface_ptr, cursor?.cursor_ptr)
     
     }
     /// Sets the default mouse pointer for a `GdkSurface`.
     /// 
+    /// Passing `nil` for the `cursor` argument means that `surface` will use
+    /// the cursor of its parent surface. Most surfaces should use this default.
     /// Note that `cursor` must be for the same display as `surface`.
     /// 
-    /// Use `gdk_cursor_new_from_name()` or `gdk_cursor_new_from_texture()` to
-    /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
-    /// Passing `nil` for the `cursor` argument to `gdk_surface_set_cursor()` means
-    /// that `surface` will use the cursor of its parent surface. Most surfaces
-    /// should use this default.
+    /// Use [ctor`Gdk.Cursor.new_from_name`] or [ctor`Gdk.Cursor.new_from_texture`]
+    /// to create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
     @inlinable func set<CursorT: CursorProtocol>(cursor: CursorT?) {
         gdk_surface_set_cursor(surface_ptr, cursor?.cursor_ptr)
     
     }
 
     /// Sets a specific `GdkCursor` for a given device when it gets inside `surface`.
-    /// Use `gdk_cursor_new_from_name()` or `gdk_cursor_new_from_texture()` to create
-    /// the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`. Passing
-    /// `nil` for the `cursor` argument to `gdk_surface_set_cursor()` means that
-    /// `surface` will use the cursor of its parent surface. Most surfaces should
-    /// use this default.
+    /// 
+    /// Passing `nil` for the `cursor` argument means that `surface` will use the
+    /// cursor of its parent surface. Most surfaces should use this default.
+    /// 
+    /// Use [ctor`Gdk.Cursor.new_from_name`] or [ctor`Gdk.Cursor.new_from_texture`]
+    /// to create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
     @inlinable func setDeviceCursor<CursorT: CursorProtocol, DeviceT: DeviceProtocol>(device: DeviceT, cursor: CursorT) {
         gdk_surface_set_device_cursor(surface_ptr, device.device_ptr, cursor.cursor_ptr)
     
     }
 
     /// Apply the region to the surface for the purpose of event
-    /// handling. Mouse events which happen while the pointer position
-    /// corresponds to an unset bit in the mask will be passed on the
-    /// surface below `surface`.
+    /// handling.
     /// 
-    /// An input region is typically used with RGBA surfaces.
-    /// The alpha channel of the surface defines which pixels are
-    /// invisible and allows for nicely antialiased borders,
-    /// and the input region controls where the surface is
-    /// “clickable”.
+    /// Mouse events which happen while the pointer position corresponds
+    /// to an unset bit in the mask will be passed on the surface below
+    /// `surface`.
     /// 
-    /// Use `gdk_display_supports_input_shapes()` to find out if
+    /// An input region is typically used with RGBA surfaces. The alpha
+    /// channel of the surface defines which pixels are invisible and
+    /// allows for nicely antialiased borders, and the input region
+    /// controls where the surface is “clickable”.
+    /// 
+    /// Use [method`Gdk.Display.supports_input_shapes`] to find out if
     /// a particular backend supports input regions.
     @inlinable func setInput<RegionT: Cairo.RegionProtocol>(region: RegionT) {
         gdk_surface_set_input_region(surface_ptr, region._ptr)
     
     }
 
+    /// Marks a region of the `GdkSurface` as opaque.
+    /// 
     /// For optimisation purposes, compositing window managers may
     /// like to not draw obscured regions of surfaces, or turn off blending
     /// during for these regions. With RGB windows with no transparency,
@@ -2033,14 +2107,16 @@ public extension SurfaceProtocol {
     /// 
     /// This function only works for toplevel surfaces.
     /// 
-    /// GTK will update this property automatically if
-    /// the `surface` background is opaque, as we know where the opaque regions
-    /// are. If your surface background is not opaque, please update this
-    /// property in your `GtkWidgetClass.css_changed``()` handler.
+    /// GTK will update this property automatically if the `surface` background
+    /// is opaque, as we know where the opaque regions are. If your surface
+    /// background is not opaque, please update this property in your
+    /// `GtkWidgetClass.css_changed``()` handler.
     @inlinable func setOpaque(region: Cairo.RegionRef? = nil) {
         gdk_surface_set_opaque_region(surface_ptr, region?._ptr)
     
     }
+    /// Marks a region of the `GdkSurface` as opaque.
+    /// 
     /// For optimisation purposes, compositing window managers may
     /// like to not draw obscured regions of surfaces, or turn off blending
     /// during for these regions. With RGB windows with no transparency,
@@ -2050,34 +2126,33 @@ public extension SurfaceProtocol {
     /// 
     /// This function only works for toplevel surfaces.
     /// 
-    /// GTK will update this property automatically if
-    /// the `surface` background is opaque, as we know where the opaque regions
-    /// are. If your surface background is not opaque, please update this
-    /// property in your `GtkWidgetClass.css_changed``()` handler.
+    /// GTK will update this property automatically if the `surface` background
+    /// is opaque, as we know where the opaque regions are. If your surface
+    /// background is not opaque, please update this property in your
+    /// `GtkWidgetClass.css_changed``()` handler.
     @inlinable func setOpaque<RegionT: Cairo.RegionProtocol>(region: RegionT?) {
         gdk_surface_set_opaque_region(surface_ptr, region?._ptr)
     
     }
 
-    /// Translates the given coordinates from being
-    /// relative to the `from` surface to being relative
-    /// to the `to` surface.
+    /// Translates coordinates between two surfaces.
     /// 
-    /// Note that this only works if `to` and `from` are
-    /// popups or transient-for to the same toplevel
-    /// (directly or indirectly).
+    /// Note that this only works if `to` and `from` are popups or
+    /// transient-for to the same toplevel (directly or indirectly).
     @inlinable func translateCoordinates<SurfaceT: SurfaceProtocol>(to: SurfaceT, x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_surface_translate_coordinates(surface_ptr, to.surface_ptr, x, y)) != 0)
         return rv
     }
 
-    /// This is the main way to draw GL content in GTK. It takes a render buffer ID
-    /// (`source_type` == `GL_RENDERBUFFER`) or a texture id (`source_type` == `GL_TEXTURE`)
-    /// and draws it onto `cr` with an OVER operation, respecting the current clip.
-    /// The top left corner of the rectangle specified by `x`, `y`, `width` and `height`
-    /// will be drawn at the current (0,0) position of the cairo_t.
+    /// The main way to draw GL content in GTK.
     /// 
-    /// This will work for *all* cairo_t, as long as `surface` is realized, but the
+    /// It takes a render buffer ID (`source_type` == `GL_RENDERBUFFER`) or a texture
+    /// id (`source_type` == `GL_TEXTURE`) and draws it onto `cr` with an OVER operation,
+    /// respecting the current clip. The top left corner of the rectangle specified
+    /// by `x`, `y`, `width` and `height` will be drawn at the current (0,0) position of
+    /// the `cairo_t`.
+    /// 
+    /// This will work for *all* `cairo_t`, as long as `surface` is realized, but the
     /// fallback implementation that reads back the pixels from the buffer may be
     /// used in the general case. In the case of direct drawing to a surface with
     /// no special effects applied to `cr` it will however use a more efficient
@@ -2091,33 +2166,31 @@ public extension SurfaceProtocol {
         gdk_cairo_draw_from_gl(cr._ptr, surface_ptr, gint(source), gint(sourceType), gint(bufferScale), gint(x), gint(y), gint(width), gint(height))
     
     }
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     @inlinable var cursor: CursorRef! {
         /// Retrieves a `GdkCursor` pointer for the cursor currently set on the
-        /// specified `GdkSurface`, or `nil`.  If the return value is `nil` then
-        /// there is no custom cursor set on the specified surface, and it is
-        /// using the cursor for its parent surface.
+        /// `GdkSurface`.
+        /// 
+        /// If the return value is `nil` then there is no custom cursor set on
+        /// the surface, and it is using the cursor for its parent surface.
         get {
             let rv = CursorRef(gconstpointer: gconstpointer(gdk_surface_get_cursor(surface_ptr)))
             return rv
         }
         /// Sets the default mouse pointer for a `GdkSurface`.
         /// 
+        /// Passing `nil` for the `cursor` argument means that `surface` will use
+        /// the cursor of its parent surface. Most surfaces should use this default.
         /// Note that `cursor` must be for the same display as `surface`.
         /// 
-        /// Use `gdk_cursor_new_from_name()` or `gdk_cursor_new_from_texture()` to
-        /// create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
-        /// Passing `nil` for the `cursor` argument to `gdk_surface_set_cursor()` means
-        /// that `surface` will use the cursor of its parent surface. Most surfaces
-        /// should use this default.
+        /// Use [ctor`Gdk.Cursor.new_from_name`] or [ctor`Gdk.Cursor.new_from_texture`]
+        /// to create the cursor. To make the cursor invisible, use `GDK_BLANK_CURSOR`.
         nonmutating set {
             gdk_surface_set_cursor(surface_ptr, UnsafeMutablePointer<GdkCursor>(newValue?.cursor_ptr))
         }
     }
 
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     @inlinable var display: DisplayRef! {
         /// Gets the `GdkDisplay` associated with a `GdkSurface`.
         get {
@@ -2126,42 +2199,48 @@ public extension SurfaceProtocol {
         }
     }
 
-    /// Gets the frame clock for the surface. The frame clock for a surface
-    /// never changes unless the surface is reparented to a new toplevel
-    /// surface.
+    /// Gets the frame clock for the surface.
+    /// 
+    /// The frame clock for a surface never changes unless the surface is
+    /// reparented to a new toplevel surface.
     @inlinable var frameClock: FrameClockRef! {
-        /// Gets the frame clock for the surface. The frame clock for a surface
-        /// never changes unless the surface is reparented to a new toplevel
-        /// surface.
+        /// Gets the frame clock for the surface.
+        /// 
+        /// The frame clock for a surface never changes unless the surface is
+        /// reparented to a new toplevel surface.
         get {
             let rv = FrameClockRef(gconstpointer: gconstpointer(gdk_surface_get_frame_clock(surface_ptr)))
             return rv
         }
     }
 
+    /// The height of the surface, in pixels.
     @inlinable var height: Int {
         /// Returns the height of the given `surface`.
         /// 
         /// Surface size is reported in ”application pixels”, not
-        /// ”device pixels” (see `gdk_surface_get_scale_factor()`).
+        /// ”device pixels” (see [method`Gdk.Surface.get_scale_factor`]).
         get {
             let rv = Int(gdk_surface_get_height(surface_ptr))
             return rv
         }
     }
 
-    /// Check to see if a surface is destroyed..
+    /// Check to see if a surface is destroyed.
     @inlinable var isDestroyed: Bool {
-        /// Check to see if a surface is destroyed..
+        /// Check to see if a surface is destroyed.
         get {
             let rv = ((gdk_surface_is_destroyed(surface_ptr)) != 0)
             return rv
         }
     }
 
+    /// Whether the surface is mapped.
     @inlinable var mapped: Bool {
-        /// Checks whether the surface has been mapped (with `gdk_toplevel_present()`
-        /// or `gdk_popup_present()`).
+        /// Checks whether the surface has been mapped.
+        /// 
+        /// A surface is mapped with [method`Gdk.Toplevel.present`]
+        /// or [method`Gdk.Popup.present`].
         get {
             let rv = ((gdk_surface_get_mapped(surface_ptr)) != 0)
             return rv
@@ -2169,41 +2248,40 @@ public extension SurfaceProtocol {
     }
 
     /// Returns the internal scale factor that maps from surface coordinates
-    /// to the actual device pixels. On traditional systems this is 1, but
-    /// on very high density outputs this can be a higher value (often 2).
+    /// to the actual device pixels.
     /// 
-    /// A higher value means that drawing is automatically scaled up to
-    /// a higher resolution, so any code doing drawing will automatically look
-    /// nicer. However, if you are supplying pixel-based data the scale
-    /// value can be used to determine whether to use a pixel resource
-    /// with higher resolution data.
+    /// On traditional systems this is 1, but on very high density outputs
+    /// this can be a higher value (often 2). A higher value means that drawing
+    /// is automatically scaled up to a higher resolution, so any code doing
+    /// drawing will automatically look nicer. However, if you are supplying
+    /// pixel-based data the scale value can be used to determine whether to
+    /// use a pixel resource with higher resolution data.
     /// 
-    /// The scale of a surface may change during runtime, if this happens
-    /// a configure event will be sent to the toplevel surface.
+    /// The scale of a surface may change during runtime.
     @inlinable var scaleFactor: Int {
         /// Returns the internal scale factor that maps from surface coordinates
-        /// to the actual device pixels. On traditional systems this is 1, but
-        /// on very high density outputs this can be a higher value (often 2).
+        /// to the actual device pixels.
         /// 
-        /// A higher value means that drawing is automatically scaled up to
-        /// a higher resolution, so any code doing drawing will automatically look
-        /// nicer. However, if you are supplying pixel-based data the scale
-        /// value can be used to determine whether to use a pixel resource
-        /// with higher resolution data.
+        /// On traditional systems this is 1, but on very high density outputs
+        /// this can be a higher value (often 2). A higher value means that drawing
+        /// is automatically scaled up to a higher resolution, so any code doing
+        /// drawing will automatically look nicer. However, if you are supplying
+        /// pixel-based data the scale value can be used to determine whether to
+        /// use a pixel resource with higher resolution data.
         /// 
-        /// The scale of a surface may change during runtime, if this happens
-        /// a configure event will be sent to the toplevel surface.
+        /// The scale of a surface may change during runtime.
         get {
             let rv = Int(gdk_surface_get_scale_factor(surface_ptr))
             return rv
         }
     }
 
+    /// The width of the surface in pixels.
     @inlinable var width: Int {
         /// Returns the width of the given `surface`.
         /// 
         /// Surface size is reported in ”application pixels”, not
-        /// ”device pixels” (see `gdk_surface_get_scale_factor()`).
+        /// ”device pixels” (see [method`Gdk.Surface.get_scale_factor`]).
         get {
             let rv = Int(gdk_surface_get_width(surface_ptr))
             return rv
@@ -2222,7 +2300,21 @@ public extension SurfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `Texture`.
 /// Alternatively, use `TextureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GdkTexture` structure contains only private data.
+/// `GdkTexture` is the basic element used to refer to pixel data.
+/// 
+/// It is primarily meant for pixel data that will not change over
+/// multiple frames, and will be used for a long time.
+/// 
+/// There are various ways to create `GdkTexture` objects from a
+/// `GdkPixbuf`, or a Cairo surface, or other pixel data.
+/// 
+/// The ownership of the pixel data is transferred to the `GdkTexture`
+/// instance; you can only make a copy of it, via
+/// [method`Gdk.Texture.download`].
+/// 
+/// `GdkTexture` is an immutable object: That means you cannot change
+/// anything about it other than increasing the reference count via
+/// `g_object_ref()`.
 public protocol TextureProtocol: GLibObject.ObjectProtocol, PaintableProtocol {
         /// Untyped pointer to the underlying `GdkTexture` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2238,7 +2330,21 @@ public protocol TextureProtocol: GLibObject.ObjectProtocol, PaintableProtocol {
 /// It exposes methods that can operate on this data type through `TextureProtocol` conformance.
 /// Use `TextureRef` only as an `unowned` reference to an existing `GdkTexture` instance.
 ///
-/// The `GdkTexture` structure contains only private data.
+/// `GdkTexture` is the basic element used to refer to pixel data.
+/// 
+/// It is primarily meant for pixel data that will not change over
+/// multiple frames, and will be used for a long time.
+/// 
+/// There are various ways to create `GdkTexture` objects from a
+/// `GdkPixbuf`, or a Cairo surface, or other pixel data.
+/// 
+/// The ownership of the pixel data is transferred to the `GdkTexture`
+/// instance; you can only make a copy of it, via
+/// [method`Gdk.Texture.download`].
+/// 
+/// `GdkTexture` is an immutable object: That means you cannot change
+/// anything about it other than increasing the reference count via
+/// `g_object_ref()`.
 public struct TextureRef: TextureProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkTexture` instance.
     /// For type-safe access, use the generated, typed pointer `texture_ptr` property instead.
@@ -2325,9 +2431,9 @@ public extension TextureRef {
     }
 
     /// Creates a new texture by loading an image from a file.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// If `nil` is returned, then `error` will be set.
     @inlinable init<FileT: GIO.FileProtocol>(file: FileT) throws {
@@ -2338,14 +2444,14 @@ public extension TextureRef {
     }
 
     /// Creates a new texture by loading an image from a resource.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// It is a fatal error if `resource_path` does not specify a valid
     /// image resource and the program will abort if that happens.
     /// If you are unsure about the validity of a resource, use
-    /// `gdk_texture_new_from_file()` to load it.
+    /// [ctor`Gdk.Texture.new_from_file`] to load it.
     @inlinable init(resource resourcePath: UnsafePointer<CChar>!) {
         let rv = gdk_texture_new_from_resource(resourcePath)
         ptr = UnsafeMutableRawPointer(rv)
@@ -2357,9 +2463,9 @@ public extension TextureRef {
     }
 
     /// Creates a new texture by loading an image from a file.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// If `nil` is returned, then `error` will be set.
     @inlinable static func newFrom<FileT: GIO.FileProtocol>(file: FileT) throws -> TextureRef! {
@@ -2371,14 +2477,14 @@ public extension TextureRef {
     }
 
     /// Creates a new texture by loading an image from a resource.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// It is a fatal error if `resource_path` does not specify a valid
     /// image resource and the program will abort if that happens.
     /// If you are unsure about the validity of a resource, use
-    /// `gdk_texture_new_from_file()` to load it.
+    /// [ctor`Gdk.Texture.new_from_file`] to load it.
     @inlinable static func newFrom(resource resourcePath: UnsafePointer<CChar>!) -> TextureRef! {
         guard let rv = TextureRef(gconstpointer: gconstpointer(gdk_texture_new_from_resource(resourcePath))) else { return nil }
         return rv
@@ -2389,7 +2495,21 @@ public extension TextureRef {
 /// It provides the methods that can operate on this data type through `TextureProtocol` conformance.
 /// Use `Texture` as a strong reference or owner of a `GdkTexture` instance.
 ///
-/// The `GdkTexture` structure contains only private data.
+/// `GdkTexture` is the basic element used to refer to pixel data.
+/// 
+/// It is primarily meant for pixel data that will not change over
+/// multiple frames, and will be used for a long time.
+/// 
+/// There are various ways to create `GdkTexture` objects from a
+/// `GdkPixbuf`, or a Cairo surface, or other pixel data.
+/// 
+/// The ownership of the pixel data is transferred to the `GdkTexture`
+/// instance; you can only make a copy of it, via
+/// [method`Gdk.Texture.download`].
+/// 
+/// `GdkTexture` is an immutable object: That means you cannot change
+/// anything about it other than increasing the reference count via
+/// `g_object_ref()`.
 open class Texture: GLibObject.Object, TextureProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2523,9 +2643,9 @@ open class Texture: GLibObject.Object, TextureProtocol {
     }
 
     /// Creates a new texture by loading an image from a file.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// If `nil` is returned, then `error` will be set.
     @inlinable public init<FileT: GIO.FileProtocol>(file: FileT) throws {
@@ -2537,14 +2657,14 @@ open class Texture: GLibObject.Object, TextureProtocol {
     }
 
     /// Creates a new texture by loading an image from a resource.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// It is a fatal error if `resource_path` does not specify a valid
     /// image resource and the program will abort if that happens.
     /// If you are unsure about the validity of a resource, use
-    /// `gdk_texture_new_from_file()` to load it.
+    /// [ctor`Gdk.Texture.new_from_file`] to load it.
     @inlinable public init(resource resourcePath: UnsafePointer<CChar>!) {
         let rv = gdk_texture_new_from_resource(resourcePath)
         super.init(gpointer: (rv))
@@ -2559,9 +2679,9 @@ open class Texture: GLibObject.Object, TextureProtocol {
     }
 
     /// Creates a new texture by loading an image from a file.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// If `nil` is returned, then `error` will be set.
     @inlinable public static func newFrom<FileT: GIO.FileProtocol>(file: FileT) throws -> Texture! {
@@ -2574,14 +2694,14 @@ open class Texture: GLibObject.Object, TextureProtocol {
     }
 
     /// Creates a new texture by loading an image from a resource.
-    /// The file format is detected automatically, and can be any
-    /// format that is supported by the gdk-pixbuf library, such as
-    /// JPEG or PNG.
+    /// 
+    /// The file format is detected automatically. The supported formats
+    /// are PNG and JPEG, though more formats might be available.
     /// 
     /// It is a fatal error if `resource_path` does not specify a valid
     /// image resource and the program will abort if that happens.
     /// If you are unsure about the validity of a resource, use
-    /// `gdk_texture_new_from_file()` to load it.
+    /// [ctor`Gdk.Texture.new_from_file`] to load it.
     @inlinable public static func newFrom(resource resourcePath: UnsafePointer<CChar>!) -> Texture! {
         guard let rv = Texture(gconstpointer: gconstpointer(gdk_texture_new_from_resource(resourcePath))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -2688,17 +2808,17 @@ public extension TextureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkTexture` instance.
     @inlinable var texture_ptr: UnsafeMutablePointer<GdkTexture>! { return ptr?.assumingMemoryBound(to: GdkTexture.self) }
 
-    /// Downloads the `texture` into local memory. This may be
-    /// an expensive operation, as the actual texture data may
-    /// reside on a GPU or on a remote display server.
+    /// Downloads the `texture` into local memory.
+    /// 
+    /// This may be an expensive operation, as the actual texture data
+    /// may reside on a GPU or on a remote display server.
     /// 
     /// The data format of the downloaded data is equivalent to
     /// `CAIRO_FORMAT_ARGB32`, so every downloaded pixel requires
     /// 4 bytes of memory.
     /// 
     /// Downloading a texture into a Cairo image surface:
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// surface = cairo_image_surface_create (CAIRO_FORMAT_ARGB32,
     ///                                       gdk_texture_get_width (texture),
     ///                                       gdk_texture_get_height (texture));
@@ -2707,7 +2827,6 @@ public extension TextureProtocol {
     ///                       cairo_image_surface_get_stride (surface));
     /// cairo_surface_mark_dirty (surface);
     /// ```
-    /// 
     @inlinable func download(data: UnsafeMutablePointer<guchar>!, stride: Int) {
         gdk_texture_download(texture_ptr, data, gsize(stride))
     
@@ -2736,9 +2855,11 @@ public extension TextureProtocol {
         return rv
     }
 
-    /// Creates a new pixbuf from `texture`. This should generally not be used
-    /// in newly written code as later stages will almost certainly convert
-    /// the pixbuf back into a texture to draw it on screen.
+    /// Creates a new pixbuf from `texture`.
+    /// 
+    /// This should generally not be used in newly written code as later
+    /// stages will almost certainly convert the pixbuf back into a texture
+    /// to draw it on screen.
     @inlinable func pixbufGetFromTexture() -> PixbufRef! {
         let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_texture(texture_ptr)))
         return rv

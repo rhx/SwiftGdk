@@ -149,11 +149,11 @@ public struct DragAction: OptionSet {
     /// Copy the data.
     public static let copy = DragAction(1) // GDK_ACTION_COPY
     /// Move the data, i.e. first copy it, then delete
-    ///  it from the source using the DELETE target of the X selection protocol.
+    ///   it from the source using the DELETE target of the X selection protocol.
     public static let move = DragAction(2) // GDK_ACTION_MOVE
     /// Add a link to the data. Note that this is only
-    ///  useful if source and destination agree on what it means, and is not
-    ///  supported on all platforms.
+    ///   useful if source and destination agree on what it means, and is not
+    ///   supported on all platforms.
     public static let link = DragAction(4) // GDK_ACTION_LINK
     /// Ask the user what to do with the data.
     public static let ask = DragAction(8) // GDK_ACTION_ASK
@@ -161,9 +161,9 @@ public struct DragAction: OptionSet {
 
 
 
-/// `GdkFrameClockPhase` is used to represent the different paint clock
-/// phases that can be requested. The elements of the enumeration
-/// correspond to the signals of `GdkFrameClock`.
+/// Used to represent the different paint clock phases that can be requested.
+/// 
+/// The elements of the enumeration correspond to the signals of `GdkFrameClock`.
 public struct FrameClockPhase: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -207,9 +207,11 @@ public struct FrameClockPhase: OptionSet {
 
 
 
-/// A set of bit-flags to indicate the state of modifier keys and mouse buttons
-/// in various event types. Typical modifier keys are Shift, Control, Meta,
-/// Super, Hyper, Alt, Compose, Apple, CapsLock or ShiftLock.
+/// Flags to indicate the state of modifier keys and mouse buttons
+/// in events.
+/// 
+/// Typical modifier keys are Shift, Control, Meta, Super, Hyper, Alt, Compose,
+/// Apple, CapsLock or ShiftLock.
 /// 
 /// Note that GDK may add internal values to events which include values outside
 /// of this enumeration. Your code should preserve and ignore them.  You can use
@@ -268,8 +270,9 @@ public struct ModifierType: OptionSet {
 
 
 
-/// Flags about this object. Implementations use these for optimizations
-/// such as caching.
+/// Flags about a paintable object.
+/// 
+/// Implementations use these for optimizations such as caching.
 public struct PaintableFlags: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0
@@ -294,11 +297,11 @@ public struct PaintableFlags: OptionSet {
     @inlinable public init<I: BinaryInteger>(_ intValue: I) { self.rawValue = UInt32(intValue)  }
 
     /// The size is immutable.
-    ///     The `GdkPaintable::invalidate-size` signal will never be
+    ///     The [signal`GdkPaintable::invalidate-size`] signal will never be
     ///     emitted.
     public static let size = PaintableFlags(1) // GDK_PAINTABLE_STATIC_SIZE
     /// The content is immutable.
-    ///     The `GdkPaintable::invalidate-contents` signal will never be
+    ///     The [signal`GdkPaintable::invalidate-contents`] signal will never be
     ///     emitted.
     public static let contents = PaintableFlags(2) // GDK_PAINTABLE_STATIC_CONTENTS
 }
@@ -351,10 +354,11 @@ public struct SeatCapabilities: OptionSet {
 
 /// Specifies the state of a toplevel surface.
 /// 
-/// On platforms that support information about individual edges, the `GDK_TOPLEVEL_STATE_TILED`
-/// state will be set whenever any of the individual tiled states is set. On platforms
-/// that lack that support, the tiled state will give an indication of tiledness without
-/// any of the per-edge states being set.
+/// On platforms that support information about individual edges, the
+/// `GDK_TOPLEVEL_STATE_TILED` state will be set whenever any of the individual
+/// tiled states is set. On platforms that lack that support, the tiled state
+/// will give an indication of tiledness without any of the per-edge states
+/// being set.
 public struct ToplevelState: OptionSet {
     /// The corresponding value of the raw type
     public var rawValue: UInt32 = 0

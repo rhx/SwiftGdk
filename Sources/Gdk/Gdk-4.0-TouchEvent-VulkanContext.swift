@@ -283,7 +283,12 @@ public extension TouchEventProtocol {
 /// For a concrete class that implements these methods and properties, see `TouchpadEvent`.
 /// Alternatively, use `TouchpadEventRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An event related to a touchpad device.
+/// An event related to a gesture on a touchpad device.
+/// 
+/// Unlike touchscreens, where the windowing system sends basic
+/// sequences of begin, update, end events, and leaves gesture
+/// recognition to the clients, touchpad gestures are typically
+/// processed by the system, resulting in these events.
 public protocol TouchpadEventProtocol: EventProtocol {
         /// Untyped pointer to the underlying `GdkTouchpadEvent` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -299,7 +304,12 @@ public protocol TouchpadEventProtocol: EventProtocol {
 /// It exposes methods that can operate on this data type through `TouchpadEventProtocol` conformance.
 /// Use `TouchpadEventRef` only as an `unowned` reference to an existing `GdkTouchpadEvent` instance.
 ///
-/// An event related to a touchpad device.
+/// An event related to a gesture on a touchpad device.
+/// 
+/// Unlike touchscreens, where the windowing system sends basic
+/// sequences of begin, update, end events, and leaves gesture
+/// recognition to the clients, touchpad gestures are typically
+/// processed by the system, resulting in these events.
 public struct TouchpadEventRef: TouchpadEventProtocol {
         /// Untyped pointer to the underlying `GdkTouchpadEvent` instance.
     /// For type-safe access, use the generated, typed pointer `touchpad_event_ptr` property instead.
@@ -382,7 +392,12 @@ public extension TouchpadEventRef {
 /// It provides the methods that can operate on this data type through `TouchpadEventProtocol` conformance.
 /// Use `TouchpadEvent` as a strong reference or owner of a `GdkTouchpadEvent` instance.
 ///
-/// An event related to a touchpad device.
+/// An event related to a gesture on a touchpad device.
+/// 
+/// Unlike touchscreens, where the windowing system sends basic
+/// sequences of begin, update, end events, and leaves gesture
+/// recognition to the clients, touchpad gestures are typically
+/// processed by the system, resulting in these events.
 open class TouchpadEvent: Event, TouchpadEventProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -602,11 +617,11 @@ public extension TouchpadEventProtocol {
 /// `GdkVulkanContext` is an object representing the platform-specific
 /// Vulkan draw context.
 /// 
-/// `GdkVulkanContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_vulkan_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkVulkanContext`s are created for a surface using
+/// [method`Gdk.Surface.create_vulkan_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
-/// Support for `GdkVulkanContext` is platform-specific, context creation
+/// Support for `GdkVulkanContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 public protocol VulkanContextProtocol: DrawContextProtocol, GIO.InitableProtocol {
         /// Untyped pointer to the underlying `GdkVulkanContext` instance.
@@ -626,11 +641,11 @@ public protocol VulkanContextProtocol: DrawContextProtocol, GIO.InitableProtocol
 /// `GdkVulkanContext` is an object representing the platform-specific
 /// Vulkan draw context.
 /// 
-/// `GdkVulkanContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_vulkan_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkVulkanContext`s are created for a surface using
+/// [method`Gdk.Surface.create_vulkan_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
-/// Support for `GdkVulkanContext` is platform-specific, context creation
+/// Support for `GdkVulkanContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 public struct VulkanContextRef: VulkanContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkVulkanContext` instance.
@@ -720,11 +735,11 @@ public extension VulkanContextRef {
 /// `GdkVulkanContext` is an object representing the platform-specific
 /// Vulkan draw context.
 /// 
-/// `GdkVulkanContexts` are created for a `GdkSurface` using
-/// `gdk_surface_create_vulkan_context()`, and the context will match the
-/// the characteristics of the surface.
+/// `GdkVulkanContext`s are created for a surface using
+/// [method`Gdk.Surface.create_vulkan_context`], and the context will match
+/// the the characteristics of the surface.
 /// 
-/// Support for `GdkVulkanContext` is platform-specific, context creation
+/// Support for `GdkVulkanContext` is platform-specific and context creation
 /// can fail, returning `nil` context.
 open class VulkanContext: DrawContext, VulkanContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
@@ -916,8 +931,9 @@ public extension VulkanContextProtocol {
 }
 
 public enum VulkanContextSignalName: String, SignalNameProtocol {
-    /// This signal is emitted when the images managed by this context have
-    /// changed. Usually this means that the swapchain had to be recreated,
+    /// Emitted when the images managed by this context have changed.
+    /// 
+    /// Usually this means that the swapchain had to be recreated,
     /// for example in response to a change of the surface size.
     case imagesUpdated = "images-updated"
     /// The notify signal is emitted on an object when one of its properties has
@@ -979,8 +995,9 @@ public extension VulkanContextProtocol {
     }
     
     
-    /// This signal is emitted when the images managed by this context have
-    /// changed. Usually this means that the swapchain had to be recreated,
+    /// Emitted when the images managed by this context have changed.
+    /// 
+    /// Usually this means that the swapchain had to be recreated,
     /// for example in response to a change of the surface size.
     /// - Note: This represents the underlying `images-updated` signal
     /// - Parameter flags: Flags

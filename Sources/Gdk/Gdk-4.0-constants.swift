@@ -11,9 +11,10 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
-/// Defines all possible DND actions. This can be used in `gdk_drop_status()`
-/// messages when any drop can be accepted or a more specific drop method
-/// is not yet known.
+/// Defines all possible DND actions.
+/// 
+/// This can be used in [method`Gdk.Drop.status`] messages when any drop
+/// can be accepted or a more specific drop method is not yet known.
 public let ACTION_ALL = GDK_ACTION_ALL // 7
 
 /// The middle button.
@@ -4598,6 +4599,5 @@ public let KEY_zstroke = GDK_KEY_zstroke // 16777654
 public let MODIFIER_MASK = GDK_MODIFIER_MASK // 469769999
 
 /// This is the priority that the idle handler processing surface updates
-/// is given in the
-/// [GLib Main Loop](#glib-The-Main-Event-Loop).
+/// is given in the main loop.
 public let PRIORITY_REDRAW = 120 // GDK_PRIORITY_REDRAW

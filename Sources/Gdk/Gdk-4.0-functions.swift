@@ -11,13 +11,15 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
-/// This is the main way to draw GL content in GTK. It takes a render buffer ID
-/// (`source_type` == `GL_RENDERBUFFER`) or a texture id (`source_type` == `GL_TEXTURE`)
-/// and draws it onto `cr` with an OVER operation, respecting the current clip.
-/// The top left corner of the rectangle specified by `x`, `y`, `width` and `height`
-/// will be drawn at the current (0,0) position of the cairo_t.
+/// The main way to draw GL content in GTK.
 /// 
-/// This will work for *all* cairo_t, as long as `surface` is realized, but the
+/// It takes a render buffer ID (`source_type` == `GL_RENDERBUFFER`) or a texture
+/// id (`source_type` == `GL_TEXTURE`) and draws it onto `cr` with an OVER operation,
+/// respecting the current clip. The top left corner of the rectangle specified
+/// by `x`, `y`, `width` and `height` will be drawn at the current (0,0) position of
+/// the `cairo_t`.
+/// 
+/// This will work for *all* `cairo_t`, as long as `surface` is realized, but the
 /// fallback implementation that reads back the pixels from the buffer may be
 /// used in the general case. In the case of direct drawing to a surface with
 /// no special effects applied to `cr` it will however use a more efficient
@@ -53,7 +55,7 @@ import GdkPixbuf
 
 
 
-/// Creates region that describes covers the area where the given
+/// Creates region that covers the area where the given
 /// `surface` is more than 50% opaque.
 /// 
 /// This function takes into account device offsets that might be
@@ -88,15 +90,23 @@ import GdkPixbuf
 
 
 /// Read content from the given input stream and deserialize it, asynchronously.
-/// When the operation is finished, `callback` will be called. You can then
-/// call `gdk_content_deserialize_finish()` to get the result of the operation.
+/// 
+/// The default I/O priority is `G_PRIORITY_DEFAULT` (i.e. 0), and lower numbers
+/// indicate a higher priority.
+/// 
+/// When the operation is finished, `callback` will be called. You must then
+/// call [func`content_deserialize_finish`] to get the result of the operation.
 @inlinable public func contentDeserializeAsync<InputStreamT: GIO.InputStreamProtocol>(stream: InputStreamT, mimeType: UnsafePointer<CChar>!, type: GType, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
     gdk_content_deserialize_async(stream.input_stream_ptr, mimeType, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
 }
 /// Read content from the given input stream and deserialize it, asynchronously.
-/// When the operation is finished, `callback` will be called. You can then
-/// call `gdk_content_deserialize_finish()` to get the result of the operation.
+/// 
+/// The default I/O priority is `G_PRIORITY_DEFAULT` (i.e. 0), and lower numbers
+/// indicate a higher priority.
+/// 
+/// When the operation is finished, `callback` will be called. You must then
+/// call [func`content_deserialize_finish`] to get the result of the operation.
 @inlinable public func contentDeserializeAsync<CancellableT: GIO.CancellableProtocol, InputStreamT: GIO.InputStreamProtocol>(stream: InputStreamT, mimeType: UnsafePointer<CChar>!, type: GType, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
     gdk_content_deserialize_async(stream.input_stream_ptr, mimeType, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
@@ -116,8 +126,7 @@ import GdkPixbuf
 
 
 
-/// Registers a function to create objects of a given `type` from
-/// a serialized representation with the given mime type.
+/// Registers a function to deserialize object of a given type.
 @inlinable public func contentRegisterDeserializer(mimeType: UnsafePointer<CChar>!, type: GType, deserialize: GdkContentDeserializeFunc?, data: gpointer! = nil, notify: GDestroyNotify?) {
     gdk_content_register_deserializer(mimeType, type, deserialize, data, notify)
 
@@ -126,8 +135,7 @@ import GdkPixbuf
 
 
 
-/// Registers a function to convert objects of the given `type` to
-/// a serialized representation with the given mime type.
+/// Registers a function to serialize objects of a given type.
 @inlinable public func contentRegisterSerializer(type: GType, mimeType: UnsafePointer<CChar>!, serialize: GdkContentSerializeFunc?, data: gpointer! = nil, notify: GDestroyNotify?) {
     gdk_content_register_serializer(type, mimeType, serialize, data, notify)
 
@@ -137,15 +145,23 @@ import GdkPixbuf
 
 
 /// Serialize content and write it to the given output stream, asynchronously.
-/// When the operation is finished, `callback` will be called. You can then
-/// call `gdk_content_serialize_finish()` to get the result of the operation.
+/// 
+/// The default I/O priority is `G_PRIORITY_DEFAULT` (i.e. 0), and lower numbers
+/// indicate a higher priority.
+/// 
+/// When the operation is finished, `callback` will be called. You must then
+/// call [func`content_serialize_finish`] to get the result of the operation.
 @inlinable public func contentSerializeAsync<OutputStreamT: GIO.OutputStreamProtocol, ValueT: GLibObject.ValueProtocol>(stream: OutputStreamT, mimeType: UnsafePointer<CChar>!, value: ValueT, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
     gdk_content_serialize_async(stream.output_stream_ptr, mimeType, value.value_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
 }
 /// Serialize content and write it to the given output stream, asynchronously.
-/// When the operation is finished, `callback` will be called. You can then
-/// call `gdk_content_serialize_finish()` to get the result of the operation.
+/// 
+/// The default I/O priority is `G_PRIORITY_DEFAULT` (i.e. 0), and lower numbers
+/// indicate a higher priority.
+/// 
+/// When the operation is finished, `callback` will be called. You must then
+/// call [func`content_serialize_finish`] to get the result of the operation.
 @inlinable public func contentSerializeAsync<CancellableT: GIO.CancellableProtocol, OutputStreamT: GIO.OutputStreamProtocol, ValueT: GLibObject.ValueProtocol>(stream: OutputStreamT, mimeType: UnsafePointer<CChar>!, value: ValueT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
     gdk_content_serialize_async(stream.output_stream_ptr, mimeType, value.value_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
 
@@ -165,8 +181,8 @@ import GdkPixbuf
 
 
 
-/// Checks if `action` represents a single action or if it
-/// includes multiple flags that can be selected from.
+/// Checks if `action` represents a single action or includes
+/// multiple actions.
 /// 
 /// When `action` is 0 - ie no action was given, `true`
 /// is returned.
@@ -178,10 +194,14 @@ import GdkPixbuf
 
 
 
-/// If both events contain X/Y information, this function will return `true`
-/// and return in `angle` the relative angle from `event1` to `event2`. The rotation
-/// direction for positive angles is from the positive X axis towards the positive
-/// Y axis.
+/// Returns the relative angle from `event1` to `event2`.
+/// 
+/// The relative angle is the angle between the X axis and the line
+/// through both events' positions. The rotation direction for positive
+/// angles is from the positive X axis towards the positive Y axis.
+/// 
+/// This assumes that both events have X/Y information.
+/// If not, this function returns `false`.
 @inlinable public func eventsGetAngle<EventT: EventProtocol>(event1: EventT, event2: EventT, angle: UnsafeMutablePointer<CDouble>!) -> Bool {
     let rv = ((gdk_events_get_angle(event1.event_ptr, event2.event_ptr, angle)) != 0)
     return rv
@@ -190,8 +210,10 @@ import GdkPixbuf
 
 
 
-/// If both events contain X/Y information, the center of both coordinates
-/// will be returned in `x` and `y`.
+/// Returns the point halfway between the events' positions.
+/// 
+/// This assumes that both events have X/Y information.
+/// If not, this function returns `false`.
 @inlinable public func eventsGetCenter<EventT: EventProtocol>(event1: EventT, event2: EventT, x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) -> Bool {
     let rv = ((gdk_events_get_center(event1.event_ptr, event2.event_ptr, x, y)) != 0)
     return rv
@@ -200,8 +222,10 @@ import GdkPixbuf
 
 
 
-/// If both events have X/Y information, the distance between both coordinates
-/// (as in a straight line going from `event1` to `event2`) will be returned.
+/// Returns the distance between the event locations.
+/// 
+/// This assumes that both events have X/Y information.
+/// If not, this function returns `false`.
 @inlinable public func eventsGetDistance<EventT: EventProtocol>(event1: EventT, event2: EventT, distance: UnsafeMutablePointer<CDouble>!) -> Bool {
     let rv = ((gdk_events_get_distance(event1.event_ptr, event2.event_ptr, distance)) != 0)
     return rv
@@ -231,6 +255,7 @@ import GdkPixbuf
 
 
 /// Obtains the upper- and lower-case versions of the keyval `symbol`.
+/// 
 /// Examples of keyvals are `GDK_KEY_a`, `GDK_KEY_Enter`, `GDK_KEY_F1`, etc.
 @inlinable public func keyvalConvertCase(symbol: Int, lower: UnsafeMutablePointer<guint>!, upper: UnsafeMutablePointer<guint>!) {
     gdk_keyval_convert_case(guint(symbol), lower, upper)
@@ -293,7 +318,7 @@ import GdkPixbuf
 
 
 
-/// Convert from a GDK key symbol to the corresponding ISO10646 (Unicode)
+/// Convert from a GDK key symbol to the corresponding Unicode
 /// character.
 /// 
 /// Note that the conversion does not take the current locale
@@ -317,9 +342,11 @@ import GdkPixbuf
 
 
 /// Returns a paintable that has the given intrinsic size and draws nothing.
-/// This is often useful for implementing the `GdkPaintableInterface.get_current_image``()`
-/// virtual function when the paintable is in an incomplete state (like a
-/// `GtkMediaStream` before receiving the first frame).
+/// 
+/// This is often useful for implementing the
+/// `GdkPaintableInterface.get_current_image``()` virtual function
+/// when the paintable is in an incomplete state (like a
+/// [class`Gtk.MediaStream`] before receiving the first frame).
 @inlinable public func paintableNewEmpty(intrinsicWidth: Int, intrinsicHeight: Int) -> PaintableRef! {
     guard let rv = PaintableRef(gconstpointer: gconstpointer(gdk_paintable_new_empty(gint(intrinsicWidth), gint(intrinsicHeight)))) else { return nil }
     return rv
@@ -329,9 +356,10 @@ import GdkPixbuf
 
 
 /// Obtains a clip region which contains the areas where the given ranges
-/// of text would be drawn. `x_origin` and `y_origin` are the top left point
-/// to center the layout. `index_ranges` should contain
-/// ranges of bytes in the layout’s text.
+/// of text would be drawn.
+/// 
+/// `x_origin` and `y_origin` are the top left point to center the layout.
+/// `index_ranges` should contain ranges of bytes in the layout’s text.
 /// 
 /// Note that the regions returned correspond to logical extents of the text
 /// ranges, not ink extents. So the drawn layout may in fact touch areas out of
@@ -346,14 +374,15 @@ import GdkPixbuf
 
 
 /// Obtains a clip region which contains the areas where the given
-/// ranges of text would be drawn. `x_origin` and `y_origin` are the top left
-/// position of the layout. `index_ranges`
-/// should contain ranges of bytes in the layout’s text. The clip
-/// region will include space to the left or right of the line (to the
-/// layout bounding box) if you have indexes above or below the indexes
-/// contained inside the line. This is to draw the selection all the way
-/// to the side of the layout. However, the clip region is in line coordinates,
-/// not layout coordinates.
+/// ranges of text would be drawn.
+/// 
+/// `x_origin` and `y_origin` are the top left position of the layout.
+/// `index_ranges` should contain ranges of bytes in the layout’s text.
+/// The clip region will include space to the left or right of the line
+/// (to the layout bounding box) if you have indexes above or below the
+/// indexes contained inside the line. This is to draw the selection all
+/// the way to the side of the layout. However, the clip region is in line
+/// coordinates, not layout coordinates.
 /// 
 /// Note that the regions returned correspond to logical extents of the text
 /// ranges, not ink extents. So the drawn line may in fact touch areas out of
@@ -367,9 +396,10 @@ import GdkPixbuf
 
 
 
-/// Transfers image data from a `cairo_surface_t` and converts it to an `RGB(A)`
-/// representation inside a `GdkPixbuf`. This allows you to efficiently read
-/// individual pixels from cairo surfaces.
+/// Transfers image data from a `cairo_surface_t` and converts it
+/// to a `GdkPixbuf`.
+/// 
+/// This allows you to efficiently read individual pixels from cairo surfaces.
 /// 
 /// This function will create an RGB pixbuf with 8 bits per channel.
 /// The pixbuf will contain an alpha channel if the `surface` contains one.
@@ -381,9 +411,11 @@ import GdkPixbuf
 
 
 
-/// Creates a new pixbuf from `texture`. This should generally not be used
-/// in newly written code as later stages will almost certainly convert
-/// the pixbuf back into a texture to draw it on screen.
+/// Creates a new pixbuf from `texture`.
+/// 
+/// This should generally not be used in newly written code as later
+/// stages will almost certainly convert the pixbuf back into a texture
+/// to draw it on screen.
 @inlinable public func pixbufGetFrom<TextureT: TextureProtocol>(texture: TextureT) -> PixbufRef! {
     guard let rv = PixbufRef(gconstpointer: gconstpointer(gdk_pixbuf_get_from_texture(texture.texture_ptr))) else { return nil }
     return rv
@@ -399,26 +431,31 @@ import GdkPixbuf
 /// 
 /// By default, GDK tries all included backends.
 /// 
-/// For example,
-/// (C Language Example):
-/// ```C
-/// gdk_set_allowed_backends ("wayland,quartz,*");
+/// For example:
+/// 
+/// ```c
+/// gdk_set_allowed_backends ("wayland,macos,*");
 /// ```
-/// instructs GDK to try the Wayland backend first,
-/// followed by the Quartz backend, and then all
-/// others.
 /// 
-/// If the `GDK_BACKEND` environment variable
-/// is set, it determines what backends are tried in what
-/// order, while still respecting the set of allowed backends
-/// that are specified by this function.
+/// instructs GDK to try the Wayland backend first, followed by the
+/// MacOs backend, and then all others.
 /// 
-/// The possible backend names are x11, win32, quartz,
-/// broadway, wayland. You can also include a * in the
-/// list to try all remaining backends.
+/// If the `GDK_BACKEND` environment variable is set, it determines
+/// what backends are tried in what order, while still respecting the
+/// set of allowed backends that are specified by this function.
 /// 
-/// This call must happen prior to `gdk_display_open()`,
-/// `gtk_init()`, or `gtk_init_check()`
+/// The possible backend names are:
+/// 
+///   - `broadway`
+///   - `macos`
+///   - `wayland`.
+///   - `win32`
+///   - `x11`
+/// 
+/// You can also include a `*` in the list to try all remaining backends.
+/// 
+/// This call must happen prior to functions that open a display, such
+/// as [func`Gdk.Display.open`], ``gtk_init()``, or ``gtk_init_check()``
 /// in order to take effect.
 @inlinable public func setAllowed(backends: UnsafePointer<CChar>!) {
     gdk_set_allowed_backends(backends)
@@ -436,7 +473,7 @@ import GdkPixbuf
 
 
 
-/// Convert from a ISO10646 character to a key symbol.
+/// Convert from a Unicode character to a key symbol.
 @inlinable public func unicodeToKeyval(wc: guint32) -> Int {
     let rv = Int(gdk_unicode_to_keyval(wc))
     return rv

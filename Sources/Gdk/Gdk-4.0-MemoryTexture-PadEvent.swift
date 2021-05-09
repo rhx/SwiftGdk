@@ -115,6 +115,7 @@ public extension MemoryTextureRef {
     }
 
         /// Creates a new texture for a blob of image data.
+    /// 
     /// The `GBytes` must contain `stride` x `height` pixels
     /// in the given format.
     @inlinable init<BytesT: GLib.BytesProtocol>( width: Int, height: Int, format: GdkMemoryFormat, bytes: BytesT, stride: Int) {
@@ -254,6 +255,7 @@ open class MemoryTexture: Texture, MemoryTextureProtocol {
     }
 
     /// Creates a new texture for a blob of image data.
+    /// 
     /// The `GBytes` must contain `stride` x `height` pixels
     /// in the given format.
     @inlinable public init<BytesT: GLib.BytesProtocol>( width: Int, height: Int, format: GdkMemoryFormat, bytes: BytesT, stride: Int) {
@@ -376,10 +378,13 @@ public extension MemoryTextureProtocol {
 /// For a concrete class that implements these methods and properties, see `Monitor`.
 /// Alternatively, use `MonitorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GdkMonitor objects represent the individual outputs that are
-/// associated with a `GdkDisplay`. GdkDisplay keeps a `GListModel` to enumerate
-/// and monitor monitors with `gdk_display_get_monitors()`.
-/// You can use `gdk_display_get_monitor_at_surface()` to find a particular monitor.
+/// `GdkMonitor` objects represent the individual outputs that are
+/// associated with a `GdkDisplay`.
+/// 
+/// `GdkDisplay` keeps a `GListModel` to enumerate and monitor
+/// monitors with [method`Gdk.Display.get_monitors`]. You can use
+/// [method`Gdk.Display.get_monitor_at_surface`] to find a particular
+/// monitor.
 public protocol MonitorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkMonitor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -395,10 +400,13 @@ public protocol MonitorProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `MonitorProtocol` conformance.
 /// Use `MonitorRef` only as an `unowned` reference to an existing `GdkMonitor` instance.
 ///
-/// GdkMonitor objects represent the individual outputs that are
-/// associated with a `GdkDisplay`. GdkDisplay keeps a `GListModel` to enumerate
-/// and monitor monitors with `gdk_display_get_monitors()`.
-/// You can use `gdk_display_get_monitor_at_surface()` to find a particular monitor.
+/// `GdkMonitor` objects represent the individual outputs that are
+/// associated with a `GdkDisplay`.
+/// 
+/// `GdkDisplay` keeps a `GListModel` to enumerate and monitor
+/// monitors with [method`Gdk.Display.get_monitors`]. You can use
+/// [method`Gdk.Display.get_monitor_at_surface`] to find a particular
+/// monitor.
 public struct MonitorRef: MonitorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkMonitor` instance.
     /// For type-safe access, use the generated, typed pointer `monitor_ptr` property instead.
@@ -484,10 +492,13 @@ public extension MonitorRef {
 /// It provides the methods that can operate on this data type through `MonitorProtocol` conformance.
 /// Use `Monitor` as a strong reference or owner of a `GdkMonitor` instance.
 ///
-/// GdkMonitor objects represent the individual outputs that are
-/// associated with a `GdkDisplay`. GdkDisplay keeps a `GListModel` to enumerate
-/// and monitor monitors with `gdk_display_get_monitors()`.
-/// You can use `gdk_display_get_monitor_at_surface()` to find a particular monitor.
+/// `GdkMonitor` objects represent the individual outputs that are
+/// associated with a `GdkDisplay`.
+/// 
+/// `GdkDisplay` keeps a `GListModel` to enumerate and monitor
+/// monitors with [method`Gdk.Display.get_monitors`]. You can use
+/// [method`Gdk.Display.get_monitor_at_surface`] to find a particular
+/// monitor.
 open class Monitor: GLibObject.Object, MonitorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -618,16 +629,27 @@ open class Monitor: GLibObject.Object, MonitorProtocol {
 }
 
 public enum MonitorPropertyName: String, PropertyNameProtocol {
+    /// The connector name.
     case connector = "connector"
+    /// The `GdkDisplay` of the monitor.
     case display = "display"
+    /// The geometry of the monitor.
     case geometry = "geometry"
+    /// The height of the monitor, in millimeters.
     case heightMm = "height-mm"
+    /// The manufacturer name.
     case manufacturer = "manufacturer"
+    /// The model name.
     case model = "model"
+    /// The refresh rate, in milli-Hertz.
     case refreshRate = "refresh-rate"
+    /// The scale factor.
     case scaleFactor = "scale-factor"
+    /// The subpixel layout.
     case subpixelLayout = "subpixel-layout"
+    /// Whether the object is still valid.
     case valid = "valid"
+    /// The width of the monitor, in millimeters.
     case widthMm = "width-mm"
 }
 
@@ -685,8 +707,7 @@ public extension MonitorProtocol {
 }
 
 public enum MonitorSignalName: String, SignalNameProtocol {
-    /// The `invalidate` signal gets emitted when the output represented
-    /// by `monitor` gets disconnected.
+    /// Emitted when the output represented by `monitor` gets disconnected.
     case invalidate = "invalidate"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -713,16 +734,27 @@ public enum MonitorSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The connector name.
     case notifyConnector = "notify::connector"
+    /// The `GdkDisplay` of the monitor.
     case notifyDisplay = "notify::display"
+    /// The geometry of the monitor.
     case notifyGeometry = "notify::geometry"
+    /// The height of the monitor, in millimeters.
     case notifyHeightMm = "notify::height-mm"
+    /// The manufacturer name.
     case notifyManufacturer = "notify::manufacturer"
+    /// The model name.
     case notifyModel = "notify::model"
+    /// The refresh rate, in milli-Hertz.
     case notifyRefreshRate = "notify::refresh-rate"
+    /// The scale factor.
     case notifyScaleFactor = "notify::scale-factor"
+    /// The subpixel layout.
     case notifySubpixelLayout = "notify::subpixel-layout"
+    /// Whether the object is still valid.
     case notifyValid = "notify::valid"
+    /// The width of the monitor, in millimeters.
     case notifyWidthMm = "notify::width-mm"
 }
 
@@ -754,8 +786,7 @@ public extension MonitorProtocol {
     }
     
     
-    /// The `invalidate` signal gets emitted when the output represented
-    /// by `monitor` gets disconnected.
+    /// Emitted when the output represented by `monitor` gets disconnected.
     /// - Note: This represents the underlying `invalidate` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1338,9 +1369,11 @@ public extension MonitorProtocol {
         return rv
     }
 
-    /// Retrieves the size and position of an individual monitor within the
-    /// display coordinate space. The returned geometry is in  ”application pixels”,
-    /// not in ”device pixels” (see `gdk_monitor_get_scale_factor()`).
+    /// Retrieves the size and position of the monitor within the
+    /// display coordinate space.
+    /// 
+    /// The returned geometry is in  ”application pixels”, not in
+    /// ”device pixels” (see [method`Gdk.Monitor.get_scale_factor`]).
     @inlinable func get<RectangleT: RectangleProtocol>(geometry: RectangleT) {
         gdk_monitor_get_geometry(monitor_ptr, geometry.rectangle_ptr)
     
@@ -1352,12 +1385,13 @@ public extension MonitorProtocol {
         return rv
     }
 
-    /// Gets the name or PNP ID of the monitor's manufacturer, if available.
+    /// Gets the name or PNP ID of the monitor's manufacturer.
     /// 
     /// Note that this value might also vary depending on actual
     /// display backend.
     /// 
-    /// PNP ID registry is located at https://uefi.org/pnp_id_list
+    /// The PNP ID registry is located at
+    /// [https://uefi.org/pnp_id_list](https://uefi.org/pnp_id_list).
     @inlinable func getManufacturer() -> String! {
         let rv = gdk_monitor_get_manufacturer(monitor_ptr).map({ String(cString: $0) })
         return rv
@@ -1379,19 +1413,21 @@ public extension MonitorProtocol {
     }
 
     /// Gets the internal scale factor that maps from monitor coordinates
-    /// to the actual device pixels. On traditional systems this is 1, but
-    /// on very high density outputs this can be a higher value (often 2).
+    /// to device pixels.
+    /// 
+    /// On traditional systems this is 1, but on very high density outputs
+    /// it can be a higher value (often 2).
     /// 
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a surface
-    /// where it is better to use `gdk_surface_get_scale_factor()` instead.
+    /// where it is better to use [method`Gdk.Surface.get_scale_factor`] instead.
     @inlinable func getScaleFactor() -> Int {
         let rv = Int(gdk_monitor_get_scale_factor(monitor_ptr))
         return rv
     }
 
     /// Gets information about the layout of red, green and blue
-    /// primaries for each pixel in this monitor, if available.
+    /// primaries for pixels.
     @inlinable func getSubpixelLayout() -> GdkSubpixelLayout {
         let rv = gdk_monitor_get_subpixel_layout(monitor_ptr)
         return rv
@@ -1402,6 +1438,7 @@ public extension MonitorProtocol {
         let rv = Int(gdk_monitor_get_width_mm(monitor_ptr))
         return rv
     }
+    /// The connector name.
     @inlinable var connector: String! {
         /// Gets the name of the monitor's connector, if available.
         get {
@@ -1410,6 +1447,7 @@ public extension MonitorProtocol {
         }
     }
 
+    /// The `GdkDisplay` of the monitor.
     @inlinable var display: DisplayRef! {
         /// Gets the display that this monitor belongs to.
         get {
@@ -1428,31 +1466,38 @@ public extension MonitorProtocol {
     }
 
     /// Returns `true` if the `monitor` object corresponds to a
-    /// physical monitor. The `monitor` becomes invalid when the
-    /// physical monitor is unplugged or removed.
+    /// physical monitor.
+    /// 
+    /// The `monitor` becomes invalid when the physical monitor
+    /// is unplugged or removed.
     @inlinable var isValid: Bool {
         /// Returns `true` if the `monitor` object corresponds to a
-        /// physical monitor. The `monitor` becomes invalid when the
-        /// physical monitor is unplugged or removed.
+        /// physical monitor.
+        /// 
+        /// The `monitor` becomes invalid when the physical monitor
+        /// is unplugged or removed.
         get {
             let rv = ((gdk_monitor_is_valid(monitor_ptr)) != 0)
             return rv
         }
     }
 
+    /// The manufacturer name.
     @inlinable var manufacturer: String! {
-        /// Gets the name or PNP ID of the monitor's manufacturer, if available.
+        /// Gets the name or PNP ID of the monitor's manufacturer.
         /// 
         /// Note that this value might also vary depending on actual
         /// display backend.
         /// 
-        /// PNP ID registry is located at https://uefi.org/pnp_id_list
+        /// The PNP ID registry is located at
+        /// [https://uefi.org/pnp_id_list](https://uefi.org/pnp_id_list).
         get {
             let rv = gdk_monitor_get_manufacturer(monitor_ptr).map({ String(cString: $0) })
             return rv
         }
     }
 
+    /// The model name.
     @inlinable var model: String! {
         /// Gets the string identifying the monitor model, if available.
         get {
@@ -1477,20 +1522,24 @@ public extension MonitorProtocol {
     }
 
     /// Gets the internal scale factor that maps from monitor coordinates
-    /// to the actual device pixels. On traditional systems this is 1, but
-    /// on very high density outputs this can be a higher value (often 2).
+    /// to device pixels.
+    /// 
+    /// On traditional systems this is 1, but on very high density outputs
+    /// it can be a higher value (often 2).
     /// 
     /// This can be used if you want to create pixel based data for a
     /// particular monitor, but most of the time you’re drawing to a surface
-    /// where it is better to use `gdk_surface_get_scale_factor()` instead.
+    /// where it is better to use [method`Gdk.Surface.get_scale_factor`] instead.
     @inlinable var scaleFactor: Int {
         /// Gets the internal scale factor that maps from monitor coordinates
-        /// to the actual device pixels. On traditional systems this is 1, but
-        /// on very high density outputs this can be a higher value (often 2).
+        /// to device pixels.
+        /// 
+        /// On traditional systems this is 1, but on very high density outputs
+        /// it can be a higher value (often 2).
         /// 
         /// This can be used if you want to create pixel based data for a
         /// particular monitor, but most of the time you’re drawing to a surface
-        /// where it is better to use `gdk_surface_get_scale_factor()` instead.
+        /// where it is better to use [method`Gdk.Surface.get_scale_factor`] instead.
         get {
             let rv = Int(gdk_monitor_get_scale_factor(monitor_ptr))
             return rv
@@ -1498,10 +1547,10 @@ public extension MonitorProtocol {
     }
 
     /// Gets information about the layout of red, green and blue
-    /// primaries for each pixel in this monitor, if available.
+    /// primaries for pixels.
     @inlinable var subpixelLayout: GdkSubpixelLayout {
         /// Gets information about the layout of red, green and blue
-        /// primaries for each pixel in this monitor, if available.
+        /// primaries for pixels.
         get {
             let rv = gdk_monitor_get_subpixel_layout(monitor_ptr)
             return rv

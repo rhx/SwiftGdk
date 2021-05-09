@@ -18,15 +18,15 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `AppLaunchContext`.
 /// Alternatively, use `AppLaunchContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GdkAppLaunchContext is an implementation of `GAppLaunchContext` that
-/// handles launching an application in a graphical context. It provides
-/// startup notification and allows to launch applications on a specific
-/// screen or workspace.
+/// `GdkAppLaunchContext` handles launching an application in a graphical context.
+/// 
+/// It is an implementation of `GAppLaunchContext` that provides startup
+/// notification and allows to launch applications on a specific screen
+/// or workspace.
 /// 
 /// ## Launching an application
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// GdkAppLaunchContext *context;
 /// 
 /// context = gdk_display_get_app_launch_context (display);
@@ -35,11 +35,10 @@ import GdkPixbuf
 /// gdk_app_launch_context_set_timestamp (gdk_event_get_time (event));
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: %s\n", error->message);
+///   g_warning ("Launching failed: `s`\n", error-&gt;message);
 /// 
 /// g_object_unref (context);
 /// ```
-/// 
 public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
         /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -55,15 +54,15 @@ public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
 /// It exposes methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContextRef` only as an `unowned` reference to an existing `GdkAppLaunchContext` instance.
 ///
-/// GdkAppLaunchContext is an implementation of `GAppLaunchContext` that
-/// handles launching an application in a graphical context. It provides
-/// startup notification and allows to launch applications on a specific
-/// screen or workspace.
+/// `GdkAppLaunchContext` handles launching an application in a graphical context.
+/// 
+/// It is an implementation of `GAppLaunchContext` that provides startup
+/// notification and allows to launch applications on a specific screen
+/// or workspace.
 /// 
 /// ## Launching an application
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// GdkAppLaunchContext *context;
 /// 
 /// context = gdk_display_get_app_launch_context (display);
@@ -72,11 +71,10 @@ public protocol AppLaunchContextProtocol: GIO.AppLaunchContextProtocol {
 /// gdk_app_launch_context_set_timestamp (gdk_event_get_time (event));
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: %s\n", error->message);
+///   g_warning ("Launching failed: `s`\n", error-&gt;message);
 /// 
 /// g_object_unref (context);
 /// ```
-/// 
 public struct AppLaunchContextRef: AppLaunchContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkAppLaunchContext` instance.
     /// For type-safe access, use the generated, typed pointer `app_launch_context_ptr` property instead.
@@ -162,15 +160,15 @@ public extension AppLaunchContextRef {
 /// It provides the methods that can operate on this data type through `AppLaunchContextProtocol` conformance.
 /// Use `AppLaunchContext` as a strong reference or owner of a `GdkAppLaunchContext` instance.
 ///
-/// GdkAppLaunchContext is an implementation of `GAppLaunchContext` that
-/// handles launching an application in a graphical context. It provides
-/// startup notification and allows to launch applications on a specific
-/// screen or workspace.
+/// `GdkAppLaunchContext` handles launching an application in a graphical context.
+/// 
+/// It is an implementation of `GAppLaunchContext` that provides startup
+/// notification and allows to launch applications on a specific screen
+/// or workspace.
 /// 
 /// ## Launching an application
 /// 
-/// (C Language Example):
-/// ```C
+/// ```c
 /// GdkAppLaunchContext *context;
 /// 
 /// context = gdk_display_get_app_launch_context (display);
@@ -179,11 +177,10 @@ public extension AppLaunchContextRef {
 /// gdk_app_launch_context_set_timestamp (gdk_event_get_time (event));
 /// 
 /// if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &error))
-///   g_warning ("Launching failed: %s\n", error->message);
+///   g_warning ("Launching failed: `s`\n", error-&gt;message);
 /// 
 /// g_object_unref (context);
 /// ```
-/// 
 open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -314,6 +311,7 @@ open class AppLaunchContext: GIO.AppLaunchContext, AppLaunchContextProtocol {
 }
 
 public enum AppLaunchContextPropertyName: String, PropertyNameProtocol {
+    /// The display that the `GdkAppLaunchContext` is on.
     case display = "display"
 }
 
@@ -406,6 +404,7 @@ public enum AppLaunchContextSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The display that the `GdkAppLaunchContext` is on.
     case notifyDisplay = "notify::display"
 }
 
@@ -421,8 +420,9 @@ public extension AppLaunchContextProtocol {
         return rv
     }
 
-    /// Sets the workspace on which applications will be launched when
-    /// using this context when running under a window manager that
+    /// Sets the workspace on which applications will be launched.
+    /// 
+    /// This only works when running under a window manager that
     /// supports multiple workspaces, as described in the
     /// [Extended Window Manager Hints](http://www.freedesktop.org/Standards/wm-spec).
     /// 
@@ -440,7 +440,7 @@ public extension AppLaunchContextProtocol {
     /// Window Managers can use this information when displaying startup
     /// notification.
     /// 
-    /// See also `gdk_app_launch_context_set_icon_name()`.
+    /// See also [method`Gdk.AppLaunchContext.set_icon_name`].
     @inlinable func set(icon: GIO.IconRef? = nil) {
         gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
     
@@ -451,15 +451,16 @@ public extension AppLaunchContextProtocol {
     /// Window Managers can use this information when displaying startup
     /// notification.
     /// 
-    /// See also `gdk_app_launch_context_set_icon_name()`.
+    /// See also [method`Gdk.AppLaunchContext.set_icon_name`].
     @inlinable func set<IconT: GIO.IconProtocol>(icon: IconT?) {
         gdk_app_launch_context_set_icon(app_launch_context_ptr, icon?.icon_ptr)
     
     }
 
     /// Sets the icon for applications that are launched with this context.
+    /// 
     /// The `icon_name` will be interpreted in the same way as the Icon field
-    /// in desktop files. See also `gdk_app_launch_context_set_icon()`.
+    /// in desktop files. See also [method`Gdk.AppLaunchContext.set_icon``()`].
     /// 
     /// If both `icon` and `icon_name` are set, the `icon_name` takes priority.
     /// If neither `icon` or `icon_name` is set, the icon is taken from either
@@ -470,8 +471,10 @@ public extension AppLaunchContextProtocol {
     
     }
 
-    /// Sets the timestamp of `context`. The timestamp should ideally
-    /// be taken from the event that triggered the launch.
+    /// Sets the timestamp of `context`.
+    /// 
+    /// The timestamp should ideally be taken from the event that
+    /// triggered the launch.
     /// 
     /// Window managers can use this information to avoid moving the
     /// focus to the newly launched application when the user is busy
@@ -481,6 +484,7 @@ public extension AppLaunchContextProtocol {
         gdk_app_launch_context_set_timestamp(app_launch_context_ptr, timestamp)
     
     }
+    /// The display that the `GdkAppLaunchContext` is on.
     @inlinable var display: DisplayRef! {
         /// Gets the `GdkDisplay` that `context` is for.
         get {
@@ -501,7 +505,7 @@ public extension AppLaunchContextProtocol {
 /// For a concrete class that implements these methods and properties, see `ButtonEvent`.
 /// Alternatively, use `ButtonEventRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// An event related to a button on a pointer device/
+/// An event related to a button on a pointer device.
 public protocol ButtonEventProtocol: EventProtocol {
         /// Untyped pointer to the underlying `GdkButtonEvent` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -517,7 +521,7 @@ public protocol ButtonEventProtocol: EventProtocol {
 /// It exposes methods that can operate on this data type through `ButtonEventProtocol` conformance.
 /// Use `ButtonEventRef` only as an `unowned` reference to an existing `GdkButtonEvent` instance.
 ///
-/// An event related to a button on a pointer device/
+/// An event related to a button on a pointer device.
 public struct ButtonEventRef: ButtonEventProtocol {
         /// Untyped pointer to the underlying `GdkButtonEvent` instance.
     /// For type-safe access, use the generated, typed pointer `button_event_ptr` property instead.
@@ -600,7 +604,7 @@ public extension ButtonEventRef {
 /// It provides the methods that can operate on this data type through `ButtonEventProtocol` conformance.
 /// Use `ButtonEvent` as a strong reference or owner of a `GdkButtonEvent` instance.
 ///
-/// An event related to a button on a pointer device/
+/// An event related to a button on a pointer device.
 open class ButtonEvent: Event, ButtonEventProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain

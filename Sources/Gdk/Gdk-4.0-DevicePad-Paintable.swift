@@ -19,21 +19,22 @@ import GdkPixbuf
 /// Alternatively, use `DevicePadRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GdkDevicePad` is an interface implemented by devices of type
-/// `GDK_SOURCE_TABLET_PAD`, it allows querying the features provided
-/// by the pad device.
+/// `GDK_SOURCE_TABLET_PAD`
+/// 
+/// It allows querying the features provided by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
-/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
-/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
-/// number of buttons/rings/strips the device has, and how are they grouped.
+/// of the buttons/rings/strips available. [method`Gdk.DevicePad.get_n_groups`]
+/// can be used to obtain the number of groups, [method`Gdk.DevicePad.get_n_features`]
+/// and [method`Gdk.DevicePad.get_feature_group`] can be combined to find out
+/// the number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map each
 /// individual pad feature to multiple actions. Only one mode is effective
 /// (current) for each given group, different groups may have different
 /// current modes. The number of available modes in a group can be found
-/// out through `gdk_device_pad_get_group_n_modes()`, and the current mode for
-/// a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
+/// out through [method`Gdk.DevicePad.get_group_n_modes`], and the current mode
+/// for a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
 public protocol DevicePadProtocol: DeviceProtocol {
         /// Untyped pointer to the underlying `GdkDevicePad` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -50,21 +51,22 @@ public protocol DevicePadProtocol: DeviceProtocol {
 /// Use `DevicePadRef` only as an `unowned` reference to an existing `GdkDevicePad` instance.
 ///
 /// `GdkDevicePad` is an interface implemented by devices of type
-/// `GDK_SOURCE_TABLET_PAD`, it allows querying the features provided
-/// by the pad device.
+/// `GDK_SOURCE_TABLET_PAD`
+/// 
+/// It allows querying the features provided by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
-/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
-/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
-/// number of buttons/rings/strips the device has, and how are they grouped.
+/// of the buttons/rings/strips available. [method`Gdk.DevicePad.get_n_groups`]
+/// can be used to obtain the number of groups, [method`Gdk.DevicePad.get_n_features`]
+/// and [method`Gdk.DevicePad.get_feature_group`] can be combined to find out
+/// the number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map each
 /// individual pad feature to multiple actions. Only one mode is effective
 /// (current) for each given group, different groups may have different
 /// current modes. The number of available modes in a group can be found
-/// out through `gdk_device_pad_get_group_n_modes()`, and the current mode for
-/// a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
+/// out through [method`Gdk.DevicePad.get_group_n_modes`], and the current mode
+/// for a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
 public struct DevicePadRef: DevicePadProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDevicePad` instance.
     /// For type-safe access, use the generated, typed pointer `device_pad_ptr` property instead.
@@ -151,21 +153,22 @@ public extension DevicePadRef {
 /// Use `DevicePad` as a strong reference or owner of a `GdkDevicePad` instance.
 ///
 /// `GdkDevicePad` is an interface implemented by devices of type
-/// `GDK_SOURCE_TABLET_PAD`, it allows querying the features provided
-/// by the pad device.
+/// `GDK_SOURCE_TABLET_PAD`
+/// 
+/// It allows querying the features provided by the pad device.
 /// 
 /// Tablet pads may contain one or more groups, each containing a subset
-/// of the buttons/rings/strips available. `gdk_device_pad_get_n_groups()`
-/// can be used to obtain the number of groups, `gdk_device_pad_get_n_features()`
-/// and `gdk_device_pad_get_feature_group()` can be combined to find out the
-/// number of buttons/rings/strips the device has, and how are they grouped.
+/// of the buttons/rings/strips available. [method`Gdk.DevicePad.get_n_groups`]
+/// can be used to obtain the number of groups, [method`Gdk.DevicePad.get_n_features`]
+/// and [method`Gdk.DevicePad.get_feature_group`] can be combined to find out
+/// the number of buttons/rings/strips the device has, and how are they grouped.
 /// 
 /// Each of those groups have different modes, which may be used to map each
 /// individual pad feature to multiple actions. Only one mode is effective
 /// (current) for each given group, different groups may have different
 /// current modes. The number of available modes in a group can be found
-/// out through `gdk_device_pad_get_group_n_modes()`, and the current mode for
-/// a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
+/// out through [method`Gdk.DevicePad.get_group_n_modes`], and the current mode
+/// for a given group will be notified through events of type `GDK_PAD_GROUP_MODE`.
 open class DevicePad: Device, DevicePadProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -296,32 +299,56 @@ open class DevicePad: Device, DevicePadProtocol {
 }
 
 public enum DevicePadPropertyName: String, PropertyNameProtocol {
+    /// Whether Caps Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case capsLockState = "caps-lock-state"
+    /// The direction of the current layout.
+    /// 
+    /// This is only relevant for keyboard devices.
     case direction = "direction"
     /// The `GdkDisplay` the `GdkDevice` pertains to.
     case display = "display"
+    /// Whether the device has both right-to-left and left-to-right layouts.
+    /// 
+    /// This is only relevant for keyboard devices.
     case hasBidiLayouts = "has-bidi-layouts"
     /// Whether the device is represented by a cursor on the screen.
     case hasCursor = "has-cursor"
+    /// The current modifier state of the device.
+    /// 
+    /// This is only relevant for keyboard devices.
     case modifierState = "modifier-state"
     /// Number of axes in the device.
     case nAxes = "n-axes"
     /// The device name.
     case name = "name"
+    /// Whether Num Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case numLockState = "num-lock-state"
     /// The maximal number of concurrent touches on a touch device.
+    /// 
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case numTouches = "num-touches"
-    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    /// Product ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_product_id`].
     case productId = "product-id"
+    /// Whether Scroll Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case scrollLockState = "scroll-lock-state"
     /// `GdkSeat` of this device.
     case seat = "seat"
     /// Source type for the device.
     case source = "source"
+    /// The `GdkDeviceTool` that is currently used with this device.
     case tool = "tool"
-    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    /// Vendor ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_vendor_id`].
     case vendorId = "vendor-id"
 }
 
@@ -379,9 +406,9 @@ public extension DevicePadProtocol {
 }
 
 public enum DevicePadSignalName: String, SignalNameProtocol {
-    /// The `changed` signal is emitted either when the `GdkDevice`
-    /// has changed the number of either axes or keys. For example
-    /// on X11 this will normally happen when the physical device
+    /// Emitted either when the the number of either axes or keys changes.
+    /// 
+    /// On X11 this will normally happen when the physical device
     /// routing events through the logical device changes (for
     /// example, user switches from the USB mouse to a tablet); in
     /// that case the logical device will change to reflect the axes
@@ -412,35 +439,58 @@ public enum DevicePadSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool-changed` signal is emitted on pen/eraser
-    /// `GdkDevices` whenever tools enter or leave proximity.
+    /// Emitted on pen/eraser devices whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
+    /// Whether Caps Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyCapsLockState = "notify::caps-lock-state"
+    /// The direction of the current layout.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyDirection = "notify::direction"
     /// The `GdkDisplay` the `GdkDevice` pertains to.
     case notifyDisplay = "notify::display"
+    /// Whether the device has both right-to-left and left-to-right layouts.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyHasBidiLayouts = "notify::has-bidi-layouts"
     /// Whether the device is represented by a cursor on the screen.
     case notifyHasCursor = "notify::has-cursor"
+    /// The current modifier state of the device.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyModifierState = "notify::modifier-state"
     /// Number of axes in the device.
     case notifyNAxes = "notify::n-axes"
     /// The device name.
     case notifyName = "notify::name"
+    /// Whether Num Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyNumLockState = "notify::num-lock-state"
     /// The maximal number of concurrent touches on a touch device.
+    /// 
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case notifyNumTouches = "notify::num-touches"
-    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    /// Product ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_product_id`].
     case notifyProductId = "notify::product-id"
+    /// Whether Scroll Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyScrollLockState = "notify::scroll-lock-state"
     /// `GdkSeat` of this device.
     case notifySeat = "notify::seat"
     /// Source type for the device.
     case notifySource = "notify::source"
+    /// The `GdkDeviceTool` that is currently used with this device.
     case notifyTool = "notify::tool"
-    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    /// Vendor ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_vendor_id`].
     case notifyVendorId = "notify::vendor-id"
 }
 
@@ -450,8 +500,9 @@ public extension DevicePadProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevicePad` instance.
     @inlinable var device_pad_ptr: UnsafeMutablePointer<GdkDevicePad>! { return ptr?.assumingMemoryBound(to: GdkDevicePad.self) }
 
-    /// Returns the group the given `feature` and `idx` belong to,
-    /// or -1 if feature/index do not exist in `pad`.
+    /// Returns the group the given `feature` and `idx` belong to.
+    /// 
+    /// f the feature or index do not exist in `pad`, -1 is returned.
     @inlinable func getFeatureGroup(feature: GdkDevicePadFeature, featureIdx: Int) -> Int {
         let rv = Int(gdk_device_pad_get_feature_group(device_pad_ptr, feature, gint(featureIdx)))
         return rv
@@ -469,21 +520,24 @@ public extension DevicePadProtocol {
         return rv
     }
 
-    /// Returns the number of groups this pad device has. Pads have
-    /// at least one group. A pad group is a subcollection of
+    /// Returns the number of groups this pad device has.
+    /// 
+    /// Pads have at least one group. A pad group is a subcollection of
     /// buttons/strip/rings that is affected collectively by a same
     /// current mode.
     @inlinable func getNGroups() -> Int {
         let rv = Int(gdk_device_pad_get_n_groups(device_pad_ptr))
         return rv
     }
-    /// Returns the number of groups this pad device has. Pads have
-    /// at least one group. A pad group is a subcollection of
+    /// Returns the number of groups this pad device has.
+    /// 
+    /// Pads have at least one group. A pad group is a subcollection of
     /// buttons/strip/rings that is affected collectively by a same
     /// current mode.
     @inlinable var nGroups: Int {
-        /// Returns the number of groups this pad device has. Pads have
-        /// at least one group. A pad group is a subcollection of
+        /// Returns the number of groups this pad device has.
+        /// 
+        /// Pads have at least one group. A pad group is a subcollection of
         /// buttons/strip/rings that is affected collectively by a same
         /// current mode.
         get {
@@ -504,8 +558,7 @@ public extension DevicePadProtocol {
 /// For a concrete class that implements these methods and properties, see `DragSurface`.
 /// Alternatively, use `DragSurfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkDragSurface` is an interface implemented by `GdkSurfaces` used
-/// during a DND operation.
+/// A `GdkDragSurface` is an interface for surfaces used during DND.
 public protocol DragSurfaceProtocol: SurfaceProtocol {
         /// Untyped pointer to the underlying `GdkDragSurface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -521,8 +574,7 @@ public protocol DragSurfaceProtocol: SurfaceProtocol {
 /// It exposes methods that can operate on this data type through `DragSurfaceProtocol` conformance.
 /// Use `DragSurfaceRef` only as an `unowned` reference to an existing `GdkDragSurface` instance.
 ///
-/// A `GdkDragSurface` is an interface implemented by `GdkSurfaces` used
-/// during a DND operation.
+/// A `GdkDragSurface` is an interface for surfaces used during DND.
 public struct DragSurfaceRef: DragSurfaceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDragSurface` instance.
     /// For type-safe access, use the generated, typed pointer `drag_surface_ptr` property instead.
@@ -608,8 +660,7 @@ public extension DragSurfaceRef {
 /// It provides the methods that can operate on this data type through `DragSurfaceProtocol` conformance.
 /// Use `DragSurface` as a strong reference or owner of a `GdkDragSurface` instance.
 ///
-/// A `GdkDragSurface` is an interface implemented by `GdkSurfaces` used
-/// during a DND operation.
+/// A `GdkDragSurface` is an interface for surfaces used during DND.
 open class DragSurface: Surface, DragSurfaceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -740,15 +791,19 @@ open class DragSurface: Surface, DragSurfaceProtocol {
 }
 
 public enum DragSurfacePropertyName: String, PropertyNameProtocol {
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case cursor = "cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case display = "display"
+    /// The `GdkFrameClock` of the surface.
     case frameClock = "frame-clock"
+    /// The height of the surface, in pixels.
     case height = "height"
+    /// Whether the surface is mapped.
     case mapped = "mapped"
+    /// The scale factor of the surface.
+    case scaleFactor = "scale-factor"
+    /// The width of the surface in pixels.
     case width = "width"
 }
 
@@ -845,15 +900,19 @@ public enum DragSurfaceSignalName: String, SignalNameProtocol {
     case notify = "notify"
     /// Emitted when part of the surface needs to be redrawn.
     case render = "render"
-    /// The mouse pointer for a `GdkSurface`. See `gdk_surface_set_cursor()` and
-    /// `gdk_surface_get_cursor()` for details.
+    /// The mouse pointer for the `GdkSurface`.
     case notifyCursor = "notify::cursor"
-    /// The `GdkDisplay` connection of the surface. See `gdk_surface_get_display()`
-    /// for details.
+    /// The `GdkDisplay` connection of the surface.
     case notifyDisplay = "notify::display"
+    /// The `GdkFrameClock` of the surface.
     case notifyFrameClock = "notify::frame-clock"
+    /// The height of the surface, in pixels.
     case notifyHeight = "notify::height"
+    /// Whether the surface is mapped.
     case notifyMapped = "notify::mapped"
+    /// The scale factor of the surface.
+    case notifyScaleFactor = "notify::scale-factor"
+    /// The width of the surface in pixels.
     case notifyWidth = "notify::width"
 }
 
@@ -881,47 +940,51 @@ public extension DragSurfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `Paintable`.
 /// Alternatively, use `PaintableRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// `GdkPaintable` is a simple interface used by GDK and GTK to represent
-/// objects that can be painted anywhere at any size without requiring any
-/// sort of layout. The interface is inspired by similar concepts elsewhere,
-/// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
+/// `GdkPaintable` is a simple interface used by GTK to represent content that
+/// can be painted.
+/// 
+/// The content of a `GdkPaintable` can be painted anywhere at any size
+/// without requiring any sort of layout. The interface is inspired by
+/// similar concepts elsewhere, such as
+/// [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
 /// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
-/// `gdk_paintable_snapshot()`. How the paintable interprets that size and if it
-/// scales or centers itself into the given rectangle is implementation defined,
-/// though if you are implementing a `GdkPaintable` and don't know what to do, it
-/// is suggested that you scale your paintable ignoring any potential aspect ratio.
+/// [method`Gdk.Paintable.snapshot`]. How the paintable interprets that size and
+/// if it scales or centers itself into the given rectangle is implementation
+/// defined, though if you are implementing a `GdkPaintable` and don't know what
+/// to do, it is suggested that you scale your paintable ignoring any potential
+/// aspect ratio.
 /// 
-/// The contents that a `GdkPaintable` produces may depend on the `GdkSnapshot` passed
-/// to it. For example, paintables may decide to use more detailed images on higher
-/// resolution screens or when OpenGL is available. A `GdkPaintable` will however
-/// always produce the same output for the same snapshot.
+/// The contents that a `GdkPaintable` produces may depend on the [class`GdkSnapshot`]
+/// passed to it. For example, paintables may decide to use more detailed images
+/// on higher resolution screens or when OpenGL is available. A `GdkPaintable`
+/// will however always produce the same output for the same snapshot.
 /// 
-/// A `GdkPaintable` may change its contents, meaning that it will now produce a
-/// different output with the same snapshot. Once that happens, it will call
-/// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
-/// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
-/// If a consumer cannot deal with changing contents, it may call
-/// `gdk_paintable_get_current_image()` which will return a static paintable and
-/// use that.
+/// A `GdkPaintable` may change its contents, meaning that it will now produce
+/// a different output with the same snapshot. Once that happens, it will call
+/// [method`Gdk.Paintable.invalidate_contents`] which will emit the
+/// [signal`GdkPaintable::invalidate-contents`] signal. If a paintable is known
+/// to never change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS`
+/// flag. If a consumer cannot deal with changing contents, it may call
+/// [method`Gdk.Paintable.get_current_image`] which will return a static
+/// paintable and use that.
 /// 
 /// A paintable can report an intrinsic (or preferred) size or aspect ratio it
 /// wishes to be rendered at, though it doesn't have to. Consumers of the interface
-/// can use this information to layout thepaintable appropriately.
-/// Just like the contents, the size of a paintable can change. A paintable will
-/// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate-size` signal.
-/// And just like for contents, if a paintable is known to never change its size,
-/// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
+/// can use this information to layout thepaintable appropriately. Just like the
+/// contents, the size of a paintable can change. A paintable will indicate this
+/// by calling [method`Gdk.Paintable.invalidate_size`] which will emit the
+/// [signal`GdkPaintable::invalidate-size`] signal. And just like for contents,
+/// if a paintable is known to never change its size, it will set the
+/// `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
 /// Besides API for applications, there are some functions that are only
 /// useful for implementing subclasses and should not be used by applications:
-/// `gdk_paintable_invalidate_contents()`,
-/// `gdk_paintable_invalidate_size()`,
-/// `gdk_paintable_new_empty()`.
+/// [method`Gdk.Paintable.invalidate_contents`],
+/// [method`Gdk.Paintable.invalidate_size`],
+/// [func`Gdk.Paintable.new_empty`].
 public protocol PaintableProtocol {
         /// Untyped pointer to the underlying `GdkPaintable` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -937,47 +1000,51 @@ public protocol PaintableProtocol {
 /// It exposes methods that can operate on this data type through `PaintableProtocol` conformance.
 /// Use `PaintableRef` only as an `unowned` reference to an existing `GdkPaintable` instance.
 ///
-/// `GdkPaintable` is a simple interface used by GDK and GTK to represent
-/// objects that can be painted anywhere at any size without requiring any
-/// sort of layout. The interface is inspired by similar concepts elsewhere,
-/// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
+/// `GdkPaintable` is a simple interface used by GTK to represent content that
+/// can be painted.
+/// 
+/// The content of a `GdkPaintable` can be painted anywhere at any size
+/// without requiring any sort of layout. The interface is inspired by
+/// similar concepts elsewhere, such as
+/// [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
 /// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
-/// `gdk_paintable_snapshot()`. How the paintable interprets that size and if it
-/// scales or centers itself into the given rectangle is implementation defined,
-/// though if you are implementing a `GdkPaintable` and don't know what to do, it
-/// is suggested that you scale your paintable ignoring any potential aspect ratio.
+/// [method`Gdk.Paintable.snapshot`]. How the paintable interprets that size and
+/// if it scales or centers itself into the given rectangle is implementation
+/// defined, though if you are implementing a `GdkPaintable` and don't know what
+/// to do, it is suggested that you scale your paintable ignoring any potential
+/// aspect ratio.
 /// 
-/// The contents that a `GdkPaintable` produces may depend on the `GdkSnapshot` passed
-/// to it. For example, paintables may decide to use more detailed images on higher
-/// resolution screens or when OpenGL is available. A `GdkPaintable` will however
-/// always produce the same output for the same snapshot.
+/// The contents that a `GdkPaintable` produces may depend on the [class`GdkSnapshot`]
+/// passed to it. For example, paintables may decide to use more detailed images
+/// on higher resolution screens or when OpenGL is available. A `GdkPaintable`
+/// will however always produce the same output for the same snapshot.
 /// 
-/// A `GdkPaintable` may change its contents, meaning that it will now produce a
-/// different output with the same snapshot. Once that happens, it will call
-/// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
-/// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
-/// If a consumer cannot deal with changing contents, it may call
-/// `gdk_paintable_get_current_image()` which will return a static paintable and
-/// use that.
+/// A `GdkPaintable` may change its contents, meaning that it will now produce
+/// a different output with the same snapshot. Once that happens, it will call
+/// [method`Gdk.Paintable.invalidate_contents`] which will emit the
+/// [signal`GdkPaintable::invalidate-contents`] signal. If a paintable is known
+/// to never change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS`
+/// flag. If a consumer cannot deal with changing contents, it may call
+/// [method`Gdk.Paintable.get_current_image`] which will return a static
+/// paintable and use that.
 /// 
 /// A paintable can report an intrinsic (or preferred) size or aspect ratio it
 /// wishes to be rendered at, though it doesn't have to. Consumers of the interface
-/// can use this information to layout thepaintable appropriately.
-/// Just like the contents, the size of a paintable can change. A paintable will
-/// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate-size` signal.
-/// And just like for contents, if a paintable is known to never change its size,
-/// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
+/// can use this information to layout thepaintable appropriately. Just like the
+/// contents, the size of a paintable can change. A paintable will indicate this
+/// by calling [method`Gdk.Paintable.invalidate_size`] which will emit the
+/// [signal`GdkPaintable::invalidate-size`] signal. And just like for contents,
+/// if a paintable is known to never change its size, it will set the
+/// `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
 /// Besides API for applications, there are some functions that are only
 /// useful for implementing subclasses and should not be used by applications:
-/// `gdk_paintable_invalidate_contents()`,
-/// `gdk_paintable_invalidate_size()`,
-/// `gdk_paintable_new_empty()`.
+/// [method`Gdk.Paintable.invalidate_contents`],
+/// [method`Gdk.Paintable.invalidate_size`],
+/// [func`Gdk.Paintable.new_empty`].
 public struct PaintableRef: PaintableProtocol {
         /// Untyped pointer to the underlying `GdkPaintable` instance.
     /// For type-safe access, use the generated, typed pointer `paintable_ptr` property instead.
@@ -1055,9 +1122,11 @@ public extension PaintableRef {
     }
 
         /// Returns a paintable that has the given intrinsic size and draws nothing.
-    /// This is often useful for implementing the `GdkPaintableInterface.get_current_image``()`
-    /// virtual function when the paintable is in an incomplete state (like a
-    /// `GtkMediaStream` before receiving the first frame).
+    /// 
+    /// This is often useful for implementing the
+    /// `GdkPaintableInterface.get_current_image``()` virtual function
+    /// when the paintable is in an incomplete state (like a
+    /// [class`Gtk.MediaStream`] before receiving the first frame).
     @inlinable static func new(empty intrinsicWidth: Int, intrinsicHeight: Int) -> PaintableRef! {
         guard let rv = PaintableRef(gconstpointer: gconstpointer(gdk_paintable_new_empty(gint(intrinsicWidth), gint(intrinsicHeight)))) else { return nil }
         return rv
@@ -1068,47 +1137,51 @@ public extension PaintableRef {
 /// It provides the methods that can operate on this data type through `PaintableProtocol` conformance.
 /// Use `Paintable` as a strong reference or owner of a `GdkPaintable` instance.
 ///
-/// `GdkPaintable` is a simple interface used by GDK and GTK to represent
-/// objects that can be painted anywhere at any size without requiring any
-/// sort of layout. The interface is inspired by similar concepts elsewhere,
-/// such as [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
+/// `GdkPaintable` is a simple interface used by GTK to represent content that
+/// can be painted.
+/// 
+/// The content of a `GdkPaintable` can be painted anywhere at any size
+/// without requiring any sort of layout. The interface is inspired by
+/// similar concepts elsewhere, such as
+/// [ClutterContent](https://developer.gnome.org/clutter/stable/ClutterContent.html),
 /// [HTML/CSS Paint Sources](https://www.w3.org/TR/css-images-4/`paint-source`),
 /// or [SVG Paint Servers](https://www.w3.org/TR/SVG2/pservers.html).
 /// 
 /// A `GdkPaintable` can be snapshot at any time and size using
-/// `gdk_paintable_snapshot()`. How the paintable interprets that size and if it
-/// scales or centers itself into the given rectangle is implementation defined,
-/// though if you are implementing a `GdkPaintable` and don't know what to do, it
-/// is suggested that you scale your paintable ignoring any potential aspect ratio.
+/// [method`Gdk.Paintable.snapshot`]. How the paintable interprets that size and
+/// if it scales or centers itself into the given rectangle is implementation
+/// defined, though if you are implementing a `GdkPaintable` and don't know what
+/// to do, it is suggested that you scale your paintable ignoring any potential
+/// aspect ratio.
 /// 
-/// The contents that a `GdkPaintable` produces may depend on the `GdkSnapshot` passed
-/// to it. For example, paintables may decide to use more detailed images on higher
-/// resolution screens or when OpenGL is available. A `GdkPaintable` will however
-/// always produce the same output for the same snapshot.
+/// The contents that a `GdkPaintable` produces may depend on the [class`GdkSnapshot`]
+/// passed to it. For example, paintables may decide to use more detailed images
+/// on higher resolution screens or when OpenGL is available. A `GdkPaintable`
+/// will however always produce the same output for the same snapshot.
 /// 
-/// A `GdkPaintable` may change its contents, meaning that it will now produce a
-/// different output with the same snapshot. Once that happens, it will call
-/// `gdk_paintable_invalidate_contents()` which will emit the
-/// `GdkPaintable::invalidate-contents` signal. If a paintable is known to never
-/// change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS` flag.
-/// If a consumer cannot deal with changing contents, it may call
-/// `gdk_paintable_get_current_image()` which will return a static paintable and
-/// use that.
+/// A `GdkPaintable` may change its contents, meaning that it will now produce
+/// a different output with the same snapshot. Once that happens, it will call
+/// [method`Gdk.Paintable.invalidate_contents`] which will emit the
+/// [signal`GdkPaintable::invalidate-contents`] signal. If a paintable is known
+/// to never change its contents, it will set the `GDK_PAINTABLE_STATIC_CONTENTS`
+/// flag. If a consumer cannot deal with changing contents, it may call
+/// [method`Gdk.Paintable.get_current_image`] which will return a static
+/// paintable and use that.
 /// 
 /// A paintable can report an intrinsic (or preferred) size or aspect ratio it
 /// wishes to be rendered at, though it doesn't have to. Consumers of the interface
-/// can use this information to layout thepaintable appropriately.
-/// Just like the contents, the size of a paintable can change. A paintable will
-/// indicate this by calling `gdk_paintable_invalidate_size()` which will emit the
-/// `GdkPaintable::invalidate-size` signal.
-/// And just like for contents, if a paintable is known to never change its size,
-/// it will set the `GDK_PAINTABLE_STATIC_SIZE` flag.
+/// can use this information to layout thepaintable appropriately. Just like the
+/// contents, the size of a paintable can change. A paintable will indicate this
+/// by calling [method`Gdk.Paintable.invalidate_size`] which will emit the
+/// [signal`GdkPaintable::invalidate-size`] signal. And just like for contents,
+/// if a paintable is known to never change its size, it will set the
+/// `GDK_PAINTABLE_STATIC_SIZE` flag.
 /// 
 /// Besides API for applications, there are some functions that are only
 /// useful for implementing subclasses and should not be used by applications:
-/// `gdk_paintable_invalidate_contents()`,
-/// `gdk_paintable_invalidate_size()`,
-/// `gdk_paintable_new_empty()`.
+/// [method`Gdk.Paintable.invalidate_contents`],
+/// [method`Gdk.Paintable.invalidate_size`],
+/// [func`Gdk.Paintable.new_empty`].
 open class Paintable: PaintableProtocol {
         /// Untyped pointer to the underlying `GdkPaintable` instance.
     /// For type-safe access, use the generated, typed pointer `paintable_ptr` property instead.
@@ -1251,9 +1324,11 @@ open class Paintable: PaintableProtocol {
 
 
     /// Returns a paintable that has the given intrinsic size and draws nothing.
-    /// This is often useful for implementing the `GdkPaintableInterface.get_current_image``()`
-    /// virtual function when the paintable is in an incomplete state (like a
-    /// `GtkMediaStream` before receiving the first frame).
+    /// 
+    /// This is often useful for implementing the
+    /// `GdkPaintableInterface.get_current_image``()` virtual function
+    /// when the paintable is in an incomplete state (like a
+    /// [class`Gtk.MediaStream`] before receiving the first frame).
     @inlinable public static func new(empty intrinsicWidth: Int, intrinsicHeight: Int) -> Paintable! {
         guard let rv = Paintable(gconstpointer: gconstpointer(gdk_paintable_new_empty(gint(intrinsicWidth), gint(intrinsicHeight)))) else { return nil }
         return rv
@@ -1269,13 +1344,16 @@ public enum PaintableSignalName: String, SignalNameProtocol {
     /// Examples for such an event would be videos changing to the next frame or
     /// the icon theme for an icon changing.
     case invalidateContents = "invalidate-contents"
-    /// Emitted when the intrinsic size of the `paintable` changes. This means the values
-    /// reported by at least one of `gdk_paintable_get_intrinsic_width()`,
-    /// `gdk_paintable_get_intrinsic_height()` or `gdk_paintable_get_intrinsic_aspect_ratio()`
+    /// Emitted when the intrinsic size of the `paintable` changes.
+    /// 
+    /// This means the values reported by at least one of
+    /// [method`Gdk.Paintable.get_intrinsic_width`],
+    /// [method`Gdk.Paintable.get_intrinsic_height`] or
+    /// [method`Gdk.Paintable.get_intrinsic_aspect_ratio`]
     /// has changed.
     /// 
-    /// Examples for such an event would be a paintable displaying the contents of a toplevel
-    /// surface being resized.
+    /// Examples for such an event would be a paintable displaying
+    /// the contents of a toplevel surface being resized.
     case invalidateSize = "invalidate-size"
 
 }
@@ -1336,13 +1414,16 @@ public extension PaintableProtocol {
     /// Typed `invalidate-contents` signal for using the `connect(signal:)` methods
     static var invalidateContentsSignal: PaintableSignalName { .invalidateContents }
     
-    /// Emitted when the intrinsic size of the `paintable` changes. This means the values
-    /// reported by at least one of `gdk_paintable_get_intrinsic_width()`,
-    /// `gdk_paintable_get_intrinsic_height()` or `gdk_paintable_get_intrinsic_aspect_ratio()`
+    /// Emitted when the intrinsic size of the `paintable` changes.
+    /// 
+    /// This means the values reported by at least one of
+    /// [method`Gdk.Paintable.get_intrinsic_width`],
+    /// [method`Gdk.Paintable.get_intrinsic_height`] or
+    /// [method`Gdk.Paintable.get_intrinsic_aspect_ratio`]
     /// has changed.
     /// 
-    /// Examples for such an event would be a paintable displaying the contents of a toplevel
-    /// surface being resized.
+    /// Examples for such an event would be a paintable displaying
+    /// the contents of a toplevel surface being resized.
     /// - Note: This represents the underlying `invalidate-size` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1375,8 +1456,10 @@ public extension PaintableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkPaintable` instance.
     @inlinable var paintable_ptr: UnsafeMutablePointer<GdkPaintable>! { return ptr?.assumingMemoryBound(to: GdkPaintable.self) }
 
-    /// Applies the sizing algorithm outlined in
-    /// https://drafts.csswg.org/css-images-3/`default-sizing`
+    /// Compute a concrete size for the `GdkPaintable`.
+    /// 
+    /// Applies the sizing algorithm outlined in the
+    /// [CSS Image spec](https://drafts.csswg.org/css-images-3/`default-sizing`)
     /// to the given `paintable`. See that link for more details.
     /// 
     /// It is not necessary to call this function when both `specified_width`
@@ -1390,8 +1473,8 @@ public extension PaintableProtocol {
 
     /// Gets an immutable paintable for the current contents displayed by `paintable`.
     /// 
-    /// This is useful when you want to retain the current state of an animation, for
-    /// example to take a screenshot of a running animation.
+    /// This is useful when you want to retain the current state of an animation,
+    /// for example to take a screenshot of a running animation.
     /// 
     /// If the `paintable` is already immutable, it will return itself.
     @inlinable func getCurrentImage() -> PaintableRef! {
@@ -1399,67 +1482,75 @@ public extension PaintableProtocol {
         return rv
     }
 
-    /// Get flags for the paintable. This is oftentimes useful for optimizations.
+    /// Get flags for the paintable.
     /// 
-    /// See `GdkPaintableFlags` for the flags and what they mean.
+    /// This is oftentimes useful for optimizations.
+    /// 
+    /// See [flags`Gdk.PaintableFlags`] for the flags and what they mean.
     @inlinable func getFlags() -> PaintableFlags {
         let rv = PaintableFlags(gdk_paintable_get_flags(paintable_ptr))
         return rv
     }
 
     /// Gets the preferred aspect ratio the `paintable` would like to be displayed at.
-    /// The aspect ratio is the width divided by the height, so a value of 0.5 means
-    /// that the `paintable` prefers to be displayed twice as high as it is wide.
-    /// Consumers of this interface can use this to preserve aspect ratio when displaying
-    /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// The aspect ratio is the width divided by the height, so a value of 0.5
+    /// means that the `paintable` prefers to be displayed twice as high as it
+    /// is wide. Consumers of this interface can use this to preserve aspect
+    /// ratio when displaying the paintable.
+    /// 
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
     /// Usually when a `paintable` returns nonzero values from
-    /// `gdk_paintable_get_intrinsic_width()` and `gdk_paintable_get_intrinsic_height()`
-    /// the aspect ratio should conform to those values, though that is not required.
+    /// [method`Gdk.Paintable.get_intrinsic_width`] and
+    /// [method`Gdk.Paintable.get_intrinsic_height`] the aspect ratio
+    /// should conform to those values, though that is not required.
     /// 
-    /// If the `paintable` does not have a preferred aspect ratio, it returns 0.
-    /// Negative values are never returned.
+    /// If the `paintable` does not have a preferred aspect ratio,
+    /// it returns 0. Negative values are never returned.
     @inlinable func getIntrinsicAspectRatio() -> CDouble {
         let rv = gdk_paintable_get_intrinsic_aspect_ratio(paintable_ptr)
         return rv
     }
 
     /// Gets the preferred height the `paintable` would like to be displayed at.
+    /// 
     /// Consumers of this interface can use this to reserve enough space to draw
     /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
-    /// If the `paintable` does not have a preferred height, it returns 0. Negative
-    /// values are never returned.
+    /// If the `paintable` does not have a preferred height, it returns 0.
+    /// Negative values are never returned.
     @inlinable func getIntrinsicHeight() -> Int {
         let rv = Int(gdk_paintable_get_intrinsic_height(paintable_ptr))
         return rv
     }
 
     /// Gets the preferred width the `paintable` would like to be displayed at.
+    /// 
     /// Consumers of this interface can use this to reserve enough space to draw
     /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
-    /// If the `paintable` does not have a preferred width, it returns 0. Negative
-    /// values are never returned.
+    /// If the `paintable` does not have a preferred width, it returns 0.
+    /// Negative values are never returned.
     @inlinable func getIntrinsicWidth() -> Int {
         let rv = Int(gdk_paintable_get_intrinsic_width(paintable_ptr))
         return rv
     }
 
     /// Called by implementations of `GdkPaintable` to invalidate their contents.
-    /// Unless the contents are invalidated, implementations must guarantee that
-    /// multiple calls of `gdk_paintable_snapshot()` produce the same output.
     /// 
-    /// This function will emit the `GdkPaintable::invalidate-contents` signal.
+    /// Unless the contents are invalidated, implementations must guarantee that
+    /// multiple calls of [method`Gdk.Paintable.snapshot`] produce the same output.
+    /// 
+    /// This function will emit the [signal`Gdk.Paintable::invalidate-contents`]
+    /// signal.
     /// 
     /// If a `paintable` reports the `GDK_PAINTABLE_STATIC_CONTENTS` flag,
     /// it must not call this function.
@@ -1469,10 +1560,12 @@ public extension PaintableProtocol {
     }
 
     /// Called by implementations of `GdkPaintable` to invalidate their size.
+    /// 
     /// As long as the size is not invalidated, `paintable` must return the same
     /// values for its intrinsic width, height and aspect ratio.
     /// 
-    /// This function will emit the `GdkPaintable::invalidate-size` signal.
+    /// This function will emit the [signal`Gdk.Paintable::invalidate-size`]
+    /// signal.
     /// 
     /// If a `paintable` reports the `GDK_PAINTABLE_STATIC_SIZE` flag,
     /// it must not call this function.
@@ -1481,24 +1574,26 @@ public extension PaintableProtocol {
     
     }
 
-    /// Snapshots the given paintable with the given `width` and `height` at the
-    /// current (0,0) offset of the `snapshot`. If `width` and `height` are not larger
-    /// than zero, this function will do nothing.
+    /// Snapshots the given paintable with the given `width` and `height`.
+    /// 
+    /// The paintable is drawn at the current (0,0) offset of the `snapshot`.
+    /// If `width` and `height` are not larger than zero, this function will
+    /// do nothing.
     @inlinable func snapshot<SnapshotT: SnapshotProtocol>(snapshot: SnapshotT, width: CDouble, height: CDouble) {
         gdk_paintable_snapshot(paintable_ptr, snapshot.snapshot_ptr, width, height)
     
     }
     /// Gets an immutable paintable for the current contents displayed by `paintable`.
     /// 
-    /// This is useful when you want to retain the current state of an animation, for
-    /// example to take a screenshot of a running animation.
+    /// This is useful when you want to retain the current state of an animation,
+    /// for example to take a screenshot of a running animation.
     /// 
     /// If the `paintable` is already immutable, it will return itself.
     @inlinable var currentImage: PaintableRef! {
         /// Gets an immutable paintable for the current contents displayed by `paintable`.
         /// 
-        /// This is useful when you want to retain the current state of an animation, for
-        /// example to take a screenshot of a running animation.
+        /// This is useful when you want to retain the current state of an animation,
+        /// for example to take a screenshot of a running animation.
         /// 
         /// If the `paintable` is already immutable, it will return itself.
         get {
@@ -1507,13 +1602,17 @@ public extension PaintableProtocol {
         }
     }
 
-    /// Get flags for the paintable. This is oftentimes useful for optimizations.
+    /// Get flags for the paintable.
     /// 
-    /// See `GdkPaintableFlags` for the flags and what they mean.
+    /// This is oftentimes useful for optimizations.
+    /// 
+    /// See [flags`Gdk.PaintableFlags`] for the flags and what they mean.
     @inlinable var flags: PaintableFlags {
-        /// Get flags for the paintable. This is oftentimes useful for optimizations.
+        /// Get flags for the paintable.
         /// 
-        /// See `GdkPaintableFlags` for the flags and what they mean.
+        /// This is oftentimes useful for optimizations.
+        /// 
+        /// See [flags`Gdk.PaintableFlags`] for the flags and what they mean.
         get {
             let rv = PaintableFlags(gdk_paintable_get_flags(paintable_ptr))
             return rv
@@ -1521,36 +1620,40 @@ public extension PaintableProtocol {
     }
 
     /// Gets the preferred aspect ratio the `paintable` would like to be displayed at.
-    /// The aspect ratio is the width divided by the height, so a value of 0.5 means
-    /// that the `paintable` prefers to be displayed twice as high as it is wide.
-    /// Consumers of this interface can use this to preserve aspect ratio when displaying
-    /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// The aspect ratio is the width divided by the height, so a value of 0.5
+    /// means that the `paintable` prefers to be displayed twice as high as it
+    /// is wide. Consumers of this interface can use this to preserve aspect
+    /// ratio when displaying the paintable.
+    /// 
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
     /// Usually when a `paintable` returns nonzero values from
-    /// `gdk_paintable_get_intrinsic_width()` and `gdk_paintable_get_intrinsic_height()`
-    /// the aspect ratio should conform to those values, though that is not required.
+    /// [method`Gdk.Paintable.get_intrinsic_width`] and
+    /// [method`Gdk.Paintable.get_intrinsic_height`] the aspect ratio
+    /// should conform to those values, though that is not required.
     /// 
-    /// If the `paintable` does not have a preferred aspect ratio, it returns 0.
-    /// Negative values are never returned.
+    /// If the `paintable` does not have a preferred aspect ratio,
+    /// it returns 0. Negative values are never returned.
     @inlinable var intrinsicAspectRatio: CDouble {
         /// Gets the preferred aspect ratio the `paintable` would like to be displayed at.
-        /// The aspect ratio is the width divided by the height, so a value of 0.5 means
-        /// that the `paintable` prefers to be displayed twice as high as it is wide.
-        /// Consumers of this interface can use this to preserve aspect ratio when displaying
-        /// the paintable.
         /// 
-        /// This is a purely informational value and does not in any way limit the values
-        /// that may be passed to `gdk_paintable_snapshot()`.
+        /// The aspect ratio is the width divided by the height, so a value of 0.5
+        /// means that the `paintable` prefers to be displayed twice as high as it
+        /// is wide. Consumers of this interface can use this to preserve aspect
+        /// ratio when displaying the paintable.
+        /// 
+        /// This is a purely informational value and does not in any way limit the
+        /// values that may be passed to [method`Gdk.Paintable.snapshot`].
         /// 
         /// Usually when a `paintable` returns nonzero values from
-        /// `gdk_paintable_get_intrinsic_width()` and `gdk_paintable_get_intrinsic_height()`
-        /// the aspect ratio should conform to those values, though that is not required.
+        /// [method`Gdk.Paintable.get_intrinsic_width`] and
+        /// [method`Gdk.Paintable.get_intrinsic_height`] the aspect ratio
+        /// should conform to those values, though that is not required.
         /// 
-        /// If the `paintable` does not have a preferred aspect ratio, it returns 0.
-        /// Negative values are never returned.
+        /// If the `paintable` does not have a preferred aspect ratio,
+        /// it returns 0. Negative values are never returned.
         get {
             let rv = gdk_paintable_get_intrinsic_aspect_ratio(paintable_ptr)
             return rv
@@ -1558,24 +1661,26 @@ public extension PaintableProtocol {
     }
 
     /// Gets the preferred height the `paintable` would like to be displayed at.
+    /// 
     /// Consumers of this interface can use this to reserve enough space to draw
     /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
-    /// If the `paintable` does not have a preferred height, it returns 0. Negative
-    /// values are never returned.
+    /// If the `paintable` does not have a preferred height, it returns 0.
+    /// Negative values are never returned.
     @inlinable var intrinsicHeight: Int {
         /// Gets the preferred height the `paintable` would like to be displayed at.
+        /// 
         /// Consumers of this interface can use this to reserve enough space to draw
         /// the paintable.
         /// 
-        /// This is a purely informational value and does not in any way limit the values
-        /// that may be passed to `gdk_paintable_snapshot()`.
+        /// This is a purely informational value and does not in any way limit the
+        /// values that may be passed to [method`Gdk.Paintable.snapshot`].
         /// 
-        /// If the `paintable` does not have a preferred height, it returns 0. Negative
-        /// values are never returned.
+        /// If the `paintable` does not have a preferred height, it returns 0.
+        /// Negative values are never returned.
         get {
             let rv = Int(gdk_paintable_get_intrinsic_height(paintable_ptr))
             return rv
@@ -1583,24 +1688,26 @@ public extension PaintableProtocol {
     }
 
     /// Gets the preferred width the `paintable` would like to be displayed at.
+    /// 
     /// Consumers of this interface can use this to reserve enough space to draw
     /// the paintable.
     /// 
-    /// This is a purely informational value and does not in any way limit the values
-    /// that may be passed to `gdk_paintable_snapshot()`.
+    /// This is a purely informational value and does not in any way limit the
+    /// values that may be passed to [method`Gdk.Paintable.snapshot`].
     /// 
-    /// If the `paintable` does not have a preferred width, it returns 0. Negative
-    /// values are never returned.
+    /// If the `paintable` does not have a preferred width, it returns 0.
+    /// Negative values are never returned.
     @inlinable var intrinsicWidth: Int {
         /// Gets the preferred width the `paintable` would like to be displayed at.
+        /// 
         /// Consumers of this interface can use this to reserve enough space to draw
         /// the paintable.
         /// 
-        /// This is a purely informational value and does not in any way limit the values
-        /// that may be passed to `gdk_paintable_snapshot()`.
+        /// This is a purely informational value and does not in any way limit the
+        /// values that may be passed to [method`Gdk.Paintable.snapshot`].
         /// 
-        /// If the `paintable` does not have a preferred width, it returns 0. Negative
-        /// values are never returned.
+        /// If the `paintable` does not have a preferred width, it returns 0.
+        /// Negative values are never returned.
         get {
             let rv = Int(gdk_paintable_get_intrinsic_width(paintable_ptr))
             return rv

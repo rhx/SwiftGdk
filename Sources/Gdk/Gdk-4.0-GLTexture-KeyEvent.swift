@@ -18,7 +18,7 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `GLTexture`.
 /// Alternatively, use `GLTextureRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkTexture` representing a GL texture object.
+/// A GdkTexture representing a GL texture object.
 public protocol GLTextureProtocol: TextureProtocol {
         /// Untyped pointer to the underlying `GdkGLTexture` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -34,7 +34,7 @@ public protocol GLTextureProtocol: TextureProtocol {
 /// It exposes methods that can operate on this data type through `GLTextureProtocol` conformance.
 /// Use `GLTextureRef` only as an `unowned` reference to an existing `GdkGLTexture` instance.
 ///
-/// A `GdkTexture` representing a GL texture object.
+/// A GdkTexture representing a GL texture object.
 public struct GLTextureRef: GLTextureProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkGLTexture` instance.
     /// For type-safe access, use the generated, typed pointer `gl_texture_ptr` property instead.
@@ -118,7 +118,7 @@ public extension GLTextureRef {
     /// 
     /// Note that the GL texture must not be modified until `destroy` is called,
     /// which will happen when the GdkTexture object is finalized, or due to
-    /// an explicit call of `gdk_gl_texture_release()`.
+    /// an explicit call of [method`Gdk.GLTexture.release`].
     @inlinable init<GLContextT: GLContextProtocol>( context: GLContextT, id: Int, width: Int, height: Int, destroy: GDestroyNotify?, data: gpointer! = nil) {
         let rv = gdk_gl_texture_new(context.gl_context_ptr, guint(id), gint(width), gint(height), destroy, data)
         ptr = UnsafeMutableRawPointer(rv)
@@ -129,7 +129,7 @@ public extension GLTextureRef {
 /// It provides the methods that can operate on this data type through `GLTextureProtocol` conformance.
 /// Use `GLTexture` as a strong reference or owner of a `GdkGLTexture` instance.
 ///
-/// A `GdkTexture` representing a GL texture object.
+/// A GdkTexture representing a GL texture object.
 open class GLTexture: Texture, GLTextureProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -259,7 +259,7 @@ open class GLTexture: Texture, GLTextureProtocol {
     /// 
     /// Note that the GL texture must not be modified until `destroy` is called,
     /// which will happen when the GdkTexture object is finalized, or due to
-    /// an explicit call of `gdk_gl_texture_release()`.
+    /// an explicit call of [method`Gdk.GLTexture.release`].
     @inlinable public init<GLContextT: GLContextProtocol>( context: GLContextT, id: Int, width: Int, height: Int, destroy: GDestroyNotify?, data: gpointer! = nil) {
         let rv = gdk_gl_texture_new(context.gl_context_ptr, guint(id), gint(width), gint(height), destroy, data)
         super.init(gpointer: (rv))
@@ -367,12 +367,11 @@ public extension GLTextureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkGLTexture` instance.
     @inlinable var gl_texture_ptr: UnsafeMutablePointer<GdkGLTexture>! { return ptr?.assumingMemoryBound(to: GdkGLTexture.self) }
 
-    /// Releases the GL resources held by a `GdkGLTexture` that
-    /// was created with `gdk_gl_texture_new()`.
+    /// Releases the GL resources held by a `GdkGLTexture`.
     /// 
     /// The texture contents are still available via the
-    /// `gdk_texture_download()` function, after this function
-    /// has been called.
+    /// [method`Gdk.Texture.download`] function, after this
+    /// function has been called.
     @inlinable func release() {
         gdk_gl_texture_release(gl_texture_ptr)
     
@@ -939,16 +938,21 @@ public extension KeyEventProtocol {
         return rv
     }
 
-    /// Gets a keyval and modifier combination that will cause
-    /// `gdk_key_event_matches()` to successfully match the given event.
+    /// Gets a keyval and modifier combination that will match
+    /// the event.
+    /// 
+    /// See [method`Gdk.KeyEvent.matches`].
     @inlinable func getMatch(keyval: UnsafeMutablePointer<guint>!, modifiers: UnsafeMutablePointer<GdkModifierType>!) -> Bool {
         let rv = ((gdk_key_event_get_match(event_ptr, keyval, modifiers)) != 0)
         return rv
     }
 
-    /// Matches a key event against a keyboard shortcut that is specified
-    /// as a keyval and modifiers. Partial matches are possible where the
-    /// combination matches if the currently active group is ignored.
+    /// Matches a key event against a keyval and modifiers.
+    /// 
+    /// This is typically used to trigger keyboard shortcuts such as Ctrl-C.
+    /// 
+    /// Partial matches are possible where the combination matches
+    /// if the currently active group is ignored.
     /// 
     /// Note that we ignore Caps Lock for matching.
     @inlinable func matches(keyval: Int, modifiers: ModifierType) -> GdkKeyMatch {

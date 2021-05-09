@@ -21,9 +21,9 @@ import GdkPixbuf
 /// `GdkCairoContext` is an object representing the platform-specific
 /// draw context.
 /// 
-/// `GdkCairoContexts` are created for a `GdkDisplay` using
-/// `gdk_surface_create_cairo_context()`, and the context can then be used
-/// to draw on that `GdkSurface`.
+/// `GdkCairoContext`s are created for a surface using
+/// [method`Gdk.Surface.create_cairo_context`], and the context can then be used
+/// to draw on that surface.
 public protocol CairoContextProtocol: DrawContextProtocol {
         /// Untyped pointer to the underlying `GdkCairoContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -42,9 +42,9 @@ public protocol CairoContextProtocol: DrawContextProtocol {
 /// `GdkCairoContext` is an object representing the platform-specific
 /// draw context.
 /// 
-/// `GdkCairoContexts` are created for a `GdkDisplay` using
-/// `gdk_surface_create_cairo_context()`, and the context can then be used
-/// to draw on that `GdkSurface`.
+/// `GdkCairoContext`s are created for a surface using
+/// [method`Gdk.Surface.create_cairo_context`], and the context can then be used
+/// to draw on that surface.
 public struct CairoContextRef: CairoContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkCairoContext` instance.
     /// For type-safe access, use the generated, typed pointer `cairo_context_ptr` property instead.
@@ -133,9 +133,9 @@ public extension CairoContextRef {
 /// `GdkCairoContext` is an object representing the platform-specific
 /// draw context.
 /// 
-/// `GdkCairoContexts` are created for a `GdkDisplay` using
-/// `gdk_surface_create_cairo_context()`, and the context can then be used
-/// to draw on that `GdkSurface`.
+/// `GdkCairoContext`s are created for a surface using
+/// [method`Gdk.Surface.create_cairo_context`], and the context can then be used
+/// to draw on that surface.
 open class CairoContext: DrawContext, CairoContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -364,11 +364,13 @@ public extension CairoContextProtocol {
     @inlinable var cairo_context_ptr: UnsafeMutablePointer<GdkCairoContext>! { return ptr?.assumingMemoryBound(to: GdkCairoContext.self) }
 
     /// Retrieves a Cairo context to be used to draw on the `GdkSurface`
-    /// of `context`. A call to `gdk_draw_context_begin_frame()` with this
+    /// of `context`.
+    /// 
+    /// A call to [method`Gdk.DrawContext.begin_frame`] with this
     /// `context` must have been done or this function will return `nil`.
     /// 
     /// The returned context is guaranteed to be valid until
-    /// `gdk_draw_context_end_frame()` is called.
+    /// [method`Gdk.DrawContext.end_frame`] is called.
     @inlinable func cairoCreate() -> Cairo.ContextRef! {
         let rv = Cairo.ContextRef(gdk_cairo_context_cairo_create(cairo_context_ptr))
         return rv
@@ -386,21 +388,23 @@ public extension CairoContextProtocol {
 /// For a concrete class that implements these methods and properties, see `Clipboard`.
 /// Alternatively, use `ClipboardRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GdkClipboard` object represents a clipboard of data shared
-/// between different applications or between different parts of
-/// the same application.
+/// The `GdkClipboard` object represents data shared between applications or
+/// inside an application.
 /// 
-/// To get a GdkClipboard object, use `gdk_display_get_clipboard()` or
-/// `gdk_display_get_primary_clipboard()`. You can find out about the data that
-/// is currently available in a clipboard using `gdk_clipboard_get_formats()`.
+/// To get a `GdkClipboard` object, use [method`Gdk.Display.get_clipboard`] or
+/// [method`Gdk.Display.get_primary_clipboard`]. You can find out about the data
+/// that is currently available in a clipboard using
+/// [method`Gdk.Clipboard.get_formats`].
 /// 
-/// To make text or image data available in a clipboard, use `gdk_clipboard_set_text()` or
-/// `gdk_clipboard_set_texture()`. For other data, you can use `gdk_clipboard_set_content()`,
-/// which takes a `GdkContentProvider` object.
+/// To make text or image data available in a clipboard, use
+/// [method`Gdk.Clipboard.set_text`] or [method`Gdk.Clipboard.set_texture`].
+/// For other data, you can use [method`Gdk.Clipboard.set_content`], which
+/// takes a [class`Gdk.ContentProvider`] object.
 /// 
-/// To read textual or image data from a clipboard, use `gdk_clipboard_read_text_async()` or
-/// `gdk_clipboard_read_texture_async()`. For other data, use `gdk_clipboard_read_async()`,
-/// which provides a `GInputStream` object.
+/// To read textual or image data from a clipboard, use
+/// [method`Gdk.Clipboard.read_text_async`] or
+/// [method`Gdk.Clipboard.read_texture_async`]. For other data, use
+/// [method`Gdk.Clipboard.read_async`], which provides a `GInputStream` object.
 public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkClipboard` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -416,21 +420,23 @@ public protocol ClipboardProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `ClipboardProtocol` conformance.
 /// Use `ClipboardRef` only as an `unowned` reference to an existing `GdkClipboard` instance.
 ///
-/// The `GdkClipboard` object represents a clipboard of data shared
-/// between different applications or between different parts of
-/// the same application.
+/// The `GdkClipboard` object represents data shared between applications or
+/// inside an application.
 /// 
-/// To get a GdkClipboard object, use `gdk_display_get_clipboard()` or
-/// `gdk_display_get_primary_clipboard()`. You can find out about the data that
-/// is currently available in a clipboard using `gdk_clipboard_get_formats()`.
+/// To get a `GdkClipboard` object, use [method`Gdk.Display.get_clipboard`] or
+/// [method`Gdk.Display.get_primary_clipboard`]. You can find out about the data
+/// that is currently available in a clipboard using
+/// [method`Gdk.Clipboard.get_formats`].
 /// 
-/// To make text or image data available in a clipboard, use `gdk_clipboard_set_text()` or
-/// `gdk_clipboard_set_texture()`. For other data, you can use `gdk_clipboard_set_content()`,
-/// which takes a `GdkContentProvider` object.
+/// To make text or image data available in a clipboard, use
+/// [method`Gdk.Clipboard.set_text`] or [method`Gdk.Clipboard.set_texture`].
+/// For other data, you can use [method`Gdk.Clipboard.set_content`], which
+/// takes a [class`Gdk.ContentProvider`] object.
 /// 
-/// To read textual or image data from a clipboard, use `gdk_clipboard_read_text_async()` or
-/// `gdk_clipboard_read_texture_async()`. For other data, use `gdk_clipboard_read_async()`,
-/// which provides a `GInputStream` object.
+/// To read textual or image data from a clipboard, use
+/// [method`Gdk.Clipboard.read_text_async`] or
+/// [method`Gdk.Clipboard.read_texture_async`]. For other data, use
+/// [method`Gdk.Clipboard.read_async`], which provides a `GInputStream` object.
 public struct ClipboardRef: ClipboardProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkClipboard` instance.
     /// For type-safe access, use the generated, typed pointer `clipboard_ptr` property instead.
@@ -516,21 +522,23 @@ public extension ClipboardRef {
 /// It provides the methods that can operate on this data type through `ClipboardProtocol` conformance.
 /// Use `Clipboard` as a strong reference or owner of a `GdkClipboard` instance.
 ///
-/// The `GdkClipboard` object represents a clipboard of data shared
-/// between different applications or between different parts of
-/// the same application.
+/// The `GdkClipboard` object represents data shared between applications or
+/// inside an application.
 /// 
-/// To get a GdkClipboard object, use `gdk_display_get_clipboard()` or
-/// `gdk_display_get_primary_clipboard()`. You can find out about the data that
-/// is currently available in a clipboard using `gdk_clipboard_get_formats()`.
+/// To get a `GdkClipboard` object, use [method`Gdk.Display.get_clipboard`] or
+/// [method`Gdk.Display.get_primary_clipboard`]. You can find out about the data
+/// that is currently available in a clipboard using
+/// [method`Gdk.Clipboard.get_formats`].
 /// 
-/// To make text or image data available in a clipboard, use `gdk_clipboard_set_text()` or
-/// `gdk_clipboard_set_texture()`. For other data, you can use `gdk_clipboard_set_content()`,
-/// which takes a `GdkContentProvider` object.
+/// To make text or image data available in a clipboard, use
+/// [method`Gdk.Clipboard.set_text`] or [method`Gdk.Clipboard.set_texture`].
+/// For other data, you can use [method`Gdk.Clipboard.set_content`], which
+/// takes a [class`Gdk.ContentProvider`] object.
 /// 
-/// To read textual or image data from a clipboard, use `gdk_clipboard_read_text_async()` or
-/// `gdk_clipboard_read_texture_async()`. For other data, use `gdk_clipboard_read_async()`,
-/// which provides a `GInputStream` object.
+/// To read textual or image data from a clipboard, use
+/// [method`Gdk.Clipboard.read_text_async`] or
+/// [method`Gdk.Clipboard.read_texture_async`]. For other data, use
+/// [method`Gdk.Clipboard.read_async`], which provides a `GInputStream` object.
 open class Clipboard: GLibObject.Object, ClipboardProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -726,7 +734,7 @@ public extension ClipboardProtocol {
 }
 
 public enum ClipboardSignalName: String, SignalNameProtocol {
-    /// The `changed` signal is emitted when the clipboard changes ownership.
+    /// Emitted when the clipboard changes ownership.
     case changed = "changed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -792,7 +800,7 @@ public extension ClipboardProtocol {
     }
     
     
-    /// The `changed` signal is emitted when the clipboard changes ownership.
+    /// Emitted when the clipboard changes ownership.
     /// - Note: This represents the underlying `changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1020,9 +1028,10 @@ public extension ClipboardProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkClipboard` instance.
     @inlinable var clipboard_ptr: UnsafeMutablePointer<GdkClipboard>! { return ptr?.assumingMemoryBound(to: GdkClipboard.self) }
 
-    /// Returns the `GdkContentProvider` currently set on `clipboard`. If the
-    /// `clipboard` is empty or its contents are not owned by the current process,
-    /// `nil` will be returned.
+    /// Returns the `GdkContentProvider` currently set on `clipboard`.
+    /// 
+    /// If the `clipboard` is empty or its contents are not owned by the
+    /// current process, `nil` will be returned.
     @inlinable func getContent() -> ContentProviderRef! {
         let rv = ContentProviderRef(gconstpointer: gconstpointer(gdk_clipboard_get_content(clipboard_ptr)))
         return rv
@@ -1041,9 +1050,10 @@ public extension ClipboardProtocol {
     }
 
     /// Asynchronously requests an input stream to read the `clipboard`'s
-    /// contents from. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_clipboard_read_finish()` to get the result of the
-    /// operation.
+    /// contents from.
+    /// 
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_finish`] to get the result of the operation.
     /// 
     /// The clipboard will choose the most suitable mime type from the given list
     /// to fulfill the request, preferring the ones listed first.
@@ -1052,9 +1062,10 @@ public extension ClipboardProtocol {
     
     }
     /// Asynchronously requests an input stream to read the `clipboard`'s
-    /// contents from. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_clipboard_read_finish()` to get the result of the
-    /// operation.
+    /// contents from.
+    /// 
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_finish`] to get the result of the operation.
     /// 
     /// The clipboard will choose the most suitable mime type from the given list
     /// to fulfill the request, preferring the ones listed first.
@@ -1063,7 +1074,9 @@ public extension ClipboardProtocol {
     
     }
 
-    /// Finishes an asynchronous clipboard read started with `gdk_clipboard_read_async()`.
+    /// Finishes an asynchronous clipboard read.
+    /// 
+    /// See [method`Gdk.Clipboard.read_async`].
     @inlinable func readFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT, outMimeType: UnsafeMutablePointer<UnsafePointer<CChar>?>! = nil) throws -> GIO.InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GIO.InputStreamRef(gdk_clipboard_read_finish(clipboard_ptr, result.async_result_ptr, outMimeType, &error))
@@ -1072,30 +1085,33 @@ public extension ClipboardProtocol {
     }
 
     /// Asynchronously request the `clipboard` contents converted to a string.
-    /// When the operation is finished `callback` will be called. You can then
-    /// call `gdk_clipboard_read_text_finish()` to get the result.
     /// 
-    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
-    /// that function or `gdk_clipboard_read_async()` directly if you need more
-    /// control over the operation.
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_text_finish`] to get the result.
+    /// 
+    /// This is a simple wrapper around [method`Gdk.Clipboard.read_value_async`].
+    /// Use that function or [method`Gdk.Clipboard.read_async`] directly if you
+    /// need more control over the operation.
     @inlinable func readTextAsync(cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_text_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
     /// Asynchronously request the `clipboard` contents converted to a string.
-    /// When the operation is finished `callback` will be called. You can then
-    /// call `gdk_clipboard_read_text_finish()` to get the result.
     /// 
-    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
-    /// that function or `gdk_clipboard_read_async()` directly if you need more
-    /// control over the operation.
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_text_finish`] to get the result.
+    /// 
+    /// This is a simple wrapper around [method`Gdk.Clipboard.read_value_async`].
+    /// Use that function or [method`Gdk.Clipboard.read_async`] directly if you
+    /// need more control over the operation.
     @inlinable func readTextAsync<CancellableT: GIO.CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_text_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
-    /// Finishes an asynchronous clipboard read started with
-    /// `gdk_clipboard_read_text_async()`.
+    /// Finishes an asynchronous clipboard read.
+    /// 
+    /// See [method`Gdk.Clipboard.read_text_async`].
     @inlinable func readTextFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> String! {
         var error: UnsafeMutablePointer<GError>?
         let rv = gdk_clipboard_read_text_finish(clipboard_ptr, result.async_result_ptr, &error).map({ String(cString: $0) })
@@ -1104,30 +1120,33 @@ public extension ClipboardProtocol {
     }
 
     /// Asynchronously request the `clipboard` contents converted to a `GdkPixbuf`.
-    /// When the operation is finished `callback` will be called. You can then
-    /// call `gdk_clipboard_read_texture_finish()` to get the result.
     /// 
-    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
-    /// that function or `gdk_clipboard_read_async()` directly if you need more
-    /// control over the operation.
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_texture_finish`] to get the result.
+    /// 
+    /// This is a simple wrapper around [method`Gdk.Clipboard.read_value_async`].
+    /// Use that function or [methos`Gdk.Clipboard.read_async`] directly if you
+    /// need more control over the operation.
     @inlinable func readTextureAsync(cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_texture_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
     /// Asynchronously request the `clipboard` contents converted to a `GdkPixbuf`.
-    /// When the operation is finished `callback` will be called. You can then
-    /// call `gdk_clipboard_read_texture_finish()` to get the result.
     /// 
-    /// This is a simple wrapper around `gdk_clipboard_read_value_async()`. Use
-    /// that function or `gdk_clipboard_read_async()` directly if you need more
-    /// control over the operation.
+    /// When the operation is finished `callback` will be called. You must then
+    /// call [method`Gdk.Clipboard.read_texture_finish`] to get the result.
+    /// 
+    /// This is a simple wrapper around [method`Gdk.Clipboard.read_value_async`].
+    /// Use that function or [methos`Gdk.Clipboard.read_async`] directly if you
+    /// need more control over the operation.
     @inlinable func readTextureAsync<CancellableT: GIO.CancellableProtocol>(cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_texture_async(clipboard_ptr, cancellable?.cancellable_ptr, callback, userData)
     
     }
 
-    /// Finishes an asynchronous clipboard read started with
-    /// `gdk_clipboard_read_texture_async()`.
+    /// Finishes an asynchronous clipboard read.
+    /// 
+    /// See [method`Gdk.Clipboard.read_texture_async`].
     @inlinable func readTextureFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> TextureRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = TextureRef(gconstpointer: gconstpointer(gdk_clipboard_read_texture_finish(clipboard_ptr, result.async_result_ptr, &error)))
@@ -1136,32 +1155,35 @@ public extension ClipboardProtocol {
     }
 
     /// Asynchronously request the `clipboard` contents converted to the given
-    /// `type`. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_clipboard_read_value_finish()` to get the resulting
-    /// `GValue`.
+    /// `type`.
     /// 
-    /// For local clipboard contents that are available in the given `GType`, the
-    /// value will be copied directly. Otherwise, GDK will try to use
-    /// `gdk_content_deserialize_async()` to convert the clipboard's data.
+    /// When the operation is finished `callback` will be called. You must then call
+    /// [method`Gdk.Clipboard.read_value_finish`] to get the resulting `GValue`.
+    /// 
+    /// For local clipboard contents that are available in the given `GType`,
+    /// the value will be copied directly. Otherwise, GDK will try to use
+    /// [func`content_deserialize_async`] to convert the clipboard's data.
     @inlinable func readValueAsync(type: GType, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_value_async(clipboard_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
     /// Asynchronously request the `clipboard` contents converted to the given
-    /// `type`. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_clipboard_read_value_finish()` to get the resulting
-    /// `GValue`.
+    /// `type`.
     /// 
-    /// For local clipboard contents that are available in the given `GType`, the
-    /// value will be copied directly. Otherwise, GDK will try to use
-    /// `gdk_content_deserialize_async()` to convert the clipboard's data.
+    /// When the operation is finished `callback` will be called. You must then call
+    /// [method`Gdk.Clipboard.read_value_finish`] to get the resulting `GValue`.
+    /// 
+    /// For local clipboard contents that are available in the given `GType`,
+    /// the value will be copied directly. Otherwise, GDK will try to use
+    /// [func`content_deserialize_async`] to convert the clipboard's data.
     @inlinable func readValueAsync<CancellableT: GIO.CancellableProtocol>(type: GType, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_read_value_async(clipboard_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
-    /// Finishes an asynchronous clipboard read started with
-    /// `gdk_clipboard_read_value_async()`.
+    /// Finishes an asynchronous clipboard read.
+    /// 
+    /// See [method`Gdk.Clipboard.read_value_async`].
     @inlinable func readValueFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> GLibObject.ValueRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GLibObject.ValueRef(gdk_clipboard_read_value_finish(clipboard_ptr, result.async_result_ptr, &error))
@@ -1173,9 +1195,10 @@ public extension ClipboardProtocol {
     // *** set() is not available because it has a varargs (...) parameter!
 
 
-    /// Sets a new content provider on `clipboard`. The clipboard will claim the
-    /// `GdkDisplay`'s resources and advertise these new contents to other
-    /// applications.
+    /// Sets a new content provider on `clipboard`.
+    /// 
+    /// The clipboard will claim the `GdkDisplay`'s resources and advertise
+    /// these new contents to other applications.
     /// 
     /// In the rare case of a failure, this function will return `false`. The
     /// clipboard will then continue reporting its old contents and ignore
@@ -1188,9 +1211,10 @@ public extension ClipboardProtocol {
         let rv = ((gdk_clipboard_set_content(clipboard_ptr, provider?.content_provider_ptr)) != 0)
         return rv
     }
-    /// Sets a new content provider on `clipboard`. The clipboard will claim the
-    /// `GdkDisplay`'s resources and advertise these new contents to other
-    /// applications.
+    /// Sets a new content provider on `clipboard`.
+    /// 
+    /// The clipboard will claim the `GdkDisplay`'s resources and advertise
+    /// these new contents to other applications.
     /// 
     /// In the rare case of a failure, this function will return `false`. The
     /// clipboard will then continue reporting its old contents and ignore
@@ -1216,8 +1240,7 @@ public extension ClipboardProtocol {
     
     }
 
-    /// Sets the clipboard to contain the value collected from the given
-    /// `args`.
+    /// Sets the clipboard to contain the value collected from the given `args`.
     @inlinable func setValist(type: GType, args: CVaListPointer) {
         gdk_clipboard_set_valist(clipboard_ptr, type, args)
     
@@ -1229,28 +1252,44 @@ public extension ClipboardProtocol {
     
     }
 
-    /// Asynchronously instructs the `clipboard` to store its contents remotely to
-    /// preserve them for later usage. If the clipboard is not local, this function
-    /// does nothing but report success.
+    /// Asynchronously instructs the `clipboard` to store its contents remotely.
     /// 
-    /// This function is called automatically when `gtk_main()` or `GtkApplication`
-    /// exit, so you likely don't need to call it.
+    /// If the clipboard is not local, this function does nothing but report success.
+    /// 
+    /// The `callback` must call [method`Gdk.Clipboard.store_finish`].
+    /// 
+    /// The purpose of this call is to preserve clipboard contents beyond the
+    /// lifetime of an application, so this function is typically called on
+    /// exit. Depending on the platform, the functionality may not be available
+    /// unless a "clipboard manager" is running.
+    /// 
+    /// This function is called automatically when a [class`Gtk.Application`] is
+    /// shut down, so you likely don't need to call it.
     @inlinable func storeAsync(ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_store_async(clipboard_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
-    /// Asynchronously instructs the `clipboard` to store its contents remotely to
-    /// preserve them for later usage. If the clipboard is not local, this function
-    /// does nothing but report success.
+    /// Asynchronously instructs the `clipboard` to store its contents remotely.
     /// 
-    /// This function is called automatically when `gtk_main()` or `GtkApplication`
-    /// exit, so you likely don't need to call it.
+    /// If the clipboard is not local, this function does nothing but report success.
+    /// 
+    /// The `callback` must call [method`Gdk.Clipboard.store_finish`].
+    /// 
+    /// The purpose of this call is to preserve clipboard contents beyond the
+    /// lifetime of an application, so this function is typically called on
+    /// exit. Depending on the platform, the functionality may not be available
+    /// unless a "clipboard manager" is running.
+    /// 
+    /// This function is called automatically when a [class`Gtk.Application`] is
+    /// shut down, so you likely don't need to call it.
     @inlinable func storeAsync<CancellableT: GIO.CancellableProtocol>(ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_clipboard_store_async(clipboard_ptr, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
-    /// Finishes an asynchronous clipboard store started with `gdk_clipboard_store_async()`.
+    /// Finishes an asynchronous clipboard store.
+    /// 
+    /// See [method`Gdk.Clipboard.store_async`].
     @inlinable func storeFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gdk_clipboard_store_finish(clipboard_ptr, result.async_result_ptr, &error)) != 0)
@@ -1260,16 +1299,18 @@ public extension ClipboardProtocol {
     /// The `GdkContentProvider` or `nil` if the clipboard is empty or contents are
     /// provided otherwise.
     @inlinable var content: ContentProviderRef! {
-        /// Returns the `GdkContentProvider` currently set on `clipboard`. If the
-        /// `clipboard` is empty or its contents are not owned by the current process,
-        /// `nil` will be returned.
+        /// Returns the `GdkContentProvider` currently set on `clipboard`.
+        /// 
+        /// If the `clipboard` is empty or its contents are not owned by the
+        /// current process, `nil` will be returned.
         get {
             let rv = ContentProviderRef(gconstpointer: gconstpointer(gdk_clipboard_get_content(clipboard_ptr)))
             return rv
         }
-        /// Sets a new content provider on `clipboard`. The clipboard will claim the
-        /// `GdkDisplay`'s resources and advertise these new contents to other
-        /// applications.
+        /// Sets a new content provider on `clipboard`.
+        /// 
+        /// The clipboard will claim the `GdkDisplay`'s resources and advertise
+        /// these new contents to other applications.
         /// 
         /// In the rare case of a failure, this function will return `false`. The
         /// clipboard will then continue reporting its old contents and ignore
@@ -1301,17 +1342,21 @@ public extension ClipboardProtocol {
         }
     }
 
-    /// Returns if the clipboard is local. A clipboard is considered local if it was
-    /// last claimed by the running application.
+    /// Returns if the clipboard is local.
     /// 
-    /// Note that `gdk_clipboard_get_content()` may return `nil` even on a local
-    /// clipboard. In this case the clipboard is empty.
+    /// A clipboard is considered local if it was last claimed
+    /// by the running application.
+    /// 
+    /// Note that [method`Gdk.Clipboard.get_content`] may return `nil`
+    /// even on a local clipboard. In this case the clipboard is empty.
     @inlinable var isLocal: Bool {
-        /// Returns if the clipboard is local. A clipboard is considered local if it was
-        /// last claimed by the running application.
+        /// Returns if the clipboard is local.
         /// 
-        /// Note that `gdk_clipboard_get_content()` may return `nil` even on a local
-        /// clipboard. In this case the clipboard is empty.
+        /// A clipboard is considered local if it was last claimed
+        /// by the running application.
+        /// 
+        /// Note that [method`Gdk.Clipboard.get_content`] may return `nil`
+        /// even on a local clipboard. In this case the clipboard is empty.
         get {
             let rv = ((gdk_clipboard_is_local(clipboard_ptr)) != 0)
             return rv
@@ -1330,8 +1375,17 @@ public extension ClipboardProtocol {
 /// For a concrete class that implements these methods and properties, see `ContentDeserializer`.
 /// Alternatively, use `ContentDeserializerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GdkContentDeserializer is used to deserialize content received via
+/// A `GdkContentDeserializer` is used to deserialize content received via
 /// inter-application data transfers.
+/// 
+/// The `GdkContentDeserializer` transforms serialized content that is
+/// identified by a mime type into an object identified by a GType.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// deserialization functions, use [func`content_register_deserializer`].
+/// 
+/// Also see [class`Gdk.ContentSerializer`].
 public protocol ContentDeserializerProtocol: GLibObject.ObjectProtocol, GIO.AsyncResultProtocol {
         /// Untyped pointer to the underlying `GdkContentDeserializer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1347,8 +1401,17 @@ public protocol ContentDeserializerProtocol: GLibObject.ObjectProtocol, GIO.Asyn
 /// It exposes methods that can operate on this data type through `ContentDeserializerProtocol` conformance.
 /// Use `ContentDeserializerRef` only as an `unowned` reference to an existing `GdkContentDeserializer` instance.
 ///
-/// A GdkContentDeserializer is used to deserialize content received via
+/// A `GdkContentDeserializer` is used to deserialize content received via
 /// inter-application data transfers.
+/// 
+/// The `GdkContentDeserializer` transforms serialized content that is
+/// identified by a mime type into an object identified by a GType.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// deserialization functions, use [func`content_register_deserializer`].
+/// 
+/// Also see [class`Gdk.ContentSerializer`].
 public struct ContentDeserializerRef: ContentDeserializerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentDeserializer` instance.
     /// For type-safe access, use the generated, typed pointer `content_deserializer_ptr` property instead.
@@ -1434,8 +1497,17 @@ public extension ContentDeserializerRef {
 /// It provides the methods that can operate on this data type through `ContentDeserializerProtocol` conformance.
 /// Use `ContentDeserializer` as a strong reference or owner of a `GdkContentDeserializer` instance.
 ///
-/// A GdkContentDeserializer is used to deserialize content received via
+/// A `GdkContentDeserializer` is used to deserialize content received via
 /// inter-application data transfers.
+/// 
+/// The `GdkContentDeserializer` transforms serialized content that is
+/// identified by a mime type into an object identified by a GType.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// deserialization functions, use [func`content_register_deserializer`].
+/// 
+/// Also see [class`Gdk.ContentSerializer`].
 open class ContentDeserializer: GLibObject.Object, ContentDeserializerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -1602,7 +1674,9 @@ public extension ContentDeserializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentDeserializer` instance.
     @inlinable var content_deserializer_ptr: UnsafeMutablePointer<GdkContentDeserializer>! { return ptr?.assumingMemoryBound(to: GdkContentDeserializer.self) }
 
-    /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the cancellable for the current operation.
+    /// 
+    /// This is the `GCancellable` that was passed to [func`content_deserialize_async`].
     @inlinable func getCancellable() -> GIO.CancellableRef! {
         let rv = GIO.CancellableRef(gdk_content_deserializer_get_cancellable(content_deserializer_ptr))
         return rv
@@ -1614,7 +1688,9 @@ public extension ContentDeserializerProtocol {
         return rv
     }
 
-    /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the input stream for the current operation.
+    /// 
+    /// This is the stream that was passed to [func`content_deserialize_async`].
     @inlinable func getInputStream() -> GIO.InputStreamRef! {
         let rv = GIO.InputStreamRef(gdk_content_deserializer_get_input_stream(content_deserializer_ptr))
         return rv
@@ -1626,13 +1702,17 @@ public extension ContentDeserializerProtocol {
         return rv
     }
 
-    /// Gets the io priority that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the I/O priority for the current operation.
+    /// 
+    /// This is the priority that was passed to [funccontent_deserialize_async].
     @inlinable func getPriority() -> Int {
         let rv = Int(gdk_content_deserializer_get_priority(content_deserializer_ptr))
         return rv
     }
 
-    /// Gets the data that was associated with `deserializer` via `gdk_content_deserializer_set_task_data()`.
+    /// Gets the data that was associated with the current operation.
+    /// 
+    /// See [method`Gdk.ContentDeserializer.set_task_data`].
     @inlinable func getTaskData() -> gpointer! {
         let rv = gdk_content_deserializer_get_task_data(content_deserializer_ptr)
         return rv
@@ -1651,6 +1731,7 @@ public extension ContentDeserializerProtocol {
     }
 
     /// Indicate that the deserialization has ended with an error.
+    /// 
     /// This function consumes `error`.
     @inlinable func return_<GLibErrorT: ErrorProtocol>(error: GLibErrorT) {
         gdk_content_deserializer_return_error(content_deserializer_ptr, error.error_ptr)
@@ -1668,9 +1749,13 @@ public extension ContentDeserializerProtocol {
         gdk_content_deserializer_set_task_data(content_deserializer_ptr, data, notify)
     
     }
-    /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the cancellable for the current operation.
+    /// 
+    /// This is the `GCancellable` that was passed to [func`content_deserialize_async`].
     @inlinable var cancellable: GIO.CancellableRef! {
-        /// Gets the cancellable that was passed to `gdk_content_deserialize_async()`.
+        /// Gets the cancellable for the current operation.
+        /// 
+        /// This is the `GCancellable` that was passed to [func`content_deserialize_async`].
         get {
             let rv = GIO.CancellableRef(gdk_content_deserializer_get_cancellable(content_deserializer_ptr))
             return rv
@@ -1686,9 +1771,13 @@ public extension ContentDeserializerProtocol {
         }
     }
 
-    /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the input stream for the current operation.
+    /// 
+    /// This is the stream that was passed to [func`content_deserialize_async`].
     @inlinable var inputStream: GIO.InputStreamRef! {
-        /// Gets the input stream that was passed to `gdk_content_deserialize_async()`.
+        /// Gets the input stream for the current operation.
+        /// 
+        /// This is the stream that was passed to [func`content_deserialize_async`].
         get {
             let rv = GIO.InputStreamRef(gdk_content_deserializer_get_input_stream(content_deserializer_ptr))
             return rv
@@ -1704,18 +1793,26 @@ public extension ContentDeserializerProtocol {
         }
     }
 
-    /// Gets the io priority that was passed to `gdk_content_deserialize_async()`.
+    /// Gets the I/O priority for the current operation.
+    /// 
+    /// This is the priority that was passed to [funccontent_deserialize_async].
     @inlinable var priority: Int {
-        /// Gets the io priority that was passed to `gdk_content_deserialize_async()`.
+        /// Gets the I/O priority for the current operation.
+        /// 
+        /// This is the priority that was passed to [funccontent_deserialize_async].
         get {
             let rv = Int(gdk_content_deserializer_get_priority(content_deserializer_ptr))
             return rv
         }
     }
 
-    /// Gets the data that was associated with `deserializer` via `gdk_content_deserializer_set_task_data()`.
+    /// Gets the data that was associated with the current operation.
+    /// 
+    /// See [method`Gdk.ContentDeserializer.set_task_data`].
     @inlinable var taskData: gpointer! {
-        /// Gets the data that was associated with `deserializer` via `gdk_content_deserializer_set_task_data()`.
+        /// Gets the data that was associated with the current operation.
+        /// 
+        /// See [method`Gdk.ContentDeserializer.set_task_data`].
         get {
             let rv = gdk_content_deserializer_get_task_data(content_deserializer_ptr)
             return rv
@@ -1752,15 +1849,15 @@ public extension ContentDeserializerProtocol {
 /// For a concrete class that implements these methods and properties, see `ContentProvider`.
 /// Alternatively, use `ContentProviderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GdkContentProvider is used to provide content for the clipboard in
-/// a number of formats.
+/// A `GdkContentProvider` is used to provide content for the clipboard or
+/// for drag-and-drop operations in a number of formats.
 /// 
-/// To create a GdkContentProvider, use `gdk_content_provider_new_for_value()` or
-/// `gdk_content_provider_new_for_bytes()`.
+/// To create a `GdkContentProvider`, use [ctor`Gdk.ContentProvider.new_for_value`]
+/// or [ctor`Gdk.ContentProvider.new_for_bytes`].
 /// 
 /// GDK knows how to handle common text and image formats out-of-the-box. See
-/// `GdkContentSerializer` and `GdkContentDeserializer` if you want to add support
-/// for application-specific data formats.
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] if you want
+/// to add support for application-specific data formats.
 public protocol ContentProviderProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkContentProvider` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -1776,15 +1873,15 @@ public protocol ContentProviderProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `ContentProviderProtocol` conformance.
 /// Use `ContentProviderRef` only as an `unowned` reference to an existing `GdkContentProvider` instance.
 ///
-/// A GdkContentProvider is used to provide content for the clipboard in
-/// a number of formats.
+/// A `GdkContentProvider` is used to provide content for the clipboard or
+/// for drag-and-drop operations in a number of formats.
 /// 
-/// To create a GdkContentProvider, use `gdk_content_provider_new_for_value()` or
-/// `gdk_content_provider_new_for_bytes()`.
+/// To create a `GdkContentProvider`, use [ctor`Gdk.ContentProvider.new_for_value`]
+/// or [ctor`Gdk.ContentProvider.new_for_bytes`].
 /// 
 /// GDK knows how to handle common text and image formats out-of-the-box. See
-/// `GdkContentSerializer` and `GdkContentDeserializer` if you want to add support
-/// for application-specific data formats.
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] if you want
+/// to add support for application-specific data formats.
 public struct ContentProviderRef: ContentProviderProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentProvider` instance.
     /// For type-safe access, use the generated, typed pointer `content_provider_ptr` property instead.
@@ -1890,14 +1987,12 @@ public extension ContentProviderRef {
     /// This allows an easy way to support providing data in different formats.
     /// For example, an image may be provided by its file and by the image
     /// contents with a call such as
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// gdk_content_provider_new_union ((GdkContentProvider *[2]) {
     ///                                   gdk_content_provider_new_typed (G_TYPE_FILE, file),
     ///                                   gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
     ///                                 }, 2);
     /// ```
-    /// 
     @inlinable init(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) {
         let rv = gdk_content_provider_new_union(providers, gsize(nProviders))
         ptr = UnsafeMutableRawPointer(rv)
@@ -1928,14 +2023,12 @@ public extension ContentProviderRef {
     /// This allows an easy way to support providing data in different formats.
     /// For example, an image may be provided by its file and by the image
     /// contents with a call such as
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// gdk_content_provider_new_union ((GdkContentProvider *[2]) {
     ///                                   gdk_content_provider_new_typed (G_TYPE_FILE, file),
     ///                                   gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
     ///                                 }, 2);
     /// ```
-    /// 
     @inlinable static func new(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) -> ContentProviderRef! {
         guard let rv = ContentProviderRef(gconstpointer: gconstpointer(gdk_content_provider_new_union(providers, gsize(nProviders)))) else { return nil }
         return rv
@@ -1946,15 +2039,15 @@ public extension ContentProviderRef {
 /// It provides the methods that can operate on this data type through `ContentProviderProtocol` conformance.
 /// Use `ContentProvider` as a strong reference or owner of a `GdkContentProvider` instance.
 ///
-/// A GdkContentProvider is used to provide content for the clipboard in
-/// a number of formats.
+/// A `GdkContentProvider` is used to provide content for the clipboard or
+/// for drag-and-drop operations in a number of formats.
 /// 
-/// To create a GdkContentProvider, use `gdk_content_provider_new_for_value()` or
-/// `gdk_content_provider_new_for_bytes()`.
+/// To create a `GdkContentProvider`, use [ctor`Gdk.ContentProvider.new_for_value`]
+/// or [ctor`Gdk.ContentProvider.new_for_bytes`].
 /// 
 /// GDK knows how to handle common text and image formats out-of-the-box. See
-/// `GdkContentSerializer` and `GdkContentDeserializer` if you want to add support
-/// for application-specific data formats.
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] if you want
+/// to add support for application-specific data formats.
 open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2108,14 +2201,12 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     /// This allows an easy way to support providing data in different formats.
     /// For example, an image may be provided by its file and by the image
     /// contents with a call such as
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// gdk_content_provider_new_union ((GdkContentProvider *[2]) {
     ///                                   gdk_content_provider_new_typed (G_TYPE_FILE, file),
     ///                                   gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
     ///                                 }, 2);
     /// ```
-    /// 
     @inlinable public init(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) {
         let rv = gdk_content_provider_new_union(providers, gsize(nProviders))
         super.init(gpointer: (rv))
@@ -2150,14 +2241,12 @@ open class ContentProvider: GLibObject.Object, ContentProviderProtocol {
     /// This allows an easy way to support providing data in different formats.
     /// For example, an image may be provided by its file and by the image
     /// contents with a call such as
-    /// (C Language Example):
-    /// ```C
+    /// ```c
     /// gdk_content_provider_new_union ((GdkContentProvider *[2]) {
     ///                                   gdk_content_provider_new_typed (G_TYPE_FILE, file),
     ///                                   gdk_content_provider_new_typed (G_TYPE_TEXTURE, texture)
     ///                                 }, 2);
     /// ```
-    /// 
     @inlinable public static func new(union providers: UnsafeMutablePointer<UnsafeMutablePointer<GdkContentProvider>?>! = nil, nProviders: Int) -> ContentProvider! {
         guard let rv = ContentProvider(gconstpointer: gconstpointer(gdk_content_provider_new_union(providers, gsize(nProviders)))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -2418,7 +2507,7 @@ public extension ContentProviderProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentProvider` instance.
     @inlinable var content_provider_ptr: UnsafeMutablePointer<GdkContentProvider>! { return ptr?.assumingMemoryBound(to: GdkContentProvider.self) }
 
-    /// Emits the `GdkContentProvider::content-changed` signal.
+    /// Emits the `content-changed` signal.
     @inlinable func contentChanged() {
         gdk_content_provider_content_changed(content_provider_ptr)
     
@@ -2428,8 +2517,8 @@ public extension ContentProviderProtocol {
     /// 
     /// The `value` will have been initialized to the `GType` the value should be
     /// provided in. This given `GType` does not need to be listed in the formats
-    /// returned by `gdk_content_provider_ref_formats()`. However, if the given
-    /// `GType` is not supported, this operation can fail and
+    /// returned by [method`Gdk.ContentProvider.ref_formats`]. However, if the
+    /// given `GType` is not supported, this operation can fail and
     /// `G_IO_ERROR_NOT_SUPPORTED` will be reported.
     @inlinable func get<ValueT: GLibObject.ValueProtocol>(value: ValueT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
@@ -2446,22 +2535,25 @@ public extension ContentProviderProtocol {
 
     /// Gets the formats that the provider suggests other applications to store
     /// the data in.
+    /// 
     /// An example of such an application would be a clipboard manager.
     /// 
-    /// This can be assumed to be a subset of `gdk_content_provider_ref_formats()`.
+    /// This can be assumed to be a subset of [method`Gdk.ContentProvider.ref_formats`].
     @inlinable func refStorableFormats() -> ContentFormatsRef! {
         let rv = ContentFormatsRef(gconstpointer: gconstpointer(gdk_content_provider_ref_storable_formats(content_provider_ptr)))
         return rv
     }
 
     /// Asynchronously writes the contents of `provider` to `stream` in the given
-    /// `mime_type`. When the operation is finished `callback` will be called. You
-    /// can then call `gdk_content_provider_write_mime_type_finish()` to get the
-    /// result of the operation.
+    /// `mime_type`.
+    /// 
+    /// When the operation is finished `callback` will be called. You must then call
+    /// [method`Gdk.ContentProvider.write_mime_type_finish`] to get the result
+    /// of the operation.
     /// 
     /// The given mime type does not need to be listed in the formats returned by
-    /// `gdk_content_provider_ref_formats()`. However, if the given `GType` is not
-    /// supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
+    /// [method`Gdk.ContentProvider.ref_formats`]. However, if the given `GType` is
+    /// not supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
     /// 
     /// The given `stream` will not be closed.
     @inlinable func writeMimeTypeAsync<OutputStreamT: GIO.OutputStreamProtocol>(mimeType: UnsafePointer<CChar>!, stream: OutputStreamT, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
@@ -2469,13 +2561,15 @@ public extension ContentProviderProtocol {
     
     }
     /// Asynchronously writes the contents of `provider` to `stream` in the given
-    /// `mime_type`. When the operation is finished `callback` will be called. You
-    /// can then call `gdk_content_provider_write_mime_type_finish()` to get the
-    /// result of the operation.
+    /// `mime_type`.
+    /// 
+    /// When the operation is finished `callback` will be called. You must then call
+    /// [method`Gdk.ContentProvider.write_mime_type_finish`] to get the result
+    /// of the operation.
     /// 
     /// The given mime type does not need to be listed in the formats returned by
-    /// `gdk_content_provider_ref_formats()`. However, if the given `GType` is not
-    /// supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
+    /// [method`Gdk.ContentProvider.ref_formats`]. However, if the given `GType` is
+    /// not supported, `G_IO_ERROR_NOT_SUPPORTED` will be reported.
     /// 
     /// The given `stream` will not be closed.
     @inlinable func writeMimeTypeAsync<CancellableT: GIO.CancellableProtocol, OutputStreamT: GIO.OutputStreamProtocol>(mimeType: UnsafePointer<CChar>!, stream: OutputStreamT, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
@@ -2483,8 +2577,9 @@ public extension ContentProviderProtocol {
     
     }
 
-    /// Finishes an asynchronous write operation started with
-    /// `gdk_content_provider_write_mime_type_async()`.
+    /// Finishes an asynchronous write operation.
+    /// 
+    /// See [method`Gdk.ContentProvider.write_mime_type_async`].
     @inlinable func writeMimeTypeFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
         let rv = ((gdk_content_provider_write_mime_type_finish(content_provider_ptr, result.async_result_ptr, &error)) != 0)
@@ -2510,8 +2605,18 @@ public extension ContentProviderProtocol {
 /// For a concrete class that implements these methods and properties, see `ContentSerializer`.
 /// Alternatively, use `ContentSerializerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A GdkContentSerializer is used to serialize content for inter-application
-/// data transfers.
+/// A `GdkContentSerializer` is used to serialize content for
+/// inter-application data transfers.
+/// 
+/// The `GdkContentSerializer` transforms an object that is identified
+/// by a GType into a serialized form (i.e. a byte stream) that is
+/// identified by a mime type.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// serialization functions, use [func`content_register_serializer`].
+/// 
+/// Also see [class`Gdk.ContentDeserializer`].
 public protocol ContentSerializerProtocol: GLibObject.ObjectProtocol, GIO.AsyncResultProtocol {
         /// Untyped pointer to the underlying `GdkContentSerializer` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2527,8 +2632,18 @@ public protocol ContentSerializerProtocol: GLibObject.ObjectProtocol, GIO.AsyncR
 /// It exposes methods that can operate on this data type through `ContentSerializerProtocol` conformance.
 /// Use `ContentSerializerRef` only as an `unowned` reference to an existing `GdkContentSerializer` instance.
 ///
-/// A GdkContentSerializer is used to serialize content for inter-application
-/// data transfers.
+/// A `GdkContentSerializer` is used to serialize content for
+/// inter-application data transfers.
+/// 
+/// The `GdkContentSerializer` transforms an object that is identified
+/// by a GType into a serialized form (i.e. a byte stream) that is
+/// identified by a mime type.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// serialization functions, use [func`content_register_serializer`].
+/// 
+/// Also see [class`Gdk.ContentDeserializer`].
 public struct ContentSerializerRef: ContentSerializerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkContentSerializer` instance.
     /// For type-safe access, use the generated, typed pointer `content_serializer_ptr` property instead.
@@ -2614,8 +2729,18 @@ public extension ContentSerializerRef {
 /// It provides the methods that can operate on this data type through `ContentSerializerProtocol` conformance.
 /// Use `ContentSerializer` as a strong reference or owner of a `GdkContentSerializer` instance.
 ///
-/// A GdkContentSerializer is used to serialize content for inter-application
-/// data transfers.
+/// A `GdkContentSerializer` is used to serialize content for
+/// inter-application data transfers.
+/// 
+/// The `GdkContentSerializer` transforms an object that is identified
+/// by a GType into a serialized form (i.e. a byte stream) that is
+/// identified by a mime type.
+/// 
+/// GTK provides serializers and deserializers for common data types
+/// such as text, colors, images or file lists. To register your own
+/// serialization functions, use [func`content_register_serializer`].
+/// 
+/// Also see [class`Gdk.ContentDeserializer`].
 open class ContentSerializer: GLibObject.Object, ContentSerializerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2782,13 +2907,15 @@ public extension ContentSerializerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkContentSerializer` instance.
     @inlinable var content_serializer_ptr: UnsafeMutablePointer<GdkContentSerializer>! { return ptr?.assumingMemoryBound(to: GdkContentSerializer.self) }
 
-    /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
+    /// Gets the cancellable for the current operation.
+    /// 
+    /// This is the `GCancellable` that was passed to [content_serialize_async].
     @inlinable func getCancellable() -> GIO.CancellableRef! {
         let rv = GIO.CancellableRef(gdk_content_serializer_get_cancellable(content_serializer_ptr))
         return rv
     }
 
-    /// Gets the GType to of the object to serialize.
+    /// Gets the `GType` to of the object to serialize.
     @inlinable func getGtype() -> GType {
         let rv = gdk_content_serializer_get_gtype(content_serializer_ptr)
         return rv
@@ -2800,19 +2927,25 @@ public extension ContentSerializerProtocol {
         return rv
     }
 
-    /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
+    /// Gets the output stream for the current operation.
+    /// 
+    /// This is the stream that was passed to [func`content_serialize_async`].
     @inlinable func getOutputStream() -> GIO.OutputStreamRef! {
         let rv = GIO.OutputStreamRef(gdk_content_serializer_get_output_stream(content_serializer_ptr))
         return rv
     }
 
-    /// Gets the io priority that was passed to `gdk_content_serialize_async()`.
+    /// Gets the I/O priority for the current operation.
+    /// 
+    /// This is the priority that was passed to [func`content_serialize_async`].
     @inlinable func getPriority() -> Int {
         let rv = Int(gdk_content_serializer_get_priority(content_serializer_ptr))
         return rv
     }
 
-    /// Gets the data that was associated with `serializer` via `gdk_content_serializer_set_task_data()`.
+    /// Gets the data that was associated with the current operation.
+    /// 
+    /// See [method`Gdk.ContentSerializer.set_task_data`].
     @inlinable func getTaskData() -> gpointer! {
         let rv = gdk_content_serializer_get_task_data(content_serializer_ptr)
         return rv
@@ -2831,6 +2964,7 @@ public extension ContentSerializerProtocol {
     }
 
     /// Indicate that the serialization has ended with an error.
+    /// 
     /// This function consumes `error`.
     @inlinable func return_<GLibErrorT: ErrorProtocol>(error: GLibErrorT) {
         gdk_content_serializer_return_error(content_serializer_ptr, error.error_ptr)
@@ -2848,18 +2982,22 @@ public extension ContentSerializerProtocol {
         gdk_content_serializer_set_task_data(content_serializer_ptr, data, notify)
     
     }
-    /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
+    /// Gets the cancellable for the current operation.
+    /// 
+    /// This is the `GCancellable` that was passed to [content_serialize_async].
     @inlinable var cancellable: GIO.CancellableRef! {
-        /// Gets the cancellable that was passed to `gdk_content_serialize_async()`.
+        /// Gets the cancellable for the current operation.
+        /// 
+        /// This is the `GCancellable` that was passed to [content_serialize_async].
         get {
             let rv = GIO.CancellableRef(gdk_content_serializer_get_cancellable(content_serializer_ptr))
             return rv
         }
     }
 
-    /// Gets the GType to of the object to serialize.
+    /// Gets the `GType` to of the object to serialize.
     @inlinable var gtype: GType {
-        /// Gets the GType to of the object to serialize.
+        /// Gets the `GType` to of the object to serialize.
         get {
             let rv = gdk_content_serializer_get_gtype(content_serializer_ptr)
             return rv
@@ -2875,27 +3013,39 @@ public extension ContentSerializerProtocol {
         }
     }
 
-    /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
+    /// Gets the output stream for the current operation.
+    /// 
+    /// This is the stream that was passed to [func`content_serialize_async`].
     @inlinable var outputStream: GIO.OutputStreamRef! {
-        /// Gets the output stream that was passed to `gdk_content_serialize_async()`.
+        /// Gets the output stream for the current operation.
+        /// 
+        /// This is the stream that was passed to [func`content_serialize_async`].
         get {
             let rv = GIO.OutputStreamRef(gdk_content_serializer_get_output_stream(content_serializer_ptr))
             return rv
         }
     }
 
-    /// Gets the io priority that was passed to `gdk_content_serialize_async()`.
+    /// Gets the I/O priority for the current operation.
+    /// 
+    /// This is the priority that was passed to [func`content_serialize_async`].
     @inlinable var priority: Int {
-        /// Gets the io priority that was passed to `gdk_content_serialize_async()`.
+        /// Gets the I/O priority for the current operation.
+        /// 
+        /// This is the priority that was passed to [func`content_serialize_async`].
         get {
             let rv = Int(gdk_content_serializer_get_priority(content_serializer_ptr))
             return rv
         }
     }
 
-    /// Gets the data that was associated with `serializer` via `gdk_content_serializer_set_task_data()`.
+    /// Gets the data that was associated with the current operation.
+    /// 
+    /// See [method`Gdk.ContentSerializer.set_task_data`].
     @inlinable var taskData: gpointer! {
-        /// Gets the data that was associated with `serializer` via `gdk_content_serializer_set_task_data()`.
+        /// Gets the data that was associated with the current operation.
+        /// 
+        /// See [method`Gdk.ContentSerializer.set_task_data`].
         get {
             let rv = gdk_content_serializer_get_task_data(content_serializer_ptr)
             return rv
@@ -3227,10 +3377,40 @@ public extension CrossingEventProtocol {
 /// For a concrete class that implements these methods and properties, see `Cursor`.
 /// Alternatively, use `CursorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkCursor` represents a cursor. Its contents are private.
+/// `GdkCursor` is used to create and destroy cursors.
 /// 
-/// Cursors are immutable objects, so they can not change after
-/// they have been constructed.
+/// Cursors are immutable objects, so once you created them, there is no way
+/// to modify them later. You should create a new cursor when you want to change
+/// something about it.
+/// 
+/// Cursors by themselves are not very interesting: they must be bound to a
+/// window for users to see them. This is done with [method`Gdk.Surface.set_cursor`]
+/// or [method`Gdk.Surface.set_device_cursor`]. Applications will typically
+/// use higher-level GTK functions such as [method`Gtk.Widget.set_cursor`]`
+/// instead.
+/// 
+/// Cursors are not bound to a given [class`Gdk.Display`], so they can be shared.
+/// However, the appearance of cursors may vary when used on different
+/// platforms.
+/// 
+/// ## Named and texture cursors
+/// 
+/// There are multiple ways to create cursors. The platform's own cursors
+/// can be created with [ctor`Gdk.Cursor.new_from_name`]. That function lists
+/// the commonly available names that are shared with the CSS specification.
+/// Other names may be available, depending on the platform in use. On some
+/// platforms, what images are used for named cursors may be influenced by
+/// the cursor theme.
+/// 
+/// Another option to create a cursor is to use [ctor`Gdk.Cursor.new_from_texture`]
+/// and provide an image to use for the cursor.
+/// 
+/// To ease work with unsupported cursors, a fallback cursor can be provided.
+/// If a [class`Gdk.Surface`] cannot use a cursor because of the reasons mentioned
+/// above, it will try the fallback cursor. Fallback cursors can themselves have
+/// fallback cursors again, so it is possible to provide a chain of progressively
+/// easier to support cursors. If none of the provided cursors can be supported,
+/// the default cursor will be the ultimate fallback.
 public protocol CursorProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkCursor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3246,10 +3426,40 @@ public protocol CursorProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `CursorProtocol` conformance.
 /// Use `CursorRef` only as an `unowned` reference to an existing `GdkCursor` instance.
 ///
-/// A `GdkCursor` represents a cursor. Its contents are private.
+/// `GdkCursor` is used to create and destroy cursors.
 /// 
-/// Cursors are immutable objects, so they can not change after
-/// they have been constructed.
+/// Cursors are immutable objects, so once you created them, there is no way
+/// to modify them later. You should create a new cursor when you want to change
+/// something about it.
+/// 
+/// Cursors by themselves are not very interesting: they must be bound to a
+/// window for users to see them. This is done with [method`Gdk.Surface.set_cursor`]
+/// or [method`Gdk.Surface.set_device_cursor`]. Applications will typically
+/// use higher-level GTK functions such as [method`Gtk.Widget.set_cursor`]`
+/// instead.
+/// 
+/// Cursors are not bound to a given [class`Gdk.Display`], so they can be shared.
+/// However, the appearance of cursors may vary when used on different
+/// platforms.
+/// 
+/// ## Named and texture cursors
+/// 
+/// There are multiple ways to create cursors. The platform's own cursors
+/// can be created with [ctor`Gdk.Cursor.new_from_name`]. That function lists
+/// the commonly available names that are shared with the CSS specification.
+/// Other names may be available, depending on the platform in use. On some
+/// platforms, what images are used for named cursors may be influenced by
+/// the cursor theme.
+/// 
+/// Another option to create a cursor is to use [ctor`Gdk.Cursor.new_from_texture`]
+/// and provide an image to use for the cursor.
+/// 
+/// To ease work with unsupported cursors, a fallback cursor can be provided.
+/// If a [class`Gdk.Surface`] cannot use a cursor because of the reasons mentioned
+/// above, it will try the fallback cursor. Fallback cursors can themselves have
+/// fallback cursors again, so it is possible to provide a chain of progressively
+/// easier to support cursors. If none of the provided cursors can be supported,
+/// the default cursor will be the ultimate fallback.
 public struct CursorRef: CursorProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkCursor` instance.
     /// For type-safe access, use the generated, typed pointer `cursor_ptr` property instead.
@@ -3334,41 +3544,18 @@ public extension CursorRef {
     /// 
     /// A recommended set of cursor names that will work across different
     /// platforms can be found in the CSS specification:
-    /// - "none"
-    /// - ![](default_cursor.png) "default"
-    /// - ![](help_cursor.png) "help"
-    /// - ![](pointer_cursor.png) "pointer"
-    /// - ![](context_menu_cursor.png) "context-menu"
-    /// - ![](progress_cursor.png) "progress"
-    /// - ![](wait_cursor.png) "wait"
-    /// - ![](cell_cursor.png) "cell"
-    /// - ![](crosshair_cursor.png) "crosshair"
-    /// - ![](text_cursor.png) "text"
-    /// - ![](vertical_text_cursor.png) "vertical-text"
-    /// - ![](alias_cursor.png) "alias"
-    /// - ![](copy_cursor.png) "copy"
-    /// - ![](no_drop_cursor.png) "no-drop"
-    /// - ![](move_cursor.png) "move"
-    /// - ![](not_allowed_cursor.png) "not-allowed"
-    /// - ![](grab_cursor.png) "grab"
-    /// - ![](grabbing_cursor.png) "grabbing"
-    /// - ![](all_scroll_cursor.png) "all-scroll"
-    /// - ![](col_resize_cursor.png) "col-resize"
-    /// - ![](row_resize_cursor.png) "row-resize"
-    /// - ![](n_resize_cursor.png) "n-resize"
-    /// - ![](e_resize_cursor.png) "e-resize"
-    /// - ![](s_resize_cursor.png) "s-resize"
-    /// - ![](w_resize_cursor.png) "w-resize"
-    /// - ![](ne_resize_cursor.png) "ne-resize"
-    /// - ![](nw_resize_cursor.png) "nw-resize"
-    /// - ![](sw_resize_cursor.png) "sw-resize"
-    /// - ![](se_resize_cursor.png) "se-resize"
-    /// - ![](ew_resize_cursor.png) "ew-resize"
-    /// - ![](ns_resize_cursor.png) "ns-resize"
-    /// - ![](nesw_resize_cursor.png) "nesw-resize"
-    /// - ![](nwse_resize_cursor.png) "nwse-resize"
-    /// - ![](zoom_in_cursor.png) "zoom-in"
-    /// - ![](zoom_out_cursor.png) "zoom-out"
+    /// 
+    /// | | | | |
+    /// | --- | --- | ---- | --- |
+    /// | "none" | ![](default_cursor.png) "default" | ![](help_cursor.png) "help" | ![](pointer_cursor.png) "pointer" |
+    /// | ![](context_menu_cursor.png) "context-menu" | ![](progress_cursor.png) "progress" | ![](wait_cursor.png) "wait" | ![](cell_cursor.png) "cell" |
+    /// | ![](crosshair_cursor.png) "crosshair" | ![](text_cursor.png) "text" | ![](vertical_text_cursor.png) "vertical-text" | ![](alias_cursor.png) "alias" |
+    /// | ![](copy_cursor.png) "copy" | ![](no_drop_cursor.png) "no-drop" | ![](move_cursor.png) "move" | ![](not_allowed_cursor.png) "not-allowed" |
+    /// | ![](grab_cursor.png) "grab" | ![](grabbing_cursor.png) "grabbing" | ![](all_scroll_cursor.png) "all-scroll" | ![](col_resize_cursor.png) "col-resize" |
+    /// | ![](row_resize_cursor.png) "row-resize" | ![](n_resize_cursor.png) "n-resize" | ![](e_resize_cursor.png) "e-resize" | ![](s_resize_cursor.png) "s-resize" |
+    /// | ![](w_resize_cursor.png) "w-resize" | ![](ne_resize_cursor.png) "ne-resize" | ![](nw_resize_cursor.png) "nw-resize" | ![](sw_resize_cursor.png) "sw-resize" |
+    /// | ![](se_resize_cursor.png) "se-resize" | ![](ew_resize_cursor.png) "ew-resize" | ![](ns_resize_cursor.png) "ns-resize" | ![](nesw_resize_cursor.png) "nesw-resize" |
+    /// | ![](nwse_resize_cursor.png) "nwse-resize" | ![](zoom_in_cursor.png) "zoom-in" | ![](zoom_out_cursor.png) "zoom-out" | |
     @inlinable init<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) {
         let rv = gdk_cursor_new_from_name(name, fallback?.cursor_ptr)
         ptr = UnsafeMutableRawPointer(rv)
@@ -3384,41 +3571,18 @@ public extension CursorRef {
     /// 
     /// A recommended set of cursor names that will work across different
     /// platforms can be found in the CSS specification:
-    /// - "none"
-    /// - ![](default_cursor.png) "default"
-    /// - ![](help_cursor.png) "help"
-    /// - ![](pointer_cursor.png) "pointer"
-    /// - ![](context_menu_cursor.png) "context-menu"
-    /// - ![](progress_cursor.png) "progress"
-    /// - ![](wait_cursor.png) "wait"
-    /// - ![](cell_cursor.png) "cell"
-    /// - ![](crosshair_cursor.png) "crosshair"
-    /// - ![](text_cursor.png) "text"
-    /// - ![](vertical_text_cursor.png) "vertical-text"
-    /// - ![](alias_cursor.png) "alias"
-    /// - ![](copy_cursor.png) "copy"
-    /// - ![](no_drop_cursor.png) "no-drop"
-    /// - ![](move_cursor.png) "move"
-    /// - ![](not_allowed_cursor.png) "not-allowed"
-    /// - ![](grab_cursor.png) "grab"
-    /// - ![](grabbing_cursor.png) "grabbing"
-    /// - ![](all_scroll_cursor.png) "all-scroll"
-    /// - ![](col_resize_cursor.png) "col-resize"
-    /// - ![](row_resize_cursor.png) "row-resize"
-    /// - ![](n_resize_cursor.png) "n-resize"
-    /// - ![](e_resize_cursor.png) "e-resize"
-    /// - ![](s_resize_cursor.png) "s-resize"
-    /// - ![](w_resize_cursor.png) "w-resize"
-    /// - ![](ne_resize_cursor.png) "ne-resize"
-    /// - ![](nw_resize_cursor.png) "nw-resize"
-    /// - ![](sw_resize_cursor.png) "sw-resize"
-    /// - ![](se_resize_cursor.png) "se-resize"
-    /// - ![](ew_resize_cursor.png) "ew-resize"
-    /// - ![](ns_resize_cursor.png) "ns-resize"
-    /// - ![](nesw_resize_cursor.png) "nesw-resize"
-    /// - ![](nwse_resize_cursor.png) "nwse-resize"
-    /// - ![](zoom_in_cursor.png) "zoom-in"
-    /// - ![](zoom_out_cursor.png) "zoom-out"
+    /// 
+    /// | | | | |
+    /// | --- | --- | ---- | --- |
+    /// | "none" | ![](default_cursor.png) "default" | ![](help_cursor.png) "help" | ![](pointer_cursor.png) "pointer" |
+    /// | ![](context_menu_cursor.png) "context-menu" | ![](progress_cursor.png) "progress" | ![](wait_cursor.png) "wait" | ![](cell_cursor.png) "cell" |
+    /// | ![](crosshair_cursor.png) "crosshair" | ![](text_cursor.png) "text" | ![](vertical_text_cursor.png) "vertical-text" | ![](alias_cursor.png) "alias" |
+    /// | ![](copy_cursor.png) "copy" | ![](no_drop_cursor.png) "no-drop" | ![](move_cursor.png) "move" | ![](not_allowed_cursor.png) "not-allowed" |
+    /// | ![](grab_cursor.png) "grab" | ![](grabbing_cursor.png) "grabbing" | ![](all_scroll_cursor.png) "all-scroll" | ![](col_resize_cursor.png) "col-resize" |
+    /// | ![](row_resize_cursor.png) "row-resize" | ![](n_resize_cursor.png) "n-resize" | ![](e_resize_cursor.png) "e-resize" | ![](s_resize_cursor.png) "s-resize" |
+    /// | ![](w_resize_cursor.png) "w-resize" | ![](ne_resize_cursor.png) "ne-resize" | ![](nw_resize_cursor.png) "nw-resize" | ![](sw_resize_cursor.png) "sw-resize" |
+    /// | ![](se_resize_cursor.png) "se-resize" | ![](ew_resize_cursor.png) "ew-resize" | ![](ns_resize_cursor.png) "ns-resize" | ![](nesw_resize_cursor.png) "nesw-resize" |
+    /// | ![](nwse_resize_cursor.png) "nwse-resize" | ![](zoom_in_cursor.png) "zoom-in" | ![](zoom_out_cursor.png) "zoom-out" | |
     @inlinable static func newFrom<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) -> CursorRef! {
         guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_new_from_name(name, fallback?.cursor_ptr))) else { return nil }
         return rv
@@ -3435,10 +3599,40 @@ public extension CursorRef {
 /// It provides the methods that can operate on this data type through `CursorProtocol` conformance.
 /// Use `Cursor` as a strong reference or owner of a `GdkCursor` instance.
 ///
-/// A `GdkCursor` represents a cursor. Its contents are private.
+/// `GdkCursor` is used to create and destroy cursors.
 /// 
-/// Cursors are immutable objects, so they can not change after
-/// they have been constructed.
+/// Cursors are immutable objects, so once you created them, there is no way
+/// to modify them later. You should create a new cursor when you want to change
+/// something about it.
+/// 
+/// Cursors by themselves are not very interesting: they must be bound to a
+/// window for users to see them. This is done with [method`Gdk.Surface.set_cursor`]
+/// or [method`Gdk.Surface.set_device_cursor`]. Applications will typically
+/// use higher-level GTK functions such as [method`Gtk.Widget.set_cursor`]`
+/// instead.
+/// 
+/// Cursors are not bound to a given [class`Gdk.Display`], so they can be shared.
+/// However, the appearance of cursors may vary when used on different
+/// platforms.
+/// 
+/// ## Named and texture cursors
+/// 
+/// There are multiple ways to create cursors. The platform's own cursors
+/// can be created with [ctor`Gdk.Cursor.new_from_name`]. That function lists
+/// the commonly available names that are shared with the CSS specification.
+/// Other names may be available, depending on the platform in use. On some
+/// platforms, what images are used for named cursors may be influenced by
+/// the cursor theme.
+/// 
+/// Another option to create a cursor is to use [ctor`Gdk.Cursor.new_from_texture`]
+/// and provide an image to use for the cursor.
+/// 
+/// To ease work with unsupported cursors, a fallback cursor can be provided.
+/// If a [class`Gdk.Surface`] cannot use a cursor because of the reasons mentioned
+/// above, it will try the fallback cursor. Fallback cursors can themselves have
+/// fallback cursors again, so it is possible to provide a chain of progressively
+/// easier to support cursors. If none of the provided cursors can be supported,
+/// the default cursor will be the ultimate fallback.
 open class Cursor: GLibObject.Object, CursorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3569,41 +3763,18 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// 
     /// A recommended set of cursor names that will work across different
     /// platforms can be found in the CSS specification:
-    /// - "none"
-    /// - ![](default_cursor.png) "default"
-    /// - ![](help_cursor.png) "help"
-    /// - ![](pointer_cursor.png) "pointer"
-    /// - ![](context_menu_cursor.png) "context-menu"
-    /// - ![](progress_cursor.png) "progress"
-    /// - ![](wait_cursor.png) "wait"
-    /// - ![](cell_cursor.png) "cell"
-    /// - ![](crosshair_cursor.png) "crosshair"
-    /// - ![](text_cursor.png) "text"
-    /// - ![](vertical_text_cursor.png) "vertical-text"
-    /// - ![](alias_cursor.png) "alias"
-    /// - ![](copy_cursor.png) "copy"
-    /// - ![](no_drop_cursor.png) "no-drop"
-    /// - ![](move_cursor.png) "move"
-    /// - ![](not_allowed_cursor.png) "not-allowed"
-    /// - ![](grab_cursor.png) "grab"
-    /// - ![](grabbing_cursor.png) "grabbing"
-    /// - ![](all_scroll_cursor.png) "all-scroll"
-    /// - ![](col_resize_cursor.png) "col-resize"
-    /// - ![](row_resize_cursor.png) "row-resize"
-    /// - ![](n_resize_cursor.png) "n-resize"
-    /// - ![](e_resize_cursor.png) "e-resize"
-    /// - ![](s_resize_cursor.png) "s-resize"
-    /// - ![](w_resize_cursor.png) "w-resize"
-    /// - ![](ne_resize_cursor.png) "ne-resize"
-    /// - ![](nw_resize_cursor.png) "nw-resize"
-    /// - ![](sw_resize_cursor.png) "sw-resize"
-    /// - ![](se_resize_cursor.png) "se-resize"
-    /// - ![](ew_resize_cursor.png) "ew-resize"
-    /// - ![](ns_resize_cursor.png) "ns-resize"
-    /// - ![](nesw_resize_cursor.png) "nesw-resize"
-    /// - ![](nwse_resize_cursor.png) "nwse-resize"
-    /// - ![](zoom_in_cursor.png) "zoom-in"
-    /// - ![](zoom_out_cursor.png) "zoom-out"
+    /// 
+    /// | | | | |
+    /// | --- | --- | ---- | --- |
+    /// | "none" | ![](default_cursor.png) "default" | ![](help_cursor.png) "help" | ![](pointer_cursor.png) "pointer" |
+    /// | ![](context_menu_cursor.png) "context-menu" | ![](progress_cursor.png) "progress" | ![](wait_cursor.png) "wait" | ![](cell_cursor.png) "cell" |
+    /// | ![](crosshair_cursor.png) "crosshair" | ![](text_cursor.png) "text" | ![](vertical_text_cursor.png) "vertical-text" | ![](alias_cursor.png) "alias" |
+    /// | ![](copy_cursor.png) "copy" | ![](no_drop_cursor.png) "no-drop" | ![](move_cursor.png) "move" | ![](not_allowed_cursor.png) "not-allowed" |
+    /// | ![](grab_cursor.png) "grab" | ![](grabbing_cursor.png) "grabbing" | ![](all_scroll_cursor.png) "all-scroll" | ![](col_resize_cursor.png) "col-resize" |
+    /// | ![](row_resize_cursor.png) "row-resize" | ![](n_resize_cursor.png) "n-resize" | ![](e_resize_cursor.png) "e-resize" | ![](s_resize_cursor.png) "s-resize" |
+    /// | ![](w_resize_cursor.png) "w-resize" | ![](ne_resize_cursor.png) "ne-resize" | ![](nw_resize_cursor.png) "nw-resize" | ![](sw_resize_cursor.png) "sw-resize" |
+    /// | ![](se_resize_cursor.png) "se-resize" | ![](ew_resize_cursor.png) "ew-resize" | ![](ns_resize_cursor.png) "ns-resize" | ![](nesw_resize_cursor.png) "nesw-resize" |
+    /// | ![](nwse_resize_cursor.png) "nwse-resize" | ![](zoom_in_cursor.png) "zoom-in" | ![](zoom_out_cursor.png) "zoom-out" | |
     @inlinable public init<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) {
         let rv = gdk_cursor_new_from_name(name, fallback?.cursor_ptr)
         super.init(gpointer: (rv))
@@ -3622,41 +3793,18 @@ open class Cursor: GLibObject.Object, CursorProtocol {
     /// 
     /// A recommended set of cursor names that will work across different
     /// platforms can be found in the CSS specification:
-    /// - "none"
-    /// - ![](default_cursor.png) "default"
-    /// - ![](help_cursor.png) "help"
-    /// - ![](pointer_cursor.png) "pointer"
-    /// - ![](context_menu_cursor.png) "context-menu"
-    /// - ![](progress_cursor.png) "progress"
-    /// - ![](wait_cursor.png) "wait"
-    /// - ![](cell_cursor.png) "cell"
-    /// - ![](crosshair_cursor.png) "crosshair"
-    /// - ![](text_cursor.png) "text"
-    /// - ![](vertical_text_cursor.png) "vertical-text"
-    /// - ![](alias_cursor.png) "alias"
-    /// - ![](copy_cursor.png) "copy"
-    /// - ![](no_drop_cursor.png) "no-drop"
-    /// - ![](move_cursor.png) "move"
-    /// - ![](not_allowed_cursor.png) "not-allowed"
-    /// - ![](grab_cursor.png) "grab"
-    /// - ![](grabbing_cursor.png) "grabbing"
-    /// - ![](all_scroll_cursor.png) "all-scroll"
-    /// - ![](col_resize_cursor.png) "col-resize"
-    /// - ![](row_resize_cursor.png) "row-resize"
-    /// - ![](n_resize_cursor.png) "n-resize"
-    /// - ![](e_resize_cursor.png) "e-resize"
-    /// - ![](s_resize_cursor.png) "s-resize"
-    /// - ![](w_resize_cursor.png) "w-resize"
-    /// - ![](ne_resize_cursor.png) "ne-resize"
-    /// - ![](nw_resize_cursor.png) "nw-resize"
-    /// - ![](sw_resize_cursor.png) "sw-resize"
-    /// - ![](se_resize_cursor.png) "se-resize"
-    /// - ![](ew_resize_cursor.png) "ew-resize"
-    /// - ![](ns_resize_cursor.png) "ns-resize"
-    /// - ![](nesw_resize_cursor.png) "nesw-resize"
-    /// - ![](nwse_resize_cursor.png) "nwse-resize"
-    /// - ![](zoom_in_cursor.png) "zoom-in"
-    /// - ![](zoom_out_cursor.png) "zoom-out"
+    /// 
+    /// | | | | |
+    /// | --- | --- | ---- | --- |
+    /// | "none" | ![](default_cursor.png) "default" | ![](help_cursor.png) "help" | ![](pointer_cursor.png) "pointer" |
+    /// | ![](context_menu_cursor.png) "context-menu" | ![](progress_cursor.png) "progress" | ![](wait_cursor.png) "wait" | ![](cell_cursor.png) "cell" |
+    /// | ![](crosshair_cursor.png) "crosshair" | ![](text_cursor.png) "text" | ![](vertical_text_cursor.png) "vertical-text" | ![](alias_cursor.png) "alias" |
+    /// | ![](copy_cursor.png) "copy" | ![](no_drop_cursor.png) "no-drop" | ![](move_cursor.png) "move" | ![](not_allowed_cursor.png) "not-allowed" |
+    /// | ![](grab_cursor.png) "grab" | ![](grabbing_cursor.png) "grabbing" | ![](all_scroll_cursor.png) "all-scroll" | ![](col_resize_cursor.png) "col-resize" |
+    /// | ![](row_resize_cursor.png) "row-resize" | ![](n_resize_cursor.png) "n-resize" | ![](e_resize_cursor.png) "e-resize" | ![](s_resize_cursor.png) "s-resize" |
+    /// | ![](w_resize_cursor.png) "w-resize" | ![](ne_resize_cursor.png) "ne-resize" | ![](nw_resize_cursor.png) "nw-resize" | ![](sw_resize_cursor.png) "sw-resize" |
+    /// | ![](se_resize_cursor.png) "se-resize" | ![](ew_resize_cursor.png) "ew-resize" | ![](ns_resize_cursor.png) "ns-resize" | ![](nesw_resize_cursor.png) "nesw-resize" |
+    /// | ![](nwse_resize_cursor.png) "nwse-resize" | ![](zoom_in_cursor.png) "zoom-in" | ![](zoom_out_cursor.png) "zoom-out" | |
     @inlinable public static func newFrom<CursorT: CursorProtocol>(name: UnsafePointer<CChar>!, fallback: CursorT?) -> Cursor! {
         guard let rv = Cursor(gconstpointer: gconstpointer(gdk_cursor_new_from_name(name, fallback?.cursor_ptr))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -3673,10 +3821,19 @@ open class Cursor: GLibObject.Object, CursorProtocol {
 }
 
 public enum CursorPropertyName: String, PropertyNameProtocol {
+    /// Cursor to fall back to if this cursor cannot be displayed.
     case fallback = "fallback"
+    /// X position of the cursor hotspot in the cursor image.
     case hotspotX = "hotspot-x"
+    /// Y position of the cursor hotspot in the cursor image.
     case hotspotY = "hotspot-y"
+    /// Name of this this cursor.
+    /// 
+    /// The name will be `nil` if the cursor was created from a texture.
     case name = "name"
+    /// The texture displayed by this cursor.
+    /// 
+    /// The texture will be `nil` if the cursor was created from a name.
     case texture = "texture"
 }
 
@@ -3759,10 +3916,19 @@ public enum CursorSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// Cursor to fall back to if this cursor cannot be displayed.
     case notifyFallback = "notify::fallback"
+    /// X position of the cursor hotspot in the cursor image.
     case notifyHotspotX = "notify::hotspot-x"
+    /// Y position of the cursor hotspot in the cursor image.
     case notifyHotspotY = "notify::hotspot-y"
+    /// Name of this this cursor.
+    /// 
+    /// The name will be `nil` if the cursor was created from a texture.
     case notifyName = "notify::name"
+    /// The texture displayed by this cursor.
+    /// 
+    /// The texture will be `nil` if the cursor was created from a name.
     case notifyTexture = "notify::texture"
 }
 
@@ -3772,117 +3938,134 @@ public extension CursorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkCursor` instance.
     @inlinable var cursor_ptr: UnsafeMutablePointer<GdkCursor>! { return ptr?.assumingMemoryBound(to: GdkCursor.self) }
 
-    /// Returns the fallback for this `cursor`. The fallback will be used if this
-    /// cursor is not available on a given `GdkDisplay`.
+    /// Returns the fallback for this `cursor`.
     /// 
-    /// For named cursors, this can happen when using nonstandard names or when
-    /// using an incomplete cursor theme.
-    /// For textured cursors, this can happen when the texture is too large or
-    /// when the `GdkDisplay` it is used on does not support textured cursors.
+    /// The fallback will be used if this cursor is not available on a given
+    /// `GdkDisplay`. For named cursors, this can happen when using nonstandard
+    /// names or when using an incomplete cursor theme. For textured cursors,
+    /// this can happen when the texture is too large or when the `GdkDisplay`
+    /// it is used on does not support textured cursors.
     @inlinable func getFallback() -> CursorRef! {
         guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_get_fallback(cursor_ptr))) else { return nil }
         return rv
     }
 
-    /// Returns the horizontal offset of the hotspot. The hotspot indicates the
-    /// pixel that will be directly above the cursor.
+    /// Returns the horizontal offset of the hotspot.
+    /// 
+    /// The hotspot indicates the pixel that will be directly above the cursor.
     /// 
     /// Note that named cursors may have a nonzero hotspot, but this function
     /// will only return the hotspot position for cursors created with
-    /// `gdk_cursor_new_from_texture()`.
+    /// [ctor`Gdk.Cursor.new_from_texture`].
     @inlinable func getHotspotX() -> Int {
         let rv = Int(gdk_cursor_get_hotspot_x(cursor_ptr))
         return rv
     }
 
-    /// Returns the vertical offset of the hotspot. The hotspot indicates the
-    /// pixel that will be directly above the cursor.
+    /// Returns the vertical offset of the hotspot.
+    /// 
+    /// The hotspot indicates the pixel that will be directly above the cursor.
     /// 
     /// Note that named cursors may have a nonzero hotspot, but this function
     /// will only return the hotspot position for cursors created with
-    /// `gdk_cursor_new_from_texture()`.
+    /// [ctor`Gdk.Cursor.new_from_texture`].
     @inlinable func getHotspotY() -> Int {
         let rv = Int(gdk_cursor_get_hotspot_y(cursor_ptr))
         return rv
     }
 
-    /// Returns the name of the cursor. If the cursor is not a named cursor, `nil`
-    /// will be returned.
+    /// Returns the name of the cursor.
+    /// 
+    /// If the cursor is not a named cursor, `nil` will be returned.
     @inlinable func getName() -> String! {
         let rv = gdk_cursor_get_name(cursor_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Returns the texture for the cursor. If the cursor is a named cursor, `nil`
-    /// will be returned.
+    /// Returns the texture for the cursor.
+    /// 
+    /// If the cursor is a named cursor, `nil` will be returned.
     @inlinable func getTexture() -> TextureRef! {
         let rv = TextureRef(gconstpointer: gconstpointer(gdk_cursor_get_texture(cursor_ptr)))
         return rv
     }
+    /// Cursor to fall back to if this cursor cannot be displayed.
     @inlinable var fallback: CursorRef! {
-        /// Returns the fallback for this `cursor`. The fallback will be used if this
-        /// cursor is not available on a given `GdkDisplay`.
+        /// Returns the fallback for this `cursor`.
         /// 
-        /// For named cursors, this can happen when using nonstandard names or when
-        /// using an incomplete cursor theme.
-        /// For textured cursors, this can happen when the texture is too large or
-        /// when the `GdkDisplay` it is used on does not support textured cursors.
+        /// The fallback will be used if this cursor is not available on a given
+        /// `GdkDisplay`. For named cursors, this can happen when using nonstandard
+        /// names or when using an incomplete cursor theme. For textured cursors,
+        /// this can happen when the texture is too large or when the `GdkDisplay`
+        /// it is used on does not support textured cursors.
         get {
             guard let rv = CursorRef(gconstpointer: gconstpointer(gdk_cursor_get_fallback(cursor_ptr))) else { return nil }
             return rv
         }
     }
 
-    /// Returns the horizontal offset of the hotspot. The hotspot indicates the
-    /// pixel that will be directly above the cursor.
+    /// Returns the horizontal offset of the hotspot.
+    /// 
+    /// The hotspot indicates the pixel that will be directly above the cursor.
     /// 
     /// Note that named cursors may have a nonzero hotspot, but this function
     /// will only return the hotspot position for cursors created with
-    /// `gdk_cursor_new_from_texture()`.
+    /// [ctor`Gdk.Cursor.new_from_texture`].
     @inlinable var hotspotX: Int {
-        /// Returns the horizontal offset of the hotspot. The hotspot indicates the
-        /// pixel that will be directly above the cursor.
+        /// Returns the horizontal offset of the hotspot.
+        /// 
+        /// The hotspot indicates the pixel that will be directly above the cursor.
         /// 
         /// Note that named cursors may have a nonzero hotspot, but this function
         /// will only return the hotspot position for cursors created with
-        /// `gdk_cursor_new_from_texture()`.
+        /// [ctor`Gdk.Cursor.new_from_texture`].
         get {
             let rv = Int(gdk_cursor_get_hotspot_x(cursor_ptr))
             return rv
         }
     }
 
-    /// Returns the vertical offset of the hotspot. The hotspot indicates the
-    /// pixel that will be directly above the cursor.
+    /// Returns the vertical offset of the hotspot.
+    /// 
+    /// The hotspot indicates the pixel that will be directly above the cursor.
     /// 
     /// Note that named cursors may have a nonzero hotspot, but this function
     /// will only return the hotspot position for cursors created with
-    /// `gdk_cursor_new_from_texture()`.
+    /// [ctor`Gdk.Cursor.new_from_texture`].
     @inlinable var hotspotY: Int {
-        /// Returns the vertical offset of the hotspot. The hotspot indicates the
-        /// pixel that will be directly above the cursor.
+        /// Returns the vertical offset of the hotspot.
+        /// 
+        /// The hotspot indicates the pixel that will be directly above the cursor.
         /// 
         /// Note that named cursors may have a nonzero hotspot, but this function
         /// will only return the hotspot position for cursors created with
-        /// `gdk_cursor_new_from_texture()`.
+        /// [ctor`Gdk.Cursor.new_from_texture`].
         get {
             let rv = Int(gdk_cursor_get_hotspot_y(cursor_ptr))
             return rv
         }
     }
 
+    /// Name of this this cursor.
+    /// 
+    /// The name will be `nil` if the cursor was created from a texture.
     @inlinable var name: String! {
-        /// Returns the name of the cursor. If the cursor is not a named cursor, `nil`
-        /// will be returned.
+        /// Returns the name of the cursor.
+        /// 
+        /// If the cursor is not a named cursor, `nil` will be returned.
         get {
             let rv = gdk_cursor_get_name(cursor_ptr).map({ String(cString: $0) })
             return rv
         }
     }
 
+    /// The texture displayed by this cursor.
+    /// 
+    /// The texture will be `nil` if the cursor was created from a name.
     @inlinable var texture: TextureRef! {
-        /// Returns the texture for the cursor. If the cursor is a named cursor, `nil`
-        /// will be returned.
+        /// Returns the texture for the cursor.
+        /// 
+        /// If the cursor is a named cursor, `nil` will be returned.
         get {
             let rv = TextureRef(gconstpointer: gconstpointer(gdk_cursor_get_texture(cursor_ptr)))
             return rv
@@ -4140,14 +4323,14 @@ public extension DNDEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDNDEvent` instance.
     @inlinable var dnd_event_ptr: UnsafeMutablePointer<GdkDNDEvent>! { return ptr?.assumingMemoryBound(to: GdkDNDEvent.self) }
 
-    /// Gets the `GdkDrop` from a DND event.
+    /// Gets the `GdkDrop` object from a DND event.
     @inlinable func getDrop() -> DropRef! {
         let rv = DropRef(gconstpointer: gconstpointer(gdk_dnd_event_get_drop(event_ptr)))
         return rv
     }
-    /// Gets the `GdkDrop` from a DND event.
+    /// Gets the `GdkDrop` object from a DND event.
     @inlinable var drop: DropRef! {
-        /// Gets the `GdkDrop` from a DND event.
+        /// Gets the `GdkDrop` object from a DND event.
         get {
             let rv = DropRef(gconstpointer: gconstpointer(gdk_dnd_event_get_drop(event_ptr)))
             return rv

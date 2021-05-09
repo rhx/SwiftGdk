@@ -161,14 +161,15 @@ public extension PaintableInterfaceRef {
 /// For a concrete class that implements these methods and properties, see `PaintableInterface`.
 /// Alternatively, use `PaintableInterfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The list of functions that can be implemented for the `GdkPaintable` interface.
+/// The list of functions that can be implemented for the `GdkPaintable`
+/// interface.
 /// 
-/// Note that apart from the `GdkPaintableInterface.snapshot``()` function, no virtual
-/// function of this interface is mandatory to implement, though it is a good idea
-/// to implement `GdkPaintableInterface.get_current_image``()` for non-static paintables
-/// and `GdkPaintableInterface.get_flags``()` if the image is not dynamic as the default
-/// implementation returns no flags and that will make the implementation likely
-/// quite slow.
+/// Note that apart from the `GdkPaintableInterface.snapshot``()` function, no
+/// virtual function of this interface is mandatory to implement, though it
+/// is a good idea to implement `GdkPaintableInterface.get_current_image``()`
+/// for non-static paintables and `GdkPaintableInterface.get_flags``()` if the
+/// image is not dynamic as the default implementation returns no flags and
+/// that will make the implementation likely quite slow.
 public protocol PaintableInterfaceProtocol {
         /// Untyped pointer to the underlying `GdkPaintableInterface` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -184,14 +185,15 @@ public protocol PaintableInterfaceProtocol {
 /// It exposes methods that can operate on this data type through `PaintableInterfaceProtocol` conformance.
 /// Use `PaintableInterfaceRef` only as an `unowned` reference to an existing `GdkPaintableInterface` instance.
 ///
-/// The list of functions that can be implemented for the `GdkPaintable` interface.
+/// The list of functions that can be implemented for the `GdkPaintable`
+/// interface.
 /// 
-/// Note that apart from the `GdkPaintableInterface.snapshot``()` function, no virtual
-/// function of this interface is mandatory to implement, though it is a good idea
-/// to implement `GdkPaintableInterface.get_current_image``()` for non-static paintables
-/// and `GdkPaintableInterface.get_flags``()` if the image is not dynamic as the default
-/// implementation returns no flags and that will make the implementation likely
-/// quite slow.
+/// Note that apart from the `GdkPaintableInterface.snapshot``()` function, no
+/// virtual function of this interface is mandatory to implement, though it
+/// is a good idea to implement `GdkPaintableInterface.get_current_image``()`
+/// for non-static paintables and `GdkPaintableInterface.get_flags``()` if the
+/// image is not dynamic as the default implementation returns no flags and
+/// that will make the implementation likely quite slow.
 public struct PaintableInterfaceRef: PaintableInterfaceProtocol {
         /// Untyped pointer to the underlying `GdkPaintableInterface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

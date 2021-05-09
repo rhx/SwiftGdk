@@ -11,9 +11,7 @@ import Cairo
 import PangoCairo
 import GdkPixbuf
 
-/// An enumeration describing the way in which a device
-/// axis (valuator) maps onto the predefined valuator
-/// types that GTK understands.
+/// Defines how device axes are interpreted by GTK.
 /// 
 /// Note that the X and Y axes are not really needed; pointer devices
 /// report their location via the x/y members of events regardless. Whether
@@ -250,8 +248,7 @@ public extension EventType {
 
 
 
-/// Indicates which monitor (in a multi-head setup) a surface should span over
-/// when in fullscreen mode.
+/// Indicates which monitor a surface should span over when in fullscreen mode.
 public typealias FullscreenMode = GdkFullscreenMode
 
 public extension FullscreenMode {
@@ -364,8 +361,9 @@ public extension InputSource {
 
 
 
-/// The possible return values from `gdk_key_event_matches()`
-/// describe how well an event matches a given keyval and modifiers.
+/// Describes how well an event matches a given keyval and modifiers.
+/// 
+/// `GdkKeyMatch` values are returned by [method`Gdk.KeyEvent.matches`].
 public typealias KeyMatch = GdkKeyMatch
 
 public extension KeyMatch {
@@ -392,8 +390,8 @@ public extension KeyMatch {
 /// It describes formats by listing the contents of the memory passed to it.
 /// So GDK_MEMORY_A8R8G8B8 will be 1 byte (8 bits) of alpha, followed by a
 /// byte each of red, green and blue. It is not endian-dependent, so
-/// CAIRO_FORMAT_ARGB32 is represented by different `GdkMemoryFormats` on
-/// architectures with different endiannesses.
+/// CAIRO_FORMAT_ARGB32 is represented by different `GdkMemoryFormats`
+/// on architectures with different endiannesses.
 /// 
 /// Its naming is modelled after VkFormat (see
 /// https://www.khronos.org/registry/vulkan/specs/1.0/html/vkspec.html`VkFormat`
@@ -558,9 +556,11 @@ public extension SurfaceEdge {
 
 
 
-/// Specifies the current state of a touchpad gesture. All gestures are
-/// guaranteed to begin with an event with phase `GDK_TOUCHPAD_GESTURE_PHASE_BEGIN`,
-/// followed by 0 or several events with phase `GDK_TOUCHPAD_GESTURE_PHASE_UPDATE`.
+/// Specifies the current state of a touchpad gesture.
+/// 
+/// All gestures are guaranteed to begin with an event with phase
+/// `GDK_TOUCHPAD_GESTURE_PHASE_BEGIN`, followed by 0 or several events
+/// with phase `GDK_TOUCHPAD_GESTURE_PHASE_UPDATE`.
 /// 
 /// A finished gesture may have 2 possible outcomes, an event with phase
 /// `GDK_TOUCHPAD_GESTURE_PHASE_END` will be emitted when the gesture is

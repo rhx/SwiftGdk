@@ -270,11 +270,11 @@ public extension DeleteEventProtocol {
 /// For a concrete class that implements these methods and properties, see `Device`.
 /// Alternatively, use `DeviceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The `GdkDevice` object represents a single input device, such
-/// as a keyboard, a mouse, a touchpad, etc.
+/// The `GdkDevice` object represents an input device, such
+/// as a keyboard, a mouse, or a touchpad.
 /// 
-/// See the `GdkSeat` documentation for more information about the
-/// various kinds of devices, and their relationships.
+/// See the [class`Gdk.Seat`] documentation for more information
+/// about the various kinds of devices, and their relationships.
 public protocol DeviceProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDevice` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -290,11 +290,11 @@ public protocol DeviceProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DeviceProtocol` conformance.
 /// Use `DeviceRef` only as an `unowned` reference to an existing `GdkDevice` instance.
 ///
-/// The `GdkDevice` object represents a single input device, such
-/// as a keyboard, a mouse, a touchpad, etc.
+/// The `GdkDevice` object represents an input device, such
+/// as a keyboard, a mouse, or a touchpad.
 /// 
-/// See the `GdkSeat` documentation for more information about the
-/// various kinds of devices, and their relationships.
+/// See the [class`Gdk.Seat`] documentation for more information
+/// about the various kinds of devices, and their relationships.
 public struct DeviceRef: DeviceProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDevice` instance.
     /// For type-safe access, use the generated, typed pointer `device_ptr` property instead.
@@ -380,11 +380,11 @@ public extension DeviceRef {
 /// It provides the methods that can operate on this data type through `DeviceProtocol` conformance.
 /// Use `Device` as a strong reference or owner of a `GdkDevice` instance.
 ///
-/// The `GdkDevice` object represents a single input device, such
-/// as a keyboard, a mouse, a touchpad, etc.
+/// The `GdkDevice` object represents an input device, such
+/// as a keyboard, a mouse, or a touchpad.
 /// 
-/// See the `GdkSeat` documentation for more information about the
-/// various kinds of devices, and their relationships.
+/// See the [class`Gdk.Seat`] documentation for more information
+/// about the various kinds of devices, and their relationships.
 open class Device: GLibObject.Object, DeviceProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -515,32 +515,56 @@ open class Device: GLibObject.Object, DeviceProtocol {
 }
 
 public enum DevicePropertyName: String, PropertyNameProtocol {
+    /// Whether Caps Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case capsLockState = "caps-lock-state"
+    /// The direction of the current layout.
+    /// 
+    /// This is only relevant for keyboard devices.
     case direction = "direction"
     /// The `GdkDisplay` the `GdkDevice` pertains to.
     case display = "display"
+    /// Whether the device has both right-to-left and left-to-right layouts.
+    /// 
+    /// This is only relevant for keyboard devices.
     case hasBidiLayouts = "has-bidi-layouts"
     /// Whether the device is represented by a cursor on the screen.
     case hasCursor = "has-cursor"
+    /// The current modifier state of the device.
+    /// 
+    /// This is only relevant for keyboard devices.
     case modifierState = "modifier-state"
     /// Number of axes in the device.
     case nAxes = "n-axes"
     /// The device name.
     case name = "name"
+    /// Whether Num Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case numLockState = "num-lock-state"
     /// The maximal number of concurrent touches on a touch device.
+    /// 
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case numTouches = "num-touches"
-    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    /// Product ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_product_id`].
     case productId = "product-id"
+    /// Whether Scroll Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case scrollLockState = "scroll-lock-state"
     /// `GdkSeat` of this device.
     case seat = "seat"
     /// Source type for the device.
     case source = "source"
+    /// The `GdkDeviceTool` that is currently used with this device.
     case tool = "tool"
-    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    /// Vendor ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_vendor_id`].
     case vendorId = "vendor-id"
 }
 
@@ -598,9 +622,9 @@ public extension DeviceProtocol {
 }
 
 public enum DeviceSignalName: String, SignalNameProtocol {
-    /// The `changed` signal is emitted either when the `GdkDevice`
-    /// has changed the number of either axes or keys. For example
-    /// on X11 this will normally happen when the physical device
+    /// Emitted either when the the number of either axes or keys changes.
+    /// 
+    /// On X11 this will normally happen when the physical device
     /// routing events through the logical device changes (for
     /// example, user switches from the USB mouse to a tablet); in
     /// that case the logical device will change to reflect the axes
@@ -631,35 +655,58 @@ public enum DeviceSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `tool-changed` signal is emitted on pen/eraser
-    /// `GdkDevices` whenever tools enter or leave proximity.
+    /// Emitted on pen/eraser devices whenever tools enter or leave proximity.
     case toolChanged = "tool-changed"
+    /// Whether Caps Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyCapsLockState = "notify::caps-lock-state"
+    /// The direction of the current layout.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyDirection = "notify::direction"
     /// The `GdkDisplay` the `GdkDevice` pertains to.
     case notifyDisplay = "notify::display"
+    /// Whether the device has both right-to-left and left-to-right layouts.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyHasBidiLayouts = "notify::has-bidi-layouts"
     /// Whether the device is represented by a cursor on the screen.
     case notifyHasCursor = "notify::has-cursor"
+    /// The current modifier state of the device.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyModifierState = "notify::modifier-state"
     /// Number of axes in the device.
     case notifyNAxes = "notify::n-axes"
     /// The device name.
     case notifyName = "notify::name"
+    /// Whether Num Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyNumLockState = "notify::num-lock-state"
     /// The maximal number of concurrent touches on a touch device.
+    /// 
     /// Will be 0 if the device is not a touch device or if the number
     /// of touches is unknown.
     case notifyNumTouches = "notify::num-touches"
-    /// Product ID of this device, see `gdk_device_get_product_id()`.
+    /// Product ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_product_id`].
     case notifyProductId = "notify::product-id"
+    /// Whether Scroll Lock is on.
+    /// 
+    /// This is only relevant for keyboard devices.
     case notifyScrollLockState = "notify::scroll-lock-state"
     /// `GdkSeat` of this device.
     case notifySeat = "notify::seat"
     /// Source type for the device.
     case notifySource = "notify::source"
+    /// The `GdkDeviceTool` that is currently used with this device.
     case notifyTool = "notify::tool"
-    /// Vendor ID of this device, see `gdk_device_get_vendor_id()`.
+    /// Vendor ID of this device.
+    /// 
+    /// See [method`Gdk.Device.get_vendor_id`].
     case notifyVendorId = "notify::vendor-id"
 }
 
@@ -691,9 +738,9 @@ public extension DeviceProtocol {
     }
     
     
-    /// The `changed` signal is emitted either when the `GdkDevice`
-    /// has changed the number of either axes or keys. For example
-    /// on X11 this will normally happen when the physical device
+    /// Emitted either when the the number of either axes or keys changes.
+    /// 
+    /// On X11 this will normally happen when the physical device
     /// routing events through the logical device changes (for
     /// example, user switches from the USB mouse to a tablet); in
     /// that case the logical device will change to reflect the axes
@@ -722,8 +769,7 @@ public extension DeviceProtocol {
     /// Typed `changed` signal for using the `connect(signal:)` methods
     static var changedSignal: DeviceSignalName { .changed }
     
-    /// The `tool-changed` signal is emitted on pen/eraser
-    /// `GdkDevices` whenever tools enter or leave proximity.
+    /// Emitted on pen/eraser devices whenever tools enter or leave proximity.
     /// - Note: This represents the underlying `tool-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1540,24 +1586,26 @@ public extension DeviceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDevice` instance.
     @inlinable var device_ptr: UnsafeMutablePointer<GdkDevice>! { return ptr?.assumingMemoryBound(to: GdkDevice.self) }
 
-    /// Retrieves whether the Caps Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Caps Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable func getCapsLockState() -> Bool {
         let rv = ((gdk_device_get_caps_lock_state(device_ptr)) != 0)
         return rv
     }
 
-    /// Retrieves the `GdkDeviceTool` associated to `device`.
+    /// Retrieves the current tool for `device`.
     @inlinable func getDeviceTool() -> DeviceToolRef! {
         let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_device_get_device_tool(device_ptr)))
         return rv
     }
 
-    /// Returns the direction of effective layout of the keyboard,
-    /// if `device` is a keyboard device.
+    /// Returns the direction of effective layout of the keyboard.
+    /// 
+    /// This is only relevant for keyboard devices.
     /// 
     /// The direction of a layout is the direction of the majority
-    /// of its symbols. See `pango_unichar_direction()`.
+    /// of its symbols. See [func`Pango.unichar_direction`].
     @inlinable func getDirection() -> PangoDirection {
         let rv = gdk_device_get_direction(device_ptr)
         return rv
@@ -1570,6 +1618,7 @@ public extension DeviceProtocol {
     }
 
     /// Determines whether the pointer follows device motion.
+    /// 
     /// This is not meaningful for keyboard devices, which
     /// don't have a pointer.
     @inlinable func getHasCursor() -> Bool {
@@ -1577,22 +1626,23 @@ public extension DeviceProtocol {
         return rv
     }
 
-    /// Retrieves the current modifier state of the keyboard,
-    /// if `device` is a keyboard device.
+    /// Retrieves the current modifier state of the keyboard.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable func getModifierState() -> ModifierType {
         let rv = ModifierType(gdk_device_get_modifier_state(device_ptr))
         return rv
     }
 
-    /// Determines the name of the device, suitable
-    /// for showing in a user interface.
+    /// The name of the device, suitable for showing in a user interface.
     @inlinable func getName() -> String! {
         let rv = gdk_device_get_name(device_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Retrieves whether the Num Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Num Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable func getNumLockState() -> Bool {
         let rv = ((gdk_device_get_num_lock_state(device_ptr)) != 0)
         return rv
@@ -1604,16 +1654,18 @@ public extension DeviceProtocol {
         return rv
     }
 
-    /// Returns the product ID of this device, or `nil` if this information couldn't
-    /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it. See `gdk_device_get_vendor_id()` for more information.
+    /// Returns the product ID of this device.
+    /// 
+    /// This ID is retrieved from the device, and does not change.
+    /// See [method`Gdk.Device.get_vendor_id`] for more information.
     @inlinable func getProductId() -> String! {
         let rv = gdk_device_get_product_id(device_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Retrieves whether the Scroll Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Scroll Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable func getScrollLockState() -> Bool {
         let rv = ((gdk_device_get_scroll_lock_state(device_ptr)) != 0)
         return rv
@@ -1631,23 +1683,36 @@ public extension DeviceProtocol {
         return rv
     }
 
-    /// Obtains the surface underneath `device`, returning the location of the device in `win_x` and `win_y` in
-    /// double precision. Returns `nil` if the surface tree under `device` is not known to GDK (for example,
-    /// belongs to another application).
+    /// Obtains the surface underneath `device`, returning the location of the
+    /// device in `win_x` and `win_y`
+    /// 
+    /// Returns `nil` if the surface tree under `device` is not known to GDK
+    /// (for example, belongs to another application).
     @inlinable func getSurfaceAtPosition(winX: UnsafeMutablePointer<CDouble>! = nil, winY: UnsafeMutablePointer<CDouble>! = nil) -> SurfaceRef! {
         let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_device_get_surface_at_position(device_ptr, winX, winY)))
         return rv
     }
 
-    /// Returns the vendor ID of this device, or `nil` if this information couldn't
-    /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it.
+    /// Returns the timestamp of the last activity for this device.
     /// 
-    /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
-    /// compose `GSettings` paths to store settings for this device.
+    /// In practice, this means the timestamp of the last event that was
+    /// received from the OS for this device. (GTK may occasionally produce
+    /// events for a device that are not received from the OS, and will not
+    /// update the timestamp).
+    @inlinable func getTimestamp() -> guint32 {
+        let rv = gdk_device_get_timestamp(device_ptr)
+        return rv
+    }
+
+    /// Returns the vendor ID of this device.
     /// 
-    /// (C Language Example):
-    /// ```C
+    /// This ID is retrieved from the device, and does not change.
+    /// 
+    /// This function, together with [method`Gdk.Device.get_product_id`],
+    /// can be used to eg. compose `GSettings` paths to store settings
+    /// for this device.
+    /// 
+    /// ```c
     ///  static GSettings *
     ///  get_device_settings (GdkDevice *device)
     ///  {
@@ -1659,52 +1724,58 @@ public extension DeviceProtocol {
     ///    vendor = gdk_device_get_vendor_id (device);
     ///    product = gdk_device_get_product_id (device);
     /// 
-    ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
+    ///    path = g_strdup_printf ("/org/example/app/devices/`s:``s`/", vendor, product);
     ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
     ///    g_free (path);
     /// 
     ///    return settings;
     ///  }
     /// ```
-    /// 
     @inlinable func getVendorId() -> String! {
         let rv = gdk_device_get_vendor_id(device_ptr).map({ String(cString: $0) })
         return rv
     }
 
-    /// Determines if keyboard layouts for both right-to-left and
-    /// left-to-right languages are in use on the keyboard, if
-    /// `device` is a keyboard device.
+    /// Determines if layouts for both right-to-left and
+    /// left-to-right languages are in use on the keyboard.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable func hasBidiLayouts() -> Bool {
         let rv = ((gdk_device_has_bidi_layouts(device_ptr)) != 0)
         return rv
     }
-    /// Retrieves whether the Caps Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Caps Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable var capsLockState: Bool {
-        /// Retrieves whether the Caps Lock modifier of the
-        /// keyboard is locked, if `device` is a keyboard device.
+        /// Retrieves whether the Caps Lock modifier of the keyboard is locked.
+        /// 
+        /// This is only relevant for keyboard devices.
         get {
             let rv = ((gdk_device_get_caps_lock_state(device_ptr)) != 0)
             return rv
         }
     }
 
-    /// Retrieves the `GdkDeviceTool` associated to `device`.
+    /// Retrieves the current tool for `device`.
     @inlinable var deviceTool: DeviceToolRef! {
-        /// Retrieves the `GdkDeviceTool` associated to `device`.
+        /// Retrieves the current tool for `device`.
         get {
             let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_device_get_device_tool(device_ptr)))
             return rv
         }
     }
 
+    /// The direction of the current layout.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable var direction: PangoDirection {
-        /// Returns the direction of effective layout of the keyboard,
-        /// if `device` is a keyboard device.
+        /// Returns the direction of effective layout of the keyboard.
+        /// 
+        /// This is only relevant for keyboard devices.
         /// 
         /// The direction of a layout is the direction of the majority
-        /// of its symbols. See `pango_unichar_direction()`.
+        /// of its symbols. See [func`Pango.unichar_direction`].
         get {
             let rv = gdk_device_get_direction(device_ptr)
             return rv
@@ -1721,10 +1792,12 @@ public extension DeviceProtocol {
     }
 
     /// Determines whether the pointer follows device motion.
+    /// 
     /// This is not meaningful for keyboard devices, which
     /// don't have a pointer.
     @inlinable var hasCursor: Bool {
         /// Determines whether the pointer follows device motion.
+        /// 
         /// This is not meaningful for keyboard devices, which
         /// don't have a pointer.
         get {
@@ -1733,11 +1806,13 @@ public extension DeviceProtocol {
         }
     }
 
-    /// Retrieves the current modifier state of the keyboard,
-    /// if `device` is a keyboard device.
+    /// Retrieves the current modifier state of the keyboard.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable var modifierState: ModifierType {
-        /// Retrieves the current modifier state of the keyboard,
-        /// if `device` is a keyboard device.
+        /// Retrieves the current modifier state of the keyboard.
+        /// 
+        /// This is only relevant for keyboard devices.
         get {
             let rv = ModifierType(gdk_device_get_modifier_state(device_ptr))
             return rv
@@ -1746,19 +1821,20 @@ public extension DeviceProtocol {
 
     /// The device name.
     @inlinable var name: String! {
-        /// Determines the name of the device, suitable
-        /// for showing in a user interface.
+        /// The name of the device, suitable for showing in a user interface.
         get {
             let rv = gdk_device_get_name(device_ptr).map({ String(cString: $0) })
             return rv
         }
     }
 
-    /// Retrieves whether the Num Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Num Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable var numLockState: Bool {
-        /// Retrieves whether the Num Lock modifier of the
-        /// keyboard is locked, if `device` is a keyboard device.
+        /// Retrieves whether the Num Lock modifier of the keyboard is locked.
+        /// 
+        /// This is only relevant for keyboard devices.
         get {
             let rv = ((gdk_device_get_num_lock_state(device_ptr)) != 0)
             return rv
@@ -1774,24 +1850,28 @@ public extension DeviceProtocol {
         }
     }
 
-    /// Returns the product ID of this device, or `nil` if this information couldn't
-    /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it. See `gdk_device_get_vendor_id()` for more information.
+    /// Returns the product ID of this device.
+    /// 
+    /// This ID is retrieved from the device, and does not change.
+    /// See [method`Gdk.Device.get_vendor_id`] for more information.
     @inlinable var productId: String! {
-        /// Returns the product ID of this device, or `nil` if this information couldn't
-        /// be obtained. This ID is retrieved from the device, and is thus constant for
-        /// it. See `gdk_device_get_vendor_id()` for more information.
+        /// Returns the product ID of this device.
+        /// 
+        /// This ID is retrieved from the device, and does not change.
+        /// See [method`Gdk.Device.get_vendor_id`] for more information.
         get {
             let rv = gdk_device_get_product_id(device_ptr).map({ String(cString: $0) })
             return rv
         }
     }
 
-    /// Retrieves whether the Scroll Lock modifier of the
-    /// keyboard is locked, if `device` is a keyboard device.
+    /// Retrieves whether the Scroll Lock modifier of the keyboard is locked.
+    /// 
+    /// This is only relevant for keyboard devices.
     @inlinable var scrollLockState: Bool {
-        /// Retrieves whether the Scroll Lock modifier of the
-        /// keyboard is locked, if `device` is a keyboard device.
+        /// Retrieves whether the Scroll Lock modifier of the keyboard is locked.
+        /// 
+        /// This is only relevant for keyboard devices.
         get {
             let rv = ((gdk_device_get_scroll_lock_state(device_ptr)) != 0)
             return rv
@@ -1816,15 +1896,34 @@ public extension DeviceProtocol {
         }
     }
 
-    /// Returns the vendor ID of this device, or `nil` if this information couldn't
-    /// be obtained. This ID is retrieved from the device, and is thus constant for
-    /// it.
+    /// Returns the timestamp of the last activity for this device.
     /// 
-    /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
-    /// compose `GSettings` paths to store settings for this device.
+    /// In practice, this means the timestamp of the last event that was
+    /// received from the OS for this device. (GTK may occasionally produce
+    /// events for a device that are not received from the OS, and will not
+    /// update the timestamp).
+    @inlinable var timestamp: guint32 {
+        /// Returns the timestamp of the last activity for this device.
+        /// 
+        /// In practice, this means the timestamp of the last event that was
+        /// received from the OS for this device. (GTK may occasionally produce
+        /// events for a device that are not received from the OS, and will not
+        /// update the timestamp).
+        get {
+            let rv = gdk_device_get_timestamp(device_ptr)
+            return rv
+        }
+    }
+
+    /// Returns the vendor ID of this device.
     /// 
-    /// (C Language Example):
-    /// ```C
+    /// This ID is retrieved from the device, and does not change.
+    /// 
+    /// This function, together with [method`Gdk.Device.get_product_id`],
+    /// can be used to eg. compose `GSettings` paths to store settings
+    /// for this device.
+    /// 
+    /// ```c
     ///  static GSettings *
     ///  get_device_settings (GdkDevice *device)
     ///  {
@@ -1836,24 +1935,23 @@ public extension DeviceProtocol {
     ///    vendor = gdk_device_get_vendor_id (device);
     ///    product = gdk_device_get_product_id (device);
     /// 
-    ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
+    ///    path = g_strdup_printf ("/org/example/app/devices/`s:``s`/", vendor, product);
     ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
     ///    g_free (path);
     /// 
     ///    return settings;
     ///  }
     /// ```
-    /// 
     @inlinable var vendorId: String! {
-        /// Returns the vendor ID of this device, or `nil` if this information couldn't
-        /// be obtained. This ID is retrieved from the device, and is thus constant for
-        /// it.
+        /// Returns the vendor ID of this device.
         /// 
-        /// This function, together with `gdk_device_get_product_id()`, can be used to eg.
-        /// compose `GSettings` paths to store settings for this device.
+        /// This ID is retrieved from the device, and does not change.
         /// 
-        /// (C Language Example):
-        /// ```C
+        /// This function, together with [method`Gdk.Device.get_product_id`],
+        /// can be used to eg. compose `GSettings` paths to store settings
+        /// for this device.
+        /// 
+        /// ```c
         ///  static GSettings *
         ///  get_device_settings (GdkDevice *device)
         ///  {
@@ -1865,14 +1963,13 @@ public extension DeviceProtocol {
         ///    vendor = gdk_device_get_vendor_id (device);
         ///    product = gdk_device_get_product_id (device);
         /// 
-        ///    path = g_strdup_printf ("/org/example/app/devices/%s:%s/", vendor, product);
+        ///    path = g_strdup_printf ("/org/example/app/devices/`s:``s`/", vendor, product);
         ///    settings = g_settings_new_with_path (DEVICE_SCHEMA, path);
         ///    g_free (path);
         /// 
         ///    return settings;
         ///  }
         /// ```
-        /// 
         get {
             let rv = gdk_device_get_vendor_id(device_ptr).map({ String(cString: $0) })
             return rv
@@ -2124,9 +2221,13 @@ open class DeviceTool: GLibObject.Object, DeviceToolProtocol {
 }
 
 public enum DeviceToolPropertyName: String, PropertyNameProtocol {
+    /// The axes of the tool.
     case axes = "axes"
+    /// The hardware ID of the tool.
     case hardwareId = "hardware-id"
+    /// The serial number of the tool.
     case serial = "serial"
+    /// The type of the tool.
     case toolType = "tool-type"
 }
 
@@ -2209,9 +2310,13 @@ public enum DeviceToolSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The axes of the tool.
     case notifyAxes = "notify::axes"
+    /// The hardware ID of the tool.
     case notifyHardwareId = "notify::hardware-id"
+    /// The serial number of the tool.
     case notifySerial = "notify::serial"
+    /// The type of the tool.
     case notifyToolType = "notify::tool-type"
 }
 
@@ -2227,22 +2332,26 @@ public extension DeviceToolProtocol {
         return rv
     }
 
-    /// Gets the hardware ID of this tool, or 0 if it's not known. When
-    /// non-zero, the identificator is unique for the given tool model,
+    /// Gets the hardware ID of this tool, or 0 if it's not known.
+    /// 
+    /// When non-zero, the identificator is unique for the given tool model,
     /// meaning that two identical tools will share the same `hardware_id`,
-    /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
+    /// but will have different serial numbers (see
+    /// [method`Gdk.DeviceTool.get_serial`]).
     /// 
     /// This is a more concrete (and device specific) method to identify
-    /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
-    /// may support multiple devices with the same `GdkDeviceToolType`,
-    /// but having different hardware identificators.
+    /// a `GdkDeviceTool` than [method`Gdk.DeviceTool.get_tool_type`],
+    /// as a tablet may support multiple devices with the same
+    /// `GdkDeviceToolType`, but different hardware identificators.
     @inlinable func getHardwareId() -> guint64 {
         let rv = gdk_device_tool_get_hardware_id(device_tool_ptr)
         return rv
     }
 
-    /// Gets the serial of this tool, this value can be used to identify a
-    /// physical tool (eg. a tablet pen) across program executions.
+    /// Gets the serial number of this tool.
+    /// 
+    /// This value can be used to identify a physical tool
+    /// (eg. a tablet pen) across program executions.
     @inlinable func getSerial() -> guint64 {
         let rv = gdk_device_tool_get_serial(device_tool_ptr)
         return rv
@@ -2253,6 +2362,7 @@ public extension DeviceToolProtocol {
         let rv = gdk_device_tool_get_tool_type(device_tool_ptr)
         return rv
     }
+    /// The axes of the tool.
     @inlinable var axes: AxisFlags {
         /// Gets the axes of the tool.
         get {
@@ -2261,34 +2371,41 @@ public extension DeviceToolProtocol {
         }
     }
 
-    /// Gets the hardware ID of this tool, or 0 if it's not known. When
-    /// non-zero, the identificator is unique for the given tool model,
+    /// Gets the hardware ID of this tool, or 0 if it's not known.
+    /// 
+    /// When non-zero, the identificator is unique for the given tool model,
     /// meaning that two identical tools will share the same `hardware_id`,
-    /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
+    /// but will have different serial numbers (see
+    /// [method`Gdk.DeviceTool.get_serial`]).
     /// 
     /// This is a more concrete (and device specific) method to identify
-    /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
-    /// may support multiple devices with the same `GdkDeviceToolType`,
-    /// but having different hardware identificators.
+    /// a `GdkDeviceTool` than [method`Gdk.DeviceTool.get_tool_type`],
+    /// as a tablet may support multiple devices with the same
+    /// `GdkDeviceToolType`, but different hardware identificators.
     @inlinable var hardwareId: guint64 {
-        /// Gets the hardware ID of this tool, or 0 if it's not known. When
-        /// non-zero, the identificator is unique for the given tool model,
+        /// Gets the hardware ID of this tool, or 0 if it's not known.
+        /// 
+        /// When non-zero, the identificator is unique for the given tool model,
         /// meaning that two identical tools will share the same `hardware_id`,
-        /// but will have different serial numbers (see `gdk_device_tool_get_serial()`).
+        /// but will have different serial numbers (see
+        /// [method`Gdk.DeviceTool.get_serial`]).
         /// 
         /// This is a more concrete (and device specific) method to identify
-        /// a `GdkDeviceTool` than `gdk_device_tool_get_tool_type()`, as a tablet
-        /// may support multiple devices with the same `GdkDeviceToolType`,
-        /// but having different hardware identificators.
+        /// a `GdkDeviceTool` than [method`Gdk.DeviceTool.get_tool_type`],
+        /// as a tablet may support multiple devices with the same
+        /// `GdkDeviceToolType`, but different hardware identificators.
         get {
             let rv = gdk_device_tool_get_hardware_id(device_tool_ptr)
             return rv
         }
     }
 
+    /// The serial number of the tool.
     @inlinable var serial: guint64 {
-        /// Gets the serial of this tool, this value can be used to identify a
-        /// physical tool (eg. a tablet pen) across program executions.
+        /// Gets the serial number of this tool.
+        /// 
+        /// This value can be used to identify a physical tool
+        /// (eg. a tablet pen) across program executions.
         get {
             let rv = gdk_device_tool_get_serial(device_tool_ptr)
             return rv
@@ -2316,18 +2433,20 @@ public extension DeviceToolProtocol {
 /// For a concrete class that implements these methods and properties, see `Display`.
 /// Alternatively, use `DisplayRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// GdkDisplay objects are the GDK representation of a workstation.
+/// `GdkDisplay` objects are the GDK representation of a workstation.
 /// 
 /// Their purpose are two-fold:
+/// 
 /// - To manage and provide information about input devices (pointers, keyboards, etc)
 /// - To manage and provide information about output devices (monitors, projectors, etc)
 /// 
-/// Most of the input device handling has been factored out into separate `GdkSeat`
-/// objects. Every display has a one or more seats, which can be accessed with
-/// `gdk_display_get_default_seat()` and `gdk_display_list_seats()`.
+/// Most of the input device handling has been factored out into separate
+/// [class`Gdk.Seat`] objects. Every display has a one or more seats, which
+/// can be accessed with [method`Gdk.Display.get_default_seat`] and
+/// [method`Gdk.Display.list_seats`].
 /// 
-/// Output devices are represented by `GdkMonitor` objects, which can be accessed
-/// with `gdk_display_get_monitor_at_surface()` and similar APIs.
+/// Output devices are represented by [class`Gdk.Monitor`] objects, which can
+/// be accessed with [method`Gdk.Display.get_monitor_at_surface`] and similar APIs.
 public protocol DisplayProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDisplay` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -2343,18 +2462,20 @@ public protocol DisplayProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DisplayProtocol` conformance.
 /// Use `DisplayRef` only as an `unowned` reference to an existing `GdkDisplay` instance.
 ///
-/// GdkDisplay objects are the GDK representation of a workstation.
+/// `GdkDisplay` objects are the GDK representation of a workstation.
 /// 
 /// Their purpose are two-fold:
+/// 
 /// - To manage and provide information about input devices (pointers, keyboards, etc)
 /// - To manage and provide information about output devices (monitors, projectors, etc)
 /// 
-/// Most of the input device handling has been factored out into separate `GdkSeat`
-/// objects. Every display has a one or more seats, which can be accessed with
-/// `gdk_display_get_default_seat()` and `gdk_display_list_seats()`.
+/// Most of the input device handling has been factored out into separate
+/// [class`Gdk.Seat`] objects. Every display has a one or more seats, which
+/// can be accessed with [method`Gdk.Display.get_default_seat`] and
+/// [method`Gdk.Display.list_seats`].
 /// 
-/// Output devices are represented by `GdkMonitor` objects, which can be accessed
-/// with `gdk_display_get_monitor_at_surface()` and similar APIs.
+/// Output devices are represented by [class`Gdk.Monitor`] objects, which can
+/// be accessed with [method`Gdk.Display.get_monitor_at_surface`] and similar APIs.
 public struct DisplayRef: DisplayProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDisplay` instance.
     /// For type-safe access, use the generated, typed pointer `display_ptr` property instead.
@@ -2434,8 +2555,9 @@ public extension DisplayRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Gets the default `GdkDisplay`. This is a convenience
-    /// function for:
+        /// Gets the default `GdkDisplay`.
+    /// 
+    /// This is a convenience function for:
     /// `gdk_display_manager_get_default_display (gdk_display_manager_get ())`.
     @inlinable static func getDefault() -> DisplayRef! {
         guard let rv = DisplayRef(gconstpointer: gconstpointer(gdk_display_get_default())) else { return nil }
@@ -2453,18 +2575,20 @@ public extension DisplayRef {
 /// It provides the methods that can operate on this data type through `DisplayProtocol` conformance.
 /// Use `Display` as a strong reference or owner of a `GdkDisplay` instance.
 ///
-/// GdkDisplay objects are the GDK representation of a workstation.
+/// `GdkDisplay` objects are the GDK representation of a workstation.
 /// 
 /// Their purpose are two-fold:
+/// 
 /// - To manage and provide information about input devices (pointers, keyboards, etc)
 /// - To manage and provide information about output devices (monitors, projectors, etc)
 /// 
-/// Most of the input device handling has been factored out into separate `GdkSeat`
-/// objects. Every display has a one or more seats, which can be accessed with
-/// `gdk_display_get_default_seat()` and `gdk_display_list_seats()`.
+/// Most of the input device handling has been factored out into separate
+/// [class`Gdk.Seat`] objects. Every display has a one or more seats, which
+/// can be accessed with [method`Gdk.Display.get_default_seat`] and
+/// [method`Gdk.Display.list_seats`].
 /// 
-/// Output devices are represented by `GdkMonitor` objects, which can be accessed
-/// with `gdk_display_get_monitor_at_surface()` and similar APIs.
+/// Output devices are represented by [class`Gdk.Monitor`] objects, which can
+/// be accessed with [method`Gdk.Display.get_monitor_at_surface`] and similar APIs.
 open class Display: GLibObject.Object, DisplayProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -2591,8 +2715,9 @@ open class Display: GLibObject.Object, DisplayProtocol {
     }
 
 
-    /// Gets the default `GdkDisplay`. This is a convenience
-    /// function for:
+    /// Gets the default `GdkDisplay`.
+    /// 
+    /// This is a convenience function for:
     /// `gdk_display_manager_get_default_display (gdk_display_manager_get ())`.
     @inlinable public static func getDefault() -> Display! {
         guard let rv = Display(gconstpointer: gconstpointer(gdk_display_get_default())) else { return nil }
@@ -2611,13 +2736,10 @@ open class Display: GLibObject.Object, DisplayProtocol {
 
 public enum DisplayPropertyName: String, PropertyNameProtocol {
     /// `true` if the display properly composites the alpha channel.
-    /// See `gdk_display_is_composited()` for details.
     case composited = "composited"
-    /// `true` if the display supports input shapes. See
-    /// `gdk_display_supports_input_shapes()` for details.
+    /// `true` if the display supports input shapes.
     case inputShapes = "input-shapes"
-    /// `true` if the display supports an alpha channel. See `gdk_display_is_rgba()`
-    /// for details.
+    /// `true` if the display supports an alpha channel.
     case rgba = "rgba"
 }
 
@@ -2675,8 +2797,7 @@ public extension DisplayProtocol {
 }
 
 public enum DisplaySignalName: String, SignalNameProtocol {
-    /// The `closed` signal is emitted when the connection to the windowing
-    /// system for `display` is closed.
+    /// Emitted when the connection to the windowing system for `display` is closed.
     case closed = "closed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -2703,26 +2824,19 @@ public enum DisplaySignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `opened` signal is emitted when the connection to the windowing
-    /// system for `display` is opened.
+    /// Emitted when the connection to the windowing system for `display` is opened.
     case opened = "opened"
-    /// The `seat-added` signal is emitted whenever a new seat is made
-    /// known to the windowing system.
+    /// Emitted whenever a new seat is made known to the windowing system.
     case seatAdded = "seat-added"
-    /// The `seat-removed` signal is emitted whenever a seat is removed
-    /// by the windowing system.
+    /// Emitted whenever a seat is removed by the windowing system.
     case seatRemoved = "seat-removed"
-    /// The `setting-changed` signal is emitted whenever a setting
-    /// changes its value.
+    /// Emitted whenever a setting changes its value.
     case settingChanged = "setting-changed"
     /// `true` if the display properly composites the alpha channel.
-    /// See `gdk_display_is_composited()` for details.
     case notifyComposited = "notify::composited"
-    /// `true` if the display supports input shapes. See
-    /// `gdk_display_supports_input_shapes()` for details.
+    /// `true` if the display supports input shapes.
     case notifyInputShapes = "notify::input-shapes"
-    /// `true` if the display supports an alpha channel. See `gdk_display_is_rgba()`
-    /// for details.
+    /// `true` if the display supports an alpha channel.
     case notifyRgba = "notify::rgba"
 }
 
@@ -2754,8 +2868,7 @@ public extension DisplayProtocol {
     }
     
     
-    /// The `closed` signal is emitted when the connection to the windowing
-    /// system for `display` is closed.
+    /// Emitted when the connection to the windowing system for `display` is closed.
     /// - Note: This represents the underlying `closed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2781,8 +2894,7 @@ public extension DisplayProtocol {
     /// Typed `closed` signal for using the `connect(signal:)` methods
     static var closedSignal: DisplaySignalName { .closed }
     
-    /// The `opened` signal is emitted when the connection to the windowing
-    /// system for `display` is opened.
+    /// Emitted when the connection to the windowing system for `display` is opened.
     /// - Note: This represents the underlying `opened` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2807,8 +2919,7 @@ public extension DisplayProtocol {
     /// Typed `opened` signal for using the `connect(signal:)` methods
     static var openedSignal: DisplaySignalName { .opened }
     
-    /// The `seat-added` signal is emitted whenever a new seat is made
-    /// known to the windowing system.
+    /// Emitted whenever a new seat is made known to the windowing system.
     /// - Note: This represents the underlying `seat-added` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2834,8 +2945,7 @@ public extension DisplayProtocol {
     /// Typed `seat-added` signal for using the `connect(signal:)` methods
     static var seatAddedSignal: DisplaySignalName { .seatAdded }
     
-    /// The `seat-removed` signal is emitted whenever a seat is removed
-    /// by the windowing system.
+    /// Emitted whenever a seat is removed by the windowing system.
     /// - Note: This represents the underlying `seat-removed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -2861,8 +2971,7 @@ public extension DisplayProtocol {
     /// Typed `seat-removed` signal for using the `connect(signal:)` methods
     static var seatRemovedSignal: DisplaySignalName { .seatRemoved }
     
-    /// The `setting-changed` signal is emitted whenever a setting
-    /// changes its value.
+    /// Emitted whenever a setting changes its value.
     /// - Note: This represents the underlying `setting-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -3048,8 +3157,9 @@ public extension DisplayProtocol {
     
     }
 
-    /// Closes the connection to the windowing system for the given display,
-    /// and cleans up associated resources.
+    /// Closes the connection to the windowing system for the given display.
+    /// 
+    /// This cleans up associated resources.
     @inlinable func close() {
         gdk_display_close(display_ptr)
     
@@ -3061,10 +3171,11 @@ public extension DisplayProtocol {
         return rv
     }
 
-    /// Flushes any requests queued for the windowing system; this happens automatically
-    /// when the main loop blocks waiting for new events, but if your application
-    /// is drawing without returning control to the main loop, you may need
-    /// to call this function explicitly. A common case where this function
+    /// Flushes any requests queued for the windowing system.
+    /// 
+    /// This happens automatically when the main loop blocks waiting for new events,
+    /// but if your application is drawing without returning control to the main loop,
+    /// you may need to call this function explicitly. A common case where this function
     /// needs to be called is when an application is executing drawing commands
     /// from a thread other than the thread where the main loop is running.
     /// 
@@ -3098,7 +3209,9 @@ public extension DisplayProtocol {
     }
 
     /// Gets the monitor in which the largest area of `surface`
-    /// resides, or a monitor close to `surface` if it is outside
+    /// resides.
+    /// 
+    /// Returns a monitor close to `surface` if it is outside
     /// of all monitors.
     @inlinable func getMonitorAt<SurfaceT: SurfaceProtocol>(surface: SurfaceT) -> MonitorRef! {
         let rv = MonitorRef(gconstpointer: gconstpointer(gdk_display_get_monitor_at_surface(display_ptr, surface.surface_ptr)))
@@ -3107,11 +3220,11 @@ public extension DisplayProtocol {
 
     /// Gets the list of monitors associated with this display.
     /// 
-    /// Subsequent calls to this function will always return the same list for the
-    /// same display.
+    /// Subsequent calls to this function will always return the
+    /// same list for the same display.
     /// 
-    /// You can listen to the GListModel`items-changed` signal on this list
-    /// to monitor changes to the monitor of this display.
+    /// You can listen to the GListModel`items-changed` signal on
+    /// this list to monitor changes to the monitor of this display.
     @inlinable func getMonitors() -> GIO.ListModelRef! {
         let rv = GIO.ListModelRef(gdk_display_get_monitors(display_ptr))
         return rv
@@ -3123,9 +3236,10 @@ public extension DisplayProtocol {
         return rv
     }
 
-    /// Gets the clipboard used for the primary selection. On backends where the
-    /// primary clipboard is not supported natively, GDK emulates this clipboard
-    /// locally.
+    /// Gets the clipboard used for the primary selection.
+    /// 
+    /// On backends where the primary clipboard is not supported natively,
+    /// GDK emulates this clipboard locally.
     @inlinable func getPrimaryClipboard() -> ClipboardRef! {
         let rv = ClipboardRef(gconstpointer: gconstpointer(gdk_display_get_primary_clipboard(display_ptr)))
         return rv
@@ -3151,8 +3265,9 @@ public extension DisplayProtocol {
         return rv
     }
 
-    /// Returns the keyvals bound to `keycode`. The Nth `GdkKeymapKey`
-    /// in `keys` is bound to the Nth keyval in `keyvals`.
+    /// Returns the keyvals bound to `keycode`.
+    /// 
+    /// The Nth `GdkKeymapKey` in `keys` is bound to the Nth keyval in `keyvals`.
     /// 
     /// When a keycode is pressed by the user, the keyval from
     /// this list of entries is selected by considering the effective
@@ -3165,10 +3280,11 @@ public extension DisplayProtocol {
     }
 
     /// Obtains a list of keycode/group/level combinations that will
-    /// generate `keyval`. Groups and levels are two kinds of keyboard mode;
-    /// in general, the level determines whether the top or bottom symbol
-    /// on a key is used, and the group determines whether the left or
-    /// right symbol is used.
+    /// generate `keyval`.
+    /// 
+    /// Groups and levels are two kinds of keyboard mode; in general, the level
+    /// determines whether the top or bottom symbol on a key is used, and the
+    /// group determines whether the left or right symbol is used.
     /// 
     /// On US keyboards, the shift key changes the keyboard level, and there
     /// are no groups. A group switch key might convert a keyboard between
@@ -3186,10 +3302,10 @@ public extension DisplayProtocol {
     /// Indicates to the GUI environment that the application has
     /// finished loading, using a given identifier.
     /// 
-    /// GTK will call this function automatically for `GtkWindow`
+    /// GTK will call this function automatically for [class`Gtk.Window`]
     /// with custom startup-notification identifier unless
-    /// `gtk_window_set_auto_startup_notification()` is called to
-    /// disable that feature.
+    /// [method`Gtk.Window.set_auto_startup_notification`]
+    /// is called to disable that feature.
     @inlinable func notifyStartupComplete(startupId: UnsafePointer<CChar>!) {
         gdk_display_notify_startup_complete(display_ptr, startupId)
     
@@ -3205,7 +3321,9 @@ public extension DisplayProtocol {
     
     }
 
-    /// Returns `true` if `gdk_surface_set_input_region()` can
+    /// Returns `true` if the display supports input shapes.
+    /// 
+    /// This means that [method`Gdk.Surface.set_input_region`] can
     /// be used to modify the input shape of surfaces on `display`.
     /// 
     /// On modern displays, this value is always `true`.
@@ -3215,11 +3333,12 @@ public extension DisplayProtocol {
     }
 
     /// Flushes any requests queued for the windowing system and waits until all
-    /// requests have been handled. This is often used for making sure that the
-    /// display is synchronized with the current state of the program. Calling
-    /// `gdk_display_sync()` before `gdk_x11_display_error_trap_pop()` makes sure
-    /// that any errors generated from earlier requests are handled before the
-    /// error trap is removed.
+    /// requests have been handled.
+    /// 
+    /// This is often used for making sure that the display is synchronized
+    /// with the current state of the program. Calling [method`Gdk.Display.sync`]
+    /// before [method`GdkX11.Display.error_trap_pop`] makes sure that any errors
+    /// generated from earlier requests are handled before the error trap is removed.
     /// 
     /// This is most useful for X11. On windowing systems where requests are
     /// handled synchronously, this function will do nothing.
@@ -3228,23 +3347,25 @@ public extension DisplayProtocol {
     
     }
 
-    /// Translates the contents of a `GdkEventKey` (ie `keycode`, `state`, and `group`)
-    /// into a keyval, effective group, and level. Modifiers that affected the
-    /// translation and are thus unavailable for application use are returned in
-    /// `consumed_modifiers`.
+    /// Translates the contents of a `GdkEventKey` into a keyval, effective group,
+    /// and level.
     /// 
-    /// The `effective_group` is the group that was actually used for the translation;
-    /// some keys such as Enter are not affected by the active keyboard group.
-    /// The `level` is derived from `state`.
+    /// Modifiers that affected the translation and are thus unavailable for
+    /// application use are returned in `consumed_modifiers`.
     /// 
-    /// `consumed_modifiers` gives modifiers that should be masked outfrom `state`
-    /// when comparing this key press to a keyboard shortcut. For instance, on a US
-    /// keyboard, the `plus` symbol is shifted, so when comparing a key press to a
-    /// `&lt;Control&gt;plus` accelerator `&lt;Shift&gt;` should be masked out.
+    /// The `effective_group` is the group that was actually used for the
+    /// translation; some keys such as Enter are not affected by the active
+    /// keyboard group. The `level` is derived from `state`.
     /// 
-    /// This function should rarely be needed, since `GdkEventKey` already contains
-    /// the translated keyval. It is exported for the benefit of virtualized test
-    /// environments.
+    /// `consumed_modifiers` gives modifiers that should be masked out
+    /// from `state` when comparing this key press to a keyboard shortcut.
+    /// For instance, on a US keyboard, the `plus` symbol is shifted, so
+    /// when comparing a key press to a `&lt;Control&gt;plus` accelerator `&lt;Shift&gt;`
+    /// should be masked out.
+    /// 
+    /// This function should rarely be needed, since `GdkEventKey` already
+    /// contains the translated keyval. It is exported for the benefit of
+    /// virtualized test environments.
     @inlinable func translateKey(keycode: Int, state: ModifierType, group: Int, keyval: UnsafeMutablePointer<guint>! = nil, effectiveGroup: UnsafeMutablePointer<gint>! = nil, level: UnsafeMutablePointer<gint>! = nil, consumed: UnsafeMutablePointer<GdkModifierType>! = nil) -> Bool {
         let rv = ((gdk_display_translate_key(display_ptr, guint(keycode), state.value, gint(group), keyval, effectiveGroup, level, consumed)) != 0)
         return rv
@@ -3294,9 +3415,10 @@ public extension DisplayProtocol {
     }
 
     /// Returns whether surfaces can reasonably be expected to have
-    /// their alpha channel drawn correctly on the screen. Check
-    /// `gdk_display_is_rgba()` for whether the display supports an
-    /// alpha channel.
+    /// their alpha channel drawn correctly on the screen.
+    /// 
+    /// Check [method`Gdk.Display.is_rgba`] for whether the display
+    /// supports an alpha channel.
     /// 
     /// On X11 this function returns whether a compositing manager is
     /// compositing on `display`.
@@ -3304,9 +3426,10 @@ public extension DisplayProtocol {
     /// On modern displays, this value is always `true`.
     @inlinable var isComposited: Bool {
         /// Returns whether surfaces can reasonably be expected to have
-        /// their alpha channel drawn correctly on the screen. Check
-        /// `gdk_display_is_rgba()` for whether the display supports an
-        /// alpha channel.
+        /// their alpha channel drawn correctly on the screen.
+        /// 
+        /// Check [method`Gdk.Display.is_rgba`] for whether the display
+        /// supports an alpha channel.
         /// 
         /// On X11 this function returns whether a compositing manager is
         /// compositing on `display`.
@@ -3325,7 +3448,7 @@ public extension DisplayProtocol {
     /// surface’s alpha channel won’t be honored when displaying the
     /// surface on the screen: in particular, for X an appropriate
     /// windowing manager and compositing manager must be running to
-    /// provide appropriate display. Use `gdk_display_is_composited()`
+    /// provide appropriate display. Use [method`Gdk.Display.is_composited`]
     /// to check if that is the case.
     /// 
     /// On modern displays, this value is always `true`.
@@ -3337,7 +3460,7 @@ public extension DisplayProtocol {
         /// surface’s alpha channel won’t be honored when displaying the
         /// surface on the screen: in particular, for X an appropriate
         /// windowing manager and compositing manager must be running to
-        /// provide appropriate display. Use `gdk_display_is_composited()`
+        /// provide appropriate display. Use [method`Gdk.Display.is_composited`]
         /// to check if that is the case.
         /// 
         /// On modern displays, this value is always `true`.
@@ -3349,19 +3472,19 @@ public extension DisplayProtocol {
 
     /// Gets the list of monitors associated with this display.
     /// 
-    /// Subsequent calls to this function will always return the same list for the
-    /// same display.
+    /// Subsequent calls to this function will always return the
+    /// same list for the same display.
     /// 
-    /// You can listen to the GListModel`items-changed` signal on this list
-    /// to monitor changes to the monitor of this display.
+    /// You can listen to the GListModel`items-changed` signal on
+    /// this list to monitor changes to the monitor of this display.
     @inlinable var monitors: GIO.ListModelRef! {
         /// Gets the list of monitors associated with this display.
         /// 
-        /// Subsequent calls to this function will always return the same list for the
-        /// same display.
+        /// Subsequent calls to this function will always return the
+        /// same list for the same display.
         /// 
-        /// You can listen to the GListModel`items-changed` signal on this list
-        /// to monitor changes to the monitor of this display.
+        /// You can listen to the GListModel`items-changed` signal on
+        /// this list to monitor changes to the monitor of this display.
         get {
             let rv = GIO.ListModelRef(gdk_display_get_monitors(display_ptr))
             return rv
@@ -3377,13 +3500,15 @@ public extension DisplayProtocol {
         }
     }
 
-    /// Gets the clipboard used for the primary selection. On backends where the
-    /// primary clipboard is not supported natively, GDK emulates this clipboard
-    /// locally.
+    /// Gets the clipboard used for the primary selection.
+    /// 
+    /// On backends where the primary clipboard is not supported natively,
+    /// GDK emulates this clipboard locally.
     @inlinable var primaryClipboard: ClipboardRef! {
-        /// Gets the clipboard used for the primary selection. On backends where the
-        /// primary clipboard is not supported natively, GDK emulates this clipboard
-        /// locally.
+        /// Gets the clipboard used for the primary selection.
+        /// 
+        /// On backends where the primary clipboard is not supported natively,
+        /// GDK emulates this clipboard locally.
         get {
             let rv = ClipboardRef(gconstpointer: gconstpointer(gdk_display_get_primary_clipboard(display_ptr)))
             return rv
@@ -3413,11 +3538,10 @@ public extension DisplayProtocol {
 /// For a concrete class that implements these methods and properties, see `DisplayManager`.
 /// Alternatively, use `DisplayManagerRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The purpose of the `GdkDisplayManager` singleton object is to offer
-/// notification when displays appear or disappear or the default display
-/// changes.
+/// A singleton object that offers notification when displays appear or
+/// disappear.
 /// 
-/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
+/// You can use [func`Gdk.DisplayManager.get`] to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -3426,6 +3550,12 @@ public extension DisplayProtocol {
 /// The `GdkDisplayManager` object determines which backend is used
 /// at runtime.
 /// 
+/// In the rare case that you need to influence which of the backends
+/// is being used, you can use [func`Gdk.set_allowed_backends`]. Note
+/// that you need to call this function before initializing GTK.
+/// 
+/// ## Backend-specific code
+/// 
 /// When writing backend-specific code that is supposed to work with
 /// multiple GDK backends, you have to consider both compile time and
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
@@ -3433,27 +3563,23 @@ public extension DisplayProtocol {
 /// you are building your application against. At runtime, use type-check
 /// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ## Backend-specific code ## <a name="backend-specific"></a>
-/// 
-/// (C Language Example):
-/// ```C
-/// #ifdef GDK_WINDOWING_X11
+/// ```c
+/// `ifdef` GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// #endif
-/// #ifdef GDK_WINDOWING_MACOS
+/// `endif`
+/// `ifdef` GDK_WINDOWING_MACOS
 ///   if (GDK_IS_MACOS_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// #endif
+/// `endif`
 ///   g_error ("Unsupported GDK backend");
 /// ```
-/// 
 public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDisplayManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -3469,11 +3595,10 @@ public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DisplayManagerProtocol` conformance.
 /// Use `DisplayManagerRef` only as an `unowned` reference to an existing `GdkDisplayManager` instance.
 ///
-/// The purpose of the `GdkDisplayManager` singleton object is to offer
-/// notification when displays appear or disappear or the default display
-/// changes.
+/// A singleton object that offers notification when displays appear or
+/// disappear.
 /// 
-/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
+/// You can use [func`Gdk.DisplayManager.get`] to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -3482,6 +3607,12 @@ public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
 /// The `GdkDisplayManager` object determines which backend is used
 /// at runtime.
 /// 
+/// In the rare case that you need to influence which of the backends
+/// is being used, you can use [func`Gdk.set_allowed_backends`]. Note
+/// that you need to call this function before initializing GTK.
+/// 
+/// ## Backend-specific code
+/// 
 /// When writing backend-specific code that is supposed to work with
 /// multiple GDK backends, you have to consider both compile time and
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
@@ -3489,27 +3620,23 @@ public protocol DisplayManagerProtocol: GLibObject.ObjectProtocol {
 /// you are building your application against. At runtime, use type-check
 /// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ## Backend-specific code ## <a name="backend-specific"></a>
-/// 
-/// (C Language Example):
-/// ```C
-/// #ifdef GDK_WINDOWING_X11
+/// ```c
+/// `ifdef` GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// #endif
-/// #ifdef GDK_WINDOWING_MACOS
+/// `endif`
+/// `ifdef` GDK_WINDOWING_MACOS
 ///   if (GDK_IS_MACOS_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// #endif
+/// `endif`
 ///   g_error ("Unsupported GDK backend");
 /// ```
-/// 
 public struct DisplayManagerRef: DisplayManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDisplayManager` instance.
     /// For type-safe access, use the generated, typed pointer `display_manager_ptr` property instead.
@@ -3592,10 +3719,12 @@ public extension DisplayManagerRef {
         /// Gets the singleton `GdkDisplayManager` object.
     /// 
     /// When called for the first time, this function consults the
-    /// `GDK_BACKEND` environment variable to find out which
-    /// of the supported GDK backends to use (in case GDK has been compiled
-    /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
-    /// to limit what backends can be used.
+    /// `GDK_BACKEND` environment variable to find out which of the
+    /// supported GDK backends to use (in case GDK has been compiled
+    /// with multiple backends).
+    /// 
+    /// Applications can use [func`set_allowed_backends`] to limit what
+    /// backends wil be used.
     @inlinable static func displayManagerGet() -> DisplayManagerRef! {
         guard let rv = DisplayManagerRef(gconstpointer: gconstpointer(gdk_display_manager_get())) else { return nil }
         return rv
@@ -3606,11 +3735,10 @@ public extension DisplayManagerRef {
 /// It provides the methods that can operate on this data type through `DisplayManagerProtocol` conformance.
 /// Use `DisplayManager` as a strong reference or owner of a `GdkDisplayManager` instance.
 ///
-/// The purpose of the `GdkDisplayManager` singleton object is to offer
-/// notification when displays appear or disappear or the default display
-/// changes.
+/// A singleton object that offers notification when displays appear or
+/// disappear.
 /// 
-/// You can use `gdk_display_manager_get()` to obtain the `GdkDisplayManager`
+/// You can use [func`Gdk.DisplayManager.get`] to obtain the `GdkDisplayManager`
 /// singleton, but that should be rarely necessary. Typically, initializing
 /// GTK opens a display that you can work with without ever accessing the
 /// `GdkDisplayManager`.
@@ -3619,6 +3747,12 @@ public extension DisplayManagerRef {
 /// The `GdkDisplayManager` object determines which backend is used
 /// at runtime.
 /// 
+/// In the rare case that you need to influence which of the backends
+/// is being used, you can use [func`Gdk.set_allowed_backends`]. Note
+/// that you need to call this function before initializing GTK.
+/// 
+/// ## Backend-specific code
+/// 
 /// When writing backend-specific code that is supposed to work with
 /// multiple GDK backends, you have to consider both compile time and
 /// runtime. At compile time, use the `GDK_WINDOWING_X11`, `GDK_WINDOWING_WIN32`
@@ -3626,27 +3760,23 @@ public extension DisplayManagerRef {
 /// you are building your application against. At runtime, use type-check
 /// macros like `GDK_IS_X11_DISPLAY()` to find out which backend is in use:
 /// 
-/// ## Backend-specific code ## <a name="backend-specific"></a>
-/// 
-/// (C Language Example):
-/// ```C
-/// #ifdef GDK_WINDOWING_X11
+/// ```c
+/// `ifdef` GDK_WINDOWING_X11
 ///   if (GDK_IS_X11_DISPLAY (display))
 ///     {
 ///       // make X11-specific calls here
 ///     }
 ///   else
-/// #endif
-/// #ifdef GDK_WINDOWING_MACOS
+/// `endif`
+/// `ifdef` GDK_WINDOWING_MACOS
 ///   if (GDK_IS_MACOS_DISPLAY (display))
 ///     {
 ///       // make Quartz-specific calls here
 ///     }
 ///   else
-/// #endif
+/// `endif`
 ///   g_error ("Unsupported GDK backend");
 /// ```
-/// 
 open class DisplayManager: GLibObject.Object, DisplayManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -3776,10 +3906,12 @@ open class DisplayManager: GLibObject.Object, DisplayManagerProtocol {
     /// Gets the singleton `GdkDisplayManager` object.
     /// 
     /// When called for the first time, this function consults the
-    /// `GDK_BACKEND` environment variable to find out which
-    /// of the supported GDK backends to use (in case GDK has been compiled
-    /// with multiple backends). Applications can use `gdk_set_allowed_backends()`
-    /// to limit what backends can be used.
+    /// `GDK_BACKEND` environment variable to find out which of the
+    /// supported GDK backends to use (in case GDK has been compiled
+    /// with multiple backends).
+    /// 
+    /// Applications can use [func`set_allowed_backends`] to limit what
+    /// backends wil be used.
     @inlinable public static func displayManagerGet() -> DisplayManager! {
         guard let rv = DisplayManager(gconstpointer: gconstpointer(gdk_display_manager_get())) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -3789,6 +3921,7 @@ open class DisplayManager: GLibObject.Object, DisplayManagerProtocol {
 }
 
 public enum DisplayManagerPropertyName: String, PropertyNameProtocol {
+    /// The default display.
     case defaultDisplay = "default-display"
 }
 
@@ -3846,7 +3979,7 @@ public extension DisplayManagerProtocol {
 }
 
 public enum DisplayManagerSignalName: String, SignalNameProtocol {
-    /// The `display-opened` signal is emitted when a display is opened.
+    /// Emitted when a display is opened.
     case displayOpened = "display-opened"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -3873,6 +4006,7 @@ public enum DisplayManagerSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The default display.
     case notifyDefaultDisplay = "notify::default-display"
 }
 
@@ -3904,7 +4038,7 @@ public extension DisplayManagerProtocol {
     }
     
     
-    /// The `display-opened` signal is emitted when a display is opened.
+    /// Emitted when a display is opened.
     /// - Note: This represents the underlying `display-opened` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4034,8 +4168,16 @@ public extension DisplayManagerProtocol {
 /// For a concrete class that implements these methods and properties, see `Drag`.
 /// Alternatively, use `DragRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GdkDrag struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrag` object represents the source of an ongoing DND operation.
+/// 
+/// A `GdkDrag` is created when a drag is started, and stays alive for duration of
+/// the DND operation. After a drag has been started with [func`Gdk.Drag.begin`],
+/// the caller gets informed about the status of the ongoing drag operation
+/// with signals on the `GdkDrag` object.
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 public protocol DragProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDrag` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -4051,8 +4193,16 @@ public protocol DragProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DragProtocol` conformance.
 /// Use `DragRef` only as an `unowned` reference to an existing `GdkDrag` instance.
 ///
-/// The GdkDrag struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrag` object represents the source of an ongoing DND operation.
+/// 
+/// A `GdkDrag` is created when a drag is started, and stays alive for duration of
+/// the DND operation. After a drag has been started with [func`Gdk.Drag.begin`],
+/// the caller gets informed about the status of the ongoing drag operation
+/// with signals on the `GdkDrag` object.
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 public struct DragRef: DragProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDrag` instance.
     /// For type-safe access, use the generated, typed pointer `drag_ptr` property instead.
@@ -4136,15 +4286,16 @@ public extension DragRef {
     /// 
     /// This function is called by the drag source. After this call, you
     /// probably want to set up the drag icon using the surface returned
-    /// by `gdk_drag_get_drag_surface()`.
+    /// by [method`Gdk.Drag.get_drag_surface`].
     /// 
-    /// This function returns a reference to the GdkDrag object, but GTK
-    /// keeps its own reference as well, as long as the DND operation is
-    /// going on.
+    /// This function returns a reference to the [class`Gdk.Drag`] object,
+    /// but GTK keeps its own reference as well, as long as the DND operation
+    /// is going on.
     /// 
     /// Note: if `actions` include `GDK_ACTION_MOVE`, you need to listen for
-    /// the `GdkDrag::dnd-finished` signal and delete the data at the source
-    /// if `gdk_drag_get_selected_action()` returns `GDK_ACTION_MOVE`.
+    /// the [signal`Gdk.Drag::dnd-finished`] signal and delete the data at
+    /// the source if [method`Gdk.Drag.get_selected_action`] returns
+    /// `GDK_ACTION_MOVE`.
     @inlinable static func begin<ContentProviderT: ContentProviderProtocol, DeviceT: DeviceProtocol, SurfaceT: SurfaceProtocol>(surface: SurfaceT, device: DeviceT, content: ContentProviderT, actions: DragAction, dx: CDouble, dy: CDouble) -> DragRef! {
         guard let rv = DragRef(gconstpointer: gconstpointer(gdk_drag_begin(surface.surface_ptr, device.device_ptr, content.content_provider_ptr, actions.value, dx, dy))) else { return nil }
         return rv
@@ -4155,8 +4306,16 @@ public extension DragRef {
 /// It provides the methods that can operate on this data type through `DragProtocol` conformance.
 /// Use `Drag` as a strong reference or owner of a `GdkDrag` instance.
 ///
-/// The GdkDrag struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrag` object represents the source of an ongoing DND operation.
+/// 
+/// A `GdkDrag` is created when a drag is started, and stays alive for duration of
+/// the DND operation. After a drag has been started with [func`Gdk.Drag.begin`],
+/// the caller gets informed about the status of the ongoing drag operation
+/// with signals on the `GdkDrag` object.
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 open class Drag: GLibObject.Object, DragProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -4287,15 +4446,16 @@ open class Drag: GLibObject.Object, DragProtocol {
     /// 
     /// This function is called by the drag source. After this call, you
     /// probably want to set up the drag icon using the surface returned
-    /// by `gdk_drag_get_drag_surface()`.
+    /// by [method`Gdk.Drag.get_drag_surface`].
     /// 
-    /// This function returns a reference to the GdkDrag object, but GTK
-    /// keeps its own reference as well, as long as the DND operation is
-    /// going on.
+    /// This function returns a reference to the [class`Gdk.Drag`] object,
+    /// but GTK keeps its own reference as well, as long as the DND operation
+    /// is going on.
     /// 
     /// Note: if `actions` include `GDK_ACTION_MOVE`, you need to listen for
-    /// the `GdkDrag::dnd-finished` signal and delete the data at the source
-    /// if `gdk_drag_get_selected_action()` returns `GDK_ACTION_MOVE`.
+    /// the [signal`Gdk.Drag::dnd-finished`] signal and delete the data at
+    /// the source if [method`Gdk.Drag.get_selected_action`] returns
+    /// `GDK_ACTION_MOVE`.
     @inlinable public static func begin<ContentProviderT: ContentProviderProtocol, DeviceT: DeviceProtocol, SurfaceT: SurfaceProtocol>(surface: SurfaceT, device: DeviceT, content: ContentProviderT, actions: DragAction, dx: CDouble, dy: CDouble) -> Drag! {
         guard let rv = Drag(gconstpointer: gconstpointer(gdk_drag_begin(surface.surface_ptr, device.device_ptr, content.content_provider_ptr, actions.value, dx, dy))) else { return nil }
         if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
@@ -4305,6 +4465,7 @@ open class Drag: GLibObject.Object, DragProtocol {
 }
 
 public enum DragPropertyName: String, PropertyNameProtocol {
+    /// The possible actions of this drag.
     case actions = "actions"
     /// The `GdkContentProvider`.
     case content = "content"
@@ -4314,7 +4475,9 @@ public enum DragPropertyName: String, PropertyNameProtocol {
     case display = "display"
     /// The possible formats that the drag can provide its data in.
     case formats = "formats"
+    /// The currently selected action of the drag.
     case selectedAction = "selected-action"
+    /// The surface where the drag originates.
     case surface = "surface"
 }
 
@@ -4372,13 +4535,13 @@ public extension DragProtocol {
 }
 
 public enum DragSignalName: String, SignalNameProtocol {
-    /// The drag operation was cancelled.
+    /// Emitted when the drag operation is cancelled.
     case cancel = "cancel"
-    /// The drag operation was finished, the destination
-    /// finished reading all data. The drag object can now
-    /// free all miscellaneous data.
+    /// Emitted when the destination side has finished reading all data.
+    /// 
+    /// The drag object can now free all miscellaneous data.
     case dndFinished = "dnd-finished"
-    /// The drag operation was performed on an accepting client.
+    /// Emitted when the drop operation is performed on an accepting client.
     case dropPerformed = "drop-performed"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -4405,6 +4568,7 @@ public enum DragSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
+    /// The possible actions of this drag.
     case notifyActions = "notify::actions"
     /// The `GdkContentProvider`.
     case notifyContent = "notify::content"
@@ -4414,7 +4578,9 @@ public enum DragSignalName: String, SignalNameProtocol {
     case notifyDisplay = "notify::display"
     /// The possible formats that the drag can provide its data in.
     case notifyFormats = "notify::formats"
+    /// The currently selected action of the drag.
     case notifySelectedAction = "notify::selected-action"
+    /// The surface where the drag originates.
     case notifySurface = "notify::surface"
 }
 
@@ -4446,7 +4612,7 @@ public extension DragProtocol {
     }
     
     
-    /// The drag operation was cancelled.
+    /// Emitted when the drag operation is cancelled.
     /// - Note: This represents the underlying `cancel` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4472,9 +4638,9 @@ public extension DragProtocol {
     /// Typed `cancel` signal for using the `connect(signal:)` methods
     static var cancelSignal: DragSignalName { .cancel }
     
-    /// The drag operation was finished, the destination
-    /// finished reading all data. The drag object can now
-    /// free all miscellaneous data.
+    /// Emitted when the destination side has finished reading all data.
+    /// 
+    /// The drag object can now free all miscellaneous data.
     /// - Note: This represents the underlying `dnd-finished` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4499,7 +4665,7 @@ public extension DragProtocol {
     /// Typed `dnd-finished` signal for using the `connect(signal:)` methods
     static var dndFinishedSignal: DragSignalName { .dndFinished }
     
-    /// The drag operation was performed on an accepting client.
+    /// Emitted when the drop operation is performed on an accepting client.
     /// - Note: This represents the underlying `drop-performed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -4874,14 +5040,15 @@ public extension DragProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkDrag` instance.
     @inlinable var drag_ptr: UnsafeMutablePointer<GdkDrag>! { return ptr?.assumingMemoryBound(to: GdkDrag.self) }
 
-    /// Inform GDK if the drop ended successfully. Passing `false`
-    /// for `success` may trigger a drag cancellation animation.
+    /// Informs GDK that the drop ended.
     /// 
-    /// This function is called by the drag source, and should
-    /// be the last call before dropping the reference to the
-    /// `drag`.
+    /// Passing `false` for `success` may trigger a drag cancellation
+    /// animation.
     /// 
-    /// The `GdkDrag` will only take the first `gdk_drag_drop_done()`
+    /// This function is called by the drag source, and should be the
+    /// last call before dropping the reference to the `drag`.
+    /// 
+    /// The `GdkDrag` will only take the first [method`Gdk.Drag.drop_done`]
     /// call as effective, if this function is called multiple times,
     /// all subsequent calls will be ignored.
     @inlinable func dropDone(success: Bool) {
@@ -4895,13 +5062,13 @@ public extension DragProtocol {
         return rv
     }
 
-    /// Returns the `GdkContentProvider` associated to the GdkDrag object.
+    /// Returns the `GdkContentProvider` associated to the `GdkDrag` object.
     @inlinable func getContent() -> ContentProviderRef! {
         let rv = ContentProviderRef(gconstpointer: gconstpointer(gdk_drag_get_content(drag_ptr)))
         return rv
     }
 
-    /// Returns the `GdkDevice` associated to the GdkDrag object.
+    /// Returns the `GdkDevice` associated to the `GdkDrag` object.
     @inlinable func getDevice() -> DeviceRef! {
         let rv = DeviceRef(gconstpointer: gconstpointer(gdk_drag_get_device(drag_ptr)))
         return rv
@@ -4914,17 +5081,18 @@ public extension DragProtocol {
     }
 
     /// Returns the surface on which the drag icon should be rendered
-    /// during the drag operation. Note that the surface may not be
-    /// available until the drag operation has begun. GDK will move
-    /// the surface in accordance with the ongoing drag operation.
-    /// The surface is owned by `drag` and will be destroyed when
-    /// the drag operation is over.
+    /// during the drag operation.
+    /// 
+    /// Note that the surface may not be available until the drag operation
+    /// has begun. GDK will move the surface in accordance with the ongoing
+    /// drag operation. The surface is owned by `drag` and will be destroyed
+    /// when the drag operation is over.
     @inlinable func getDragSurface() -> SurfaceRef! {
         let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_drag_get_drag_surface(drag_ptr)))
         return rv
     }
 
-    /// Retrieves the formats supported by this GdkDrag object.
+    /// Retrieves the formats supported by this `GdkDrag` object.
     @inlinable func getFormats() -> ContentFormatsRef! {
         let rv = ContentFormatsRef(gconstpointer: gconstpointer(gdk_drag_get_formats(drag_ptr)))
         return rv
@@ -4943,12 +5111,14 @@ public extension DragProtocol {
     }
 
     /// Sets the position of the drag surface that will be kept
-    /// under the cursor hotspot. Initially, the hotspot is at the
-    /// top left corner of the drag surface.
+    /// under the cursor hotspot.
+    /// 
+    /// Initially, the hotspot is at the top left corner of the drag surface.
     @inlinable func setHotspot(hotX: Int, hotY: Int) {
         gdk_drag_set_hotspot(drag_ptr, gint(hotX), gint(hotY))
     
     }
+    /// The possible actions of this drag.
     @inlinable var actions: DragAction {
         /// Determines the bitmask of possible actions proposed by the source.
         get {
@@ -4959,7 +5129,7 @@ public extension DragProtocol {
 
     /// The `GdkContentProvider`.
     @inlinable var content: ContentProviderRef! {
-        /// Returns the `GdkContentProvider` associated to the GdkDrag object.
+        /// Returns the `GdkContentProvider` associated to the `GdkDrag` object.
         get {
             let rv = ContentProviderRef(gconstpointer: gconstpointer(gdk_drag_get_content(drag_ptr)))
             return rv
@@ -4968,7 +5138,7 @@ public extension DragProtocol {
 
     /// The `GdkDevice` that is performing the drag.
     @inlinable var device: DeviceRef! {
-        /// Returns the `GdkDevice` associated to the GdkDrag object.
+        /// Returns the `GdkDevice` associated to the `GdkDrag` object.
         get {
             let rv = DeviceRef(gconstpointer: gconstpointer(gdk_drag_get_device(drag_ptr)))
             return rv
@@ -4985,18 +5155,20 @@ public extension DragProtocol {
     }
 
     /// Returns the surface on which the drag icon should be rendered
-    /// during the drag operation. Note that the surface may not be
-    /// available until the drag operation has begun. GDK will move
-    /// the surface in accordance with the ongoing drag operation.
-    /// The surface is owned by `drag` and will be destroyed when
-    /// the drag operation is over.
+    /// during the drag operation.
+    /// 
+    /// Note that the surface may not be available until the drag operation
+    /// has begun. GDK will move the surface in accordance with the ongoing
+    /// drag operation. The surface is owned by `drag` and will be destroyed
+    /// when the drag operation is over.
     @inlinable var dragSurface: SurfaceRef! {
         /// Returns the surface on which the drag icon should be rendered
-        /// during the drag operation. Note that the surface may not be
-        /// available until the drag operation has begun. GDK will move
-        /// the surface in accordance with the ongoing drag operation.
-        /// The surface is owned by `drag` and will be destroyed when
-        /// the drag operation is over.
+        /// during the drag operation.
+        /// 
+        /// Note that the surface may not be available until the drag operation
+        /// has begun. GDK will move the surface in accordance with the ongoing
+        /// drag operation. The surface is owned by `drag` and will be destroyed
+        /// when the drag operation is over.
         get {
             let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_drag_get_drag_surface(drag_ptr)))
             return rv
@@ -5005,7 +5177,7 @@ public extension DragProtocol {
 
     /// The possible formats that the drag can provide its data in.
     @inlinable var formats: ContentFormatsRef! {
-        /// Retrieves the formats supported by this GdkDrag object.
+        /// Retrieves the formats supported by this `GdkDrag` object.
         get {
             let rv = ContentFormatsRef(gconstpointer: gconstpointer(gdk_drag_get_formats(drag_ptr)))
             return rv
@@ -5021,6 +5193,7 @@ public extension DragProtocol {
         }
     }
 
+    /// The surface where the drag originates.
     @inlinable var surface: SurfaceRef! {
         /// Returns the `GdkSurface` where the drag originates.
         get {
@@ -5041,13 +5214,15 @@ public extension DragProtocol {
 /// For a concrete class that implements these methods and properties, see `DrawContext`.
 /// Alternatively, use `DrawContextRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// Base class for objects implementing different rendering methods.
+/// 
 /// `GdkDrawContext` is the base object used by contexts implementing different
-/// rendering methods, such as `GdkGLContext` or `GdkVulkanContext`. It provides
-/// shared functionality between those contexts.
+/// rendering methods, such as [class`Gdk.CairoContext`] or [class`Gdk.GLContext`].
+/// It provides shared functionality between those contexts.
 /// 
 /// You will always interact with one of those subclasses.
 /// 
-/// A GdkDrawContext is always associated with a single toplevel surface.
+/// A `GdkDrawContext` is always associated with a single toplevel surface.
 public protocol DrawContextProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDrawContext` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5063,13 +5238,15 @@ public protocol DrawContextProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DrawContextProtocol` conformance.
 /// Use `DrawContextRef` only as an `unowned` reference to an existing `GdkDrawContext` instance.
 ///
+/// Base class for objects implementing different rendering methods.
+/// 
 /// `GdkDrawContext` is the base object used by contexts implementing different
-/// rendering methods, such as `GdkGLContext` or `GdkVulkanContext`. It provides
-/// shared functionality between those contexts.
+/// rendering methods, such as [class`Gdk.CairoContext`] or [class`Gdk.GLContext`].
+/// It provides shared functionality between those contexts.
 /// 
 /// You will always interact with one of those subclasses.
 /// 
-/// A GdkDrawContext is always associated with a single toplevel surface.
+/// A `GdkDrawContext` is always associated with a single toplevel surface.
 public struct DrawContextRef: DrawContextProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDrawContext` instance.
     /// For type-safe access, use the generated, typed pointer `draw_context_ptr` property instead.
@@ -5155,13 +5332,15 @@ public extension DrawContextRef {
 /// It provides the methods that can operate on this data type through `DrawContextProtocol` conformance.
 /// Use `DrawContext` as a strong reference or owner of a `GdkDrawContext` instance.
 ///
+/// Base class for objects implementing different rendering methods.
+/// 
 /// `GdkDrawContext` is the base object used by contexts implementing different
-/// rendering methods, such as `GdkGLContext` or `GdkVulkanContext`. It provides
-/// shared functionality between those contexts.
+/// rendering methods, such as [class`Gdk.CairoContext`] or [class`Gdk.GLContext`].
+/// It provides shared functionality between those contexts.
 /// 
 /// You will always interact with one of those subclasses.
 /// 
-/// A GdkDrawContext is always associated with a single toplevel surface.
+/// A `GdkDrawContext` is always associated with a single toplevel surface.
 open class DrawContext: GLibObject.Object, DrawContextProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5395,33 +5574,35 @@ public extension DrawContextProtocol {
     /// Calling this function begins a drawing operation using `context` on the
     /// surface that `context` was created from. The actual requirements and
     /// guarantees for the drawing operation vary for different implementations
-    /// of drawing, so a `GdkCairoContext` and a `GdkGLContext` need to be treated
-    /// differently.
+    /// of drawing, so a [class`Gdk.CairoContext`] and a [class`Gdk.GLContext`]
+    /// need to be treated differently.
     /// 
-    /// A call to this function is a requirement for drawing and must be followed
-    /// by a call to `gdk_draw_context_end_frame()`, which will complete the
-    /// drawing operation and ensure the contents become visible on screen.
+    /// A call to this function is a requirement for drawing and must be
+    /// followed by a call to [method`Gdk.DrawContext.end_frame`], which will
+    /// complete the drawing operation and ensure the contents become visible
+    /// on screen.
     /// 
     /// Note that the `region` passed to this function is the minimum region that
     /// needs to be drawn and depending on implementation, windowing system and
     /// hardware in use, it might be necessary to draw a larger region. Drawing
-    /// implementation must use `gdk_draw_context_get_frame_region()` to query the
-    /// region that must be drawn.
+    /// implementation must use [method`Gdk.DrawContext.get_frame_region``()` to
+    /// query the region that must be drawn.
     /// 
     /// When using GTK, the widget system automatically places calls to
     /// `gdk_draw_context_begin_frame()` and `gdk_draw_context_end_frame()` via the
-    /// use of `GskRenderers`, so application code does not need to call these
-    /// functions explicitly.
+    /// use of [class`Gsk.Renderer`]s, so application code does not need to call
+    /// these functions explicitly.
     @inlinable func beginFrame<RegionT: Cairo.RegionProtocol>(region: RegionT) {
         gdk_draw_context_begin_frame(draw_context_ptr, region._ptr)
     
     }
 
-    /// Ends a drawing operation started with `gdk_draw_context_begin_frame()`
-    /// and makes the drawing available on screen. See that function for more
-    /// details about drawing.
+    /// Ends a drawing operation started with `gdk_draw_context_begin_frame()`.
     /// 
-    /// When using a `GdkGLContext`, this function may call ``glFlush()``
+    /// This makes the drawing available on screen.
+    /// See [method`Gdk.DrawContext.begin_frame`] for more details about drawing.
+    /// 
+    /// When using a [class`Gdk.GLContext`], this function may call ``glFlush()``
     /// implicitly before returning; it is not recommended to call ``glFlush()``
     /// explicitly before calling this function.
     @inlinable func endFrame() {
@@ -5435,20 +5616,20 @@ public extension DrawContextProtocol {
         return rv
     }
 
-    /// Retrieves the region that is currently in the process of being repainted.
+    /// Retrieves the region that is currently being repainted.
     /// 
-    /// After a call to `gdk_draw_context_begin_frame()` this function will return
-    /// a union of the region passed to that function and the area of the surface
-    /// that the `context` determined needs to be repainted.
+    /// After a call to [method`Gdk.DrawContext.begin_frame`] this function will
+    /// return a union of the region passed to that function and the area of the
+    /// surface that the `context` determined needs to be repainted.
     /// 
-    /// If `context` is not in between calls to `gdk_draw_context_begin_frame()` and
-    /// `gdk_draw_context_end_frame()`, `nil` will be returned.
+    /// If `context` is not in between calls to [method`Gdk.DrawContext.begin_frame`]
+    /// and [method`Gdk.DrawContext.end_frame`], `nil` will be returned.
     @inlinable func getFrameRegion() -> Cairo.RegionRef! {
         let rv = Cairo.RegionRef(gdk_draw_context_get_frame_region(draw_context_ptr))
         return rv
     }
 
-    /// Retrieves the `GdkSurface` used by the `context`.
+    /// Retrieves the surface that `context` is bound to.
     @inlinable func getSurface() -> SurfaceRef! {
         let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_draw_context_get_surface(draw_context_ptr)))
         return rv
@@ -5462,40 +5643,40 @@ public extension DrawContextProtocol {
         }
     }
 
-    /// Retrieves the region that is currently in the process of being repainted.
+    /// Retrieves the region that is currently being repainted.
     /// 
-    /// After a call to `gdk_draw_context_begin_frame()` this function will return
-    /// a union of the region passed to that function and the area of the surface
-    /// that the `context` determined needs to be repainted.
+    /// After a call to [method`Gdk.DrawContext.begin_frame`] this function will
+    /// return a union of the region passed to that function and the area of the
+    /// surface that the `context` determined needs to be repainted.
     /// 
-    /// If `context` is not in between calls to `gdk_draw_context_begin_frame()` and
-    /// `gdk_draw_context_end_frame()`, `nil` will be returned.
+    /// If `context` is not in between calls to [method`Gdk.DrawContext.begin_frame`]
+    /// and [method`Gdk.DrawContext.end_frame`], `nil` will be returned.
     @inlinable var frameRegion: Cairo.RegionRef! {
-        /// Retrieves the region that is currently in the process of being repainted.
+        /// Retrieves the region that is currently being repainted.
         /// 
-        /// After a call to `gdk_draw_context_begin_frame()` this function will return
-        /// a union of the region passed to that function and the area of the surface
-        /// that the `context` determined needs to be repainted.
+        /// After a call to [method`Gdk.DrawContext.begin_frame`] this function will
+        /// return a union of the region passed to that function and the area of the
+        /// surface that the `context` determined needs to be repainted.
         /// 
-        /// If `context` is not in between calls to `gdk_draw_context_begin_frame()` and
-        /// `gdk_draw_context_end_frame()`, `nil` will be returned.
+        /// If `context` is not in between calls to [method`Gdk.DrawContext.begin_frame`]
+        /// and [method`Gdk.DrawContext.end_frame`], `nil` will be returned.
         get {
             let rv = Cairo.RegionRef(gdk_draw_context_get_frame_region(draw_context_ptr))
             return rv
         }
     }
 
-    /// Returns `true` if `context` is in the process of drawing to its surface
-    /// after a call to `gdk_draw_context_begin_frame()` and not yet having called
-    /// `gdk_draw_context_end_frame()`.
-    /// In this situation, drawing commands may be effecting the contents of a
-    /// `context`'s surface.
+    /// Returns `true` if `context` is in the process of drawing to its surface.
+    /// 
+    /// This is the case between calls to [method`Gdk.DrawContext.begin_frame`]
+    /// and [method`Gdk.DrawContext.end_frame`]. In this situation, drawing commands
+    /// may be effecting the contents of the `context`'s surface.
     @inlinable var isInFrame: Bool {
-        /// Returns `true` if `context` is in the process of drawing to its surface
-        /// after a call to `gdk_draw_context_begin_frame()` and not yet having called
-        /// `gdk_draw_context_end_frame()`.
-        /// In this situation, drawing commands may be effecting the contents of a
-        /// `context`'s surface.
+        /// Returns `true` if `context` is in the process of drawing to its surface.
+        /// 
+        /// This is the case between calls to [method`Gdk.DrawContext.begin_frame`]
+        /// and [method`Gdk.DrawContext.end_frame`]. In this situation, drawing commands
+        /// may be effecting the contents of the `context`'s surface.
         get {
             let rv = ((gdk_draw_context_is_in_frame(draw_context_ptr)) != 0)
             return rv
@@ -5504,7 +5685,7 @@ public extension DrawContextProtocol {
 
     /// The `GdkSurface` the context is bound to.
     @inlinable var surface: SurfaceRef! {
-        /// Retrieves the `GdkSurface` used by the `context`.
+        /// Retrieves the surface that `context` is bound to.
         get {
             let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_draw_context_get_surface(draw_context_ptr)))
             return rv
@@ -5523,8 +5704,20 @@ public extension DrawContextProtocol {
 /// For a concrete class that implements these methods and properties, see `Drop`.
 /// Alternatively, use `DropRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GdkDrop struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrop` object represents the target of an ongoing DND operation.
+/// 
+/// Possible drop sites get informed about the status of the ongoing drag
+/// operation with events of type `GDK_DRAG_ENTER`, `GDK_DRAG_LEAVE`,
+/// `GDK_DRAG_MOTION` and `GDK_DROP_START`. The `GdkDrop` object can be obtained
+/// from these [class`Gdk.Event`] types using [method`Gdk.DNDEvent.get_drop`].
+/// 
+/// The actual data transfer is initiated from the target side via an async
+/// read, using one of the `GdkDrop` methods for this purpose:
+/// [method`Gdk.Drop.read_async`] or [method`Gdk.Drop.read_value_async`].
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 public protocol DropProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `GdkDrop` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -5540,8 +5733,20 @@ public protocol DropProtocol: GLibObject.ObjectProtocol {
 /// It exposes methods that can operate on this data type through `DropProtocol` conformance.
 /// Use `DropRef` only as an `unowned` reference to an existing `GdkDrop` instance.
 ///
-/// The GdkDrop struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrop` object represents the target of an ongoing DND operation.
+/// 
+/// Possible drop sites get informed about the status of the ongoing drag
+/// operation with events of type `GDK_DRAG_ENTER`, `GDK_DRAG_LEAVE`,
+/// `GDK_DRAG_MOTION` and `GDK_DROP_START`. The `GdkDrop` object can be obtained
+/// from these [class`Gdk.Event`] types using [method`Gdk.DNDEvent.get_drop`].
+/// 
+/// The actual data transfer is initiated from the target side via an async
+/// read, using one of the `GdkDrop` methods for this purpose:
+/// [method`Gdk.Drop.read_async`] or [method`Gdk.Drop.read_value_async`].
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 public struct DropRef: DropProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `GdkDrop` instance.
     /// For type-safe access, use the generated, typed pointer `drop_ptr` property instead.
@@ -5627,8 +5832,20 @@ public extension DropRef {
 /// It provides the methods that can operate on this data type through `DropProtocol` conformance.
 /// Use `Drop` as a strong reference or owner of a `GdkDrop` instance.
 ///
-/// The GdkDrop struct contains only private fields and
-/// should not be accessed directly.
+/// The `GdkDrop` object represents the target of an ongoing DND operation.
+/// 
+/// Possible drop sites get informed about the status of the ongoing drag
+/// operation with events of type `GDK_DRAG_ENTER`, `GDK_DRAG_LEAVE`,
+/// `GDK_DRAG_MOTION` and `GDK_DROP_START`. The `GdkDrop` object can be obtained
+/// from these [class`Gdk.Event`] types using [method`Gdk.DNDEvent.get_drop`].
+/// 
+/// The actual data transfer is initiated from the target side via an async
+/// read, using one of the `GdkDrop` methods for this purpose:
+/// [method`Gdk.Drop.read_async`] or [method`Gdk.Drop.read_value_async`].
+/// 
+/// GTK provides a higher level abstraction based on top of these functions,
+/// and so they are not normally needed in GTK applications. See the
+/// "Drag and Drop" section of the GTK documentation for more information.
 open class Drop: GLibObject.Object, DropProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
@@ -5875,24 +6092,26 @@ public extension DropProtocol {
     /// Ends the drag operation after a drop.
     /// 
     /// The `action` must be a single action selected from the actions
-    /// available via `gdk_drop_get_actions()`.
+    /// available via [method`Gdk.Drop.get_actions`].
     @inlinable func finish(action: DragAction) {
         gdk_drop_finish(drop_ptr, action.value)
     
     }
 
-    /// Returns the possible actions for this `GdkDrop`. If this value
-    /// contains multiple actions - ie `gdk_drag_action_is_unique()`
-    /// returns `false` for the result - `gdk_drop_finish()` must choose
-    /// the action to use when accepting the drop. This will only
-    /// happen if you passed `GDK_ACTION_ASK` as one of the possible
-    /// actions in `gdk_drop_status()`. `GDK_ACTION_ASK` itself will not
+    /// Returns the possible actions for this `GdkDrop`.
+    /// 
+    /// If this value contains multiple actions - i.e.
+    /// [func`Gdk.DragAction.is_unique`] returns `false` for the result -
+    /// [method`Gdk.Drop.finish`] must choose the action to use when
+    /// accepting the drop. This will only happen if you passed
+    /// `GDK_ACTION_ASK` as one of the possible actions in
+    /// [method`Gdk.Drop.status`]. `GDK_ACTION_ASK` itself will not
     /// be included in the actions returned by this function.
     /// 
-    /// This value may change over the lifetime of the `GdkDrop` both
-    /// as a response to source side actions as well as to calls to
-    /// `gdk_drop_status()` or `gdk_drop_finish()`. The source side will
-    /// not change this value anymore once a drop has started.
+    /// This value may change over the lifetime of the [class`Gdk.Drop`]
+    /// both as a response to source side actions as well as to calls to
+    /// [method`Gdk.Drop.status`] or [method`Gdk.Drop.finish`]. The source
+    /// side will not change this value anymore once a drop has started.
     @inlinable func getActions() -> DragAction {
         let rv = DragAction(gdk_drop_get_actions(drop_ptr))
         return rv
@@ -5945,7 +6164,14 @@ public extension DropProtocol {
     
     }
 
-    /// Finishes an async drop read operation, see `gdk_drop_read_async()`.
+    /// Finishes an async drop read operation.
+    /// 
+    /// Note that you must not use blocking read calls on the returned stream
+    /// in the GTK thread, since some platforms might require communication with
+    /// GTK to complete the data transfer. You can use async APIs such as
+    /// `g_input_stream_read_bytes_async()`.
+    /// 
+    /// See [method`Gdk.Drop.read_async`].
     @inlinable func readFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT, outMimeType: UnsafeMutablePointer<UnsafePointer<CChar>?>!) throws -> GIO.InputStreamRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GIO.InputStreamRef(gdk_drop_read_finish(drop_ptr, result.async_result_ptr, outMimeType, &error))
@@ -5953,33 +6179,38 @@ public extension DropProtocol {
         return rv
     }
 
-    /// Asynchronously request the drag operation's contents converted to the given
-    /// `type`. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_drop_read_value_finish()` to get the resulting
+    /// Asynchronously request the drag operation's contents converted
+    /// to the given `type`.
+    /// 
+    /// When the operation is finished `callback` will be called. You must
+    /// then call [method`Gdk.Drop.read_value_finish`] to get the resulting
     /// `GValue`.
     /// 
-    /// For local drag'n'drop operations that are available in the given `GType`, the
-    /// value will be copied directly. Otherwise, GDK will try to use
-    /// `gdk_content_deserialize_async()` to convert the data.
+    /// For local drag'n'drop operations that are available in the given
+    /// `GType`, the value will be copied directly. Otherwise, GDK will
+    /// try to use [func`Gdk.content_deserialize_async`] to convert the data.
     @inlinable func readValueAsync(type: GType, ioPriority: Int, cancellable: GIO.CancellableRef? = nil, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_drop_read_value_async(drop_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
-    /// Asynchronously request the drag operation's contents converted to the given
-    /// `type`. When the operation is finished `callback` will be called.
-    /// You can then call `gdk_drop_read_value_finish()` to get the resulting
+    /// Asynchronously request the drag operation's contents converted
+    /// to the given `type`.
+    /// 
+    /// When the operation is finished `callback` will be called. You must
+    /// then call [method`Gdk.Drop.read_value_finish`] to get the resulting
     /// `GValue`.
     /// 
-    /// For local drag'n'drop operations that are available in the given `GType`, the
-    /// value will be copied directly. Otherwise, GDK will try to use
-    /// `gdk_content_deserialize_async()` to convert the data.
+    /// For local drag'n'drop operations that are available in the given
+    /// `GType`, the value will be copied directly. Otherwise, GDK will
+    /// try to use [func`Gdk.content_deserialize_async`] to convert the data.
     @inlinable func readValueAsync<CancellableT: GIO.CancellableProtocol>(type: GType, ioPriority: Int, cancellable: CancellableT?, callback: GAsyncReadyCallback? = nil, userData: gpointer! = nil) {
         gdk_drop_read_value_async(drop_ptr, type, gint(ioPriority), cancellable?.cancellable_ptr, callback, userData)
     
     }
 
-    /// Finishes an async drop read started with
-    /// `gdk_drop_read_value_async()`.
+    /// Finishes an async drop read.
+    /// 
+    /// See [method`Gdk.Drop.read_value_async`].
     @inlinable func readValueFinish<AsyncResultT: GIO.AsyncResultProtocol>(result: AsyncResultT) throws -> GLibObject.ValueRef! {
         var error: UnsafeMutablePointer<GError>?
         let rv = GLibObject.ValueRef(gdk_drop_read_value_finish(drop_ptr, result.async_result_ptr, &error))
@@ -5990,7 +6221,7 @@ public extension DropProtocol {
     /// Selects all actions that are potentially supported by the destination.
     /// 
     /// When calling this function, do not restrict the passed in actions to
-    /// the ones provided by `gdk_drop_get_actions()`. Those actions may
+    /// the ones provided by [method`Gdk.Drop.get_actions`]. Those actions may
     /// change in the future, even depending on the actions you provide here.
     /// 
     /// The `preferred` action is a hint to the drag'n'drop mechanism about which
@@ -6006,18 +6237,20 @@ public extension DropProtocol {
     }
     /// The possible actions for this drop
     @inlinable var actions: DragAction {
-        /// Returns the possible actions for this `GdkDrop`. If this value
-        /// contains multiple actions - ie `gdk_drag_action_is_unique()`
-        /// returns `false` for the result - `gdk_drop_finish()` must choose
-        /// the action to use when accepting the drop. This will only
-        /// happen if you passed `GDK_ACTION_ASK` as one of the possible
-        /// actions in `gdk_drop_status()`. `GDK_ACTION_ASK` itself will not
+        /// Returns the possible actions for this `GdkDrop`.
+        /// 
+        /// If this value contains multiple actions - i.e.
+        /// [func`Gdk.DragAction.is_unique`] returns `false` for the result -
+        /// [method`Gdk.Drop.finish`] must choose the action to use when
+        /// accepting the drop. This will only happen if you passed
+        /// `GDK_ACTION_ASK` as one of the possible actions in
+        /// [method`Gdk.Drop.status`]. `GDK_ACTION_ASK` itself will not
         /// be included in the actions returned by this function.
         /// 
-        /// This value may change over the lifetime of the `GdkDrop` both
-        /// as a response to source side actions as well as to calls to
-        /// `gdk_drop_status()` or `gdk_drop_finish()`. The source side will
-        /// not change this value anymore once a drop has started.
+        /// This value may change over the lifetime of the [class`Gdk.Drop`]
+        /// both as a response to source side actions as well as to calls to
+        /// [method`Gdk.Drop.status`] or [method`Gdk.Drop.finish`]. The source
+        /// side will not change this value anymore once a drop has started.
         get {
             let rv = DragAction(gdk_drop_get_actions(drop_ptr))
             return rv
@@ -6085,8 +6318,12 @@ public extension DropProtocol {
 /// For a concrete class that implements these methods and properties, see `Event`.
 /// Alternatively, use `EventRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GdkEvent struct contains only private fields and
-/// should not be accessed directly.
+/// `GdkEvent`s are immutable data structures, created by GDK to
+/// represent windowing system events.
+/// 
+/// In GTK applications the events are handled automatically by toplevel
+/// widgets and passed on to the event controllers of appropriate widgets,
+/// so using `GdkEvent` and its related API is rarely needed.
 public protocol EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -6102,8 +6339,12 @@ public protocol EventProtocol {
 /// It exposes methods that can operate on this data type through `EventProtocol` conformance.
 /// Use `EventRef` only as an `unowned` reference to an existing `GdkEvent` instance.
 ///
-/// The GdkEvent struct contains only private fields and
-/// should not be accessed directly.
+/// `GdkEvent`s are immutable data structures, created by GDK to
+/// represent windowing system events.
+/// 
+/// In GTK applications the events are handled automatically by toplevel
+/// widgets and passed on to the event controllers of appropriate widgets,
+/// so using `GdkEvent` and its related API is rarely needed.
 public struct EventRef: EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
@@ -6186,8 +6427,12 @@ public extension EventRef {
 /// It provides the methods that can operate on this data type through `EventProtocol` conformance.
 /// Use `Event` as a strong reference or owner of a `GdkEvent` instance.
 ///
-/// The GdkEvent struct contains only private fields and
-/// should not be accessed directly.
+/// `GdkEvent`s are immutable data structures, created by GDK to
+/// represent windowing system events.
+/// 
+/// In GTK applications the events are handled automatically by toplevel
+/// widgets and passed on to the event controllers of appropriate widgets,
+/// so using `GdkEvent` and its related API is rarely needed.
 open class Event: EventProtocol {
         /// Untyped pointer to the underlying `GdkEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
@@ -6342,24 +6587,32 @@ public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `GdkEvent` instance.
     @inlinable var event_ptr: UnsafeMutablePointer<GdkEvent>! { return ptr?.assumingMemoryBound(to: GdkEvent.self) }
 
-    /// If both events contain X/Y information, this function will return `true`
-    /// and return in `angle` the relative angle from `event1` to `event2`. The rotation
-    /// direction for positive angles is from the positive X axis towards the positive
-    /// Y axis.
+    /// Returns the relative angle from `event1` to `event2`.
+    /// 
+    /// The relative angle is the angle between the X axis and the line
+    /// through both events' positions. The rotation direction for positive
+    /// angles is from the positive X axis towards the positive Y axis.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func GetAngle<EventT: EventProtocol>(event2: EventT, angle: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_angle(event_ptr, event2.event_ptr, angle)) != 0)
         return rv
     }
 
-    /// If both events contain X/Y information, the center of both coordinates
-    /// will be returned in `x` and `y`.
+    /// Returns the point halfway between the events' positions.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func GetCenter<EventT: EventProtocol>(event2: EventT, x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_center(event_ptr, event2.event_ptr, x, y)) != 0)
         return rv
     }
 
-    /// If both events have X/Y information, the distance between both coordinates
-    /// (as in a straight line going from `event1` to `event2`) will be returned.
+    /// Returns the distance between the event locations.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func GetDistance<EventT: EventProtocol>(event2: EventT, distance: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_distance(event_ptr, event2.event_ptr, distance)) != 0)
         return rv
@@ -6384,27 +6637,31 @@ public extension EventProtocol {
         return rv
     }
 
-    /// If the event was generated by a device that supports
-    /// different tools (eg. a tablet), this function will
-    /// return a `GdkDeviceTool` representing the tool that
-    /// caused the event. Otherwise, `nil` will be returned.
+    /// Returns a `GdkDeviceTool` representing the tool that
+    /// caused the event.
     /// 
-    /// Note: the `GdkDeviceTools` will be constant during
+    /// If the was not generated by a device that supports
+    /// different tools (such as a tablet), this function will
+    /// return `nil`.
+    /// 
+    /// Note: the `GdkDeviceTool` will be constant during
     /// the application lifetime, if settings must be stored
-    /// persistently across runs, see `gdk_device_tool_get_serial()`
+    /// persistently across runs, see [method`Gdk.DeviceTool.get_serial`].
     @inlinable func getDeviceTool() -> DeviceToolRef! {
         let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_event_get_device_tool(event_ptr)))
         return rv
     }
 
-    /// Retrieves the `GdkDisplay` associated to the `event`.
+    /// Retrieves the display associated to the `event`.
     @inlinable func getDisplay() -> DisplayRef! {
         let rv = DisplayRef(gconstpointer: gconstpointer(gdk_event_get_display(event_ptr)))
         return rv
     }
 
-    /// If `event` is a touch event, returns the `GdkEventSequence`
-    /// to which the event belongs. Otherwise, return `nil`.
+    /// Retuns the event sequence to which the event belongs.
+    /// 
+    /// Related touch events are connected in a sequence. Other
+    /// events typically don't have event sequence information.
     @inlinable func getEventSequence() -> EventSequenceRef! {
         let rv = EventSequenceRef(gconstpointer: gconstpointer(gdk_event_get_event_sequence(event_ptr)))
         return rv
@@ -6416,13 +6673,14 @@ public extension EventProtocol {
         return rv
     }
 
-    /// Retrieves the history of the `event`, as a list of time and coordinates.
+    /// Retrieves the history of the device that `event` is for, as a list of
+    /// time and coordinates.
     /// 
-    /// The history includes events that are not delivered to the application
-    /// because they occurred in the same frame as `event`.
+    /// The history includes positions that are not delivered as separate events
+    /// to the application because they occurred in the same frame as `event`.
     /// 
     /// Note that only motion and scroll events record history, and motion
-    /// events only if one of the mouse buttons is down.
+    /// events do it only if one of the mouse buttons is down.
     @inlinable func getHistory(outNCoords: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<GdkTimeCoord>! {
         let rv = gdk_event_get_history(event_ptr, outNCoords)
         return rv
@@ -6434,8 +6692,9 @@ public extension EventProtocol {
         return rv
     }
 
-    /// Returns whether this event is an 'emulated' pointer event (typically
-    /// from a touch event), as opposed to a real one.
+    /// Returns whether this event is an 'emulated' pointer event.
+    /// 
+    /// Emulated pointer events typically originate from a touch events.
     @inlinable func getPointerEmulated() -> Bool {
         let rv = ((gdk_event_get_pointer_emulated(event_ptr)) != 0)
         return rv
@@ -6453,13 +6712,15 @@ public extension EventProtocol {
         return rv
     }
 
-    /// Extracts the `GdkSurface` associated with an event.
+    /// Extracts the surface associated with an event.
     @inlinable func getSurface() -> SurfaceRef! {
         let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_event_get_surface(event_ptr)))
         return rv
     }
 
-    /// Returns the time stamp from `event`, if there is one; otherwise
+    /// Returns the timestamp of `event`.
+    /// 
+    /// Not all events have timestamps. In that case, this function
     /// returns `GDK_CURRENT_TIME`.
     @inlinable func getTime() -> guint32 {
         let rv = gdk_event_get_time(event_ptr)
@@ -6472,9 +6733,10 @@ public extension EventProtocol {
         return rv
     }
 
-    /// This function returns whether a `GdkEvent` should trigger a
-    /// context menu, according to platform conventions. The right
-    /// mouse button always triggers context menus.
+    /// Returns whether a `GdkEvent` should trigger a context menu,
+    /// according to platform conventions.
+    /// 
+    /// The right mouse button typically triggers context menus.
     /// 
     /// This function should always be used instead of simply checking for
     /// event-&gt;button == `GDK_BUTTON_SECONDARY`.
@@ -6483,31 +6745,40 @@ public extension EventProtocol {
         return rv
     }
 
-    /// Decrease the ref count of `event`, and free it
-    /// if the last reference is dropped.
+    /// Decrease the ref count of `event`.
+    /// 
+    /// If the last reference is dropped, the structure is freed.
     @inlinable func unref() {
         gdk_event_unref(event_ptr)
     
     }
 
-    /// If both events contain X/Y information, this function will return `true`
-    /// and return in `angle` the relative angle from `event1` to `event2`. The rotation
-    /// direction for positive angles is from the positive X axis towards the positive
-    /// Y axis.
+    /// Returns the relative angle from `event1` to `event2`.
+    /// 
+    /// The relative angle is the angle between the X axis and the line
+    /// through both events' positions. The rotation direction for positive
+    /// angles is from the positive X axis towards the positive Y axis.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func eventsGetAngle<EventT: EventProtocol>(event2: EventT, angle: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_angle(event_ptr, event2.event_ptr, angle)) != 0)
         return rv
     }
 
-    /// If both events contain X/Y information, the center of both coordinates
-    /// will be returned in `x` and `y`.
+    /// Returns the point halfway between the events' positions.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func eventsGetCenter<EventT: EventProtocol>(event2: EventT, x: UnsafeMutablePointer<CDouble>!, y: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_center(event_ptr, event2.event_ptr, x, y)) != 0)
         return rv
     }
 
-    /// If both events have X/Y information, the distance between both coordinates
-    /// (as in a straight line going from `event1` to `event2`) will be returned.
+    /// Returns the distance between the event locations.
+    /// 
+    /// This assumes that both events have X/Y information.
+    /// If not, this function returns `false`.
     @inlinable func eventsGetDistance<EventT: EventProtocol>(event2: EventT, distance: UnsafeMutablePointer<CDouble>!) -> Bool {
         let rv = ((gdk_events_get_distance(event_ptr, event2.event_ptr, distance)) != 0)
         return rv
@@ -6521,43 +6792,51 @@ public extension EventProtocol {
         }
     }
 
-    /// If the event was generated by a device that supports
-    /// different tools (eg. a tablet), this function will
-    /// return a `GdkDeviceTool` representing the tool that
-    /// caused the event. Otherwise, `nil` will be returned.
+    /// Returns a `GdkDeviceTool` representing the tool that
+    /// caused the event.
     /// 
-    /// Note: the `GdkDeviceTools` will be constant during
+    /// If the was not generated by a device that supports
+    /// different tools (such as a tablet), this function will
+    /// return `nil`.
+    /// 
+    /// Note: the `GdkDeviceTool` will be constant during
     /// the application lifetime, if settings must be stored
-    /// persistently across runs, see `gdk_device_tool_get_serial()`
+    /// persistently across runs, see [method`Gdk.DeviceTool.get_serial`].
     @inlinable var deviceTool: DeviceToolRef! {
-        /// If the event was generated by a device that supports
-        /// different tools (eg. a tablet), this function will
-        /// return a `GdkDeviceTool` representing the tool that
-        /// caused the event. Otherwise, `nil` will be returned.
+        /// Returns a `GdkDeviceTool` representing the tool that
+        /// caused the event.
         /// 
-        /// Note: the `GdkDeviceTools` will be constant during
+        /// If the was not generated by a device that supports
+        /// different tools (such as a tablet), this function will
+        /// return `nil`.
+        /// 
+        /// Note: the `GdkDeviceTool` will be constant during
         /// the application lifetime, if settings must be stored
-        /// persistently across runs, see `gdk_device_tool_get_serial()`
+        /// persistently across runs, see [method`Gdk.DeviceTool.get_serial`].
         get {
             let rv = DeviceToolRef(gconstpointer: gconstpointer(gdk_event_get_device_tool(event_ptr)))
             return rv
         }
     }
 
-    /// Retrieves the `GdkDisplay` associated to the `event`.
+    /// Retrieves the display associated to the `event`.
     @inlinable var display: DisplayRef! {
-        /// Retrieves the `GdkDisplay` associated to the `event`.
+        /// Retrieves the display associated to the `event`.
         get {
             let rv = DisplayRef(gconstpointer: gconstpointer(gdk_event_get_display(event_ptr)))
             return rv
         }
     }
 
-    /// If `event` is a touch event, returns the `GdkEventSequence`
-    /// to which the event belongs. Otherwise, return `nil`.
+    /// Retuns the event sequence to which the event belongs.
+    /// 
+    /// Related touch events are connected in a sequence. Other
+    /// events typically don't have event sequence information.
     @inlinable var eventSequence: EventSequenceRef! {
-        /// If `event` is a touch event, returns the `GdkEventSequence`
-        /// to which the event belongs. Otherwise, return `nil`.
+        /// Retuns the event sequence to which the event belongs.
+        /// 
+        /// Related touch events are connected in a sequence. Other
+        /// events typically don't have event sequence information.
         get {
             let rv = EventSequenceRef(gconstpointer: gconstpointer(gdk_event_get_event_sequence(event_ptr)))
             return rv
@@ -6582,11 +6861,13 @@ public extension EventProtocol {
         }
     }
 
-    /// Returns whether this event is an 'emulated' pointer event (typically
-    /// from a touch event), as opposed to a real one.
+    /// Returns whether this event is an 'emulated' pointer event.
+    /// 
+    /// Emulated pointer events typically originate from a touch events.
     @inlinable var pointerEmulated: Bool {
-        /// Returns whether this event is an 'emulated' pointer event (typically
-        /// from a touch event), as opposed to a real one.
+        /// Returns whether this event is an 'emulated' pointer event.
+        /// 
+        /// Emulated pointer events typically originate from a touch events.
         get {
             let rv = ((gdk_event_get_pointer_emulated(event_ptr)) != 0)
             return rv
@@ -6602,19 +6883,23 @@ public extension EventProtocol {
         }
     }
 
-    /// Extracts the `GdkSurface` associated with an event.
+    /// Extracts the surface associated with an event.
     @inlinable var surface: SurfaceRef! {
-        /// Extracts the `GdkSurface` associated with an event.
+        /// Extracts the surface associated with an event.
         get {
             let rv = SurfaceRef(gconstpointer: gconstpointer(gdk_event_get_surface(event_ptr)))
             return rv
         }
     }
 
-    /// Returns the time stamp from `event`, if there is one; otherwise
+    /// Returns the timestamp of `event`.
+    /// 
+    /// Not all events have timestamps. In that case, this function
     /// returns `GDK_CURRENT_TIME`.
     @inlinable var time: guint32 {
-        /// Returns the time stamp from `event`, if there is one; otherwise
+        /// Returns the timestamp of `event`.
+        /// 
+        /// Not all events have timestamps. In that case, this function
         /// returns `GDK_CURRENT_TIME`.
         get {
             let rv = gdk_event_get_time(event_ptr)

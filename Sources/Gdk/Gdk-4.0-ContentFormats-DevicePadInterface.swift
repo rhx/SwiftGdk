@@ -18,33 +18,38 @@ import GdkPixbuf
 /// For a concrete class that implements these methods and properties, see `ContentFormats`.
 /// Alternatively, use `ContentFormatsRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// This section describes the `GdkContentFormats` structure that is used to
-/// advertise and negotiate the format of content passed between different
-/// widgets, windows or applications using for example the clipboard or
-/// drag'n'drop.
+/// The `GdkContentFormats` structure is used to advertise and negotiate the
+/// format of content.
+/// 
+/// You will encounter `GdkContentFormats` when interacting with objects
+/// controlling operations that pass data between different widgets, window
+/// or application, like [class`Gdk.Drag`], [class`Gdk.Drop`],
+/// [class`Gdk.Clipboard`] or [class`Gdk.ContentProvider`].
 /// 
 /// GDK supports content in 2 forms: `GType` and mime type.
 /// Using `GTypes` is meant only for in-process content transfers. Mime types
 /// are meant to be used for data passing both in-process and out-of-process.
 /// The details of how data is passed is described in the documentation of
-/// the actual implementations.
+/// the actual implementations. To transform between the two forms,
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] are used.
 /// 
 /// A `GdkContentFormats` describes a set of possible formats content can be
 /// exchanged in. It is assumed that this set is ordered. `GTypes` are more
 /// important than mime types. Order between different `GTypes` or mime types
 /// is the order they were added in, most important first. Functions that
-/// care about order, such as `gdk_content_formats_union()` will describe in
-/// their documentation how they interpret that order, though in general the
+/// care about order, such as [method`Gdk.ContentFormats.union`], will describe
+/// in their documentation how they interpret that order, though in general the
 /// order of the first argument is considered the primary order of the result,
 /// followed by the order of further arguments.
 /// 
-/// For debugging purposes, the function `gdk_content_formats_to_string()` exists.
-/// It will print a comma-seperated formats of formats from most important to least
-/// important.
+/// For debugging purposes, the function [method`Gdk.ContentFormats.to_string`]
+/// exists. It will print a comma-separated list of formats from most important
+/// to least important.
 /// 
 /// `GdkContentFormats` is an immutable struct. After creation, you cannot change
 /// the types it represents. Instead, new `GdkContentFormats` have to be created.
-/// The `GdkContentFormatsBuilder` structure is meant to help in this endeavor.
+/// The [struct`Gdk.ContentFormatsBuilder`]` structure is meant to help in this
+/// endeavor.
 public protocol ContentFormatsProtocol {
         /// Untyped pointer to the underlying `GdkContentFormats` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -60,33 +65,38 @@ public protocol ContentFormatsProtocol {
 /// It exposes methods that can operate on this data type through `ContentFormatsProtocol` conformance.
 /// Use `ContentFormatsRef` only as an `unowned` reference to an existing `GdkContentFormats` instance.
 ///
-/// This section describes the `GdkContentFormats` structure that is used to
-/// advertise and negotiate the format of content passed between different
-/// widgets, windows or applications using for example the clipboard or
-/// drag'n'drop.
+/// The `GdkContentFormats` structure is used to advertise and negotiate the
+/// format of content.
+/// 
+/// You will encounter `GdkContentFormats` when interacting with objects
+/// controlling operations that pass data between different widgets, window
+/// or application, like [class`Gdk.Drag`], [class`Gdk.Drop`],
+/// [class`Gdk.Clipboard`] or [class`Gdk.ContentProvider`].
 /// 
 /// GDK supports content in 2 forms: `GType` and mime type.
 /// Using `GTypes` is meant only for in-process content transfers. Mime types
 /// are meant to be used for data passing both in-process and out-of-process.
 /// The details of how data is passed is described in the documentation of
-/// the actual implementations.
+/// the actual implementations. To transform between the two forms,
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] are used.
 /// 
 /// A `GdkContentFormats` describes a set of possible formats content can be
 /// exchanged in. It is assumed that this set is ordered. `GTypes` are more
 /// important than mime types. Order between different `GTypes` or mime types
 /// is the order they were added in, most important first. Functions that
-/// care about order, such as `gdk_content_formats_union()` will describe in
-/// their documentation how they interpret that order, though in general the
+/// care about order, such as [method`Gdk.ContentFormats.union`], will describe
+/// in their documentation how they interpret that order, though in general the
 /// order of the first argument is considered the primary order of the result,
 /// followed by the order of further arguments.
 /// 
-/// For debugging purposes, the function `gdk_content_formats_to_string()` exists.
-/// It will print a comma-seperated formats of formats from most important to least
-/// important.
+/// For debugging purposes, the function [method`Gdk.ContentFormats.to_string`]
+/// exists. It will print a comma-separated list of formats from most important
+/// to least important.
 /// 
 /// `GdkContentFormats` is an immutable struct. After creation, you cannot change
 /// the types it represents. Instead, new `GdkContentFormats` have to be created.
-/// The `GdkContentFormatsBuilder` structure is meant to help in this endeavor.
+/// The [struct`Gdk.ContentFormatsBuilder`]` structure is meant to help in this
+/// endeavor.
 public struct ContentFormatsRef: ContentFormatsProtocol {
         /// Untyped pointer to the underlying `GdkContentFormats` instance.
     /// For type-safe access, use the generated, typed pointer `content_formats_ptr` property instead.
@@ -189,33 +199,38 @@ public extension ContentFormatsRef {
 /// It provides the methods that can operate on this data type through `ContentFormatsProtocol` conformance.
 /// Use `ContentFormats` as a strong reference or owner of a `GdkContentFormats` instance.
 ///
-/// This section describes the `GdkContentFormats` structure that is used to
-/// advertise and negotiate the format of content passed between different
-/// widgets, windows or applications using for example the clipboard or
-/// drag'n'drop.
+/// The `GdkContentFormats` structure is used to advertise and negotiate the
+/// format of content.
+/// 
+/// You will encounter `GdkContentFormats` when interacting with objects
+/// controlling operations that pass data between different widgets, window
+/// or application, like [class`Gdk.Drag`], [class`Gdk.Drop`],
+/// [class`Gdk.Clipboard`] or [class`Gdk.ContentProvider`].
 /// 
 /// GDK supports content in 2 forms: `GType` and mime type.
 /// Using `GTypes` is meant only for in-process content transfers. Mime types
 /// are meant to be used for data passing both in-process and out-of-process.
 /// The details of how data is passed is described in the documentation of
-/// the actual implementations.
+/// the actual implementations. To transform between the two forms,
+/// [class`Gdk.ContentSerializer`] and [class`Gdk.ContentDeserializer`] are used.
 /// 
 /// A `GdkContentFormats` describes a set of possible formats content can be
 /// exchanged in. It is assumed that this set is ordered. `GTypes` are more
 /// important than mime types. Order between different `GTypes` or mime types
 /// is the order they were added in, most important first. Functions that
-/// care about order, such as `gdk_content_formats_union()` will describe in
-/// their documentation how they interpret that order, though in general the
+/// care about order, such as [method`Gdk.ContentFormats.union`], will describe
+/// in their documentation how they interpret that order, though in general the
 /// order of the first argument is considered the primary order of the result,
 /// followed by the order of further arguments.
 /// 
-/// For debugging purposes, the function `gdk_content_formats_to_string()` exists.
-/// It will print a comma-seperated formats of formats from most important to least
-/// important.
+/// For debugging purposes, the function [method`Gdk.ContentFormats.to_string`]
+/// exists. It will print a comma-separated list of formats from most important
+/// to least important.
 /// 
 /// `GdkContentFormats` is an immutable struct. After creation, you cannot change
 /// the types it represents. Instead, new `GdkContentFormats` have to be created.
-/// The `GdkContentFormatsBuilder` structure is meant to help in this endeavor.
+/// The [struct`Gdk.ContentFormatsBuilder`]` structure is meant to help in this
+/// endeavor.
 open class ContentFormats: ContentFormatsProtocol {
         /// Untyped pointer to the underlying `GdkContentFormats` instance.
     /// For type-safe access, use the generated, typed pointer `content_formats_ptr` property instead.
@@ -402,17 +417,19 @@ public extension ContentFormatsProtocol {
         return rv
     }
 
-    /// Gets the `GTypes` included in `formats`. Note that `formats` may not
-    /// contain any `GTypes`, in particular when they are empty. In that
-    /// case `nil` will be returned.
+    /// Gets the `GTypes` included in `formats`.
+    /// 
+    /// Note that `formats` may not contain any `GTypes`, in particular when
+    /// they are empty. In that case `nil` will be returned.
     @inlinable func getGtypes(nGtypes: UnsafeMutablePointer<gsize>! = nil) -> UnsafePointer<GType>! {
         let rv = gdk_content_formats_get_gtypes(content_formats_ptr, nGtypes)
         return rv
     }
 
-    /// Gets the mime types included in `formats`. Note that `formats` may not
-    /// contain any mime types, in particular when they are empty. In that
-    /// case `nil` will be returned.
+    /// Gets the mime types included in `formats`.
+    /// 
+    /// Note that `formats` may not contain any mime types, in particular
+    /// when they are empty. In that case `nil` will be returned.
     @inlinable func getMimeTypes(nMimeTypes: UnsafeMutablePointer<gsize>! = nil) -> UnsafePointer<UnsafePointer<CChar>?>! {
         let rv = gdk_content_formats_get_mime_types(content_formats_ptr, nMimeTypes)
         return rv
@@ -425,22 +442,25 @@ public extension ContentFormatsProtocol {
     }
 
     /// Finds the first `GType` from `first` that is also contained
-    /// in `second`. If no matching `GType` is found, `G_TYPE_INVALID`
-    /// is returned.
+    /// in `second`.
+    /// 
+    /// If no matching `GType` is found, `G_TYPE_INVALID` is returned.
     @inlinable func matchGtype<ContentFormatsT: ContentFormatsProtocol>(second: ContentFormatsT) -> GType {
         let rv = gdk_content_formats_match_gtype(content_formats_ptr, second.content_formats_ptr)
         return rv
     }
 
     /// Finds the first mime type from `first` that is also contained
-    /// in `second`. If no matching mime type is found, `nil` is
-    /// returned.
+    /// in `second`.
+    /// 
+    /// If no matching mime type is found, `nil` is returned.
     @inlinable func matchMimeType<ContentFormatsT: ContentFormatsProtocol>(second: ContentFormatsT) -> String! {
         let rv = gdk_content_formats_match_mime_type(content_formats_ptr, second.content_formats_ptr).map({ String(cString: $0) })
         return rv
     }
 
     /// Prints the given `formats` into a string for human consumption.
+    /// 
     /// This is meant for debugging and logging.
     /// 
     /// The form of the representation may change at any time and is
@@ -457,8 +477,9 @@ public extension ContentFormatsProtocol {
     }
 
     /// Prints the given `formats` into a human-readable string.
-    /// This is a small wrapper around `gdk_content_formats_print()` to help
-    /// when debugging.
+    /// 
+    /// This is a small wrapper around [method`Gdk.ContentFormats.print`]
+    /// to help when debugging.
     @inlinable func toString() -> String! {
         let rv = gdk_content_formats_to_string(content_formats_ptr).map({ String(cString: $0) })
         return rv
@@ -500,6 +521,7 @@ public extension ContentFormatsProtocol {
     }
 
     /// Decreases the reference count of a `GdkContentFormats` by one.
+    /// 
     /// If the resulting reference count is zero, frees the formats.
     @inlinable func unref() {
         gdk_content_formats_unref(content_formats_ptr)
@@ -518,9 +540,8 @@ public extension ContentFormatsProtocol {
 /// For a concrete class that implements these methods and properties, see `ContentFormatsBuilder`.
 /// Alternatively, use `ContentFormatsBuilderRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// A `GdkContentFormatsBuilder` struct is an opaque struct. It is meant to
-/// not be kept around and only be used to create new `GdkContentFormats`
-/// objects.
+/// A `GdkContentFormatsBuilder` is an auxiliary struct used to create
+/// new `GdkContentFormats`, and should not be kept around.
 public protocol ContentFormatsBuilderProtocol {
         /// Untyped pointer to the underlying `GdkContentFormatsBuilder` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -536,9 +557,8 @@ public protocol ContentFormatsBuilderProtocol {
 /// It exposes methods that can operate on this data type through `ContentFormatsBuilderProtocol` conformance.
 /// Use `ContentFormatsBuilderRef` only as an `unowned` reference to an existing `GdkContentFormatsBuilder` instance.
 ///
-/// A `GdkContentFormatsBuilder` struct is an opaque struct. It is meant to
-/// not be kept around and only be used to create new `GdkContentFormats`
-/// objects.
+/// A `GdkContentFormatsBuilder` is an auxiliary struct used to create
+/// new `GdkContentFormats`, and should not be kept around.
 public struct ContentFormatsBuilderRef: ContentFormatsBuilderProtocol {
         /// Untyped pointer to the underlying `GdkContentFormatsBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `content_formats_builder_ptr` property instead.
@@ -615,9 +635,10 @@ public extension ContentFormatsBuilderRef {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
-        /// Create a new `GdkContentFormatsBuilder` object. The resulting builder
-    /// would create an empty `GdkContentFormats`. Use addition functions to add
-    /// types to it.
+        /// Create a new `GdkContentFormatsBuilder` object.
+    /// 
+    /// The resulting builder would create an empty `GdkContentFormats`.
+    /// Use addition functions to add types to it.
     @inlinable init() {
         let rv = gdk_content_formats_builder_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -628,9 +649,8 @@ public extension ContentFormatsBuilderRef {
 /// It provides the methods that can operate on this data type through `ContentFormatsBuilderProtocol` conformance.
 /// Use `ContentFormatsBuilder` as a strong reference or owner of a `GdkContentFormatsBuilder` instance.
 ///
-/// A `GdkContentFormatsBuilder` struct is an opaque struct. It is meant to
-/// not be kept around and only be used to create new `GdkContentFormats`
-/// objects.
+/// A `GdkContentFormatsBuilder` is an auxiliary struct used to create
+/// new `GdkContentFormats`, and should not be kept around.
 open class ContentFormatsBuilder: ContentFormatsBuilderProtocol {
         /// Untyped pointer to the underlying `GdkContentFormatsBuilder` instance.
     /// For type-safe access, use the generated, typed pointer `content_formats_builder_ptr` property instead.
@@ -771,9 +791,10 @@ open class ContentFormatsBuilder: ContentFormatsBuilderProtocol {
         gdk_content_formats_builder_ref(ptr.assumingMemoryBound(to: GdkContentFormatsBuilder.self))
     }
 
-    /// Create a new `GdkContentFormatsBuilder` object. The resulting builder
-    /// would create an empty `GdkContentFormats`. Use addition functions to add
-    /// types to it.
+    /// Create a new `GdkContentFormatsBuilder` object.
+    /// 
+    /// The resulting builder would create an empty `GdkContentFormats`.
+    /// Use addition functions to add types to it.
     @inlinable public init() {
         let rv = gdk_content_formats_builder_new()
         ptr = UnsafeMutableRawPointer(rv)
@@ -799,7 +820,7 @@ public extension ContentFormatsBuilderProtocol {
     
     }
 
-    /// Appends `gtype` to `builder` if it has not already been added.
+    /// Appends `type` to `builder` if it has not already been added.
     @inlinable func addGtype(type: GType) {
         gdk_content_formats_builder_add_gtype(content_formats_builder_ptr, type)
     
@@ -820,8 +841,8 @@ public extension ContentFormatsBuilderProtocol {
 
     /// Acquires a reference on the given `builder`.
     /// 
-    /// This function is intended primarily for bindings. `GdkContentFormatsBuilder` objects
-    /// should not be kept around.
+    /// This function is intended primarily for bindings.
+    /// `GdkContentFormatsBuilder` objects should not be kept around.
     @discardableResult @inlinable func ref() -> ContentFormatsBuilderRef! {
         guard let rv = ContentFormatsBuilderRef(gconstpointer: gconstpointer(gdk_content_formats_builder_ref(content_formats_builder_ptr))) else { return nil }
         return rv
@@ -833,7 +854,7 @@ public extension ContentFormatsBuilderProtocol {
     /// you cannot call this function multiple times on the same `builder` instance.
     /// 
     /// This function is intended primarily for bindings. C code should use
-    /// `gdk_content_formats_builder_free_to_formats()`.
+    /// [method`Gdk.ContentFormatsBuilder.free_to_formats`].
     @inlinable func toFormats() -> ContentFormatsRef! {
         let rv = ContentFormatsRef(gconstpointer: gconstpointer(gdk_content_formats_builder_to_formats(content_formats_builder_ptr)))
         return rv

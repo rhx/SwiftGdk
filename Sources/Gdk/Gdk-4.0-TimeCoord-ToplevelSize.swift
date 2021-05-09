@@ -451,12 +451,15 @@ public extension ToplevelInterfaceProtocol {
 /// For a concrete class that implements these methods and properties, see `ToplevelLayout`.
 /// Alternatively, use `ToplevelLayoutRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
+/// The `GdkToplevelLayout` struct contains information that
+/// is necessary to present a sovereign window on screen.
+/// 
+/// The `GdkToplevelLayout` struct is necessary for using
+/// [method`Gdk.Toplevel.present`].
+/// 
 /// Toplevel surfaces are sovereign windows that can be presented
 /// to the user in various states (maximized, on all workspaces,
 /// etc).
-/// 
-/// The GdkToplevelLayout struct contains information that
-/// is necessary to do so, and is passed to `gdk_toplevel_present()`.
 public protocol ToplevelLayoutProtocol {
         /// Untyped pointer to the underlying `GdkToplevelLayout` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -472,12 +475,15 @@ public protocol ToplevelLayoutProtocol {
 /// It exposes methods that can operate on this data type through `ToplevelLayoutProtocol` conformance.
 /// Use `ToplevelLayoutRef` only as an `unowned` reference to an existing `GdkToplevelLayout` instance.
 ///
+/// The `GdkToplevelLayout` struct contains information that
+/// is necessary to present a sovereign window on screen.
+/// 
+/// The `GdkToplevelLayout` struct is necessary for using
+/// [method`Gdk.Toplevel.present`].
+/// 
 /// Toplevel surfaces are sovereign windows that can be presented
 /// to the user in various states (maximized, on all workspaces,
 /// etc).
-/// 
-/// The GdkToplevelLayout struct contains information that
-/// is necessary to do so, and is passed to `gdk_toplevel_present()`.
 public struct ToplevelLayoutRef: ToplevelLayoutProtocol {
         /// Untyped pointer to the underlying `GdkToplevelLayout` instance.
     /// For type-safe access, use the generated, typed pointer `toplevel_layout_ptr` property instead.
@@ -571,12 +577,15 @@ public extension ToplevelLayoutRef {
 /// It provides the methods that can operate on this data type through `ToplevelLayoutProtocol` conformance.
 /// Use `ToplevelLayout` as a strong reference or owner of a `GdkToplevelLayout` instance.
 ///
+/// The `GdkToplevelLayout` struct contains information that
+/// is necessary to present a sovereign window on screen.
+/// 
+/// The `GdkToplevelLayout` struct is necessary for using
+/// [method`Gdk.Toplevel.present`].
+/// 
 /// Toplevel surfaces are sovereign windows that can be presented
 /// to the user in various states (maximized, on all workspaces,
 /// etc).
-/// 
-/// The GdkToplevelLayout struct contains information that
-/// is necessary to do so, and is passed to `gdk_toplevel_present()`.
 open class ToplevelLayout: ToplevelLayoutProtocol {
         /// Untyped pointer to the underlying `GdkToplevelLayout` instance.
     /// For type-safe access, use the generated, typed pointer `toplevel_layout_ptr` property instead.
@@ -861,9 +870,8 @@ public extension ToplevelLayoutProtocol {
 /// For a concrete class that implements these methods and properties, see `ToplevelSize`.
 /// Alternatively, use `ToplevelSizeRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// The GdkToplevelSIze struct contains information that may be useful
-/// for users of GdkToplevel to compute a surface size. It also carries
-/// information back with the computational result.
+/// The `GdkToplevelSize` struct contains information that is useful
+/// to compute the size of a toplevel.
 public protocol ToplevelSizeProtocol {
         /// Untyped pointer to the underlying `GdkToplevelSize` instance.
     var ptr: UnsafeMutableRawPointer! { get }
@@ -879,9 +887,8 @@ public protocol ToplevelSizeProtocol {
 /// It exposes methods that can operate on this data type through `ToplevelSizeProtocol` conformance.
 /// Use `ToplevelSizeRef` only as an `unowned` reference to an existing `GdkToplevelSize` instance.
 ///
-/// The GdkToplevelSIze struct contains information that may be useful
-/// for users of GdkToplevel to compute a surface size. It also carries
-/// information back with the computational result.
+/// The `GdkToplevelSize` struct contains information that is useful
+/// to compute the size of a toplevel.
 public struct ToplevelSizeRef: ToplevelSizeProtocol {
         /// Untyped pointer to the underlying `GdkToplevelSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -964,9 +971,8 @@ public extension ToplevelSizeRef {
 /// It provides the methods that can operate on this data type through `ToplevelSizeProtocol` conformance.
 /// Use `ToplevelSize` as a strong reference or owner of a `GdkToplevelSize` instance.
 ///
-/// The GdkToplevelSIze struct contains information that may be useful
-/// for users of GdkToplevel to compute a surface size. It also carries
-/// information back with the computational result.
+/// The `GdkToplevelSize` struct contains information that is useful
+/// to compute the size of a toplevel.
 open class ToplevelSize: ToplevelSizeProtocol {
         /// Untyped pointer to the underlying `GdkToplevelSize` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -1133,18 +1139,22 @@ public extension ToplevelSizeProtocol {
     
     }
 
+    /// Sets the minimum size of the toplevel.
+    /// 
     /// The minimum size corresponds to the limitations the toplevel can be shrunk
     /// to, without resulting in incorrect painting. A user of a `GdkToplevel` should
     /// calculate these given both the existing size, and the bounds retrieved from
     /// the `GdkToplevelSize` object.
     /// 
     /// The minimum size should be within the bounds (see
-    /// `gdk_toplevel_size_get_bounds()`).
+    /// [method`Gdk.ToplevelSize.get_bounds`]).
     @inlinable func setMinSize(minWidth: Int, minHeight: Int) {
         gdk_toplevel_size_set_min_size(_ptr, gint(minWidth), gint(minHeight))
     
     }
 
+    /// Sets the shadows size of the toplevel.
+    /// 
     /// The shadow width corresponds to the part of the computed surface size
     /// that would consist of the shadow margin surrounding the window, would
     /// there be any.
@@ -1153,10 +1163,12 @@ public extension ToplevelSizeProtocol {
     
     }
 
-    /// Sets the size the toplevel prefers to be resized to. The size should be
-    /// within the bounds (see `gdk_toplevel_size_get_bounds()`). The set size should
-    /// be considered as a hint, and should not be assumed to be respected by the
-    /// windowing system, or backend.
+    /// Sets the size the toplevel prefers to be resized to.
+    /// 
+    /// The size should be within the bounds (see
+    /// [method`Gdk.ToplevelSize.get_bounds`]). The set size should
+    /// be considered as a hint, and should not be assumed to be
+    /// respected by the windowing system, or backend.
     @inlinable func setSize(width: Int, height: Int) {
         gdk_toplevel_size_set_size(_ptr, gint(width), gint(height))
     
