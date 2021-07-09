@@ -5,7 +5,7 @@
 #
 VER=3.0
 GLIB_VER=2.0
-JAZZY_VER=3.24.24
+JAZZY_VER=3.24.29
 Mod=Gdk
 Module=${Mod}-$VER
 module=`echo "${Module}" | tr '[:upper:]' '[:lower:]'`
@@ -17,7 +17,7 @@ if [ -z "$BUILD_DIR" ]; then
     export BUILD_DIR="$PWD/.build"
   fi
 fi
-export PATH="${GIR2SWIFT_PATH}:${BUILD_DIR}/gir2swift/.build/release:${BUILD_DIR}/gir2swift/.build/debug:${PATH}:$PWD/.build/gir2swift/.build/release:$PWD/.build/gir2swift/.build/debug:${PATH}:/usr/local/opt/ruby/bin:`echo /usr/local/lib/ruby/gems/*/bin | tr ' ' '\n' | tail -n1`:${PATH}:`echo /var/lib/gems/*/gems/jazzy-*/bin/ | tr ' ' '\n' | tail -n1`:/usr/local/bin"
+export PATH="${GIR2SWIFT_PATH}:${BUILD_DIR}/checkouts/gir2swift/.build/release:${BUILD_DIR}/checkouts/gir2swift/.build/debug:${PATH}:$PWD/.build/checkouts/gir2swift/.build/release:$PWD/.build/checkouts/gir2swift/.build/debug:${PATH}:/usr/local/opt/ruby/bin:`echo /usr/local/lib/ruby/gems/*/bin | tr ' ' '\n' | tail -n1`:${PATH}:`echo /var/lib/gems/*/gems/jazzy-*/bin/ | tr ' ' '\n' | tail -n1`:/usr/local/bin"
 export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig:${PKG_CONFIG_PATH}
 LINKFLAGS=`pkg-config --libs $module pangocairo pangoft2 pango gobject-$GLIB_VER gio-unix-$GLIB_VER glib-$GLIB_VER | tr ' ' '\n' | sed -e 's/^/-Xlinker /' -e 's/-Wl,//' | tr '\n' ' ' | sed -e 's/^/-Xlinker /' -e 's/-Wl,//g' -e 's/,/ -Xlinker /g' -e 's/ -pthread/ -lpthread/g' -e 's/-Xcc[ 	]*-Xlinker/-Xlinker/g' -e 's/-Xlinker[ 	]*-Xcc/-Xcc/g' -e 's/-Xlinker[ 	]*--export-dynamic//g' -e 's/-Xlinker[ 	]*-Xlinker/-Xlinker/g' -e 's/-Xcc *$//' -e 's/-Xlinker *$//'`
 CCFLAGS=`pkg-config --cflags $module pangocairo pangoft2 pango gobject-$GLIB_VER gio-unix-$GLIB_VER glib-$GLIB_VER | tr ' ' '\n' | sed 's/^/-Xcc /' | tr '\n' ' ' | sed -e 's/^/-Xlinker /' -e 's/-Wl,//g' -e 's/,/ -Xlinker /g' -e 's/ -pthread/ -lpthread/g' -e 's/-Xcc[ 	]*-Xlinker/-Xlinker/g' -e 's/-Xlinker[ 	]*-Xcc/-Xcc/g' -e 's/-Xlinker[ 	]*--export-dynamic//g' -e 's/-Xlinker[ 	]*-Xlinker/-Xlinker/g' -e 's/-Xcc *$//' -e 's/-Xlinker *$//'`
