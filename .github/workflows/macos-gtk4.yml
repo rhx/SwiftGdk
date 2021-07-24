@@ -75,5 +75,5 @@ jobs:
         with:
           name: build-artefact-macos-gtk4
           path: |
-            SwiftGdk/
+            SwiftGdk/Sources/
           retention-days: 1
