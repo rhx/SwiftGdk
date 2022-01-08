@@ -59,3 +59,4 @@ s/\(gdk_scroll_event.*\)scroll_\(event_ptr\)/\1\2/
 s/\(gdk_touch.*_event.*\)touch.*_\(event_ptr\)/\1\2/
 s/\(init<DisplayT: DisplayProtocol>.\)toplevel \(display: DisplayT\)/\1\2/
 s/\(new<DisplayT: DisplayProtocol>.\)toplevel \(display: DisplayT\)/\1\2/
+s/ ListRef/ GLib.ListRef/g
