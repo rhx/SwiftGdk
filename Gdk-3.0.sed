@@ -6,6 +6,7 @@ s/\(@available(., deprecated) @inlinable\) \(public init() {\)/\1 override \2/
 s/\(public init<T: AppLaunchContextProtocol>(\)appLaunchContext \(other: T)\)/\1_ \2/
 s/-> GdkAtom {/-> GdkAtom! {/g
 s/: GdkAtom/: GdkAtom!/g
+s/\(pangoContext.* \)\(ContextRef!\)/\1Pango.\2/
 s/UnsafeMutablePointer<GdkAtom>/GdkAtom/
 s/targets: UnsafePointer<GdkAtom>/targets: UnsafePointer<GdkAtom?>/
 s/GdkAtom!.self/_GdkAtom.self/
