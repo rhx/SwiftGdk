@@ -32,6 +32,7 @@ struct _GdkEvent {};
 struct _GdkEventFunc {};
 struct _GdkEventMask {};
 struct _GdkEventSequence {};
+struct _GdkFileList {};
 struct _GdkFilterFunc {};
 struct _GdkFilterReturn {};
 struct _GdkFocusEvent {};

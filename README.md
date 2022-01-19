@@ -55,18 +55,18 @@ was compiled against libraries built with earlier versions of `gir2swift`.
 To build, you need at least Swift 5.2 (Swift 5.3 is required for `gtk4`; also some Linux distributions have issues and seem to **require at least Swift 5.5**), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
-    Target: x86_64-apple-darwin20.3.0
+	swift-driver version: 1.26.21 Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+    Target: x86_64-apple-macosx12.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.3.2 (swift-5.3.2-RELEASE)
+	Swift version 5.5.2 (swift-5.5.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66 and 2.68, and gdk/gtk 3.22, 3.24, 4.0, and 4.2.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66 and 2.68, and gdk/gtk 3.22, 3.24, 4.0, 4.2, 4.4, and 4.6.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
