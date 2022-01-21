@@ -7,6 +7,7 @@ s/\(public init<T: AppLaunchContextProtocol>(\)appLaunchContext \(other: T)\)/\1
 s/-> GdkAtom {/-> GdkAtom! {/g
 s/: GdkAtom/: GdkAtom!/g
 s/\(pangoContext.* \)\(ContextRef!\)/\1Pango.\2/
+s/\(let rv = \)\(ContextRef.*pango_context_get\)/\1Pango.\2/
 s/UnsafeMutablePointer<GdkAtom>/GdkAtom/
 s/targets: UnsafePointer<GdkAtom>/targets: UnsafePointer<GdkAtom?>/
 s/GdkAtom!.self/_GdkAtom.self/
