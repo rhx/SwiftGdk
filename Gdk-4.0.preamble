@@ -9,5 +9,5 @@ import GIO
 import Pango
 import Cairo
 import PangoCairo
-import GdkPixbuf
+import GdkPixBuf
 

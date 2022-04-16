@@ -9,7 +9,7 @@ import GIO
 import Pango
 import Cairo
 import PangoCairo
-import GdkPixbuf
+import GdkPixBuf
 
 // missing header file type aliases
 public typealias GdkXEvent = _GdkXEvent

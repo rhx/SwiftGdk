@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 
 import PackageDescription
 
@@ -6,9 +6,9 @@ let package = Package(
     name: "Gdk",
     products: [ .library(name: "Gdk", targets: ["Gdk"]) ],
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("development")),
-        .package(name: "GdkPixbuf", url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("development")),
-        .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("development")),
+        .package(url: "https://github.com/rhx/gir2swift.git",       branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftGdkPixbuf.git",  branch: "development"),
+        .package(url: "https://github.com/rhx/SwiftPangoCairo.git", branch: "development"),
     ],
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gtk4",
@@ -18,8 +18,19 @@ let package = Package(
 	    ]),
         .target(
             name: "Gdk", 
-            dependencies: ["CGdk", "GdkPixbuf", "PangoCairo"],
-            swiftSettings: [.unsafeFlags(["-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug))]
+            dependencies: [
+                "CGdk",
+                .product(name: "gir2swift",  package: "gir2swift"),
+                .product(name: "GdkPixBuf",  package: "SwiftGdkPixbuf"),
+                .product(name: "PangoCairo", package: "SwiftPangoCairo"),
+            ],
+            swiftSettings: [
+                .unsafeFlags(["-suppress-warnings"], .when(configuration: .release)),
+                .unsafeFlags(["-suppress-warnings", "-Xfrontend", "-serialize-debugging-options"], .when(configuration: .debug)),
+            ],
+            plugins: [
+                .plugin(name: "gir2swift-plugin", package: "gir2swift")
+            ]
         ),
         .testTarget(name: "GdkTests", dependencies: ["Gdk"]),
     ]

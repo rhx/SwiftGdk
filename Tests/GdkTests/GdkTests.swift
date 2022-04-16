@@ -8,11 +8,3 @@ class GdkTests: XCTestCase {
     }
 
 }
-
-extension GdkTests {
-	static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
-		return [
-            ("testEmpty",     testEmpty),
-		]
-	}
-}
