@@ -6,9 +6,9 @@ let package = Package(
     name: "Gdk",
     products: [ .library(name: "Gdk", targets: ["Gdk"]) ],
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
-        .package(name: "GdkPixbuf", url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("main")),
-        .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("main")),
+        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("swif52")),
+        .package(name: "GdkPixbuf", url: "https://github.com/rhx/SwiftGdkPixbuf.git", .branch("swif52")),
+        .package(name: "PangoCairo", url: "https://github.com/rhx/SwiftPangoCairo.git", .branch("swif52")),
     ],
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gtk4",
