@@ -29,13 +29,3 @@ class GdkTests: XCTestCase {
         XCTAssertEqual(done, true)
     }
 }
-
-extension GdkTests {
-    static var allTests : [(String, (GdkTests) -> () throws -> Void)] {
-        return [
-            ("testEvent",          testEvent),
-            ("testEventType",      testEventType),
-            ("testThreadsAddIdle", testThreadsAddIdle),
-        ]
-    }
-}
