@@ -6,7 +6,7 @@
 major=4
 VER=$major.0
 GLIB_VER=2.0
-JAZZY_VER=$major.2.1
+JAZZY_VER=$major.6.2
 Mod=Gdk
 Module=${Mod}-$VER
 module=`echo "${Module}" | tr '[:upper:]' '[:lower:]'`

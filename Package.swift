@@ -9,6 +9,7 @@ let package = Package(
         .package(url: "https://github.com/rhx/gir2swift.git",       branch: "development"),
         .package(url: "https://github.com/rhx/SwiftGdkPixbuf.git",  branch: "development"),
         .package(url: "https://github.com/rhx/SwiftPangoCairo.git", branch: "development"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0"),
     ],
     targets: [
 	.systemLibrary(name: "CGdk", pkgConfig: "gtk4",

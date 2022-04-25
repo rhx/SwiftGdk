@@ -14,6 +14,7 @@ For up to date (auto-generated) reference documentation, see https://rhx.github.
 Support for gtk 4 was added via the `gtk4` branch.
 
 Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 5.6 or higher.
+(older versions can be used via the [swift52](https://github.com/rhx/SwiftGdk/tree/swift52) branch).
 
 ## Prerequisites
 
@@ -39,16 +40,16 @@ The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66
 
 ##### Ubuntu
 
-On Ubuntu you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 20.04 and 22.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libgirepository1.0-dev libxml2-dev
+	sudo apt install libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libcogl-dev gir1.2-cogl-1.0 libcogl-pango-dev gir1.2-coglpango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgirepository1.0-dev libxml2-dev
 
 ##### Fedora
 
 On Fedora, you can use the gtk that comes with the distribution.  Just install with the `dnf` package manager:
 
-	sudo dnf install gtk3-devel pango-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel
+	sudo dnf install gtk3-devel pango-devel cogl-devel gdk-pixbuf2-devel cairo-devel cairo-gobject-devel glib2-devel gobject-introspection-devel libxml2-devel
 
 #### macOS
 
@@ -102,24 +103,26 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 
 After that, use the (usual) Build and Test buttons to build/test this package.
 
-
 ## Documentation
+You can generate documentation using the [DocC plugin](https://apple.github.io/swift-docc-plugin/documentation/swiftdoccplugin/).  To preview documentation matching your local installation, simply run
 
-You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGdk/) folder.
-This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
-If you want to generate your own documentation, matching your local installation,
-you can use the `generate-documentation.sh` script in the repository.
-Unfortunately, at this stage [jazzy](https://github.com/realm/jazzy) only works on macOS (and crashes under Linux), so this will currently only work on a Mac.
+    swift package --disable-sandbox preview-documentation
 
-	brew install sourcekitten
-	sudo gem install jazzy
-	./generate-documentation.sh
+then navigate to the URL shown for the local preview server.  Make sure you have JavaScript enabled in your browser.
+
+Alternatively, you can create static documentation using [jazzy](https://github.com/realm/jazzy).
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS (x86_64):
+
+	brew install ruby sourcekitten
+	/usr/local/opt/ruby/bin/gem install jazzy
+	./generate-jazzy.sh
 
 ## Troubleshooting
 
 Here are some common errors you might encounter and how to fix them.
 
 ### Missing `.gir` Files
+
 If you get an error such as
 
 	Girs located at
@@ -128,11 +131,13 @@ If you get an error such as
 Make sure that you have the relevant `gobject-introspection` packages installed (as per the Pre-requisites section), including their `.gir` and `.pc` files.
 
 ### Old Swift toolchain or Xcode
+
 If, when you run `swift build`, you get a `Segmentation fault (core dumped)` or circular dependency error such as
 
 	warning: circular dependency detected while parsing pangocairo: harfbuzz -> freetype2 -> harfbuzz
 	
-this probably means that your Swift toolchain is too old, particularly on Linux (at the time of this writing, some Linux distributions require at least Swift 5.5).  Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
+this probably means that your Swift toolchain is too old, particularly on Linux.
+Make sure the latest toolchain is the one that is found when you run the Swift compiler (see above).
 
   If you get an older version, make sure that the right version of the swift compiler is found first in your `PATH`.  On macOS, use xcode-select to select and install the latest version, e.g.:
 

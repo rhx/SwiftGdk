@@ -1,4 +1,4 @@
-name: macOS 12
+name: macOS 11
 
 # Dependencies of this package
 env:
@@ -7,23 +7,21 @@ env:
 on:
   push:
     branches:
-      - development
-      - main
+      - swift52
   pull_request:
     branches:
-      - development
-      - main
+      - swift52
 
 jobs:
   # macOS tasks
-  build-mac-monterey-latest:
-    runs-on: macos-12.0
+  build-mac-big-sur-swift-latest:
+    runs-on: macos-11.0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '13.3.1'
+          xcode-version: '13.2.1'
 
       - name: Print Swift version to confirm
         run: swift --version
@@ -34,18 +32,26 @@ jobs:
       - name: Checkout SwiftGdk
         uses: actions/checkout@v2
         with:
+          ref: swift52
           path: SwiftGdk
+
+      - name: Build Swift Wrappers
+        run: |
+          cd SwiftGdk
+          ./run-gir2swift.sh
+          echo "GIR2SWIFT_PATH=${PWD}/checkouts/gir2swift/.build/release/gir2swift" >> $GITHUB_ENV
+          cd ..
 
       - name: Build SwiftGdk
         run: |
           cd SwiftGdk
-          swift build
+          swift build -Xswiftc -suppress-warnings `./run-gir2swift.sh flags -noUpdate`
           cd ..
 
       - name: Test SwiftGdk
         run: |
           cd SwiftGdk
-          swift test
+          swift test -Xswiftc -suppress-warnings `./run-gir2swift.sh flags -noUpdate`
           cd ..
 
       - name: Remove unneeded files and archive artefacts
