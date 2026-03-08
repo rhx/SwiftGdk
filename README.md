@@ -20,24 +20,24 @@ Version 15 of gir2swift provides a Package Manager Plugin.  This requires Swift 
 To build, download Swift from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	swift-driver version: 1.75.2 Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)
-    Target: arm64-apple-macosx13.0
+	swift-driver version: 1.127.15 Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+	Target: arm64-apple-macosx26.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.8.1 (swift-5.8.1-RELEASE)
+	Swift version 6.1 (swift-6.1-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### Gtk 3.22 or higher
 
-The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78, 2.80, and 2.82, and gdk/gtk 3.22 and 3.24 as well as 4.x on the gtk4 branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+The Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, 2.68, 2.70, 2.72, 2.74, 2.76, 2.78, 2.80, 2.82, and 2.86, and gdk/gtk 3.22, 3.24, and later as well as 4.x on the gtk4 branch.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
 ##### Ubuntu
 
-On Ubuntu 20.04 and 22.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
+On Ubuntu 20.04, 22.04, and 24.04 you can use the glib that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
 	sudo apt install libgtk-3-dev gir1.2-gtk-3.0 gir1.2-gtksource-3.0 libcogl-dev gir1.2-cogl-1.0 libcogl-pango-dev gir1.2-coglpango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libgirepository1.0-dev libxml2-dev
